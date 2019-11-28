@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>syntax on Pure theme for Hugo</title>
+    <title>syntax on 木木的个人博客</title>
     <link>https://mumulx.github.io/categories/syntax/</link>
-    <description>Recent content in syntax on Pure theme for Hugo</description>
+    <description>Recent content in syntax on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/syntax/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Git自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>Git简介 &amp;emsp;Git是一个分布式版本控制系统。版本控制系统又分为：集群式版本控制系统(常见的有cvs、svn)、分布式版本控制系统(</description>
+    </item>
+    
+    <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://mumulx.github.io/2019/03/any/</link>
+      <link>https://mumulx.github.io/2019/03/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/03/any/</guid>
+      <guid>https://mumulx.github.io/2019/03/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Placeholder Text</title>
-      <link>https://mumulx.github.io/2019/03/any2/</link>
+      <link>https://mumulx.github.io/2019/03/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/03/any2/</guid>
+      <guid>https://mumulx.github.io/2019/03/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
 pectora summo.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Emoji Support</title>
-      <link>https://mumulx.github.io/2019/03/any1/</link>
+      <link>https://mumulx.github.io/2019/03/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/03/any1/</guid>
+      <guid>https://mumulx.github.io/2019/03/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     
