@@ -29,7 +29,8 @@
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
   <meta property="og:title" content="Spring自学笔记" />
 <meta property="og:description" content="Spring的学习记录." />
 <meta property="og:type" content="article" />
@@ -160,11 +161,11 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/syntax/" class="category-list-link">syntax</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/themes/" class="category-list-link">themes</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%A1%86%E6%9E%B6/" class="category-list-link">框架</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E8%87%AA%E5%B8%A6/" class="category-list-link">自带</a><span class="category-list-count">3</span></li>
         </ul>
     </div>
 </div>
@@ -501,6 +502,21 @@ hljs.initHighlightingOnLoad();
       </script>
 <script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
 
   </body>
 </html>
