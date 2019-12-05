@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="https://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://mumulx.github.io/categories/</loc>
@@ -178,14 +178,14 @@
   </url>
   
   <url>
-    <loc>https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://mumulx.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mumulx.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
