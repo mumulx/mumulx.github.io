@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
+  <channel>
+    <title>html on 木木的个人博客</title>
+    <link>https://mumulx.github.io/tags/html/</link>
+    <description>Recent content in html on 木木的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://mumulx.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse导入springBoot项目jar包下载太慢的问题</title>
+      <link>https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</guid>
+      <description>关于解决Eclipse导入SpringBoot项目jar包从Maven中下载太慢的问题 只需要在maven安装目录./config/setti</description>
+    </item>
+    
+    <item>
+      <title>Git自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>Git简介 &amp;emsp;Git是一个分布式版本控制系统。版本控制系统又分为：集群式版本控制系统(常见的有cvs、svn)、分布式版本控制系统(</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>这个人比较懒还没开始写呢！</description>
+    </item>
+    
+    <item>
+      <title>Spring自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>这个人比较懒还没开始写呢！</description>
+    </item>
+    
+    <item>
+      <title>SSM整合自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</guid>
+      <description>这个人比较懒还没开始写呢！</description>
+    </item>
+    
+    <item>
+      <title>自己的第一篇博客</title>
+      <link>https://mumulx.github.io/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>记录自己的第一篇博客 &amp;emsp;2019-10-31，抓住10月的小尾巴，创建了人生的第一个博客。经过一天的努力，终于是在22：13的时候创</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://mumulx.github.io/2019/01/emoji-support/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/01/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://mumulx.github.io/2019/01/markdown-syntax/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/01/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://mumulx.github.io/2019/01/placeholder-text/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/01/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
