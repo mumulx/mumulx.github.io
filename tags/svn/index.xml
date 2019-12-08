@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
   <channel>
-    <title>syntax on 木木的个人博客</title>
-    <link>https://mumulx.github.io/categories/syntax/</link>
-    <description>Recent content in syntax on 木木的个人博客</description>
+    <title>svn on 木木的个人博客</title>
+    <link>https://mumulx.github.io/tags/svn/</link>
+    <description>Recent content in svn on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://mumulx.github.io/categories/syntax/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://mumulx.github.io/tags/svn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

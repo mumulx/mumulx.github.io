@@ -29,7 +29,8 @@
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
   <meta property="og:title" content="SpringMVC自学笔记" />
 <meta property="og:description" content="SpringMVC的学习记录." />
 <meta property="og:type" content="article" />
@@ -165,6 +166,7 @@
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/themes/" class="category-list-link">themes</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%A1%86%E6%9E%B6/" class="category-list-link">框架</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">自学笔记</a><span class="category-list-count">1</span></li>
         </ul>
     </div>
 </div>
@@ -222,6 +224,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/svn/" class="tag-list-link">svn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/text/" class="tag-list-link">text</a><span
                     class="tag-list-count">1</span></li>
             
@@ -239,7 +245,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link">自学笔记</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">5</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" class="tag-list-link">解决问题</a><span
@@ -254,6 +260,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Svn学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">8129-120-1212</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -288,16 +304,6 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Spring自学笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">11119-110-1211</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/" class="title">SSM整合自学笔记</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">11119-110-1211</time>
@@ -429,11 +435,64 @@
                 </a>
             </li>
         </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
         <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
         </div>
     </div>
 </nav>
 
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -499,6 +558,21 @@ hljs.initHighlightingOnLoad();
       </script>
 <script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
 
   </body>
 </html>

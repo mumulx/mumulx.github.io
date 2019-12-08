@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Spring自学笔记 - 木木的个人博客
+        Svn学习笔记 - 木木的个人博客
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,35 +23,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="Spring的学习记录." />
+  <meta name="description" content="Svn的自学笔记." />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>Spring自学笔记 - 木木的个人博客</title>
+  <title>Svn学习笔记 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="Spring自学笔记" />
-<meta property="og:description" content="Spring的学习记录." />
+  <meta property="og:title" content="Svn学习笔记" />
+<meta property="og:description" content="Svn的自学笔记." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="og:url" content="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2019-12-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-08T00:00:00+00:00" />
 
-<meta itemprop="name" content="Spring自学笔记">
-<meta itemprop="description" content="Spring的学习记录.">
-
-
-<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="13">
+<meta itemprop="name" content="Svn学习笔记">
+<meta itemprop="description" content="Svn的自学笔记.">
 
 
+<meta itemprop="datePublished" content="2019-12-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2625">
 
-<meta itemprop="keywords" content="自学笔记,Spring," />
+
+
+<meta itemprop="keywords" content="自学笔记,svn," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Spring自学笔记"/>
-<meta name="twitter:description" content="Spring的学习记录."/>
+<meta name="twitter:title" content="Svn学习笔记"/>
+<meta name="twitter:description" content="Svn的自学笔记."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -326,9 +326,61 @@
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#常见的操作">常见的操作</a></li>
+<li><a href="#svn的安装配置">svn的安装配置</a>
 <ul>
-<li><a href="#这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</a></li>
+<li><a href="#下载">下载</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#验证是否安装成功">验证是否安装成功</a></li>
+<li><a href="#配置中央仓库">配置中央仓库</a></li>
+<li><a href="#启动svn服务">启动svn服务</a>
+<ul>
+<li><a href="#命令行方式-不推荐">命令行方式(不推荐)</a></li>
+<li><a href="#注册系统方式-推荐">注册系统方式(推荐)</a></li>
+<li><a href="#启动服务的两种方式">启动服务的两种方式</a>
+<ul>
+<li><a href="#方式一-命令行">方式一(命令行)：</a></li>
+<li><a href="#方式二-服务列表">方式二(服务列表)：</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#访问项目">访问项目</a>
+<ul>
+<li><a href="#匿名访问">匿名访问</a>
+<ul>
+<li><a href="#开启匿名访问">开启匿名访问</a></li>
+</ul></li>
+<li><a href="#授权访问">授权访问</a>
+<ul>
+<li><a href="#开启授权访问">开启授权访问</a></li>
+<li><a href="#编写用户文件">编写用户文件</a></li>
+<li><a href="#编写授权文件">编写授权文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#在eclipse中使用svn">在Eclipse中使用SVN</a>
+<ul>
+<li><a href="#配置-1">配置</a>
+<ul>
+<li><a href="#离线方式">离线方式</a></li>
+<li><a href="#在线方式">在线方式</a></li>
+</ul></li>
+<li><a href="#检查">检查</a></li>
+<li><a href="#使用">使用</a>
+<ul>
+<li><a href="#发布项目">发布项目</a></li>
+<li><a href="#下载项目">下载项目</a></li>
+<li><a href="#提交代码">提交代码</a></li>
+<li><a href="#更新代码">更新代码</a></li>
+<li><a href="#更改svn用户密码">更改svn用户密码</a></li>
+<li><a href="#解决冲突">解决冲突</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#查看和恢复历史版本">查看和恢复历史版本</a></li>
+<li><a href="#svn发布到外网">svn发布到外网</a>
+<ul>
+<li><a href="#第一种">第一种</a></li>
+<li><a href="#第二种">第二种</a></li>
+<li><a href="#第三种">第三种</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -345,37 +397,333 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >Spring自学笔记</a
+    href="/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Svn学习笔记</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
+<a href="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-12-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-08</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
+  <a class="article-category-link" href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"> 自学笔记 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
     <a class="article-tag-link" href="/tags/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"> 自学笔记 </a>
-    <a class="article-tag-link" href="/tags/spring/"> Spring </a>
+    <a class="article-tag-link" href="/tags/svn/"> svn </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:13字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2625字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</h3>
+<h2 id="常见的操作">常见的操作</h2>
+
+<ol>
+<li><p>发布项目（share project）：项目组长将本机的项目第一次发布到中央仓库中</p></li>
+
+<li><p>下载项目（check out）：（检出项目：check out），组员将中央仓库的项目第一次下载到本机</p></li>
+
+<li><p>更新（update）：将服务器中的最新的代码，同步到本机 (服务器&ndash;&gt;本机)</p></li>
+
+<li><p>提交（commit）：将本地修改的内容，同步到服务器中（本地&ndash;&gt;服务器）</p></li>
+</ol>
+
+<p>注意：更新和提交一定要及时，即：</p>
+
+<pre><code>提交：在编写完某一个小功能，每天下班前提交
+
+更新：编写功能前，每天上班前更新
+
+编写之前先更新，写完之后立刻提交
+</code></pre>
+
+<h2 id="svn的安装配置">svn的安装配置</h2>
+
+<h3 id="下载">下载</h3>
+
+<p><a href="https://subversion.apache.org/">下载地址</a></p>
+
+<p><a href="https://sourceforge.net/projects/win32svn/files/latest/download">window下载地址</a></p>
+
+<h3 id="配置">配置</h3>
+
+<p>环境变量配置：一般是自动配置，可以进入环境变量(Path)检验一下，如果没有配置的话，则将root/bin目录配置到环境变量。</p>
+
+<h3 id="验证是否安装成功">验证是否安装成功</h3>
+
+<p><code>win+r</code></p>
+
+<p><code>cmd</code></p>
+
+<p><code>svn --version</code></p>
+
+<p>出现一下代码则安装成功</p>
+
+<pre><code>svn，版本 1.8.17 (r1770682)
+   编译于 Nov 30 2016，13:25:58 在 x86-microsoft-windows
+
+Copyright (C) 2016 The Apache Software Foundation.
+This software consists of contributions made by many people;
+see the NOTICE file for more information.
+Subversion is open source software, see http://subversion.apache.org/
+
+可使用以下的版本库访问模块:
+
+* ra_svn : 使用 svn 网络协议访问版本库的模块。  - 使用 Cyrus SASL 认证
+  - 处理“svn”方案
+* ra_local : 访问本地磁盘的版本库模块。
+  - 处理“file”方案
+* ra_serf : Module for accessing a repository via WebDAV protocol using serf.
+  - using serf 1.3.9
+  - 处理“http”方案
+  - 处理“https”方案
+</code></pre>
+
+<h3 id="配置中央仓库">配置中央仓库</h3>
+
+<p>中央仓库：保存项目的各个版本</p>
+
+<p>使用本地文件夹模拟中央仓库：</p>
+
+<pre><code> svnadmin create 文件夹目录
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>svnadmin createC:\\workplace\\svn\\svnck
+</code></pre>
+
+<p>注意：文件夹要为空</p>
+
+<h3 id="启动svn服务">启动svn服务</h3>
+
+<h4 id="命令行方式-不推荐">命令行方式(不推荐)</h4>
+
+<pre><code>svnserve -d -r 仓库目录
+</code></pre>
+
+<p>例</p>
+
+<pre><code>svnserve -d -r C:\workplace\svn\svnck
+</code></pre>
+
+<p>注意：此时命令行窗口不能关闭，关闭之后服务就会终止</p>
+
+<h4 id="注册系统方式-推荐">注册系统方式(推荐)</h4>
+
+<p>在cmd中运行</p>
+
+<p>注意：cmd要<strong>以管理员身份</strong>运行</p>
+
+<pre><code>sc create 服务名 binpath=&quot;安装目录\bin\svnserve.exe --service -r 仓库位置&quot; start=auto depend=Tcpip
+</code></pre>
+
+<p>例：</p>
+
+<pre><code>sc create mysvn binpath=&quot;C:\RJ\svn\bin\svnserve.exe --service -r C:\workplace\svn\svnck&quot; start=auto depend=Tcpip
+</code></pre>
+
+<p>出现以下代码则成功</p>
+
+<pre><code>[SC] CreateService 成功
+</code></pre>
+
+<h4 id="启动服务的两种方式">启动服务的两种方式</h4>
+
+<h5 id="方式一-命令行">方式一(命令行)：</h5>
+
+<p>启动：<code>sc start 服务名</code></p>
+
+<p>关闭：<code>sc stop 服务名</code></p>
+
+<p>删除 <code>sc delete 服务名</code></p>
+
+<h5 id="方式二-服务列表">方式二(服务列表)：</h5>
+
+<p>服务列表所在位置：开始-&gt;windows管理工具-&gt;服务</p>
+
+<h2 id="访问项目">访问项目</h2>
+
+<h3 id="匿名访问">匿名访问</h3>
+
+<h4 id="开启匿名访问">开启匿名访问</h4>
+
+<p>打开项目仓库的conf目录下的svnserve.conf文件找到</p>
+
+<pre><code># anon-access = read
+# anon-access = write
+# anon-access = none
+</code></pre>
+
+<p>三者者三选一，</p>
+
+<p><code># anon-access = read</code> 表示开启匿名访问后指允许读；</p>
+
+<p><code># anon-access = write</code> 表示开启匿名访问可读可写；</p>
+
+<p><code># anon-access = none</code> 表示什么也不能操作（一般选择）；</p>
+
+<p>注意：去掉<code>#</code>的时候把空格也要去掉，顶格写，否则可能会出错！</p>
+
+<h3 id="授权访问">授权访问</h3>
+
+<h4 id="开启授权访问">开启授权访问</h4>
+
+<p>打开项目仓库的conf目录下的svnserve.conf文件找到</p>
+
+<pre><code># auth-access = write
+# password-db = passwd
+# authz-db = authz
+</code></pre>
+
+<p><code># password-db = passwd</code> 表示授权人的用户名密码存放在passwd文件（授权文件）中。</p>
+
+<p><code># authz-db = authz</code> 表示授权访问的权限标识符，权限文件存放在authz中。</p>
+
+<p>注意：去掉<code>#</code>的时候把空格也要去掉，顶格写，否则可能会出错！</p>
+
+<h4 id="编写用户文件">编写用户文件</h4>
+
+<p>打开passwd文件（授权文件）在svnserve.conf文件的同级目录，在<code>[users]</code>下面添加用户名密码。采用键值对的形式用户名=密码。</p>
+
+<p>例如：</p>
+
+<pre><code>aa=123
+bb=abc
+</code></pre>
+
+<h4 id="编写授权文件">编写授权文件</h4>
+
+<p>在<code>[groups]</code>下面创建分组</p>
+
+<p>例</p>
+
+<pre><code>dev=aa,bb
+</code></pre>
+
+<p>对分组进行权限编写，例</p>
+
+<pre><code>[/]
+@dev=rw
+*=
+</code></pre>
+
+<p>表示dev组的人员对项目根目录下的文件具有读和写的操作，其他人员没有权限。</p>
+
+<h2 id="在eclipse中使用svn">在Eclipse中使用SVN</h2>
+
+<p>默认eclipse是不支持svn的</p>
+
+<h3 id="配置-1">配置</h3>
+
+<h4 id="离线方式">离线方式</h4>
+
+<p>将<a href="http://subclipse.tigris.org/">eclipse_svn_site-1.10.5</a>插件放入eclipse的安装目录的dropins子目录下，需要解压。</p>
+
+<h4 id="在线方式">在线方式</h4>
+
+<p>打开eclipse&ndash;&gt;help&ndash;&gt;Eclipse Marketplace 搜索：subversion/subeclipse，下载安装即可（可能比较慢）。</p>
+
+<h3 id="检查">检查</h3>
+
+<p>启动eclipse在项目中右键Team&mdash;&gt;Share Project会出现SVN选项。</p>
+
+<h3 id="使用">使用</h3>
+
+<h4 id="发布项目">发布项目</h4>
+
+<p>项目中右键Team&mdash;&gt;Share Project-&gt;SVN&ndash;&gt;创建新的资源库位置&ndash;&gt;ur:<code>svn://127.0.0.1</code>&ndash;&gt;finish&ndash;&gt;右键项目&ndash;&gt;提交;</p>
+
+<p>需要输入用户名和密码，</p>
+
+<p>打开项目会发现代码后面有黄色的状态码</p>
+
+<pre><code>黄色圆柱：本地无未提交代码
+
+*/灰色箭头：本地有未提交的代码
+
+红色！：有冲突
+
+蓝色箭头：服务端有最新代码，本地还没有更新
+</code></pre>
+
+<h4 id="下载项目">下载项目</h4>
+
+<p>file&ndash;&gt;import&ndash;&gt;从svn检出项目&ndash;&gt;next-&gt;ur:<code>svn://127.0.0.1</code>&ndash;&gt;next&ndash;&gt;finsh</p>
+
+<h4 id="提交代码">提交代码</h4>
+
+<p>单个提交</p>
+
+<p>代码右键&ndash;&gt;team&ndash;&gt;提交</p>
+
+<p>多文件提交</p>
+
+<p>项目右键&ndash;&gt;Team&ndash;&gt;与资源库同步&ndash;&gt;ctrl选中多个文件&ndash;&gt;右键提交</p>
+
+<h4 id="更新代码">更新代码</h4>
+
+<p>单个文件</p>
+
+<p>代码右键&ndash;&gt;team&ndash;&gt;更新</p>
+
+<p>多个文件</p>
+
+<p>项目右键&ndash;&gt;Team&ndash;&gt;与资源库同步&ndash;&gt;ctrl选中多个文件&ndash;&gt;右键更新</p>
+
+<p>或</p>
+
+<p>右键项目&ndash;&gt;Team&ndash;&gt;更新</p>
+
+<p>注意：当提交项目或下载项目时，点击了保存密码，一但密码出错，很难更改密码，或更换用户；</p>
+
+<h4 id="更改svn用户密码">更改svn用户密码</h4>
+
+<p>进入<code>C:\Users\当前用户\AppData\Roaming\Subversion\auth</code>
+删除文件夹中的所有文件即可重新填写用户，密码。</p>
+
+<h4 id="解决冲突">解决冲突</h4>
+
+<p>一般更新或提交时会发现冲突</p>
+
+<p>右键项目&ndash;&gt;Team&ndash;&gt;与资源库同步&ndash;&gt;红色箭头表示冲突文件</p>
+
+<p>右键编辑冲突&ndash;&gt;修改&ndash;&gt;右键文件&ndash;&gt;team&ndash;&gt;标记为解决；重新提交。</p>
+
+<h2 id="查看和恢复历史版本">查看和恢复历史版本</h2>
+
+<p>右键&ndash;&gt;Team&ndash;&gt;显示资源历史记录</p>
+
+<p>查看版本：双击</p>
+
+<p>恢复所选版本:右键&ndash;&gt;获取内容</p>
+
+<p>注意：如果报错，则需要设置svnserve.conf 文件中的anon-access=none</p>
+
+<h2 id="svn发布到外网">svn发布到外网</h2>
+
+<h3 id="第一种">第一种</h3>
+
+<p>当网段不在同一个网段上时，可以借助nat123将局域网ip映射到外网ip；通过访问外网ip来访问中央仓库。</p>
+
+<h3 id="第二种">第二种</h3>
+
+<p>租赁服务器，将项目发布到服务器中</p>
+
+<h3 id="第三种">第三种</h3>
+
+<p>使用svn托管的网站，</p>
 
     </div>
     <div class="article-footer">
@@ -383,7 +731,7 @@
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Spring自学笔记" target="_blank" rel="external">https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+      <a href="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Svn学习笔记" target="_blank" rel="external">https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -415,14 +763,9 @@
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/" title="SSM整合自学笔记"><i
+                <a href="https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/" title="Eclipse导入springBoot项目jar包下载太慢的问题"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-                    title="SpringMVC自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
