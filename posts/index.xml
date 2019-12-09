@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/posts/</link>
     <description>Recent content in Posts on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Express框架</title>
+      <link>https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/</guid>
+      <description>Express 简介 什么时Express express是一个基于node.js的极简、灵活的web开发框架。可以实现非常强大的web服务器功能。 Expre</description>
+    </item>
     
     <item>
       <title>Svn学习笔记</title>
@@ -17,6 +26,15 @@
       
       <guid>https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>常见的操作 发布项目（share project）：项目组长将本机的项目第一次发布到中央仓库中 下载项目（check out）：（检出项目：chec</description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://mumulx.github.io/2019/12/node/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/12/node/</guid>
+      <description>正在努力中</description>
     </item>
     
     <item>
