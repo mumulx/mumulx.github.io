@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-12-06T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="5">
+<meta itemprop="wordCount" content="9698">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
@@ -186,6 +186,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
                     class="tag-list-count">1</span></li>
             
@@ -206,6 +210,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Vue自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-14</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -246,16 +260,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Git自学笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -272,9 +276,189 @@
 <ul>
 <li>
 <ul>
+<li><a href="#node-js简介">node.js简介</a>
+<ul>
+<li><a href="#下载安装">下载安装</a></li>
+<li><a href="#node使用">node使用</a></li>
+</ul></li>
+<li><a href="#模块组成">模块组成</a>
+<ul>
+<li><a href="#require">require :</a></li>
+<li><a href="#exports导出对象">exports导出对象:</a></li>
+<li><a href="#module模块对象">module模块对象:</a></li>
+<li><a href="#控制合命令">控制合命令:</a></li>
+<li><a href="#node-js的作用域">node. js的作用域:</a></li>
+</ul></li>
+<li><a href="#npm">npm</a>
+<ul>
+<li><a href="#什么是npm">什么是NPM?</a></li>
+<li><a href="#什么是包">什么是包?</a></li>
+<li><a href="#什么是package-json">什么是package.json?</a>
+<ul>
+<li><a href="#如何创建package-json">如何创建package.json</a></li>
+<li><a href="#package-json的常用属性">package .json的常用属性</a></li>
+<li><a href="#npm的常用命令">npm的常用命令</a></li>
+<li><a href="#cnpm">cnpm</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#回调函数">回调函数</a>
+<ul>
+<li><a href="#什么是回调函数">什么是回调函数?</a>
+<ul>
+<li><a href="#回调函数-1">回调函数</a></li>
+<li><a href="#时间">时间</a></li>
+<li><a href="#promise承诺对象">promise承诺对象:</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#缓存区">缓存区:</a>
+<ul>
+<li><a href="#什么是缓存区">什么是缓存区</a></li>
+<li><a href="#创建缓存区">创建缓存区</a>
+<ul>
+<li><a href="#创建指定长度的缓存区">创建指定长度的缓存区</a></li>
+<li><a href="#按指定的数组-编码-创建缓存区">按指定的数组（编码）创建缓存区</a></li>
+<li><a href="#按指定字符创建缓存区">按指定字符创建缓存区</a></li>
+</ul></li>
+<li><a href="#写入缓存区">写入缓存区</a></li>
+<li><a href="#读取缓存区">读取缓存区</a>
+<ul>
+<li><a href="#缓存区复制">缓存区复制</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#文件系统操作">文件系统操作</a>
+<ul>
+<li><a href="#读取文件">读取文件</a>
+<ul>
+<li><a href="#直接读取">直接读取</a></li>
+<li><a href="#流式读取">流式读取</a></li>
+</ul></li>
+<li><a href="#写文件">写文件:</a>
+<ul>
+<li><a href="#同步版本">同步版本</a></li>
+<li><a href="#异步版本">异步版本</a></li>
+</ul></li>
+<li><a href="#读取文件信息">读取文件信息</a></li>
+<li><a href="#删除文件">删除文件</a></li>
+</ul></li>
+<li><a href="#文件流">文件流</a>
+<ul>
+<li><a href="#什么是流">什么是流</a></li>
+<li><a href="#流的操作">流的操作</a>
+<ul>
+<li><a href="#流式读取文件">流式读取文件</a></li>
+<li><a href="#以流的方式写文件">以流的方式写文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#path模块">path模块</a>
+<ul>
+<li><a href="#什么是path模块">什么是path模块?</a></li>
+<li><a href="#path模块的常用方法">path模块的常用方法</a></li>
+<li><a href="#url模块">URL模块:</a>
+<ul>
+<li><a href="#什么是url">什么是URL?</a></li>
+<li><a href="#url-的构成">URL 的构成</a></li>
+<li><a href="#node-js的url模块">node. js的URL模块</a></li>
+</ul></li>
+<li><a href="#什么是网络">什么是网络</a></li>
+<li><a href="#什么是网络协议">什么是网络协议</a></li>
+<li><a href="#什么是http协议">什么是http协议</a></li>
+<li><a href="#http协议规定-的细节">http协议规定 的细节</a></li>
+<li><a href="#软件开发模式">软件开发模式</a></li>
+</ul></li>
+<li><a href="#http模块">http模块:</a></li>
+<li><a href="#网络爬虫程序">网络爬虫程序</a>
+<ul>
+<li><a href="#什么是爬虫">什么是爬虫?</a></li>
+<li><a href="#案例-写一个爬虫程序从nipic-com批量下载图片">案例：写一个爬虫程序从nipic. com批量下载图片</a></li>
+</ul></li>
+<li><a href="#小结">小结</a>
+<ul>
+<li><a href="#回调函数-2">回调函数</a>
+<ul>
+<li><a href="#什么是回调函数-1">什么是回调函数?</a></li>
+<li><a href="#回调函数的实现机制">回调函数的实现机制</a></li>
+<li><a href="#回调函数的作用">回调函数的作用</a></li>
+</ul></li>
+<li><a href="#异步与同步-重点">异步与同步[重点]</a>
+<ul>
+<li><a href="#什么是异步与同步">什么是异步与同步?</a></li>
+<li><a href="#异步的实现">异步的实现</a></li>
+</ul></li>
+<li><a href="#buffer缓存区">buffer缓存区</a>
+<ul>
+<li><a href="#什么是缓存区-1">什么是缓存区?</a></li>
+<li><a href="#缓存区操作">缓存区操作</a></li>
+</ul></li>
+<li><a href="#文件基本操作-直接操作">文件基本操作(直接操作)</a>
+<ul>
+<li><a href="#读取文件内容">读取文件内容</a></li>
+<li><a href="#读取文件信息-1">读取文件信息</a></li>
+<li><a href="#写文件内容-新增-修改">写文件内容(新增、修改)</a></li>
+<li><a href="#删除文件-1">删除文件</a></li>
+<li><a href="#新增目录">新增目录</a></li>
+<li><a href="#读取目录中的文件列表">读取目录中的文件列表</a></li>
+<li><a href="#删除空文件夹">删除空文件夹</a></li>
+<li><a href="#其它操作">其它操作</a></li>
+</ul></li>
+<li><a href="#流式读写">流式读写</a>
+<ul>
+<li><a href="#什么是流-1">什么是流</a></li>
+<li><a href="#读取流">读取流</a></li>
+<li><a href="#写入流">写入流</a></li>
+</ul></li>
+<li><a href="#管道pipe">管道pipe</a>
+<ul>
+<li><a href="#什么是管道">什么是管道</a></li>
+<li><a href="#管道的写法">管道的写法</a></li>
+<li><a href="#管道的作用">管道的作用</a></li>
+</ul></li>
+<li><a href="#链式流">链式流</a></li>
+</ul></li>
+<li><a href="#远程服务器-使用的是阿里云">远程服务器(使用的是阿里云)</a></li>
+<li><a href="#node-js服务器创建步骤">node.js服务器创建步骤</a></li>
+<li><a href="#服务器url">服务器url</a>
+<ul>
+<li><a href="#http状态码">http状态码</a>
+<ul>
+<li><a href="#什么是状态码">什么是状态码</a></li>
+<li><a href="#常用的状态码">常用的状态码</a></li>
+<li><a href="#状态码的使用">状态码的使用</a></li>
+</ul></li>
+<li><a href="#响应头">响应头</a></li>
+<li><a href="#mime类型">MIME类型:</a>
+<ul>
+<li><a href="#什么是mime类型">什么是MIME类型</a></li>
+<li><a href="#常用的mime类型">常用的MIME类型</a></li>
+</ul></li>
+<li><a href="#静态网页资源服务器实例">静态网页资源服务器实例</a></li>
+<li><a href="#客户端向服务器传递数据">客户端向服务器传递数据:</a></li>
+<li><a href="#模板">模板</a></li>
+<li><a href="#小结-1">小结</a>
+<ul>
+<li><a href="#path模块-1">path模块</a></li>
+<li><a href="#url模块-1">url模块</a>
+<ul>
+<li><a href="#什么是url-1">什么是URL</a></li>
+<li><a href="#url的格式">URL的格式</a></li>
+<li><a href="#url模块-2">url模块</a></li>
+</ul></li>
+<li><a href="#http协议">http协议</a>
+<ul>
+<li><a href="#什么是http协议-1">什么是http协议</a></li>
+<li><a href="#http协议的细节">http协议的细节</a></li>
+<li><a href="#发送过程">发送过程</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#http模块-1">http模块</a>
+<ul>
 <li>
 <ul>
-<li><a href="#正在努力中">正在努力中</a></li>
+<li><a href="#什么是http模块">什么是http模块</a></li>
+<li><a href="#get-方法">.get()方法</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#http协议及工作原理">http协议及工作原理</a></li>
+<li><a href="#编写网络蜘蛛抓职itsource-cn首页的所有图片">编写网络蜘蛛抓职itsource . cn首页的所有图片</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -313,14 +497,1300 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/node/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:5字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:9698字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:20分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="正在努力中">正在努力中</h3>
+<h2 id="node-js简介">node.js简介</h2>
+
+<p>简单来说node.js就是js的一个运行环境，可以运行js代码，用于服务器端编程。</p>
+
+<h3 id="下载安装">下载安装</h3>
+
+<p>下载<a href="http://nodejs.cn/download/">node.js</a></p>
+
+<p>安装：一路next</p>
+
+<h3 id="node使用">node使用</h3>
+
+<p>进入项目目录运行cmd</p>
+
+<pre><code>node 文件名(.js)
+</code></pre>
+
+<p><code>.js</code>可写可不写，因为node能且仅能运行js文件</p>
+
+<h2 id="模块组成">模块组成</h2>
+
+<p>所有用户编写的代码都放在模块中，模块就是文件(函数)</p>
+
+<p>用户编写的代码在nodejs运行时都会自动放在一个函数中，所以一个文件就是一个模块</p>
+
+<p>用户编写的代码都自动封装在一个函数中</p>
+
+<pre><code>function(exports,require,module,_filename,_dirname){}
+</code></pre>
+
+<p>函数有五个参数:</p>
+
+<pre><code>exports     暴露对象，可以将模块中的数据暴露给引入的地方
+require     引入模块的函数， 用于在一个模块中引入另外一个模块，并且将子模块暴露的数据赋值给变量
+module      模块对象， 包含了当前模块的所有信息
+__filename  当前模块的文件 名
+__dirname   当前模块所在的路径(目录路径〉
+</code></pre>
+
+<p>nodejs的模块是指所有用户编室的代码都放在函数中，所有定义的函数或变量都是局部的，相互之间不受影响。如果模块之间需要共享数据，则需要使用<code>module.exports</code>是暴漏对象。</p>
+
+<h3 id="require">require :</h3>
+
+<p>作用:在当前模块中加载另外一个模块</p>
+
+<p>模块分类:</p>
+
+<ol>
+<li><p>自定义模块</p>
+
+<p>我们自己编写的文件就是一个自定义模块</p>
+
+<p>注意：</p>
+
+<p>a.子模块没有暴漏数据，返回空对象</p>
+
+<p>b.自定义模块必须加./(指向当前模块)因为在node.js中查找模块默认在node_modules目录中去查找</p></li>
+
+<li><p>第三方模块</p>
+
+<p>第三方程序员或公司开发的模块，先安装再使用</p>
+
+<p>安装可以使用npm包管理工具</p>
+
+<pre><code>npm install &lt;包的名字&gt;
+</code></pre>
+
+<p>引入 require(&ldquo;模块名&rdquo;)</p></li>
+
+<li><p>系统模块</p>
+
+<p>node.js开发团队已经开发好的功能模块，直接引入即可使用，不需要安装也不需要自己写</p>
+
+<p>例如：</p>
+
+<p>fs  http url    path &hellip;.</p>
+
+<p>引入 require(&ldquo;模块名&rdquo;)</p></li>
+</ol>
+
+<p>require函数的注意事项:</p>
+
+<pre><code>1) 当引入的模块有语法错误时，会报错。
+2) 当引入的模块路径有错时，也会报错。
+3) 当一个模块被多次引入时，只执行一次,会将暴露对象直接写入缓存，以后就直接从缓存读取
+</code></pre>
+
+<h3 id="exports导出对象">exports导出对象:</h3>
+
+<p>作用:将模块中需要共享给其它模块的数据暴露(导出)到引用处</p>
+
+<p>语法:</p>
+
+<pre><code>exports.属性名=值;
+exports .方法名=函数;    
+</code></pre>
+
+<p>注意:</p>
+
+<pre><code>1) exports 是module.exports对象的引用
+2) exports 是module.exports的引用，不能改指向，只能添加属性和方法S
+3) module.exports才是真正的暴漏对象，指向哪里就暴漏哪里
+</code></pre>
+
+<h3 id="module模块对象">module模块对象:</h3>
+
+<p><code>module.exports</code>真正的暴露对象, exports对象只是对它的引用。</p>
+
+<pre><code>module.exports.属性=值;
+module.exports.方法=函数;
+module.exports=对象或函数;
+module.id模块ID， 模块名称
+module. parent模块的父级
+module. filename模块的文 件名和路径
+module.children子模块列表
+module. paths模块查找路径，如果当前目录下找不到node_ modules就去上一级目录查找，直到根目录如果配置了NODE_ PATH环境变量， 则会再去环境变量指向的路径查找
+</code></pre>
+
+<h3 id="控制合命令">控制合命令:</h3>
+
+<pre><code>console.1og()               普通输出语句
+console.dir()               输出对象
+console.errar()             警告输出
+console.time(标识)            计时开始
+console.timeEnd(标识)     计时结束
+console.assert(表达式，输出文字) 当表达式为假时，输出文字
+</code></pre>
+
+<h3 id="node-js的作用域">node. js的作用域:</h3>
+
+<p>由于node.js在执行里会将用户编写的所有代码都封装在函数中，所有用户定义的变量或函数都是局部的。</p>
+
+<p>要将数据共享给其它模块使用:</p>
+
+<pre><code>1.暴露对象
+    module.exports
+2.全局对象
+    global.工性或方法=值;
+    注意:使用时global关键字可以省略不写
+</code></pre>
+
+<h2 id="npm">npm</h2>
+
+<h3 id="什么是npm">什么是NPM?</h3>
+
+<p>npm(Node Package Manager)是基 于nodejs的包管理工具</p>
+
+<h3 id="什么是包">什么是包?</h3>
+
+<p>包===项目
+模块===文件</p>
+
+<h3 id="什么是package-json">什么是package.json?</h3>
+
+<p>package.json是node. js项目的包描述文件，以JSON格 式的形式描述项目</p>
+
+<h4 id="如何创建package-json">如何创建package.json</h4>
+
+<pre><code>npm init
+npm init -y //自动以全部为yes的形式生成package . json文件
+</code></pre>
+
+<h4 id="package-json的常用属性">package .json的常用属性</h4>
+
+<pre><code>name            项目名称
+version         版本号
+description     项目描述
+main            主模块
+dependencies    依赖列表
+devDependencies 开发时依赖
+scripts         脚本命令， 可以使用npm命令进行执行
+license         开源协议
+contibutors     包的其他贡献者姓名。
+</code></pre>
+
+<h4 id="npm的常用命令">npm的常用命令</h4>
+
+<p>安装命令</p>
+
+<pre><code>npm install &lt;包的名称&gt;      //安装指定的包
+npm i                       //自动下载package.json中的依赖
+npm i &lt;包的名称&gt; ,          //效果同上，缩写形式
+npm i &lt;包的名称&gt;@版本号        //安装指定版本的包
+npm i &lt;包的名称&gt; -g             //全局安装
+    安装位置: C: \Users \Administrator\AppData\Roaming \npm\node_ modules
+    我的位置已修改C:\Program Files\nodejs\node_global
+npm i &lt;包的名称&gt; --save         //将安装包写入package .json依赖列表
+npm i &lt;包的名称&gt; --save-dev //将安装包写入package .json开发时依赖列表
+
+//其它命令
+npm search &lt;包的名称&gt; ,         /搜索包
+npm view &lt;包的名称&gt;             //查看 包的信息
+npm uninstall &lt;包的名称&gt;    //卸载包
+npm update &lt;包的名称&gt;       更新包
+</code></pre>
+
+<h4 id="cnpm">cnpm</h4>
+
+<p>npm 就是一个文件下载工具，默认情况下去 <code>npmjs.com/github. com</code>下载资源</p>
+
+<p>cnpm 由于在国内下载npmjs. com的数据非常慢，所以淘宝制作了一个npmjs.com的镜像(可以下载，不能上传)，直接访问国内的网站下载较快用法和npm一毛一样。</p>
+
+<p>安装：</p>
+
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+
+<h2 id="回调函数">回调函数</h2>
+
+<h3 id="什么是回调函数">什么是回调函数?</h3>
+
+<p>回调函数又称为回调，将a函数作为参数传入b函数中，b函数在执行过程中根据时机或条件决定是否调用a函数，a函数就是回调函数。</p>
+
+<p>异步的三种实现方式:</p>
+
+<pre><code>1. 回调函数
+    回调函数不一定是异步，但是异步定有回调函数
+2. 事件
+3. promise
+</code></pre>
+
+<h4 id="回调函数-1">回调函数</h4>
+
+<p>//异步-定有回调函数</p>
+
+<pre><code>setTimeout(function(){
+    console.1og('....' );
+}, 1000);
+</code></pre>
+
+<p>//回调函数不一定是异步</p>
+
+<pre><code>console. log( '1111');
+var arr=[1,2,3,4];
+arr.forEach(function(v,i){
+console.1og(v);
+});
+console.1og('2222');
+</code></pre>
+
+<h4 id="时间">时间</h4>
+
+<pre><code>事件源.on('事件名称',回调函数)
+</code></pre>
+
+<h4 id="promise承诺对象">promise承诺对象:</h4>
+
+<ol>
+<li><p>什么是promise</p>
+
+<p>promise是ES6中新增的承诺对象，用于对异步的操作进行消息的传递。</p></li>
+
+<li><p>promise的状态</p>
+
+<ul>
+<li>Pending   等待中</li>
+<li>Resolved  成功</li>
+<li>Rejected  失败</li>
+<li>Pending =&gt; Resolved</li>
+<li>Pending =&gt; Rejected</li>
+</ul></li>
+
+<li><p>promise有什么用?</p>
+
+<p>promise可以用于传递异步消息</p></li>
+</ol>
+
+<h2 id="缓存区">缓存区:</h2>
+
+<h3 id="什么是缓存区">什么是缓存区</h3>
+
+<p>在内存中开辟-个临时区域用于存 储需要运算的字节码</p>
+
+<h3 id="创建缓存区">创建缓存区</h3>
+
+<h4 id="创建指定长度的缓存区">创建指定长度的缓存区</h4>
+
+<pre><code>var buf = new Buffer(5);
+</code></pre>
+
+<h4 id="按指定的数组-编码-创建缓存区">按指定的数组（编码）创建缓存区</h4>
+
+<pre><code>var buf=new Buffer([97,98,99,65,66]);
+</code></pre>
+
+<h4 id="按指定字符创建缓存区">按指定字符创建缓存区</h4>
+
+<pre><code>var buf=new Buffer( '字符串' ) ;
+</code></pre>
+
+<h3 id="写入缓存区">写入缓存区</h3>
+
+<pre><code>buf.write('字符串' );
+</code></pre>
+
+<h3 id="读取缓存区">读取缓存区</h3>
+
+<pre><code>buf.toString();
+</code></pre>
+
+<h4 id="缓存区复制">缓存区复制</h4>
+
+<pre><code>buf.copy(buf2);
+</code></pre>
+
+<h2 id="文件系统操作">文件系统操作</h2>
+
+<h3 id="读取文件">读取文件</h3>
+
+<p>由于node.js是服务器端程序，必须要有读写文件操作，在客户端没有这样的功能。</p>
+
+<p>文字读写有两种方式:</p>
+
+<h4 id="直接读取">直接读取</h4>
+
+<p>将硬盘上的所有内容全部读入内存以后才触发回调函数</p>
+
+<p>两种写法:</p>
+
+<p>异步:</p>
+
+<pre><code>fs.readFile('./file1.txt',function(err.data){
+    console.log(data.toString());
+});
+</code></pre>
+
+<p>同步:</p>
+
+<pre><code>var data = fs.readFileSync('./file.txt');
+</code></pre>
+
+<p>注意：一般同步的方法都是在异步的方法后面添加<code>Sync</code></p>
+
+<h4 id="流式读取">流式读取</h4>
+
+<p><strong>下面会专门讲。</strong></p>
+
+<h3 id="写文件">写文件:</h3>
+
+<h4 id="同步版本">同步版本</h4>
+
+<pre><code>    fs.writeFileSync('文件名','数据');
+</code></pre>
+
+<h4 id="异步版本">异步版本</h4>
+
+<pre><code>fs.writeFile('文件名',数据,function(err){
+        //写完文件以后执行的代码
+});
+</code></pre>
+
+<p>例</p>
+
+<pre><code>//文件读取
+//如果要读写文件，必须使用文件系统模块(fs)
+var fs=require('fs');
+//直接读取文件---异步
+fs.readFile('./file1.txt',function(err.data){
+    console.log(data.toString());
+});
+//同步
+var data = fs.readFileSync('./file.txt');
+console.log(data);
+console.log(data.toString());
+//异步写文件
+var hello=&quot;&lt;h1&gt;Hel1o Node.js&lt;/h1&gt;&quot;;
+fs.writeFile( 'index.html', hello,function(err){
+    if(err){
+        throw err;
+    }else{
+        console.1og('文件写入成功');
+    }
+});
+</code></pre>
+
+<h3 id="读取文件信息">读取文件信息</h3>
+
+<pre><code>fs.stat(' ./file1.txt',function(err,state){
+        console.log(state); 
+});
+</code></pre>
+
+<p>属性解析</p>
+
+<pre><code>size            文件大小(字节)
+mtime           文件修改时间
+birthtime       文件创建时间
+</code></pre>
+
+<p>方法解析</p>
+
+<pre><code>isFile()        判断当前查看的对就是不是一个文件
+isDirectory()   判断是不是一个目录
+</code></pre>
+
+<h3 id="删除文件">删除文件</h3>
+
+<pre><code>fs.unlink('./jquery.js',function(err){
+    if(err){
+        throw err;
+    }else{
+        console.log( '删除成功') ;
+});
+</code></pre>
+
+<p>例</p>
+
+<p>需求:编写代码实现删除一个非空目录</p>
+
+<p>使用代码删除某个文件夹，该文件夹不为空。</p>
+
+<p>使用递归函数实现，逐层查询并清空文件再删除空文件夹</p>
+
+<ol>
+<li><p>定义一个函数，用于实现递归调用。</p></li>
+
+<li><p>删除空文件夹(删不掉，目录非空)</p></li>
+
+<li><p>读取文件夹的内容(文件及文件夹列表)</p></li>
+
+<li><p>遍历数组一个一个获取文件信息</p></li>
+
+<li><p>判断是否为文件，如果是文件则删除</p></li>
+
+<li><p>判断是否为目录，如果是目录就调用自己(递归的入口)</p></li>
+</ol>
+
+<p>代码</p>
+
+<pre><code>function deldir(p){
+    //读取文件央的内容
+    var list=fs.readdirSync(p);
+    //遍历数组
+    for(var i in list){
+        //list[i]是当前目录中每个文件及文件夹的名称
+        var path=p+'/'+list[i]; //拼接 一个从(05.js)当前目录能查找到的路径
+        var info=fs.statSync(path);
+        if(info.isFile()){
+            fs.unlinkSync(path); //如果是文件则删除文件
+        }else{
+            arguments.callee(path);//如果不是文件就是目录，则调用自己再删除该目录
+        }
+    }
+    fs.rmdirSync(p); //删除空文件夹
+}
+deldir('./aa');
+</code></pre>
+
+<h2 id="文件流">文件流</h2>
+
+<h3 id="什么是流">什么是流</h3>
+
+<p>所有互联网传输的数据都是以流的方式，流是一组有起点有终点的数据传输方式</p>
+
+<h3 id="流的操作">流的操作</h3>
+
+<h4 id="流式读取文件">流式读取文件</h4>
+
+<p>一节一节的读取数据，一节64kb ==&gt; 65536字节</p>
+
+<h4 id="以流的方式写文件">以流的方式写文件</h4>
+
+<p>一节一节的写文件</p>
+
+<p>例</p>
+
+<p>读入流</p>
+
+<pre><code>//创建一个可以读取的流
+var stream=fs.createReadStream('./file1.txt');
+//绑定data事件，当读取到内容就执行
+stream.on( 'data',function(a){
+    console.log('------------------');
+    console.log(a.length); 
+});
+
+//读取流的事件: end完成事件
+stream.on('end',function(){
+    console.log('数据读完了');
+});
+//读取流出错事件: error错误事件
+stream.on('error'，function(err){
+    console.log(&quot;读取出错&quot;);
+    //抛出错误
+    //throw err;
+
+});
+</code></pre>
+
+<p>写入流</p>
+
+<pre><code>var fs=require('fs');
+//创建一个可以写入的流
+var stream=fs.createWriteStream('./file2.txt' );
+//写入数据
+stream.write('张三失踪了');
+stream.write('李四也失踪了');
+stream.write('王小五也疯了');
+stream.end(); //以流的方式写入数据 必须显示的声明结束
+//on是绑定时事件
+//写入流的事件: finish 完成事件
+stream.on('finish',function(){
+    console.log('写完了');
+});
+//写入流的事件: error 错误事件
+stream.on('error',function(err){
+    console.log( '出错啦');
+});
+</code></pre>
+
+<p>需求:实现大文件的复制</p>
+
+<pre><code>var fs=require('fs');
+var s1=fs.createReadStream('./file3.txt');
+var s2=fs.createWriteStream('./file6.txt');
+//以流的方式
+//以流的方式实现大文件复制，读取一节存一节
+s1.on('data',function(a){
+    s2.write(a);
+});
+s1.on('end',function(){
+    s2.end();
+    console.log(&quot;文件复制已完成!&quot;) ;
+});
+//以管道的形式
+s1.pipe(s2);
+</code></pre>
+
+<p>链式流:</p>
+
+<p>将多个管道连接起来，实现链式处理。</p>
+
+<p>需求:使用链式流实现大文件压缩!</p>
+
+<p>代码</p>
+
+<pre><code>var fs=require('fs');
+var zlib=require('zlib');
+var s1=fs.createReadStream('./file3.txt');
+var s2=fs . createWriteStream('./file3.txt.zip');
+s1.pipe(zlib.createGzip()).pipe(s2);|
+</code></pre>
+
+<h2 id="path模块">path模块</h2>
+
+<h3 id="什么是path模块">什么是path模块?</h3>
+
+<p>path模块是node.js中提供的一个系统模块，用于格式化或拼接一个完整的路径</p>
+
+<h3 id="path模块的常用方法">path模块的常用方法</h3>
+
+<pre><code>    path.join() //将多 个字符串拼接成一-个完整的路径
+    path.dirname() / /返回路径中的文件夹部分
+    path.basename() / /返回路径中的文件部分(文件名和扩展名)
+    path.extname( ) / /返回路径中的扩展名部分
+    path.parse()/ / 解析路径:近回一个对象包含路径中的各个部分
+</code></pre>
+
+<h3 id="url模块">URL模块:</h3>
+
+<h4 id="什么是url">什么是URL?</h4>
+
+<p>url全球统一资源定位符， 对网站资源的一种简洁表达形式，也称为网址。</p>
+
+<h4 id="url-的构成">URL 的构成</h4>
+
+<p>构成：</p>
+
+<p>协议://用户名:密码@主机名.名.城:端口号/目录名/文件名.扩展名?参数名=参数值&amp;参数名2=参数值2#hash</p>
+
+<p>http协议的URL常见结构:</p>
+
+<p>协议://主机名.名.域/目录名/文件名.扩展名?参数名=参数值&amp;参数名2=参数值2#hash</p>
+
+<p>https默认的端口号是443</p>
+
+<p>http默认的端口号是80</p>
+
+<h4 id="node-js的url模块">node. js的URL模块</h4>
+
+<p>在node.js中提供了两套对于url进行处理的API功能。</p>
+
+<ol>
+<li><p>老的node.js url模块</p></li>
+
+<li><p>新的url模块 (WHATWG URL标准模块》</p></li>
+</ol>
+
+<h3 id="什么是网络">什么是网络</h3>
+
+<p>网络是一个共享、传输信息的虚拟平台。</p>
+
+<h3 id="什么是网络协议">什么是网络协议</h3>
+
+<p>每天有大量的数据在网络上传输，都需要遵循相应的规则，规则就是网络协议。</p>
+
+<h3 id="什么是http协议">什么是http协议</h3>
+
+<p>http (hypertext transfer protocol) 即超文本传输协议，传输超文本内容(文字、图片、视频、音频、动漫&hellip;</p>
+
+<p>http协议规定了数据在服务器与浏览器之间传输数据的格式和过程。</p>
+
+<h3 id="http协议规定-的细节">http协议规定 的细节</h3>
+
+<p>http协议是一种请求应答形式的协议，一次请求， 一次应答(响应)。</p>
+
+<p>细节:
+1. 定义了浏览器以什么格式向服务器发请求，
+2. 定义了服务器以什么格式解析浏览器发送过来的数据，
+1. 定义了服务器以什么格式响应数据给浏览器，
+1. 定义了浏览器以什么格式解析服务器响应的数据</p>
+
+<h3 id="软件开发模式">软件开发模式</h3>
+
+<ol>
+<li><p>单机软件</p>
+
+<p>打开电脑就能用，不需要网络，如: HBuilder、Word.西图&hellip;.</p></li>
+</ol>
+
+<p>2) C/S软件</p>
+
+<pre><code>客户端Client /服务器端 Server
+
+需要下载安装以后，才能连接网络使用，如:迅雷、QQ、微信....
+</code></pre>
+
+<p>3) B/S软件</p>
+
+<pre><code>浏览器BrowEr /服务器端 Server
+
+打开网址直接使用，不需要安装，如:百度、淘宝、JD....
+</code></pre>
+
+<p>注意：所有浏览器发起的请求都是get方式，post请求只能通过表单提交发起</p>
+
+<h2 id="http模块">http模块:</h2>
+
+<ol>
+<li>get方法</li>
+</ol>
+
+<p>get方法用于模仿客户端从服务器获取数据</p>
+
+<pre><code>http.get('url',function(res){
+    //res是返回对象，接收到服务器响应的所有内容
+});
+</code></pre>
+
+<h2 id="网络爬虫程序">网络爬虫程序</h2>
+
+<h3 id="什么是爬虫">什么是爬虫?</h3>
+
+<p>网络爬虫又被称为网页蜘蛛或网络机器人，是一种按照一定的规则， 自动地抓取万维网信息的程序。</p>
+
+<h3 id="案例-写一个爬虫程序从nipic-com批量下载图片">案例：写一个爬虫程序从nipic. com批量下载图片</h3>
+
+<p>url: <a href="http://www">http://www</a>. nipic. com/ photo/jianzhu/ shinei/index. html</p>
+
+<p>开发思路:</p>
+
+<pre><code>1)打开网页查看内容，找图片地址
+    找规律=&gt;查看网页源代码
+    小图: http://img90.nipic. com/file/20180110/5792316151721347529 1.jpg
+    大图: http://pic152.nipic. com/fne/20180110/5792316_ _151721347529_ _2.jpg
+2)编写代码实现打开网页，获取所有的html内容
+3)通过正则表达式提取出有哪些图片地址
+4)遍历图片地址数组，一个一个请求
+5)将获取到的图片数据保存在硬盘上
+</code></pre>
+
+<p>代码：</p>
+
+<pre><code>var http=require('http');
+http.get('http://www.nipic.com/photo/jianzhu/shinei/index.html',function(res){
+	var data=''; //定义一个变量用于存放一段一段的HTML数据
+	//以流的方式读取数据
+	res.on('data',function(a){
+		data+=a. toString(); 
+	};
+	//绑定end事件
+	res.on('end',function(){
+		//data 就是当前网页的HTML内容
+		//编写正则表达式提取所有的图片地址
+		var reg=/&lt;img src=&quot;(.+?)&quot; alt=&quot;.*?&quot;\/&gt;/img;
+		//exec正则表达式方法，获取匹配到的结果，只能获取一个，指针自动向下移动
+		var arr =[];
+		var result=&quot;&quot;;
+		while(result= reg.exec(data)){
+			arr.push(result[1]);
+		}
+		for(var i in arr){
+			(function(i){
+				setTimeout(function(){
+					getImg(arr[i]);
+				},3000*i);
+			})(i);
+		}
+	});
+});
+//定义一个函数用于获取图片内容
+function getImg(ur1){
+	//console.log('修改前: ' ,ur1);
+	ur1=ur1.replace(/img\d\d/,'pic152').replace('1.jpg','2.jpg');
+	//console.log('修改后:',url);
+	http.get(ur1, function(res){
+		var fn=new Date().getTime();
+		//创建一个可写流
+		var stream=fs.createwriteStream('./files/'+fn+'.jpg');
+		res.pipe(stream);
+	});	
+}
+</code></pre>
+
+<h2 id="小结">小结</h2>
+
+<h3 id="回调函数-2">回调函数</h3>
+
+<h4 id="什么是回调函数-1">什么是回调函数?</h4>
+
+<p>回调函数也称为回调(callback)，其实就是一个普通函数。将该函数作为另外一个函数的参数传入，由另外一个函数根据条件或时机决定调用</p>
+
+<h4 id="回调函数的实现机制">回调函数的实现机制</h4>
+
+<ol>
+<li><p>定义一个普通函数(作为回调函数)</p></li>
+
+<li><p>将该函数作为一个参数传入另外一个函数(调用者)中</p></li>
+
+<li><p>调用者函数在具体的时机或条件达到时，调用该函数(回过头再调用的函数)</p></li>
+</ol>
+
+<h4 id="回调函数的作用">回调函数的作用</h4>
+
+<p>如果我们需要在某一个任务完成后，执行一段代码，可以使用回调函数</p>
+
+<h3 id="异步与同步-重点">异步与同步[重点]</h3>
+
+<h4 id="什么是异步与同步">什么是异步与同步?</h4>
+
+<p>同步:前一个任务完成以后，后一个任务才能继续执行(会造成阻塞)</p>
+
+<p>异步:将比较复杂的任务制作成异步模式(回调函数)，后一句代码不需要等待前一.句完成也可以继续执行(不会造成阻塞)</p>
+
+<h4 id="异步的实现">异步的实现</h4>
+
+<ul>
+<li>回调函数
+异步一定有回调函数，回调函数不一定是异步(一些同步的情况也会用到回调函数)</li>
+<li>事件
+触发事件以后执行一个回调函数，就是异步
+事件源.on(事件类型,回调函数) ;</li>
+<li>promise
+promise (承诺)对象，实现异步的消息传递。</li>
+</ul>
+
+<h3 id="buffer缓存区">buffer缓存区</h3>
+
+<h4 id="什么是缓存区-1">什么是缓存区?</h4>
+
+<p>缓存区就是在内存中开辟存储空间，用于存储字节码数据。</p>
+
+<h4 id="缓存区操作">缓存区操作</h4>
+
+<p>1.创建新的缓存区</p>
+
+<pre><code>var buf=new Buffer(10);
+var buf=new Buffer([97,98]);
+var buf=new Buffer('张三 ');
+</code></pre>
+
+<p>1.读取缓存区</p>
+
+<pre><code>buf.toString(); //将字节码转换成字符串
+</code></pre>
+
+<p>1.写缓存区</p>
+
+<pre><code>buf.write(&quot;字符串&quot;);
+</code></pre>
+
+<p>1.复制缓存区</p>
+
+<pre><code>buf1. copy(buf2);
+</code></pre>
+
+<h3 id="文件基本操作-直接操作">文件基本操作(直接操作)</h3>
+
+<h4 id="读取文件内容">读取文件内容</h4>
+
+<pre><code>//异步出错时自己定义抛出异常系统不会报错
+fs. readFile('文件路径'，function(err, data){
+    //err是错误对象，如果有错则有值，没有错则为nu1l
+    //data是数据(字符串)
+});
+//同步:只要在异步的方法名后面加Sync就是同步版本
+//出错时系统会自动报错
+var data=fs.readFileSync( '文件路径);
+</code></pre>
+
+<h4 id="读取文件信息-1">读取文件信息</h4>
+
+<pre><code>fs.stat('文件路径'，function(err, info){
+//info就是文件的信息
+.size文件的大小
+.ctime文件的创建时间
+.mtime文件的修改时间
+.atime文件的访问时间
+.birthtime文件的创建时间
+//方法
+.isFile()判断是不是 一个文件
+.isDirectory()判断是不是一一个目录
+</code></pre>
+
+<h4 id="写文件内容-新增-修改">写文件内容(新增、修改)</h4>
+
+<pre><code>fs .writeFile('文件路径'，数据内容，function(err){
+    //如果文件存在则修改
+    //如果文件不存在则新增
+});
+</code></pre>
+
+<h4 id="删除文件-1">删除文件</h4>
+
+<pre><code>fs.unlink('文件路径',function(err){
+});
+</code></pre>
+
+<h4 id="新增目录">新增目录</h4>
+
+<pre><code>fs.mkdir('目录路径',function(err,list){
+    //list是读取到的当前文件夹的所有文件及其子文件夹列表
+});
+</code></pre>
+
+<h4 id="读取目录中的文件列表">读取目录中的文件列表</h4>
+
+<pre><code>fs. readdir('目录路径', function(){
+});
+</code></pre>
+
+<h4 id="删除空文件夹">删除空文件夹</h4>
+
+<pre><code>fs . rmdir('目录路径', function(err){
+    //只能删除空文件夹，不能删除非空文件夹
+});
+</code></pre>
+
+<h4 id="其它操作">其它操作</h4>
+
+<pre><code>改支件名或目录名...
+</code></pre>
+
+<h3 id="流式读写">流式读写</h3>
+
+<h4 id="什么是流-1">什么是流</h4>
+
+<p>流是一组有序的、有起点和终点的字节数据的传输方式(流式)。流的内容称为字节流。</p>
+
+<h4 id="读取流">读取流</h4>
+
+<pre><code>var stream=fs.createReadStream('文件路径');
+//绑定data事件接收数据
+stream. on('data',function(data){
+    console.1og(data);
+});
+//绑定error错误事件   异步的方式
+stream.on('error'function(err){
+    throw err;
+});
+//绑定end结束事件
+stream.on('end',function(){
+    console.log( '数据读取完毕');
+});
+</code></pre>
+
+<h4 id="写入流">写入流</h4>
+
+<pre><code>var stream=fs.createWriteStream('文件路径');
+//写入数据
+stream.write('数据1');
+stream.write('数据2');
+stream.write('数据3');
+stream.end(); //流式写入完毕时一 定要-个明确的结束标识
+//绑定finish数据写入完成事件
+    stream. on('finish'，function(){
+});
+//绑定error出错事件
+stream. on('error'，function(err){
+});
+</code></pre>
+
+<h3 id="管道pipe">管道pipe</h3>
+
+<h4 id="什么是管道">什么是管道</h4>
+
+<p>管道(pipe)是一种输入流与输出流之间传输数据的机制</p>
+
+<h4 id="管道的写法">管道的写法</h4>
+
+<pre><code>输出流.pipe(输入流);
+</code></pre>
+
+<h4 id="管道的作用">管道的作用</h4>
+
+<p>管道可以实现对大文件的操作(文件大小超过内存)</p>
+
+<h3 id="链式流">链式流</h3>
+
+<p>将多个管道连接起来，进行链式操作。</p>
+
+<pre><code>输出流.pipe(中转流). pipe(中转流).pipe(....). pipe(输出渝) ;
+</code></pre>
+
+<h2 id="远程服务器-使用的是阿里云">远程服务器(使用的是阿里云)</h2>
+
+<p>使用window的远程桌面命令:mstsc: 连接远程服务器，操作服务器。</p>
+
+<p>注意在网页的后面添加<code>robots.txt</code>就可以看到网站（例如：淘宝）的蜘蛛协议，它可以说明此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。</p>
+
+<h2 id="node-js服务器创建步骤">node.js服务器创建步骤</h2>
+
+<ol>
+<li>引入通信模块</li>
+<li>创建服务器</li>
+<li>监听request事件</li>
+<li>监听端口</li>
+
+<li><p>访问服务器:</p>
+
+<ol>
+<li>打开浏览器</li>
+
+<li><p>输入网址</p>
+
+<ul>
+<li><p>127.0.0.1     本机地址</p></li>
+
+<li><p>localhost     本地主机，本地域名</p></li>
+
+<li><p>172.16.3.224  局域网工IP(使用cmd命令行获取ipconfig)</p></li>
+</ul></li>
+</ol></li>
+</ol>
+
+<p>例：</p>
+
+<pre><code>var http=require('http');
+//创建服务器
+var server=http.createServer(); 
+//监听request请求事件， 当前请求事件发生时就返回数据
+server.on('request',function(req,res){
+//都是以流的方式来传送请求
+//req: 请求对象，包含了所有客户端请求的数据，请求头、请求主体
+//res:响应对象，包含了所有服务器端发送给客户端的数据，响应头、响应主体
+	res .write('&lt;h1&gt;He11o Node.js&lt;/h1&gt;');
+	res .write('&lt;p&gt;He1lo 1111&lt;/p&gt;');
+	res. end();
+});
+//监听服务器的80端口（默认的就是80，所以访问时不需要加端口号）
+//可以监听其他端口，但是访问时需要加端口号
+server.listen(80, function(){
+	console.log( '服务器已运行...');
+});
+</code></pre>
+
+<pre><code>//组合写法
+require('http').createServer(function(req,res){
+	res .write('&lt;h1&gt;He1lo world&lt;/h1&gt;');
+	res.end() ;
+}).listen(80,function(){
+	console.log( '服务器已运行...');
+});
+</code></pre>
+
+<p>注意：可能需要的cmd命令</p>
+
+<pre><code>//查看自己的电脑开了哪些端口
+//netstat -a
+//查看端口被谁占用
+//netstat -ab
+</code></pre>
+
+<h2 id="服务器url">服务器url</h2>
+
+<p>网页响应内容:</p>
+
+<p>可以根据用户请求的url不同，判断响应不同的数据，实现访问不同的URL得到不同的结果。
+核心: req.ur1获取到用户请求的网址</p>
+
+<p>例</p>
+
+<pre><code>var http=require('http');
+var server=http.createServer(); 
+server.on('request',function(req,res){
+	if(req.url==='/'){
+		res.write(&quot;&lt;h1&gt;HomePage&lt;/h1&gt;&quot;)
+	}
+	if(req.url==='/article.html'){
+		res.write(&quot;&lt;h1&gt;article.html&lt;/h1&gt;&quot;)
+	}
+	if(req.url==='/about.html'){
+		res.write(&quot;&lt;h1&gt;about.html&lt;/h1&gt;&quot;)
+	}
+	res.end();
+});
+server.listen(80, function(){
+	console.log( '服务器已运行...');
+});
+</code></pre>
+
+<h3 id="http状态码">http状态码</h3>
+
+<h4 id="什么是状态码">什么是状态码</h4>
+
+<p>http协议规定的服务器响应数据时的状态编码，就是状态码</p>
+
+<h4 id="常用的状态码">常用的状态码</h4>
+
+<pre><code>1xx :表示普通消息，没有特殊含义
+
+2xx :表示服务器响应成功
+    200 成功
+
+3xx :表示重定向
+    301 永久重定向
+    302 临时重定向
+    304 使用缓存(服务器没有更新过)
+
+4xx :无法访问
+    403 权限不足， 无法访问
+    404 资源找不到
+
+5xx :服务器有错
+    500 服务器端代码有错
+    502 网关错误
+    503 服务器已崩溃
+</code></pre>
+
+<h4 id="状态码的使用">状态码的使用</h4>
+
+<pre><code>res .writeHead(状态码,响应头对象);
+</code></pre>
+
+<p>例</p>
+
+<pre><code>var http=require('http');
+var server=http.createServer(); 
+server.on('request',function(req,res){
+	res.writeHead(200,{&quot;Content-type&quot;:&quot;text/html;charset=utf-8&quot;});
+	res.write(&quot;&lt;h1&gt;中文乱码解决&lt;/h1&gt;&quot;)
+	res.end();
+});
+server.listen(80, function(){
+	console.log( '服务器已运行...');
+});
+</code></pre>
+
+<h3 id="响应头">响应头</h3>
+
+<pre><code>Content-Type
+    响应的文件类型
+text/html
+    注意:未指定响应文件类型时，默认就是html,编码默认是系统编码
+Content-Length  响应内容的长度
+Access -Control-Allow-Origin    设置响应头可以跨域
+</code></pre>
+
+<p>例</p>
+
+<pre><code>var http=require('http');
+var server=http.createServer(); 
+server.on('request',function(req,res){
+	res.writeHead(200,{
+		&quot;Content-type&quot;:&quot;text/html;charset=utf-8&quot;,
+		&quot;Content-Length&quot;:24
+		//&quot;Access-Control-Allow-Origin&quot;:&quot;*&quot;//实现跨域
+		
+	
+	});
+	res.write(&quot;&lt;h1&gt;中文乱码解决&lt;/h1&gt;&quot;)
+	res.end();
+});
+server.listen(80, function(){
+	console.log( '服务器已运行...');
+});
+
+</code></pre>
+
+<h3 id="mime类型">MIME类型:</h3>
+
+<h4 id="什么是mime类型">什么是MIME类型</h4>
+
+<p>MIME类型可以认为是文件类型的表述</p>
+
+<h4 id="常用的mime类型">常用的MIME类型</h4>
+
+<pre><code>.txt        text/plain
+.html       text/html
+. CSS       text/css
+.js         text/javascript
+.png        image/png
+.jpg        image/jpeg
+.gif        image/gif
+.json       text/json    application/json
+.mp3        dio/mpeg
+.mp4        video/mpeg
+.pdf        application/pdf
+.xml        text/xm1
+.zip        application/x-gzip
+</code></pre>
+
+<p>例</p>
+
+<pre><code>&quot;Content-Type:&quot;text/html; charset=utf-8&quot;, / /生成一个html网页
+&quot;Content-Type&quot;:&quot;text/plain; charset=utf-8&quot;, //生成一个普通文本
+&quot;Content-Type&quot;:&quot;inage/png&quot;, //生成一个普通文本
+&quot;Content- Type&quot;:&quot;application/x-gzip&quot;, //生成一个压缩包， 浏览器自动下载
+</code></pre>
+
+<h3 id="静态网页资源服务器实例">静态网页资源服务器实例</h3>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/nodejs">node.js静态网页服务器实例</a></p>
+
+<h3 id="客户端向服务器传递数据">客户端向服务器传递数据:</h3>
+
+<ol>
+<li><p>GET方式</p>
+
+<ul>
+<li>在URL后面添加?写键值对形式就是GET方式传数据
+只要可以写url的地方就可以在后面加?传参数
+在node.js可以接收到客户端传过来的参数值。</li>
+</ul></li>
+
+<li><p>POST方式</p>
+
+<ul>
+<li>post方式提交数据只能使用表单提交的方式</li>
+</ul></li>
+</ol>
+
+<p>实例</p>
+
+<pre><code>var http=require('http');
+var server=http.createServer(); 
+/*server.on('request',function(req,res){
+	//Get方式
+	//通过解析req.url后面参数字符串的解析分析出传递的参数的值
+	var query = req.url.split(&quot;?&quot;);
+	var value = query[1].split(&quot;=&quot;);
+	res.writeHead(200,{&quot;content-type&quot;:&quot;text/html;charset=utf-8&quot;});
+	res.write(&quot;&lt;h1&gt;你传递的参数的值是&quot;+value[1]+&quot;&lt;/h1&gt;&quot;)
+	res.end();
+});*/
+//定义一个动态页面
+//if(req. ur1===' /action.html'){
+//	//从req请求主体中获取到POST方式提交的数据
+//	var query='';
+//	req.on('data',function(a){
+//		query+=a . toString();
+//	});
+//	req.on('end'，function(){
+//		res.writeHead(200, {&quot;Content - Type&quot;: &quot;text/html; charset=utf-8&quot;});
+//		res.write('&lt;h1&gt;我们已经收到了请求&lt;/h1&gt;');
+//		res.write(' &lt;h1&gt;接收到的数据是:'+query+*&lt;/h1&gt;' );
+//		res.end( );
+//	});
+//	return;
+//}
+server.listen(80, function(){
+	console.log( '服务器已运行...');
+});
+</code></pre>
+
+<h3 id="模板">模板</h3>
+
+<p>使用动态网页模板:</p>
+
+<p>什么是模板</p>
+
+<p>将一些固定的结构或表现直接以静态文件形式存储，将需要表现成动态数据的地方使用模板语法进行编写，再使用模板引擎读取该静态文件，将动态的数据进行替换进去。最终实现产生出一个动态的网页</p>
+
+<h3 id="小结-1">小结</h3>
+
+<h4 id="path模块-1">path模块</h4>
+
+<p>path模块主要用于对路径进行处理(解析、拼接、格式化等)</p>
+
+<pre><code>path.join(字符串,字符串2); //将字符串拼 接成一个完整的路径
+path.parse(路径); //将路径解析成为各个不同的部分，返回一个对象
+</code></pre>
+
+<h4 id="url模块-1">url模块</h4>
+
+<h5 id="什么是url-1">什么是URL</h5>
+
+<p>url是全球统一资源定位符，也称为网址</p>
+
+<h5 id="url的格式">URL的格式</h5>
+
+<ul>
+<li><p>完整的格式</p>
+
+<p>协议://用户名:密码@主机名.名.域:端口号/路径/文件名.扩展名?参数名=参数值&amp;参数名2=参数值2#hash地址</p></li>
+
+<li><p>常见的格式</p>
+
+<p>协议://主机名.名.域:端口号/路径/文件名。扩展名?参数名=参数值#hash地址</p></li>
+</ul>
+
+<h5 id="url模块-2">url模块</h5>
+
+<p>在node.js中提供了url模块，用于解析ur1中的各个部分，有两套API功能:</p>
+
+<pre><code>//传统的node. js的ur1解析
+var obj=url.parse(网址);
+//按WHATWG标准进行解析
+var obj=new url . URL (网址);
+</code></pre>
+
+<h4 id="http协议">http协议</h4>
+
+<h5 id="什么是http协议-1">什么是http协议</h5>
+
+<p>http协议就是超文本传输协议，主要用于规定客户端与服务器端进行数据传输的过程及格式。</p>
+
+<p>http协议以请求、应答形式进行数据交互，必须一次请求对应一次应答(响应)。</p>
+
+<h5 id="http协议的细节">http协议的细节</h5>
+
+<p>规定了客户端如何向服务器发送数据</p>
+
+<p>规定了服务器如何向客户端发送数据</p>
+
+<h5 id="发送过程">发送过程</h5>
+
+<p>客户端向服务器端发送数据称为请求，包含请求头和请求主体;</p>
+
+<p>服务器端向客户端发送数据称为响应，包含响应头和响应主体;</p>
+
+<h3 id="http模块-1">http模块</h3>
+
+<h5 id="什么是http模块">什么是http模块</h5>
+
+<p>http模块是node. js中的系统模块，用于进行网络通信(服务器、客户端)</p>
+
+<h5 id="get-方法">.get()方法</h5>
+
+<p>用于获取其它服务器的数据(可以跨域)</p>
+
+<p>语法:</p>
+
+<pre><code>http. get(url, function(响应对象){
+    响应对象.on('data',function(){
+    });
+});
+</code></pre>
+
+<h3 id="http协议及工作原理">http协议及工作原理</h3>
+
+<p>在浏览器中输入网址，回车时，将网址发送到指定的DNS服务器去查询对应的IP地址。</p>
+
+<p>浏览器获取到IP地址以后，向该IP的服务器发起请求，服务器收到请求，并且读取请求的网页文件，发送给客户端浏览器,浏览器可以直接解析执行html代码将内容渲染出来显示给用户</p>
+
+<p>如果服务器硬盘中没有该文件，就执行动态程序生成一个(使用node.js引擎读写数据库)生成html网页在发送给浏览器。</p>
+
+<h3 id="编写网络蜘蛛抓职itsource-cn首页的所有图片">编写网络蜘蛛抓职itsource . cn首页的所有图片</h3>
+
+<pre><code>var http=require('http');
+var fs=require('fs');
+//获取itsource. cn首页的html内容
+http. get( 'http://www.itsource.cn/',function(res){
+	varstr='';
+	res. on('data',function(a){
+		str+=a;
+	});
+	res.on('end',function(){
+		//fs.writeFileSync('./itsource.html',str);
+		var reg = /url\((\/upload.*?)\)/;
+		var arr,result=[];
+		while(arr=reg.exec(str)){
+			result.push(arr[1]);
+		}
+	});
+});
+</code></pre>
 
     </div>
     <div class="article-footer">

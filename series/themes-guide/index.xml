@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/series/themes-guide/</link>
     <description>Recent content in Themes Guide on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue自学笔记</title>
+      <link>https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>vue介绍 vue是一个渐进式的JavaScript框架。渐进式：可插拔式、可扩展。 我们刚开始只需要使用最核心的核心库，后期可以自己去增加新库</description>
+    </item>
     
     <item>
       <title>Express框架</title>
@@ -16,7 +25,7 @@
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/</guid>
-      <description>Express 简介 什么时Express express是一个基于node.js的极简、灵活的web开发框架。可以实现非常强大的web服务器功能。 Expre</description>
+      <description>Express 简介 什么是Express express是一个基于node.js的极简、灵活的web开发框架。可以实现非常强大的web服务器功能。 Expre</description>
     </item>
     
     <item>
@@ -34,7 +43,7 @@
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/12/node/</guid>
-      <description>正在努力中</description>
+      <description>node.js简介 简单来说node.js就是js的一个运行环境，可以运行js代码，用于服务器端编程。 下载安装 下载node.js 安装：一路ne</description>
     </item>
     
     <item>

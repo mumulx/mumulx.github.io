@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Vue自学笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Vue自学笔记." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Vue自学笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Vue自学笔记" />
+<meta property="og:description" content="Vue自学笔记." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2019-12-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-14T00:00:00+00:00" />
+
+<meta itemprop="name" content="Vue自学笔记">
+<meta itemprop="description" content="Vue自学笔记.">
+
+
+<meta itemprop="datePublished" content="2019-12-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5164">
+
+
+
+<meta itemprop="keywords" content="前端框架," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue自学笔记"/>
+<meta name="twitter:description" content="Vue自学笔记."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>这个人会慢慢更新他的博客。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Vue自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/" class="title">Express框架</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Svn学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/12/node/" class="title">Node.js学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/" class="title">Eclipse导入springBoot项目jar包下载太慢的问题</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-11-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-12</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#vue介绍">vue介绍</a>
+<ul>
+<li><a href="#vue引入">vue引入</a></li>
+<li><a href="#xx-vue文件组成结构">xx.vue文件组成结构：</a></li>
+<li><a href="#在chrome中安装vue开发工具">在chrome中安装vue开发工具</a></li>
+<li><a href="#mvvm简介">mvvm简介</a></li>
+<li><a href="#html使用vue">html使用vue</a></li>
+<li><a href="#语法">语法</a>
+<ul>
+<li><a href="#插值表达式">插值表达式 <code>{{}}</code></a></li>
+<li><a href="#v-clock">v-clock:</a></li>
+<li><a href="#v-text"><code>v-text:</code></a></li>
+<li><a href="#v-html"><code>v-html:</code></a></li>
+<li><a href="#v-bind-或"><code>v-bind:</code> 或 <code>:</code></a></li>
+<li><a href="#v-on-或"><code>v-on:</code> 或 <code>@</code></a></li>
+<li><a href="#v-model"><code>v-model</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vue引入css">vue引入css</a>
+<ul>
+<li><a href="#通过class">通过class</a></li>
+<li><a href="#通过style">通过style</a></li>
+<li><a href="#条件渲染">条件渲染</a>
+<ul>
+<li><a href="#v-if-和-v-else"><code>v-if</code>和<code>v-else</code></a></li>
+<li><a href="#v-show"><code>v-show</code></a></li>
+</ul></li>
+<li><a href="#循环遍历">循环遍历</a>
+<ul>
+<li><a href="#遍历对象">遍历对象</a></li>
+<li><a href="#遍历对象数组">遍历对象数组</a></li>
+<li><a href="#删除数组元素-splice">删除数组元素:splice</a></li>
+<li><a href="#更新数组元素-splice">更新数组元素:splice</a></li>
+<li><a href="#筛选">筛选</a></li>
+<li><a href="#排序">排序</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#传播行为与事件">传播行为与事件</a>
+<ul>
+<li><a href="#传参当前对象">传参当前对象</a></li>
+<li><a href="#获取对象">获取对象</a></li>
+<li><a href="#事件的传播行为-propogation">事件的传播行为(propogation)</a></li>
+<li><a href="#阻止默认行为">阻止默认行为</a></li>
+<li><a href="#键盘点击事件">键盘点击事件</a>
+<ul>
+<li><a href="#keydown">keydown</a></li>
+<li><a href="#keyup">keyup</a></li>
+<li><a href="#指定按键触发事件">指定按键触发事件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#表单输入绑定">表单输入绑定</a>
+<ul>
+<li><a href="#生命周期">生命周期</a>
+<ul>
+<li><a href="#作用">作用</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#动画效果">动画效果</a>
+<ul>
+<li><a href="#三个阶段">三个阶段：</a>
+<ul>
+<li><a href="#初始阶段">初始阶段：</a></li>
+<li><a href="#过渡阶段">过渡阶段：</a></li>
+<li><a href="#结束阶段">结束阶段：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#过滤器">过滤器</a>
+<ul>
+<li><a href="#moment-js">moment.js</a></li>
+<li><a href="#注册过滤器">注册过滤器</a></li>
+<li><a href="#使用过滤器">使用过滤器</a></li>
+</ul></li>
+<li><a href="#自定义指令">自定义指令</a>
+<ul>
+<li><a href="#全局指令">全局指令</a></li>
+<li><a href="#局部指令">局部指令</a></li>
+</ul></li>
+<li><a href="#自定义插件">自定义插件</a>
+<ul>
+<li><a href="#开发插件">开发插件</a></li>
+<li><a href="#使用插件">使用插件</a></li>
+</ul></li>
+<li><a href="#vue脚手架开发">vue脚手架开发</a>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#下载模板">下载模板</a></li>
+<li><a href="#打包运行项目">打包运行项目</a></li>
+</ul></li>
+<li><a href="#vuecli源码解读">vuecli源码解读</a>
+<ul>
+<li><a href="#npm-run-dev-触发了哪些文件">npm run dev  触发了哪些文件</a></li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#app-vue中直接引入helloworld-vue">app.vue中直接引入helloworld.vue</a></li>
+<li><a href="#eslint">ESlint</a>
+<ul>
+<li><a href="#检测规则">检测规则</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vue文件">vue文件</a>
+<ul>
+<li><a href="#组成">组成</a></li>
+</ul></li>
+<li><a href="#vuex">vuex</a>
+<ul>
+<li><a href="#开发一个简单的状态管理">开发一个简单的状态管理</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
+    >Vue自学笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-12-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-14</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"> 前端框架 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:5164字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:11分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h2 id="vue介绍">vue介绍</h2>
+
+<p>vue是一个渐进式的JavaScript框架。渐进式：可插拔式、可扩展。</p>
+
+<p>我们刚开始只需要使用最核心的核心库，后期可以自己去增加新库。</p>
+
+<p><a href="https://cn.vuejs.org/">vue官网</a></p>
+
+<h3 id="vue引入">vue引入</h3>
+
+<p>vue提供了非常详细的官方文档，我们完全可以通过官方文档来学习vue.<a href="https://cn.vuejs.org/v2/guide/installation.html">vue官方文档</a></p>
+
+<h3 id="xx-vue文件组成结构">xx.vue文件组成结构：</h3>
+
+<pre><code>&lt;template&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default { 
+    }
+&lt;/script&gt;
+&lt;style&gt;
+&lt;/style&gt;
+</code></pre>
+
+<h3 id="在chrome中安装vue开发工具">在chrome中安装vue开发工具</h3>
+
+<p><a href="https://pan.baidu.com/s/12lTG1FcLfUFeZzakvwIBvg">解压文件下载</a>,或者参考<a href="https://www.cnblogs.com/alice-fee/p/8038367.html">网上的解决方案</a>进行安装</p>
+
+<p>该插件可以在chrome浏览器中充当vue的调试工具</p>
+
+<h3 id="mvvm简介">mvvm简介</h3>
+
+<p><img src="/resources/tp/mvc与mvvm.jpg" alt="mvvm" title="mvvm简介" /></p>
+
+<h3 id="html使用vue">html使用vue</h3>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    var vm = new Vue({
+        el:'',
+        data:{
+        },
+        methods:{
+        },
+        computed:{
+        },
+        watch:{
+		}
+    })
+&lt;/script&gt;
+</code></pre>
+
+<ol>
+<li><p><code>var vm = new Vue({});</code></p>
+
+<p>创建一个vue的实例</p>
+
+<p>当我们导入包之后在浏览器的内存中，就多了一个Vue的构造函数</p>
+
+<p>注意：我们new出来的这个vm对象就是我们mvvm中的vm调度者</p></li>
+
+<li><p>el</p>
+
+<p>表示，当前我们 new的这个vue实例，要控制页面上的哪一个区域</p></li>
+
+<li><p>data</p>
+
+<p>data属性中，存放的时el中索要用到的数据</p>
+
+<p>这里的data 就是mvvm中的m，专门用来保存页面数据的</p>
+
+<p>通过 vue提供的指令，很方便的就能把数据渲染到页面上，程序员不需要手动操作dom元素了【前端的vue之类的框架，不提倡我们区手动操作dom元素了】</p>
+
+<p>computed中的返回值也作为data中的一部分</p></li>
+
+<li><p>computed</p>
+
+<ul>
+<li><p>进行计算，初始时自动加载，和变量是共享的（在data中定义的变量，就不能再在computed中定义）它中方法的返回值，也作为data变量存在：方法名就是变量名，返回值就是它的值。</p></li>
+
+<li><p>当data数据发生改变时也会执行。</p></li>
+
+<li><p>computed中定义的data变量（类似方法的形式）只会被计算一次，之后会加入缓存中，之后在取值时，直接从缓存中获取。</p>
+
+<pre><code>computed:{
+    ageAndName(){
+        return this.name+this.age;
+    }
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>watch</p>
+
+<p>进行监听，将html中的数据放到data中(mvvm中  v&ndash;&gt;m),当数据发生变化时，触发监听</p>
+
+<pre><code>watch:{
+    name:function(value){
+        this.name1= value;
+    }
+}
+</code></pre></li>
+
+<li><p>directives</p>
+
+<p>定义局部指令</p></li>
+</ol>
+
+<h3 id="语法">语法</h3>
+
+<h4 id="插值表达式">插值表达式 <code>{{}}</code></h4>
+
+<p>显示内容，只会替换自己的这个占位符，不会吧整个元素的内容清空</p>
+
+<pre><code>&lt;h1&gt;{{name}}2222222&lt;/h1&gt;
+
+name:&quot;helloword&quot;
+</code></pre>
+
+<p>输出</p>
+
+<pre><code>helloword2222222
+</code></pre>
+
+<h4 id="v-clock">v-clock:</h4>
+
+<p>能够解决插值表达式闪烁的问题</p>
+
+<p>出现的原因：跟生命周期有关</p>
+
+<p>vue会先加载html文件，然后加载js文件，最后进行替换(vue数据)</p>
+
+<p>解决方案：先将元素隐藏，当加载完毕之后在进行显示</p>
+
+<ol>
+<li><p>定义</p>
+
+<pre><code>&lt;style&gt;
+    [v-clock] {
+        display: none;
+    }
+&lt;/style&gt;
+</code></pre></li>
+
+<li><p>使用</p>
+
+<pre><code>&lt;p v-cloak&gt;{{msg}}&lt;/p&gt;
+</code></pre></li>
+</ol>
+
+<p>使用v-clock能够解决插值表达式闪烁的问题，当网络较慢的时候{{msg}}会显示在页面中</p>
+
+<h4 id="v-text"><code>v-text:</code></h4>
+
+<p>显示内容，但是会覆盖元素中的原本内容</p>
+
+<pre><code>&lt;h1 v-text=&quot;name&quot;&gt;222222&lt;/h1&gt;
+
+name:&quot;helloword&quot;
+</code></pre>
+
+<p>输出</p>
+
+<pre><code>helloword
+</code></pre>
+
+<h4 id="v-html"><code>v-html:</code></h4>
+
+<p>带渲染的显示，节点操作</p>
+
+<pre><code>&lt;h1 v-html=&quot;site&quot;&gt;&lt;/h1&gt;
+
+site:&quot;&lt;a href='https://www.baidu.com'&gt;百度&lt;/a&gt;&quot;,
+</code></pre>
+
+<h4 id="v-bind-或"><code>v-bind:</code> 或 <code>:</code></h4>
+
+<p>给html标签的属性绑定值</p>
+
+<p>他的缩写是 <code>:</code></p>
+
+<pre><code>&lt;a v-bind:href=&quot;link&quot;&gt;百度&lt;/a&gt;
+&lt;a :href=&quot;link&quot;&gt;百度&lt;/a&gt;
+</code></pre>
+
+<h4 id="v-on-或"><code>v-on:</code> 或 <code>@</code></h4>
+
+<p>事件的绑定</p>
+
+<pre><code>&lt;button v-on:click=&quot;sayHello&quot;&gt;sayHello&lt;/button&gt;
+&lt;button @click=&quot;sayHello&quot;&gt;sayHello&lt;/button&gt;
+&lt;button @click=&quot;sayHelloName('ssss')&quot;&gt;sayHelloName&lt;/button&gt;
+</code></pre>
+
+<p>无参函数中的<code>()</code>可写可不写</p>
+
+<p>有参函数需要传参的时候需要加上<code>()</code></p>
+
+<h4 id="v-model"><code>v-model</code></h4>
+
+<p>可以实现 表单元素和model中的数据实现双向绑定</p>
+
+<pre><code>用户名：&lt;input type=&quot;text&quot; v-model=&quot;name&quot;/&gt;
+</code></pre>
+
+<p><strong>注意：</strong></p>
+
+<ul>
+<li><p>将data中的数据传到html中
+插值表达式 <code>{{}}</code>，<code>v-text:</code>，<code>v-html:</code>，等方式</p></li>
+
+<li><p>将html中的数据传到data中：</p>
+
+<ol>
+<li><p>通过监听watch</p></li>
+
+<li><p>通过vue对象</p>
+
+<pre><code>vm.$watch('name', function(value){
+    this.age= value;
+})
+</code></pre></li>
+</ol></li>
+</ul>
+
+<h2 id="vue引入css">vue引入css</h2>
+
+<h3 id="通过class">通过class</h3>
+
+<ol>
+<li><p>定义css</p>
+
+<pre><code>&lt;style&gt;
+    .mystyle1{
+        background-color: blue ;
+        width: 100px;
+        height: 100px;
+    }
+&lt;/style&gt;
+</code></pre></li>
+
+<li><p>css绑定到data</p>
+
+<pre><code>css1 : 'mystyle1'
+</code></pre></li>
+
+<li><p>html元素使用css</p>
+
+<pre><code>&lt;h3 :class=&quot;mystyle1&quot;&gt;1111111&lt;/h3&gt;
+</code></pre></li>
+</ol>
+
+<p><strong>注意</strong></p>
+
+<ol>
+<li><p>vue的css样式引入可以与传统的css样式引入共存</p>
+
+<pre><code>&lt;h3 class=&quot;mystyle3&quot; :class=&quot;css1&quot;&gt;info:{{info}}&lt;/h3&gt;
+</code></pre></li>
+
+<li><p>:class的值 是一个对象<code>{k1:v1,k2:v2...}</code>如果对象中的变量值true，则生效；否则不生效</p>
+
+<pre><code>&lt;h3 :class=&quot;{mystyle1:istrue, mystyle3:isfalse}&quot;  &gt;111111&lt;/h3&gt;
+</code></pre>
+
+<p>istrue和isfalse在data中定义，根据他们的值来判断样式是否生效，当<code>istrue=true;isfalse=false;</code>时，mystyle1生效，mystyle3不生效</p>
+
+<p>值可以同时为true或false</p></li>
+
+<li><p>绑定数组 <code>[]</code></p>
+
+<pre><code>&lt;h3 :class=&quot;['mystyle1', 'mystyle3']&quot;&gt;11111&lt;/h3&gt;
+</code></pre>
+
+<p>同时生效</p></li>
+
+<li><p>vue取值有一个特点：取的值是变量，变量名是在data中定义的。</p></li>
+</ol>
+
+<h3 id="通过style">通过style</h3>
+
+<p>语法：</p>
+
+<p><code>:style={样式名:样式值(&lt;从data中获取&gt;),x:x,...}</code></p>
+
+<pre><code>&lt;h3 :style=&quot;{backgroundColor:x,color:y}&quot;&gt;info000000:{{info}}&lt;/h3&gt;
+
+    x:'lightgray' ,
+    y:'purple',
+</code></pre>
+
+<p>注意：</p>
+
+<p>属性的名字不能使用xxx-yyyy(中间使用<code>-</code>符号)，而需要使用 xxxYyyy(驼峰命名)</p>
+
+<h3 id="条件渲染">条件渲染</h3>
+
+<h4 id="v-if-和-v-else"><code>v-if</code>和<code>v-else</code></h4>
+
+<pre><code>&lt;h3 v-if=&quot;istrue&quot;&gt;1111&lt;/h3&gt;  
+&lt;h3 v-else&gt;222&lt;/h3&gt;  
+</code></pre>
+
+<p>isture在data中定义，当为真时显示111，为假时显示222</p>
+
+<h4 id="v-show"><code>v-show</code></h4>
+
+<pre><code>&lt;h3 v-show=&quot;isture&quot;&gt;111&lt;/h3&gt;  
+&lt;h3 v-show=&quot;!isture&quot;&gt;222&lt;/h3&gt;  
+</code></pre>
+
+<p><strong>注意：</strong><code>v-if</code>和<code>v-show</code>的区别</p>
+
+<p>v-show可以在源码中追踪到隐藏的元素,即隐藏的元素可以在源码中找到；</p>
+
+<p>v-if无法追踪，即隐藏的元素，在源码中找不到；</p>
+
+<h3 id="循环遍历">循环遍历</h3>
+
+<pre><code> &lt;!-- 遍历一个具体对象  (一个对象有很多属性：name  age  )--&gt;
+&lt;ul&gt;
+    &lt;li v-for=&quot;(value,name) in students[2]&quot; :key=&quot;name&quot; &gt;
+            {{value}} --{{name}}
+        &lt;/li&gt;
+    &lt;/li&gt;
+
+&lt;/ul&gt;
+</code></pre>
+
+<p><code>value</code>：对象属性的值</p>
+
+<p><code>name</code>：对象的属性名</p>
+
+<p><code>students[2]</code>:对象数组中的一个元素(即一个对象)</p>
+
+<h4 id="遍历对象">遍历对象</h4>
+
+<h4 id="遍历对象数组">遍历对象数组</h4>
+
+<pre><code>&lt;ul&gt;
+    &lt;li v-for=&quot;(s,index) in students&quot; :key=&quot;index&quot; &gt;
+        {{index}}   -  {{s.name}} -   {{s.age}}  
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+students: [ 
+    {name:'zs', age:23},
+    {name:'ls', age:24}, 
+    {name:'ww', age:25},
+    {name:'zl', age:26},  
+    {name:'sq', age:27}   
+]  //对象数组
+</code></pre>
+
+<p><code>s</code>:数组的每一个元素</p>
+
+<p><code>index</code>:下标</p>
+
+<p><code>students</code>:数组</p>
+
+<p><code>:key</code>:唯一值</p>
+
+<p>注意：想要获取data中的数据，需要通过<code>this.</code>来获取</p>
+
+<h4 id="删除数组元素-splice">删除数组元素:splice</h4>
+
+<pre><code>//删除完毕后，数组元素 会自动重新排序
+this.students.splice(index,1);
+</code></pre>
+
+<p>从下标index起删除1个</p>
+
+<h4 id="更新数组元素-splice">更新数组元素:splice</h4>
+
+<pre><code>this.students.splice(index,1,stu);
+</code></pre>
+
+<p>将下标为index的数组元素更新为stu对象</p>
+
+<h4 id="筛选">筛选</h4>
+
+<p>组成：查询的条件，新数组</p>
+
+<ol>
+<li><p>定义查询条件(即定义data中数据)</p>
+
+<p>queryname: &ldquo; //筛选条件</p></li>
+
+<li><p>具体实现方法(在computed中定义，函数名就是变量，即新数组)</p>
+
+<pre><code>//筛选后的新数组
+queryStuentsResult(){  
+    // 新数组的值
+    var queryStudents ;//s
+    //筛选条件
+    // var queryname =  data中定义的queryname  ;
+    // var student2 = data中定义的数组students ;
+    var {queryname,students} = this ;//this 就是data
+    //根据查询条件，筛选出新数组
+    queryStudents =  students.filter(
+        stu=&gt;stu.name .indexOf(queryname ) &gt; -1
+    )  
+    return queryStudents ;
+}
+
+</code></pre></li>
+</ol>
+
+<h4 id="排序">排序</h4>
+
+<ol>
+<li><p>定义升降序变量(0:升序,1:降序)</p>
+
+<pre><code> ordered: 0
+</code></pre></li>
+
+<li><p>对queryStudents对象数组中的元素，根据<code>age</code>属性进行排序</p>
+
+<pre><code>//排序
+queryStudents.sort( function(s1,s2) {
+        if(ordered ==0){//升序
+            return s1.age - s2.age
+        }{//降序
+            return s2.age -s1.age   
+        }
+})
+</code></pre>
+
+<p>升序：第一个 - 第二个</p>
+
+<p>降序：第二个 - 第一个</p>
+
+<p>别忘了<code>return</code></p></li>
+</ol>
+
+<h2 id="传播行为与事件">传播行为与事件</h2>
+
+<h3 id="传参当前对象">传参当前对象</h3>
+
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮1&quot;  @click=&quot;myclick&quot; /&gt;
+
+&lt;!--错误行为--&gt;
+&lt;!-- &lt;input type=&quot;button&quot; value=&quot;按钮&quot;  @click=&quot;myclick()&quot; /&gt; --&gt;    
+
+&lt;input type=&quot;button&quot; value=&quot;按钮2&quot;  @click=&quot;myclick2($event)&quot; /&gt;
+</code></pre>
+
+<p>传当前对象时，要么不写，要么添加<code>($event)</code>，不能只写<code>()</code>这样会报错</p>
+
+<h3 id="获取对象">获取对象</h3>
+
+<pre><code>myclick(event){
+    alert( event.target.value ) 
+},
+myclick2(event){
+    alert(event.target.value )
+},
+</code></pre>
+
+<p>event.target：当前对象</p>
+
+<p><strong>注意：</strong>在vue中结尾符<code>;</code>可写可不写(要么都写，要么都不写)</p>
+
+<h3 id="事件的传播行为-propogation">事件的传播行为(propogation)</h3>
+
+<pre><code>&lt;div :class=&quot;css1&quot; @click='myclick3()'&gt;
+    outer
+    &lt;div :class=&quot;css2&quot; @click='myclick4()'&gt;
+        inner
+    &lt;/div&gt;
+&lt;/div&gt;
+
+myclick4(){
+    alert('inner' )
+},
+myclick5(){
+    alert('link...' )
+},
+</code></pre>
+
+<p>结果：</p>
+
+<p>点击:inner时，会触发outer的点击事件</p>
+
+<p>阻止行为：</p>
+
+<pre><code>&lt;div :class=&quot;css1&quot; @click='myclick3()'&gt;
+    outer
+    &lt;div :class=&quot;css2&quot; @click.stop='myclick4()'&gt;
+        inner
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="阻止默认行为">阻止默认行为</h3>
+
+<pre><code>&lt;a href=&quot;https://www.baidu.com&quot;  @click.prevent='myclick5()'&gt;百度&lt;/a&gt;
+
+myclick5(){
+    alert('link...' )
+},
+</code></pre>
+
+<p><strong>注意</strong>:.xxx可以嵌套着使用</p>
+
+<h3 id="键盘点击事件">键盘点击事件</h3>
+
+<h4 id="keydown">keydown</h4>
+
+<p>按键 按下事件</p>
+
+<pre><code>&lt;input @keydown='myclick6'&gt;
+
+myclick6(event){
+    //event.target :当前dom对象
+    //event.keyCode：按键的值 a : 65
+    alert(  event.keyCode  +'--'+ event.target.value   )
+},
+</code></pre>
+
+<h4 id="keyup">keyup</h4>
+
+<p>按键弹上去事件</p>
+
+<h4 id="指定按键触发事件">指定按键触发事件</h4>
+
+<pre><code>&lt;input  @keyup.13='myclick6' &gt;
+</code></pre>
+
+<p>指定的按键按下抬起时才触发的事件</p>
+
+<p>每一个键盘的按键都对应着一个键码值</p>
+
+<h2 id="表单输入绑定">表单输入绑定</h2>
+
+<pre><code>&lt;form  action=&quot;&quot;  @submit.prevent=&quot;mysubmit&quot;&gt;
+    用户名：&lt;input type=&quot;text&quot; v-model=&quot;user.username&quot; &gt;&lt;br&gt;
+    密码：&lt;input type=&quot;password&quot; v-model=&quot;user.password&quot; &gt;&lt;br&gt;
+    性别：
+    &lt;input type=&quot;radio&quot; value=&quot;male&quot;  v-model=&quot;user.password&quot;&gt;男&lt;br&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;female&quot;  v-model=&quot;user.password&quot;&gt;女&lt;br&gt;
+    兴趣：
+    &lt;input type=&quot;checkbox&quot; value=&quot;football&quot;   v-model=&quot;user.hobbies&quot;&gt;足球，
+    &lt;input type=&quot;checkbox&quot; value=&quot;basketball&quot;  v-model=&quot;user.hobbies&quot;&gt;篮球，
+    &lt;input type=&quot;checkbox&quot; value=&quot;pingpang&quot;  v-model=&quot;user.hobbies&quot;&gt;乒乓球，
+    城市：
+    &lt;select name=&quot;&quot; id=&quot;&quot;  v-model=&quot;user.city&quot;&gt;
+            &lt;option :value=&quot;c.id&quot; v-for=&quot;c in optionalCities&quot;&gt;
+                {{c.name}}
+            &lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+
+&lt;/form&gt;
+
+</code></pre>
+
+<pre><code>data:{
+user:{ 
+    username: '' ,
+    passowrd: '' ,
+    sex: 'male',
+    hobbies: [] ,
+    city: '' //选中
+},
+//可选
+optionalCities: [&quot;js&quot;,&quot;bj&quot;,&quot;sh&quot;]
+},
+</code></pre>
+
+<p>这里只列出了部分的用法详细的用法参考官网手册(<a href="http://doc.vue-js.com/v2/guide/forms.html">http://doc.vue-js.com/v2/guide/forms.html</a>)</p>
+
+<p>意义：如果给后台传递一个form表单的数据，不用再 一个一个的获取每个input等元素的值；而可以一次性传递一个对象</p>
+
+<h3 id="生命周期">生命周期</h3>
+
+<h4 id="作用">作用</h4>
+
+<p>生命周期的作用：某个动作 都有一个流程，当执行到该流程的某一个阶段时，会自动触发一些函数</p>
+
+<p>注意:生命周期函数与methods和el等标签同级</p>
+
+<p>详细的说明参见官方文档(<a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA">https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA</a>)</p>
+
+<h2 id="动画效果">动画效果</h2>
+
+<p>显示：Enter</p>
+
+<p>隐藏：Leave</p>
+
+<h3 id="三个阶段">三个阶段：</h3>
+
+<h4 id="初始阶段">初始阶段：</h4>
+
+<pre><code>v-enter/v-leave
+</code></pre>
+
+<h4 id="过渡阶段">过渡阶段：</h4>
+
+<pre><code>v-enter-active / v-leave-active
+</code></pre>
+
+<h4 id="结束阶段">结束阶段：</h4>
+
+<pre><code>v-enter-to/v-leave-to
+</code></pre>
+
+<p><code>v-</code> 是这些类名的前缀。使用 <code>&lt;name=&quot;my-transition&quot;&gt;</code> 可以重置前缀，比如 <code>v-enter</code> 替换为 <code>my-transition-enter</code>。</p>
+
+<h2 id="过滤器">过滤器</h2>
+
+<p>{{ message | filterA | filterB }}</p>
+
+<p>{{msg | 过滤器1 | 过滤器2 }}</p>
+
+<h3 id="moment-js">moment.js</h3>
+
+<p>时间格式化，去<a href="http://momentjs.cn/">官网</a>下载js文件</p>
+
+<p>引入</p>
+
+<h3 id="注册过滤器">注册过滤器</h3>
+
+<pre><code>  //过滤：注册-&gt;使用  (西方日期 -&gt;格式)    //es6:函数默认参数值
+    Vue.filter('dateFilter' , function(value, dateFormat='YYYY-MM-DD HH:mm:ss' ){
+           return  moment(value).format(dateFormat) ;
+    })
+</code></pre>
+
+<h3 id="使用过滤器">使用过滤器</h3>
+
+<pre><code>{{ now | dateFilter('YYYY-MM-DD')}}
+</code></pre>
+
+<h2 id="自定义指令">自定义指令</h2>
+
+<p>v-text-upper</p>
+
+<p>v-text-lower</p>
+
+<p>定义指令的名字是<code>v-</code>是不需要我们写的，只需要写右边的部分即可</p>
+
+<h3 id="全局指令">全局指令</h3>
+
+<p>与<code>var  vm = new Vue({})</code>同级（与全局变量定义类似）</p>
+
+<ol>
+<li><p>注册全局指令</p>
+
+<pre><code>Vue.directive('text-upper',function(el,binding){
+    el.innerHTML= binding.value.toUpperCase();
+})
+</code></pre></li>
+
+<li><p>使用</p>
+
+<pre><code>&lt;p v-text-upper=&quot;myVariable&quot;&gt;&lt;/p&gt;
+
+myVariable : &quot;Hello World&quot;,
+</code></pre></li>
+</ol>
+
+<h3 id="局部指令">局部指令</h3>
+
+<p>在<code>var  vm = new Vue({})</code>中定义 （与局部变量定义类似）</p>
+
+<ol>
+<li><p>注册局部指令</p>
+
+<pre><code>//注册局部指令
+directives:{
+    'text-lower' :{
+        bind(el,binding){
+            el.innerHTML= binding.value.toLowerCase();
+        }
+    }
+}
+</code></pre></li>
+
+<li><p>使用</p>
+
+<pre><code>&lt;p v-text-upper=&quot;myVariable&quot;&gt;&lt;/p&gt;
+
+myVariable : &quot;Hello World&quot;,
+</code></pre></li>
+</ol>
+
+<h2 id="自定义插件">自定义插件</h2>
+
+<p>详细参见<a href="https://cn.vuejs.org/v2/guide/plugins.html#%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6">官方文档</a></p>
+
+<h3 id="开发插件">开发插件</h3>
+
+<p>例</p>
+
+<pre><code>(function(){
+  const MyPlugin = {} ;
+MyPlugin.install = function (Vue, options) {
+    // 1. 添加全局方法或属性
+    Vue.myGlobalMethod = function () {
+       alert('全局方法或属性');
+    }
+  
+    // 2. 添加全局资源
+    Vue.directive('my-directive', {//v-text-upper
+      bind (el, binding, vnode, oldVnode) {
+        // 逻辑...
+      }
+    })
+  
+    // 3. 注入组件选项  .每次实例vue对象中调用一次
+    Vue.mixin({
+      created: function () {
+        // 逻辑...
+        alert('mixin');
+      }
+    })
+  
+    // 4. 添加实例方法（局部）
+    Vue.prototype.$myMethod = function (methodOptions) {
+      // 逻辑...
+      alert('局部') ;
+    }
+  }
+  //将插件 暴露给外部使用
+  window.MyPlugin = MyPlugin ;
+
+})()
+</code></pre>
+
+<h3 id="使用插件">使用插件</h3>
+
+<ol>
+<li><p>引入(js文件)</p></li>
+
+<li><p>使用插件</p>
+
+<pre><code>Vue.use(MyPlugin);
+
+//全局：static   
+//类名.静态方法()
+Vue.myGlobalMethod();
+//对象.方法()
+vm.$myMethod();
+</code></pre></li>
+</ol>
+
+<h2 id="vue脚手架开发">vue脚手架开发</h2>
+
+<p>vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。</p>
+
+<h3 id="安装">安装</h3>
+
+<pre><code>npm install -g vue-cli
+</code></pre>
+
+<h3 id="下载模板">下载模板</h3>
+
+<pre><code>vue init webpack my_vue_cli
+</code></pre>
+
+<p>需要配置一些基本信息，不配置的话就一路回车</p>
+
+<p><strong>注意：</strong> 根据提示 安装附加组件，安装时输入项目名时不能包含大写字母。安装时，不要随意点鼠标，点击鼠标右键可以恢复。</p>
+
+<p>根据提示</p>
+
+<pre><code>cd my_vue_cli
+npm run dev
+</code></pre>
+
+<h3 id="打包运行项目">打包运行项目</h3>
+
+<ol>
+<li><p>生成dist目录</p>
+
+<pre><code>npm run build
+</code></pre></li>
+
+<li><p>安装服务组件(静态服务)</p>
+
+<p>npm install -g serve</p></li>
+
+<li><p>运行
+    serve dist</p></li>
+
+<li><p>动态服务(tomcat)</p>
+
+<ol>
+<li><p>配置<code>webpack.prod.conf.js</code></p>
+
+<pre><code>output: {
+...  
+publicPath: '/myvue/'    --&gt;配置访问时的项目名
+</code></pre></li>
+
+<li><p>打包成dist</p></li>
+
+<li><p>将dist拷贝到tomcat/webapps中，并且再将dist修改成myvue</p></li>
+
+<li><p>启动tomcat,运行</p></li>
+</ol></li>
+</ol>
+
+<h2 id="vuecli源码解读">vuecli源码解读</h2>
+
+<h3 id="npm-run-dev-触发了哪些文件">npm run dev  触发了哪些文件</h3>
+
+<ol>
+<li><p>dev -&gt;package.json -&gt;build/webpack.dev.conf.js -&gt;./webpack.base.conf -&gt;./src/main.js引用时的名字叫app</p></li>
+
+<li><p>根据web基础知识可知：
+<code>http://localhost:8080</code> 实际是访问<code>http://localhost:8080/index.html</code></p>
+
+<ul>
+<li><p>index.html:</p>
+
+<p><code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code>  -&gt;会被src/App.vue中的<code>&lt;div id=&quot;app&quot;&gt;</code>内容注入：</p></li>
+</ul></li>
+
+<li><p>src/App.vue中内容</p>
+
+<p><code>&lt;router-view/&gt;</code> ：路由，映射关系  localhost:8080/b&ndash;&gt; xxx本项目的映射： localhost:8080/  &ndash;&gt;HelloWorld.vue</p>
+
+<p>配置路由：<code>&lt;router-view/&gt;</code>: router/index.js 文件</p></li>
+</ol>
+
+<h3 id="小结">小结</h3>
+
+<pre><code>npm run dev -&gt; main.js
+localhost:8080 /   :index -&gt; router -&gt; HelloWorld.vue中的内容
+</code></pre>
+
+<h3 id="app-vue中直接引入helloworld-vue">app.vue中直接引入helloworld.vue</h3>
+
+<ol>
+<li><p>引入helloworld.vue</p>
+
+<pre><code>&lt;script&gt;
+    import HelloWorld from './components/HelloWorld'
+</code></pre></li>
+
+<li><p>将引入的文件打成一个组件</p>
+
+<pre><code>export default{
+    xxxxxx,
+    components:{
+        HelloWorld
+    }
+}
+</code></pre></li>
+
+<li><p>使用组件</p>
+
+<p>以标签的形式使用</p>
+
+<pre><code>&lt;HelloWorld&gt;&lt;/HelloWorld&gt;
+</code></pre></li>
+</ol>
+
+<h3 id="eslint">ESlint</h3>
+
+<p>代码规范检查工具，<a href="https://eslint.bootcss.com/docs/rules/">官网</a></p>
+
+<p>可以检测</p>
+
+<ul>
+<li>空格个数</li>
+<li>空行</li>
+<li>变量名</li>
+<li>代码是否未被使用</li>
+<li>&hellip;</li>
+</ul>
+
+<p>如果不规范，则警告 或报错</p>
+
+<h4 id="检测规则">检测规则</h4>
+
+<ul>
+<li>&ldquo;off&rdquo; 或 0 - 关闭规则</li>
+<li>&ldquo;warn&rdquo; 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)</li>
+<li>&ldquo;error&rdquo; 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)</li>
+</ul>
+
+<p><strong>设置某些检查规则：</strong><code>.eslintrc.js</code>文件</p>
+
+<p><strong>全局设置是否启用ESlint：</strong><code>.eslintignore</code>文件</p>
+
+<p>注意：</p>
+
+<p>初学：关闭</p>
+
+<p>真实的开发项目：打开，帮助规范代码的编写</p>
+
+<h2 id="vue文件">vue文件</h2>
+
+<h3 id="组成">组成</h3>
+
+<pre><code>&lt;template&gt;
+
+&lt;script&gt;
+
+&lt;style&gt;
+</code></pre>
+
+<pre><code>export default {
+     name: '名字' ,
+     data(){
+     return    msg: 'xxx'
+     }，
+	 omputed:{},
+	 methods:{},
+ 	 components:{//组件}
+}   	  
+
+</code></pre>
+
+<h2 id="vuex">vuex</h2>
+
+<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。
+<a href="https://vuex.vuejs.org/zh/">vue中文官网</a></p>
+
+<h3 id="开发一个简单的状态管理">开发一个简单的状态管理</h3>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Vue自学笔记" target="_blank" rel="external">https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/" title="Express框架"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
