@@ -5,7 +5,7 @@
     <link>https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/</link>
     <description>Recent content in Spring家族 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,15 @@
       
       <guid>https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>vue介绍 vue是一个渐进式的JavaScript框架。渐进式：可插拔式、可扩展。 我们刚开始只需要使用最核心的核心库，后期可以自己去增加新库</description>
+    </item>
+    
+    <item>
+      <title>Springboot自学笔记</title>
+      <link>https://mumulx.github.io/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>这个人比较懒还没开始写呢！</description>
     </item>
     
     <item>
@@ -62,6 +71,15 @@
       
       <guid>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>Git简介 &amp;emsp;Git是一个分布式版本控制系统。版本控制系统又分为：集群式版本控制系统(常见的有cvs、svn)、分布式版本控制系统(</description>
+    </item>
+    
+    <item>
+      <title>Mybatis自学笔记</title>
+      <link>https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>这个人比较懒还没开始写呢！</description>
     </item>
     
     <item>
