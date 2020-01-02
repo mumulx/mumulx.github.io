@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-12-14T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="5194">
+<meta itemprop="wordCount" content="10662">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">8</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">6</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
@@ -187,7 +187,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
@@ -384,7 +384,36 @@
 <ul>
 <li><a href="#安装vuex依赖">安装vuex依赖</a></li>
 <li><a href="#新建-src-store-js文件">新建./src/store.js文件</a></li>
+<li><a href="#封装对象">封装对象</a></li>
+<li><a href="#新建组件使用变量">新建组件使用变量</a></li>
+<li><a href="#执行">执行</a></li>
+<li><a href="#异步实现自增-acioncrease">异步实现自增 acioncrease</a></li>
+<li><a href="#两种取值方式">两种取值方式</a></li>
+<li><a href="#优化取值">优化取值</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#vue-resource的使用">vue-resource的使用</a></li>
+<li><a href="#promise的使用">Promise的使用</a></li>
+<li><a href="#vue组件">vue组件</a>
+<ul>
+<li><a href="#定义一个简单的组件">定义一个简单的组件</a></li>
+</ul></li>
+<li><a href="#特殊特性-is">特殊特性 is</a>
+<ul>
+<li><a href="#实现动态组件">实现动态组件</a></li>
+<li><a href="#什么时候加this">什么时候加this</a></li>
+</ul></li>
+<li><a href="#组件的过渡效果和参数传递的问题">组件的过渡效果和参数传递的问题</a>
+<ul>
+<li><a href="#传参">传参</a></li>
+<li><a href="#组件的简化写法">组件的简化写法</a></li>
+<li><a href="#调用组件内部的方法">调用组件内部的方法</a>
+<ul>
+<li><a href="#普通的方法调用">普通的方法调用</a></li>
+<li><a href="#定义的组件的方法的调用">定义的组件的方法的调用</a></li>
+</ul></li>
+<li><a href="#refs">refs</a></li>
+<li><a href="#render函数">render函数</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -423,8 +452,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:5194字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:11分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:10662字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:22分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -475,8 +504,14 @@
         },
         computed:{
         },
+        directives:{
+        },
         watch:{
-		}
+		},
+        components:{
+        },
+        filters:{
+        }
     })
 &lt;/script&gt;
 </code></pre>
@@ -496,13 +531,19 @@
 
 <li><p>data</p>
 
-<p>data属性中，存放的时el中索要用到的数据</p>
+<p>data属性中，存放的时el中索要用到的数据，形式是采用<code>key:value</code>的形式</p>
 
 <p>这里的data 就是mvvm中的m，专门用来保存页面数据的</p>
 
 <p>通过 vue提供的指令，很方便的就能把数据渲染到页面上，程序员不需要手动操作dom元素了【前端的vue之类的框架，不提倡我们区手动操作dom元素了】</p>
 
+<p>data中定义的变量是全局变量，所有vue对象都可以使用</p>
+
 <p>computed中的返回值也作为data中的一部分</p></li>
+
+<li><p>methods</p>
+
+<p>定义方法</p></li>
 
 <li><p>computed</p>
 
@@ -517,9 +558,14 @@
     ageAndName(){
         return this.name+this.age;
     }
-}
-</code></pre></li>
+</code></pre>
+
+<p>}</p></li>
 </ul></li>
+
+<li><p>directives</p>
+
+<p>定义局部指令</p></li>
 
 <li><p>watch</p>
 
@@ -532,9 +578,15 @@
 }
 </code></pre></li>
 
-<li><p>directives</p>
+<li><p>components</p>
 
-<p>定义局部指令</p></li>
+<p>定义组件</p></li>
+
+<li><p>filters</p>
+
+<p>定义过滤器</p></li>
+
+<li><p>生命周期的函数</p></li>
 </ol>
 
 <h3 id="语法">语法</h3>
@@ -1350,7 +1402,21 @@ localhost:8080 /   :index -&gt; router -&gt; HelloWorld.vue中的内容
 <h2 id="vuex">vuex</h2>
 
 <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。
-<a href="https://vuex.vuejs.org/zh/">vue中文官网</a></p>
+<a href="https://vuex.vuejs.org/zh/">vuex中文官网</a></p>
+
+<p>根据官网的流程图来理解Vuex</p>
+
+<p>状态自管理应用包含以下几个部分:</p>
+
+<ol>
+<li>state, 驱动应用的数据源;</li>
+<li>view,以声明方式将state映射到视图;</li>
+<li>actions, 响应在view.上的用户输入导致的状态变化。</li>
+</ol>
+
+<p>他们时单向不可逆的，我们已简单的数字自增来举例，在state中定义一个变量count，显示在view组件上，通过actions来操作state，state变化后，view中也随之改变。</p>
+
+<p>但实际中vuex还有一个部分 mutations，根据官网的第二张图，我们发现action通过commit调用了Mutations，Mutations通过Mutate调用State，State通过Render来调用view，view通过dispatch来调用Action。此时就有点像mvc模式，actions和Mutations的关系就像service和dao的关系一样，Mutations会执行一些原子性的操作，而actions会做一些带逻辑性的操作；如删除操作，Actions会先判断存不存在，当存在的时候在进行删除，而Mutations则只进行删除操作。</p>
 
 <h3 id="开发一个简单的状态管理">开发一个简单的状态管理</h3>
 
@@ -1360,6 +1426,746 @@ localhost:8080 /   :index -&gt; router -&gt; HelloWorld.vue中的内容
 </code></pre>
 
 <h4 id="新建-src-store-js文件">新建./src/store.js文件</h4>
+
+<pre><code>import Vue from 'vue'
+import Vuex from 'vuex'
+//使用vuex
+Vue.use(Vuex)
+//定义共享变量
+const state = {
+    count :0
+}
+//直接操作共享变量的对象
+const mutations={
+    mulincreases(state){
+        state.count++;    
+    }
+}
+//操作mutations的对象
+const actions={
+    actioncrease({commit}){
+        commit('mulincreases');
+    }
+}
+//将store.js中的对象暴漏给外界 ，用于其他组件的共享
+export default new Vuex.Store({
+    state,
+    mutations,
+    actions
+})
+</code></pre>
+
+<h4 id="封装对象">封装对象</h4>
+
+<p>我们发现要想将对象暴漏给外界，当需要暴漏的对象太多的时候，就会很麻烦，因此我们可以将要暴漏的对象给封装起来。</p>
+
+<p>在前面我们可知，程序在启动时会自动触发src/main.js文件。因此，思路：可以将store.js中暴露的多个对象，封装到main.js中。</p>
+
+<p>例：</p>
+
+<pre><code>
+//引入准备封装的文件
+import store from &quot;./store&quot;
+new Vue({
+    //xxxx
+  store//注入store对象
+})
+
+</code></pre>
+
+<p>此时我们需要引用需要暴漏的对象时只需要使用<code>store.xxx</code>即可使用。</p>
+
+<h4 id="新建组件使用变量">新建组件使用变量</h4>
+
+<p>组件其实就是一个.vue的文件</p>
+
+<p>我们在app.vue中使用变量</p>
+
+<p>src/main.js -》store -&gt;App.vue</p>
+
+<p>程序的启动顺序，先main.js(store) -&gt;App.vue
+因此，在使用App.vue时，已经加载过了store,因此在App.vue中可以直接使用store,使用方式：$store</p>
+
+<pre><code>{{$store.state.count}}
+</code></pre>
+
+<p>通过这种方式使得变量count显示在页面上</p>
+
+<pre><code>    {{$store.state.count}}
+    &lt;button @click=&quot;countinc&quot;&gt;+&lt;/button&gt;
+</code></pre>
+
+<pre><code>    &lt;script&gt;
+    export default{
+        methods:{
+            countinc(){
+            //注意$store是一个全局对象需要使用this来拿
+            return  this.$store.dispatch('actioncrease')
+            }
+        }
+    }
+    &lt;/script&gt;
+</code></pre>
+
+<p>通过this来获取$store对象</p>
+
+<h4 id="执行">执行</h4>
+
+<pre><code>npm run dev
+</code></pre>
+
+<h4 id="异步实现自增-acioncrease">异步实现自增 acioncrease</h4>
+
+<p>只需要添加并使用此方法</p>
+
+<pre><code>    //异步自增
+    asyncincrease({commit}){
+        setTimeout(()=&gt;{
+            commit('mulincreases')
+        },2000)
+    }
+</code></pre>
+
+<p><img src="/resources/vue/vuex.png" alt="思维导图" title="vuex思维导图" /></p>
+
+<h4 id="两种取值方式">两种取值方式</h4>
+
+<ol>
+<li><p><code>{{$xxx}}</code>方式</p>
+
+<pre><code>{{$store.state.count}}
+</code></pre></li>
+</ol>
+
+<p>数据来自store.js&ndash;&gt;getters&ndash;&gt;isAudlt(){&hellip;}</p>
+
+<ol>
+<li><p>方法取值</p>
+
+<pre><code> &lt;button @click=&quot;countinc&quot;&gt;+&lt;/button&gt;
+</code></pre></li>
+</ol>
+
+<p>数据来自：store.js&ndash;&gt;actions&ndash;&gt;actincrease({commit}){}</p>
+
+<h4 id="优化取值">优化取值</h4>
+
+<p>直接使用isAudlt(){&hellip;}和actincrease({commit}){}进行取值</p>
+
+<p>vuex中自带了两个对象</p>
+
+<pre><code>import {mapGetters,mapActions} from 'vuex'
+</code></pre>
+
+<ul>
+<li>mapGetters 可以获取getters中的方法</li>
+<li>mapActions 可以获取Actions中的方法</li>
+</ul>
+
+<p>如</p>
+
+<pre><code>computed:mapGetters({
+  isAudlt : 'isAudlt'//将store.js中getters中的isAudlt()映射成isAudlt对象（前面的是属性，后面的是getters中的方法）
+})
+
+</code></pre>
+
+<pre><code>
+  methods:mapActions(['actioncrease','asyncincrease']),
+
+</code></pre>
+
+<p>使用</p>
+
+<pre><code>{{isAudlt}}
+
+&lt;button @click=&quot;actioncrease&quot;&gt;同步+&lt;/button&gt;
+&lt;button @click=&quot;asyncincrease&quot;&gt;异步+&lt;/button&gt;
+</code></pre>
+
+<p>思路:</p>
+
+<p>以前需要通过$store获取store. js中的getter方法和actions方法现在可以直接通过mapGetters, mapActi ons获取store. js中的getter方法和actions方法</p>
+
+<h2 id="vue-resource的使用">vue-resource的使用</h2>
+
+<p><a href="https://www.npmjs.com/package/vue-resource">官网</a>
+相当于ajax、axios</p>
+
+<ul>
+<li><p>get(url, [config])</p></li>
+
+<li><p>post(url, [body], [config])</p></li>
+</ul>
+
+<p>请求的方式config的作用，当表单发送请求时，需要加上{emulateJSON:true}，默认不加也行，但是为了防止某些特殊的情况建议还是加上。在前端，表单提交时一般加上:application/x-www.form-urlencoded，两者作用相似</p>
+
+<p>body参数时传递的参数值；一般是采用对象的方式进行传参</p>
+
+<pre><code>this.$http.get(&quot;请求地址&quot;,{},{emulateJSON:true}).then(reponse=&gt;{
+    consolg.log(resoonse);
+})
+</code></pre>
+
+<ul>
+<li>jsonp(url, [config])</li>
+</ul>
+
+<p>支持跨域</p>
+
+<p>如果前台和后台的地址、端口、协议不一致(只要任何一个不一致)就称为跨域请求。为了安全，浏览器一般都禁止跨域请求</p>
+
+<p>解决：使用js技术替代了传统的http请求</p>
+
+<p>使用node.js搭建服务器</p>
+
+<pre><code>const http =  require('http') 
+const urlModule =  require('url')   
+//localhost:8080/myrequest?cb=myshow
+//localhost:8080/myrequest2
+//创建服务
+let server = http.createServer();
+//servlet: doGet(request,resposne)
+server.on('request',  function(req,res){
+    console.log('abcc')
+    const { pathname ,query }  =   urlModule.parse( req.url ,true)
+   if( pathname == '/myrequest'){
+        var data =  {
+            id : 1,
+            name :&quot;zs&quot;,
+            age :23 
+        }
+        //响应到哪里？
+        //localhost:8080/myrequest?cb=myshow
+        //myshow(data)   //data-&gt;json
+        //响应到：myshow方法，并响应的数据：data
+        var result = `${query.cb}( ${JSON.stringify(data)}  )` 
+        res.end(result)  
+   }
+})
+server.listen(8888,function(){
+    console.log('sever running...')
+})
+</code></pre>
+
+<p>客户端</p>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;111&lt;/title&gt;
+        &lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;./js/vue-resource.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            function myshow(data){
+                console.log(data)
+            }
+        &lt;/script&gt;
+        &lt;script src=&quot;http://localhost:8888/myrequest?cb=myshow&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>客户端仅仅是引入了一个文件并没有发送请求</p>
+
+<h2 id="promise的使用">Promise的使用</h2>
+
+<p>将嵌套方式变成链式写法</p>
+
+<p>读取多个文件的嵌套写法</p>
+
+<pre><code>const fs = require('fs')
+const path = require('path')
+
+//读取文件的内容
+function myReadFile(fpath,frsuccess,frerror){
+    //读取文件时，如果由异常：err
+    //数据正常保存data
+    fs.readFile(fpath,&quot;utf-8&quot;,(err,data)=&gt;{
+        if(err) return frerror(err)
+        frsuccess(data)
+    })
+}
+//调用  js/file1.txt
+//先读取file1.txt，之后读取file2。txt
+//读取file1.txt--&gt;成功之后读取--&gt;file2.txt
+myReadFile(path.join(__dirname,'./file1.txt'),(data)=&gt;{
+    console.log(data)
+    myReadFile(path.join(__dirname,'./file2.txt'),(data)=&gt;{
+        console.log(data)
+    },(err)={})
+    
+},(err)=&gt;{console.log(err.message)})
+
+</code></pre>
+
+<p>读取文件的链式写法</p>
+
+<pre><code>const fs = require('fs')
+const path = require('path')
+function myReadFile(fpath){
+
+    return new Promise((resolve,reject)=&gt;{
+        fs.readFile(fpath,'utf-8',(err,data)=&gt;{
+            if(err) return reject(err)
+            resolve(data)
+        })
+    })
+}
+//调用
+// ./代表根目录
+myReadFile('./js/file1.txt').then((data)=&gt;{
+    console.log(data)
+    return  myReadFile('./js/file2.txt')
+},(error)=&gt;{
+    console.log(error)
+}).then((data)=&gt;{
+    console.log(data)
+}).catch((e)=&gt;{
+    console.log(e)
+})
+</code></pre>
+
+<p>.catch 可以统一处理错误</p>
+
+<p>promise的核心：return+then跳出递归</p>
+
+<h2 id="vue组件">vue组件</h2>
+
+<p>vue的三大组成部分</p>
+
+<pre><code>&lt;template&gt; html(组件)
+&lt;script&gt; 存放js
+&lt;style&gt; 存放css
+</code></pre>
+
+<p><a href="http://doc.vue-js.com/v2/guide/components.html">官网使用手册</a></p>
+
+<h3 id="定义一个简单的组件">定义一个简单的组件</h3>
+
+<pre><code>&lt;html&gt;		
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;div id=&quot;myvue&quot;&gt;
+        &lt;mycom&gt;&lt;/mycom&gt;
+	&lt;/div&gt;
+	&lt;script&gt;
+        Vue.component('mycom',{template:&quot;&lt;h1&gt;这是我的组件&lt;/h1&gt;&quot;})
+        new Vue({
+            el:'#myvue'
+        });
+	&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>注意：</p>
+
+<p>组件名不要使用驼峰命名法，如果使用，则使用该组件的时候使用<code>-</code>符号隔开</p>
+
+<p>组件定义方式</p>
+
+<ol>
+<li><p>官网方式</p>
+
+<pre><code>  Vue.component('mycom',{template:&quot;&lt;h1&gt;这是我的组件&lt;/h1&gt;&quot;})
+</code></pre></li>
+
+<li><p>完整写法</p>
+
+<pre><code>    Vue.component('mycom',Vue.extend({template:&quot;&lt;h1&gt;这是我的组件&lt;/h1&gt;&quot;})
+</code></pre></li>
+
+<li><p>官网方式的id引用的方式</p>
+
+<pre><code>&lt;template id=&quot;mytemp1&quot;&gt;
+    &lt;h1&gt;这是我的组件&lt;/h1&gt;
+&lt;/template&gt;
+
+Vue.component('mycom',{template:&quot;#mytemp1&quot;})
+</code></pre></li>
+
+<li><p>完整方式的id引用方式</p>
+
+<pre><code>&lt;template id=&quot;mytemp1&quot;&gt;
+    &lt;h1&gt;这是我的组件&lt;/h1&gt;
+&lt;/template&gt;
+
+Vue.component('mycom',Vue.extend({template:&quot;#mytemp1&quot;})
+</code></pre></li>
+</ol>
+
+<p>注意：定义组件时<code>template:&quot;&quot;</code>的值和 <code>&lt;template&gt;&lt;/template&gt;</code>标签中的内容必须是标签，否则会出错</p>
+
+<p>这种方式定义的组件是全局组件，在所有的Vue对象中都可以使用。</p>
+
+<p>私有组件/局部组件:只能在选定的Vue对象中使用</p>
+
+<pre><code>new Vue({
+    el:'#myvue2',
+    components:{
+        'mycom1':{template:&quot;&lt;h1&gt;这是我的组件&lt;/h1&gt;&quot;}
+    }
+});
+</code></pre>
+
+<p>其它的创建方式如上</p>
+
+<p>除了定义组件内容之外还可以在组件中定义数据，定义数据的方式如下：</p>
+
+<pre><code>data:function)(){
+    return {
+        count:0
+    }
+}
+</code></pre>
+
+<p><strong>注意</strong>：定义的数据必须是function，因为function中定义的变量是局部变量，为了防止多个组件之间共享数据，从而使得定义的组件的数据是独立的。</p>
+
+<h2 id="特殊特性-is">特殊特性 is</h2>
+
+<p>vue中自带一个标签<code>&lt;component&gt;&lt;/component&gt;</code>是一个组件标签，占位符</p>
+
+<pre><code>&lt;component :is=&quot;'comp'&quot;&gt;&lt;/component&gt;
+&lt;!-- 或 --&gt;
+&lt;component :is=&quot;c&quot;&gt;&lt;/component&gt;
+
+data:{
+    c:'comp'
+}
+</code></pre>
+
+<p>一般vue<code>:xx=xxx</code>值一般是变量，而我们定义的组件名是一个常量，要想将一个常量值变成一个变量值，只需要添加<code>''</code>即可。而变量值是在data中定义的，如果不加<code>''</code>只需要在data中定义变量，其值为组件名即可。</p>
+
+<h3 id="实现动态组件">实现动态组件</h3>
+
+<p>只需要将<code>:is</code>绑定的值改变，就能实现动态组件。而<code>:is</code>中的值在data中定义，一次只需要改变data中变量的值即可。</p>
+
+<pre><code>&lt;span @click=&quot;c='coma'&quot;&gt;切换A&lt;/span&gt;
+
+&lt;span @click=&quot;b()&quot;&gt;切换A&lt;/span&gt;
+
+methods:{
+
+    b(){
+        this.c=&quot;comb&quot;
+    }
+}
+</code></pre>
+
+<p>注意：行内写法不需要加<code>this</code>,而函数写法需要加<code>this</code></p>
+
+<h3 id="什么时候加this">什么时候加this</h3>
+
+<ol>
+<li><p>在Vue对象中除了<code>data</code>之外的所有区域使用<code>data</code>中的数据时，都需要使用<code>this</code></p></li>
+
+<li><p>在页面中使用<code>{{}}</code>取<code>data</code>中值是可加this也可不加this</p></li>
+</ol>
+
+<p>一般结论：大多数的情况下，只要获取<code>data</code>中的变量的时候都需要使用<code>this</code>，除了个别特殊的情况，如：行内式写法、</p>
+
+<h2 id="组件的过渡效果和参数传递的问题">组件的过渡效果和参数传递的问题</h2>
+
+<ol>
+<li><p>将过度组件放入<code>&lt;transition&gt;&lt;/transition&gt;</code>标签中</p></li>
+
+<li><p>编写样式在<code>&lt;style&gt;&lt;/style&gt;</code>标签中编写css样式</p>
+
+<pre><code>&lt;style&gt;
+    .v-enter,
+    .v-leave-to{
+        opacity: 0 ;
+        transform: translateX(100px) ;
+    }
+    .v-enter-active,
+    .v-leave-active{
+            transition: all  1s  ease ;
+    }
+&lt;/style&gt;
+</code></pre>
+
+<p><code>&lt;transition&gt;</code>的 <code>mode=&quot;out-in&quot;</code>属性可以设置出现的顺序，这样的话能避免重合。</p></li>
+</ol>
+
+<h3 id="传参">传参</h3>
+
+<pre><code>&lt;coma :msg=&quot;aname&quot;&gt;&lt;/coma&gt;
+
+Vue.component('coma', 
+                { 
+                    template:&quot; &lt;p&gt;这是我的组件A  {{msg}}&lt;/p&gt;&quot;,
+                    props: ['msg']
+                }
+            )
+
+data:{
+    aname :&quot;你好，世界&quot;
+}
+</code></pre>
+
+<p><code>:msg</code>，msg是自己定义的属性名，他的值是一个变量<code>aname</code>,在<code>data</code>中定义。组件在使用<code>msg</code>属性的值的时候不能直接使用，需要借助<code>props</code>中转，然后进行使用。</p>
+
+<p>注意：组件中参数引用的位置一定要在标签中，否组Vue不认识它。</p>
+
+<h3 id="组件的简化写法">组件的简化写法</h3>
+
+<ol>
+<li><p>公有组件</p>
+
+<pre><code>var comc = {
+                template: '&lt;p&gt;这是组件C&lt;/p&gt;'
+            }
+Vue.component('comc',comc)
+
+&lt;comc&gt;&lt;/comc&gt;
+</code></pre>
+
+<p>共有组件与Vue对象同级，在Vue对象的外面写</p></li>
+
+<li><p>私有组件</p>
+
+<pre><code>var mycomc = {
+                template: '&lt;p&gt;这是组件C&lt;/p&gt;'
+            }
+
+components:{
+                    'mycomc': mycomc
+            }
+
+&lt;mycomc&gt;&lt;/mycomc&gt;
+</code></pre></li>
+</ol>
+
+<p>注意:当组件名和变量名是同一个时可简化，只写组件名或变量民即可。</p>
+
+<p>例上面可以简化为：</p>
+
+<pre><code>components:{
+                  mycomc
+             }
+</code></pre>
+
+<p>小结：简化的核心就是使用var变量保存组件，然后通过引用变量实现自定义组件。</p>
+
+<h3 id="调用组件内部的方法">调用组件内部的方法</h3>
+
+<h4 id="普通的方法调用">普通的方法调用</h4>
+
+<pre><code>&lt;button @click=&quot;aa()&quot;&gt;点击事件&lt;/button&gt;
+methods:{
+    aa(){
+        alert(&quot;hahahah&quot;)
+    }
+}
+</code></pre>
+
+<p>调用的方法时vue中的methods中定义的方法</p>
+
+<h4 id="定义的组件的方法的调用">定义的组件的方法的调用</h4>
+
+<p>组件常用的定义方式</p>
+
+<ol>
+<li><p>定义组件内容</p>
+
+<pre><code>&lt;template id=&quot;mytempid&quot;&gt;
+        &lt;button @click=&quot;myclick&quot;&gt;方法调用&lt;/button&gt;
+&lt;/template&gt;
+</code></pre></li>
+
+<li><p>完善组件结构</p>
+
+<pre><code>var com = {
+        template : '#mytempid' ,
+        data(){//局部变量 ,xx(){return {k:v}}
+            return {
+                comdata:{
+                    num:1 
+                }
+            }
+        },
+        methods:{
+            myclick(){
+                this.$emit('mycomclick',this.comdata.num)  //myshow(a)
+            }
+        }
+    }
+</code></pre></li>
+
+<li><p>注册到Vue中</p>
+
+<ul>
+<li><p>公有组件</p>
+
+<pre><code>Vue.component('com',com)
+</code></pre></li>
+
+<li><p>私有组件</p>
+
+<pre><code>components:{
+                //com:com 
+                com
+            }
+        }
+</code></pre></li>
+</ul></li>
+
+<li><p>使用</p>
+
+<p>通过标签使用</p>
+
+<pre><code>&lt;com @mycomclick='myshow'&gt;&lt;/com&gt;
+</code></pre></li>
+</ol>
+
+<p>组件中的单击事件调用的不是Vue中的Methods中定义的方法，而是组件中methods中定义的方法。</p>
+
+<p>调用组件内部按钮中的方法：单击&ndash;&gt;组件中的method&ndash;&gt;vue中的method</p>
+
+<p>小结：组件的单击事件<code>&lt;button @click=&quot;myclick&quot;&gt;</code>调用组件中的<code>methods</code>中定义的单击函数<code>myclick</code>;组件中定义的函数通过<code>this.$emit</code>触发组件自定义的事件  <code>&lt;com @mycomclick&gt;</code>, 组件的自定义事件调用Vue中定义的事件函数
+<code>myshow</code>，从而实现事件的点击。</p>
+
+<p>核心思路：</p>
+
+<ol>
+<li><p>普通的Html对象：直接调用Vue中的Methods中定义的函数</p></li>
+
+<li><p>如果是组件，则调用组件中methods定义的方法，接着通过组件中的methods调用Vue中的methods</p></li>
+
+<li><p>细节：组件中传递方法时： 发：自定义事件  收：$emit</p></li>
+</ol>
+
+<p>当函数需要传参时<code>this.$emit('mycomclick','hello')</code>
+hello就是第一个参数，传多个参数时，通过<code>,</code>隔开</p>
+
+<p>this所在位置</p>
+
+<p>当在组件中使用this时，代表当前组件，当需要使用data中的数据时需要通过<code>this.comdata.xxx</code>来获取变量</p>
+
+<p>当在Vue中使用this代表当前Vue对象，想要使用data中的数据时，需要使用<code>this.xxx</code>来获取变量。</p>
+
+<h3 id="refs">refs</h3>
+
+<p>相当于jquery中的选择器</p>
+
+<p>在jquery中：</p>
+
+<pre><code>定义
+id=&quot;myid&quot;
+使用
+$(&quot;#myid&quot;)
+</code></pre>
+
+<p>在vue中：</p>
+
+<pre><code>定义
+ref=&quot;myref&quot;
+使用
+this.$refs.myref
+</code></pre>
+
+<pre><code>&lt;html&gt;		
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;div id=&quot;myvue&quot;&gt;
+			&lt;!--普通元素--&gt;
+			&lt;div ref=&quot;mydiv&quot;&gt;
+				这是div元素...
+			&lt;/div&gt;
+			&lt;!-- 组件--&gt;
+			&lt;com ref=&quot;mycom&quot;&gt;&lt;/com&gt;
+
+			&lt;button @click='myVueShow'&gt;调用vue中的方法&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;template id=&quot;mytempid&quot;&gt;
+			&lt;div&gt;普通组件...&lt;/div&gt;
+	&lt;/template&gt;	
+	&lt;script&gt;
+	var com = {
+		template : '#mytempid' ,
+		data(){
+			return {
+				mymsg:'组件内部的数据'
+			}
+		},
+		methods:{
+			myComponentShow(){
+				alert('这是组件中的方法...')
+			}
+		}
+	}
+const vm = new Vue({
+			el : &quot;#myvue&quot;,
+			data:{
+			},
+			methods:{
+				myVueShow(){
+						//alert('myvueshow...');
+						//alert(this.$refs.mydiv.innerText)
+						//获取组件中定义的mymsg数据
+						//alert(this.$refs.mycom.mymsg)
+						//调用组件中定义的方法
+						this.$refs.mycom.myComponentShow()
+				}
+			},
+			components:{
+				//com:com 
+				com
+			}
+		}
+	);
+	&lt;/script&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<p>refs的作用：获取某个元素、组件，调用组件中的属性、方法、数据等信息</p>
+
+<h3 id="render函数">render函数</h3>
+
+<p>把组件模板(template)渲染成html（替换之前的内容）</p>
+
+<pre><code>&lt;html&gt;		
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;div id=&quot;myvue&quot;&gt;
+			&lt;div&gt;
+				这是div元素...
+			&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;template id=&quot;mytempid&quot;&gt;
+			&lt;span&gt;普通组件...&lt;/span&gt;
+	&lt;/template&gt;	
+	&lt;script&gt;
+	var com = {
+		template : '#mytempid'
+	}
+const vm = new Vue({
+			el : &quot;#myvue&quot;,
+			data:{
+			},
+			methods:{
+			},
+			render:function(createElements){
+				return  createElements(com) //该方法的参数，就可以将组件渲染成html
+			}
+		}
+	);
+	&lt;/script&gt;
+&lt;/html&gt;
+
+</code></pre>
 
     </div>
     <div class="article-footer">
@@ -1483,7 +2289,7 @@ localhost:8080 /   :index -&gt; router -&gt; HelloWorld.vue中的内容
 </ul>
   <div class="copyright">
     &copy;2019  -
-    2019
+    2020
     <div class="publishby">
         联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
     </div>
