@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Express框架 - 木木的个人博客
+        IntelliJIDEA基础配置 - 木木的个人博客
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,35 +23,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="Express框架学习笔记." />
+  <meta name="description" content="IntelliJIDEA基础配置." />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>Express框架 - 木木的个人博客</title>
+  <title>IntelliJIDEA基础配置 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="Express框架" />
-<meta property="og:description" content="Express框架学习笔记." />
+  <meta property="og:title" content="IntelliJIDEA基础配置" />
+<meta property="og:description" content="IntelliJIDEA基础配置." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/" />
-<meta property="article:published_time" content="2019-12-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-09T00:00:00+00:00" />
+<meta property="og:url" content="https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2020-01-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-03T00:00:00+00:00" />
 
-<meta itemprop="name" content="Express框架">
-<meta itemprop="description" content="Express框架学习笔记.">
-
-
-<meta itemprop="datePublished" content="2019-12-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4004">
+<meta itemprop="name" content="IntelliJIDEA基础配置">
+<meta itemprop="description" content="IntelliJIDEA基础配置.">
 
 
+<meta itemprop="datePublished" content="2020-01-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1447">
 
-<meta itemprop="keywords" content="node," />
+
+
+<meta itemprop="keywords" content="开发软件," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Express框架"/>
-<meta name="twitter:description" content="Express框架学习笔记."/>
+<meta name="twitter:title" content="IntelliJIDEA基础配置"/>
+<meta name="twitter:description" content="IntelliJIDEA基础配置."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -281,57 +281,32 @@
 <ul>
 <li>
 <ul>
-<li><a href="#express-简介">Express 简介</a>
+<li>
 <ul>
-<li><a href="#什么是express">什么是Express</a></li>
-<li><a href="#express的特点">Express的特点</a></li>
-<li><a href="#express-generator生成器">express-generator生成器</a></li>
-<li><a href="#express的安装使用">express的安装使用</a>
+<li><a href="#修改配置文件">修改配置文件</a></li>
+<li><a href="#快捷键">快捷键</a></li>
+<li><a href="#模板">模板</a>
 <ul>
-<li><a href="#安装express-generator生成器">安装express-generator生成器</a></li>
-<li><a href="#创建项目">创建项目</a></li>
-<li><a href="#安装依赖">安装依赖</a></li>
-<li><a href="#开启项目">开启项目</a></li>
-<li><a href="#测试项目">测试项目</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#目录说明">目录说明</a></li>
-<li><a href="#文件说明">文件说明</a></li>
-<li><a href="#路由">路由</a>
-<ul>
-<li><a href="#什么是路由">什么是路由</a></li>
-<li><a href="#路由的写法">路由的写法</a></li>
-<li><a href="#创建一个独立的路由模块">创建一个独立的路由模块</a></li>
-<li><a href="#路由的区分">路由的区分</a></li>
-</ul></li>
-<li><a href="#响应对象">响应对象</a>
-<ul>
-<li><a href="#什么是响应对象">什么是响应对象</a></li>
-<li><a href="#响应对象的方法">响应对象的方法</a>
-<ul>
-<li><a href="#res-send-返回任意类型的数据">res.send() //返回任意类型的数据</a></li>
-<li><a href="#res-json">res.json();</a></li>
-<li><a href="#自己新建模板文件list-ejs">自己新建模板文件list.ejs</a></li>
-<li><a href="#res-render-模板名称-数据">res.render(&ldquo;模板名称&rdquo;,{数据});</a></li>
-<li><a href="#res-download-下载">res.download 下载</a></li>
-<li><a href="#res-redirect-目标">res.redirect(&lsquo;目标&rsquo;)</a></li>
-<li><a href="#完整api">完整api</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#请求对象">请求对象</a>
-<ul>
-<li><a href="#什么是请求对象">什么是请求对象</a></li>
-<li><a href="#接收grt方式传的值">接收GRT方式传的值</a></li>
-<li><a href="#接收post方式传的值">接收POST方式传的值</a></li>
-<li><a href="#匹配url网址上的数据">匹配URL网址上的数据</a></li>
-<li><a href="#完整api-1">完整api</a></li>
-</ul></li>
-<li><a href="#中间件">中间件</a>
-<ul>
-<li><a href="#什么是中间件">什么是中间件</a></li>
-<li><a href="#自定义中间件">自定义中间件</a>
-<ul>
-<li><a href="#尾函数next">尾函数next</a></li>
+<li><a href="#psvm">psvm</a></li>
+<li><a href="#sout">sout</a></li>
+<li><a href="#soutp">soutp</a></li>
+<li><a href="#soutm">soutm</a></li>
+<li><a href="#soutv">soutv</a></li>
+<li><a href="#xxx-sout">xxx.sout</a></li>
+<li><a href="#fori">fori</a></li>
+<li><a href="#iter">iter</a></li>
+<li><a href="#itar">itar</a></li>
+<li><a href="#list-for">list.for</a></li>
+<li><a href="#list-fori">list.fori</a></li>
+<li><a href="#list-forr">list.forr</a></li>
+<li><a href="#ifn">ifn</a></li>
+<li><a href="#inn">inn</a></li>
+<li><a href="#xxx-nn">xxx.nn</a></li>
+<li><a href="#xxx-null">xxx.null</a></li>
+<li><a href="#prsf">prsf</a></li>
+<li><a href="#psf">psf</a></li>
+<li><a href="#psfi">psfi</a></li>
+<li><a href="#psfs">psfs</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -349,473 +324,296 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/12/express%E6%A1%86%E6%9E%B6/"
-    >Express框架</a
+    href="/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"
+    >IntelliJIDEA基础配置</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time datetime="2019-12-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-09</time>
+<a href="https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="">
+  <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-    <a class="article-tag-link" href="/tags/node/"> node </a>
+    <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/"> 开发软件 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/express%E6%A1%86%E6%9E%B6/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:4004字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:8分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1447字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h2 id="express-简介">Express 简介</h2>
+<p>学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Spring家族的时候用的是STS。慢慢就听说了IDEA这个工具，听说要比Eclipse好用一些，第一次使用IDEA的时候是跟着老师学习在IDEA中使用Gradle整合gretty进行Web开发的时候。突然感觉IDEA好像确实名不虚传，这里就记录一下自己的IDEA的简单配置，这些配置有些是Eclipse中有的，有一些是Eclipse中没有的。工欲善其事，必先利其器，好的开发工具能提高自己的开发效率。</p>
 
-<h3 id="什么是express">什么是Express</h3>
+<h3 id="修改配置文件">修改配置文件</h3>
 
-<p>express是一个基于node.js的极简、灵活的web开发框架。可以实现非常强大的web服务器功能。</p>
+<p>找到IDEA的安装目录/bin/idea64.exe.vmoptions文件修改</p>
 
-<h3 id="express的特点">Express的特点</h3>
+<pre><code>-Xms500m
+-Xmx1500m
+-XX:ReservedCodeCacheSize=500m
+</code></pre>
 
 <ul>
-<li>可以设置中间件响应或过滤http请求。</li>
-<li>可以使用路由实现动态网页，响应不同的http请求。</li>
-<li>内置支持ejs模板(默认是jade模板)实现模板渲染生成html。</li>
+<li><p>-Xms500m &ndash; Java Heap初始值，Server端JVM最好将-Xms和-Xmx设为相同值，开发测试机JVM可以保留默认值</p></li>
+
+<li><p>-Xmx1500m &ndash; Java Heap最大值，默认值为物理内存的1/4，最佳设值应该视物理内存大小及计算机内其他内存开销而定</p></li>
+
+<li><p>-XX:ReservedCodeCacheSize=500m &ndash; 预留保存代码的内存空间大小</p></li>
 </ul>
 
-<h3 id="express-generator生成器">express-generator生成器</h3>
+<p>注意：电脑配置在16G 64位系统时修改，可以提高IDEA的启动速度，代码自动保存的频率，提高开发效率。内存太小，不修改也可以。</p>
 
-<p>express-generator是express官方团队为开发者准备的一个快速生成工具，可以非常快速的生成一个基本的express开发框架。</p>
+<p>设置文件会放到github上，大家自行导入就行了<a href="https://github.com/mumulx/Project-source-code">github地址</a></p>
 
-<h3 id="express的安装使用">express的安装使用</h3>
+<h3 id="快捷键">快捷键</h3>
 
-<h4 id="安装express-generator生成器">安装express-generator生成器</h4>
+<p>直接导入快捷键设置，文件也在上面的github仓库中，采用的是类似Eclipse的快捷键的设置。</p>
 
-<pre><code>cnpm i -g express-generator //安装 完成后可以使用express命令，需要安装淘宝镜像
-npm i -g express-generator//直接安装，较慢
+<pre><code>执行(run)	                        alt+r
+
+提示补全(Class Name Completion)     alt+/
+
+单行注释                            ctrl+/
+多行注释                            ctrl+shift+/
+
+向下复制一行(Duplicate Lines)       ctrl+alt+downe
+
+删除行或选中行(delete line)         ctrl+d
+
+向下移动行(move statement down)     alt+down
+
+向上移动行(move statement up)       alt+up
+
+向下开始新的一行(start new line)    shift+enter
+
+向上开始新的一行                    ctrl+shift+entere
+
+如何查看源码(class)                 ctrl+选中指定的结构或ctrl+shift+t
+
+万能解错/生成返回值变量             alt+enter
+
+退回到前一个编辑的页面(back)        alt+left
+
+进入到下一个编辑的页面              alt +right
+
+查看继承关系(type hierarchy)       F4.
+
+格式化代码(reformat code)          ctrl+shift+F
+
+提示方法参数类型(Parameter Info)   ctrl+alt+/
+
+复制代码                           ctrl+C
+
+撤销                               ctrl+Z
+
+反撤销                             ctrl+y
+
+剪切                               ctrl+X
+
+粘贴                               ctrl+V
+
+保存                               ctrl+S
+
+全选                               ctrl+a
+
+选中数行，整体往后移动              tab
+
+选中数行，整体往前移动              shift + tab
+
+查看类的结构:类似Feclipse 的outline ctrl+o
+
+重构:修改交量名与方法名(rename)     alt+shift+r
+
+大写转小写/小写转大写(toggle case)  ctrl+shift+y
+
+生成构造器/get/set/tostring         alt+shift+s
+
+查看文档说明(quick documentation)   F2
+
+收起所有的方法(collapse all)        alt+shift+C
+
+打开所有方法(expand all)            alt+shift+x
+
+打开代码所在硬盘文件夹               ctrl+shift+x
+
+生成try- catch等(surround with)    alt+shift+z
+
+局部变量抽取为成员变量               alt+shift+f
+
+查找/替换(当前)                     ctrl+f
+
+查找(全局)                          ctrl+h
+
+查找文件                            double shift
+
+查看类的继承结构图(Show UML Diagram)    ctrl+shift+u
+
+查看方法的多层重写结构(method hierarchy)    ctrl+alt+h
+
+添加到收藏(add to favorites)            ctrl+alt+f
+
+抽取方法(Extract Method)                alt+shift+m
+
+打开最近修改的文件(Recently Files)      ctrl+E
+
+关闭当前打开的代码栏(close)             ctrl+W
+
+关闭打开的所有代码栏(close all)         ctrl+shift+W
+
+快速搜索类中的错误(next highlighted error)  ctrl+shift+q
+
+选择要粘贴的内容(Show in Explorer)      ctrl+shift+V
+
+查找方法在哪里被调用(Call Hierarchy)    ctrl+shift+h
 </code></pre>
 
-<p>注意:可能需要以管理员身份运行cmd</p>
+<h3 id="模板">模板</h3>
 
-<h4 id="创建项目">创建项目</h4>
+<p>IDEA中代码模板所处的位置: settings Editor Live Templates/Postfix completion</p>
 
-<pre><code>express -e 项目名称//自动创建项目目录
-express -e //手动创建项目目录
+<h4 id="psvm">psvm</h4>
+
+<pre><code>public statis void mian(String[] args){
+
+}
 </code></pre>
 
-<h4 id="安装依赖">安装依赖</h4>
+<h4 id="sout">sout</h4>
 
-<pre><code>cnpm install
-cnpm i//简写
-npm install
-npm i//简写
+<pre><code>System.out.println(&quot;&quot;);
 </code></pre>
 
-<h4 id="开启项目">开启项目</h4>
+<h4 id="soutp">soutp</h4>
 
-<pre><code>node app
-npm start//自动查找当前目录下的package.json文件
-node ./bin/www
+<pre><code>System.out.println(&quot;args = [&quot; + args + &quot;]&quot;);
 </code></pre>
 
-<p><code>node app</code></p>
+<p>输出形参</p>
 
-<p>需要手动添加监听端口，打开app.js添加以下内容：</p>
+<h4 id="soutm">soutm</h4>
 
-<pre><code>app.listen(80,function(){
-    console.log(&quot;服务器已运行&quot;);
-});
+<pre><code>System.out.println(&quot;test.main&quot;);
 </code></pre>
 
-<p>监听端口为:<strong>80</strong></p>
+<p>输出方法名</p>
 
-<p><code>npm start</code>：默认监听端口为:<strong>3000</strong></p>
+<h4 id="soutv">soutv</h4>
 
-<h4 id="测试项目">测试项目</h4>
-
-<p>打开浏览器输入<code>localhost</code>或<code>127.0.0.1</code></p>
-
-<h2 id="目录说明">目录说明</h2>
-
-<ul>
-<li>bin 可执行文件目录</li>
-<li>node_moudles 依赖包的目录</li>
-<li>public 静态文件根目录
-
-<ul>
-<li>所有的静态文件都应该放在这个目录的下面(静态html,css,js,图片，字体，视频资源等)</li>
-</ul></li>
-<li>routes 路由模块目录，动态文件的目录
-
-<ul>
-<li>优先找静态文件，如果没有静态存在则找动态路由，如果动态路由也没有就404</li>
-</ul></li>
-<li>views 视图目录
-
-<ul>
-<li>用于存储所有的ejs模板</li>
-</ul></li>
-</ul>
-
-<h2 id="文件说明">文件说明</h2>
-
-<ul>
-<li>app.js 项目的主文件
-
-<ul>
-<li>对整个项目的所有的字眼进行统筹的安排</li>
-</ul></li>
-</ul>
-
-<hr />
-
-<pre><code>var indexRouter = require('./routes/index');//引入处理根目录请求的路由
-
-var usersRouter = require('./routes/users');//引进处理users目录请求的路由
-
-app.use('/', indexRouter);//分配根目录下的请求给index去处理
-
-app.use('/users', usersRouter);//分配users目录下的请求给users模块去处理
-
-app.set('views', path.join(__dirname, 'views'));//设置模板的默认目录
-
-app.set('view engine', 'ejs');//设置模板引擎为ejs模板
-
-app.use(express.static(path.join(__dirname, 'public')));//设置静态文件目录
+<pre><code>System.out.println(&quot;a = &quot; + a);
 </code></pre>
 
-<hr />
+<p>输出变量：就近原则</p>
 
-<ul>
-<li>package.json 项目描述文件
+<h4 id="xxx-sout">xxx.sout</h4>
 
-<ul>
-<li>生命项目的名称、版本、依赖包等信息</li>
-</ul></li>
-</ul>
+<pre><code>a.sout
 
-<h2 id="路由">路由</h2>
-
-<h3 id="什么是路由">什么是路由</h3>
-
-<p>路由是指接收用户请求，处理用户数据，返回结果给用户的一套程序。可以理解为：生成动态网页的程序。</p>
-
-<p>后端路由的核心: URL</p>
-
-<p>express对象自带有一个Router类，可以实例化出路由对象，可以在该对象上挂载非常多的路由节点。</p>
-
-<h3 id="路由的写法">路由的写法</h3>
-
-<p>挂载路由线路的写法：</p>
-
-<pre><code>router.请求方式('请求地址',function(req,res){
-    res.send('数据');
-});
+System.out.println(a);
 </code></pre>
 
-<h3 id="创建一个独立的路由模块">创建一个独立的路由模块</h3>
+<p>输出变量a</p>
 
-<p>需求:创建一个vip路由模块，接收vip目录下的所有请求，响应数据。</p>
+<h4 id="fori">fori</h4>
 
-<p>实现步骤：</p>
+<pre><code>for (int i = 0; i &lt; ; i++) {
 
-<ol>
-<li><p>创建一个vip路由模块</p></li>
-
-<li><p>编写路由模块的代码(在Router文件夹下新建vip.js)</p>
-
-<p>a. 引入express模块</p>
-
-<p>b. 实例化路由对象</p>
-
-<p>c. 编写路由线路挂载到路由对象上</p>
-
-<p>d. 暴露路由对象</p></li>
-</ol>
-
-<p>代码：</p>
-
-<pre><code>var express = require('express');//引入express模块
-var router = express.Router();//利用Router类创建一个路由的实例
-//编写list.html用于展示所有的vip用户
-router.get('/list.html', function(req, res, next){
-    res.send('&lt;h1&gt;张三，李四，王五&lt;/h1&gt;');
-});
-router.get('/info.html', function(req, res, next){
-    res.send('&lt;h1&gt;张三:23，李四:23，王五:24&lt;/h1&gt;');
-});
-module.exports = router;
+}
 </code></pre>
 
-<p>注意:写请求路径<code>news.html时不需要添加父路径/vip</code></p>
+<h4 id="iter">iter</h4>
 
-<ol>
-<li>将编写好的路由模块引入到主模块中，由主模块分配对应的请求到该模块中去处理(主模块为app.js)</li>
-</ol>
+<pre><code>for (String arg : args) {
 
-<p>代码</p>
-
-<pre><code>var appRouter = require('./routes/vip');//引入vip模块
-
-app.use('/vip',appRouter);//分配vip目录下的请求给vip路由模块去处理
+}
 </code></pre>
 
-<h3 id="路由的区分">路由的区分</h3>
+<h4 id="itar">itar</h4>
 
-<p>大路由(总路由) : app.js负责接收所有请求，对请求进行分配</p>
-
-<p>小路由(分路由) : /routes下面的所有路由模块，只负责处理自己能管理的目录下的所有请求</p>
-
-<h2 id="响应对象">响应对象</h2>
-
-<h3 id="什么是响应对象">什么是响应对象</h3>
-
-<p>响应对象（res）是指服务器向容户端响应数据的对象，包含了所有要响应的内容</p>
-
-<h3 id="响应对象的方法">响应对象的方法</h3>
-
-<h4 id="res-send-返回任意类型的数据">res.send() //返回任意类型的数据</h4>
-
-<p>例：</p>
-
-<pre><code>router.get('/',function(req,res){
-    //res.send('hello world'); //可以返回字符串数据
-    //var data={&quot;name&quot;:&quot;李白&quot;, &quot;age&quot;:999};
-    //res.send(data); // 也可以返回一个JSON数据
-    //res.send(1);//返回数字，即状态码
-    //res.send('1');//返回数字1
-    //返回状态码+数据链式调用
-   // res.status(404).send(&quot;页面不见啦。。。。&quot;);
-});
+<pre><code>for (int i = 0; i &lt; args.length; i++) {
+    String arg = args[i];     
+}
 </code></pre>
 
-<p>注意：</p>
+<h4 id="list-for">list.for</h4>
 
-<ul>
-<li>如果返回一个数字，就会被当成状态码，容易报错。</li>
-<li>send方法能且仅能出现一次，重复无效且会报错，不写的话会挂起</li>
-</ul>
+<pre><code>for (Object o : list) {
 
-<h4 id="res-json">res.json();</h4>
-
-<p>返回JSON数据，<strong>自动设置相应头</strong></p>
-
-<p>和send方法传递JSON数据的区别不大</p>
-
-<p>例</p>
-
-<pre><code>router.get('/',function(req,res){
-    //var data={&quot;name&quot;:&quot;李白&quot;, &quot;age&quot;:999};
-    //res.json(data); // 返回json自动设置响应头
-});
+}
 </code></pre>
 
-<h4 id="自己新建模板文件list-ejs">自己新建模板文件list.ejs</h4>
+<p>遍历list</p>
 
-<p>代码</p>
+<h4 id="list-fori">list.fori</h4>
 
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;title&gt;用户列表&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;ul&gt;
-            &lt;%for(var i in users){%&gt;
-            &lt;li&gt;姓名：&lt;%=users[i].name%&gt;====年龄:&lt;%=users[i].age%&gt;&lt;/li&gt;
-            &lt;%}%&gt;
-        &lt;/ul&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
+<pre><code>for (int i = 0; i &lt; list.size(); i++) {
+
+}
 </code></pre>
 
-<h4 id="res-render-模板名称-数据">res.render(&ldquo;模板名称&rdquo;,{数据});</h4>
+<h4 id="list-forr">list.forr</h4>
 
-<p>读取模板文件，拼接数据（必须是json数据），自动将结果发送给浏览器</p>
+<pre><code>for (int i = list.size() - 1; i &gt;= 0; i--){
 
-<p><code>模板名称</code>直接写，路径在<code>app.js</code>文件中已经配置过了(即views目录下的文件)</p>
-
-<p>例</p>
-
-<pre><code>router.get('/',function(req,res){
-    var data = [
-    {&quot;name&quot;:&quot;aa&quot;,&quot;age&quot;:&quot;11&quot;},
-    {&quot;name&quot;:&quot;bb&quot;,&quot;age&quot;:&quot;22&quot;},
-    {&quot;name&quot;:&quot;cc&quot;,&quot;age&quot;:&quot;33&quot;},
-    {&quot;name&quot;:&quot;dd&quot;,&quot;age&quot;:&quot;44&quot;}
-    ];
-    //模板渲染
-    res.render('list.ejs',{users:data});
-});
+}
 </code></pre>
 
-<h4 id="res-download-下载">res.download 下载</h4>
+<h4 id="ifn">ifn</h4>
 
-<pre><code>res.download('./xxx.doc');//下载当前目录下面的xxx.doc文件。
+<pre><code>if (list == null) {
 
-res.download('./xxx doc, 'yyy.doc');//下载当前目录下面的xxx.doc文件，并且重命名为yyy.doc.
+}
 </code></pre>
 
-<h4 id="res-redirect-目标">res.redirect(&lsquo;目标&rsquo;)</h4>
+<h4 id="inn">inn</h4>
 
-<p>服务器端的跳转</p>
+<pre><code>if (list != null) {
 
-<pre><code>res.redirect('www.baidu.com');
+}
 </code></pre>
 
-<h4 id="完整api">完整api</h4>
+<h4 id="xxx-nn">xxx.nn</h4>
 
-<pre><code>1. res.app:同req.app一样
+<pre><code>if (list != null) {
 
-2. res.append():追加指定HTTP头
-
-3. res.set()在res.append()后将重置之前设置的头
-
-4. res.cookie (name,value[,option]) :设置Cookie
-         opition:domain/expires/httpOnly/maxAge/path/secure/signed
-
-5. res.clearCookie():清除Cookie
-
-6. res.download():传送指定路径的文件
-
-7. res.get():返回指定的HTTP头
-
-8. res.json():传送JSON响应
-
-9. res.jsonp():传送JSONP响应
-
-10. res.location():只设置响应的Location HTTP头,不设置状态码或者closeresponse
-
-11. res.redirect():设置响应的Location HTTP头，并且设置状态码302
-
-12. res.send():传送HTTP响应
-
-13. res.sendFile(path[,options][,fn]) :传送指定路的的文件-会自动根据文件extension 设定Content-Type
-
-14.res.set():设置HTTP头，传入object可以一次设置多个头
-
-15. res.status():设置HTTP的状态码
-
-16. res.type():设置Content-type的MIME类型
+}
 </code></pre>
 
-<h2 id="请求对象">请求对象</h2>
+<h4 id="xxx-null">xxx.null</h4>
 
-<h3 id="什么是请求对象">什么是请求对象</h3>
+<pre><code>if (list == null) {
 
-<p>客户端向服务器发送数据的对象，包含请求头和请求主体</p>
-
-<h3 id="接收grt方式传的值">接收GRT方式传的值</h3>
-
-<pre><code>req.query.参数名
+}
 </code></pre>
 
-<p>例</p>
+<h4 id="prsf">prsf</h4>
 
-<pre><code>router.get('/content.html',function(req,res){
-    var id=req.query.id;
-    res.send('获取到的ID是:'+id);
-});
+<pre><code>private static final 
 </code></pre>
 
-<h3 id="接收post方式传的值">接收POST方式传的值</h3>
+<h4 id="psf">psf</h4>
 
-<p>req.body.参数名</p>
-
-<p>例：</p>
-
-<pre><code>router.post('/login.html',function(req,res){
-    var username=req.body.username;
-    var pwd=req.bady.pwd; 
-    res .send('你传的用户名是:'+username+',你传的密码是:'+pwd);
-});
+<pre><code>public static final 
 </code></pre>
 
-<h3 id="匹配url网址上的数据">匹配URL网址上的数据</h3>
+<h4 id="psfi">psfi</h4>
 
-<p>在接请求地方去匹配，再通过语法进行接收，</p>
-
-<p>语法：</p>
-
-<p>req.params.参数名</p>
-
-<p>请求：</p>
-
-<pre><code>localhost:/news/abc
+<pre><code>public static final int 
 </code></pre>
 
-<p>例：</p>
+<h4 id="psfs">psfs</h4>
 
-<pre><code>router.get('/news/:id',function(req,res){
-    //自动匹配news/后的值作为id的值
-    var id=req.params.id;
-    res. send('&lt;h1&gt;接收到的参数是: '+id+'&lt;/h1&gt;');
-});
-</code></pre>
-
-<h3 id="完整api-1">完整api</h3>
-
-<pre><code>1. req.app:当callback为外部文件时，用req.app访问express的实例
-2. req.baseUrl:获取路由当前安装的URL路径
-3. req.body/req.cookies:获得「请求主体」/Cookies
-4. reg.fresh/req.sale:判断请求是否还「新鲜」
-5. req.hostname/req.ip:获取主机名和IP地址
-6. req.originalUrl:获取原始请求URL
-7. req.params:获取路由的parameters
-8. req.path:获取请求路径
-9. req.protocol:获取协议类型
-10. req-query:获取URL的查询参数串
-11. req.route:获取当前匹配的路由
-12. req subdomains:获取子域名
-13. req.accpets():检查请求的Accept头的请求类型
-14. req.acceptsCharsets/req.acceptsEncodings/req.acceptsLanguages
-15. req.get():获取指定的HTTP请求头
-16. req.is():判断请求头Content-Type的MIME类型
-</code></pre>
-
-<h2 id="中间件">中间件</h2>
-
-<p>Express是一个自身功能极简，完全是由路由和中间件构成一个的web开发框架:从本质上来说，一个Express应用就是在调用各种中间件。</p>
-
-<h3 id="什么是中间件">什么是中间件</h3>
-
-<p>中间件就是一个函数，位于客户端与路由之间，可以访问请求对象和响应对象，也可以调起下一个中间件。</p>
-
-<h3 id="自定义中间件">自定义中间件</h3>
-
-<pre><code>app.use(function(req,res,next){
-    res.send('我是中间件');
-    //next();
-});
-</code></pre>
-
-<h4 id="尾函数next">尾函数next</h4>
-
-<p>如果在中间件不调用next函数，整个请求响应流程就中止不会再往后面执行。</p>
-
-<p>调用尾函数相当于调用下一个中间件，执行完以后自己的函数继续执行。</p>
-
-<p>例：编写一个记录用户访问的中间件</p>
-
-<pre><code>app.use(function(req,res,next){
-    var fs=require('fs');
-    var ip=req.ip;
-    var time=new Date().toLocaleString();
-    var data=fs.readFileSync('./2019-12-09.1og');
-    data+='访问时间:'+time+'IP: '+ip+'\n';
-    fs.writeFileSync('./2019-12-09.1og',data);
-    next();|
-});
+<pre><code>public static final String 
 </code></pre>
 
     </div>
@@ -824,7 +622,7 @@ res.download('./xxx doc, 'yyy.doc');//下载当前目录下面的xxx.doc文件�
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/" title="Express框架" target="_blank" rel="external">https://mumulx.github.io/2019/12/express%E6%A1%86%E6%9E%B6/</a>
+      <a href="https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" title="IntelliJIDEA基础配置" target="_blank" rel="external">https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -856,14 +654,9 @@ res.download('./xxx doc, 'yyy.doc');//下载当前目录下面的xxx.doc文件�
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Svn学习笔记"><i
+                <a href="https://mumulx.github.io/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" title="VisualStudioCode常用插件"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://mumulx.github.io/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-                    title="Springboot自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

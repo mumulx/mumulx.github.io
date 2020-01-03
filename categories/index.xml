@@ -5,10 +5,37 @@
     <link>https://mumulx.github.io/categories/</link>
     <description>Recent content in Categories on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IntelliJIDEA基础配置</title>
+      <link>https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
+      <description>学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Spring</description>
+    </item>
+    
+    <item>
+      <title>VisualStudioCode常用插件</title>
+      <link>https://mumulx.github.io/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <description>下面来介绍几个我自己用到的vscode的插件 主题 Atom One Dark Theme 文件图标主题 vscode-icons 代码格式化 Beautify 中文汉化 Chinese (Simplified) Language Pack for Visual Studio Code 与谷歌浏览器的链接 Debugger for Chrome js语言 ESLint</description>
+    </item>
+    
+    <item>
+      <title>Web前端技术栈</title>
+      <link>https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <description>这个人还没打算整理，哈哈哈哈！</description>
+    </item>
     
     <item>
       <title>Vue自学笔记</title>
@@ -25,7 +52,7 @@
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>这个人比较懒还没开始写呢！</description>
+      <description>简介 SpringBoot官网 SpringBoot是由Pivotal团队在2013年开始研发、2014年4月发布第一个版本的全新开源的轻量级框</description>
     </item>
     
     <item>
