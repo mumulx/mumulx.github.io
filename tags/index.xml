@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/</link>
     <description>Recent content in Tags on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>蓝桥杯算法笔记</title>
+      <link>https://mumulx.github.io/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>入门训练 圆的面积 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;iostream&amp;gt; int main (){ int r; scanf(&amp;quot;%d&amp;quot;,&amp;amp;r); double pi = 3.14159265358979323,s; s=pi * r *r; printf(&amp;quot;%.7f&amp;quot;,s); return 0; } 小数点的控制 %d 按十进制整型数据的实际长度输出。 %ld 输出长整型数据。 %lld 输出长长整型数据。</description>
+    </item>
     
     <item>
       <title>IntelliJIDEA基础配置</title>
@@ -34,7 +43,7 @@
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
-      <description>这个人还没打算整理，哈哈哈哈！</description>
+      <description>简介 Web前端技术栈包括 elementUI Nuxt Vue.js webpack ESLint Node.js axios mock.js ES6 Swagger 核心：Node.js和Vue.js webpack webpack:打包, 可用将js等静态资源进行压缩，从而提高</description>
     </item>
     
     <item>

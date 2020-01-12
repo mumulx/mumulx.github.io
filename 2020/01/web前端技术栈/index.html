@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-01-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="15">
+<meta itemprop="wordCount" content="7243">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">9</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">6</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
         </ul>
@@ -200,7 +200,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -215,6 +215,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">蓝桥杯算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-12</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -255,16 +265,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Springboot自学笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-12</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -281,9 +281,126 @@
 <ul>
 <li>
 <ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#webpack">webpack</a>
+<ul>
+<li><a href="#使用">使用</a>
+<ul>
+<li><a href="#下载安装">下载安装</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#运行">运行</a></li>
+<li><a href="#安装插件">安装插件</a></li>
+<li><a href="#使用插件打包css">使用插件打包css</a></li>
+</ul></li>
+<li><a href="#实现修改css-js后-不打包-直接使得html生效">实现修改css/js后，不打包，直接使得html生效</a>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#启动">启动</a></li>
+<li><a href="#可以改修改启动时的默认文件目录">可以改修改启动时的默认文件目录：</a></li>
+<li><a href="#修改端口以及自动启动">修改端口以及自动启动</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#es6">ES6</a>
+<ul>
+<li><a href="#转换器">转换器</a>
+<ul>
+<li><a href="#配置转换器">配置转换器</a></li>
+<li><a href="#安装转换器">安装转换器</a></li>
+<li><a href="#安装命令行工具">安装命令行工具</a></li>
+<li><a href="#使用-1">使用：</a></li>
+</ul></li>
+<li><a href="#变量自动提升等级">变量自动提升等级</a></li>
+<li><a href="#占位符-模板字符串">占位符/模板字符串</a></li>
+<li><a href="#函数默认参数">函数默认参数</a></li>
+<li><a href="#箭头函数">箭头函数</a></li>
+<li><a href="#对象初始化">对象初始化</a></li>
+<li><a href="#解构-方便的给对象-数组赋值">解构：方便的给对象、数组赋值</a></li>
+<li><a href="#传播spread-operator">传播Spread Operator</a></li>
+<li><a href="#导入导出">导入导出</a></li>
+</ul></li>
+<li><a href="#分号结尾">分号结尾</a></li>
+<li><a href="#数据类型">数据类型</a>
+<ul>
+<li><a href="#基本类型">基本类型</a></li>
+<li><a href="#引用类型">引用类型</a></li>
+</ul></li>
+<li><a href="#判断类型">判断类型</a></li>
+<li><a href="#prototype-原型">prototype 原型</a>
+<ul>
+<li><a href="#使用-2">使用</a></li>
+</ul></li>
+<li><a href="#restful编程风格">Restful编程风格</a></li>
+<li><a href="#swagger">swagger</a>
+<ul>
+<li><a href="#下载安装-1">下载安装</a></li>
+<li><a href="#启动-1">启动</a></li>
+<li><a href="#使用-3">使用</a></li>
+<li><a href="#只给显示界面">只给显示界面</a>
+<ul>
+<li><a href="#下载swagger-ui">下载swagger-ui</a></li>
+<li><a href="#下载nginx">下载nginx</a></li>
+<li><a href="#使用-4">使用</a></li>
+<li><a href="#运行-1">运行</a></li>
+</ul></li>
+<li><a href="#整合">整合</a>
+<ul>
+<li><a href="#导出文件">导出文件</a></li>
+<li><a href="#导入swagger-ui">导入swagger ui</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#mock-js">mock.js</a>
+<ul>
+<li><a href="#安装-1">安装</a></li>
+<li><a href="#语法">语法</a>
+<ul>
+<li><a href="#dtd">DTD</a></li>
+<li><a href="#dpd">DPD</a></li>
+<li><a href="#实例">实例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#easy-mock">Easy mock</a>
+<ul>
+<li><a href="#使用-5">使用</a></li>
+<li><a href="#使用swagger编写的yaml同步到easymock">使用swagger编写的yaml同步到easymock</a></li>
+</ul></li>
+<li><a href="#element-ui">element ui</a>
+<ul>
 <li>
 <ul>
-<li><a href="#这个人还没打算整理-哈哈哈哈">这个人还没打算整理，哈哈哈哈！</a></li>
+<li><a href="#克隆项目-下载">克隆项目（下载）</a></li>
+<li><a href="#进入项目目录">进入项目目录</a></li>
+<li><a href="#安装依赖">安装依赖</a></li>
+<li><a href="#建议不要直接使用-cnpm-安装以来-会有各种诡异的-bug-可以通过如下操作解决-npm-下载速度慢的问题">建议不要直接使用 cnpm 安装以来，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题</a></li>
+<li><a href="#启动服务">启动服务</a></li>
+</ul></li>
+<li><a href="#目录结构">目录结构</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#base-api-vue-app-base-api-https-www-easy-mock-com-mock-5d088992010742640520057f-myeasymock">base api VUE_APP_BASE_API = &lsquo;<a href="https://www.easy-mock.com/mock/5d088992010742640520057f/myeasymock'">https://www.easy-mock.com/mock/5d088992010742640520057f/myeasymock'</a></a>
+<ul>
+<li>
+<ul>
+<li><a href="#修改语言">修改语言</a></li>
+<li><a href="#将本地数据-复制到-easymock中一份">将本地数据 复制到 easymock中一份</a></li>
+<li><a href="#源码">源码</a>
+<ul>
+<li><a href="#前端开发">前端开发</a></li>
+<li><a href="#后台开发">后台开发：</a></li>
+</ul></li>
+<li><a href="#实例-简单的查询">实例 简单的查询</a>
+<ul>
+<li><a href="#views">views</a></li>
+<li><a href="#api">api</a></li>
+<li><a href="#easymock">easymock</a></li>
+<li><a href="#编写router路由">编写router路由</a></li>
+</ul></li>
+<li><a href="#实例-分页">实例&ndash;分页</a>
+<ul>
+<li><a href="#easymock-1">easymock</a></li>
+<li><a href="#api-1">api</a></li>
+</ul></li>
+<li><a href="#vue">Vue</a></li>
+<li><a href="#条件查询">条件查询</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -322,14 +439,1674 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7243字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:15分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="这个人还没打算整理-哈哈哈哈">这个人还没打算整理，哈哈哈哈！</h3>
+<h2 id="简介">简介</h2>
+
+<p>Web前端技术栈包括</p>
+
+<ul>
+<li>elementUI</li>
+<li>Nuxt</li>
+<li>Vue.js</li>
+<li>webpack</li>
+<li>ESLint</li>
+<li>Node.js</li>
+<li>axios</li>
+<li>mock.js</li>
+<li>ES6</li>
+<li>Swagger</li>
+</ul>
+
+<p>核心：Node.js和Vue.js</p>
+
+<h2 id="webpack">webpack</h2>
+
+<p>webpack:打包, 可用将js等静态资源进行压缩，从而提高性能  可以打包js\css\图片等资源</p>
+
+<h3 id="使用">使用</h3>
+
+<h4 id="下载安装">下载安装</h4>
+
+<pre><code>cnpm install webpack -g
+cnpm install webpack-cli -g
+</code></pre>
+
+<p>测试：</p>
+
+<pre><code>webpack -v
+</code></pre>
+
+<h4 id="配置">配置</h4>
+
+<p>新建并配置配置文件<code>webpack.config.js</code></p>
+
+<pre><code>var path = require( 'path') ;
+module. exports = {
+    entry: './src/main.js' ,//入口文件
+    output: {//输出文件
+        //_ di rname/.dist/bundle.is
+        path: path. resolve(_ dirname, '.dist'),
+        filename : 'bundle.js
+    }
+}
+</code></pre>
+
+<h4 id="运行">运行</h4>
+
+<p>cmd到指定目录</p>
+
+<pre><code>webpack
+</code></pre>
+
+<p>webpack不能实现自动更新，修改代码后需要自己重新手动打包</p>
+
+<p>** 注意**：webpack本身只能打包js文件如果想打包css和图片文件的时候需要安装插件</p>
+
+<h4 id="安装插件">安装插件</h4>
+
+<pre><code>npm install style-loader css-loader --save-dev
+</code></pre>
+
+<h4 id="使用插件打包css">使用插件打包css</h4>
+
+<ol>
+<li><p>配置文件<code>webpack.config.js</code></p>
+
+<pre><code>var path = require( 'path') ;
+module. exports = {
+    entry: './src/main.js' ,//入口文件
+    output: {//输出文件
+        //_ di rname/.dist/bundle.is
+        path: path. resolve(_ dirname, '.dist'),
+        filename : 'bundle.js
+    },
+    moudle:{
+        rules:[
+            {
+                test:/\.css$/,
+                use:['style-loader','css-loader']
+            }
+        ]
+    }
+}
+</code></pre>
+
+<p>css文件要在主函数(main.js)中引用</p>
+
+<pre><code>require('xxx.css')
+</code></pre></li>
+
+<li><p>使用</p>
+
+<p>执行cmd</p>
+
+<pre><code> webpack
+</code></pre></li>
+
+<li><p>小结</p>
+
+<p>今后要使用css和js只要直接在html中引用bundle.js</p></li>
+</ol>
+
+<h3 id="实现修改css-js后-不打包-直接使得html生效">实现修改css/js后，不打包，直接使得html生效</h3>
+
+<h4 id="安装">安装</h4>
+
+<pre><code>npm i webpack-dev-server --save-dev
+</code></pre>
+
+<p>如果直接执行： webpack-dev-server ，会报错误：缺失该命令。</p>
+
+<p>原因：能够在cmd中执行直接的命令，必须是全局命令。</p>
+
+<p>全局安装</p>
+
+<pre><code>npm i webpack-dev-server -g
+</code></pre>
+
+<h4 id="启动">启动</h4>
+
+<p>cmd执行</p>
+
+<pre><code>webpack-dev-server
+</code></pre>
+
+<p>启动： <code>webpack-dev-server</code> ：自动将打包后的boundle.js -&gt;加载到内存中（boundle.js）</p>
+
+<p><code>webpack-dev-server</code>启动模式，会将boundle.js加载到内存中。使用时，直接在当前目录中引用<code>&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;</code>
+这样好处：</p>
+
+<ol>
+<li>热更新，css/js -&gt;html</li>
+<li>在内存中，因此速度快</li>
+</ol>
+
+<p>也可以将该命令 配置在package.json中配置scrpit脚本</p>
+
+<pre><code>{
+    &quot;scripts&quot;: {
+      &quot;dev&quot; : &quot;webpadk -dev-server &quot;
+    },
+    &quot;devDependencies&quot;: {
+        &quot;css- loader&quot;: &quot;^3.0. 0&quot;,
+        &quot;style-loader&quot;: &quot;^0.23. 1 &quot;,
+        &quot;webpack&quot;: &quot;^4.35.2&quot;,
+        &quot;webpack-cli &quot;:1
+        1^3.3.5”
+        &quot;webpack -dev-server&quot;: &quot;^3. 7.2&quot;
+    }
+}
+</code></pre>
+
+<p>直接运行</p>
+
+<pre><code>npm run dev
+</code></pre>
+
+<p>即可</p>
+
+<h4 id="可以改修改启动时的默认文件目录">可以改修改启动时的默认文件目录：</h4>
+
+<ol>
+<li><p>修改成目录而不是文件</p></li>
+
+<li><p>默认的文件名是index.html</p>
+
+<pre><code>&quot;scripts&quot;:{
+    &quot;dev&quot; : &quot;webpack-dev-server --contentBase src&quot;
+},
+</code></pre>
+
+<p><code>d:/a/b/c/index.html</code></p>
+
+<p><code>d:/a/b/c/</code></p></li>
+</ol>
+
+<h4 id="修改端口以及自动启动">修改端口以及自动启动</h4>
+
+<pre><code>&quot;scripts&quot;:{
+    &quot;dev&quot; : &quot;webpack-dev-server --port 8888 --open&quot;
+}
+</code></pre>
+
+<p>注意：</p>
+
+<pre><code>console.log(str);//cmd打印  - 调试窗口
+document.write(str);//html
+</code></pre>
+
+<h2 id="es6">ES6</h2>
+
+<p>ESMAScript6.0 是一种规范JavaScript只是它的一个实现</p>
+
+<p>它有1、2、3、5、6这几个版本，4被废弃了</p>
+
+<ul>
+<li><p>ESMAScript6.0 是一套规范（2015年产生）：</p></li>
+
+<li><p>javascript是ESMAScript的具体实现</p></li>
+
+<li><p>NodeJs是javascript的脚本库</p></li>
+</ul>
+
+<p>注意：</p>
+
+<p>NodeJs支持大部分的ESMAScript6.0 标准， 个别不支持 的需要回退5.0.</p>
+
+<p>版本回退，NodeJS会通过转换器自动搞定。</p>
+
+<h3 id="转换器">转换器</h3>
+
+<h4 id="配置转换器">配置转换器</h4>
+
+<p>新建文件并编辑(<code>.babelrc</code>)</p>
+
+<pre><code>{
+    &quot;presets&quot;:['es2015']
+}
+</code></pre>
+
+<h4 id="安装转换器">安装转换器</h4>
+
+<pre><code>cnpm install babel-preset-es2015 --save-dev
+</code></pre>
+
+<p>&ndash;save-dev：以dev的方式安装</p>
+
+<h4 id="安装命令行工具">安装命令行工具</h4>
+
+<pre><code>cnpm  install babel-cli -g
+</code></pre>
+
+<h4 id="使用-1">使用：</h4>
+
+<ul>
+<li><p>正常</p>
+
+<pre><code>node xxx.js
+</code></pre></li>
+
+<li><p>个别：</p>
+
+<p>如果遇到Nodejs不支持的ES6，则切换使用：</p>
+
+<pre><code>babel-node xxx.js
+</code></pre></li>
+</ul>
+
+<h3 id="变量自动提升等级">变量自动提升等级</h3>
+
+<pre><code>test();
+function(){
+    if(3&lt;2&gt;){
+        var a = 123;
+    }else{
+        console.log(a);
+    }
+}
+</code></pre>
+
+<p>运行结果：undefined</p>
+
+<p><strong>没有报错</strong></p>
+
+<p>原因：当使用a变量的时候发现当前找不到a但是上一级中有a，因此自动将a的等级提升变成</p>
+
+<pre><code>test();
+
+function(){
+     var a；
+    if(3&lt;2&gt;){
+        a= 123;
+    }else{
+        console.log(a);
+    }
+}
+</code></pre>
+
+<p>这种感觉</p>
+
+<p>如果不想自动提升则使用关键字<code>let</code></p>
+
+<pre><code>test();
+function(){
+    if(3&lt;2&gt;){
+        let a = 123;
+    }else{
+        console.log(a);
+    }
+}
+</code></pre>
+
+<p>运行结果：报错</p>
+
+<p>小结：</p>
+
+<ul>
+<li>var定义的变量，如果不存在，会自动提升（ 会将之前的局部变量，提升成全局变量
+）</li>
+
+<li><p>let:ES6 定义变量，和java等语言一样 严格控制变量的作用域（ES6新规范）</p></li>
+
+<li><p>const：常量（ES6新规范）</p></li>
+</ul>
+
+<h3 id="占位符-模板字符串">占位符/模板字符串</h3>
+
+<pre><code>console.log('张三的年龄是：'+age);
+</code></pre>
+
+<p>可与写成</p>
+
+<pre><code>console.log(`张三的年龄是：${age}`);
+</code></pre>
+
+<p><strong>注意</strong>:占位符的符号是 <strong>`</strong> 而不是 <strong>&lsquo;</strong></p>
+
+<p>换行符</p>
+
+<p>以前想要换行</p>
+
+<pre><code>console.log('张三的年龄是：\
+100');
+</code></pre>
+
+<p>现在：</p>
+
+<pre><code>console.log(`张三的年龄是：
+100`);
+</code></pre>
+
+<p>不需要使用<code>\</code>连接</p>
+
+<h3 id="函数默认参数">函数默认参数</h3>
+
+<pre><code>function test(a){
+
+    console.log(a);
+}
+test()
+</code></pre>
+
+<p>输出结果：</p>
+
+<pre><code>undefined
+</code></pre>
+
+<p>现在</p>
+
+<pre><code>function test(a=99){
+
+    console.log(a);
+}
+test()
+</code></pre>
+
+<p>输出结果</p>
+
+<pre><code>99
+</code></pre>
+
+<h3 id="箭头函数">箭头函数</h3>
+
+<ol>
+<li>不需要function关键字<br /></li>
+<li>省略return<br /></li>
+<li>继承this</li>
+</ol>
+
+<p>之前</p>
+
+<pre><code>function test(a,b){
+    console.log(a+b);
+}
+</code></pre>
+
+<p>现在</p>
+
+<pre><code>(a,b)=&gt; console.log(a+b);
+</code></pre>
+
+<p>以前</p>
+
+<pre><code>function test(a,b){
+    return a+b;
+}
+</code></pre>
+
+<p>现在</p>
+
+<pre><code>(a,b)=&gt; (a+b);
+</code></pre>
+
+<h3 id="对象初始化">对象初始化</h3>
+
+<p>以前</p>
+
+<pre><code>function persion(pname,page){
+   return {
+       name:pname;
+       age:page;
+
+   }
+}
+</code></pre>
+
+<p>现在</p>
+
+<pre><code>function persion(pname,page){
+   return {
+       pname;
+       page;
+   }
+}
+</code></pre>
+
+<p>可以省略属性名</p>
+
+<h3 id="解构-方便的给对象-数组赋值">解构：方便的给对象、数组赋值</h3>
+
+<p>以前</p>
+
+<pre><code>var person={
+    name:'zs',
+    age:23
+}
+var pname =persion.name;
+var page = persion.age;
+console.log(`$(pname),$(page)`);
+</code></pre>
+
+<p>现在</p>
+
+<pre><code>var person={
+    name:'zs',
+    age:23
+}
+var {name,age}=persion;
+console.log(`$(name),$(age)`);
+</code></pre>
+
+<p>变量名与属性名要相等</p>
+
+<p>数组赋值</p>
+
+<pre><code>const fruit = ['apple','orange'] ;
+let [one,two] = fruit;
+</code></pre>
+
+<p>值的顺序与数组的顺序一致</p>
+
+<h3 id="传播spread-operator">传播Spread Operator</h3>
+
+<pre><code>const fruit = ['apple','orange'] ;
+const fruit1=[...fruit,'pear']
+</code></pre>
+
+<p>此时fruit1中的前两个值就是fruit中的值</p>
+
+<pre><code>var person={
+    name:'zs',
+    age:23
+};
+var person2={
+   ...persion,
+   height:180
+};
+</code></pre>
+
+<p>person2对象前两个属性是person中的属性</p>
+
+<h3 id="导入导出">导入导出</h3>
+
+<p>exports  require()</p>
+
+<pre><code>exports.fn=function(){
+    console.log('xx');
+
+}
+require('./hello.js')
+</code></pre>
+
+<p>export  import</p>
+
+<pre><code>var fn=function(){
+    console.log('xx');
+}
+export{fn};
+
+import{fn} from './hello.js'
+</code></pre>
+
+<p>使用<code>export  import</code>时需要使用<code>bable-node</code>指令执行js文件</p>
+
+<h2 id="分号结尾">分号结尾</h2>
+
+<p>分号 ：风格问题 可以加也可以不加（建议要么加要么不加）</p>
+
+<p>两个特殊情况 必须加：</p>
+
+<ol>
+<li><p>下一条语句是()或[]开头，则上一条必须加;</p>
+
+<pre><code>//以()开头
+(function(){})()
+//以[]开头
+[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;].forEach(function(){
+
+})
+</code></pre></li>
+</ol>
+
+<p>当都不加时，上一句的分号可以加在下一句的开头，即</p>
+
+<pre><code>//以()开头
+;(function(){})()
+//以[]开头
+;[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;].forEach(function(){
+
+})
+</code></pre>
+
+<h2 id="数据类型">数据类型</h2>
+
+<h3 id="基本类型">基本类型</h3>
+
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>undefined ：只定义，没赋值; var a ;</li>
+<li>null</li>
+</ul>
+
+<h3 id="引用类型">引用类型</h3>
+
+<ul>
+<li>Object：任何对象</li>
+<li>Function:函数</li>
+
+<li><p>Array：数组</p>
+
+<p>数组和函数 都属于Object</p></li>
+</ul>
+
+<h2 id="判断类型">判断类型</h2>
+
+<ol>
+<li><p>== / ===</p>
+
+<p>== 宽松的判断（自带类型转换）</p>
+
+<pre><code>1==&quot;1&quot;   此时为true
+</code></pre>
+
+<p>===严格的判断 （建议使用）</p>
+
+<pre><code>1===&quot;1&quot;   此时为false
+</code></pre></li>
+
+<li><p>typeof：判断是否是某个类型 ，结果以“字符串形式”体现</p>
+
+<pre><code>var num;
+console.log(num,typeof num === 'undefined');
+</code></pre>
+
+<p>输出结果：</p>
+
+<pre><code>undefined true
+</code></pre></li>
+
+<li><p>instanceof ：判断是否某个具体类型</p></li>
+</ol>
+
+<h2 id="prototype-原型">prototype 原型</h2>
+
+<p>可以向对象 增加属性 或者方法</p>
+
+<p>每个函数都自带一个prorotype属性 ，默认情况下 指向一个空对象{} (称为原型对象，prototype对象)
+原型对象（prototype对象） 都有一个constructor（构造方法）属性，它指向函数本身</p>
+
+<pre><code>function myfun(){
+}
+console . log(myfun. prototype )
+console . log( myfun . prototype . constructor )
+</code></pre>
+
+<p>结果：</p>
+
+<pre><code>myfun{}                 对象
+[Function: myfun]       方法
+</code></pre>
+
+<h3 id="使用-2">使用</h3>
+
+<pre><code>function Myfun(){
+
+}
+Myfun.prototype.say=function(){
+    console.log(&quot;this is a methods&quot;)
+}
+var myfun= new Myfun();
+myfun.say();
+</code></pre>
+
+<p>注意：</p>
+
+<ul>
+<li><p>如果一个函数只有定义，即只有右边<code>Myfun(){}</code>，可以直接使用函数名.prototype;</p></li>
+
+<li><p>如果一个函数有<code>var myfun = function Myfun(){}</code>,则只能通过myfun.prototype</p></li>
+</ul>
+
+<h2 id="restful编程风格">Restful编程风格</h2>
+
+<ol>
+<li><p>参数格式</p>
+
+<p>get方式传值</p>
+
+<pre><code>localhost:8080/myproject?name=zs
+</code></pre>
+
+<p>Restful方式传值</p>
+
+<pre><code>localhost:8080/myproject/zs ，将zs传递给后端
+</code></pre></li>
+
+<li><p>请求方式</p>
+
+<pre><code>post：      增（查）
+
+delete:     删
+
+put：       改
+
+get：       查
+</code></pre></li>
+</ol>
+
+<p>get请求方式的地址栏中：</p>
+
+<pre><code>localhost:8080/myproject?name=zs&amp;age=23&amp;hei=xxx&amp;xxx...............
+</code></pre>
+
+<p>地址栏长度有限制  260-300 如果请求参数太长，超过了地址栏 范围，则只能换用其他请求方式（post）</p>
+
+<h2 id="swagger">swagger</h2>
+
+<p>Swagger是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。Swagger是一个规范和完整的框架，用于生成、描述、调用和可视化RESTfu风格的web服务。目标是使客户端和文件系统作为服务器一同样的速度来更新文件的方法，参数和模型紧密集成到服务器。这个解释简单点来讲就是说，swagger是一款可以根据restful风格生成的接口开发文档，并且支持做测试的一款中间软件。</p>
+
+<h3 id="下载安装-1">下载安装</h3>
+
+<p><a href="https://swagger.io/">swagger官网</a></p>
+
+<p>下载swagger Editor</p>
+
+<p>安装：package.json目录执行：</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>如果出现以下问题：</p>
+
+<pre><code>Error: Can't find Python executable &quot;python&quot;, you can set the PYTHON env variable
+</code></pre>
+
+<p>解决：</p>
+
+<pre><code>    * 管理员身份启动cmd
+    * npm install --global --production windows-build-tools
+</code></pre>
+
+<p>再次执行：</p>
+
+<pre><code> npm install
+</code></pre>
+
+<p>或使用<a href="http://editor.swagger.io/">在线版</a></p>
+
+<h3 id="启动-1">启动</h3>
+
+<p>双击index.html文件</p>
+
+<h3 id="使用-3">使用</h3>
+
+<pre><code>swagger: '2.0'          swagger版本号
+info:
+  version: &quot;1.0.0&quot;      文档的版本当
+  title: School-API     文档名称
+host: xxx.xx.xx         项目地址
+basePath: /xx           项目名
+paths:                  项目具体路径
+  /xx:                  第一个访问地址
+    post:                   post请求
+      summary: 新增学校      注释 
+      parameters:           传参
+        -                                   第一个参数，一个-代表一个参数
+          name: body                        参数名
+          in: body                          对象
+          description: 学校实体类            参数描述
+          required: true                    参数是可选还是必须的
+          schema:                           定义对象类型
+            $ref: '#/definitions/School'    类型是definitions中的School类型，definitions定义在后面
+      responses:                        响应
+        200:                            状态码
+          description: 成功响应          描述
+          schema:                       响应数据
+            $ref: '#/definitions/ApiResponse'             数据类型
+    get:                                get请求
+      summary: 返回学校列表              描述
+      responses:                        响应
+        200:                            状态码
+          description: 成功响应          描述
+          schema:                       数据
+            $ref: '#/definitions/ApiSchoolListResponse'      
+  
+definitions:                    对象类型
+  School:                       名称
+    type: object                类型
+    properties:                 属性
+      id:                       属性名
+        type: string            属性类型
+        description: ID         描述
+      name:                     属性名
+        type: string            属性类型
+        description: 学校名称    描述
+      
+  ApiResponse:                  对象名
+    type: object                对象类型
+    properties:                 属性
+      flag:                     标识是否成功
+        type: boolean           类型
+        description: 是否成功      描述
+      code:                         状态码
+        type: integer
+        format: int32
+        description: 返回码
+      message:                      返回信息
+        type: string
+        description: 返回信息
+  ApiSchoolResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+      data:
+        $ref: '#/definitions/School'
+  SchoolList:
+    type: array
+    items: 
+        $ref: '#/definitions/School'
+  ApiSchoolListResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+      data:
+        $ref: '#/definitions/SchoolList' 
+</code></pre>
+
+<p>in 的类型</p>
+
+<pre><code>localhost: 8080/yq/school?a=b&amp;c=d       -query
+localhost: 8080/yq/school/b/d           -path
+localhost: 8080/yq/school               -body       对象类型
+</code></pre>
+
+<p>等等其他类型</p>
+
+<p>实例</p>
+
+<pre><code>swagger: '2.0'
+info:
+  version: &quot;1.0.0&quot;
+  title: School-API
+host: xx.xx.xx
+basePath: /xx
+paths:
+  /school:
+    post:
+      summary: 新增学校
+      parameters:
+        -
+          name: body
+          in: body
+          description: 学校实体类
+          required: true
+          schema:
+            $ref: '#/definitions/School'
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    get:
+      summary: 返回学校列表
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiSchoolListResponse'      
+  /school/{schoolId}:
+    put:
+      summary: 修改学校
+      parameters:
+        - name: schoolId
+          in: path
+          description: 学校ID
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: 学校实体类
+          required: true
+          schema:
+            $ref: '#/definitions/School'
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      summary: 删除学校
+      parameters:
+        - name: schoolId
+          in: path
+          description: 学校ID
+          required: true
+          type: string      
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    get:
+      summary: 根据ID查询学校
+      parameters:
+        - name: schoolId
+          in: path
+          description: 学校ID
+          required: true
+          type: string  
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiSchoolResponse'
+  /school/search:
+    post:
+      summary: 根据条件查询学校列表 
+      parameters:
+        - name: body
+          in: body
+          description: 学校实体类
+          required: true
+          schema:
+            $ref: '#/definitions/School'
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiSchoolListResponse'
+  /school/search/{page}/{size}:
+    post:
+      summary: 根据条件查询学校列表 
+      parameters:
+        - name: page
+          in: path
+          description: 页码
+          required: true
+          type: integer
+          format: int32
+        - name: size
+          in: path
+          description: 页大小
+          required: true
+          type: integer
+          format: int32          
+        - name: body
+          in: body
+          description: 学校实体类
+          required: true
+          schema:
+            $ref: '#/definitions/School'
+      responses:
+        200:
+          description: 成功响应
+          schema:
+            $ref: '#/definitions/ApiSchoolPageResponse'    
+definitions:
+  School: 
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID
+      name:
+        type: string
+        description: 学校名称
+      isPopular:
+        type: string
+        description: 是否热门 
+  ApiResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+  ApiSchoolResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+      data:
+        $ref: '#/definitions/School'
+  SchoolList:
+    type: array
+    items: 
+        $ref: '#/definitions/School'
+  ApiSchoolListResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+      data:
+        $ref: '#/definitions/SchoolList' 
+  ApiSchoolPageResponse:
+    type: object
+    properties:
+      flag:
+        type: boolean
+        description: 是否成功
+      code:
+        type: integer
+        format: int32
+        description: 返回码
+      message:
+        type: string
+        description: 返回信息
+      data:
+        properties:
+          total:
+            type: integer
+            format: int32
+          rows:
+            $ref: '#/definitions/SchoolList' 
+
+</code></pre>
+
+<h3 id="只给显示界面">只给显示界面</h3>
+
+<h4 id="下载swagger-ui">下载swagger-ui</h4>
+
+<p>swagger-ui依赖nginx</p>
+
+<h4 id="下载nginx">下载nginx</h4>
+
+<h4 id="使用-4">使用</h4>
+
+<p>swagger-ui-master.zip,解压，将其中的dist目录中的全部文件，拷贝到nginx中的html目录中</p>
+
+<h4 id="运行-1">运行</h4>
+
+<p>进入nginx目录cmd</p>
+
+<pre><code>start nginx.exe
+</code></pre>
+
+<p>访问</p>
+
+<pre><code>localhost：80
+</code></pre>
+
+<h3 id="整合">整合</h3>
+
+<h4 id="导出文件">导出文件</h4>
+
+<p>swagger Editor中选择Generate Client中选择swagger-yaml</p>
+
+<h4 id="导入swagger-ui">导入swagger ui</h4>
+
+<ol>
+<li><p>将yaml文件拷贝到nginx的html目录中即可</p></li>
+
+<li><p>搜索文件xxx.yaml</p></li>
+</ol>
+
+<p>注意：文件后缀yaml和yml建议改成yml</p>
+
+<h2 id="mock-js">mock.js</h2>
+
+<p>mockjs 可以以无侵入的方式拦截 ajax 请求，通过模拟服务器端响应来返回数据</p>
+
+<h3 id="安装-1">安装</h3>
+
+<pre><code>cnpm install mockjs
+</code></pre>
+
+<h3 id="语法">语法</h3>
+
+<ol>
+<li>DTD:数据模板定义规范</li>
+<li>DPD：数据占位符定义规范</li>
+</ol>
+
+<h4 id="dtd">DTD</h4>
+
+<pre><code>'属性名|规则': 属性值
+</code></pre>
+
+<p>实例</p>
+
+<pre><code>'persons|10' :[{
+        'id':1,
+        'name':'zs',
+        'age':23 
+    }]
+</code></pre>
+
+<p>规则：</p>
+
+<ol>
+<li><p>属性值是字符串类型</p>
+
+<ul>
+<li><p>字符串重复count次</p>
+
+<pre><code>属性名|count: 字符串
+
+'name|10':'zs'
+</code></pre></li>
+
+<li><p>字符串重复min-max中任意次</p>
+
+<pre><code>属性名|min-max: 字符串   
+
+'name|2-5':'zs'
+</code></pre></li>
+</ul>
+
+<p>&ndash;min-max代表次数</p></li>
+
+<li><p>属性值是数字类型</p>
+
+<ul>
+<li><p>递增任意数字</p>
+
+<pre><code>属性名|+1: 数字
+
+'id|+1':1
+</code></pre></li>
+
+<li><p>数字范围</p>
+
+<pre><code>属性名|min-max: 数字 --min-max代表范围
+'id|10-20':0            代表数字类型没有任何意义(可变成任意数字)
+</code></pre></li>
+
+<li><p>数字显示小数</p>
+
+<pre><code>属性名|min-max.x: 数字   --min-max代表范围
+'id|10-20.2':0           10-20中任意数字两个小数位
+</code></pre></li>
+
+<li><p>数字显示任意小数</p>
+
+<pre><code>属性名|min-max.a-b: 数字 
+'id|10-20.2-4':0           10-20中任意数字2-4任意的小数
+</code></pre></li>
+</ul></li>
+
+<li><p>属性值是布尔类型</p>
+
+<ul>
+<li><p>相等出现概率</p>
+
+<pre><code>'sex|1':true    代表true出现的次数 和false 的概率是 1:1
+</code></pre></li>
+
+<li><p>自定义出现概率</p>
+
+<pre><code>'sex|2-4':true      代表true出现的概率 是 2/2+4
+</code></pre></li>
+</ul></li>
+
+<li><p>属性值是对象object类型</p>
+
+<p>对象类型是通过json格式写的</p>
+
+<ul>
+<li><p>对象出现的个数</p>
+
+<pre><code>'属性|count':{k:v,k:v,k:v....}
+
+'address|2':{'homeaddress':'西安','schooladdress':'北京','workaddress':'泸州'}        显示其中的任意两个
+</code></pre></li>
+
+<li><p>出现min-max中任意个</p>
+
+<pre><code>'属性|min-max':{...}
+
+'address|1-3':{'homeaddress':'西安','schooladdress':'北京','workaddress':'泸州'}        显示其中的任意1-3个
+</code></pre></li>
+</ul></li>
+
+<li><p>属性值是数组类型</p>
+
+<ul>
+<li><p>出现指定次</p>
+
+<pre><code> '属性|count':[{}]
+
+'persons|3' :[{
+        ...}
+    }]
+</code></pre></li>
+
+<li><p>出现min-max次</p>
+
+<pre><code>'属性|min-max':[{}]
+
+'persons|1-6' :[{
+        ...}
+    }]
+</code></pre></li>
+</ul></li>
+</ol>
+
+<h4 id="dpd">DPD</h4>
+
+<p>产生随机数据</p>
+
+<p><img src="/resources/技术收录/前端技术栈/DPD.png" alt="类型表" title="类型表" /></p>
+
+<p>类型要加上<code>@</code>符号加上<code>''</code></p>
+
+<pre><code>    'name':'@cname',
+    'xing':'@cfirst',
+    'exing':'@Last',
+</code></pre>
+
+<p>注意： 属性名重复的话，后一个的值会覆盖前一个的值，出现的位置是在第一个的位置</p>
+
+<h4 id="实例">实例</h4>
+
+<pre><code>let mymock = require('mockjs');
+
+let pers  = mymock.mock({
+	'persons|1-6' :[{
+		'id|+10':1,
+		'name':'@cname',
+		'xing':'@cfirst',
+		'exing':'@Last',
+		
+		'desc' : '@string',
+		'stuno':'@integer',
+		'birthday':'@date',
+		'pic':'@image',
+		'age|18-60':0 ,
+		'brief': '@title',
+		'content': '@cword(100)',
+		
+		'height|160-180.2':0 ,
+		'weight|50-100.2-4':0,
+		'sex|2-3':true ,
+		
+		'address|1-3':{'homeaddress':'西安','schooladdress':'北京','workaddress':'泸州'},
+		
+		'url':'@url' ,
+		'ip':&quot;@ip&quot; ,
+		'email':'@email',
+		'area':'@region',
+		'address2':'@county(true)'
+	}]
+	
+	/*
+	'persons|1-6' :[{
+		'id|+10':1,
+		'name|2-5':'zs',
+		'age|18-60':0 ,
+		'height|160-180.2':0 ,
+		'weight|50-100.2-4':0,
+		'sex|2-3':true ,
+		
+		'address|1-3':{'homeaddress':'西安','schooladdress':'北京','workaddress':'泸州'}
+	}]
+	*/
+});
+
+console.log( JSON.stringify(pers ,null, 2)  );
+
+</code></pre>
+
+<h2 id="easy-mock">Easy mock</h2>
+
+<p><a href="https://www.easy-mock.com/">Easy mock官网</a></p>
+
+<p>easy mock:在线Mock.js</p>
+
+<ol>
+<li>内置了mock.js并且 暴露了url地址<br /></li>
+<li>同步swagger</li>
+</ol>
+
+<p>模拟数据：
+1. mock.js 模拟数据：  当请求url时，返回mock.js模拟的数据</p>
+
+<ol>
+<li>swagger模拟数据：根据yml中的请求url设置url,返回 response中定义的数据（类型是swagger定义的，而数据是easymock模拟出来的）-》模拟数据，并且有查询此数据的url【 url -&gt;模拟数据】</li>
+</ol>
+
+<h3 id="使用-5">使用</h3>
+
+<ul>
+<li>进入官网</li>
+<li>创建项目</li>
+<li>编写接口</li>
+</ul>
+
+<h3 id="使用swagger编写的yaml同步到easymock">使用swagger编写的yaml同步到easymock</h3>
+
+<ul>
+<li><p>获得yaml文件</p></li>
+
+<li><p>进入easymock项目</p></li>
+
+<li><p>设置</p></li>
+
+<li><p>Swagger Docs API</p></li>
+
+<li><p>上传yaml文件</p></li>
+
+<li><p>保存</p></li>
+
+<li><p>进入easymock项目点击同步Swagger</p></li>
+</ul>
+
+<h2 id="element-ui">element ui</h2>
+
+<p>elementui:前端脚手架,vue组件组</p>
+
+<p><a href="https://element.eleme.cn/#/zh-CN">官网</a></p>
+
+<p>很多三方组件 是基础是基于elementui进行了扩展。
+举例：</p>
+
+<ul>
+<li>vue-admin-template</li>
+</ul>
+
+<p><a href="https://github.com/PanJiaChen/vue-admin-template">github地址</a></p>
+
+<p>github上有详细的用法</p>
+
+<p>根据github提示:</p>
+
+<h4 id="克隆项目-下载">克隆项目（下载）</h4>
+
+<pre><code>git clone https://github.com/PanJiaChen/vue-admin-template.git
+</code></pre>
+
+<h4 id="进入项目目录">进入项目目录</h4>
+
+<pre><code>cd vue-admin-template
+</code></pre>
+
+<h4 id="安装依赖">安装依赖</h4>
+
+<pre><code>npm install
+</code></pre>
+
+<h4 id="建议不要直接使用-cnpm-安装以来-会有各种诡异的-bug-可以通过如下操作解决-npm-下载速度慢的问题">建议不要直接使用 cnpm 安装以来，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题</h4>
+
+<pre><code>npm install --registry=https://registry.npm.taobao.org
+</code></pre>
+
+<h4 id="启动服务">启动服务</h4>
+
+<pre><code>npm run dev
+</code></pre>
+
+<p>注意:</p>
+
+<p>遇见错误<code>Error: Cannot find module 'node-sass'</code>解决办法</p>
+
+<pre><code>cnpm install node-sass --save
+</code></pre>
+
+<h3 id="目录结构">目录结构</h3>
+
+<ul>
+<li>build 构建源码</li>
+<li>mock 模拟数据</li>
+
+<li><p>public 首页</p>
+
+<ul>
+<li>favicon.ico网站图标</li>
+</ul></li>
+
+<li><p>src 源码</p></li>
+
+<li><p>api 前后端遵循的api接口</p>
+
+<ul>
+<li>assets 资源</li>
+<li>components 组件</li>
+<li>icons 图标</li>
+<li>router 路由</li>
+<li>utils 工具</li>
+<li>views 视图</li>
+</ul></li>
+
+<li><p>.env.development 数据来源</p>
+
+<ul>
+<li><p>修改数据来源，来源于easymock</p>
+
+<h1 id="base-api-vue-app-base-api-https-www-easy-mock-com-mock-5d088992010742640520057f-myeasymock">base api VUE_APP_BASE_API = &lsquo;<a href="https://www.easy-mock.com/mock/5d088992010742640520057f/myeasymock'">https://www.easy-mock.com/mock/5d088992010742640520057f/myeasymock'</a></h1>
+
+<p>修改后需要重启</p></li>
+</ul></li>
+</ul>
+
+<h3 id="修改语言">修改语言</h3>
+
+<p>进入src/main.js文件，修改成</p>
+
+<pre><code>import locale from 'element-ui/lib/locale/lang/zh-CN'
+</code></pre>
+
+<h3 id="将本地数据-复制到-easymock中一份">将本地数据 复制到 easymock中一份</h3>
+
+<ol>
+<li><p>修改数据源：<code>.env.development   ：VUE_APP_BASE_API</code></p></li>
+
+<li><p>request&ndash;response</p>
+
+<ol>
+<li><p>先查看本地有什么数据(chrome-F12,network)</p>
+
+<p>请求</p>
+
+<pre><code>Request URL(POST): http://localhost:9528/dev-api/user/login
+</code></pre>
+
+<p>响应</p>
+
+<pre><code>{&quot;code&quot;:20000,&quot;data&quot;:{&quot;token&quot;:&quot;admin-token&quot;}}
+</code></pre>
+
+<p>请求</p>
+
+<pre><code>Request URL(GET): http://localhost:9528/dev-api/user/info   （注意不要加?token=admin-token，定义接口时不需要传值，在请求时才传值）
+</code></pre>
+
+<p>响应</p>
+
+<pre><code>{&quot;code&quot;:20000,&quot;data&quot;:{&quot;roles&quot;:[&quot;admin&quot;],&quot;introduction&quot;:&quot;I am a super administrator&quot;,&quot;avatar&quot;:&quot;https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif&quot;,&quot;name&quot;:&quot;lx&quot;}}
+</code></pre></li>
+
+<li><p>复制到easy mock</p></li>
+</ol>
+
+<p>在easy中定义请求和响应</p></li>
+</ol>
+
+<h3 id="源码">源码</h3>
+
+<ul>
+<li><p>router:路由器</p></li>
+
+<li><p>views:视图</p></li>
+
+<li><p>api：调用接口</p></li>
+</ul>
+
+<h4 id="前端开发">前端开发</h4>
+
+<p><code>请求xxx</code> -&gt;<code>router(&quot;xxx&quot;)</code>-&gt;<code>views(&lt;template&gt;html搭建,&lt;script&gt;js)</code>-&gt;<code>调用（api）</code>-&gt;<code>url(参数)</code>-&gt;<code>Easy Mock[swagger(yml，类型+变量名，String id)+mock.js(DPD @string)] )</code></p>
+
+<h4 id="后台开发">后台开发：</h4>
+
+<p><code>请求xxx</code>-&gt;<code>@RequestMapping(&quot;xxx&quot;)</code>-&gt;<code>service</code> -&gt;<code>dao</code> -&gt;<code>db    动态从数据库中查</code></p>
+
+<p><code>请求xxx</code>-&gt;<code>@RequestMapping(&quot;xxx&quot;)</code>-&gt;<code>service :return &quot;abc&quot;  硬编码</code></p>
+
+<h3 id="实例-简单的查询">实例 简单的查询</h3>
+
+<p>.vue/.js模块化编程：</p>
+
+<pre><code>import
+..
+export
+</code></pre>
+
+<p><code>请求xxx</code> -&gt;<code>router(&quot;xxx&quot;)</code>-&gt;<code>views(&lt;template&gt;html搭建,&lt;script&gt;js)</code>-&gt;<code>调用（api）</code>-&gt;<code>url(参数)</code>-&gt;<code>Easy Mock[swagger(yml，类型+变量名，String id)+mock.js(DPD @string)] )</code></p>
+
+<h4 id="views">views</h4>
+
+<ol>
+<li><p>新建文件夹、文件myactivity/activity.vue</p></li>
+
+<li><p>编写代码</p>
+
+<pre><code>&lt;template&gt;
+&lt;div&gt;
+&lt;el-table     
+:data=&quot;activitiesData&quot;
+stripe
+style=&quot;width: 100%&quot;&gt;
+&lt;el-table-column
+  prop=&quot;id&quot;
+  label=&quot;编号&quot;
+  width=&quot;130&quot;&gt;
+&lt;/el-table-column&gt;
+&lt;el-table-column
+  prop=&quot;name&quot;
+  label=&quot;活动名&quot;
+  width=&quot;130&quot;&gt;
+&lt;/el-table-column&gt;
+&lt;el-table-column
+  prop=&quot;starttime&quot;
+  label=&quot;开始时间&quot;&gt;
+&lt;/el-table-column&gt;
+&lt;el-table-column
+  prop=&quot;state&quot;
+  label=&quot;状态&quot;&gt;
+&lt;/el-table-column&gt;
+&lt;/el-table&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import activityApi  from '@/api/activity'
+export default{
+    //获取easy mock中的模拟数据 ;变量
+    data(){
+        return {
+         //查询easymock时 传入的参数（活动对象）
+         activityData : {}, //封装活动信息：id,
+       }
+    }  ,  
+/*
+created():初始化方法 -&gt;  加载数据  initActivities();
+ data()：为了给 &lt;templete&gt;里的table填充值
+*/
+    //初始化方法
+    created(){
+       this.initActivities();
+    },
+    methods:{
+        initActivities(){
+                activityApi.getActivitis().then(response=&gt;{
+                     //将easy mock中查询的活动数据 赋值给activitiesData
+                      this.activitiesData =   response.data ;
+                }
+                );
+        }
+    }
+}
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="api">api</h4>
+
+<p>新建文件activity.js</p>
+
+<pre><code>import request from '@/utils/request'
+//activity
+export default
+{
+   //请求easy mock，获取活动列表数据
+   getActivitis(){
+    return request({
+        url: '/yq/activity',
+        method: 'get'
+      })
+   }
+}
+</code></pre>
+
+<h4 id="easymock">easymock</h4>
+
+<p>编写请求和响应</p>
+
+<pre><code>{
+&quot;code&quot;:20000,
+&quot;flag&quot;:true
+'message&quot; &quot;@string&quot;，
+&quot;data|10&quot;:[{
+&quot;id|+1&quot;: 1，
+“name&quot;: &quot;@cword&quot;
+”summary&quot; :
+&quot;@cword(6,10)&quot; ,
+&quot;detail&quot;: &quot;@cword(16,20)&quot;，
+”sponsor&quot;:' ”@string&quot; ,
+”image&quot;: &quot;@string&quot; ，
+'starttime&quot;: &quot;@date&quot;，
+”endtime&quot;:&quot; @date&quot; ,
+&quot;address&quot;: &quot;@string&quot;,
+enrolltime&quot;: &quot;@string&quot; ，
+&quot;state&quot;:&quot; @string ，
+'school&quot;: &quot;@string&quot;
+}]
+}
+</code></pre>
+
+<p>code的值必须是20000</p>
+
+<h4 id="编写router路由">编写router路由</h4>
+
+<pre><code>{
+    path: '/example',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Example',
+    meta: { title: '示例', icon: 'example' },
+    children: [
+      {
+        path: 'table',
+        name: 'Table',
+        component: () =&gt; import('@/views/myactivity/activity'),
+        meta: { title: '活动', icon: 'table' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () =&gt; import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  }
+</code></pre>
+
+<h3 id="实例-分页">实例&ndash;分页</h3>
+
+<h4 id="easymock-1">easymock</h4>
+
+<pre><code>'code&quot;: 20000 ,
+&quot;flag&quot;: true,
+&quot;message&quot;:&quot;带分页的查询&quot;,
+data&quot;: {
+&quot;total&quot;: 109,
+&quot;rows|10&quot;: [{
+id|+1&quot;: 1,
+”name”:
+&quot;@cnpme&quot;，
+summary&quot;: &quot;@string&quot; ，
+detail&quot;: @string&quot;,
+&quot;sponsor&quot;: &quot;@string&quot; ,
+' image&quot;:&quot; @string&quot; ,
+starttime&quot;:' &quot;@string&quot; ,
+”endtime&quot;:” @string&quot; ,
+”address&quot;: &quot;@string
+”enrolltime&quot;: &quot;@string&quot; ,
+&quot;state&quot;: &quot;@string&quot; ,
+”school&quot;: &quot;@string
+}]
+}
+</code></pre>
+
+<p>数据的形式：</p>
+
+<ul>
+<li>response.data.total :总数据量</li>
+<li>response.data.rows:每页的数据量</li>
+</ul>
+
+<h4 id="api-1">api</h4>
+
+<pre><code>   initActivitiesByPage(currentPage,pageSize,activityQueryData){
+       //currentPage:当前第几页     pageSize：每页的数据量
+    return request({
+        url: `/yq/activity/queryActivitiesByPage/${currentPage}/${pageSize}`,
+        method: 'post',
+        data: activityQueryData  //时间、名称
+      })
+   },
+</code></pre>
+
+<h3 id="vue">Vue</h3>
+
+<pre><code>  //带分页：查看当前页的数据
+  initActivitiesByPage(){
+      activityApi.initActivitiesByPage(this.currentpage,this.pagesize,this.activityData ).then(response=&gt;{
+          this.total =  response.data.total ;//109
+          this.activitiesData = response.data.rows ;
+      })
+  }
+</code></pre>
+
+<pre><code>  &lt;div class=&quot;block&quot;&gt;
+    &lt;span class=&quot;demonstration&quot;&gt;分页&lt;/span&gt;
+    &lt;el-pagination
+      @current-change =&quot;initActivitiesByPage&quot;
+      @size-change= &quot;initActivitiesByPage&quot;
+      :page-sizes=&quot;[10,20,30]&quot;
+      :page-size=&quot;pagesize&quot;
+      :current-page=&quot;currentpage&quot;
+
+      layout=&quot;prev, pager, next&quot;
+      :total=&quot;total&quot;&gt;
+
+
+
+
+    &lt;/el-pagination&gt;
+  &lt;/div&gt;
+
+</code></pre>
+
+<h3 id="条件查询">条件查询</h3>
 
     </div>
     <div class="article-footer">
