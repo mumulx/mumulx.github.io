@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        木木的个人博客</title>
+        Linux Centos6安装 - 木木的个人博客
+      </title>
     <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,25 +23,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  
+  <meta name="description" content="Linux Centos6安装." />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>木木的个人博客</title>
+  <title>Linux Centos6安装 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://mumulx.github.io/404.html" />
+  <meta property="og:title" content="Linux Centos6安装" />
+<meta property="og:description" content="Linux Centos6安装." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/" />
+<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Linux Centos6安装">
+<meta itemprop="description" content="Linux Centos6安装.">
 
+
+<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1245">
+
+
+
+<meta itemprop="keywords" content="杂七杂八," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Linux Centos6安装"/>
+<meta name="twitter:description" content="Linux Centos6安装."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -262,38 +273,307 @@
 
     
     
-<main class="main" role="main">
-    <div class="content">
-        <article class="article">
-            <div class="article-header">
-                <h1 class="article-title" itemprop="name">
-                    <a href="#">404 Not Found</a>
-                </h1>
-            </div>
-            <div class="article-meta">
-                <span class="article-date">
-  <i class="icon icon-calendar-check"></i>
-<a href="https://mumulx.github.io/404.html" class="article-date">
-  <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
-</a>
-</span>
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#关于vmware中计算机名子">关于vmware中计算机名子:</a></li>
+<li><a href="#磁盘布局">磁盘布局:</a></li>
+<li><a href="#查看计算机名-hostname">查看计算机名: hostname</a></li>
+<li><a href="#linux安装vm-tools">linux安装vm tools</a></li>
+<li><a href="#centos网络配置">centos网络配置</a>
+<ul>
+<li><a href="#编辑-虚拟机网络编辑器">编辑-虚拟机网络编辑器</a></li>
+<li><a href="#配置windows访问虚拟机">配置windows访问虚拟机</a></li>
+<li><a href="#centos网卡">centos网卡</a></li>
+<li><a href="#通过网络名访问虚拟机-192-168-2-128-bi-gdata01">通过网络名访问虚拟机(192. 168. 2.128 -&gt;bi gdata01)</a></li>
+<li><a href="#配置网络服务">配置网络服务</a></li>
+</ul></li>
+<li><a href="#防火墙">防火墙</a></li>
+<li><a href="#自动同步时间">自动同步时间</a></li>
+<li><a href="#windows真实机通过securecrt操作centos">windows真实机通过SecureCRT操作centos</a></li>
+<li><a href="#下载安装jdk-rpm方式">下载安装jdk（rpm方式）</a>
+<ul>
+<li><a href="#配置环境变量">配置环境变量:</a></li>
+</ul></li>
+<li><a href="#集群-3台-完整克隆">集群(3台) :完整克隆</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/11/linux-centos6%E5%AE%89%E8%A3%85/"
+    >Linux Centos6安装</a
+  >
+</h1>
 
-                <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments"
-                        class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:0字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:0分 </span>
-            </div>
-            <div class="article-entry marked-body" itemprop="articleBody">
-                <br>
-                <p>找不到页面啦~请换个姿势(￣.￣)</p>
-                <a href="/">返回首页</a>
-            </div>
-            <div class="article-footer">
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/linux-centos6%E5%AE%89%E8%A3%85/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1245字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h3 id="关于vmware中计算机名子">关于vmware中计算机名子:</h3>
+
+<pre><code>虚拟机名: bigdata01
+
+计算机名: bigdata01
+
+网络中的名字: bigdata01
+
+用户名:root
+</code></pre>
+
+<p>默认超级管理员: root/自己设置</p>
+
+<h3 id="磁盘布局">磁盘布局:</h3>
+
+<pre><code>/boot:系统启动时需要的内存200M
+
+/:系统的可用磁盘大小10240M
+
+swap:交换内存，建议大小和内存一-致2048M
+</code></pre>
+
+<p>鼠标从虚拟机中释放: ctrl+alt</p>
+
+<h3 id="查看计算机名-hostname">查看计算机名: hostname</h3>
+
+<p>通过文本编辑器打开文件: vi路径/文件名</p>
+
+<pre><code>vi /etc/sysconfig/network
+</code></pre>
+
+<p>查看文件: <code>cat /etc/sysconfig/network</code></p>
+
+<p>编辑: <code>a</code></p>
+
+<p>保存: <code>esc，shift +z+z</code></p>
+
+<p>重启计算机:<code>reboot</code></p>
+
+<p>关机:<code>halt</code></p>
+
+<h3 id="linux安装vm-tools">linux安装vm tools</h3>
+
+<p>虚拟机&ndash;&gt;安装vmtool&mdash;&gt;复制压缩包xxx.tar.gz到桌面&ndash;&gt;解压缩&ndash;&gt;xxxx.pl&mdash;&gt;在命令行打开，一直回车&ndash;&gt;重启</p>
+
+<h3 id="centos网络配置">centos网络配置</h3>
+
+<pre><code>bigdata01:      192. 168.2. 128     192.168.2. 1 (网关)
+bi gdata02      192.168. 2.129      192.168. 2.1 (网关) 
+bi gdata03      192. 168.2. 130     192.168.2. 1 (网并)
+</code></pre>
+
+<h4 id="编辑-虚拟机网络编辑器">编辑-虚拟机网络编辑器</h4>
+
+<p>VMNet8 (NAT)</p>
+
+<ul>
+<li><p>子网192. 168.2.0</p></li>
+
+<li><p>更改设置-DHCP设置:</p>
+
+<ul>
+<li>起始192.168. 2.128</li>
+<li>结束192.168. 2. 254</li>
+</ul></li>
+
+<li><p>NAT设置:网关192. 168.2. 1|</p></li>
+</ul>
+
+<h4 id="配置windows访问虚拟机">配置windows访问虚拟机</h4>
+
+<p>网络连接- vmNet8- -TCP/IP V4 - IP192. 168. 2.2，192. 168.2. 1 (网关)</p>
+
+<h4 id="centos网卡">centos网卡</h4>
+
+<pre><code>vi/etc/sysconfig/network-scripts/ifcfg-eth0 
+</code></pre>
+
+<pre><code>DEVICE=eth0
+HWADDR=00:0C:29:26:8F:4F
+TYPE=Ethernet
+UUID=d7986e04-0a7d-4f73-a69a-782be645067b
+--修改以下配置
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=static
+IPADDR=192.168.2.128
+GATEWAY=192.168.2.1
+BROADCAST=192.168.2.255
+DNS1=114.114.114.114
+DNS1=8.8.8.8
+</code></pre>
+
+<p>vi如果使用shift+z+z无法保存，则使用&rdquo;:wq!&rdquo;</p>
+
+<h4 id="通过网络名访问虚拟机-192-168-2-128-bi-gdata01">通过网络名访问虚拟机(192. 168. 2.128 -&gt;bi gdata01)</h4>
+
+<ul>
+<li><p>centos:</p>
+
+<pre><code>vi /etc/hosts,
+追加:
+192.168.2.128 centos6
+</code></pre></li>
+
+<li><p>windows:</p>
+
+<pre><code>C: \Windows \System32\dr ivers\etc \hosts
+追加:
+192.168. 2.128 bi gdata01
+</code></pre></li>
+</ul>
+
+<h4 id="配置网络服务">配置网络服务</h4>
+
+<pre><code>service NetworkManager stop
+/etc/ init. d/network restart
+chkconfig NetworkManager off
+vi /etc/resolv. conf追 加nameserve 192. 168. 2.1
+</code></pre>
+
+<h3 id="防火墙">防火墙</h3>
+
+<pre><code>service iptables stop：关闭当前防火墙
+chkconfig iptables off：禁止开机自启
+service iptables status：查看当前防火墙状态
+</code></pre>
+
+<h3 id="自动同步时间">自动同步时间</h3>
+
+<pre><code>yum -y install ntp utpdate：安装时间插件
+ntpdate cn.pool.ntp.org：根据网站同步时间
+hwclock --systohc：将系统时间写入硬盘时间
+</code></pre>
+
+<h3 id="windows真实机通过securecrt操作centos">windows真实机通过SecureCRT操作centos</h3>
+
+<ul>
+<li><p>下载SecureCRT</p>
+
+<p>通过SecureCRT对centos进行文件的上传下载: yum -y install lrzsz</p>
+
+<p>上传:切换到当前目录cd /tmp, 直接用鼠标拖拽，Zmodem. .</p></li>
+</ul>
+
+<h3 id="下载安装jdk-rpm方式">下载安装jdk（rpm方式）</h3>
+
+<pre><code>exe:rpm
+rar:.tar.gz
+</code></pre>
+
+<p>下载rpm版jdk</p>
+
+<p>安装:切到 rpm版 jdk的文件夹中，rpm -ivh jdk名字</p>
+
+<p><code>ll</code>:查看当前文件夹文件
+<code>pwd</code>:查看当前所在的目录
+<code>rpm</code>安装完毕之后全部在usr文件夹中</p>
+
+<p>例如Java的安装位置：/usr/java/jdk1.8.0_231-amd64</p>
+
+<p><strong>linux</strong>：一切都是文件，一切都是命令</p>
+
+<h4 id="配置环境变量">配置环境变量:</h4>
+
+<pre><code>vi /etc/profile中 的最后追加:
+export JAVA_ HOME=/usr/ java/ jdk1.8.0_ 181-amd64
+export CLASSPATH= $JAVA_ HOME$\lib: $CLASSPATH
+export PATH=$JAVA_ HOME$\bin: $PATH
+</code></pre>
+
+<h3 id="集群-3台-完整克隆">集群(3台) :完整克隆</h3>
+
+<pre><code>bigdata01 -&gt; bigdata02/bi gdata03
+</code></pre>
+
+<p>克隆完毕后:</p>
+
+<ul>
+<li>将从计算机的内存适当降低</li>
+
+<li><p>修改从计算中唯一性的配置(ip、uuid、hostname映射)</p>
+
+<p>在克隆后的bigdata02/bigdata03中</p>
+
+<pre><code>vi /etc/ sysconfig/ network- scripts/ ifcfg -eth0
+
+    修改ip地址、删除uuid/hwaddr (在重启时，自动生成)
+
+删除文件：rm -r /etc/udev/rule.d/70-persistent-net.rules
+
+输入yes
+
+计算机名: vi /etc/sysconfig/network
+</code></pre>
+
+<ul>
+<li><p>映射</p>
+
+<p><strong>centos:</strong></p>
+
+<pre><code>vi /etc/hosts,
+追加:
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre>
+
+<p><strong>windows:</strong></p>
+
+<pre><code>C: \Windows \System32\drivers\etc \hosts
+追加:
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre></li>
+</ul></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
 <blockquote class="mt-2x">
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/404.html" title="404 Page not found" target="_blank" rel="external">https://mumulx.github.io/404.html</a>
+      <a href="https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/" title="Linux Centos6安装" target="_blank" rel="external">https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -316,12 +596,46 @@
     </figure>
   </div>
 </div>
-            </div>
-        </article>
+    </div>
+  </article>
 <section id="comments">
 </section>
 
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Mybatis自学笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2019/11/jquery%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
+                    title="JQuery自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
     </div>
+</nav>
+
 
 <div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -434,6 +748,21 @@ hljs.initHighlightingOnLoad();
       </script>
 <script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
 
   </body>
 </html>
