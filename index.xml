@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/</link>
     <description>Recent content on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>虚拟机搭建easymock</title>
+      <link>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
+      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /rj/easymock/easy-mock npm run dev 本机访问 http://centos6:7300/ li</description>
+    </item>
     
     <item>
       <title>蓝桥杯算法笔记</title>
