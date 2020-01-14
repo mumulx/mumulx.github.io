@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-01-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7243">
+<meta itemprop="wordCount" content="7687">
 
 
 
@@ -400,7 +400,30 @@
 <li><a href="#api-1">api</a></li>
 </ul></li>
 <li><a href="#vue">Vue</a></li>
-<li><a href="#条件查询">条件查询</a></li>
+</ul></li>
+<li><a href="#nuxt入门">Nuxt入门</a>
+<ul>
+<li><a href="#下载运行">下载运行</a>
+<ul>
+<li><a href="#下载nuxt的模板代码starter-template">下载nuxt的模板代码starter-template</a></li>
+<li><a href="#安装依赖-1">安装依赖</a></li>
+<li><a href="#修改package-json中的占位符-name">修改package.json中的占位符{{name}}</a></li>
+<li><a href="#运行-2">运行</a></li>
+<li><a href="#访问">访问</a></li>
+</ul></li>
+<li><a href="#源码-1">源码</a>
+<ul>
+<li><a href="#layouts">layouts</a></li>
+<li><a href="#pages">pages</a></li>
+</ul></li>
+<li><a href="#axios">axios</a>
+<ul>
+<li><a href="#下载">下载</a></li>
+</ul></li>
+<li><a href="#share">share</a>
+<ul>
+<li><a href="#代码">代码</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -439,8 +462,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7243字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:15分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7687字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:16分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -2106,7 +2129,137 @@ starttime&quot;:' &quot;@string&quot; ,
 
 </code></pre>
 
-<h3 id="条件查询">条件查询</h3>
+<p>具体的代码放到百度网盘中了，自行下载；</p>
+
+<p><a href="https://pan.baidu.com/s/1ByuXg2k-3TgchBIOrO0f9Q">网盘地址</a></p>
+
+<p>提取码：<code>abnl</code></p>
+
+<h2 id="nuxt入门">Nuxt入门</h2>
+
+<p><a href="https://zh.nuxtjs.org/">nuxt官网</a></p>
+
+<p>nuxt：服务器渲染技术</p>
+
+<p>ajax -&gt;服务端-&gt;ajax</p>
+
+<p>服务端-&gt;客户端</p>
+
+<p>服务端渲染优势：SEO ,提高网站的搜索排名  ，   爬虫 ：特点，不认识js（ajax就是js）</p>
+
+<h3 id="下载运行">下载运行</h3>
+
+<h4 id="下载nuxt的模板代码starter-template">下载nuxt的模板代码starter-template</h4>
+
+<p><a href="https://github.com/nuxt-community/starter-template">github地址</a></p>
+
+<h4 id="安装依赖-1">安装依赖</h4>
+
+<pre><code>npm install
+</code></pre>
+
+<h4 id="修改package-json中的占位符-name">修改package.json中的占位符{{name}}</h4>
+
+<pre><code>&quot;name&quot;: &quot;studynuxt&quot;,
+</code></pre>
+
+<h4 id="运行-2">运行</h4>
+
+<pre><code>npm run dev
+</code></pre>
+
+<h4 id="访问">访问</h4>
+
+<pre><code>localhost:3000
+</code></pre>
+
+<h3 id="源码-1">源码</h3>
+
+<ul>
+<li>assets  静态资源</li>
+<li>components 组件</li>
+<li>static 静态图标</li>
+<li>pages 页面</li>
+<li>layouts 页面布局</li>
+</ul>
+
+<h4 id="layouts">layouts</h4>
+
+<p>页面布局三个部分</p>
+
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;header&gt;头部&lt;/header&gt;
+    &lt;nuxt/&gt;
+    &lt;footer&gt;尾部&lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+</code></pre>
+
+<h4 id="pages">pages</h4>
+
+<p>页面</p>
+
+<p>映射时，默认的文件名：index.vue</p>
+
+<p>映射目录“/”：代表的 pages目录</p>
+
+<pre><code>&lt;router-link to=&quot;/userinfo&quot;&gt;
+</code></pre>
+
+<p>有两种可能：
+1.  pages/userinfo/index.vue
+2. pages/userinfo.vue</p>
+
+<p>通过axios进行渲染</p>
+
+<h3 id="axios">axios</h3>
+
+<h4 id="下载">下载</h4>
+
+<pre><code>cnpm  install axios --save
+</code></pre>
+
+<h3 id="share">share</h3>
+
+<p>&ndash;分享 share.js</p>
+
+<p><a href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js">social-share.min.js</a></p>
+
+<p><a href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">share.min.css</a></p>
+
+<p><a href="https://github.com/overtrue/share.js">github地址</a></p>
+
+<ol>
+<li><p>引入。</p>
+
+<pre><code>https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
+https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
+</code></pre></li>
+
+<li><p>编写DIV</p>
+
+<pre><code>&lt;div class=&quot;social-share&quot; &gt;&lt;/div&gt;
+</code></pre></li>
+
+<li><p>完整性</p>
+
+<pre><code>https://blog.csdn.net/liwenfei123/article/details/78952337
+
+data-title 
+data-description    
+data-sites  ：['qzone', 'qq', 'weibo','wechat', 'douban']         
+data-url                 
+data-xxx
+</code></pre></li>
+</ol>
+
+<h4 id="代码">代码</h4>
+
+<p><a href="https://pan.baidu.com/s/1tr6zp5D0D-ir-0zArOh52Q">百度云</a></p>
+
+<p>提取码：a3xs</p>
 
     </div>
     <div class="article-footer">
