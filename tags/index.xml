@@ -5,10 +5,28 @@
     <link>https://mumulx.github.io/tags/</link>
     <description>Recent content in Tags on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java加密解密</title>
+      <link>https://mumulx.github.io/2020/01/java%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/java%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <description>使用异或进行加密解密 异或: * 同为0，异为1; * 一个数，两次异或之后，是原数本身 一个数据异或一次：加密 一个数据异或两次：解密 是可逆的 package utils; public class SecurityUtil</description>
+    </item>
+    
+    <item>
+      <title>Java反射技术</title>
+      <link>https://mumulx.github.io/2020/01/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</guid>
+      <description>反射: 反射机制是在[运行状态]中: 对于任意一个类，都能够知道这个类的所有属性和方法; 对于任意一个对象，都能够调用它的任意一一个方法和属性; 反</description>
+    </item>
     
     <item>
       <title>虚拟机搭建easymock</title>
@@ -142,7 +160,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>这个人比较懒还没开始写呢！</description>
+      <description>Mynatis 还没开始整理 MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM</description>
     </item>
     
     <item>
