@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/series/</link>
     <description>Recent content in Series on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL优化Mysql版</title>
+      <link>https://mumulx.github.io/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</guid>
+      <description>系统使用的Linux Centos6 MySQL版本： 5.x: 5.0-5.1:早期产品的延续，升级维护 5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5） 本</description>
+    </item>
     
     <item>
       <title>自定义RPC Java</title>
