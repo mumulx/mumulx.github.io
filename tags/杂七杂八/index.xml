@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</link>
     <description>Recent content in 杂七杂八 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dubbo自学笔记</title>
+      <link>https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>软件发展史 All In One 所有代码在一个类/模块中编写容易造成代码混乱 MVC/三层架构 将各个功能根据层次进行了划分，但是所有代码任然在同一台计算机中编</description>
+    </item>
     
     <item>
       <title>SQL优化Mysql版</title>
@@ -151,7 +160,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>Git简介 &amp;emsp;Git是一个分布式版本控制系统。版本控制系统又分为：集群式版本控制系统(常见的有cvs、svn)、分布式版本控制系统(</description>
+      <description>Git简介 git lab指令 启动 gitlab-ctl start 关闭 gitlab-ctl stop 关闭防火墙 systemctl stop firewalld 开启防火墙 systemctl start firewalld Git指令 git init 项目初始化 git status 查看当前状态 git log 查看日志 git log -2 查看最近两次</description>
     </item>
     
     <item>
@@ -169,7 +178,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</guid>
-      <description>关于vmware中计算机名子: 虚拟机名: bigdata01 计算机名: bigdata01 网络中的名字: bigdata01 用户名:root 默认超级管理员: root/自己设置 磁盘布局: /boot</description>
+      <description>vm安装centos6 新建虚拟机 稍后安装操作系统 处理器数量（虚拟的，只跟自己的真实机有关）1，1，1 内存2048 网络nat 磁盘20G 完成 编辑</description>
     </item>
     
     <item>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        SpringMVC自学笔记 - 木木的个人博客
+        Dubbo自学笔记 - 木木的个人博客
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,35 +23,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="SpringMVC的学习记录." />
+  <meta name="description" content="Dubbo自学笔记" />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>SpringMVC自学笔记 - 木木的个人博客</title>
+  <title>Dubbo自学笔记 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="SpringMVC自学笔记" />
-<meta property="og:description" content="SpringMVC的学习记录." />
+  <meta property="og:title" content="Dubbo自学笔记" />
+<meta property="og:description" content="Dubbo自学笔记" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="og:url" content="https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-01-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-24T00:00:00+00:00" />
 
-<meta itemprop="name" content="SpringMVC自学笔记">
-<meta itemprop="description" content="SpringMVC的学习记录.">
-
-
-<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="13">
+<meta itemprop="name" content="Dubbo自学笔记">
+<meta itemprop="description" content="Dubbo自学笔记">
 
 
+<meta itemprop="datePublished" content="2020-01-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1334">
 
-<meta itemprop="keywords" content="Spring家族," />
+
+
+<meta itemprop="keywords" content="杂七杂八," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SpringMVC自学笔记"/>
-<meta name="twitter:description" content="SpringMVC的学习记录."/>
+<meta name="twitter:title" content="Dubbo自学笔记"/>
+<meta name="twitter:description" content="Dubbo自学笔记"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -291,7 +291,15 @@
 <ul>
 <li>
 <ul>
-<li><a href="#这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</a></li>
+<li><a href="#软件发展史">软件发展史</a></li>
+</ul></li>
+<li><a href="#开发dubbo程序">开发dubbo程序</a>
+<ul>
+<li><a href="#准备环境">准备环境</a>
+<ul>
+<li><a href="#linux中安装注册中心zookeeper">linux中安装注册中心zookeeper</a></li>
+</ul></li>
+<li><a href="#消费方代码">消费方代码：</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -308,36 +316,437 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >SpringMVC自学笔记</a
+    href="/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
+    >Dubbo自学笔记</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
+<a href="https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-01-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-24</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-    <a class="article-tag-link" href="/tags/spring%E5%AE%B6%E6%97%8F/"> Spring家族 </a>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:13字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1334字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</h3>
+<h3 id="软件发展史">软件发展史</h3>
+
+<ol>
+<li><p>All In One</p>
+
+<p>所有代码在一个类/模块中编写容易造成代码混乱</p></li>
+
+<li><p>MVC/三层架构</p>
+
+<p>将各个功能根据层次进行了划分，但是所有代码任然在同一台计算机中编写，并发能力有限</p></li>
+
+<li><p>RPC</p>
+
+<p>使用RPC，可以让一个项目部署在不同的计算机中但是此种模式的ip+是端口号比较分散，有一定的维护难度</p></li>
+
+<li><p>SOA：面向服务的架构</p>
+
+<p>客户端服务端注册中心</p></li>
+</ol>
+
+<p>dubbo（阿里巴巴产品）</p>
+
+<ol>
+<li>运行提供方提供的服务</li>
+<li>发布服务</li>
+<li>订阅服务</li>
+
+<li><p>推送服务(notify)</p>
+
+<p>实施监听服务方是否发生改变</p></li>
+
+<li><p>调用</p></li>
+</ol>
+
+<h2 id="开发dubbo程序">开发dubbo程序</h2>
+
+<h3 id="准备环境">准备环境</h3>
+
+<h4 id="linux中安装注册中心zookeeper">linux中安装注册中心zookeeper</h4>
+
+<ul>
+<li><p>linux中安装jdk</p>
+
+<p>下载jdk-8u171-linux-x64.rpm</p>
+
+<p>安装</p>
+
+<pre><code>rpm -ivh jdk-8u171-linux-x64.rpm
+</code></pre>
+
+<p>会自动安装到usr目录中的java中，</p>
+
+<pre><code>通过pwd命令，查看jdk安装路径：/usr/java/jdk1.8.0_171-amd64
+</code></pre>
+
+<p>配置环境变量：</p>
+
+<pre><code>vi /etc/profile，在文件最后追加：
+
+export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64
+export CLASSPATH=$JAVA_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$PATH
+</code></pre>
+
+<p>刷新环境变量</p>
+
+<pre><code>source /etc/profile
+</code></pre></li>
+
+<li><p>安装zookeeper</p>
+
+<p>下载zookeeper，<a href="http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.14/">官网</a></p>
+
+<p>解压</p>
+
+<pre><code>tar -zxvf zookeeper-3.4.14.tar.gz
+</code></pre>
+
+<p>重命名zookeeper的配置文件：</p>
+
+<pre><code>cd zookeeper-3.4.14/conf/
+mv zoo_sample.cfg zoo.cfg 
+</code></pre>
+
+<p>在zoo.cfg中：可以发现</p>
+
+<pre><code>zookeeper的端口号是 clientPort=2181
+</code></pre>
+
+<p>设置zookeeper存放数据的目录：</p>
+
+<pre><code>dataDir=/app/zookeeper-3.4.14/data
+</code></pre>
+
+<p>启动zookeeper：</p>
+
+<pre><code>cd /app/zookeeper-3.4.14/
+bin/zkServer.sh start
+
+
+bin/zkServer.sh start   启动
+bin/zkServer.sh stop    关闭
+bin/zkServer.sh status  查看状态
+</code></pre></li>
+</ul>
+
+<p>### 新建服务端</p>
+
+<p>sts新建maven工程</p>
+
+<p>添加WEB-INF/web.xml文件</p>
+
+<p>添加依赖pom.xml</p>
+
+<pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;org.dubbo&lt;/groupId&gt;
+  &lt;artifactId&gt;students-server&lt;/artifactId&gt;
+  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+    &lt;!-- 统一版本号  --&gt;
+  &lt;properties&gt;
+  	&lt;spring.version&gt;4.3.17.RELEASE&lt;/spring.version&gt;
+  &lt;/properties&gt;
+  
+  &lt;dependencies&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-jms&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	  &lt;dependency&gt;
+	    &lt;groupId&gt;commons-logging&lt;/groupId&gt;
+	    &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
+	    &lt;version&gt;1.1.1&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+	    &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+	    &lt;version&gt;${spring.version}&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	&lt;!-- dubbo组件 --&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+	    &lt;artifactId&gt;dubbo&lt;/artifactId&gt;
+	    &lt;version&gt;2.5.10&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	&lt;!-- zookeeper --&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
+	    &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
+	    &lt;version&gt;3.4.12&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	&lt;!-- zookeeper客户端 --&gt;
+	&lt;dependency&gt;
+	    &lt;groupId&gt;com.github.sgroschupf&lt;/groupId&gt;
+	    &lt;artifactId&gt;zkclient&lt;/artifactId&gt;
+	    &lt;version&gt;0.1&lt;/version&gt;
+	&lt;/dependency&gt;
+	
+	
+	&lt;dependency&gt;
+	    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+	    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+	    &lt;version&gt;3.21.0-GA&lt;/version&gt;
+	&lt;/dependency&gt;
+	  
+  &lt;/dependencies&gt;
+  
+      
+ &lt;build&gt;
+  &lt;plugins&gt;
+	    &lt;plugin&gt;
+	        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+	        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+	        &lt;version&gt;3.7.0&lt;/version&gt;
+	        &lt;configuration&gt;
+	            &lt;source&gt;1.8&lt;/source&gt;
+	            &lt;target&gt;1.8&lt;/target&gt;
+	            &lt;encoding&gt;UTF8&lt;/encoding&gt;
+	        &lt;/configuration&gt;
+	    &lt;/plugin&gt;
+	 	&lt;!-- 给maven项目 内置一个tomcat，之后 可以直接运行 --&gt;
+	    &lt;plugin&gt;
+	    &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+	    &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+	    &lt;configuration&gt;
+	        &lt;port&gt;8881&lt;/port&gt;
+	        &lt;path&gt;/&lt;/path&gt;          
+	     &lt;/configuration&gt;
+	&lt;/plugin&gt; 
+	&lt;/plugins&gt;
+	&lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+
+<p>接口及实现类：（具体的服务）</p>
+
+<pre><code>public interface StudentServer {
+	public String server(String name);//zs
+}
+
+@Service//阿里巴巴提供的@Service注解
+public class StudentServerImpl  implements StudentServer{
+
+	public String server(String name) {
+		return &quot;server:&quot; +name;
+	}
+
+}
+</code></pre>
+
+<p>配置工作：</p>
+
+<p>继承spring:web.xml</p>
+
+<pre><code>	&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+ &lt;context-param&gt;
+  	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  	&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+  
+  
+  &lt;listener&gt;
+  	&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+&lt;/web-app&gt;
+</code></pre>
+
+<p>配置spring: applicationContext.xml</p>
+
+<pre><code>	&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+	xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;
+	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;
+		
+		&lt;!-- 
+		&lt;bean id=&quot;&quot; class=&quot;org.students.server.impl.StudentServerImpl&quot;&gt;&lt;/bean&gt;
+		 --&gt;
+	&lt;!-- 配置dubbo的应用名称 --&gt;
+	
+	&lt;dubbo:application name=&quot;students-server&quot; /&gt;
+	&lt;!-- 配置注册中心地址 --&gt;
+	&lt;dubbo:registry protocol=&quot;zookeeper&quot; address=&quot;zookeeper://192.168.2.128:2181&quot;  /&gt;
+	
+	&lt;!-- 配置dubbo扫描包  ：将@Service所在包 放入 dubbo扫描中，供后续 dubbo在rpc时使用--&gt;
+	&lt;dubbo:annotation package=&quot;org.students.server.impl&quot; /&gt;
+
+	&lt;!-- 将@Service所在包 放入springIOC容器中，供后续 依赖注入时使用 --&gt;
+	&lt;context:component-scan base-package=&quot;org.student.service.impl&quot;&gt;&lt;/context:component-scan&gt;
+
+&lt;/beans&gt;
+
+</code></pre>
+
+<h3 id="消费方代码">消费方代码：</h3>
+
+<ul>
+<li><p>引入依赖(jar)</p>
+
+<p>pom.xml (与服务方pom.xml一致，改端口号；并设置客户端自己的gav)</p></li>
+
+<li><p>补齐web工程需要的 WEB-INF/web.xml</p>
+
+<pre><code>&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+    
+&lt;!-- 解决post乱码   --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;CharacterEncodingfilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+        &lt;init-param&gt;
+        &lt;param-name&gt;foreEncoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+    
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;CharacterEncodingfilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+&lt;servlet&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;          
+    &lt;/init-param&gt;
+&lt;/servlet&gt;
+    
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;*.action&lt;/url-pattern&gt; 
+&lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre></li>
+
+<li><p>配置springmvc（通过springmvc 来访问 提供方）</p>
+
+<pre><code>	&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+	xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;
+	xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+	xsi:schemaLocation=&quot;http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;
+	&lt;mvc:annotation-driven&gt;
+		&lt;!-- 此配置的目的：将Controller中的内容 直接打印到 浏览器中 --&gt;
+		&lt;mvc:message-converters register-defaults=&quot;false&quot;&gt;
+			&lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;&gt;
+					&lt;constructor-arg value=&quot;UTF-8&quot;/&gt;
+				&lt;/bean&gt;
+		&lt;/mvc:message-converters&gt;
+	&lt;/mvc:annotation-driven&gt;
+	&lt;!-- 配置dubbo的应用名称 --&gt;
+	&lt;dubbo:application name=&quot;students-consumer&quot;/&gt;
+	&lt;!-- 配置注册中心地址 --&gt;
+	&lt;dubbo:registry address=&quot;zookeeper://192.168.2.128:2181&quot; /&gt;
+	&lt;!-- 配置dubbo扫描包 --&gt;
+	&lt;dubbo:annotation  package=&quot;org.controller&quot;/&gt;
+	&lt;!-- 将控制器@Controller所在包 加入IOC容器 --&gt;
+	&lt;context:component-scan base-package=&quot;org.controller&quot;&gt;&lt;/context:component-scan&gt;
+		
+&lt;/beans&gt;
+</code></pre></li>
+</ul>
+
+<p>编写控制器代码：用于访问 服务方提供的服务代码</p>
+
+<pre><code>package org.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.students.server.StudentServer;
+
+import com.alibaba.dubbo.config.annotation.Reference;
+//@Controller
+//@ResponseBody
+@RestController
+@RequestMapping(&quot;controller&quot;)
+public class StudentController {
+	@Reference
+	private StudentServer stuServer ;
+	@RequestMapping(&quot;rpcSerer&quot;)
+	public String rpcSerer() {
+		String result = stuServer.server(&quot;zs&quot;) ;
+		
+		return result ;//将结果显示在控制台
+		
+		
+		
+	}
+}
+</code></pre>
+
+<p>浏览器访问</p>
+
+<pre><code>http://localhost:8882/controller/rpcServer.action
+</code></pre>
 
     </div>
     <div class="article-footer">
@@ -345,7 +754,7 @@
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="SpringMVC自学笔记" target="_blank" rel="external">https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+      <a href="https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Dubbo自学笔记" target="_blank" rel="external">https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -377,14 +786,9 @@
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Spring自学笔记"><i
+                <a href="https://mumulx.github.io/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/" title="SQL优化Mysql版"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-                    title="Mybatis自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

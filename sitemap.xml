@@ -4,21 +4,63 @@
   
   <url>
     <loc>https://mumulx.github.io/categories/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/posts/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/series/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/tags/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/series/themes-guide/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,35 +73,7 @@
   </url>
   
   <url>
-    <loc>https://mumulx.github.io/tags/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/series/themes-guide/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -89,13 +103,6 @@
   <url>
     <loc>https://mumulx.github.io/2020/01/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2020-01-18T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
-    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
