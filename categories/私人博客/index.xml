@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Quartz框架</title>
+      <link>https://mumulx.github.io/2020/01/quartz%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/quartz%E6%A1%86%E6%9E%B6/</guid>
+      <description>简介 Quartz：定时任务 Quartz ：定时异步任务 Quartz官网 概念 任务：做什么事情&amp;hellip;. StudentService 触发器：定义时间 调度器：将任务、触发器 一一</description>
+    </item>
+    
+    <item>
       <title>Dubbo自学笔记</title>
       <link>https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
@@ -187,7 +196,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>Mynatis 还没开始整理 MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM</description>
+      <description>Mybatis 简介 官网 mybatis: ibatis:apache 2010 ibatis-&amp;gt; google colde ,Mybatis MyBatis可以简化JDBC操作，实现数据的持久化 。 ORM:Object Relational Mapping person对象 person表 之间一一映射起来 ORM：概</description>
     </item>
     
     <item>
@@ -205,7 +214,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>这个人比较懒还没开始写呢！</description>
+      <description>spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC、Aop Spring data, spring boot, spring cloud, spring framework ，spri</description>
     </item>
     
     <item>
@@ -252,6 +261,15 @@
       <guid>https://mumulx.github.io/2019/01/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
 pectora summo.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MybatisPlus和Mapper框架</title>
+      <link>https://mumulx.github.io/1/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/1/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</guid>
+      <description>MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM（Object</description>
     </item>
     
   </channel>

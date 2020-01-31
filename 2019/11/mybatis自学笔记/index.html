@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3213">
+<meta itemprop="wordCount" content="20049">
 
 
 
@@ -162,7 +162,7 @@
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">14</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">8</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
@@ -184,7 +184,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">7</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
@@ -226,6 +226,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/quartz%E6%A1%86%E6%9E%B6/" class="title">Quartz框架</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-29</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Dubbo自学笔记</a>
                     </p>
                     <p class="item-date">
@@ -263,16 +273,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/01/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/" class="title">Java反射技术</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-18</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -289,36 +289,162 @@
 <ul>
 <li>
 <ul>
-<li><a href="#mynatis">Mynatis</a></li>
-<li><a href="#mybatisplus">MybatisPlus</a>
+<li><a href="#mybatis">Mybatis</a>
 <ul>
-<li><a href="#开发mybatis-plus">开发MyBatis Plus:</a></li>
-<li><a href="#mybatis-配置文件模板">mybatis 配置文件模板</a></li>
-<li><a href="#crud操作">CRUD操作</a></li>
-<li><a href="#mp源码">MP源码</a></li>
-<li><a href="#ar-activerecoder-形式-通过实体类student直接进行增删改查操作-不需要借助于mapper对象">AR:  activeRecoder ,形式 ：通过实体类Student直接进行增删改查操作（不需要借助于Mapper对象）</a></li>
-<li><a href="#逆向工程-代码生成器">逆向工程(代码生成器)</a></li>
-<li><a href="#分页">分页</a></li>
-<li><a href="#攻击-sql-阻断解析器">攻击 SQL 阻断解析器</a></li>
-<li><a href="#性能分析插件">性能分析插件</a></li>
-<li><a href="#乐观锁插件">乐观锁插件</a></li>
-<li><a href="#sql注入器">sql注入器</a>
+<li><a href="#简介">简介</a></li>
+<li><a href="#开发mybatis程序从步骤">开发mybatis程序从步骤：</a>
 <ul>
-<li><a href="#sql语句的实现方式">sql语句的实现方式</a></li>
+<li><a href="#jar包">jar包</a></li>
+<li><a href="#类-表">类&ndash;表</a></li>
+<li><a href="#配置mybatis">配置mybatis</a></li>
+<li><a href="#conf-xml配置文件">conf.xml配置文件</a></li>
+<li><a href="#切换环境">切换环境</a></li>
+<li><a href="#xxxmapper-xml文件">xxxMapper.xml文件</a></li>
+<li><a href="#复习第一个mybatis程序">复习第一个MyBatis程序：</a></li>
 </ul></li>
-<li><a href="#逻辑删除">逻辑删除</a></li>
-<li><a href="#自动填充插件">自动填充插件</a></li>
-<li><a href="#sequence主键">Sequence主键</a>
+<li><a href="#基础方式的增删改查crud">基础方式的增删改查CRUD:</a>
 <ul>
-<li><a href="#mvn仓库添加oracle-jar">mvn仓库添加oracle  jar</a></li>
+<li><a href="#增加">增加</a></li>
+<li><a href="#删除">删除</a></li>
+<li><a href="#修改">修改</a></li>
+<li><a href="#查询">查询</a></li>
 </ul></li>
-<li><a href="#mybatisx-快速开发插件">MybatisX 快速开发插件</a></li>
-</ul></li>
-<li><a href="#mapper">Mapper</a>
+<li><a href="#mapper动态代理方式的crud-mybatis接口开发">mapper动态代理方式的crud （MyBatis接口开发）:</a>
 <ul>
-<li><a href="#mapper-代码生成器">mapper 代码生成器</a></li>
-<li><a href="#mapper-自由组合功能">mapper 自由组合功能</a></li>
-<li><a href="#新增方法">新增方法</a></li>
+<li><a href="#增加-1">增加</a></li>
+<li><a href="#删除-1">删除</a></li>
+<li><a href="#修改-1">修改</a></li>
+<li><a href="#查询-1">查询</a></li>
+</ul></li>
+<li><a href="#优化">优化、</a>
+<ul>
+<li><a href="#可以将配置信息-单独放入-db-properties文件中-然后再动态引入">可以将配置信息 单独放入 db.properties文件中，然后再动态引入</a></li>
+<li><a href="#mybatis全局参数">MyBatis全局参数</a></li>
+<li><a href="#别名-conf-xml">别名 conf.xml</a></li>
+</ul></li>
+<li><a href="#类型处理器-类型转换器">类型处理器（类型转换器）</a>
+<ul>
+<li><a href="#mybatis自带一些常见的类型处理器">MyBatis自带一些常见的类型处理器</a></li>
+<li><a href="#自定义mybatis类型处理器">自定义MyBatis类型处理器</a></li>
+</ul></li>
+<li><a href="#输入参数-parametertype">输入参数：parameterType</a>
+<ul>
+<li><a href="#类型为-简单类型-8个基本类型-string">类型为 简单类型（8个基本类型+String）</a></li>
+<li><a href="#相同之处">${}、#{}相同之处：</a></li>
+</ul></li>
+<li><a href="#mybatis调用存储过程">mybatis调用存储过程</a>
+<ul>
+<li><a href="#创建存储过程">创建存储过程</a></li>
+<li><a href="#调用存储过程实现查询">调用存储过程实现查询</a></li>
+<li><a href="#调用存储过程实现删除">调用存储过程实现删除</a></li>
+</ul></li>
+<li><a href="#输出参数">输出参数</a>
+<ul>
+<li><a href="#简单类型-8个基本-string">简单类型（8个基本+String）</a></li>
+<li><a href="#输出参数为实体对象类型">输出参数为实体对象类型</a></li>
+<li><a href="#输出参数为实体对象类型的集合">输出参数为实体对象类型的集合</a></li>
+<li><a href="#输出参数类型为hashmap">输出参数类型为HashMap</a></li>
+<li><a href="#resultmap">resultMap</a></li>
+<li><a href="#resulttype-hashmap">resultType+HashMap</a></li>
+</ul></li>
+<li><a href="#动态sql">动态SQL</a></li>
+<li><a href="#foreach">foreach</a>
+<ul>
+<li><a href="#属性">属性</a></li>
+<li><a href="#简单类型的数组">简单类型的数组:</a></li>
+<li><a href="#对象数组">对象数组：</a></li>
+<li><a href="#集合">集合：</a></li>
+</ul></li>
+<li><a href="#sql片段">SQL片段：</a></li>
+<li><a href="#关联查询">关联查询</a>
+<ul>
+<li><a href="#一对一">一对一</a></li>
+<li><a href="#一对多">一对多</a></li>
+</ul></li>
+<li><a href="#日志">日志</a>
+<ul>
+<li><a href="#jar">jar</a></li>
+<li><a href="#开启日志-conf-xml">开启日志，conf.xml</a></li>
+<li><a href="#编写配置日志输出文件-log4j-properties">编写配置日志输出文件 log4j.properties</a></li>
+</ul></li>
+<li><a href="#延迟加载-懒加载">延迟加载（懒加载）：</a>
+<ul>
+<li><a href="#一对一-学生-student-学生证-studentcard">一对一：学生（student）、学生证（studentCard）</a></li>
+<li><a href="#一对多-和一对一的延迟加载配置方法相同">一对多：和一对一的延迟加载配置方法相同</a></li>
+</ul></li>
+<li><a href="#查询缓存">查询缓存</a>
+<ul>
+<li><a href="#一级缓存-同一个sqlsession对象">一级缓存 ：同一个SqlSession对象</a></li>
+<li><a href="#二级缓存">二级缓存</a></li>
+<li><a href="#mybatis自带二级缓存-同一个namespace-生成的mapper对象">Mybatis自带二级缓存：【同一个namespace】生成的mapper对象</a></li>
+<li><a href="#三方提供的二级缓存">三方提供的二级缓存：</a></li>
+</ul></li>
+<li><a href="#逆向工程">逆向工程</a>
+<ul>
+<li><a href="#表-其他三个">表-&gt;其他三个</a></li>
+</ul></li>
+<li><a href="#数据库环境切换-驱动jar">数据库环境切换 （驱动jar）</a></li>
+<li><a href="#注解方式">注解方式</a>
+<ul>
+<li><a href="#将sql语句写在接口的方法上-select-xxmapper-java">将sql语句写在接口的方法上@Select(&ldquo;&rdquo;) ;xxMapper.java</a></li>
+<li><a href="#将接口的全类名-写入-mapper-让mybatis知道sql语句此时是存储在接口中conf-xml">将接口的全类名 写入<mapper>，让mybatis知道sql语句此时是存储在接口中conf.xml</a></li>
+</ul></li>
+<li><a href="#增删改的返回值问题">增删改的返回值问题</a></li>
+<li><a href="#事务自动提交">事务自动提交</a>
+<ul>
+<li><a href="#手动提交">手动提交：</a></li>
+<li><a href="#自动提交-每个dml语句-自动提交">自动提交：每个dml语句 自动提交</a></li>
+</ul></li>
+<li><a href="#自增问题">自增问题</a>
+<ul>
+<li><a href="#mysql支持自增">mysql支持自增</a></li>
+<li><a href="#oracle不支持自增-通过序列模拟实现">oracle不支持自增 ：通过序列模拟实现</a></li>
+</ul></li>
+<li><a href="#参数问题">参数问题</a>
+<ul>
+<li><a href="#传入多个参数时-不用在mapper-xml中编写parametertype-输入参数不用写">传入多个参数时，不用在mapper.xml中编写parameterType（输入参数不用写）</a></li>
+<li><a href="#命名参数">命名参数</a></li>
+<li><a href="#综合使用">综合使用</a></li>
+</ul></li>
+<li><a href="#增加null">增加null</a>
+<ul>
+<li><a href="#解决">解决：</a></li>
+</ul></li>
+<li><a href="#返回值为hashmap的情况">返回值为HashMap的情况</a></li>
+<li><a href="#resultmap-字段-和-属性名-的对应关系">ResultMap ： 字段 和 属性名 的对应关系</a></li>
+<li><a href="#别名问题">别名问题</a></li>
+<li><a href="#sql标签">SQL标签</a></li>
+<li><a href="#内置参数">内置参数</a></li>
+<li><a href="#模糊查询三种方法">模糊查询三种方法</a>
+<ul>
+<li><a href="#方法一">方法一${}</a></li>
+<li><a href="#方法二-传值时-直接传">方法二：传值时，直接传  #{}</a></li>
+<li><a href="#方法三-bind参数">方法三：bind参数</a></li>
+</ul></li>
+<li><a href="#逆向工程的使用">逆向工程的使用</a></li>
+<li><a href="#mybatis架构和源码解析">MyBatis架构和源码解析</a>
+<ul>
+<li><a href="#获取sqlsessionfactory对象">获取SqlSessionFactory对象</a></li>
+<li><a href="#获取sqlsession对象">获取SqlSession对象</a></li>
+<li><a href="#获取xxxmapper对象-执行">获取XxxMapper对象、执行</a></li>
+</ul></li>
+<li><a href="#自定义插件">自定义插件</a>
+<ul>
+<li><a href="#编写拦截器">编写拦截器</a></li>
+<li><a href="#编写签名注解">编写签名注解</a></li>
+<li><a href="#配置">配置</a></li>
+</ul></li>
+<li><a href="#批量操作dml">批量操作DML</a>
+<ul>
+<li><a href="#使用batch">使用BATCH:</a></li>
+<li><a href="#不使用batch">不使用BATCH：</a></li>
+<li><a href="#oracle-批量插入">oracle:批量插入</a></li>
+<li><a href="#mysql-批量插入">mysql:批量插入</a></li>
+</ul></li>
+<li><a href="#分页插件">分页插件</a>
+<ul>
+<li><a href="#配置conf-xml">配置conf.xml</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -357,459 +483,3139 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3213字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:7分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:20049字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:41分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h2 id="mynatis">Mynatis</h2>
+<h2 id="mybatis">Mybatis</h2>
 
-<p>还没开始整理</p>
+<h3 id="简介">简介</h3>
 
-<h2 id="mybatisplus">MybatisPlus</h2>
+<p><a href="https://mybatis.org/">官网</a></p>
 
-<p><a href="https://mp.baomidou.com/">mubatis plus 官网</a></p>
+<p>mybatis:</p>
 
-<p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生</p>
+<p>ibatis:apache</p>
 
-<p>ORM（Object Relational Mapping）框架采用元数据来描述对象与关系映射的细节，元数据一般采用XML格式，并且存放在专门的对象一映射文件中。</p>
+<p>2010 ibatis-&gt; google colde ,Mybatis</p>
 
-<p>只要提供了持久化类与表的映射关系，ORM框架在运行时就能参照映射文件的信息，把对象持久化到数据库中。当前ORM框架主要有五种：Hibernate(Nhibernate)，iBATIS，mybatis，EclipseLink，JFinal。</p>
+<p>MyBatis可以简化JDBC操作，实现数据的持久化 。</p>
 
-<p>ORM是通过使用描述对象和数据库之间映射的元数据,在我们想到描述的时候自然就想到了xml和特性(Attribute).目前的ORM框架中,Hibernate就是典型的使用xml文件作为描述实体对象的映射框架,而大名鼎鼎的Linq则是使用特性(Attribute)来描述的。</p>
+<p>ORM:Object Relational Mapping</p>
 
-<h3 id="开发mybatis-plus">开发MyBatis Plus:</h3>
-
-<ol>
-<li><p>jar</p></li>
-
-<li><p>数据表      类</p>
-
-<pre><code>student Student
-</code></pre></li>
-
-<li><p>MyBatis配置 文件  mybatis.xml   (没有具体的配置信息，因为会放入Spring中配置)</p></li>
-
-<li><p>日志 log4j.xml</p></li>
-
-<li><p>数据库的连接信息</p></li>
-
-<li><p>Spring配置文件</p></li>
-</ol>
-
-<p>spring boot:自动管理版本</p>
-
-<p>spring:版本手工   mybatis - plus</p>
-
-<p>切换到 MyBatis-PLus</p>
-
-<pre><code>&lt;bean  id=&quot;sqlSessionFactoryBean&quot;  class=&quot;com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean&quot;  &gt;
+<pre><code>person对象  person表 之间一一映射起来
 </code></pre>
 
-<h3 id="mybatis-配置文件模板">mybatis 配置文件模板</h3>
+<p>ORM：概念 ，Mybatis是ORM的一个实现/Hibernate orm可以是的开发人员像操作对象一样操作数据库表。</p>
 
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE configuration
-        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
-        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
-&lt;configuration&gt;
-    &lt;environments default=&quot;development&quot;&gt;
-        &lt;environment id=&quot;development&quot;&gt;
-            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
-            &lt;!-- 配置数据库连接信息 --&gt;
-            &lt;dataSource type=&quot;POOLED&quot;&gt;
-                &lt;property name=&quot;driver&quot;
-                          value=&quot;oracle.jdbc.OracleDriver&quot; /&gt;
-                &lt;property name=&quot;url&quot;
-                          value=&quot;jdbc:oracle:thin:@127.0.0.1:1521:XE&quot; /&gt;
-                &lt;property name=&quot;username&quot; value=&quot;system&quot; /&gt;
-                &lt;property name=&quot;password&quot; value=&quot;sa&quot; /&gt;
-            &lt;/dataSource&gt;
-        &lt;/environment&gt;
-    &lt;/environments&gt;
-    &lt;!-- 在配置文件（conf.xml）中注册SQL映射文件（studentMapper.xml）--&gt;
-    &lt;mappers&gt;
-        &lt;mapper resource=&quot;org/lanqiao/entity/studentMapper.xml&quot; /&gt;
-    &lt;/mappers&gt;
-&lt;/configuration&gt;
+<h3 id="开发mybatis程序从步骤">开发mybatis程序从步骤：</h3>
 
+<h4 id="jar包">jar包</h4>
+
+<pre><code>mybatis-3.4.6.jar
 </code></pre>
 
-<h3 id="crud操作">CRUD操作</h3>
+<h4 id="类-表">类&ndash;表</h4>
 
-<p>JDBC: Dao接口  Dao实现类</p>
-
-<p>MyBatis:  Mapper接口- SQL映射文件</p>
-
-<p>MyBatis-PLus :  Mapper接口</p>
-
-<p>MyBatis-PLus：只写接口不需要写sql语句</p>
-
-<p>一个接口   extends BaseMapper<Student>，之后无需编写 SQL映射文件，该接口的对象全部操作哦Student对象</p>
-
-<ol>
-<li><p>类名&mdash;-表名</p>
-
-<pre><code>@TableName(&quot;tb_student&quot;)
-</code></pre></li>
-
-<li><p>对象的属性&mdash;表的字段  一一对应关系：</p>
-
-<pre><code>@TableId、@TableField
-@TableId(value = &quot;stuno&quot;,type = IdType.AUTO)//指定自增
-</code></pre>
-
-<p>主键的自增依赖于数据库已经设置好了主键自增</p>
-
-<p>属性的驼峰命名法会变成下划线命名</p>
-
-<p>属性：stuName&ndash;&gt;字段：stu_name</p>
-
-<p>如果不想转换可以在配置文件中设置</p>
-
-<pre><code>&lt;!--配置属性和字段驼峰命名和下划线命名不互相转换  默认值是true--&gt;
-&lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;false&quot;/&gt;
-</code></pre>
-
-<p>一般默认表中字段为下划线，类中属性为驼峰</p>
-
-<p>mybatisplus不需要在像mybatis那样执行后需要commit</p>
-
-<p><strong>雪花算法</strong></p></li>
-</ol>
-
-<p>MyBatis-plus:</p>
-
-<ol>
-<li>更换成MybatisSqlSessionFactoryBean<br /></li>
-<li>继承一个父接口 extends BaseMapper<Student>，之后就可以使用该接口中 已经存在的CRUD方法</li>
-<li>操作 。 通过注解 将 表（字段） - 类（属性）</li>
-</ol>
-
-<p>MP：  where语句：Warpper实现  ， QueryWarpper(查询)    UpdateWrapper（DML）</p>
-
-<h3 id="mp源码">MP源码</h3>
-
-<p>回顾：</p>
-
-<p>MappedStatement对象 就是  <code>&lt;select&gt;</code>等标签</p>
-
-<p>MyBatis/MP都是通过  MappedStatement对象来指向增删改</p>
-
-<p>预加载：MP启动时，会指定加载所有常见的 CRUD语句 （来自于MP提供的BaseMapper接口），并将这些语句封装到了MappedStatement对象中。</p>
-
-<h3 id="ar-activerecoder-形式-通过实体类student直接进行增删改查操作-不需要借助于mapper对象">AR:  activeRecoder ,形式 ：通过实体类Student直接进行增删改查操作（不需要借助于Mapper对象）</h3>
-
-<p>继承Model类即可</p>
-
-<pre><code>public class Student extends  Model&lt;Student&gt; 
-</code></pre>
-
-<pre><code>public static void testAR(){
-
-    // 必须在IOC容器中进行AR
-    new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-    Student student = new Student(&quot;哈哈&quot;, 22);
-    student.insert();
+<pre><code>
+public class Student {
+	private int id;
+	private String name;
+	private int age ;
+	public Student() {
+	}
+	public Student(int id, String name, int age) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	} 
+	@Override
+	public String toString() {
+		return this.id+&quot;,&quot;+this.name+&quot;,&quot;+this.age ;
+	}
 }
 </code></pre>
 
-<p>注意：使用时 必须先加载IOC容器，目的 是为了让AR知道 要操作的是数据库在哪里</p>
+<h4 id="配置mybatis">配置mybatis</h4>
 
-<p>MP将主键设置为了Serializable，类型。目的 ：可以接受常见的类型：8个基本类型+String  -&gt;Serializable</p>
+<p>conf.xml:配置数据库信息 和 需要加载的映射文件
+表 - 类</p>
 
-<h3 id="逆向工程-代码生成器">逆向工程(代码生成器)</h3>
-
-<p>MyBatis:</p>
-
-<p>student表-&gt;Student类、Mapper接口、mapper.xml</p>
-
-<p>MyBatis Plus:</p>
-
-<p>student表-&gt;Student类、Mapper接口、mapper.xml、Service、Controller</p>
-
-<p>区别：</p>
-
-<ul>
-<li>MyBatis: 模版配置文件</li>
-<li>MyBatis Plus:类</li>
-</ul>
-
-<p>具体使用参见<a href="https://mp.baomidou.com/guide/generator.html">官网</a></p>
-
-<p>lombok：可以给类的属性生成set  get 构造方法等
-1. 依赖
-2. 配置</p>
-
-<h3 id="分页">分页</h3>
-
-<p>分页：复习</p>
-
-<p><code>&lt;select&gt;</code>等标签 -&gt; MappedStatement对象</p>
-
-<p><strong>boundSql</strong> ：将我们写的SQL和参数值进行了拼接后的对象，即最终能被真正执行的SQL</p>
-
-<p>拦截器：编写拦截器、注入拦截器，放入  <code>&lt;plugins&gt;</code>即可。 作用：对SQL进行“修改”</p>
-
-<p>分页：
-    MyBatis Plus</p>
-
-<pre><code>&lt;!--    拦截器  分页--&gt;
-    &lt;property name=&quot;plugins&quot;&gt;
-        &lt;list&gt;
-&lt;!--            分页插件--&gt;
-            &lt;bean class=&quot;com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor&quot;&gt; &lt;/bean&gt;
-        &lt;/list&gt;
-    &lt;/property&gt;
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+	&lt;environments default=&quot;development&quot;&gt;
+		&lt;environment id=&quot;development&quot;&gt;
+		&lt;transactionManager type=&quot;JDBC&quot;/&gt;
+			&lt;dataSource type=&quot;POOLED&quot;&gt;
+				&lt;!-- 配置数据库信息 --&gt;
+			&lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.OracleDriver&quot;/&gt;
+			&lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;/&gt;
+			&lt;property name=&quot;username&quot; value=&quot;scott&quot;/&gt;
+			&lt;property name=&quot;password&quot; value=&quot;tiger&quot;/&gt;
+		&lt;/dataSource&gt;
+		&lt;/environment&gt;
+	&lt;/environments&gt;
+	&lt;mappers&gt;
+		&lt;!-- 加载映射文件 --&gt;
+		&lt;mapper resource=&quot;org/lanqiao/entity/personMapper.xml&quot;/&gt;
+	&lt;/mappers&gt;
+&lt;/configuration&gt;
 </code></pre>
 
-<pre><code>    public static void testPage() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-        StudentMapper studentMapper = context.getBean(&quot;studentMapper&quot;, StudentMapper.class);
-        Page&lt;Student&gt; page = new Page&lt;&gt;(2, 2);
-        //select * from student ; 第二个参数来存放where条件
-        IPage&lt;Student&gt; pages = studentMapper.selectPage(page, null);
-        System.out.println(&quot;当前页得数据++++&quot;+ page.getRecords());
-        System.out.println(&quot;当前页页码++++&quot;+ page.getCurrent());
-        System.out.println(&quot;总数据量++++&quot;+ page.getTotal());
-        System.out.println(&quot;每一页得数据量++++&quot;+ page.getSize());
+<p>映射文件xxMapper.xml  :增删改查标签</p>
 
-    }
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;org.lanqiao.entity.personMapper&quot;&gt;
+	&lt;select id=&quot;queryPersonById&quot; resultType=&quot;org.lanqiao.entity.Person&quot;  parameterType=&quot;int&quot;&gt;
+		select * from person where  id = #{id} 
+	&lt;/select&gt;
+&lt;/mapper&gt;
 </code></pre>
 
-<p>分析分页源码</p>
+<p>测试类：</p>
 
-<pre><code>select *from xxx 
-    -&gt;PaginationInterceptor
-select *from xxx   LIMIT 2,2 
+<pre><code>public class TestMyBatis {
+	public static void main(String[] args) throws IOException {
+		//加载MyBatis配置文件（为了访问数据库）
+		Reader reader = Resources.getResourceAsReader(&quot;conf.xml&quot;) ;
+		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader) ;
+		//session - connection
+		SqlSession session = sessionFactory.openSession() ;
+		String statement = &quot;org.lanqiao.entity.personMapper.queryPersonById&quot; ;
+		Student person = session.selectOne( statement,1 ) ;
+		System.out.println(person);
+		session.close(); 
+	}
+}
 </code></pre>
 
-<h3 id="攻击-sql-阻断解析器">攻击 SQL 阻断解析器</h3>
+<p>session.selectOne(&ldquo;需要查询的SQL的namespace.id&rdquo;,&ldquo;SQL的参数值&rdquo;);</p>
 
-<p>作用！阻止恶意的全表更新删除</p>
+<h4 id="conf-xml配置文件">conf.xml配置文件</h4>
 
-<p>跟分页类一样</p>
+<p>配置文件的提示功能是通过</p>
 
-<h3 id="性能分析插件">性能分析插件</h3>
+<pre><code>PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;
+</code></pre>
 
-<p>性能分析拦截器，用于输出每条 SQL 语句及其执行时间</p>
+<p>来配置的，因此需要联网，也可以将<code>http://mybatis.org/dtd/mybatis-3-config.dtd下载下来</code>，通过，windows-Preferences&ndash;&gt;XML&ndash;&gt;XML Catalog&ndash;&gt;Catalog Entry指定文件的内容；其中Location放文件地址，Key放<code>-//mybatis.org//DTD Config 3.0//EN</code></p>
 
-<h3 id="乐观锁插件">乐观锁插件</h3>
+<h4 id="切换环境">切换环境</h4>
 
-<p>悲观锁：synchorinzed，lock；总以为会冲突，当第一个人访问得时候，把数据加上锁，其他人访问不到该数据，知道第一个人结束访问。并发操作变成串行操作（效率太低严重影响性能）
-乐观锁：cvs算法；总以为不冲突；在修改的一瞬间去检验一下</p>
+<pre><code>&lt;!-- 通过environments的default值 和  environment的 id 来指定 MyBatis运行时的数据库环境--&gt;
+&lt;environments default=&quot;development&quot;&gt;
+		&lt;!-- 开发环境（自己的计算机） --&gt;
+		&lt;environment id=&quot;development&quot;&gt;
+			&lt;!-- 事务提交方式：
+				JDBC:利用JDBC方式处理事务（手工commit  rollback  close）
+				MANAGED：将事务交由 其他组件去托管（spring ,jobss）,默认 会关闭连接。
+                关闭默认值，默认不关闭
+			&lt;transactionManager type=&quot;MANAGED&quot;/&gt;
+				&lt;property name=&quot;closeConnection&quot; value=&quot;false&quot;/&gt;
+			 --&gt;
+			   &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+				&lt;!-- 数据源类型：
+						UNPOOLED:传统的JDBC模式（每次访问数据库，均需要 打开、关闭等数据库操作，但是 打开、关闭数据库是比较消耗性能的，不推荐使用）
+						POOLED：使用数据库连接池
+						JNDI：从tomcat中获取一个内置的数据库连接池 （数据库连接池-数据源  ）
+				 --&gt;
+				&lt;dataSource type=&quot;POOLED&quot;&gt;
+					&lt;!-- 配置数据库信息 --&gt;
+					&lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.OracleDriver&quot;/&gt;
+					&lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;/&gt;
+					&lt;property name=&quot;username&quot; value=&quot;scott&quot;/&gt;
+					&lt;property name=&quot;password&quot; value=&quot;tiger&quot;/&gt;
+				&lt;/dataSource&gt;
+		&lt;/environment&gt;
+		&lt;!-- 真正的项目应该在   发布的那台计算机上运行 --&gt;
+		&lt;environment id=&quot;shishi&quot;&gt;
+			&lt;transactionManager type=&quot;JDBC&quot;/&gt;
+				&lt;dataSource type=&quot;POOLED&quot;&gt;
+				&lt;!-- 配置数据库信息 --&gt;
+				&lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.OracleDriver&quot;/&gt;
+				&lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@192.168.1.183:1521:ORCL&quot;/&gt;
+				&lt;property name=&quot;username&quot; value=&quot;scott&quot;/&gt;
+				&lt;property name=&quot;password&quot; value=&quot;tiger&quot;/&gt;
+			&lt;/dataSource&gt;
+		&lt;/environment&gt;
+		
+		&lt;!--  --&gt;
+		&lt;environment id=&quot;test&quot;&gt;
+			&lt;transactionManager type=&quot;JDBC&quot;/&gt;
+				&lt;dataSource type=&quot;POOLED&quot;&gt;
+				&lt;!-- 配置数据库信息 --&gt;
+				&lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.OracleDriver&quot;/&gt;
+				&lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@192.168.1.111:1521:ORCL&quot;/&gt;
+				&lt;property name=&quot;username&quot; value=&quot;scott&quot;/&gt;
+				&lt;property name=&quot;password&quot; value=&quot;tiger&quot;/&gt;
+			&lt;/dataSource&gt;
+		&lt;/environment&gt;
+	&lt;/environments&gt;
+</code></pre>
 
-<h3 id="sql注入器">sql注入器</h3>
+<p>还可以通过硬编码的方式指定环境，即使conf中default已经指定了默认环境。可以通过build的第二参数 指定数据库环境</p>
 
-<h4 id="sql语句的实现方式">sql语句的实现方式</h4>
+<pre><code>SqlSessionFactory sessionFacotry = new SqlSessionFactoryBuilder().build(reader, &quot;development&quot;);
+</code></pre>
+
+<h4 id="xxxmapper-xml文件">xxxMapper.xml文件</h4>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;!-- namespace:该mapper.xml映射文件的 唯一标识 --&gt;
+&lt;mapper namespace=&quot;org.lanqiao.mapper.StudentMapper&quot;&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<p>后续通过  namespace.id定位sql语句</p>
+
+<p>parameterType:输入参数的类型</p>
+
+<p>resultType：查询返回结果值的类型  ，返回类型</p>
+
+<h4 id="复习第一个mybatis程序">复习第一个MyBatis程序：</h4>
+
+<pre><code>mybatis.jar   ojdbc.jar
+</code></pre>
 
 <ol>
-<li><p>mybatis:</p>
+<li><p>conf.xml (数据库配置信息、映射文件)</p></li>
 
-<pre><code>studentMapper.xml   
+<li><p>表-类：映射文件  mapper.xml</p></li>
 
-&lt;select id=&quot;queryStudent&quot;&gt;
-        select * from xxx 
+<li><p>测试</p></li>
+</ol>
+
+<h3 id="基础方式的增删改查crud">基础方式的增删改查CRUD:</h3>
+
+<p>mybatis约定：</p>
+
+<p>输入参数parameterType 和 输出参数resultType ，在形式上都只能有一个</p>
+
+<ul>
+<li><p>如果输入/输出参数 ：</p>
+
+<ol>
+<li><p>是简单类型（8个基本类型+String） 是可以使用任何占位符,#{xxxx}</p></li>
+
+<li><p>如果是对象类型，则必须是对象的属性 #{属性名}</p></li>
+</ol></li>
+
+<li><p>输出参数：</p>
+
+<ol>
+<li>如果返回值类型是一个 对象（如Student），则无论返回一个、还是多个，在resultType都写成<code>org.lx.entity.Student</code>即 <code>resultType=&quot;org.lx.entity.Student&quot;</code></li>
+</ol></li>
+</ul>
+
+<p>注意事项：</p>
+
+<ul>
+<li><p>如果使用的 事务方式为 jdbc,则需要 手工commit提交，即</p>
+
+<pre><code>session.commit();
+</code></pre></li>
+
+<li><p>所有的标签 <code>&lt;select&gt;</code> <code>&lt;update&gt;</code>等 ，都必须有sql语句，但是sql参数值可选(重载了函数，有一个参数，有两个参数)</p>
+
+<pre><code>sql有参数：session.insert(statement, 参数值 );
+
+sql没参数：session.insert(statement);
+</code></pre></li>
+</ul>
+
+<h4 id="增加">增加</h4>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot; parameterType=&quot;org.lanqiao.entity.Student&quot; &gt;
+    insert into student(stuno,stuname,stuage,graname) values(#{stuNo},#{stuName},#{stuAge},#{graName}  ) 
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>String statement = &quot;org.lanqiao.entity.studentMapper.&quot;+&quot;addStudent&quot;;
+Student student = new Student(13, &quot;ww3&quot;, 23, &quot;s3&quot;);
+int count = session.insert(statement,student);
+session.commit();
+</code></pre>
+
+<h4 id="删除">删除</h4>
+
+<pre><code>&lt;delete id=&quot;deleteStudentByStuno&quot;  parameterType=&quot;int&quot;&gt;
+    delete from student where stuno = #{stuno} 
+&lt;/delete&gt;
+</code></pre>
+
+<pre><code>String statement = &quot;org.lanqiao.entity.studentMapper.&quot;+&quot;deleteStudentByStuno&quot;;
+int count = session.delete(statement,3)
+session.commit();
+</code></pre>
+
+<h4 id="修改">修改</h4>
+
+<pre><code>&lt;update id=&quot;updateStudentByStuno&quot; parameterType=&quot;org.lx.entity.Student&quot; &gt;
+    update student set stuname=#{stuName} ,stuage=#{stuAge},graname=#{graName} where stuno=#{stuNo} 
+&lt;/update&gt;
+</code></pre>
+
+<pre><code>String statement = &quot;org.lanqiao.entity.studentMapper.&quot;+&quot;updateStudentByStuno&quot;;
+Student student = new Student();
+// 修改哪个人，where stuno =2
+student.setStuNo(2);
+// 修改成什么样子？
+student.setStuName(&quot;ls&quot;);
+student.setStuAge(24);
+student.setGraName(&quot;s1&quot;);
+int count = session.update(statement,student)
+session.commit();
+</code></pre>
+
+<h4 id="查询">查询</h4>
+
+<p>查询一个</p>
+
+<pre><code>&lt;select id=&quot;queryStudentByStuno&quot; 	parameterType=&quot;int&quot;  	resultMap=&quot;org.lx.entity.Student&quot; &gt;
+    select * from student where stuno = #{stuno}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>String statement = &quot;org.lanqiao.entity.studentMapper.&quot;+&quot;queryStudentByStuno&quot;;
+Student student = session.selectOne(statement,1)
+</code></pre>
+
+<p>查询多个</p>
+
+<pre><code>&lt;select id=&quot;queryAllStudents&quot;  resultType=&quot;org.lx.entity.Student&quot; &gt;
+    select * from student 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>String statement = &quot;org.lanqiao.entity.studentMapper.&quot;+&quot;queryAllStudents&quot;;
+List&lt;Student&gt; students = session.selectList(statement)
+</code></pre>
+
+<h3 id="mapper动态代理方式的crud-mybatis接口开发">mapper动态代理方式的crud （MyBatis接口开发）:</h3>
+
+<p>原则：约定优于配置</p>
+
+<p>硬编码方式</p>
+
+<p>abc.java</p>
+
+<pre><code>Configuration conf = new Configuration();
+con.setName(&quot;myProject&quot;) ;
+</code></pre>
+
+<p>配置方式：</p>
+
+<p>abc.xml</p>
+
+<pre><code>&lt;name&gt;myProject&lt;/name&gt;
+</code></pre>
+
+<p>配置方式优于硬编码方式</p>
+
+<p>约定方式优于硬编码方式</p>
+
+<p>约定：</p>
+
+<p>默认值就是myProject</p>
+
+<p>具体实现的步骤：</p>
+
+<ul>
+<li><p>基础环境：</p>
+
+<p>mybatis.jar/ojdbc.jar、conf.xml、mapper.xml</p></li>
+
+<li><p>不同之处</p>
+
+<p>约定的目标：省略掉statement,即根据约定直接可以定位出SQL语句</p></li>
+</ul>
+
+<ol>
+<li><p>接口，接口中的方法必须遵循以下约定：</p>
+
+<ul>
+<li><p>方法名和mapper.xml文件中标签的id值相同</p></li>
+
+<li><p>方法的 输入参数和mapper.xml文件中标签的 parameterType类型一致 (如果mapper.xml的标签中没有 parameterType，则说明方法没有输入参数)</p></li>
+
+<li><p>方法的返回值和mapper.xml文件中标签的 resultType类型一致 （无论查询结果是一个 还是多个（student、<code>List&lt;Student&gt;）</code>，在mapper.xml标签中的resultType中只写 一个（Student）；如果没有resultType，则说明方法的返回值为void）</p></li>
+</ul>
+
+<p>除了以上约定，要实现 接口中的方法  和  Mapper.xml中SQL标签一一对应，还需要以下1点：</p>
+
+<pre><code>namespace的值 ，就是  接口的全类名（ 接口 - mapper.xml 一一对应）
+</code></pre></li>
+</ol>
+
+<p>匹配的过程：（约定的过程）</p>
+
+<ol>
+<li>根据 接口名 找到 mapper.xml文件（根据的是namespace=接口全类名）</li>
+
+<li><p>根据 接口的方法名 找到 mapper.xml文件中的SQL标签 （方法名=SQL标签Id值）</p>
+
+<p>以上2点可以保证： 当我们调用接口中的方法时，
+程序能自动定位到 某一个Mapper.xml文件中的sqL标签</p></li>
+</ol>
+
+<p>习惯：SQL映射文件（mapper.xml） 和 接口放在同一个包中 （注意修改conf.xml中加载mapper.xml文件的路径）</p>
+
+<p>以上，可以通过接口的方法-&gt;SQL语句</p>
+
+<p>接口中的方法-&gt;SQL语句</p>
+
+<p>执行：</p>
+
+<p>通过session对象获取接口（session.getMapper(接口.class);），再调用该接口中的方法，程序会自动执行该方法对应的SQL。</p>
+
+<h4 id="增加-1">增加</h4>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot; parameterType=&quot;org.lanqiao.entity.Student&quot; &gt;
+    insert into student(stuno,stuname,stuage,graname) values(#{stuNo},#{stuName},#{stuAge},#{graName}  ) 
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>void addStudent(Student student);
+</code></pre>
+
+<pre><code>Student student = new Student(13, &quot;ww3&quot;, 23, &quot;s3&quot;);
+StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+studentMapper.addStudent(student);
+</code></pre>
+
+<h4 id="删除-1">删除</h4>
+
+<pre><code>&lt;delete id=&quot;deleteStudentByStuno&quot;  parameterType=&quot;int&quot;&gt;
+    delete from student where stuno = #{stuno} 
+&lt;/delete&gt;
+</code></pre>
+
+<pre><code>void deleteStudentByStuno(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+studentMapper.deleteStudentByStuno(13);
+</code></pre>
+
+<h4 id="修改-1">修改</h4>
+
+<pre><code>&lt;update id=&quot;updateStudentByStuno&quot; parameterType=&quot;org.lx.entity.Student&quot; &gt;
+    update student set stuname=#{stuName} ,stuage=#{stuAge},graname=#{graName} where stuno=#{stuNo} 
+&lt;/update&gt;
+</code></pre>
+
+<pre><code>void updateStudentByStuno(Student student);
+</code></pre>
+
+<pre><code>// 修改的参数
+Student student = new Student();
+// 修改哪个人，where stuno =2
+student.setStuNo(2);
+// 修改成什么样子？
+student.setStuName(&quot;ls&quot;);
+student.setStuAge(24);
+student.setGraName(&quot;s1&quot;);
+// 执行
+StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+studentMapper.updateStudentByStuno(student);
+</code></pre>
+
+<h4 id="查询-1">查询</h4>
+
+<p>查询单个学生</p>
+
+<pre><code>&lt;select id=&quot;queryStudentByStuno&quot; parameterType=&quot;int&quot;  resultType=&quot;org.lanqiao.entity.Student&quot; &gt;
+        select * from student where stuno = #{stuno}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>Student  queryStudentByStuno(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+Student student = studentMapper.queryStudentByStuno
+</code></pre>
+
+<p>查询多个</p>
+
+<pre><code>&lt;select id=&quot;queryAllStudents&quot;  resultType=&quot;org.lanqiao.entity.Student&quot; &gt;
+    select * from student 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryAllStudents();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+List&lt;Student&gt; students = studentMapper.queryAllStudents();// 接口的方法-&gt;SQL
+</code></pre>
+
+<h3 id="优化">优化、</h3>
+
+<h4 id="可以将配置信息-单独放入-db-properties文件中-然后再动态引入">可以将配置信息 单独放入 db.properties文件中，然后再动态引入</h4>
+
+<p>新建文件db.properties</p>
+
+<pre><code>driver=oracle.jdbc.OracleDriver
+url=jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+username=scott
+password=tiger
+</code></pre>
+
+<p>配置</p>
+
+<pre><code>&lt;configuration&gt;
+    &lt;properties  resource=&quot;db.properties&quot;/&gt;
+</code></pre>
+
+<p>使用</p>
+
+<pre><code>&lt;environment id=&quot;development&quot;&gt;
+    &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+    &lt;dataSource type=&quot;POOLED&quot;&gt;
+        &lt;!-- 配置数据库信息 --&gt;
+        &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot; /&gt;
+        &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
+        &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
+    &lt;/dataSource&gt;
+&lt;/environment&gt;
+</code></pre>
+
+<p>引入之后，使用${key}</p>
+
+<h4 id="mybatis全局参数">MyBatis全局参数</h4>
+
+<p>Mybatis全局参数.png</p>
+
+<p><img src="/resources/技术框架/Spring家族/Mybatis全局参数.png" alt="Mybatis全局参数" title="Mybatis全局参数" /></p>
+
+<p>了解即可</p>
+
+<p>在conf.xml中设置，在configuration里面</p>
+
+<pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;cacheEnabled&quot; value=&quot;false&quot;  /&gt;
+    &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;false&quot;  /&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<h4 id="别名-conf-xml">别名 conf.xml</h4>
+
+<ul>
+<li><p>设置单个别名</p>
+
+<pre><code>&lt;!-- 设置单个/多个别名 --&gt;
+&lt;typeAliases&gt;
+    &lt;!-- 单个别名 （别名 忽略大小写） --&gt;
+    &lt;typeAlias type=&quot;org.lanqiao.entity.Student&quot; alias=&quot;student&quot;/&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+
+<p>使用,在xxMapper.xml中</p>
+
+<pre><code>&lt;select id=&quot;queryAllStudents&quot;  resultType=&quot;sTuDenT&quot; &gt;
+    select * from student 
+&lt;/select&gt;
+</code></pre>
+
+<p>别名，忽略大小写</p></li>
+
+<li><p>批量设置别名</p>
+
+<pre><code>&lt;typeAliases&gt;
+    &lt;!--  批量定义别名  （别名 忽略大小写），以下会自动将该包中的所有类 批量定义别名： 别名就是类名（不带包名，忽略大小写）   --&gt;
+    &lt;package name=&quot;org.lanqiao.entity&quot;/&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+
+<p>别名，忽略大小写</p></li>
+</ul>
+
+<p>除了自定义别名外，MyBatis还内置了一些常见类的别名。</p>
+
+<p><img src="/resources/技术框架/Spring家族/MyBatis内置别名.png" alt="MyBatis内置别名" title="MyBatis内置别名" /></p>
+
+<h3 id="类型处理器-类型转换器">类型处理器（类型转换器）</h3>
+
+<h4 id="mybatis自带一些常见的类型处理器">MyBatis自带一些常见的类型处理器</h4>
+
+<p><img src="/resources/技术框架/Spring家族/Mybatis内置的类型处理器.png" alt="Mybatis内置的类型处理器" title="Mybatis内置的类型处理器" /></p>
+
+<h4 id="自定义mybatis类型处理器">自定义MyBatis类型处理器</h4>
+
+<pre><code>java -数据库(jdbc类型)
+</code></pre>
+
+<p>示例：</p>
+
+<p>实体类Student :  boolean   stuSex</p>
+
+<pre><code>true:男
+false：女
+</code></pre>
+
+<p>表student：   number  stuSex</p>
+
+<pre><code>1:男
+0：女
+</code></pre>
+
+<p>自定义类型转换器（boolean -number）步骤：</p>
+
+<ol>
+<li><p>创建转换器：需要实现TypeHandler接口</p>
+
+<p>通过阅读源码发现，此接口有一个实现类 BaseTypeHandler ，因此 要实现转换器有2种选择：</p>
+
+<ul>
+<li>实现接口TypeHandler接口</li>
+
+<li><p>继承BaseTypeHandler</p>
+
+<pre><code>//BaseTypeHandler&lt;java类型&gt;
+public class BooleanAndIntConverter extends BaseTypeHandler&lt;Boolean&gt;{
+//java(boolean)-DB(number)
+/*
+    * ps:PreparedStatement对象 
+    * i:PreparedStatement对象操作参数的位置 * parameter:java值
+    * jdbcType：JDBC操作的数据库类型
+    */
+@Override
+public void setNonNullParameter(PreparedStatement ps, int i, Boolean parameter, JdbcType jdbcType)
+        throws SQLException {
+        if(parameter) {
+            //1
+            ps.setInt(i, 1); 
+        }else {
+            //  0
+            ps.setInt(i, 0); 
+        }
+}
+//db(number)-&gt;java(boolean)
+@Override
+public Boolean getNullableResult(ResultSet rs, String columnName) throws SQLException {
+    int sexNum = rs.getInt(columnName) ;//rs.getInt(&quot;stuno&quot;) ;
+//      if(sexNum == 1)
+//      
+//          return true;
+//      else {
+//          return false ;
+//      }
+    return sexNum == 1?true:false ;
+}
+@Override
+public Boolean getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    int sexNum = rs.getInt(columnIndex) ;//rs.getInt(1)
+    return sexNum == 1?true:false ;
+}
+@Override
+public Boolean getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+    int sexNum = cs.getInt(columnIndex) ;//rs.getInt(1)
+    return sexNum == 1?true:false ;
+}
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>配置conf.xml</p>
+
+<pre><code>&lt;typeHandlers&gt;
+    &lt;typeHandler
+        handler=&quot;org.lanqiao.converter.BooleanAndIntConverter&quot;
+        javaType=&quot;Boolean&quot; jdbcType=&quot;INTEGER&quot; /&gt;
+&lt;/typeHandlers&gt;
+</code></pre></li>
+
+<li><p>使用</p>
+
+<p>查询</p>
+
+<pre><code>&lt;!-- 查询：使用了类型转换器
+1如果 类中属性 和表中的字段 类型能够合理识别 （String-varchar2），则可以使用resultType;否则(boolean-number) 使用resultMap
+
+2如果 类中属性名 和表中的字段名能够合理识别 （stuNo -stuno）则可以使用resultType;否则(id-stuno) 使用resultMap
+--&gt;
+&lt;select id=&quot;queryStudentByStunoWithConverter&quot;   parameterType=&quot;int&quot;     
+resultMap=&quot;studentResult&quot; &gt;
+    select * from student where stuno = #{stuno}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>&lt;resultMap type=&quot;student&quot; id=&quot;studentResult&quot;&gt;
+    &lt;!-- 分为主键id 和非主键 result--&gt;
+    &lt;id property=&quot;stuNo&quot;  column=&quot;stuno&quot;  /&gt;
+    &lt;result property=&quot;stuName&quot;  column=&quot;stuname&quot; /&gt;
+    &lt;result property=&quot;stuAge&quot;  column=&quot;stuage&quot; /&gt;
+    &lt;result property=&quot;graName&quot;  column=&quot;graname&quot; /&gt;
+    &lt;result property=&quot;stuSex&quot;  column=&quot;stusex&quot;  javaType=&quot;boolean&quot; jdbcType=&quot;INTEGER&quot;/&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<p>注意#{stuNo} 中存放的是 属性值，需要严格区分大小写。</p>
+
+<p>resultMap可以实现2个功能：</p>
+
+<ol>
+<li><p>类型转换</p></li>
+
+<li><p>属性-字段的映射关系</p>
+
+<pre><code>&lt;resultMap type=&quot;student&quot; id=&quot;studentMapping&quot;&gt;
+    &lt;!-- 分为主键id 和非主键 result--&gt;
+    &lt;id property=&quot;id&quot;  column=&quot;stuno&quot;  /&gt;
+    &lt;result property=&quot;stuName&quot;  column=&quot;stuname&quot; /&gt;
+    &lt;result property=&quot;stuAge&quot;  column=&quot;stuage&quot; /&gt;
+    &lt;result property=&quot;graName&quot;  column=&quot;graname&quot; /&gt;
+    &lt;result property=&quot;stuSex&quot;  column=&quot;stusex&quot;  javaType=&quot;boolean&quot; jdbcType=&quot;INTEGER&quot;/&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<p>当表中的字段名和类中的属性名不同是，也可以通过resultMap进行转换</p>
+
+<pre><code>Student queryStudentByStunoWithConverter(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+Student student = studentMapper.queryStudentByStunoWithConverter(1);// 接口中的方法-&gt;SQL语句
+</code></pre></li>
+</ol>
+
+<p>需要注意的问题：  INTEGER</p>
+
+<p>查询：使用了类型转换器</p>
+
+<ol>
+<li><p>如果 类中属性 和表中的字段 类型能够合理识别 （String-varchar2），则可以使用resultType;否则(boolean-number) 使用resultMap</p></li>
+
+<li><p>如果 类中属性名 和表中的字段名能够合理识别 （stuNo -stuno）则可以使用resultType;否则(id-stuno) 使用resultMap</p></li>
+</ol>
+
+<p>增加</p>
+
+<pre><code>&lt;!-- 带转换器的增加 --&gt;
+&lt;insert id=&quot;addStudentWithConverter&quot; parameterType=&quot;student&quot; &gt;
+    insert into student(stuno,stuname,stuage,graname,stusex) values(#{stuNo},#{stuName},#{stuAge},#{graName} ,#{stuSex ,javaType=boolean  ,jdbcType=INTEGER   } ) 
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>//增加
+void addStudentWithConverter(Student student);
+</code></pre>
+
+<pre><code>Student student = new Student(63, &quot;ww53&quot;, 23, &quot;s3&quot;);
+student.setStuSex(true);// 1
+StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+studentMapper.addStudentWithConverter(student);
+session.commit(); // 提交事务
+</code></pre></li>
+</ol>
+
+<h3 id="输入参数-parametertype">输入参数：parameterType</h3>
+
+<h4 id="类型为-简单类型-8个基本类型-string">类型为 简单类型（8个基本类型+String）</h4>
+
+<p>#{}、${}的区别</p>
+
+<ol>
+<li><p>存放的值不同</p>
+
+<pre><code>#{任意值},一般建议不要乱写，即见名知意
+
+${value} ，其中的标识符只能是value
+</code></pre></li>
+
+<li><p>输出不同</p>
+
+<pre><code>#{}自动给String类型加上''  （自动类型转换）
+
+${} 原样输出，但是适合于 动态排序（动态字段）
+
+select stuno,stuname,stuage  from student where stuname = #{value}
+
+select stuno,stuname,stuage  from student where stuname = '${value}'
+</code></pre>
+
+<p>动态排序：</p>
+
+<pre><code>&lt;select id=&quot;queryStudentOrderByColumn&quot;  parameterType=&quot;string&quot;  resultType=&quot;student&quot; &gt;
+    select stuno,stuname,stuage  from student  order by ${value} asc
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentOrderByColumn(String column);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+List&lt;Student&gt; students = studentMapper.queryStudentOrderByColumn(&quot;stuno&quot;) ;//接口的方法-&gt;SQL
+</code></pre></li>
+
+<li><p>SQL注入</p>
+
+<p>#{}可以防止SQL注入</p>
+
+<p>${}不防止</p></li>
+</ol>
+
+<h4 id="相同之处">${}、#{}相同之处：</h4>
+
+<ol>
+<li><p>都可以 获取对象的值 （嵌套类型对象）</p>
+
+<p>模糊查询，方式一：</p>
+
+<pre><code>&lt;select id=&quot;queryStudentBystuageOrstuName&quot;  parameterType=&quot;student&quot; resultType=&quot;student&quot; &gt; 
+    select stuno,stuname,stuage  from student where stuage= #{stuAge}  or stuname like #{stuName}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentBystuageOrstuName(Student student);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+            Student student = new Student();
+            student.setStuAge(24);
+            student.setStuName(&quot;%w%&quot;);
+            List&lt;Student&gt; students = studentMapper.queryStudentBystuageOrstuName(student) ;//接口的方法-&gt;SQL
+</code></pre>
+
+<pre><code>like #{stuName}
+
+student.setStuName(&quot;%w%&quot;);
+</code></pre>
+
+<p>模糊查询，方式二：</p>
+
+<pre><code>&lt;select id=&quot;queryStudentBystuageOrstuName&quot;  parameterType=&quot;student&quot; resultType=&quot;student&quot; &gt; 
+    select stuno,stuname,stuage  from student where stuage= #{stuAge}  or stuname like '%${stuName}%'
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentBystuageOrstuName(Student student);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+            Student student = new Student();
+            student.setStuAge(24);
+            student.setStuName(&quot;w&quot;);
+            List&lt;Student&gt; students = studentMapper.queryStudentBystuageOrstuName(student) ;//接口的方法-&gt;SQL
+</code></pre>
+
+<pre><code>like '%${stuName}%'
+
+student.setStuName(&quot;w&quot;);
+</code></pre></li>
+
+<li><p>嵌套类型对象</p></li>
+</ol>
+
+<p>Address.java</p>
+
+<pre><code>public class Address {
+	private String homeAddress;
+	private String schoolAddress;
+	public String getHomeAddress() {
+		return homeAddress;
+	}
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+	public String getSchoolAddress() {
+		return schoolAddress;
+	}
+	public void setSchoolAddress(String schoolAddress) {
+		this.schoolAddress = schoolAddress;
+	}
+	
+}
+</code></pre>
+
+<p>Student.java包含Address的对象</p>
+
+<pre><code>private Address address;//家庭、学校
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+</code></pre>
+
+<ol>
+<li><p>方式一</p>
+
+<pre><code>&lt;select id=&quot;queryStudentByaddress&quot;  parameterType=&quot;address&quot; resultType=&quot;student&quot; &gt; 
+    select stuno,stuname,stuage  from student where homeaddress = #{homeAddress}  or schooladdress = '${schoolAddress}'
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt;  queryStudentByaddress(Address address);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Address address = new Address();
+address.setHomeAddress(&quot;xa&quot;);
+address.setSchoolAddress(&quot;x&quot;);
+List&lt;Student&gt; students = studentMapper.queryStudentByaddress(address) ;
+</code></pre></li>
+
+<li><p>方式二:级联属性</p>
+
+<pre><code>&lt;!-- 输入参数为 级联属性 --&gt;
+&lt;select id=&quot;queryStudentByaddress&quot;  parameterType=&quot;student&quot; resultType=&quot;student&quot; &gt; 
+    select stuno,stuname,stuage  from student where homeaddress = #{address.homeAddress}  or schooladdress = '${address.schoolAddress}'
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt;  queryStudentByaddress(Student address);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Student student = new Student();
+Address address = new Address();
+address.setHomeAddress(&quot;xa&quot;);
+address.setSchoolAddress(&quot;xxxxxx&quot;);
+student.setAddress(address);
+List&lt;Student&gt; students = studentMapper.queryStudentByaddress(student) ;
+</code></pre></li>
+
+<li><p>方式三：输入对象为HashMap：</p>
+
+<pre><code>&lt;select id=&quot;queryStudentBystuageOrstuNameWithHashMap&quot;   parameterType=&quot;HashMap&quot; resultType=&quot;student&quot; &gt; 
+    select stuno,stuname,stuage  from student
+    where stuage= #{stuAge}  or stuname like '%${stuName}%' 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentBystuageOrstuNameWithHashMap(Map&lt;String,Object&gt; map);//String,Object
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Map&lt;String,Object&gt; studentMap = new HashMap&lt;&gt;();
+studentMap.put(&quot;stuAge&quot;, 24) ;
+studentMap.put(&quot;stuName&quot;, &quot;zs&quot;) ;
+List&lt;Student&gt; students = studentMapper.queryStudentBystuageOrstuNameWithHashMap (studentMap) ;//接口的方法-&gt;SQL
+</code></pre>
+
+<p>where stuage= #{stuAge}</p>
+
+<p>用map中key的值 匹配 占位符#{stuAge}，如果匹配成功 就用map的value替换占位符</p></li>
+</ol>
+
+<h3 id="mybatis调用存储过程">mybatis调用存储过程</h3>
+
+<h4 id="创建存储过程">创建存储过程</h4>
+
+<p>查询某个年级的 学生总数</p>
+
+<p>输入：年级</p>
+
+<p>输出：该年级的学生总数</p>
+
+<pre><code>create or replace procedure queryCountByGradeWithProcedure(gName in varchar, scount out number )
+as
+begin 
+	select count(*) into scount from student where graname = gname ;
+end;
+/
+</code></pre>
+
+<p>根据学号删除学生</p>
+
+<pre><code>create or replace procedure deleteStuBynoWithProcedure(sno in number)
+as
+begin
+	delete from student where stuno = sno  ;
+end;
+/
+</code></pre>
+
+<h4 id="调用存储过程实现查询">调用存储过程实现查询</h4>
+
+<pre><code>&lt;!-- 通过调用[存储过程] 实现查询 ,statementType=&quot;CALLABLE&quot;
+    存储过程的输入参数，在mybatis用Map来传递（HashMap）
+--&gt;
+&lt;select id=&quot;queryCountByGradeWithProcedure&quot; statementType=&quot;CALLABLE&quot;  parameterType=&quot;HashMap&quot; &gt;
+    {
+        CALL queryCountByGradeWithProcedure(
+            #{gName,jdbcType=VARCHAR,mode=IN},
+            #{scount,jdbcType=INTEGER,mode=OUT}
+        ) 
+    }	
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>void queryCountByGradeWithProcedure(Map&lt;String,Object&gt; params );
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+//通过map给 存储过程指定输入参数
+Map&lt;String,Object&gt; params = new HashMap&lt;&gt;();
+params.put(&quot;gName&quot;, &quot;g1&quot;) ;//指定存储过程的输入参数gName的值是g1
+studentMapper.queryCountByGradeWithProcedure(params);//调用存储过程，并传入输入参数
+//获取存储过程的输出参数
+Object count = params.get(&quot;scount&quot;) ;
+</code></pre>
+
+<p>其中 通过statementType=&ldquo;CALLABLE&rdquo;设置SQL的执行方式是存储过程。 存储过程的输入参数gName需要通过HashMap来指定
+在使用时，通过hashmap的put方法传入输入参数的值；通过hashmap的Get方法 获取输出参数的值。</p>
+
+<p>要注意Jar问题：ojdbc6.jar不能在 调存储过程时  打回车、tab，但是ojdbc7.jar可以。</p>
+
+<p>如果报错： <code>No enum constant org.apache.ibatis.type.JdbcType.xx</code>，则说明mybatis不支持xx类型，需要查表。</p>
+
+<h4 id="调用存储过程实现删除">调用存储过程实现删除</h4>
+
+<pre><code>&lt;!-- 通过存储过程实现删除 --&gt;
+&lt;delete id=&quot;deleteStuBynoWithProcedure&quot; statementType=&quot;CALLABLE&quot; parameterType=&quot;HashMap&quot;&gt;
+    {
+        CALL deleteStuBynoWithProcedure(
+            #{sno,jdbcType=INTEGER,mode=IN}
+        ) 
+    }	
+&lt;/delete&gt;
+
+</code></pre>
+
+<pre><code>void deleteStuBynoWithProcedure(Map&lt;String,Object&gt; params  );
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;sno&quot;, 3) ;
+studentMapper.deleteStuBynoWithProcedure( map) ;
+    session.commit();
+session.close();
+</code></pre>
+
+<p>存储过程 无论输入参数是什么值，语法上都需要 用map来传递该值；</p>
+
+<p>只要 是  <code>&lt;transactionManager type=&quot;JDBC&quot;/&gt;</code>，则增删改都需要手工commit ;</p>
+
+<h3 id="输出参数">输出参数</h3>
+
+<p>输出参数resultType</p>
+
+<h4 id="简单类型-8个基本-string">简单类型（8个基本+String）</h4>
+
+<pre><code>&lt;select id=&quot;queryStudentCount&quot; 	 	resultType=&quot;int&quot; &gt;
+    select count(*) from student 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>int queryStudentCount();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+int count = studentMapper.queryStudentCount();
+</code></pre>
+
+<h4 id="输出参数为实体对象类型">输出参数为实体对象类型</h4>
+
+<pre><code>&lt;select id=&quot;queryStuByStuno&quot; 	parameterType=&quot;int&quot;  	resultType=&quot;student&quot; &gt;
+    select * from student where stuno = ${value}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>Student queryStuByStuno(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+Student student = studentMapper.queryStuByStuno(2) ;//接口中的方法-&gt;SQL语句
+		
+</code></pre>
+
+<h4 id="输出参数为实体对象类型的集合">输出参数为实体对象类型的集合</h4>
+
+<p>虽然输出类型为集合，但是resultType依然写 集合的元素类型（resyltType=&ldquo;Student&rdquo;）</p>
+
+<pre><code>&lt;select id=&quot;queryAllStudents&quot;  resultType=&quot;Student&quot; &gt;
+    select * from student 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryAllStudents();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+List&lt;Student&gt; students = studentMapper.queryAllStudents();// 接口的方法-&gt;SQL
+</code></pre>
+
+<h4 id="输出参数类型为hashmap">输出参数类型为HashMap</h4>
+
+<pre><code>&lt;!-- 别名作为Map的key --&gt;
+&lt;select id=&quot;queryStudentOutByHashMap&quot;  resultType=&quot;HashMap&quot; &gt;
+    select stuno &quot;no&quot;,stuname &quot;name&quot; from student    where stuno=1
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>HashMap&lt;String,Object&gt; queryStudentOutByHashMap();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+HashMap&lt;String,Object&gt; studentMap = studentMapper.queryStudentOutByHashMap();
+</code></pre>
+
+<p>HashMap本身是一个集合，可以存放多个元素，但是根据提示发现  返回值为HashMap时  ，查询的结果只能是1个学生（no,name）</p>
+
+<p>结论：一个HashMap 对应一个学生的多个元素（多个属性）  【一个map，一个学生】</p>
+
+<p>比较像二维数组，一个数组是一个HashMap对象</p>
+
+<pre><code>{
+    {1,zs,23,xa},    -一个HashMap对象
+    {2,ls,24,bj}, 
+    {3,ww,25,tj}
+}
+</code></pre>
+
+<p>获取多个HashMap</p>
+
+<pre><code>&lt;select id=&quot;queryAllStudentsOutByHashMap&quot;  resultType=&quot;HashMap&quot; &gt;
+    select stuno &quot;no&quot;,stuname &quot;name&quot; from student  
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;HashMap&lt;String,Object&gt;&gt; queryAllStudentsOutByHashMap();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+List&lt;HashMap&lt;String,Object&gt;&gt; studentMap = studentMapper.queryAllStudentsOutByHashMap();
+</code></pre>
+
+<p>resultType</p>
+
+<p>resultMap:实体类的属性、数据表的字段： 类型、名字不同时（stuno,id）</p>
+
+<p>注意：当属性名 和字段名 不一致时，除了使用resultMap以外，还可以使用resultType+HashMap:</p>
+
+<h4 id="resultmap">resultMap</h4>
+
+<pre><code>&lt;select id=&quot;queryStudentById&quot; 	 parameterType=&quot;int&quot;	resultMap=&quot;queryStudentByIdMap&quot; &gt;
+    select id,name from student where id = #{id}
+&lt;/select&gt;
+
+&lt;resultMap type=&quot;student&quot; id=&quot;queryStudentByIdMap&quot;&gt;
+    &lt;!-- 指定类中的属性 和 表中的字段 对应关系 --&gt;
+    &lt;id property=&quot;stuNo&quot;  column=&quot;id&quot; /&gt;
+    &lt;result property=&quot;stuName&quot; column=&quot;name&quot; /&gt;
+&lt;/resultMap&gt;
+
+</code></pre>
+
+<pre><code>Student queryStudentById(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+Student student = studentMapper.queryStudentById(2) ;//接口中的方法-&gt;SQL语句
+</code></pre>
+
+<h4 id="resulttype-hashmap">resultType+HashMap</h4>
+
+<pre><code>&lt;select id=&quot;queryStudentByIdWithHashMap&quot; 	 parameterType=&quot;int&quot;	resultType=&quot;student&quot; &gt;
+    select id &quot;stuNo&quot;,name &quot;stuName&quot; from student where id = #{id}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>Student queryStudentByIdWithHashMap(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+Student student = studentMapper.queryStudentByIdWithHashMap(2) ;//接口中的方法-&gt;SQL语句
+
+</code></pre>
+
+<p>select  表的字段名 &ldquo;类的属性名&rdquo; from&hellip; 来制定字段名 和属性名的对应关系</p>
+
+<p>注意:  如果如果10个字段，但发现 某一个字段结果始终为默认值（0，0.0，null），则可能是 表的字段  和 类的属性名字写错。</p>
+
+<h3 id="动态sql">动态SQL</h3>
+
+<pre><code>//查询全部
+String statement = &quot;select stuno,stuname from student&quot;;
+
+//根据年龄查询学生
+
+String statement = &quot;select stuno,stuname from student where stuage = #{stuage}&quot;; 
+
+
+//根据姓名和年龄查询学生
+
+String statement = &quot;select stuno,stuname from student where stuage = #{stuage} and stuage = #{stuage} &quot;; 
+</code></pre>
+
+<p>可以发现其中有重复的部分</p>
+
+<pre><code>&lt;select id=&quot;queryStuByNOrAWishSQLTag&quot; 	 parameterType=&quot;student&quot;	resultType=&quot;student&quot; &gt;
+    select stuno,stuname,stuage from student
+    &lt;where&gt;
+        &lt;!-- &lt;if test=&quot;student有stuname属性 且不为null&quot;&gt;   属性严格区分大小写--&gt;
+        &lt;if test=&quot;stuName !=null and stuName!=''  &quot;&gt; 
+            and stuname = #{stuName}
+        &lt;/if&gt;
+        &lt;if test=&quot;stuAge !=null and stuAge!=0  &quot;&gt; 
+                and stuage = #{stuAge}
+        &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>Student queryStuByNOrAWishSQLTag(Student student);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+Student stu = new Student();
+stu.setStuAge(24);
+//stu.setStuName(&quot;ls&quot;);
+Student student = studentMapper.queryStuByNOrAWishSQLTag(stu) ;//接口中的方法-&gt;SQL语句
+
+</code></pre>
+
+<p>处理and的两种方式</p>
+
+<ul>
+<li><p>方式一</p>
+
+<pre><code>&lt;select id=&quot;queryStuByNOrAWishSQLTag&quot;    parameterType=&quot;student&quot;    resultType=&quot;student&quot; &gt;
+    select stuno,stuname,stuage from student where 1=1
+    &lt;if test=&quot;stuName !=null and stuName!=''  &quot;&gt; 
+        and stuname = #{stuName}
+    &lt;/if&gt;
+    &lt;if test=&quot;stuAge !=null and stuAge!=0  &quot;&gt; 
+        and stuage = #{stuAge}
+    &lt;/if&gt;
 &lt;/select&gt;
 </code></pre></li>
 
-<li><p>mybatis:</p>
+<li><p>方式二 （推荐）</p>
 
-<pre><code>@Select(&quot;select....&quot;)
-</code></pre></li>
-
-<li><p>MP:</p>
-
-<pre><code>extends BaseMapper&lt;Student&gt; 
-</code></pre></li>
-
-<li><p>MP:</p>
-
-<p>自己写SQL。Sql 注入器，仿照方式“3” 自己编写一个 带SQL的方法
-deleteAllStudents();</p>
-
-<ol>
-<li>自定义方法 -&gt;写sql语句 + 标签名 MyDelete  extends AbstractMethod</li>
-<li>自定义Sql 注入器 ： 包含原来17个 + 自己的MyDelete</li>
-<li>配置 告知MP,以后使用自定义注入器</li>
-</ol></li>
-</ol>
-
-<h3 id="逻辑删除">逻辑删除</h3>
-
-<p>逻辑删除（假删除）：</p>
-
-<pre><code>@TableLogic
-private Integer deleted;  
+<pre><code>&lt;select id=&quot;queryStuByNOrAWishSQLTag&quot;    parameterType=&quot;student&quot;    resultType=&quot;student&quot; &gt;
+    select stuno,stuname,stuage from student
+    &lt;where&gt;
+        &lt;if test=&quot;stuName !=null and stuName!=''  &quot;&gt; 
+            and stuname = #{stuName}
+        &lt;/if&gt;
+        &lt;if test=&quot;stuAge !=null and stuAge!=0  &quot;&gt; 
+                and stuage = #{stuAge}
+        &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
 </code></pre>
 
-<p>在表中增加相应字段</p>
-
-<p>逻辑删除：为了数据安全</p>
-
-<p>全局配置：  以 表名加前缀位置</p>
-
-<pre><code>&lt;property name=&quot;dbConfig&quot; &gt;
-    &lt;bean class=&quot;com.baomidou.mybatisplus.core.config.GlobalConfig$DbConfig&quot;&gt;
-        &lt;property name=&quot;logicDeleteValue&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;logicNotDeleteValue&quot; value=&quot;0&quot;&gt;&lt;/property&gt;
-
-
-        &lt;property name=&quot;tablePrefix&quot; value=&quot;tb_&quot;&gt;&lt;/property&gt;
-
-    &lt;/bean&gt;
-&lt;/property&gt;
-</code></pre>
-
-<pre><code>@TableName(value=&quot;student&quot;,keepGlobalPrefix=true)
-	
-</code></pre>
-
-<h3 id="自动填充插件">自动填充插件</h3>
-
-<h3 id="sequence主键">Sequence主键</h3>
-
-<p>实现oracle数据库的自增</p>
-
-<h4 id="mvn仓库添加oracle-jar">mvn仓库添加oracle  jar</h4>
-
-<ol>
-<li><p>将ojdbc7.jar复制到mvn的本地仓库</p></li>
-
-<li><p>cmd执行</p>
-
-<pre><code>mvn install:install-file -DgroupId=ojdbc -DartifactId=ojdbc7 -Dversion=7.0.0.1 -Dpackaging=jar -Dfile=ojdbc7.jar
-
-</code></pre></li>
-</ol>
-
-<h3 id="mybatisx-快速开发插件">MybatisX 快速开发插件</h3>
-
-<p>MybatisX 是一款基于 IDEA 的快速开发插件，为效率而生。</p>
-
-<p>本插件时针对于mubatis开发的</p>
-
-<p><strong>MyBatis Plus的源码</strong>
-<a href="https://github.com/mumulx/Project-source-code/tree/master/mybatis/MyBatisPlus">github地址</a></p>
-
-<h2 id="mapper">Mapper</h2>
-
-<p><a href="https://gitee.com/free/Mapper?_from=gitee_search">mapper 码云地址</a></p>
-
-<p>与MP时同级的关系都是对mybatis的插件</p>
-
-<p><a href="https://github.com/abel533/Mapper/wiki">mapper github地址</a></p>
-
-<p>mybatis/mp:</p>
-
-<pre><code>&lt;bean id=&quot;configurer&quot; class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;  &gt;
-        &lt;property name=&quot;basePackage&quot; value=&quot;com.yq.mapper&quot; &gt;&lt;/property&gt;
-    &lt;/bean&gt;
-</code></pre>
-
-<p>Mapper：</p>
-
-<pre><code>【tk】\.mybatis.spring.mapper.MapperScannerConfigure
-</code></pre>
-
-<p>回顾：</p>
-
-<p>mapper配置：和mybatis基本一致：唯一不同的   org-&gt;tk</p>
-
-<p>MP:</p>
-
-<pre><code>public interface StudentMapper    extends baomidou.....BaseMapper&lt;Student&gt; {
-</code></pre>
-
-<p>Mapper:</p>
-
-<pre><code>public interface StudentMapper    extends Mapper&lt;Student&gt; {
-</code></pre>
-
-<p><strong>mapper的核心：</strong></p>
-
-<p>Mapper父接口中 有很多细化的父接口（每个细化的父接口负责一件事情： x）</p>
-
-<p>主键：包装类Integer/ Long  ，不要使用基本类型</p>
-
-<p>只支持单表操作</p>
-
-<p>标识@id</p>
-
-<pre><code>SELECT stu_no,stu_name,stu_age FROM tb_student 
-WHERE stu_no = ? 
-</code></pre>
-
-<p>没有标识@id :默认 将全部字段作为联合主键</p>
-
-<pre><code>SELECT stu_no,stu_name,stu_age FROM tb_student 
-WHERE stu_no = ? AND stu_name = ? 
-AND stu_age = ? 
-</code></pre>
-
-<p>MP 可以将主键值 会写到 对象中；</p>
-
-<p>mapper默认不会， 如果要： 配置</p>
-
-<pre><code>@Id()
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer stuNo ;//stuNo -&gt; stu_no
-</code></pre>
-
-<p>插入数据时，如果不给主键赋值，是否回写？</p>
-
-<pre><code>zs  23  -&gt; 18,zs ,23
-</code></pre>
-
-<ol>
-<li><p>mysql 或其他自带 “自增功能”的数据库：</p>
-
-<pre><code>@Id()
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-</code></pre></li>
-
-<li><p>oracle不带自增：</p>
-
-<pre><code>@Id()
-@KeySql(sql = &quot;select SEQ_stu.nextval from dual&quot;, order = ORDER.BEFORE)
-</code></pre></li>
-</ol>
-
-<p>通过序列实现自增</p>
-
-<p><code>selectOne(stu)</code> stu:查询条件，类似于MP 中的wrapper</p>
-
-<ul>
-<li><p>selective</p>
-
-<pre><code>INSERT INTO tb_student ( stu_no,stu_name ) VALUES( ?,? ) 
-</code></pre></li>
-
-<li><p>没有selectvie</p>
-
-<pre><code>INSERT INTO tb_student ( stu_no,stu_name,stu_age ) VALUES( ?,?,? ) 
-</code></pre>
-
-<p>selective：对于没有操作的值，不进行任何处理</p>
-
-<p>没有selective：对于没有操作的值， 赋值为NULL
-。可以发现，selective在insert操作 基本没有区别.</p>
-
-<p>但对于修改，一般建议 加上selective,不用修改的字段会保留原来的值，而不会赋值为null</p></li>
+<p><code>&lt;where&gt;</code>会自动处理第一个（满足条件的第一个）<code>&lt;if&gt;</code>标签中的 and，但不会处理之后<code>&lt;if&gt;</code>中的and。</p></li>
 </ul>
 
-<h3 id="mapper-代码生成器">mapper 代码生成器</h3>
+<h3 id="foreach">foreach</h3>
 
-<h3 id="mapper-自由组合功能">mapper 自由组合功能</h3>
+<p>查询学号为1、2、53的学生信息</p>
 
-<h3 id="新增方法">新增方法</h3>
+<p>sql语句</p>
 
-<p><strong>mapper 的源码</strong>
-<a href="https://github.com/mumulx/Project-source-code/tree/master/mybatis/MapperGenerator">mapper逆向工程</a></p>
+<pre><code>select stuno,stuname from student  where stuno in(1,2,53) 
+</code></pre>
 
-<p><a href="https://github.com/mumulx/Project-source-code/tree/master/mybatis/MyMapperPro">mapper</a></p>
+<p><code>&lt;foreach&gt;</code>迭代的类型：数组、对象数组、集合、属性(Grade类： <code>List&lt;Integer&gt; ids)</code></p>
+
+<h4 id="属性">属性</h4>
+
+<p>(Grade类： <code>List&lt;Integer&gt; ids</code></p>
+
+<pre><code>public class Grade {
+    //学号
+    private List&lt;Integer&gt; stuNos ;
+    public List&lt;Integer&gt; getStuNos() {
+        return stuNos;
+    }
+    public void setStuNos(List&lt;Integer&gt; stuNos) {
+        this.stuNos = stuNos;
+    }
+}
+</code></pre>
+
+<pre><code>&lt;!-- 将多个元素值 放入对象的属性中 --&gt;
+&lt;select id=&quot;queryStudentsWithNosInGrade&quot;  parameterType=&quot;grade&quot; resultType=&quot;student&quot;&gt;
+    select * from student
+    &lt;where&gt;
+            &lt;if test=&quot;stuNos!=null and stuNos.size&gt;0&quot;&gt;
+            &lt;foreach collection=&quot;stuNos&quot; open=&quot; and  stuno in (&quot; close=&quot;)&quot;
+                item=&quot;stuNo&quot; separator=&quot;,&quot;&gt;
+                #{stuNo}
+            &lt;/foreach&gt;
+            &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>collection:集合
+
+select * from student 
+
++open:
+select * from student and  stuno in (
+
++item:
+select * from student and  stuno in (1,2,53
+
++close:
+select * from student and  stuno in (1,2,53)
+
+separator:分隔符
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentsWithNosInGrade(Grade grade);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Grade grade = new Grade();
+List&lt;Integer&gt; stuNos = new ArrayList&lt;&gt;();
+stuNos.add(1) ;
+stuNos.add(2) ;
+// 	stuNos.add(53) ;
+grade.setStuNos(stuNos);
+List&lt;Student&gt; students = studentMapper.queryStudentsWithNosInGrade(grade) ;
+</code></pre>
+
+<h4 id="简单类型的数组">简单类型的数组:</h4>
+
+<pre><code>&lt;!-- 将多个元素值 放入数组中 int[] stuNos = {1,2,53} --&gt;
+&lt;select id=&quot;queryStudentsWithArray&quot;  parameterType=&quot;int[]&quot; resultType=&quot;student&quot;&gt;
+    select * from student 
+    &lt;where&gt;
+            &lt;if test=&quot;array!=null and array.length&quot;&gt;
+            &lt;foreach collection=&quot;array&quot; open=&quot; and  stuno in (&quot; close=&quot;)&quot; 
+                item=&quot;stuNo&quot; separator=&quot;,&quot;&gt;   
+                #{stuNo}
+            &lt;/foreach&gt;
+            &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>约定：无论编写代码时，传递的是什么参数名(stuNos)，在mapper.xml中 必须用array代替该数组</p>
+
+<pre><code>List&lt;Student&gt; queryStudentsWithArray(int[] stuNos);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+int[] stuNos = {1,2,53};
+List&lt;Student&gt; students = studentMapper.queryStudentsWithArray(stuNos) ;
+</code></pre>
+
+<h4 id="对象数组">对象数组：</h4>
+
+<pre><code>&lt;!-- 将多个元素值 放入对象数组中Student[] students = {student0,student1,student2}  每个studentx包含一个学号属性 --&gt;
+&lt;select id=&quot;queryStudentsWithObjectArray&quot;  parameterType=&quot;Object[]&quot; resultType=&quot;student&quot;&gt;
+    select * from student 
+    &lt;!--如果sql片段和  引用处不在同一个文件中，则需要 在refid 引用时  加上namespace:   namespace.id
+    &lt;include refid=&quot;org.lanqiao.mapper.abcMapper.objectArrayStunos&quot;&gt;&lt;/include&gt; --&gt;
+    &lt;include refid=&quot;objectArrayStunos&quot;&gt;&lt;/include&gt;
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentsWithObjectArray(Student[] students);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper( StudentMapper.class) ;
+Student stu1 = new Student();
+stu1.setStuNo(1);
+Student stu2 = new Student();
+stu2.setStuNo(2);
+Student stu53 = new Student();
+stu53.setStuNo(53);
+Student[] stus = new Student[] {stu1,stu2,stu53};
+List&lt;Student&gt; students = studentMapper.queryStudentsWithObjectArray(stus);
+
+</code></pre>
+
+<h4 id="集合">集合：</h4>
+
+<p>无论编写代码时，传递的是什么参数名(stuNos)，在mapper.xml中 必须用list代替该数组</p>
+
+<pre><code>&lt;!-- 将多个元素值 放入数组中 List&lt;Integer&gt; stuNos 值 {1,2,53} --&gt;
+&lt;select id=&quot;queryStudentsWithList&quot;  parameterType=&quot;list&quot; resultType=&quot;student&quot;&gt;
+    select * from student 
+    &lt;where&gt;
+            &lt;if test=&quot;list!=null and list.size&gt;0&quot;&gt;
+            &lt;foreach collection=&quot;list&quot; open=&quot; and  stuno in (&quot; close=&quot;)&quot;
+                item=&quot;stuNo&quot; separator=&quot;,&quot;&gt;
+                #{stuNo}
+            &lt;/foreach&gt;
+            &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentsWithList(List&lt;Integer&gt; stuNos);
+</code></pre>
+
+<pre><code>List&lt;Integer&gt; stuNos = new ArrayList&lt;&gt;();
+stuNos.add(1) ;
+stuNos.add(2) ;
+stuNos.add(53) ;
+List&lt;Student&gt; students = studentMapper.queryStudentsWithList(stuNos) ;
+</code></pre>
+
+<h3 id="sql片段">SQL片段：</h3>
+
+<pre><code>java：方法
+数据库：存储过程、存储函数
+Mybatis :SQL片段 
+</code></pre>
+
+<ol>
+<li>提取相似代码</li>
+
+<li><p>引用</p>
+
+<pre><code>&lt;sql id=&quot;objectArrayStunos&quot;&gt;
+&lt;where&gt;
+        &lt;if test=&quot;array!=null and array.length&gt;0&quot;&gt;
+        &lt;foreach collection=&quot;array&quot; open=&quot; and  stuno in (&quot; close=&quot;)&quot;
+            item=&quot;student&quot; separator=&quot;,&quot;&gt;
+            #{student.stuNo}
+        &lt;/foreach&gt;
+        &lt;/if&gt;
+&lt;/where&gt;
+&lt;/sql&gt;
+</code></pre>
+
+<pre><code>&lt;select id=&quot;queryStudentsWithObjectArray&quot;  parameterType=&quot;Object[]&quot; resultType=&quot;student&quot;&gt;
+select * from student
+
+&lt;!--如果sql片段和  引用处不在同一个文件中，则需要 在refid 引用时  加上namespace:   namespace.id
+&lt;include refid=&quot;org.lanqiao.mapper.abcMapper.objectArrayStunos&quot;&gt;&lt;/include&gt; --&gt;
+
+&lt;include refid=&quot;objectArrayStunos&quot;&gt;&lt;/include&gt;
+
+&lt;/select&gt;
+</code></pre></li>
+</ol>
+
+<h3 id="关联查询">关联查询</h3>
+
+<p>两张表</p>
+
+<p>student</p>
+
+<pre><code>stuno
+stuname
+cardid
+</code></pre>
+
+<p>studentCard</p>
+
+<pre><code>cardid
+cardinfo
+</code></pre>
+
+<h4 id="一对一">一对一</h4>
+
+<ol>
+<li><p>业务扩展类</p>
+
+<p>核心：用resultType指定类的属性 包含 多表查询的所有字段</p></li>
+
+<li><p>resultMap</p></li>
+</ol>
+
+<p>业务扩展类做法：</p>
+
+<p>新建业务扩展类，类中既包含了A的属性也包含了B的属性，继承一个属性多的类，重写一个属性较少的类的属性</p>
+
+<pre><code>public class StudentBusiness  extends Student{//学生业务扩展类
+    private int cardId;
+    private String cardInfo ;
+    public int getCardId() {
+        return cardId;
+    }
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
+    }
+    public String getCardInfo() {
+        return cardInfo;
+    }
+    public void setCardInfo(String cardInfo) {
+        this.cardInfo = cardInfo;
+    }
+    @Override
+    public String toString() {
+        return super.toString() + &quot;,&quot;+this.cardId+&quot;,&quot;+this.cardInfo;
+    }
+}
+</code></pre>
+
+<pre><code>&lt;select id=&quot;queryStudentByNoWithOO&quot; parameterType=&quot;int&quot;  
+resultType=&quot;StudentBusiness&quot; &gt;
+    select s.*,c.* from student s  inner join studentcard c
+    on s.cardid=c.cardid
+    where s.stuno = #{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>StudentBusiness queryStudentByNoWithOO(int stuno);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+StudentBusiness studentBusiness = studentMapper.queryStudentByNoWithOO(2) ;//接口中的方法-&gt;SQL语句
+</code></pre>
+
+<p>resultMap的做法</p>
+
+<p>表与表之间通过外键进行连接，那么，类与类之间通过属性进行连接</p>
+
+<p>通过 属性成员 将2个类建立起联系</p>
+
+<p>把其中一个类作为另一个的类的属性</p>
+
+<pre><code>//学生类 包含：1学生信息    2学生证信息
+public class Student {
+    //1学生信息
+    private int stuNo ;
+    private String stuName ;
+    private int stuAge ;
+
+    private String graName ;
+    private boolean stuSex ;
+    //2学生证信息
+    private StudentCard card ;
+    x
+    x
+    x
+    x
+}
+</code></pre>
+
+<pre><code>&lt;resultMap type=&quot;student&quot; id=&quot;student_card_map&quot;&gt;
+    &lt;!-- 学生的信息 --&gt;
+    &lt;id  property=&quot;stuNo&quot; column=&quot;stuNo&quot;/&gt;
+    &lt;result property=&quot;stuName&quot; column=&quot;stuName&quot; /&gt;
+    &lt;result property=&quot;stuAge&quot; column=&quot;stuAge&quot; /&gt;
+    &lt;!-- 一对一时，对象成员使用 association映射;javaType指定该属性的类型--&gt;
+    &lt;association property=&quot;card&quot; javaType=&quot;StudentCard&quot; &gt;
+            &lt;id property=&quot;cardId&quot; column=&quot;cardId&quot;/&gt;
+            &lt;result property=&quot;cardInfo&quot; column=&quot;cardInfo&quot;/&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<pre><code>&lt;!-- 利用resultMap实现一对一 --&gt;
+&lt;select id=&quot;queryStudentByNoWithOO2&quot; parameterType=&quot;int&quot;  resultMap=&quot;student_card_map&quot; &gt;
+    select s.*,c.* from student s  inner join studentcard c
+    on s.cardid=c.cardid
+    where s.stuno = #{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>Student queryStudentByNoWithOO2(int stuNo);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+Student student = studentMapper.queryStudentByNoWithOO2(2) ;
+</code></pre>
+
+<h4 id="一对多">一对多</h4>
+
+<p>（MyBatis:多对一，多对多的本质就是  一对多的变化）</p>
+
+<p>表：</p>
+
+<p>studentClass</p>
+
+<pre><code>classId
+className
+</code></pre>
+
+<p>student</p>
+
+<pre><code>stuno
+stuname
+classId
+</code></pre>
+
+<p>其中两个学生对应一个班级</p>
+
+<p>班级类中增加学生属性</p>
+
+<pre><code>public class StudentClass {
+    private int classId;
+    private String className;
+    //增加学生属性 (通过该字段 让Student类和StudentClass类建立起关联)
+    List&lt;Student&gt; students ;
+    x
+    x
+    x
+}
+</code></pre>
+
+<pre><code>&lt;!-- 类-表的对应关系 --&gt;
+&lt;resultMap type=&quot;studentClass&quot; id=&quot;class_student_map&quot;&gt;
+    &lt;!-- 因为 type的主类是班级，因此先配置班级的信息--&gt;
+    &lt;id  property=&quot;classId&quot; column=&quot;classId&quot;/&gt;
+    &lt;result  property=&quot;className&quot; column=&quot;className&quot;/&gt;
+    &lt;!-- 配置成员属性学生，一对多;属性类型：javaType，属性的元素类型ofType --&gt;
+    &lt;collection property=&quot;students&quot; ofType=&quot;student&quot;&gt;
+        &lt;id  property=&quot;stuNo&quot; column=&quot;stuNo&quot;/&gt;
+        &lt;result  property=&quot;stuName&quot; column=&quot;stuName&quot;/&gt;
+        &lt;result  property=&quot;stuAge&quot; column=&quot;stuAge&quot;/&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<p>可以级联匹配，student中在配置studentcard的信息</p>
+
+<p>查询g1班的班级信息，和g1班的所有学生信息</p>
+
+<pre><code>&lt;select id=&quot;queryClassAndStudents&quot;   parameterType=&quot;int&quot; resultMap=&quot;class_student_map&quot;&gt;
+    select  c.*,s.* from student s
+    inner join studentclass c
+    on c.classid = s.classid
+    where c.classid = #{classId}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>StudentClass queryClassAndStudents(int classId);
+</code></pre>
+
+<pre><code>StudentClassMapper studentClassMapper = session.getMapper(StudentClassMapper.class) ;
+//班级
+List&lt;StudentClass&gt; studentClasses  = studentClassMapper.queryClassAndStudents() ;
+//班级信息
+for(StudentClass stuClass :studentClasses) {
+    System.out.println(stuClass.getClassId()+&quot;,&quot;+stuClass.getClassName());
+    System.out.println(&quot;-----------&quot;);
+    for(Student student:  stuClass.getStudents()) {
+        System.out.println(student.getStuNo()+&quot;,&quot;+student.getStuName());
+    }
+}
+</code></pre>
+
+<h3 id="日志">日志</h3>
+
+<p>如果不指定，Mybatis就会根据以下顺序 寻找日志</p>
+
+<pre><code>SLF4J →Apache Commons Logging →Log4j 2 → Log4j →JDK logging
+</code></pre>
+
+<p>使用log4j</p>
+
+<h4 id="jar">jar</h4>
+
+<pre><code>Log4j:  log4j.jar (mybatis.zip中lib中包含此jar)
+</code></pre>
+
+<h4 id="开启日志-conf-xml">开启日志，conf.xml</h4>
+
+<pre><code>&lt;settings&gt;
+    &lt;!-- 开启日志，并指定使用的具体日志 --&gt;
+    &lt;setting name=&quot;logImpl&quot; value=&quot;LOG4J&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<h4 id="编写配置日志输出文件-log4j-properties">编写配置日志输出文件 log4j.properties</h4>
+
+<p>log4j.properties，内容</p>
+
+<pre><code>log4j.rootLogger=DEBUG, stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+</code></pre>
+
+<p>DEBUG：级别</p>
+
+<p>日志级别：</p>
+
+<pre><code>DEBUG&lt;INFO&lt;WARN&lt;ERROR
+</code></pre>
+
+<p>如果设置为info，则只显示 info及以上级别的信息；</p>
+
+<p>建议：在开发时设置debug，在运行时设置为info或以上。</p>
+
+<p>stdout：在控制台输出</p>
+
+<p>可以通过日志信息，相信的阅读mybatis执行情况（ 观察mybatis实际执行sql语句 以及SQL中的参数 和返回结果）</p>
+
+<h3 id="延迟加载-懒加载">延迟加载（懒加载）：</h3>
+
+<p>一对一、一对多、多对一、多对多</p>
+
+<p>一对多：班级-学生 ，</p>
+
+<p>如果不采用延迟加载  （立即加载），查询时会将 一 和多 都查询，班级、班级中的所有学生。</p>
+
+<p>如果想要  暂时只查询1的一方，  而多的一方 先不查询 而是在需要的时候再去查询 &ndash;&gt;延迟加载</p>
+
+<p>mybatis中使用延迟加载，需要先配置：</p>
+
+<pre><code>&lt;settings&gt;
+    &lt;!-- 开启延迟加载 --&gt;
+    &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+
+    &lt;!-- 关闭立即加载 --&gt;
+    &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<h4 id="一对一-学生-student-学生证-studentcard">一对一：学生（student）、学生证（studentCard）</h4>
+
+<p>studentCardMapper.xml</p>
+
+<pre><code>&lt;mapper namespace=&quot;org.lanqiao.mapper.StudentCardMapper&quot;&gt;
+    &lt;!-- 查询学生证信息 --&gt;	
+    &lt;select id=&quot;queryCardById&quot; parameterType=&quot;int&quot;  resultType=&quot;studentCard&quot;&gt;
+        &lt;!-- 查询学生对应的学生证 --&gt;
+        select * from studentCard  where cardid = #{cardId}
+    &lt;/select&gt;
+    &lt;!-- 根据cardid查询学生证的SQL： org.lanqiao.mapper.StudentCardMapper.queryCardById      --&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<p>加载mapper配置文件</p>
+
+<pre><code>&lt;mapper resource=&quot;org/lanqiao/mapper/studentCardMapper.xml&quot;/&gt;
+</code></pre>
+
+<pre><code>&lt;resultMap type=&quot;student&quot; id=&quot;student_card_lazyLoad_map&quot;&gt;
+    &lt;!-- 学生的信息 --&gt;
+    &lt;id  property=&quot;stuNo&quot; column=&quot;stuNo&quot;/&gt;
+    &lt;result property=&quot;stuName&quot; column=&quot;stuName&quot; /&gt;
+    &lt;result property=&quot;stuAge&quot; column=&quot;stuAge&quot; /&gt;
+    &lt;!-- 一对一时，对象成员使用 association映射;javaType指定该属性的类型
+        此次采用延迟加载：在查询学生时，并不立即加载 学生证信息
+    --&gt;
+    &lt;!-- 学生证  ,通过select 在需要的时候再查学生证 --&gt;
+    &lt;association property=&quot;card&quot; javaType=&quot;StudentCard&quot;  select=&quot;org.lanqiao.mapper.StudentCardMapper.queryCardById&quot;  column=&quot;cardid&quot;  &gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<pre><code>    &lt;!-- 利用resultMap实现一对一 ，延迟加载--&gt;
+&lt;select id=&quot;queryStudentWithOO2LazyLoad&quot; 	parameterType=&quot;int&quot;  	resultMap=&quot;student_card_lazyLoad_map&quot; &gt;
+    &lt;!-- 先查学生 --&gt;
+    select * from student 
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentWithOO2LazyLoad();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class) ;
+//学生,
+List&lt;Student&gt; students = studentMapper.queryStudentWithOO2LazyLoad();
+//此时，只获取了学生的信息
+for(Student student:students) {
+    System.out.println(student.getStuNo()+&quot;,&quot;+student.getStuName());
+    //获取学生证，下一步即将获取学生证的信息
+    StudentCard card = student.getCard() ;
+    System.out.println(card.getCardId()+&quot;,&quot;+card.getCardInfo());
+}
+session.close();
+</code></pre>
+
+<p>如果增加了mapper.xml ,要修改conf.xml配置文件（将新增的mapper.xml加载进去）</p>
+
+<p>通过debug可以发现， 如果程序只需要学生，则只向数据库发送了查询学生的SQL；当我们后续 需要用到学生证的时候，再第二次发送 查询学生证的SQL。</p>
+
+<h4 id="一对多-和一对一的延迟加载配置方法相同">一对多：和一对一的延迟加载配置方法相同</h4>
+
+<p>延迟加载的步骤：先查班级，按需查询学生</p>
+
+<p>开启延迟加载conf.xml配置settings</p>
+
+<p>配置mapper.xml</p>
+
+<p>StudentClassMapper.xml</p>
+
+<pre><code>&lt;!-- 一对多，带延迟加载 --&gt;
+&lt;select id=&quot;queryClassAndStudents&quot;   resultMap=&quot;class_student_lazyLoad_map&quot;&gt;
+    &lt;!-- 先查询班级 --&gt;
+    select  c.* from studentclass c
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>&lt;!-- 类-表的对应关系 --&gt;
+&lt;resultMap type=&quot;studentClass&quot; id=&quot;class_student_lazyLoad_map&quot;&gt;
+    &lt;id  property=&quot;classId&quot; column=&quot;classId&quot;/&gt;
+    &lt;result  property=&quot;className&quot; column=&quot;className&quot;/&gt;
+    &lt;!-- 再查班级对应的学生 --&gt;
+    &lt;collection property=&quot;students&quot; ofType=&quot;student&quot; select=&quot;org.lanqiao.mapper.StudentMapper.queryStudentsByClassId&quot; column=&quot;classid&quot;&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<p>StudentMapper.xml</p>
+
+<pre><code>&lt;!-- 一对多,延迟加载需要的： 查询班级中的所有学生 --&gt;
+&lt;select id=&quot;queryStudentsByClassId&quot; parameterType=&quot;int&quot; resultType=&quot;student&quot;&gt;
+    select * from student where classId = #{classId}
+&lt;/select&gt;
+</code></pre>
+
+<p>StudentClassMapper.java</p>
+
+<pre><code>//查询全部班级
+List&lt;StudentClass&gt; queryClassAndStudents();
+</code></pre>
+
+<pre><code>StudentClassMapper studentClassMapper = session.getMapper(StudentClassMapper.class) ;
+//班级
+List&lt;StudentClass&gt; studentClasses  = studentClassMapper.queryClassAndStudents() ;
+//班级信息
+for(StudentClass stuClass :studentClasses) {
+    System.out.println(stuClass.getClassId()+&quot;,&quot;+stuClass.getClassName());
+    System.out.println(&quot;-----------&quot;);
+    for(Student student:  stuClass.getStudents()) {
+        System.out.println(student.getStuNo()+&quot;,&quot;+student.getStuName());
+    }
+}
+session.close();
+</code></pre>
+
+<p>即查询 学生的sql是通过 select属性指定，并且通过column指定外键</p>
+
+<h3 id="查询缓存">查询缓存</h3>
+
+<p>只涉及查询</p>
+
+<h4 id="一级缓存-同一个sqlsession对象">一级缓存 ：同一个SqlSession对象</h4>
+
+<p>MyBatis默认开启一级缓存，如果用同样的SqlSession对象查询相同的数据，则只会在第一次 查询时 向数据库发送SQL语句，并将查询的结果 放入到SQLSESSION中（作为缓存在）；后续再次查询该同样的对象时，则直接从缓存中查询该对象即可（即省略了数据库的访问）</p>
+
+<p>执行commit操作后会将缓存清空</p>
+
+<h4 id="二级缓存">二级缓存</h4>
+
+<p>MyBatis默认情况没有开启二级缓存，需要手工打开。</p>
+
+<ol>
+<li><p>conf.xml</p>
+
+<pre><code>&lt;!-- 开启二级缓存 --&gt;
+&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+</code></pre></li>
+
+<li><p>在具体的mapper.xml中声明开启</p>
+
+<pre><code>&lt;!-- 声明次namespace开启二级缓存 --&gt;
+&lt;cache/&gt;
+</code></pre></li>
+</ol>
+
+<p>根据异常提示：<code>NotSerializableException</code>可知，MyBatis的二级缓存 是将对象放入硬盘文件中(序列化)</p>
+
+<pre><code>序列化：内存-&gt;硬盘
+反序列化：硬盘-&gt;内存
+</code></pre>
+
+<p>准备缓存的对象，必须实现了序列化接口 （如果开启的缓存Namespace=&ldquo;org.lanqiao.mapper.StudentMapper&rdquo;），可知序列化对象为Student，因此需要将Student序列化 （序列化Student类，以及Student的级联属性、和父类）</p>
+
+<pre><code>public class Student   implements Serializable{}
+public class StudentCard  implements Serializable{}
+</code></pre>
+
+<p>二级缓存，实际存放的位置在硬盘中</p>
+
+<p>触发将对象写入二级缓存的时机：SqlSession对象的close()方法。将一级缓存的对象放入硬盘</p>
+
+<p>日志中会发现有<code>Cache Hit Ratio[xxxx]:0.0</code>和<code>Cache Hit Ratio[xxxx]:0.5</code>，它的意思是命中率的问题。</p>
+
+<p>第一次查询时，二级缓存中没有，因此是0.0；第二次之前已经close了，因此将查询结果放入二级缓存；第二次查询，总共查询了两次，查到了结果，因此命中率是0.5</p>
+
+<p>命中率：</p>
+
+<pre><code>1:zs :0%  
+2:    50%
+3:   2/3    0.666
+4:  3/4     0.75
+</code></pre>
+
+<h4 id="mybatis自带二级缓存-同一个namespace-生成的mapper对象">Mybatis自带二级缓存：【同一个namespace】生成的mapper对象</h4>
+
+<p>回顾：namespace的值 就是 接口的全类名（包名.类名）， 通过接口可以产生代理对象（studentMapper对象&mdash;&gt;namespace决定了studentMapper对象的产生</p>
+
+<p>结论：只要产生的xxxMapper对象 来自于同一个namespace，则 这些对象 共享二级缓存。</p>
+
+<p>如果是同一个SqlSession对象进行多次相同的查询，则直接进入一级缓存查询；如果不是同一个SqlSession对象进行多次相同的查询（但是来自于同一个namespace）则进入二级缓存查询</p>
+
+<p>注意：二级缓存 的范围是同一个namespace, 如果有多个xxMapper.xml的namespace值相同，则通过这些xxxMapper.xml产生的xxMapper对象 仍然共享二级缓存。</p>
+
+<p>禁用 ：select标签中添加属性</p>
+
+<pre><code>useCache=&quot;false&quot;
+</code></pre>
+
+<p>清理：</p>
+
+<ul>
+<li><p>与清理一级缓存的方法相同commit();</p>
+
+<p>commit(); （一般执行增删改时 会清理掉缓存；设计的原因 是为了防止脏数据）</p>
+
+<p>在二级缓存中，commit()不能是查询自身的commit。（session.commit;）</p>
+
+<p>commit会清理一级和二级缓存；但是 清理二级缓存时，不能是查询自身的commit；</p></li>
+
+<li><p>在select标签中 增加属性</p>
+
+<pre><code>flushCache=&quot;true&quot;
+</code></pre></li>
+</ul>
+
+<h4 id="三方提供的二级缓存">三方提供的二级缓存：</h4>
+
+<p>ehcache、memcache</p>
+
+<p>要想整合三方提供的二级缓存 （或者自定义二级缓存），必须实现<code>org.apache.ibatis.cache.Cache</code>接口，该接口的默认实现类是<code>PerpetualCache</code></p>
+
+<p>整合ehcache二级缓存：</p>
+
+<ol>
+<li><p>jar</p>
+
+<pre><code>ehcache-core.jar
+mybatis-Ehcache.jar
+slf4j-api.jar
+</code></pre></li>
+
+<li><p>编写ehcache配置文件 Ehcache.xml</p>
+
+<pre><code>&lt;ehcache xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;../config/ehcache.xsd&quot;&gt;
+&lt;diskStore path=&quot;D:\Ehcache&quot;/&gt;
+&lt;defaultCache
+maxElementsInMemory=&quot;1000&quot;
+maxElementsOnDisk=&quot;1000000&quot;
+eternal=&quot;false&quot;
+overflowToDisk=&quot;false&quot;
+timeToIdleSeconds=&quot;100&quot;
+timeToLiveSeconds=&quot;100&quot;
+diskExpiryThreadIntervalSeconds=&quot;120&quot;
+memoryStoreEvictionPolicy=&quot;LRU&quot;&gt;
+&lt;/defaultCache&gt;
+&lt;/ehcache&gt;
+</code></pre>
+
+<p>当二级缓存的对象 超过内存限制时（缓存对象的个数&gt;maxElementsInMemory），存放入的硬盘文件<code>&lt;diskStore path=&quot;D:\Ehcache&quot;/&gt;</code></p>
+
+<pre><code>maxElementsInMemory:设置 在内存中缓存 对象的个数
+
+maxElementsOnDisk：设置 在硬盘中缓存 对象的个数
+
+eternal：设置缓存是否 永远不过期
+
+overflowToDisk：当内存中缓存的对象个数 超过maxElementsInMemory的时候，是否转移到硬盘中
+timeToIdleSeconds：当2次访问 超过该值的时候，将缓存对象失效 
+
+timeToLiveSeconds：一个缓存对象 最多存放的时间（生命周期）
+
+diskExpiryThreadIntervalSeconds：设置每隔多长时间，通过一个线程来清理硬盘中的缓存
+
+memoryStoreEvictionPolicy：当超过缓存对象的最大值时，处理的策略；LRU，FIFO,LFU
+</code></pre></li>
+
+<li><p>开启EhCache二级缓存</p>
+
+<p>在xxxMapper.xml中开启</p>
+
+<pre><code>&lt;cache  type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;&gt;
+    &lt;!-- 通过property覆盖Ehcache.xml中的值 --&gt;
+    &lt;property name=&quot;maxElementsInMemory&quot; value=&quot;2000&quot;/&gt;
+    &lt;property name=&quot;maxElementsOnDisk&quot; value=&quot;3000&quot;/&gt;
+&lt;/cache&gt;
+</code></pre></li>
+</ol>
+
+<h3 id="逆向工程">逆向工程</h3>
+
+<p>表、类、接口、mapper.xml四者密切相关，因此 当知道一个的时候  其他三个应该可以自动生成。</p>
+
+<h4 id="表-其他三个">表-&gt;其他三个</h4>
+
+<p>实现步骤：</p>
+
+<ol>
+<li><p>jar</p>
+
+<pre><code>mybatis-generator-core.jar
+mybatis.jar
+ojdbc.jar
+</code></pre></li>
+
+<li><p>逆向工程的配置文件generator.xml</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration
+PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+&lt;generatorConfiguration&gt;
+&lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+&lt;commentGenerator&gt;
+&lt;!--
+    suppressAllComments属性值：
+        true:自动生成实体类、SQL映射文件时没有注释
+        true:自动生成实体类、SQL映射文件，并附有注释
+--&gt;
+&lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;
+&lt;/commentGenerator&gt;
+
+&lt;!-- 数据库连接信息 --&gt;
+&lt;jdbcConnection driverClass=&quot;oracle.jdbc.OracleDriver&quot;
+connectionURL=&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot; 
+userId=&quot;scott&quot;  password=&quot;tiger&quot;&gt;
+&lt;/jdbcConnection&gt;
+&lt;!-- 
+            forceBigDecimals属性值： 
+                true:把数据表中的DECIMAL和NUMERIC类型，
+解析为JAVA代码中的java.math.BigDecimal类型 
+                false(默认):把数据表中的DECIMAL和NUMERIC类型，
+解析为解析为JAVA代码中的Integer类型 
+        --&gt;
+&lt;javaTypeResolver&gt;
+    &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot; /&gt;
+&lt;/javaTypeResolver&gt;
+&lt;!-- 
+        targetProject属性值:实体类的生成位置  
+        targetPackage属性值：实体类所在包的路径
+    --&gt;
+&lt;javaModelGenerator targetPackage=&quot;org.lanqiao.entity&quot;
+                            targetProject=&quot;.\src&quot;&gt;
+&lt;!-- trimStrings属性值：
+            true：对数据库的查询结果进行trim（去空格）操作
+            false(默认)：不进行trim操作       
+        --&gt;
+&lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
+&lt;/javaModelGenerator&gt;
+&lt;!-- 
+        targetProject属性值:SQL映射文件的生成位置  
+        targetPackage属性值：SQL映射文件所在包的路径
+    --&gt;
+&lt;sqlMapGenerator targetPackage=&quot;org.lanqiao.mapper&quot; 
+            targetProject=&quot;.\src&quot;&gt;
+&lt;/sqlMapGenerator&gt;
+&lt;!-- 生成动态代理的接口  --&gt;
+&lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;org.lanqiao.mapper&quot; targetProject=&quot;.\src&quot;&gt;
+&lt;/javaClientGenerator&gt;
+    
+&lt;!-- 指定数据库表  --&gt;
+&lt;table tableName=&quot;Student&quot;&gt; &lt;/table&gt;
+&lt;table tableName=&quot;studentCard&quot;&gt; &lt;/table&gt;
+&lt;table tableName=&quot;studentClass&quot;&gt; &lt;/table&gt;
+&lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+
+</code></pre></li>
+
+<li><p>执行</p>
+
+<pre><code>public class Test {
+    public static void main(String[] args) throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
+
+        File file = new File(&quot;src/generator.xml&quot;) ;//配置文件
+
+        List&lt;String&gt; warnings = new ArrayList&lt;&gt;();
+        ConfigurationParser cp = new ConfigurationParser(warnings);
+
+        Configuration config = cp.parseConfiguration(file);
+
+        DefaultShellCallback callBack = new DefaultShellCallback(true);
+
+        //逆向工程的核心类
+        MyBatisGenerator generator = new MyBatisGenerator(config, callBack,warnings  );
+        generator.generate(null);
+    }
+}
+</code></pre></li>
+</ol>
+
+<h3 id="数据库环境切换-驱动jar">数据库环境切换 （驱动jar）</h3>
+
+<ol>
+<li><p>切换 environment （指定实际使用的数据库）</p>
+
+<pre><code>&lt;!--default指定環境 --&gt;
+&lt;environments default=&quot;devOracle&quot;&gt;
+    &lt;!--oracle --&gt;
+    &lt;environment id=&quot;devOracle&quot;&gt;
+        &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+        &lt;!-- 配置数据库连接信息 --&gt;
+        &lt;dataSource type=&quot;POOLED&quot;&gt;
+            &lt;property name=&quot;driver&quot;  value=&quot;${oracle.driver}&quot; /&gt;
+            &lt;property name=&quot;url&quot;
+                      value=&quot;${oracle.url}&quot; /&gt;
+            &lt;property name=&quot;username&quot; value=&quot;${oracle.username}&quot; /&gt;
+            &lt;property name=&quot;password&quot; value=&quot;${oracle.password}&quot; /&gt;
+        &lt;/dataSource&gt;
+    &lt;/environment&gt;
+    &lt;!--mysql --&gt;
+    &lt;environment id=&quot;devMysql&quot;&gt;
+        &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+        &lt;!-- 配置数据库连接信息 --&gt;
+        &lt;dataSource type=&quot;POOLED&quot;&gt;
+            &lt;property name=&quot;driver&quot;  value=&quot;${mysql.driver}&quot; /&gt;
+            &lt;property name=&quot;url&quot;
+                      value=&quot;${mysql.url}&quot; /&gt;
+            &lt;property name=&quot;username&quot; value=&quot;${mysql.username}&quot; /&gt;
+            &lt;property name=&quot;password&quot; value=&quot;${mysql.password}&quot; /&gt;
+        &lt;/dataSource&gt;
+    &lt;/environment&gt;
+&lt;/environments&gt;
+</code></pre>
+
+<p>db.properties</p>
+
+<pre><code>#oracle
+oracle.driver=oracle.jdbc.OracleDriver
+oracle.url=jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+oracle.username=scott
+oracle.password=tiger
+
+#mysql
+mysql.driver=com.mysql.jdbc.Driver
+mysql.url=jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true
+mysql.username=root
+mysql.password=root
+</code></pre></li>
+
+<li><p>配置 Provider别名</p>
+
+<pre><code>&lt;!-- 配置数据库支持类，value的值是别名--&gt;
+&lt;databaseIdProvider type=&quot;DB_VENDOR&quot;&gt;
+        &lt;property name=&quot;MySQL&quot; value=&quot;mysql&quot; /&gt;
+        &lt;property name=&quot;Oracle&quot; value=&quot;oracle&quot; /&gt;
+&lt;/databaseIdProvider&gt;
+</code></pre></li>
+
+<li><p>写不同数据库的SQL语句</p></li>
+
+<li><p>在mappe.xml中配置databaseId=&ldquo;Provider别名&rdquo;、</p>
+
+<pre><code>&lt;!--mysql--&gt;
+&lt;select id=&quot;queryStudentByNo&quot; resultType=&quot;com.yanqun.entity.Student&quot;
+        parameterType=&quot;int&quot; databaseId=&quot;mysql&quot;&gt;
+select * from student where stuNo=#{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>&lt;!--  oracle--&gt;
+&lt;select id=&quot;queryStudentByNo&quot; parameterType=&quot;student&quot; resultType=&quot;student&quot;
+        databaseId=&quot;oracle&quot;&gt;
+    select * from student where stuNo=#{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<p>id值相同，系统会根据环境的不同选择执行的语句</p></li>
+</ol>
+
+<p>如果mapper.xml的 sql标签 仅有 一个 不带databaseId的标签，则改标签 会自动适应当前数据库。如果既有不带databaseId的标签，又有带databaseId的标签,则程序会优先使用带databaseId的标签</p>
+
+<h3 id="注解方式">注解方式</h3>
+
+<p>推荐使用xml</p>
+
+<h4 id="将sql语句写在接口的方法上-select-xxmapper-java">将sql语句写在接口的方法上@Select(&ldquo;&rdquo;) ;xxMapper.java</h4>
+
+<pre><code>//
+@Select(&quot;select * from student where stuNo = #{stuNo}&quot;)
+Student queryStudentByNo (int stuNo);
+</code></pre>
+
+<h4 id="将接口的全类名-写入-mapper-让mybatis知道sql语句此时是存储在接口中conf-xml">将接口的全类名 写入<mapper>，让mybatis知道sql语句此时是存储在接口中conf.xml</h4>
+
+<pre><code>&lt;mappers&gt;
+     &lt;mapper class=&quot;com.yanqun.mapper.StudentMapper&quot; /&gt; 
+&lt;/mappers&gt;
+</code></pre>
+
+<p>注解/xml都支持批量引入，</p>
+
+<pre><code>&lt;mappers&gt;
+&lt;!--以下可以将com.yanqun.mapper 包中的注解接口 和 xml全部一次性引入 --&gt;
+    &lt;package name=&quot;com.yanqun.mapper&quot; /&gt;
+&lt;/mappers&gt;
+</code></pre>
+
+<h3 id="增删改的返回值问题">增删改的返回值问题</h3>
+
+<p>返回值可以是void、Integer、Long、Boolean
+如何操作：只需要在接口中 修改返回值即可,映射文件不需要任何其他的操作</p>
+
+<h3 id="事务自动提交">事务自动提交</h3>
+
+<h4 id="手动提交">手动提交：</h4>
+
+<pre><code>sessionFactory.openSession();
+session.commit();//提交
+</code></pre>
+
+<h4 id="自动提交-每个dml语句-自动提交">自动提交：每个dml语句 自动提交</h4>
+
+<pre><code>sessionFactory.openSession(true);
+</code></pre>
+
+<h3 id="自增问题">自增问题</h3>
+
+<h4 id="mysql支持自增">mysql支持自增</h4>
+
+<p>表</p>
+
+<pre><code>create table student
+(
+   stuno int(4) primary key auto_increment,
+   stuname varchar(10),
+   stuage int(4),
+   graname varchar(10)
+);
+</code></pre>
+
+<p>自增的同时将值回写</p>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;
+            parameterType=&quot;com.lx.entity.Student&quot;  databaseId=&quot;mysql&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;stuNo&quot;&gt;
+    insert into student(stuName,stuAge,graName)
+    values(#{stuName},#{stuAge},#{graName})
+&lt;/insert&gt;
+</code></pre>
+
+<p>只需要配置两个属性即可：</p>
+
+<pre><code>useGeneratedKeys=&quot;true&quot; keyProperty=&quot;stuNo&quot;
+</code></pre>
+
+<h4 id="oracle不支持自增-通过序列模拟实现">oracle不支持自增 ：通过序列模拟实现</h4>
+
+<p>创建序列</p>
+
+<pre><code>create sequence myseq
+    increment by 1 
+    start with 1;
+</code></pre>
+
+<p>序列自带的两个属性：</p>
+
+<pre><code>nextval：序列中下一个值
+currval: 当前值 
+</code></pre>
+
+<p>插入值</p>
+
+<pre><code>insert into student values(myseq.nextval,'zs1',23,'a1');
+insert into student values(myseq.nextval,'zs2',24,'a2');
+insert into student values(myseq.nextval,'zs3',25,'a3');
+insert into student values(myseq.nextval,'zs4',26,'a4');
+insert into student values(myseq.nextval,'zs5',27,'a5');
+</code></pre>
+
+<p>方式一：before（推荐）</p>
+
+<p>通过  <code>&lt;insert&gt;</code>的子标签 <code>&lt;selectKey&gt;</code>实现：
+在 <code>&lt;selectKey&gt;</code>中查询下一个序列（自增后的值），再将此值传入keyProperty=&ldquo;stuNo&rdquo;属性，最后在真正执行时 使用该属性值。</p>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;
+        parameterType=&quot;com.yanqun.entity.Student&quot;  databaseId=&quot;oracle&quot;&gt;
+        &lt;!--order=&quot;BEFORE&quot;表示先执行selectKey标签，将myseq.nextval的值拿到，放入keyProperty=&quot;stuNo&quot;中--&gt;
+    &lt;selectKey keyProperty=&quot;stuNo&quot; resultType=&quot;Integer&quot; order=&quot;BEFORE&quot;&gt;
+            select myseq.nextval from dual
+    &lt;/selectKey&gt;
+
+    insert into student(stuno,stuName,stuAge,graName)
+    values(#{stuNo} , #{stuName},#{stuAge},#{graName})
+&lt;/insert&gt;
+</code></pre>
+
+<p>方式二：after</p>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;
+        parameterType=&quot;com.yanqun.entity.Student&quot;  databaseId=&quot;oracle&quot;&gt;
+    &lt;selectKey keyProperty=&quot;stuNo&quot; resultType=&quot;Integer&quot; order=&quot;AFTER&quot;&gt;
+        select myseq.currval from dual
+    &lt;/selectKey&gt;
+
+    insert into student(stuno,stuName,stuAge,graName)
+    values(myseq.nextval , #{stuName},#{stuAge},#{graName})
+&lt;/insert&gt;
+</code></pre>
+
+<p>先执行sql语句，将数据插入在执行selectKey标签，将值回写，插入时使用的myseq.nextval，因此回写时使用的是myseq.currval</p>
+
+<h3 id="参数问题">参数问题</h3>
+
+<p>目前 将多个参数封装到一个javabean对象（pojo）,然后使用该对象传递</p>
+
+<h4 id="传入多个参数时-不用在mapper-xml中编写parametertype-输入参数不用写">传入多个参数时，不用在mapper.xml中编写parameterType（输入参数不用写）</h4>
+
+<p>异常提示：</p>
+
+<p>stuNo不能使用。可以使用的是：</p>
+
+<pre><code>[arg3, arg2, arg1, arg0, param3, param4, param1, param2]
+</code></pre>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;  databaseId=&quot;oracle&quot;&gt;
+        insert into student(stuno,stuName,stuAge,graName)
+        values(#{arg0} , #{arg1},#{arg2},#{arg3})
+    &lt;/insert&gt;
+</code></pre>
+
+<p>或</p>
+
+<pre><code>values(#{param1},#{param2},#{param3},#{param4})
+</code></pre>
+
+<p>注意param1从1开始计数arg0从0开始计数</p>
+
+<pre><code>public abstract Integer addStudent(Integer stuNo, String stuName, Integer stuAge,String graName);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+Student stu = new Student(555, &quot;bbb&quot;, 44, &quot;xx&quot;);
+studentMapper.addStudent( stu);
+</code></pre>
+
+<h4 id="命名参数">命名参数</h4>
+
+<p>可以在接口中通过@Param(&ldquo;sNo&rdquo;) 指定sql中参数的名字</p>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;  databaseId=&quot;oracle&quot;&gt;
+    insert into student(stuno,stuName,stuAge,graName)
+    values(#{sNo} , #{sName},#{sAge},#{gName})
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>public abstract Integer addStudent(@Param(&quot;sNo&quot;) Integer stuNo, @Param(&quot;sName&quot;)String stuName, @Param(&quot;sAge&quot;)Integer stuAge, @Param(&quot;gName&quot;)String graName);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+Student stu = new Student(555, &quot;aaa&quot;, 44, &quot;xx&quot;);
+studentMapper.addStudent( stu);
+</code></pre>
+
+<h4 id="综合使用">综合使用</h4>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;  databaseId=&quot;oracle&quot;&gt;
+    insert into student(stuno,stuName,stuAge,graName)
+    values(#{sNo} , #{stu.stuName},#{stu.stuAge},#{stu.graName})
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>Integer addStudent(@Param(&quot;sNo&quot;)Integer stuNo, @Param(&quot;stu&quot;)Student student);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+Student stu = new Student(null, &quot;xx&quot;, 44, &quot;xx&quot;);
+studentMapper.addStudent(444,stu);
+</code></pre>
+
+<h3 id="增加null">增加null</h3>
+
+<pre><code>Student stu = new Student(555, null, 44, &quot;xx&quot;);
+studentMapper.addStudent( stu);
+</code></pre>
+
+<p>oracle:  如果插入的字段是Null, 提示错误： Other 而不是null</p>
+
+<p>mysql：如果插入的字段是Null, 可以正常执行（没有约束）</p>
+
+<p>原因：</p>
+
+<p>各个数据库 在mybatis中 对各种数据类型的 默认值不一致。</p>
+
+<p>mybatis中，jdbcTypeForNull（如果是null） ，则默认值OTHER。Other来说，MySQL能够处理（NULL）,但是Oracle不行。</p>
+
+<h4 id="解决">解决：</h4>
+
+<p>oracle：  null  -&gt;OTHER  ,需要手工告诉oracle  :other -&gt;null</p>
+
+<p>方法一：修改具体的sql标签</p>
+
+<p>当某个数据类型oracle无法处理时，告诉它用默认值null；</p>
+
+<p>注意，此时设置的<code>jdbcType=NULL</code>，不会影响正常的赋值（“zs”）</p>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot;  databaseId=&quot;oracle&quot;&gt;
+    insert into student(stuno,stuName)
+    values(#{stuNo} , #{stuName,jdbcType=NULL}) 
+&lt;/insert&gt;
+</code></pre>
+
+<p>jdbcType=NULL表示，当且仅当oracle遇到不能处理的值的时候，赋值为null</p>
+
+<p>方法二：配置 mybatis全局配置文件conf.xml</p>
+
+<pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;jdbcTypeForNull&quot; value=&quot;NULL&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<p>null -&gt;jdbcTypeForNull  -&gt; NULL</p>
+
+<h3 id="返回值为hashmap的情况">返回值为HashMap的情况</h3>
+
+<pre><code>&lt;select id=&quot;queryStudentOutByHashMap&quot;   parameterType=&quot;int&quot;
+        resultType=&quot;HashMap&quot;&gt;
+     select stuNo &quot;no&quot;,stuName &quot;name&quot;,stuAge &quot;age&quot;
+    from student  where stuNo = #{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>HashMap&lt;String,Object&gt; queryStudentOutByHashMap(int stuNo);
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+HashMap&lt;String, Object&gt; studentMap
+        = studentMapper.queryStudentOutByHashMap(11);
+//System.out.println( studentMap.get(&quot;no&quot;) +&quot;,&quot; +studentMap.get(&quot;name&quot;) +&quot;,&quot; +studentMap.get(&quot;age&quot;)  );
+System.out.println(studentMap);
+</code></pre>
+
+<p><code>select stuNo &quot;no&quot; ...</code>其中 stuNo是数据库的字段名。
+<code>“no”</code>是stuNo的别名，用于 在map中 get值时使用(作为map的key)。 <code>map.get(&quot;no&quot; )</code>;</p>
+
+<p>如果不加别名，则map的key就是字段名</p>
+
+<pre><code>&lt;select id=&quot;queryStudentOutByHashMap&quot;   parameterType=&quot;int&quot;
+        resultType=&quot;HashMap&quot;&gt;
+     select stuNo,stuName,stuAge 
+    from student  where stuNo = #{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<p>查询结果为HashMap的集合</p>
+
+<pre><code>&lt;select id=&quot;queryStudentsByHashMap&quot;
+        resultType=&quot;HashMap&quot;&gt;
+        select stuNo ,stuName ,stuAge  from student
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>@MapKey(&quot;STUNO&quot;)
+HashMap&lt;String,Student&gt; queryStudentsByHashMap();
+</code></pre>
+
+<p>程序根据select的返回值 知道map的value就是 Student ,根据  <code>@MapKey(&quot;stuNo&quot;)</code>知道 Map的key是stuNo</p>
+
+<p><code>@MapKey(&quot;STUNO&quot;)</code>  //oracle的元数据（字段名、表名 ）都是大写</p>
+
+<pre><code>StudentMxapper studentMapper = session.getMapper(StudentMapper.class);
+HashMap&lt;String, Student&gt; studentMap= studentMapper.queryStudentsByHashMap();
+System.out.println( studentMap.get(&quot;no&quot;) +&quot;,&quot; +studentMap.get(&quot;name&quot;) +&quot;,&quot; +studentMap.get(&quot;age&quot;)  );
+session.close();
+</code></pre>
+
+<p>map:</p>
+
+<pre><code>key:STUNO   value:Student
+</code></pre>
+
+<h3 id="resultmap-字段-和-属性名-的对应关系">ResultMap ： 字段 和 属性名 的对应关系</h3>
+
+<p>字段名 &mdash; 属性名 不一致</p>
+
+<pre><code>sno   - stuNo
+</code></pre>
+
+<pre><code> &lt;!-- 如果字段名 属性名不一致，需要使用resultMap指定对应关系--&gt;
+&lt;select id=&quot;queryStudentsWithResultMap&quot; parameterType=&quot;int&quot; resultMap =&quot;studentResultMap&quot;&gt;
+        select sno, sname, sage, gname from student
+        where sno = #{sno}
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>&lt;resultMap type=&quot;com.yanqun.entity.Student&quot; id=&quot;studentResultMap&quot;&gt;
+    &lt;!--主键 --&gt;
+    &lt;id  column=&quot;sno&quot; property=&quot;stuNo&quot;/&gt;
+    &lt;!--普通字段
+    &lt;result  column=&quot;sname&quot; property=&quot;stuName&quot;/&gt; --&gt;
+    &lt;result  column=&quot;sage&quot; property=&quot;stuAge&quot;/&gt;
+    &lt;result  column=&quot;gname&quot; property=&quot;graName&quot;/&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<p>鉴别器</p>
+
+<pre><code> &lt;!-- 如果字段名 属性名不一致，需要使用resultMap指定对应关系--&gt;
+&lt;select id=&quot;queryStudentsWithResultMap&quot;
+        resultMap =&quot;studentResultMap&quot;&gt;
+        select sno, sname,nickname, sage, gname from student
+
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>&lt;resultMap type=&quot;com.yanqun.entity.Student&quot; id=&quot;studentResultMap&quot;&gt;
+    &lt;!--主键 --&gt;
+    &lt;id  column=&quot;sno&quot; property=&quot;stuNo&quot;/&gt;
+    &lt;!--普通字段
+    &lt;result  column=&quot;sname&quot; property=&quot;stuName&quot;/&gt; --&gt;
+    &lt;result  column=&quot;sage&quot; property=&quot;stuAge&quot;/&gt;
+    &lt;result  column=&quot;gname&quot; property=&quot;graName&quot;/&gt;
+    &lt;!-- 鉴别器  : 对查询结果进行分支处理： 如果是a年级，则真名，如果b年级，显示昵称--&gt;
+    &lt;discriminator javaType=&quot;string&quot;  column=&quot;gname&quot;&gt;
+        &lt;case value=&quot;a&quot; resultType=&quot;com.yanqun.entity.Student&quot; &gt;
+            &lt;result  column=&quot;sname&quot; property=&quot;stuName&quot;/&gt;
+        &lt;/case&gt;
+        &lt;case value=&quot;b&quot; resultType=&quot;student&quot;&gt;
+            &lt;result  column=&quot;nickname&quot; property=&quot;stuName&quot;/&gt;
+        &lt;/case&gt;
+    &lt;/discriminator&gt;
+&lt;/resultMap&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudentsWithResultMap();
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+
+List&lt;Student&gt; students= studentMapper.queryStudentsWithResultMap();
+</code></pre>
+
+<p>在resultMap中 还可以使用鉴别器：对相同sql中不同字段值进行判断，从而进行不同的处理。</p>
+
+<h3 id="别名问题">别名问题</h3>
+
+<p>conf.xml</p>
+
+<pre><code>&lt;typeAliases&gt;
+    &lt;!-- 给com.yanqun.entity包（包和子包）中的所有类 起了别名： 不带包名的类名，不区分大小写--&gt;
+    &lt;package name=&quot;com.yanqun.entity&quot; &gt;&lt;/package&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+
+<p>如果在批量设置别名时，出现了冲突。可以使用@Alias(&ldquo;myStudent&rdquo;)区分。</p>
+
+<pre><code>@Alias(&quot;myStudent&quot;)
+public class Student {}
+</code></pre>
+
+<h3 id="sql标签">SQL标签</h3>
+
+<p>ONGL技术</p>
+
+<pre><code>&lt;select id=&quot;queryStudentByNoWithONGL&quot; parameterType=&quot;student&quot; resultType=&quot;student&quot;
+        databaseId=&quot;oracle&quot;&gt;
+    &lt;!-- select * from student where 1=1 --&gt;
+    select * from student
+
+    &lt;trim prefix=&quot;where&quot; suffixOverrides=&quot;and&quot;&gt;
+
+        &lt;bind name=&quot;_queryName&quot; value=&quot;'%'+stuName+'%'&quot;/&gt;
+        &lt;if  test=&quot;stuName != null and stuName !='' &quot;&gt;
+                stuName like #{stuName} and
+        &lt;/if&gt;
+
+        &lt;if  test=&quot;graName != null and graName !='' &quot;&gt;
+                graName like '%${graName}%' and
+        &lt;/if&gt;
+        &lt;if  test=&quot;stuAge != null and stuAge !='' &quot;&gt;
+                stuAge = #{stuAge} and
+        &lt;/if&gt;
+
+    &lt;/trim&gt;
+
+    &lt;!--
+        &lt;trim prefix=&quot;where&quot; prefixOverrides=&quot;and&quot;&gt;
+        &lt;if  test=&quot;stuName != null and stuName !='' &quot;&gt;
+            and stuName like '%${stuName}%'
+        &lt;/if&gt;
+        &lt;if  test=&quot;graName != null and graName !='' &quot;&gt;
+            and graName like '%${graName}%'
+        &lt;/if&gt;
+        &lt;if  test=&quot;stuAge != null and stuAge !='' &quot;&gt;
+            and stuAge = #{stuAge}
+        &lt;/if&gt;
+        &lt;/trim&gt;
+    --&gt;
+    &lt;!--
+        &lt;where&gt;
+            &lt;if  test=&quot;stuName != null and stuName !='' &quot;&gt;
+                and stuName like '%${stuName}%'
+            &lt;/if&gt;
+            &lt;if  test=&quot;graName != null and graName !='' &quot;&gt;
+                and graName like '%${graName}%'
+            &lt;/if&gt;
+            &lt;if  test=&quot;stuAge != null and stuAge !='' &quot;&gt;
+                and stuAge = #{stuAge}
+            &lt;/if&gt;
+        &lt;/where&gt;
+    --&gt;
+&lt;/select&gt;
+
+
+</code></pre>
+
+<p><code>&lt;where&gt;</code>可以处理拼接sql中 【开头】第一个and</p>
+
+<p><code>&lt;trim&gt;</code>可以处理拼接sql中 【开头或结尾】第一个and</p>
+
+<p>开头：</p>
+
+<pre><code>&lt;trim prefix=&quot;where&quot; prefixOverrides=&quot;and&quot;&gt;
+
+给拼接的SQL加prefix=&quot;where&quot; 
+
+prefixOverrides=&quot;and&quot;，处理拼接SQL中【开头】第一个and
+
+suffixOverrides=&quot;and&quot;，处理拼接SQL中【结尾】最后一个and
+
+prefix： 拼接
+prefixOverrides：删除
+</code></pre>
+
+<h3 id="内置参数">内置参数</h3>
+
+<pre><code>_parameter:  代表mybatis的输入参数。
+
+_databaseId: 代表当前数据库的 名字
+</code></pre>
+
+<p>_parameter</p>
+
+<pre><code>&lt;if  test=&quot;_parameter.stuName != null and _parameter.stuName !='' &quot;&gt;
+        stuName like '%${_parameter.stuName}%' and
+&lt;/if&gt;
+</code></pre>
+
+<p>_databaseId</p>
+
+<pre><code>&lt;if test=&quot;_databaseId == 'oracle'&quot;&gt;
+    select * from student where stuNo = #{_parameter}
+&lt;/if&gt;
+
+&lt;if test=&quot;_databaseId == 'mysql'&quot;&gt;
+    select * from student where stuNo != #{_parameter}
+&lt;/if&gt;
+</code></pre>
+
+<h3 id="模糊查询三种方法">模糊查询三种方法</h3>
+
+<pre><code>${}  ：原样输出
+#[]:加引号
+</code></pre>
+
+<h4 id="方法一">方法一${}</h4>
+
+<pre><code>stuName like '%${stuName}%' 
+</code></pre>
+
+<h4 id="方法二-传值时-直接传">方法二：传值时，直接传  #{}</h4>
+
+<pre><code>stuName like #{stuName}
+student.setStuName(&quot;%s%&quot;);  
+</code></pre>
+
+<h4 id="方法三-bind参数">方法三：bind参数</h4>
+
+<pre><code>&lt;bind name=&quot;_queryName&quot; value=&quot;'%'+stuName+'%'&quot;/&gt;
+stuName like #{_queryName}
+</code></pre>
+
+<p>通过bind将传入的stuName进行了处理（增加了%&hellip;%）</p>
+
+<h3 id="逆向工程的使用">逆向工程的使用</h3>
+
+<p>生成逆向工程的文件</p>
+
+<p>增加 mybatis配置文件 conf.xml</p>
+
+<p>查询所有学生</p>
+
+<pre><code>//Example中的Criteria：查询条件
+List&lt;Student&gt; students = mapper.selectByExample(null) ;
+</code></pre>
+
+<pre><code>public class TestGeneratorDemo {
+    public static void main(String[] args) throws IOException {
+        String resource = &quot;conf.xml&quot;;
+        Reader reader = Resources.getResourceAsReader(resource);
+        SqlSessionFactory sessionFactory
+                = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession session = sessionFactory.openSession();
+
+        StudentMapper mapper = session.getMapper(StudentMapper.class);
+        //Example中的Criteria：查询条件
+       // List&lt;Student&gt; students = mapper.selectByExample(null) ;
+
+        //规则：example 默认使用的是 第一个criteria
+        StudentExample example = new StudentExample() ;
+        StudentExample.Criteria criteria = example.createCriteria();
+      //  criteria.andStunoBetween((short) 32, (short) 33);// stuno: 2-3
+        criteria.andStunameLike(&quot;%l%&quot;);
+        //where  (xx=xx  and xx =x)  or  (xx =xxx  and  xx =xx) ;
+
+        //where   stuname like '%z%'   or  ( stuno &lt;=31   and granameLike &quot;%j%) ;
+        //criteria:where   stuname like '%z%'
+         //   or
+        //criteria:   stuno &lt;=31   and granameLike &quot;%j% ；
+        StudentExample.Criteria criteria1 = example.createCriteria();
+        criteria1.andStunoLessThanOrEqualTo((short)31) ; //&lt;=
+        criteria1.andGranameLike(&quot;%j%&quot;) ;
+        example.or(criteria1) ;
+        //query by Criteria   ,  QBC
+        List&lt;Student&gt; students = mapper.selectByExample(example ) ;
+        System.out.println(students );
+        session.close();
+    }
+}
+</code></pre>
+
+<p>对于like模糊查询，逆向工程需要在传值时 写入%x%</p>
+
+<h3 id="mybatis架构和源码解析">MyBatis架构和源码解析</h3>
+
+<p><img src="/resources/技术框架/Spring家族/Mybatis架构.png" alt="Mybatis架构" title="Mybatis架构" />
+MyBatis中步骤</p>
+
+<pre><code>a.获取SqlSessionFactory对象
+b.获取SqlSession对象
+c.获取XxxMapper对象（代理接口中的方法、mapper.xml中的&lt;select&gt;等标签）
+d.执行&lt;select&gt;等标签中定义的SQL语句
+</code></pre>
+
+<h4 id="获取sqlsessionfactory对象">获取SqlSessionFactory对象</h4>
+
+<p>parser解析器</p>
+
+<p>通过parseConfiguration()在configuration标签 设置了 properties、settings、 environments等属性标签</p>
+
+<p>将所有的配置信息 放在了Configuration对象中</p>
+
+<p>解析所有的XxxMapper.xml文件（分析其中的 增删改查标签）</p>
+
+<p><code>&lt;select id=&quot;&quot; resultType=&quot;</code> 等属性 是通过 parseStatementNode()解析的</p>
+
+<p>会将XxxMapper.xml中的<code>&lt;select&gt;</code>等标签解析成 MappedStatement对象即 MappedStatement对象就是  <code>&lt;select&gt;</code>等标签</p>
+
+<p>MappedStatement -&gt;存在于Configuration中</p>
+
+<p>environment -&gt;存在于Configuration中</p>
+
+<p><strong>所有的配置信息、增删改标签 全部存在于Configuration中</strong></p>
+
+<p><code>Configuration</code>又存在于<code>DefaultSqlSessionFactory</code>对象中（<code>SqlSessionFactory</code>）</p>
+
+<p><code>SqlSessionFactory</code>对象 -&gt;<code>DefaultSqlSessionFactory</code> -&gt;<code>Configuration</code> -&gt;包含了一切配置信息</p>
+
+<h4 id="获取sqlsession对象">获取SqlSession对象</h4>
+
+<pre><code>configuration.newExecutor(tx, execType) -&gt;SimpleExecutor(默认)
+</code></pre>
+
+<p>根据不同的类型execType，产生不同的Executor,并且会对执行器进行拦截操作：</p>
+
+<pre><code>executor = (Executor) interceptorChain.pluginAll(executor);
+</code></pre>
+
+<p>通过装饰模式，将刚才产生的executor 包装成一个更加强大的 executor。</p>
+
+<p>作用：以后 如果我们要给MyBatis写自己的插件， 就可以通过拦截器实现。</p>
+
+<p>插件开发：<br />
+1. 写插件<br />
+2. 放入拦截器</p>
+
+<p>返回<code>DefaultSqlSession(configuration,executor,事务)</code></p>
+
+<pre><code>SqlSession -》openSession()-&gt;openSessionFromDataSource()-&gt;DefaultSqlSession对象
+</code></pre>
+
+<p>SqlSession -》 DefaultSqlSession对象 -》执行SQL</p>
+
+<p><img src="/resources/技术框架/Spring家族/Mybatis流程.png" alt="Mybatis流程" title="Mybatis流程" /></p>
+
+<h4 id="获取xxxmapper对象-执行">获取XxxMapper对象、执行</h4>
+
+<p>执行增删改查-&gt;<code>MapperProxy/invoke()</code>&ndash;&gt;<code>InvocationHandler</code> ：JDK动态代理接口</p>
+
+<p>用到了 动态代理模式：增删改查 -&gt; 代理对象 （MapperProxy对象） -&gt;代理对象 帮我们“代理执行” 增删改查 -&gt;</p>
+
+<pre><code>XxxMapper代理对象： MapperProxy对象
+</code></pre>
+
+<p>mapperMethod.execute(sqlSession,args) ：实际调用增删改查的方法  ，依靠了sqlSession中的configuration和 executor..</p>
+
+<p>处理增删改查方法的参数：method.convertArgsToSqlCommandParam(args);： 如果參數是0个，reutrun null ;如果参数是1，返回第一个 ； 如果有多个参数 放入map中</p>
+
+<p>查询方法：selectOne() -&gt;selectList() : configuration.getMappedStatement() 即获取到用于增删改查的对象</p>
+
+<p>boundSql ：将我们写的SQL 和 参数值进行了拼接后的对象，即最终能被真正执行的SQL</p>
+
+<p>执行SQL 是通过Executor</p>
+
+<p>如果缓存中没有要查询的内容，则进入数据库 真实查询：queryFromDatabase()</p>
+
+<p>mybatis使用的jdbc对象是PreparedStatement</p>
+
+<p>底层执行增删改查：PreparedStatement的execute()</p>
+
+<p>MyBatis底层在执行CRUD时 可能会涉及到四个处理器：<code>StatementHandler（处理对象PreparedStatement的控制器）</code> 、 <code>ParameterHandler（处理参数的控制器）</code> 、 <code>TypeHandler（类型转换的控制器）</code> 、 <code>ResultSetHandler（处理结果集的控制器）</code></p>
+
+<p>XxxMapper包含:</p>
+
+<p>SqlSession(configuration,executor,事务)、代理接口的对象(MapperInterface)、methodCache(存放查询缓存， 底层是CurrentHashMap)</p>
+
+<h3 id="自定义插件">自定义插件</h3>
+
+<p>四个处理：StatementHandler  ParameterHandler   ResultSetHandler   TypeHandler</p>
+
+<p>四大核心对象：StatementHandler  ParameterHandler   ResultSetHandler    Executor</p>
+
+<p>四大核心对象</p>
+
+<ol>
+<li>都涉及到了 拦截器 用于增强</li>
+<li>四大核心对象都包含了 该增强操作</li>
+</ol>
+
+<p>自定义插件的编写逻辑： 根据MyBatis规则 编写一个  拦截器 ，在拦截器内部加入 自定义增强功能</p>
+
+<p>步骤：</p>
+
+<h4 id="编写拦截器">编写拦截器</h4>
+
+<pre><code>public class MyInterceptor implements Interceptor {
+    //拦截
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        System.out.println(&quot;拦截方法...intercept...&quot;);
+        Object proceed = invocation.proceed();//放行
+        return proceed;
+    }
+    @Override
+    public Object plugin(Object target) {//将拦截器中定义的 增强功能  和原来的核心对象 合并起来，称为最终的 核心对象
+        Object wrap = Plugin.wrap(target, this);
+        System.out.println(&quot;plugin....&quot;+wrap);
+        return wrap;
+    }
+    @Override
+    public void setProperties(Properties properties) {
+         System.out.println(&quot;setProperties....&quot;);
+    }
+}
+</code></pre>
+
+<h4 id="编写签名注解">编写签名注解</h4>
+
+<pre><code>@Intercepts({
+@Signature(type = StatementHandler.class , method =&quot;query&quot;,args = {Statement.class, ResultHandler.class})
+public class MyInterceptor implements Interceptor {
+</code></pre>
+
+<h4 id="配置">配置</h4>
+
+<pre><code>&lt;plugins&gt;
+    &lt;plugin interceptor=&quot;com.yanqun.my.interceptors.MyInterceptor&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;zs&quot;/&gt;
+        &lt;property name=&quot;age&quot; value=&quot;23&quot;/&gt;
+    &lt;/plugin&gt;
+&lt;/plugins&gt;
+</code></pre>
+
+<p>编写多个拦截器时，执行顺序 和  <code>&lt;plugins&gt;</code>配置顺序一致</p>
+
+<p>插件</p>
+
+<pre><code>select * from student    -&gt;拦截器 增加where条件
+</code></pre>
+
+<p>编写拦截器</p>
+
+<pre><code>//query(Statement statement, ResultHandler resultHandler)
+@Intercepts({
+    @Signature(type = StatementHandler.class , method =&quot;parameterize&quot;,args = {Statement.class})
+})
+public class MyInterceptor implements Interceptor {
+    //拦截
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        System.out.println(&quot;拦截方法...intercept...&quot;);
+        Object target = invocation.getTarget();//目标方法 ： select * from student where stuNo = #{stuNo}
+        System.out.println(&quot;目标对象&quot; +target);
+        MetaObject metaObject = SystemMetaObject.forObject(target);
+//        metaObject.getValue(&quot;参数..&quot;) ;
+        Object value = metaObject.getValue(&quot;parameterHandler.parameterObject&quot;);
+        System.out.println(value+&quot;---------&quot;);
+
+        metaObject.setValue(&quot;parameterHandler.parameterObject&quot;,2);//11-&gt;1
+        Object value2 = metaObject.getValue(&quot;parameterHandler.parameterObject&quot;);
+        System.out.println(value2+&quot;---------&quot;);
+
+
+        Object proceed = invocation.proceed();//放行
+        System.out.println(proceed);
+        return proceed;
+    }
+
+    @Override
+    public Object plugin(Object target) {//将拦截器中定义的 增强功能  和原来的核心对象 合并起来，称为最终的 核心对象
+
+        Object wrap = Plugin.wrap(target, this);
+        System.out.println(&quot;plugin....&quot;+wrap);
+        return wrap;
+    }
+
+    @Override
+    public void setProperties(Properties properties) {
+       // System.out.println(&quot;setProperties....&quot;);
+        System.out.println(&quot;设置属性:&quot;+properties); //设置属性...
+    }
+}
+</code></pre>
+
+<p>目标对象target的包装后的产物 -&gt; metaObject.getValue(&ldquo;可以从target中获取&rdquo;)</p>
+
+<p>通过打印语句 可知，target就是 RoutingStatementHandler
+&ndash;&gt;
+metaObject.getValue(&ldquo;可以从RoutingStatementHandler中获取&rdquo;)</p>
+
+<p>-&gt;metaObject.getValue(&ldquo;可以从RoutingStatementHandler中获取 :boundSql/parameterHandler&rdquo;)</p>
+
+<p>-&gt;-&gt;metaObject.getValue(&ldquo;parameterHandler&rdquo;)</p>
+
+<pre><code>metaObject.getValue(&quot;parameterHandler.parameterObject&quot;) //XxxMapper.xml中的sql语句中的参数值
+metaObject.getValue(&quot;parameterHandler.boundSql&quot;)    //XxxMapper.xml中的sql语句
+</code></pre>
+
+<p>&ndash;&gt;只研究</p>
+
+<pre><code>metaObject.setValue(&quot;parameterHandler.parameterObject&quot;,2)//修改参数值
+
+metaObject.setValue(&quot;parameterHandler.boundSql.sql&quot;,&quot;select * from book...&quot;) //修改sql语句
+
+metaObject.setValue(&quot;parameterHandler.boundSql.parameterObject&quot;,2) 
+</code></pre>
+
+<h3 id="批量操作dml">批量操作DML</h3>
+
+<pre><code>sessionFactory.openSession(ExecutorType.BATCH ); --推荐的写法
+</code></pre>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot; parameterType=&quot;com.yanqun.entity.Student&quot;  databaseId=&quot;mysql&quot;&gt;
+    insert into student(stuNo,stuName,stuAge,graName)
+    values(#{stuNo} , #{stuName},#{stuAge},#{graName})
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code> public abstract Integer addStudent(Student student);
+</code></pre>
+
+<pre><code>SqlSession session = sessionFactory.openSession( );
+StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+long start = System.currentTimeMillis();
+for(int i=0;i&lt;100000;i++) {
+    Student stu = new Student((int)(Math.random()*9000) +1000, &quot;abc&quot;, 44, &quot;xx&quot;);
+    studentMapper.addStudent(stu);
+}
+long end = System.currentTimeMillis();
+System.out.println(end-start);
+</code></pre>
+
+<p>此时插入数据较慢</p>
+
+<p>想变快则使用BATCH
+    sessionFactory.openSession(ExecutorType.BATCH ); &ndash;推荐的写法</p>
+
+<pre><code>SqlSession session = sessionFactory.openSession( ExecutorType.BATCH);
+StudentMapper studentMapper = session.getMapper(StudentMapper.class);//接口
+long start = System.currentTimeMillis();
+for(int i=0;i&lt;100000;i++) {
+    Student stu = new Student((int)(Math.random()*9000) +1000, &quot;abc&quot;, 44, &quot;xx&quot;);
+    studentMapper.addStudent(stu);
+}
+long end = System.currentTimeMillis();
+System.out.println(end-start);
+</code></pre>
+
+<h4 id="使用batch">使用BATCH:</h4>
+
+<p>预编译SQL一次 ，其余DML 只需要设置参数值即可</p>
+
+<pre><code>insert into student(stuNo,stuName,stuAge,graName) values(#{stuNo} , #{stuName},#{stuAge},#{graName})
+</code></pre>
+
+<h4 id="不使用batch">不使用BATCH：</h4>
+
+<p>预编译N次 ，每次DML都需要 执行完整的SQL</p>
+
+<p>不推荐的方式： 拼接SQL</p>
+
+<h4 id="oracle-批量插入">oracle:批量插入</h4>
+
+<pre><code>a.  create table 表 select ... from 旧表 
+b.  insert into 表(...) select .. from 表 ;
+c.  begin   ..(DML).. end ;
+d.  数据泵、SQL Loader  、外部表
+</code></pre>
+
+<p>以   c.  begin   ..(DML).. end ;为例</p>
+
+<pre><code>begin
+
+    insert into student(stuno,stuname) values(1,&quot;zs&quot;);
+    insert into student(stuno,stuname) values(1,&quot;ls&quot;);
+end ;
+</code></pre>
+
+<pre><code>&lt;insert id=&quot;addStudentOracle&quot;  databaseId=&quot;oracle&quot;&gt;
+    &lt;foreach collection=&quot;list&quot; open=&quot;begin&quot; close=&quot;end ;&quot; item=&quot;student&quot;&gt;
+    insert into student(stuno,stuname) values(#{student.stuNo},#{student.stuName}) ;
+    &lt;/foreach&gt;
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>void addStudentOracle (List&lt;Student&gt; students) ;
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+students.add( new Student(10,&quot;zs&quot;) );
+students.add( new Student(20,&quot;ls&quot;) );
+studentMapper.addStudentOracle(students);
+</code></pre>
+
+<p>&ndash;核心：将SQL拼接成oracle能够执行的SQL；</p>
+
+<p>collection的参数必须是 collection或List</p>
+
+<h4 id="mysql-批量插入">mysql:批量插入</h4>
+
+<pre><code>insert into student(stuno,stuname) values(100,'zsx'),(200,'lsx'),(200,'lsx'),(200,'lsx')...... ;
+</code></pre>
+
+<pre><code>&lt;insert id=&quot;addStudentMySql&quot;  databaseId=&quot;mysql&quot;&gt;
+    insert into student(stuno,stuname) values
+    &lt;foreach collection=&quot;list&quot; item=&quot;student&quot; separator=&quot;,&quot;  close=&quot;;&quot; &gt;
+        (#{student.stuNo},#{student.stuName})
+    &lt;/foreach&gt;
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>void addStudentMySql (List&lt;Student&gt; students) ;
+</code></pre>
+
+<pre><code>StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+students.add( new Student(510,&quot;311zs&quot;) );
+students.add( new Student(610,&quot;311ls&quot;) );
+studentMapper.addStudentMySql(students);
+</code></pre>
+
+<p>这种批量插入方式不推荐：</p>
+
+<ol>
+<li>没有用到mybatis对批量插入的支持<br /></li>
+<li>不适合数据库迁移<br /></li>
+<li>如果大量数据，则会将 拼接的SQL语句拉的很长，而部分数据库 对SQL语句的长度有限制。</li>
+</ol>
+
+<p>推荐：调存储过程、存储函数</p>
+
+<pre><code>mysql.url=jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true
+</code></pre>
+
+<p>myssql默认不支持接收多个分号（多条语句），这个可以修改默认设置</p>
+
+<h3 id="分页插件">分页插件</h3>
+
+<p>PageHelper</p>
+
+<p><a href="https://github.com/pagehelper/Mybatis-PageHelper">PageHelper的git地址</a></p>
+
+<ol>
+<li>jar</li>
+<li>配置conf.xml中</li>
+<li>PageHelper.startPage(2, 3);</li>
+</ol>
+
+<h4 id="配置conf-xml">配置conf.xml</h4>
+
+<pre><code>&lt;plugin interceptor=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;
+    &lt;!-- 使用下面的方式配置参数，后面会有所有的参数介绍
+    &lt;property name=&quot;reasonable&quot; value=&quot;true&quot;/&gt;--&gt;
+&lt;/plugin&gt;
+</code></pre>
+
+<pre><code>&lt;select id=&quot;queryStudents&quot; resultType=&quot;com.yanqun.entity.Student&quot; &gt;
+    select * from student order by stuno
+&lt;/select&gt;
+</code></pre>
+
+<pre><code>List&lt;Student&gt; queryStudents () ;
+</code></pre>
+
+<pre><code>public static void queryStudents() throws IOException {
+    String resource = &quot;conf.xml&quot;;
+    Reader reader = Resources.getResourceAsReader(resource);
+    SqlSessionFactory sessionFactory
+            = new SqlSessionFactoryBuilder().build(reader);
+    SqlSession session = sessionFactory.openSession();
+
+    StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+
+/*  方式一      加入分页功能
+        Page&lt;Object&gt; page = PageHelper.startPage(2, 3);
+*/
+
+    //pageInfo方式
+    PageHelper.startPage(2, 3);
+
+/*
+            lambda形式
+        Page&lt;Student&gt; page = PageHelper.startPage(2, 3).doSelectPage(()-&gt; studentMapper.queryStudents());
+        List&lt;Student&gt; list = page.getResult();
+
+*/
+
+    // select * from student order by stuno  -&gt;拦截器
+    //select * from student order by stuno limit 6,3
+    List&lt;Student&gt; list = studentMapper.queryStudents() ;
+    for(Student student :list){
+        System.out.println(student);
+    }
+    //PageInfo方式
+    PageInfo&lt;Student&gt; pageInfo = new PageInfo&lt;&gt;(list);
+    System.out.println(&quot;当前页：&quot;+pageInfo.getPageNum());
+    System.out.println(&quot;总数据量：&quot;+pageInfo.getTotal());
+    System.out.println(&quot;总页码：&quot; +pageInfo.getPages());
+    System.out.println(&quot;页面大小：&quot; +pageInfo.getPageSize());
+    System.out.println(&quot;最开头那一页：&quot;+ pageInfo.getNavigateFirstPage());
+    System.out.println(&quot;每一页的页号&quot;);
+
+    for( int pageNum : pageInfo.getNavigatepageNums()){
+        System.out.println(pageNum);
+    }
+    session.close();
+}
+</code></pre>
 
     </div>
     <div class="article-footer">
