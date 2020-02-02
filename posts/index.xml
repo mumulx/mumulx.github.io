@@ -38,6 +38,15 @@
     </item>
     
     <item>
+      <title>MybatisPlus和Mapper框架</title>
+      <link>https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</guid>
+      <description>MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM（Object</description>
+    </item>
+    
+    <item>
       <title>自定义RPC Java</title>
       <link>https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
@@ -205,7 +214,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>这个人比较懒还没开始写呢！</description>
+      <description>git源码 简介 Servlet发展史 Struts1.x&amp;ndash;&amp;gt;Struts2.x&amp;ndash;&amp;gt;SpringMVC springmvc: jar spring-aop.jar spring-bean.jar spring-context.jar spring-core.jar spring-web.jar spring-webmvc.jar commons-logging.jar 报错NoClassDefFoundError：缺少jar 第一个SpringMVC程序 Servet</description>
     </item>
     
     <item>
@@ -223,7 +232,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</guid>
-      <description>这个人比较懒还没开始写呢！</description>
+      <description>Spring整合MyBatis git源码 Spring - MyBatis 思路： SqlSessionFactory -&amp;gt; SqlSession -&amp;gt;StudentMapper -&amp;gt;CRUD 可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据</description>
     </item>
     
     <item>
@@ -261,15 +270,6 @@
       <guid>https://mumulx.github.io/2019/01/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
 pectora summo.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MybatisPlus和Mapper框架</title>
-      <link>https://mumulx.github.io/1/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/1/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</guid>
-      <description>MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM（Object</description>
     </item>
     
   </channel>

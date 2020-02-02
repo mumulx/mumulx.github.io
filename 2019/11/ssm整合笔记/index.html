@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="13">
+<meta itemprop="wordCount" content="2971">
 
 
 
@@ -256,7 +256,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/" class="title">自定义RPC Java</a>
+                        <a href="https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/" class="title">MybatisPlus和Mapper框架</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
@@ -266,10 +266,10 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/01/java%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/" class="title">Java加密解密</a>
+                        <a href="https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/" class="title">自定义RPC Java</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2020-01-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-18</time>
+                        <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
                     </p>
                 </div>
             </li>
@@ -289,9 +289,25 @@
 <ul>
 <li>
 <ul>
+<li><a href="#spring整合mybatis">Spring整合MyBatis</a>
+<ul>
+<li><a href="#sm整合步骤">SM整合步骤：</a>
+<ul>
+<li><a href="#jar">jar</a></li>
+<li><a href="#类-表">类-表</a></li>
+<li><a href="#mybatis配置文件conf-xml">MyBatis配置文件conf.xml</a></li>
+<li><a href="#通过mapper-xml将-类-表建立映射关系">通过mapper.xml将 类、表建立映射关系</a></li>
+<li><a href="#整合">整合</a></li>
+<li><a href="#使用spring-mybatis整合产物开发程序">使用Spring-MyBatis整合产物开发程序</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ssm整合">SSM整合：</a>
+<ul>
 <li>
 <ul>
-<li><a href="#这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</a></li>
+<li><a href="#sm整合步骤-1">SM整合步骤：</a></li>
+<li><a href="#示例">示例</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -330,14 +346,458 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:13字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2971字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="这个人比较懒还没开始写呢">这个人比较懒还没开始写呢！</h3>
+<h2 id="spring整合mybatis">Spring整合MyBatis</h2>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/spring/Spring_Mybatis/SMProject">git源码</a></p>
+
+<p>Spring - MyBatis</p>
+
+<p>思路：</p>
+
+<pre><code>SqlSessionFactory -&gt; SqlSession -&gt;StudentMapper -&gt;CRUD
+</code></pre>
+
+<p>可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据库，</p>
+
+<p>Spring整合MyBatis 其实就是 将MyBatis的SqlSessionFactory 交给Spring</p>
+
+<h3 id="sm整合步骤">SM整合步骤：</h3>
+
+<p>java项目</p>
+
+<h4 id="jar">jar</h4>
+
+<pre><code>mybatis-spring.jar  
+spring-tx.jar   
+spring-jdbc.jar 
+spring-expression.jar
+spring-context-support.jar
+spring-core.jar     
+spring-context.jar
+spring-beans.jar    
+spring-aop.jar  
+spring-web.jar  
+commons-logging.jar
+commons-dbcp.jar    
+ojdbc.jar   
+mybatis.jar 
+log4j.jar   
+commons-pool.jar
+</code></pre>
+
+<h4 id="类-表">类-表</h4>
+
+<pre><code>package org.ycit.entity;
+
+public class Student {
+	private int stuNo;
+	private String stuName;
+	private int stuAge;
+	public Student() {
+	}	
+	public Student(int stuNo, String stuName, int stuAge) {
+		this.stuNo = stuNo;
+		this.stuName = stuName;
+		this.stuAge = stuAge;
+	}
+	public int getStuNo() {
+		return stuNo;
+	}
+	public void setStuNo(int stuNo) {
+		this.stuNo = stuNo;
+	}
+	public String getStuName() {
+		return stuName;
+	}
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
+	}
+	public int getStuAge() {
+		return stuAge;
+	}
+	public void setStuAge(int stuAge) {
+		this.stuAge = stuAge;
+	}
+}
+</code></pre>
+
+<h4 id="mybatis配置文件conf-xml">MyBatis配置文件conf.xml</h4>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+
+&lt;configuration&gt;
+	&lt;!-- 数据库信息 --&gt;
+		&lt;!-- 在spring容器中配置 --&gt;
+	&lt;!-- 加载映射文件studentmapper.xml 
+	&lt;mappers&gt;
+		&lt;mapper resource=&quot;org/ycit/mapper/StudentMapper.xml&quot;&gt;&lt;/mapper&gt;
+	&lt;/mappers&gt;
+	--&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<pre><code>driver=oracle.jdbc.OracleDriver
+url=jdbc:oracle:thin:@localhost:1521:MyOracleDB
+username=scott
+password=135451
+maxIdle=1000
+maxActive=500
+</code></pre>
+
+<h4 id="通过mapper-xml将-类-表建立映射关系">通过mapper.xml将 类、表建立映射关系</h4>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;!--namespace：该mapper.xml映射文件的唯一标识符  --&gt;
+&lt;mapper namespace=&quot;org.ycit.mapper.StudentMapper&quot;&gt;
+	&lt;select id=&quot;queryStudentbyStuno&quot; parameterType=&quot;int&quot; resultType=&quot;org.ycit.entity.Student&quot;&gt;
+		select * from student where stuno = #{stuNo}
+	&lt;/select&gt;
+	&lt;insert id=&quot;addStudent&quot; parameterType=&quot;org.ycit.entity.Student&quot;&gt;
+		insert into student(stuno,stuname,stuage) values(#{stuNo},#{stuName},#{stuAge})
+	&lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<pre><code>public interface StudentMapper {
+	public void addStudent(Student student);
+}
+</code></pre>
+
+<h4 id="整合">整合</h4>
+
+<p>之前使用MyBatis:conf.xml -&gt;SqlSessionFacotry</p>
+
+<p>现在整合的时候，需要通过Spring管理SqlSessionFacotry ，因此 产生qlSessionFacotry 所需要的数据库信息 不在放入conf.xml  而需要放入spring配置文件中</p>
+
+<p>配置Spring配置文件（applicationContext.xml）</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+	&lt;!-- 加载db.properties文件 --&gt;
+	&lt;bean id=&quot;config&quot; class=&quot;org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer&quot;&gt;
+		&lt;property name=&quot;locations&quot; &gt;
+			&lt;array&gt;
+				&lt;value&gt;classpath:db.properties&lt;/value&gt;
+			&lt;/array&gt;
+		&lt;/property&gt;
+	&lt;/bean&gt;
+
+	&lt;!--配置数据库的信息（代替mybatis的配置i文件conf.xml） --&gt;
+	&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
+		&lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;&gt;&lt;/property&gt;
+		&lt;property name= &quot;url&quot; value= &quot;${url}&quot;&gt;&lt;/property&gt;
+		&lt;property name= &quot;username&quot; value= &quot;${username}&quot;&gt;&lt;/property&gt;
+		&lt;property name= &quot;password&quot; value= &quot;${password}&quot;&gt;&lt;/property&gt;
+		&lt;property name=&quot;maxActive&quot; value=&quot;${maxActive}&quot;&gt;&lt;/property&gt;
+		&lt;property name=&quot;maxIdle&quot; value=&quot;${maxIdle}&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+
+	&lt;!-- 在SpringIoc容器中创建MyBatis的核心类SqlSessionFactory --&gt;
+	&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+
+		&lt;!-- 加载mybatis的配置文件
+		&lt;property name=&quot;configLocation&quot; value=&quot;classpath:conf.xml&quot;&gt;&lt;/property&gt;
+		 --&gt;
+
+		&lt;!-- 加载，apper的文件路径 --&gt;
+		&lt;property name=&quot;mapperLocations&quot; value=&quot;org/ycit/mapper/*.xml&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+
+	&lt;bean id=&quot;studentService&quot; class= &quot;org.ycit.service.impl.StudentServiceImpl&quot;&gt;
+		&lt;property name=&quot;studentMapper&quot; ref=&quot;studentMapper&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;	
+
+	&lt;!--第一种方式生成mapper对象
+	&lt;bean id=&quot;studentMapper&quot; class= &quot;org.ycit.dao.impl.StudentDaoImpl&quot;&gt;
+	 dao层注入sqlSessionFactory 
+		&lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+	--&gt;
+
+	&lt;!-- 第二种方式生成mapper对象
+	&lt;bean id=&quot;studentMapper&quot; class= &quot;org.mybatis.spring.mapper.MapperFactoryBean&quot;&gt;
+		&lt;property name=&quot;mapperInterface&quot; value=&quot;org.ycit.mapper.StudentMapper&quot;&gt;&lt;/property&gt;
+		&lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+	 --&gt;
+
+	 &lt;!-- 第三种方式生成mapper对象(批量产生了  多个mapper)
+	 	批量产生的mapper对象在springioc中的id值默认为 （首字母小写） 接口名
+	 --&gt;
+
+	&lt;bean id=&quot;mappers&quot; class= &quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+		&lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+		&lt;!-- 指定批量产生  那个包中的mapper对象  多个包使用,隔开 --&gt;
+		&lt;property name=&quot;basePackage&quot; value=&quot;org.ycit.mapper&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+&lt;/beans&gt;
+
+</code></pre>
+
+<h4 id="使用spring-mybatis整合产物开发程序">使用Spring-MyBatis整合产物开发程序</h4>
+
+<p>目标：通过spring产生mybatis最终操作需要的 动态mapper对象(StudentMapper对象)</p>
+
+<p>Spring产生 动态mapper对象 有3种方法：</p>
+
+<ol>
+<li><p>第一种方式</p>
+
+<p>DAO层实现类  继承 SqlSessionDaoSupport类</p>
+
+<pre><code>SqlSessionDaoSupport类提供了一个属性 SqlSession
+</code></pre>
+
+<pre><code>public class StudentDaoImpl extends SqlSessionDaoSupport implements StudentMapper{
+    public void addStudent(Student student) {
+        SqlSession session = super.getSqlSession();
+        StudentMapper stuDao = session.getMapper(StudentMapper.class);
+        stuDao.addStudent(student);
+    }
+}
+</code></pre>
+
+<pre><code>&lt;insert id=&quot;addStudent&quot; parameterType=&quot;org.ycit.entity.Student&quot;&gt;
+    insert into student(stuno,stuname,stuage) values(#{stuNo},#{stuName},#{stuAge})
+&lt;/insert&gt;
+</code></pre>
+
+<pre><code>    &lt;!--第一种方式生成mapper对象
+        要在dao层注入sqlSessionFactory 
+    --&gt;
+    &lt;bean id=&quot;studentMapper&quot; class= &quot;org.ycit.dao.impl.StudentDaoImpl&quot;&gt;
+        &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+</code></pre>
+
+<pre><code>    &lt;!-- 在SpringIoc容器中创建MyBatis的核心类SqlSessionFactory --&gt;
+    &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+        &lt;!-- 加载mybatis的配置文件
+        &lt;property name=&quot;configLocation&quot; value=&quot;classpath:conf.xml&quot;&gt;&lt;/property&gt;
+        --&gt;
+        &lt;!-- 加载，mapper的文件路径 --&gt;
+        &lt;property name=&quot;mapperLocations&quot; value=&quot;org/ycit/mapper/*.xml&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+</code></pre>
+
+<p>这时可以在spring中配置mapper文件的路径，以前是在mybatis的配置文件conf.xml文件中配置的，此时我们可以在spring中配置，发现mybatis配置文件形同虚设，里面没有配置的信息，因此，spring也不需要加载mybatis的配置文件，所以把加载mybatis的配置文件配置信息注释掉。</p>
+
+<p>此时不在需要我们手动提交，交给spring后会自动提交，以前采用mybatis，采用jdbc手动提交的方式。</p></li>
+
+<li><p>第二种方式</p>
+
+<p>就是省略掉 第一种方式的 实现类
+直接MyBatis提供的 Mapper实现类：org.mybatis.spring.mapper.MapperFactoryBean</p>
+
+<p>不需要自己再编写实现类</p>
+
+<p>缺点：每个mapper都需要一个配置一次</p>
+
+<pre><code>&lt;bean id=&quot;studentMapper&quot; class= &quot;org.mybatis.spring.mapper.MapperFactoryBean&quot;&gt;
+    &lt;property name=&quot;mapperInterface&quot; value=&quot;org.ycit.mapper.StudentMapper&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;sqlSessionFactory&quot; ref=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+
+<li><p>第三种方式</p>
+
+<p>批量配置 实现类</p>
+
+<pre><code>&lt;!-- 第三种方式生成mapper对象(批量产生了  多个mapper)
+    批量产生的mapper对象在springioc中的id值默认为 （首字母小写） 接口名
+    --&gt;
+&lt;bean id=&quot;mappers&quot; class= &quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+
+    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+
+    &lt;!-- 指定批量产生  那个包中的mapper对象  多个包使用,隔开 --&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;org.ycit.mapper&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+        
+</code></pre>
+
+<p>批量产生的mapper对象在springioc中的id值默认为 （首字母小写） 接口名</p></li>
+</ol>
+
+<h2 id="ssm整合">SSM整合：</h2>
+
+<p>Spring - SpringMVC -  MyBatis</p>
+
+<ol>
+<li><p>SM</p>
+
+<p>Spring -  MyBatis   :   需要整合：将MyBatis的SqlSessionFactory 交给Spring</p></li>
+
+<li><p>SSM</p></li>
+</ol>
+
+<p>Spring - SpringMVC  ：  就是将Spring - SpringMVC 各自配置一遍</p>
+
+<p>思路：
+    SqlSessionFactory -&gt; SqlSession -&gt;StudentMapper -&gt;CRUD
+可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据库，
+Spring整合MyBatis 其实就是 将MyBatis的SqlSessionFactory 交给Spring</p>
+
+<h4 id="sm整合步骤-1">SM整合步骤：</h4>
+
+<ol>
+<li><p>jar</p>
+
+<pre><code>mybatis-spring.jar  spring-tx.jar   spring-jdbc.jar     spring-expression.jar
+spring-context-support.jar  spring-core.jar     spring-context.jar
+spring-beans.jar    spring-aop.jar  spring-web.jar  commons-logging.jar
+commons-dbcp.jar    ojdbc.jar   mybatis.jar log4j.jar   commons-pool.jar
+</code></pre></li>
+
+<li><p>类-表</p>
+
+<p>Student类 -student表</p></li>
+
+<li><p>配置</p>
+
+<p>（与Spring整合时，conf.xml可省）&ndash;MyBatis配置文件conf.xml（数据源、mapper.xml） &ndash;可省，将该文件中的配置 全部交由spring管理</p>
+
+<p>spring配置文件 applicationContext.xml</p></li>
+
+<li><p>通过mapper.xml将 类、表建立映射关系</p></li>
+
+<li><p>配置spring配置文件</p>
+
+<p>配置Spring配置文件（applicationContext.xml）  （Web项目）：</p>
+
+<p>web.xml</p>
+
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre>
+
+<p>之前使用MyBatis:    conf.xml -&gt;SqlSessionFacotry</p>
+
+<p>现在整合的时候，需要通过Spring管理SqlSessionFacotry ，因此 产生SqlSessionFacotry 所需要的数据库信息 不在放入conf.xml  而需要放入spring配置文件中</p>
+
+<p>在applicationContext中配置mybatis信息</p>
+
+<p>配置数据库信息</p>
+
+<pre><code>&lt;!-- 加载db.properties文件 --&gt;
+&lt;bean  id=&quot;config&quot; class=&quot;org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer&quot;&gt;
+    &lt;property name=&quot;locations&quot;&gt;
+        &lt;array&gt;
+            &lt;value&gt;classpath:db.properties&lt;/value&gt;
+        &lt;/array&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- 配置配置数据库信息（替代mybatis的配置文件conf.xml） --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${url}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${username}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${password}&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+
+<li><p>使用Spring整合MyBatis ：</p>
+
+<p>在SpringIoc容器中 创建MyBatis的核心类</p>
+
+<pre><code>&lt;!-- 在SpringIoc容器中 创建MyBatis的核心类 SqlSesionFactory --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+    &lt;!-- 加载mapper.xml路径 --&gt;
+    &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:org/lanqiao/mapper/*.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p>将MyBatis的SqlSessionFactory 交给Spring</p>
+
+<pre><code>&lt;!-- 将MyBatis的SqlSessionFactory 交给Spring --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;org.lanqiao.mapper&quot;&gt;&lt;/property&gt;
+    &lt;!--上面basePackage所在的property的作用：
+    将org.lanqiao.mapper包中，所有的接口   产生与之对应的 动态代理对象
+    （对象名 就是 首字母小写的接口名）
+    --&gt;
+&lt;/bean&gt;
+</code></pre></li>
+
+<li><p>继续整合SpringMVC</p>
+
+<p>将springmvc加入项目即可</p>
+
+<ol>
+<li><p>加入SpringMVC需要的jar</p>
+
+<pre><code>spring-webmvc.jar
+</code></pre></li>
+
+<li><p>给项目加入SpringMVC支持</p>
+
+<p>web.xml: dispatcherServlet</p>
+
+<pre><code>&lt;!-- 整合SPringMVC --&gt;
+&lt;servlet&gt;
+    &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:applicationContext-controller.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;!-- Map all requests to the DispatcherServlet for handling --&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre></li>
+
+<li><p>编写springmvc配置文件：</p>
+
+<p>applicationContext-controller.xml：视图解析器、基础配置</p>
+
+<pre><code>&lt;!-- 将控制器所在包 加入IOC容器 --&gt;
+&lt;context:component-scan base-package=&quot;org.lanqiao.controller&quot;&gt;&lt;/context:component-scan&gt;
+&lt;!-- 配置视图解析器 --&gt;
+&lt;bean  class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/views/&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- SPringMVC基础配置、标配 --&gt;
+&lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;
+</code></pre></li>
+</ol></li>
+</ol>
+
+<h4 id="示例">示例</h4>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/springMVC/SSMProject">git源码</a></p>
 
     </div>
     <div class="article-footer">

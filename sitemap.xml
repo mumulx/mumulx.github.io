@@ -108,6 +108,13 @@
   </url>
   
   <url>
+    <loc>https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/</loc>
     <lastmod>2020-01-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -341,12 +348,6 @@
   <url>
     <loc>https://mumulx.github.io/2019/01/placeholder-text/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/1/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
