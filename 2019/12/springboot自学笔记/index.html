@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-12-12T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6549">
+<meta itemprop="wordCount" content="7964">
 
 
 
@@ -292,39 +292,67 @@
 <li><a href="#简介">简介</a>
 <ul>
 <li><a href="#微服务">微服务</a></li>
-<li><a href="#spring-boot可以快速开发-微服务模块">spring boot可以快速开发 微服务模块</a></li>
 <li><a href="#配置java环境变量">配置java环境变量</a></li>
 <li><a href="#配置maven环境变量">配置maven环境变量</a></li>
-<li><a href="#目录结构resources">目录结构resources：</a></li>
-<li><a href="#spring-boot内置了tomcat-并且不需要打成war再执行">spring boot内置了tomcat，并且不需要打成war再执行。</a></li>
+<li><a href="#简单springboot项目">简单springboot项目</a></li>
+<li><a href="#目录结构">目录结构</a></li>
+<li><a href="#springboot开发web程序">springboot开发WEB程序</a>
+<ul>
 <li><a href="#主配置类">主配置类</a></li>
+<li><a href="#如何自动装配">如何自动装配</a></li>
+</ul></li>
 <li><a href="#配置文件">配置文件</a></li>
+<li><a href="#赋值">赋值</a>
+<ul>
 <li><a href="#通过yaml给对象注入值">通过yaml给对象注入值：</a></li>
-<li><a href="#propertysource-默认会加载application-properties-application-yml文件中的数据">@PropertySource：默认会加载application.properties/application.yml文件中的数据；</a></li>
+<li><a href="#通过application-properties对属性进行赋值">通过application.properties对属性进行赋值</a></li>
+<li><a href="#通过-value赋值">通过@Value赋值</a></li>
+<li><a href="#小结">小结</a></li>
+</ul></li>
+<li><a href="#propertysource">@PropertySource</a></li>
 <li><a href="#importresource">@ImportResource</a></li>
 <li><a href="#spring-boot全局配置文件中的-占位符表达式">spring boot全局配置文件中的 占位符表达式</a></li>
-<li><a href="#多环境的切换-profile">多环境的切换（profile）</a></li>
-<li><a href="#配置文件的位置">配置文件的位置</a></li>
-<li><a href="#日志">日志</a></li>
-<li><a href="#springboot开发web项目-静态资源-html-css-js">springboot开发Web项目 (静态资源 html css js  )</a>
+<li><a href="#多环境的切换-profile">多环境的切换（profile）</a>
 <ul>
-<li><a href="#spring-boot是一个jar-因此-静态资源就不是再存放到-webapps中-存放在哪里">spring boot是一个jar，因此 静态资源就不是再存放到 webapps中， 存放在哪里？</a></li>
-<li><a href="#如何自己写-静态资源-如何放到如spring-boot中">如何自己写 静态资源，如何放到如spring boot中？</a></li>
-<li><a href="#设置欢迎页">设置欢迎页：</a></li>
+<li><a href="#properties文件">properties文件</a></li>
+<li><a href="#yml">yml</a></li>
+<li><a href="#动态切换环境">动态切换环境</a></li>
+</ul></li>
+<li><a href="#配置文件的位置">配置文件的位置</a>
+<ul>
+<li><a href="#项目内部的配置文件">项目内部的配置文件：</a></li>
+<li><a href="#配置项目名">配置项目名：</a></li>
+<li><a href="#项目外部的配置文件-补救">项目外部的配置文件： (补救)</a></li>
+<li><a href="#项目运行参数">项目运行参数</a></li>
+</ul></li>
+<li><a href="#日志">日志</a>
+<ul>
+<li><a href="#使用">使用</a></li>
+<li><a href="#日志级别-loglevel类中">日志级别：（LogLevel类中）</a></li>
+<li><a href="#日志存储">日志存储</a></li>
+<li><a href="#指定日志显示格式">指定日志显示格式：</a></li>
+</ul></li>
+<li><a href="#springboot开发web项目">springboot开发Web项目</a>
+<ul>
+<li><a href="#新建项目-sts">新建项目（sts）</a></li>
+<li><a href="#静态资源存放路径">静态资源存放路径</a></li>
+<li><a href="#将自定义静态资源放入项目">将自定义静态资源放入项目</a></li>
+<li><a href="#设置欢迎页">设置欢迎页</a></li>
 <li><a href="#自定义-favicon-ico">自定义 favicon.ico</a></li>
-<li><a href="#如何自定义静态资源目录-properties文件中的-prefix-属性">如何自定义静态资源目录（Properties文件中的 prefix+属性） ：</a></li>
+<li><a href="#自定义静态资源目录">自定义静态资源目录</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#动态资源-jsp-spring-boot默认不支持">动态资源： JSP(spring boot默认不支持)</a>
+<li><a href="#动态资源">动态资源：</a>
 <ul>
-<li><a href="#引入thymeleaf-到官网查询-thymeleaf的依赖-maven">引入thymeleaf：到官网查询 thymeleaf的依赖（Maven）</a>
+<li><a href="#引入thymeleaf">引入thymeleaf</a>
 <ul>
-<li><a href="#使用thymeleaf-代码在哪里写">使用thymeleaf:代码在哪里写？</a></li>
+<li><a href="#使用thymeleaf">使用thymeleaf</a></li>
+<li><a href="#使用-1">使用</a></li>
+<li><a href="#引入标签">引入标签</a></li>
+<li><a href="#控制器传值">控制器传值</a></li>
 </ul></li>
-<li><a href="#spring-boot整合jsp开发">Spring boot整合JSP开发</a>
-<ul>
+<li><a href="#spring-boot整合jsp开发">Spring boot整合JSP开发</a></li>
 <li><a href="#spring-boot整合jsp开发步骤">Spring boot整合JSP开发步骤：</a></li>
-</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -363,12 +391,14 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:6549字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:14分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7964字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:16分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/springboot">git源码</a></p>
 
 <h2 id="简介">简介</h2>
 
@@ -380,7 +410,9 @@
 
 <p>微服务：一个项目 可以由多个 小型服务构成（微服务）</p>
 
-<h3 id="spring-boot可以快速开发-微服务模块">spring boot可以快速开发 微服务模块</h3>
+<p>可更新可替代性比较强</p>
+
+<p>spring boot可以快速开发 微服务模块</p>
 
 <ol>
 <li>简化j2ee开发</li>
@@ -402,56 +434,138 @@
 <li>MAVEN_HOME： maven根目录</li>
 <li>path: maven根目录\bin</li>
 <li>配置Maven本地仓库：  mvn根目录/conf/setting.xml : <code>&lt;localRepository&gt;C:/workplace/jar/mavenrep&lt;/localRepository&gt;</code></li>
-<li>在IDE中配置mvn：
-    window-&gt;preference-&gt;搜maven ,installations/user settings
-<br /></li>
+
+<li><p>在STS中配置mvn：</p>
+
+<pre><code>window-&gt;preference-&gt;搜maven ,installations/user settings
+</code></pre></li>
 </ul>
 
-<h3 id="目录结构resources">目录结构resources：</h3>
+<h3 id="简单springboot项目">简单springboot项目</h3>
 
 <ul>
-<li>static:静态资源（js css 图片 音频 视频）</li>
-<li>templates：模板文件（模版引擎freemarker ,thymeleaf；默认不支持jsp）</li>
-<li>application.properties： 配置文件
-<br /></li>
+<li><p>去官网生成springbootxiangmu<a href="https://start.spring.io/">官网</a></p></li>
+
+<li><p>STS 导入项目(Existing maven项目)</p></li>
+
+<li><p>右键运行HelloWorldApplication.java &ndash;run java application</p>
+
+<p>出现springboot和对应的版本号说明springboot配置好了</p></li>
 </ul>
 
-<h3 id="spring-boot内置了tomcat-并且不需要打成war再执行">spring boot内置了tomcat，并且不需要打成war再执行。</h3>
+<h3 id="目录结构">目录结构</h3>
+
+<ul>
+<li>java：java代码</li>
+<li>resources/static:静态资源（js css 图片 音频 视频）</li>
+<li>resources/templates：模板文件（模版引擎freemarker ,thymeleaf；默认不支持jsp）</li>
+
+<li><p>resources/application.properties： 配置文件</p>
+
+<h3 id="springboot开发web程序">springboot开发WEB程序</h3></li>
+</ul>
+
+<p>以前：webContext&ndash;web.xml&ndash;war&ndash;tomcat</p>
+
+<p>spring boot内置了tomcat，并且不需要打成war再执行。</p>
+
+<pre><code>
+@Controller
+public class HelloWorldController {
+    //页面直接打印这些文字
+    @ResponseBody
+    @RequestMapping(&quot;helloWorld&quot;)
+    public String helloWorld() {
+        return &quot;hello world;hello spring boot&quot;;
+    }
+}
+</code></pre>
+
+<p>直接运行HelloWorldApplication.java &ndash;run java</p>
+
+<p>访问</p>
+
+<pre><code>http://localhost:8080/helloWorld
+</code></pre>
+
+<p>可以发现此时没有运行tomcat就能运行</p>
 
 <p>可以在appication.properties对端口号等服务端信息进行配置</p>
+
+<pre><code>server.port=8888
+</code></pre>
 
 <p>spring boot将各个应用/三方框架 设置成了一个个“场景”stater，以后要用哪个，只需要引入那个场景即可。
 选完之后，spring boot就会将 该场景所需要的所有依赖 自动注入。</p>
 
+<p><a href="https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/html/using-spring-boot.html#using-boot-starter">官方starter介绍</a></p>
+
 <p>例如 选择 <code>web</code>,spring boot就会将web相关的依赖（tomcat  json） 全部引入本项目</p>
 
-<h3 id="主配置类">主配置类</h3>
+<p>版本仲裁中心</p>
 
-<pre><code>@SpringBootApplication:spring boot的主配置类\
+<p>pom.xml中</p>
+
+<pre><code>&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
+    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+&lt;/parent&gt;
 </code></pre>
 
-<p>该注解包含：</p>
+<p>连续进入，就会发现里面配置了各个jar包的版本</p>
 
-<pre><code>@SpringBootConfiguration： 包含@Configuration，表示“配置类”: 
+<h4 id="主配置类">主配置类</h4>
 
-    1.该类是一个配置类  
-    2.加了@Configuration注解的类，会自动纳入Spring 容器  （@Component）
+<p>HellowordApplication.java中含有注解</p>
 
-@Configuration
+<pre><code>@SpringBootApplication
+</code></pre>
+
+<p>spring boot的主配置类</p>
+
+<p>该注解包含了许多注解例：</p>
+
+<ul>
+<li><p>@SpringBootConfiguration</p>
+
+<p>包含@Configuration，表示&rdquo;配置类&rdquo;(用来代替配置文件):</p>
+
+<ol>
+<li>该类是一个配置类</li>
+
+<li><p>加了@Configuration注解的类，会自动纳入Spring 容器  （@Component）</p>
+
+<pre><code>@Configuration
 public class A//表示A是一个 用于 配置的类
 {
 }
+</code></pre></li>
+</ol></li>
 
-@EnableAutoConfiguration：使spring boot可以自动配置 ：
+<li><p>@EnableAutoConfiguration</p>
 
-可以找到@SpringBootApplication所在类的包 ，作用：就会将该包及所有的子包 全部纳入spring容器
-spring boot在启动时，会根据META-INF/spring.factories找到相应的三方依赖，并将这些依赖引入本项目
-</code></pre>
+<p>使spring boot可以自动配置 ：（以前做spring，mybatis等项目时需要写很多配置文件，但是这里我们发现我们并没有写配置文件）约定优于配置（之前已经约定好了，所以没有进行配置）</p>
+
+<ul>
+<li><p>@AutoConfigurationPackage</p>
+
+<p>可以找到@SpringBootApplication所在类的包 ，</p>
+
+<p>作用：就会将该包及所有的子包 全部纳入spring容器</p>
+
+<p>spring boot自动配置自动将@SpringBootApplication所在类的包及其子包纳入spring容器中</p></li>
+
+<li><p>@Import(AutoConfigurationImportSelector.class</p>
+
+<p>AutoConfigurationImportSelector类中的selectImports方法在spring boot在启动时，会根据<code>META-INF/spring.factories</code>找到相应的三方依赖，并将这些依赖引入本项目</p></li>
+</ul></li>
+</ul>
 
 <p>总结：</p>
 
-<pre><code>编写项目时，一般会 对自己写的代码  以及 三方依赖 进行配置。但是spring boot可以自动进行配置：
-</code></pre>
+<p>编写项目时，一般会 对自己写的代码以及三方依赖 进行配置。但是spring boot可以自动进行配置：</p>
 
 <ul>
 <li><p>自己写的代码</p>
@@ -460,52 +574,82 @@ spring boot在启动时，会根据META-INF/spring.factories找到相应的三�
 
 <li><p>三方依赖</p>
 
-<p>通过spring-boot-autoconfigure-2.0.3.RELEASE.jar中的META-INF/spring.factories进行声明，然后通过@EnableAutoConfiguration开启使用即可
-spring-boot-autoconfigure-2.0.3.RELEASE.jar包中 包含了 J2EE整合体系中 需要的依赖。</p></li>
+<p>通过<code>spring-boot-autoconfigure-2.0.3.RELEASE.jar</code>中的<code>META-INF/spring.factories</code>进行声明，然后通过<code>@EnableAutoConfiguration</code>开启使用即可</p>
 
-<li><p>如何自动装配：
-    研究org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,<br />
-    通过观察该源码 发现：
-    @Configuration：标识此类是一个配置类  、将此类纳入springioc容器
-    @EnableConfigurationProperties(HttpEncodingProperties.class)： 通过HttpEncodingProperties将编码设置为了UTF_8 (即自动装配为UTF_8, 如何修改改编码：通过改HttpEncodingProperties的 predfix+属性名 进行修改 [配置文件中，yml/properties])
-        即：该注解给了默认编码utf8，并且提供了prefix+属性名 的方式 供我们修改编码。</p>
+<p>spring-boot-autoconfigure-2.0.3.RELEASE.jar包中 包含了 J2EE整合体系中 需要的依赖。</p></li>
+</ul>
+
+<h4 id="如何自动装配">如何自动装配</h4>
+
+<p>研究</p>
+
+<pre><code>org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\
+</code></pre>
+
+<p>通过观察该源码 发现：</p>
+
+<pre><code>@Configuration
+</code></pre>
+
+<p>标识此类是一个配置类  、将此类纳入springioc容器</p>
+
+<pre><code>@EnableConfigurationProperties(HttpEncodingProperties.class)
+</code></pre>
+
+<p>通过HttpEncodingProperties将编码设置为了UTF_8 (即自动装配为UTF_8）</p>
+
+<p>如何修改改编码</p>
+
+<p>通过改HttpEncodingProperties的 <code>predfix+属性名</code> 进行修改 （配置文件中，yml/properties）</p>
+
+<pre><code>spring.http.encoding.charset=ISO-8859-1
+</code></pre>
+
+<p>即：该注解给了默认编码utf8，并且提供了prefix+属性名 的方式 供我们修改编码。</p>
+
+<p>当满足以下条件（@Conditional）时才会被加载</p>
+
+<pre><code>@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)  
+</code></pre>
+
+<p>当它是一个servlet时成立</p>
+
+<pre><code>@ConditionalOnClass(CharacterEncodingFilter.class)      
+</code></pre>
+
+<p>当它有CharacterEncodingFilter这个类的时候成立</p>
 
 <pre><code>@ConditionalOnProperty(prefix = &quot;spring.http.encoding&quot;, value = &quot;enabled&quot;, matchIfMissing = true)
-当属性满足要求时，此条件成立  ：要求 如果没有配置spring.http.encoding.enabled=xxx, 则成立。
-</code></pre></li>
-</ul>
+</code></pre>
+
+<p>当属性满足要求时，此条件成立  ：要求 ：如果没有配置spring.http.encoding.enabled=xxx, 则成立。</p>
 
 <p>总结：</p>
 
 <ol>
-<li><p>每一个<code>XxAutoConfiguration</code>都有很多条件<code>@ConditionalOnXxx</code>，当这些条件都满足时，
-则此配置自动装配生效（utf-8）。但是我们可以手工修改改 自动装配：</p>
+<li><p>每一个<code>XxAutoConfiguration</code>都有很多条件<code>@ConditionalOnXxx</code>，当这些条件都满足时，则此配置自动装配生效（utf-8）。</p>
 
-<pre><code>XxxProperties文件中的  
-prefix.属性名=value 
-</code></pre></li>
+<p>但是我们可以手工修改改 自动装配：XxxProperties文件中的</p>
+
+<pre><code>prefix.属性名=value 
+</code></pre>
+
+<p><img src="/resources/技术框架/Spring家族/conditional类型.png" alt="conditional类型" title="conditional类型" /></p></li>
 
 <li><p>全局配置文件中的key， 来源于某个Properties文件中的 prefix+属性名</p>
 
-<pre><code>Springboot通过XxAutoConfiguration实现自动装配 ，修改默认值 XxxProperties（ prefix+属性名）
-</code></pre></li>
+<p>Springboot通过XxAutoConfiguration实现自动装配 ，修改默认值 XxxProperties（ prefix+属性名）</p></li>
 </ol>
 
-<p>如何知道 spring boot开启了哪些自动装配、禁止了哪些自动装配：</p>
+<p>如何知道 spring boot开启了哪些自动装配、禁止了哪些自动装配：application.properties中添加</p>
 
-<pre><code>    application.properties中 debug=true
+<pre><code>debug=true
 </code></pre>
 
 <ul>
 <li><code>Positive matches</code>列表 表示 spring boot自动开启的装配</li>
-<li><code>Negative matches</code>列表 表示spring boot在此时 并没有启用的自动装配。
-
-<br /></li>
+<li><code>Negative matches</code>列表 表示spring boot在此时 并没有启用的自动装配。</li>
 </ul>
-
-<p>自己写的</p>
-
-<p>引入三方依赖（jar、配置）</p>
 
 <h3 id="配置文件">配置文件</h3>
 
@@ -513,20 +657,25 @@ prefix.属性名=value
 
 <p>默认全局配置文件：</p>
 
-<pre><code>application.properties： k=v,或行内写法(k： v，[Set/List/数组] {map,对象类型的属性}，并且 []可省，{}不能省)
+<ul>
+<li><p>application.properties</p>
 
-application.yml: yaml ain't myarkup language ，不是一个标记文档
-</code></pre>
+<p>k=v</p>
 
-<p>注意：
-1. k:空格v<br />
-2. 通过垂直对齐 指定层次关系<br />
-3. 默认可以不写引号； &ldquo;&ldquo;会将其中的转义符进行转义，其他不会</p>
+<p>或行内写法(k： v，)</p></li>
 
-<p>server:</p>
+<li><p>application.yml</p>
 
-<pre><code>port: 8882
-path: /a/b/c
+<dl>
+<dd>yaml ain&rsquo;t myarkup language ，不是一个标记文档</dd>
+</dl></li>
+</ul>
+
+<p>yaml：不是一个标记文档</p>
+
+<pre><code>server:
+    port: 8882
+    path: /a/b/c
 </code></pre>
 
 <p>xml：是一个标记文档</p>
@@ -537,57 +686,165 @@ path: /a/b/c
 &lt;/server&gt;
 </code></pre>
 
-<h3 id="通过yaml给对象注入值">通过yaml给对象注入值：</h3>
+<h3 id="赋值">赋值</h3>
 
-<p>注入值</p>
+<h4 id="通过yaml给对象注入值">通过yaml给对象注入值：</h4>
 
-<p>yaml:</p>
+<p>注意：
+1. k:空格v<br />
+2. 通过垂直对齐 指定层次关系<br />
+3. 默认可以不写引号； &ldquo;&ldquo;会将其中的转义符进行转义，其他不会</p>
 
-<pre><code>student:
-    #name: zs
-    #age: 23
-    sex: true
-    birthday: 2019/02/12
+<p>行内写法</p>
+
+<pre><code>[Set/List/数组] 
+
+{map,对象类型的属性}
 </code></pre>
 
-<p>绑定：</p>
+<p>并且 <code>[]</code>可省，<code>{}</code>不能省</p>
+
+<p>写法一：普通写法</p>
+
+<pre><code>student: 
+    name: zs
+    age: 23
+    sex: true
+    birthday: 2019/02/02
+    location:     
+      province: 陕西1
+      city: 西安1
+      zone: 莲湖区1
+    hobbies: 
+      - 足球
+      - 篮球
+    skills: 
+      - 吃喝
+      - 玩乐
+    pet: 
+      nickname: wc
+      strain: hsq
+</code></pre>
+
+<p>写法二：行内写法</p>
+
+<pre><code>student:
+  uname: x   
+  name: ${student.user.name2:无名}
+  #age: 23
+  sex: true
+  birthday: 2019/02/12
+  location: {province: 陕西,city: 西安, zone: 莲湖区}
+  hobbies: [足球2,篮球22]
+  skills: [编程3,金融33]
+  pet: {nick-name: wc555,strain: hsq}
+  email: 157468995@qq.com
+</code></pre>
+
+<pre><code>ublic class Pet {
+	private String nickname;
+	private String strain;
+}
+</code></pre>
+
+<pre><code>@Component
+@ConfigurationProperties(prefix = &quot;student&quot;)
+public class Student {
+	private String name;
+	private int age;
+	private boolean sex;
+	private Date birthday;
+	private Map&lt;String ,Object&gt; location;
+	private List&lt;String&gt; skills;
+	private String[] hobbies;
+	private Pet pet;
+}
+</code></pre>
+
+<p>@ConfigurationProperties(prefix=&ldquo;student&rdquo;)下面出现黄色警告时，单击add xxx，会在pom.xml中增加依赖（元数据的提示依赖）</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4 id="通过application-properties对属性进行赋值">通过application.properties对属性进行赋值</h4>
+
+<pre><code>student.name=ls
+student.age=23
+</code></pre>
+
+<p>yml与properties两种方式的赋值可以互补使用</p>
+
+<h4 id="通过-value赋值">通过@Value赋值</h4>
+
+<p>在Student.java中使用@Value注解进行赋值</p>
+
+<pre><code>@Value(&quot;33&quot;)
+private int age ;
+</code></pre>
+
+<p>此时不再需要使用@ConfigurationProperties(prefix=&ldquo;student&rdquo;)注解，该注解是在.yml和.properties文件中赋值时使用</p>
+
+<h4 id="小结">小结</h4>
+
+<pre><code>@ConfigurationProperties(yml/properties[优先级高])  
+@Value(&quot;xx&quot;) 二者可以互补
+</code></pre>
+
+<pre><code>	            @ConfigurationProperties)    @Value
+
+    注值	    	    批量注入				单个
+
+    松散语法		        支持				不支持
+
+    SpEL	    	    不支持				支持
+
+    JSR303数据校验	    支持				不支持
+
+    注入复杂类型	        支持				不支持
+</code></pre>
+
+<p>松散语法:驼峰命名法与xx-xx命名方式转换<code>stuName--stu-name</code></p>
+
+<p>SpEL:LspringEL:</p>
+
+<pre><code>@Value(&quot;${student.uname}&quot;) 
+private String userName; 
+</code></pre>
+
+<p>在文件中赋值，通过el语法取值</p>
+
+<p>JSR303数据校验</p>
 
 <pre><code>@Component //将此Javabean
 @ConfigurationProperties(prefix=&quot;student&quot;)
-public class Student 
-</code></pre>
-
-<p>绑定：</p>
-
-<pre><code>@ConfigurationProperties(yml/properties)    
-@Value(&quot;xx&quot;) 二者可以互补
-
-@ConfigurationProperties    @Value
-</code></pre>
-
-<hr />
-
-<pre><code>注值              批量注入                单个
-
-松散语法                支持              不支持
-
-SpEL                不支持             支持
-
-JSR303数据校验      支持              不支持
-
-注入复杂类型          支持              不支持
+@Validated//开启jsr303数据校验的注解
+public class Student {
+    @Email
+    private String email ;
+}
 </code></pre>
 
 <p>简单类型：(8个基本类型/String/Date)</p>
 
-<h3 id="propertysource-默认会加载application-properties-application-yml文件中的数据">@PropertySource：默认会加载application.properties/application.yml文件中的数据；</h3>
+<h3 id="propertysource">@PropertySource</h3>
 
-<pre><code>例如
+<p>默认会加载application.properties/application.yml文件中的数据；如果数据不在这两个文件时，需要借助它指定。</p>
 
-@PropertySource(value={&quot;classpath:conf.properties&quot;})加载conf.properties文件中的数据；
+<p>例如
+    @Component //将此Javabean
+    @ConfigurationProperties(prefix=&ldquo;student&rdquo;)
+    @PropertySource(value={&ldquo;classpath:conf.yml&rdquo;})
+    public class Student {
+    @Value(&ldquo;safasd&rdquo;)
+    }</p>
 
-但是，@PropertySource只能加载properties，不能加载yml
-</code></pre>
+<p>通过注解<code>@PropertySource(value={&quot;classpath:conf.yml&quot;})</code>加载conf.properties文件中的数据；</p>
+
+<p>但是，@PropertySource只能加载properties，不能加载yml</p>
 
 <h3 id="importresource">@ImportResource</h3>
 
@@ -602,9 +859,14 @@ JSR303数据校验      支持              不支持
 
 <p>如果需要识别，则需要在spring boot主配置类上 通过<code>@ImportResource</code>指定配置文件的路径</p>
 
+<pre><code>@ImportResource(locations={&quot;classpath:spring.xml&quot;})
+@SpringBootApplication
+public class HelloWorldApplication {
+</code></pre>
+
 <p>但是不推荐手写spring配置文件。</p>
 
-<p>配置：xml配置文件，通过注解配置。</p>
+<p>配置：xml配置文件，通过注解配置(推荐)。</p>
 
 <p>spring boot推荐时候用注解方式进行配置：写类，<code>@Configuration  @Bean</code>，</p>
 
@@ -614,12 +876,10 @@ JSR303数据校验      支持              不支持
 @Configuration
 public class AppConfig {
     @Bean       
-    public StudentService stuService(){//&lt;bean  id=&quot;xxxxxxxxxxxxx&quot;&gt;
+    public StudentService stuService(){//&lt;bean  id=&quot;xxxxxxxxxxxxx&quot;&gt;  方法名
         StudentService stuService = new StudentService();
-//      
 //      StudentDao stuDao = new StudentDao()  ;
 //      stuService.setStudentDao(stuDao);
-
         return stuService;//返回值 &lt;bean  class=&quot;xxxxxxxxxxxxx&quot;&gt;
     }
 }
@@ -635,25 +895,20 @@ $ {random.int(10)}:10以内的整型数
 $ {random.int[1024,65536]}:指定随机数范围
 </code></pre>
 
-<ul>
-<li>随机数 ${random.uuid}等</li>
+<p>引用变量值</p>
 
-<li><p>引用变量值</p>
+<p>.properties文件中</p>
 
-<p>yml中：</p>
-
-<pre><code>student:
-    name: ${student.user.name}
+<pre><code>student.user.name=zs
 </code></pre>
 
-<p>实际引用的是properties中的student.user.name=zl67</p>
+<p>.yml中引用</p>
 
-<p>yml中：</p>
+<pre><code>${student.user.name}
+${student.user.name:ls}可以指定默认值
+</code></pre>
 
-<pre><code>student:
-    name: ${student.user.name2:无名}
-</code></pre></li>
-</ul>
+<p>两个文件中的值可以互相引用</p>
 
 <p><code>application.properties</code>中没有提示的话
 在pom.xml中添加</p>
@@ -662,46 +917,56 @@ $ {random.int[1024,65536]}:指定随机数范围
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
     &lt;optional&gt;true&lt;/optional&gt;
-&lt;/dependency&gt;       
+&lt;/dependency&gt;
 </code></pre>
 
 <h3 id="多环境的切换-profile">多环境的切换（profile）</h3>
 
-<ul>
-<li><p>properties</p>
+<h4 id="properties文件">properties文件</h4>
 
-<p>默认boot会读取application.properties环境8882
-多个：</p>
+<p>默认spring boot会读取application.properties</p>
+
+<p>多个：</p>
 
 <pre><code>application-环境名.properties
-application-dev.properties8883
-application-test.properties8884
+application-dev.properties
+application-test.properties
 </code></pre>
 
-<p>如果要选择某一个具体的环境： <code>application.properties</code>中指定：<code>spring.profiles.active=环境名</code></p>
+<p>如果要选择某一个具体的环境： <code>application.properties</code>中指定：（环境名:dev,test）</p>
 
-<p>如果将<code>application.properties</code>注释掉，spring boot仍然会读取其他appilcation-环境名.properties中的配置。并且properties的优先级高于yml</p></li>
-
-<li><p>yml</p>
-
-<p>第一个环境（主环境）</p>
-
-<pre><code>server:
-    port: 8883
-spring:
-    profiles:
-        active: dev  指定本次采用的环境
+<pre><code>spring.profiles.active=环境名
 </code></pre>
 
-<p>第二个环境</p>
+<p>如果将<code>application.properties</code>注释掉，spring boot仍然会读取其他<code>appilcation-环境名.properties</code>中的配置。并且properties的优先级高于yml</p>
 
-<pre><code>server:
-    port: 8884
+<h4 id="yml">yml</h4>
+
+<p>环境与环境之间通过&mdash;隔开</p>
+
+<pre><code># 主环境
+server:
+  port: 8883
+#指定环境
+#spring:
+#  profiles:
+#    active: dev
+---
+#环境一
+server:
+  port: 8884
 spring:
-    profiles: dev  环境名
-</code></pre></li>
+  profiles: dev
 
-<li><p>动态切换环境</p>
+--- 
+#环境二 
+server:
+  port: 8885
+spring:
+  profiles: test
+</code></pre>
+
+<h4 id="动态切换环境">动态切换环境</h4>
 
 <ol>
 <li><p>通过运行参数指定环境</p>
@@ -709,36 +974,53 @@ spring:
 <ul>
 <li><p>STS(Eclipse) ：</p>
 
-<p>Run Configuration - Argument - program Argument
-&ndash;spring.profiles.active=环境名</p></li>
+<p>右键&ndash;Run Configuration - Argument(Java Application中指定项目) - program Argument</p>
+
+<pre><code>--spring.profiles.active=环境名
+</code></pre></li>
 
 <li><p>命令行方式：</p>
 
-<p>（项目打jar包：项目右键&ndash;&gt;run as &ndash;&gt;maven build&hellip;&ndash;&gt;Goals:package&ndash;&gt;run&ndash;&gt;在src同级目录target下会出现jar包）
-java -jar 项目名.jar &ndash;spring.profiles.active=环境名</p></li>
+<p>项目打jar包：</p>
+
+<p>项目右键&ndash;&gt;run as &ndash;&gt;maven build&hellip;&ndash;&gt;
+Goals:输入</p>
+
+<pre><code>package
+</code></pre>
+
+<p>&ndash;&gt;run&ndash;&gt;在src同级目录target下会出现jar包</p>
+
+<p>cmd到文件目录，执行</p>
+
+<p>java -jar 项目名.jar &ndash;spring.profiles.active=环境名</p></li>
 </ul></li>
 
 <li><p>通过jvm参数指定环境</p>
 
-<p>STS(Eclipse) ：Run Configuration - Argument - VM
--Dspring.profiles.active=环境名</p></li>
-</ol></li>
-</ul>
+<p>STS(Eclipse) ：Run Configuration - Argument - VM arguments</p>
+
+<pre><code>-Dspring.profiles.active=环境名
+</code></pre></li>
+</ol>
 
 <h3 id="配置文件的位置">配置文件的位置</h3>
 
-<ul>
-<li><p>项目内部的配置文件：</p>
+<h4 id="项目内部的配置文件">项目内部的配置文件：</h4>
 
 <p>properties和yml中的配置，相互补充；如果冲突，则properties优先级高。</p>
 
 <p>spring boot默认能够读取的application.properties/application.yml，这2个文件 可以存在于以下4个地方：</p>
 
-<pre><code>file:项目根目录/config       application.properties
-file:项目根目录          application.properties
-classpath:项目根目录/config  application.properties
-classpath:项目根目录     application.properties
-</code></pre>
+<ol>
+<li><p>file:项目根目录/config</p></li>
+
+<li><p>file:项目根目录</p></li>
+
+<li><p>classpath:项目根目录/config</p></li>
+
+<li><p>classpath:项目根目录</p></li>
+</ol>
 
 <p>注意:</p>
 
@@ -747,74 +1029,125 @@ classpath:项目根目录     application.properties
 <li>如果不冲突，则互补结合使用</li>
 </ol>
 
-<p>配置项目名：</p>
+<h4 id="配置项目名">配置项目名：</h4>
 
-<pre><code>properties文件中
-server.servlet.context-path=/boot
-</code></pre></li>
+<p>properties文件中</p>
 
-<li><p>项目外部的配置文件： (补救)</p>
+<pre><code>server.servlet.context-path=/boot
+</code></pre>
 
-<p>在项目Run configuration ,argumenets:
-&ndash;spring.config.location=D:/application.properties</p>
+<h4 id="项目外部的配置文件-补救">项目外部的配置文件： (补救)</h4>
+
+<p>在项目Run configuration ,argumenets:</p>
+
+<pre><code>--spring.config.location=D:/application.properties
+</code></pre>
 
 <p>如果 同一个配置 同时存在于 内部配置文件 和外部配置文件，则外部&gt;内部</p>
 
-<p>(clean  package)先清理后打包
-HW.jar   运行，8881&ndash;8882</p>
+<p>命令行方式</p>
 
-<p>外部配置文件</p>
+<p>打包文件</p>
 
-<p>通过命令行 调用外部配置文件
-java -jar  项目.jar  &ndash;spring.config.location=D:/application.properties</p></li>
+<pre><code>clean  package
+</code></pre>
 
-<li><p>项目运行参数： (补救)（配置与配置直接可以加空格隔开）</p>
+<p>先清理后打包</p>
 
-<p>在项目Run configuration ,argumenets:
-&ndash;server.port=8883</p>
+<p>cmd到jar路径，通过命令行 调用外部配置文件</p>
 
-<p>通过命令行 调用外部配置文件</p>
+<pre><code>java -jar xxx.jar --spring.config.location=D:/application.properties
+</code></pre>
 
-<p>java -jar  项目.jar  &ndash;server.port=8883</p>
+<h4 id="项目运行参数">项目运行参数</h4>
+
+<p>(补救)（配置与配置直接可以加空格隔开）</p>
+
+<p>在项目Run configuration ,argumenets:</p>
+
+<pre><code>--server.port=8883
+</code></pre>
+
+<p>通过命令行修改配置参数</p>
+
+<p>cmd到jar包</p>
+
+<pre><code>java -jar  项目.jar  --server.port=8883
+</code></pre>
 
 <p>多个地方配置时，如果冲突，优先级：</p>
 
-<p>命令参数（调用外部的配置文件 &gt; 运行参数 ）&gt;内部文件 (properties&gt;yaml)</p>
+<pre><code>命令参数（调用外部的配置文件 &gt; 运行参数 ）&gt;内部文件 (properties&gt;yaml)
+</code></pre>
 
-<p><a href="https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#boot-features-external-config">官网对多配置时的顺序说明：</a></p></li>
-</ul>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#boot-features-external-config">官网对多配置时的顺序说明：</a></p>
 
 <h3 id="日志">日志</h3>
 
-<p>日志框架 UCL 、JUL 、jboss-logging、logback、log4j、log4j2、slf4j&hellip;</p>
+<p>日志框架： UCL 、JUL 、jboss-logging、logback、log4j、log4j2、slf4j&hellip;</p>
 
 <p>spring boot默认选用slf4j，logback，spring boot默认帮我们配置好了日志，我们直接使用即可。</p>
 
-<p>日志级别：（LogLevel类中）</p>
+<h4 id="使用">使用</h4>
 
-<p>TRACE&lt; DEBUG&lt; INFO&lt;WARN&lt; ERROR&lt; FATAL&lt;OFF</p>
+<pre><code>Logger logger =  LoggerFactory.getLogger(HelloWorldApplicationTests.class  );//获取日志对象
+@Test
+public void testLog(){//日志级别
+    logger.trace(&quot;trace********&quot;);
+    logger.debug(&quot;debug********&quot;);
+    logger.info(&quot;info*******&quot;);
+    logger.warn(&quot;warn******&quot;);
+    logger.error(&quot;error****&quot;);
+}
+</code></pre>
+
+<h4 id="日志级别-loglevel类中">日志级别：（LogLevel类中）</h4>
+
+<pre><code>TRACE&lt; DEBUG&lt; INFO&lt;WARN&lt; ERROR&lt; FATAL&lt;OFF
+</code></pre>
 
 <p>springboot默认的日志级别是info（即只打印  info及之后级别的信息）；</p>
 
-<p>也可以自定义级别：全局配置文件中<code>logging.level.org.yq.HelloWorld=warn</code>,即<code>logging.level.主配置类所在包=级别</code></p>
+<p>也可以自定义级别：全局配置文件中</p>
 
-<p>可以通过配置 将日志信息 存储到文件中<code>logging.file=springboot.log</code>存储到了项目的根目录中的<code>springboot.log</code></p>
+<pre><code>logging.level.主配置类所在包=级别
 
-<p>也可以指定 具体的日志路径：<code>logging.file=D:/springboot.log</code></p>
+logging.level.org.yq.HelloWorld=warn
+</code></pre>
 
-<p>也可以存储到一个 文件夹中 ，<code>logging.path=D:/log/</code>，并且默认的文件名是spring.log</p>
+<h4 id="日志存储">日志存储</h4>
 
-<p>指定日志显示格式：</p>
+<p>可以通过配置 将日志信息 存储到文件中</p>
+
+<pre><code>logging.file=springboot.log 
+</code></pre>
+
+<p>存储到了项目的根目录中的<code>springboot.log</code></p>
+
+<p>也可以指定 具体的日志路径：</p>
+
+<pre><code>logging.file=D:/springboot.log
+</code></pre>
+
+<p>也可以存储到一个 文件夹中 ，</p>
+
+<pre><code>logging.path=D:/log/
+</code></pre>
+
+<p>并且默认的文件名是spring.log</p>
+
+<h4 id="指定日志显示格式">指定日志显示格式：</h4>
 
 <ol>
 <li><p>日志显示在console中</p>
 
 <pre><code>logging.pattern.console=%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
+</code></pre>
 
-%d:             日期时间
+<pre><code>%d:             日期时间
 %thread：       线程名
 %-5level：      显示日志级别,-5表示从左显示5个字符宽度
-%logger{50} :   设置日志长度  ，例如o.s.w.s.m.m.a.
+%logger{50} :   设置日志长度  
 %msg：          日志消息
 %n ：           回车
 </code></pre></li>
@@ -822,31 +1155,56 @@ java -jar  项目.jar  &ndash;spring.config.location=D:/application.properties</
 <li><p>日志显示在文件中</p>
 
 <pre><code>logging.pattern.file=%d{yyyy-MM-dd} ** [%thread] ** %-5level ** %logger{50}** %msg%n
-</code></pre>
-
-<p>/org/springframework/boot/logging/<br />
-默认的日志格式，是在jar包中 相应包的xml文件中进行配置。</p>
-
-<p>日志的具体使用规范：<a href="https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#boot-features-custom-log-configuration">官方说明</a></p></li>
+</code></pre></li>
 </ol>
 
-<h3 id="springboot开发web项目-静态资源-html-css-js">springboot开发Web项目 (静态资源 html css js  )</h3>
+<p>默认的日志格式，是在spring-boot.jar包中 相应包的xml文件中进行配置。
+/org/springframework/boot/logging/</p>
 
-<p>new &ndash; spring starer &ndash;设置（选择 需要的场景，web）</p>
+<p>日志的具体使用规范：<a href="https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/#boot-features-custom-log-configuration">官方说明</a></p>
 
-<h4 id="spring-boot是一个jar-因此-静态资源就不是再存放到-webapps中-存放在哪里">spring boot是一个jar，因此 静态资源就不是再存放到 webapps中， 存放在哪里？</h4>
+<h3 id="springboot开发web项目">springboot开发Web项目</h3>
 
-<p>静态资源的存放路径 通过<code>WebMvcAutoConfiguration</code>类-<code>addResourceHandlers()</code>指定:<code>/webjars/</code></p>
+<p>(静态资源 html css js  )</p>
 
-<p>spring boot将静态资源存入到jar包中，引入: 从Jar目录结构的webjars开始写：<code>http://localhost:8080/webjars/jquery/3.3.1-1/jquery.js</code></p>
+<h4 id="新建项目-sts">新建项目（sts）</h4>
 
-<h4 id="如何自己写-静态资源-如何放到如spring-boot中">如何自己写 静态资源，如何放到如spring boot中？</h4>
+<p>new &ndash; spring starer Project &ndash;设置（选择 需要的场景，web）</p>
 
-<p>将自己写的 静态资源-&gt;jar,同上（不推荐）；</p>
+<h4 id="静态资源存放路径">静态资源存放路径</h4>
 
-<p>推荐：</p>
+<p>spring boot是一个jar，因此 静态资源就不是再存放到 webapps中，存放在哪里？</p>
 
-<p>spring boot约定： spring boot将一些目录结构 设置成静态资源存放目录，我们的静态资源直接放入这些目录即可 。目录在哪里？</p>
+<p>静态资源的存放路径 通过<code>WebMvcAutoConfiguration</code>类-<code>addResourceHandlers()</code>指定为:<code>/webjars/</code></p>
+
+<p>spring boot将静态资源存入到jar包中，引入:以后需要引入静态资源时只需要像maven那样去官网找到文件然后添加依赖即可</p>
+
+<pre><code>&lt;!--以前引入js等静态资源，是将这些资源下载并且手工放入到webapp目录中；而springboot将这些静态资源 直接以jar文件（maven）的形式引入项目--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.webjars&lt;/groupId&gt;
+    &lt;artifactId&gt;jquery-ui&lt;/artifactId&gt;
+    &lt;version&gt;1.12.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+
+<p><a href="https://www.webjars.org/">webjars官网</a></p>
+
+<p>使用</p>
+
+<p>访问：从Jar目录结构的webjars开始写：<code>http://localhost:8080/webjars/jquery/3.3.1-1/jquery.js</code></p>
+
+<h4 id="将自定义静态资源放入项目">将自定义静态资源放入项目</h4>
+
+<p>如何自己写 静态资源，如何放到如spring boot中？</p>
+
+<ol>
+<li><p>将自己写的 静态资源-&gt;jar,同上（不推荐）；</p></li>
+
+<li><p>自定扫描方式（推荐）：</p></li>
+</ol>
+
+<p>spring boot约定： spring boot将一些目录结构设置成静态资源存放目录，我们的静态资源直接放入这些目录即可，目录在哪里？</p>
 
 <p><code>ResourceProperties</code>类中的<code>CLASSPATH_RESOURCE_LOCATIONS</code>中设置：</p>
 
@@ -858,9 +1216,9 @@ java -jar  项目.jar  &ndash;spring.config.location=D:/application.properties</
 
 <p>注意：在以上目录存放资源文件后，访问时  不需要加前缀，直接访问即可：<code>http://localhost:8080/world.html</code></p>
 
-<h4 id="设置欢迎页">设置欢迎页：</h4>
+<h4 id="设置欢迎页">设置欢迎页</h4>
 
-<p><code>WebMvcAutoConfiguration</code>类中的<code>welcomePageHandlerMapping()</code> &ndash;&gt;<code>getIndexHtml()</code> &ndash;&gt; <code>location + &quot;index.html&quot;</code> ,即任意一个静态资源目录中的 Index.html就是欢迎页</p>
+<p><code>WebMvcAutoConfiguration</code>类中的<code>welcomePageHandlerMapping()</code> &ndash;&gt;<code>getIndexHtml()</code> &ndash;&gt; <code>location + &quot;index.html&quot;</code> ,即任意一个静态资源目录中的 index.html就是欢迎页</p>
 
 <p>网站中,网页标签的Logo是固定名字  ： favicon.ico</p>
 
@@ -871,13 +1229,14 @@ java -jar  项目.jar  &ndash;spring.config.location=D:/application.properties</
 <p>总结：</p>
 
 <ol>
-<li>通过源码发现静态资源的目录<br /></li>
+<li>通过源码发现静态资源的目录</li>
 <li>用静态资源：只需要将静态资源放入 以上目录即可</li>
-<li>其他特定的文件（欢迎页、ico），只需要 根据约定（index.html  favicon.ico）  放入该目录即可
-<br /></li>
+<li>其他特定的文件（欢迎页、ico），只需要 根据约定（index.html  favicon.ico）  放入该目录即可</li>
 </ol>
 
-<h4 id="如何自定义静态资源目录-properties文件中的-prefix-属性">如何自定义静态资源目录（Properties文件中的 prefix+属性） ：</h4>
+<h4 id="自定义静态资源目录">自定义静态资源目录</h4>
+
+<p>如何自定义静态资源目录（Properties文件中的 prefix+属性） ：</p>
 
 <pre><code>spring.resources.static-locations=classpath:/res/, classpath:/img/
 </code></pre>
@@ -886,51 +1245,107 @@ java -jar  项目.jar  &ndash;spring.config.location=D:/application.properties</
 
 <p>注意:自定义静态资源目录后  以前默认的目录会失效</p>
 
-<h2 id="动态资源-jsp-spring-boot默认不支持">动态资源： JSP(spring boot默认不支持)</h2>
+<h2 id="动态资源">动态资源：</h2>
+
+<p>JSP(spring boot默认不支持)</p>
 
 <p>推荐：模板引擎 thymeleaf</p>
 
 <p>网页= 模板+数据</p>
 
-<h3 id="引入thymeleaf-到官网查询-thymeleaf的依赖-maven">引入thymeleaf：到官网查询 thymeleaf的依赖（Maven）</h3>
+<h3 id="引入thymeleaf">引入thymeleaf</h3>
 
-<h4 id="使用thymeleaf-代码在哪里写">使用thymeleaf:代码在哪里写？</h4>
+<p>到官网查询 thymeleaf的依赖<a href="https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/reference/html/using-spring-boot.html#using-boot-starter">官网</a></p>
 
-<pre><code>    ThymeleafAutoCongifutation 、
-    XxProperties
+<h4 id="使用thymeleaf">使用thymeleaf</h4>
+
+<p><a href="https://www.thymeleaf.org/">thymeleaf官网</a></p>
+
+<p>代码在哪里写？</p>
+
+<p>查找自动装配jar包spring-boot-autoconfigure.jar，去里面查找响应的依赖找到XxProperties注解类，查看默认值</p>
+
+<p>今后查看默认值只需要查看</p>
+
+<pre><code>XXXAutoCongifutation 、
+XxProperties
 </code></pre>
 
 <p>通过ThymeleafProperties源码得知：</p>
 
-<p>使用thymeleaf只需要将 文件放入目录：<code>&quot;classpath:/templates/&quot;;</code> 文件的后缀： <code>&quot;.html&quot;;</code></p>
+<p>使用thymeleaf只需要将 文件放入目录：<code>&quot;classpath:/templates/&quot;;</code> 文件的后缀： <code>.html;</code></p>
 
-<p>注意：在以前传统的web项目中：静态资源修改后  是不需要重启的；但是在spring boot项目中，修改后 需要重启。</p>
+<h4 id="使用-1">使用</h4>
 
-<pre><code>&lt;p th:text=&quot;${welcome}&quot;&gt;welcome to thymeleaf....&lt;/p&gt;
+<p>引入命名空间</p>
+
+<pre><code>&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+</code></pre>
+
+<h4 id="引入标签">引入标签</h4>
+
+<pre><code>&lt;p th:text=&quot;${welcome}&quot;&gt;Welcome to our grocery store!&lt;/p&gt;
+</code></pre>
+
+<h4 id="控制器传值">控制器传值</h4>
+
+<pre><code>@RequestMapping(&quot;/welcome&quot;)
+public String welcome(Map&lt;String,Object&gt; map) {
+    map.put(&quot;welcome&quot;, &quot;welcome--hahahhaha&quot;);
+    return &quot;welcome&quot;;
+}
 </code></pre>
 
 <p>以上，先从<code>${welcome}</code>中取值，如果有 则直接显示；如果没有，则在显示<code>welcome to thymeleaf....</code></p>
 
+<p>注意：在以前传统的web项目中：静态资源修改后  是不需要重启的；但是在spring boot项目中，修改后 需要重启。</p>
+
 <p><code>th</code>就是替换原有html的值：<code>th:html属性名=值</code> ;</p>
 
 <pre><code>&lt;p id=&quot;pid&quot; class=&quot;pclass&quot;  th:id=&quot;${welcome}&quot; th:class=&quot;${welcome}&quot;  th:text=&quot;${welcome}&quot;&gt;welcome to thymeleaf....&lt;/p&gt;
+</code></pre>
 
-th:xx  (参见第10章  Attrubite Pre....)
+<pre><code>th:xx  (参见第10章  Attrubite Pre....)
 th:text   获取文本值(不转义) 显示&lt;h1&gt;hello&lt;/h1&gt;
 th:utext  获取文本值    显示 将hello 渲染为h1后的效果
+</code></pre>
 
-符号
-th:text=&quot;${welcome}&quot; ，除了$以外  其他符号？ 查看第四章  Standard Express....
+<p>符号</p>
+
+<pre><code>th:text=&quot;${welcome}&quot; 
+</code></pre>
+
+<p>除了$以外  其他符号？ 查看第四章  Standard Express&hellip;.</p>
+
+<pre><code>&lt;div th:each=&quot;prod : ${prods}&quot;&gt;
+    &lt;h4 th:text=&quot;${prod.name}&quot;&gt;11&lt;/h4&gt;
+    &lt;h4 th:text=&quot;${prod.price}&quot;&gt;11&lt;/h4&gt;
+    &lt;h4 th:text=&quot;${prod.inStock}&quot;&gt;11&lt;/h4&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code>@RequestMapping(&quot;/welcome1&quot;)
+public String welcome1(Map&lt;String,Object&gt; map) {
+    List&lt;Product&gt; prods = new ArrayList&lt;&gt;();
+    
+    prods.add(new Product(&quot;a&quot;,1000,100));
+    prods.add(new Product(&quot;b&quot;,1001,101));
+    prods.add(new Product(&quot;c&quot;,1002,102));
+    prods.add(new Product(&quot;d&quot;,1003,103));
+    
+    map.put(&quot;prods&quot;, prods);
+    return &quot;welcome&quot;;
+}
 </code></pre>
 
 <h3 id="spring-boot整合jsp开发">Spring boot整合JSP开发</h3>
 
 <p>之前spring boot默认 自带一个内置的tomcat，不需要打war包，直接通过Jar即可运行。但是，如果要整合jsp开发，就需要 单独配置一个 外置的tomcat ，需要打war包。</p>
 
-<h4 id="spring-boot整合jsp开发步骤">Spring boot整合JSP开发步骤：</h4>
+<h3 id="spring-boot整合jsp开发步骤">Spring boot整合JSP开发步骤：</h3>
 
 <ol>
-<li><p>新建boot项目，war</p>
+<li><p>新建spring boot项目，war</p>
 
 <p>注意：</p>
 
@@ -945,15 +1360,19 @@ th:text=&quot;${welcome}&quot; ，除了$以外  其他符号？ 查看第四章
 
 <li><p>建立基本的web项目所需要的目录结构</p>
 
-<pre><code>    webapps/WEB-INF(需要)
-    webapps/WEB-INF/web.xml (不需要)
-    webapps/index.jsp
+<pre><code>webapps/WEB-INF(需要)
+webapps/WEB-INF/web.xml (不需要)
+webapps/index.jsp
 </code></pre></li>
 
-<li><p>创建tomcat实例、部署项目<br />
-    访问：
-    域名：端口/项目名/文件名
-    <code>http://localhost:8080/SbJSP/index.jsp</code></p></li>
+<li><p>创建tomcat实例、部署项目</p>
+
+<p>访问：</p>
+
+<p>域名：端口/项目名/文件名</p>
+
+<pre><code>http://localhost:8080/SbJSP/index.jsp
+</code></pre></li>
 </ol>
 
 <p>分析：</p>
