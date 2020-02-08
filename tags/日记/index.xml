@@ -191,6 +191,24 @@
     </item>
     
     <item>
+      <title>JSP学习笔记</title>
+      <link>https://mumulx.github.io/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>源码 JSP:动态网页 静态、动态： 不用 和 是否有“动感”混为一谈 是否随着时间、地点、用户操作的改变而改变 动态网页需要使用到服务端脚本语言（JSP</description>
+    </item>
+    
+    <item>
+      <title>JSP进阶学习笔记</title>
+      <link>https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>源码 EL Expression Launguage:可以代替JSp页面中的Java代码 传统的在jsp代码中显示java代码 需要使用&amp;lt;%%&amp;gt;&amp;lt;%=%</description>
+    </item>
+    
+    <item>
       <title>Linux Centos6安装</title>
       <link>https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>

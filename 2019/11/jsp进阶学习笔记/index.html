@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        JSP进阶学习笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="JSP进阶学习笔记." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>JSP进阶学习笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="JSP进阶学习笔记" />
+<meta property="og:description" content="JSP进阶学习笔记." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="JSP进阶学习笔记">
+<meta itemprop="description" content="JSP进阶学习笔记.">
+
+
+<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="17866">
+
+
+
+<meta itemprop="keywords" content="J2EE," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JSP进阶学习笔记"/>
+<meta name="twitter:description" content="JSP进阶学习笔记."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">8</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/quartz%E6%A1%86%E6%9E%B6/" class="title">Quartz框架</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-29</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Dubbo自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/" class="title">SQL优化Mysql版</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/" class="title">MybatisPlus和Mapper框架</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/" class="title">自定义RPC Java</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#el">EL</a>
+<ul>
+<li><a href="#el表达式的隐式对象">EL表达式的隐式对象</a></li>
+</ul></li>
+<li><a href="#jstl">JSTl</a></li>
+<li><a href="#通用标签库">通用标签库</a>
+<ul>
+<li><a href="#c-set-赋值"><code>&lt;c:set&gt;</code>赋值</a></li>
+<li><a href="#c-out-显示"><code>&lt;c:out&gt;</code>  ：显示</a></li>
+<li><a href="#c-remove-删除属性"><code>&lt;c:remove &gt;</code>：删除属性</a></li>
+<li><a href="#选择">选择：</a></li>
+</ul></li>
+<li><a href="#过滤器">过滤器：</a></li>
+<li><a href="#监听器">监听器</a>
+<ul>
+<li><a href="#监听对象属性的变更">监听对象属性的变更</a></li>
+</ul></li>
+<li><a href="#session钝化">session钝化</a></li>
+<li><a href="#ajax">Ajax</a>
+<ul>
+<li><a href="#js">js</a></li>
+<li><a href="#jquery-推荐">jquery:推荐</a></li>
+</ul></li>
+<li><a href="#ajax处理json数据">Ajax处理JSON数据</a></li>
+</ul></li>
+<li><a href="#idea开发web">IDEA开发Web</a>
+<ul>
+<li><a href="#配置tomcat">配置tomcat</a>
+<ul>
+<li><a href="#idea中tomcat乱码">idea中tomcat乱码：</a></li>
+<li><a href="#热部署问题-jsp-java">热部署问题(jsp+java)</a></li>
+</ul></li>
+<li><a href="#jndi">JNDI</a>
+<ul>
+<li><a href="#diea-jar包">DIEA JAR包</a></li>
+</ul></li>
+<li><a href="#连接池">连接池</a>
+<ul>
+<li><a href="#tomcat-dbcp">Tomcat-dbcp</a></li>
+<li><a href="#dbcp连接池">dbcp连接池</a></li>
+<li><a href="#basicdatasource方式">BasicDataSource方式</a></li>
+<li><a href="#basicdatasourcefactory方式">BasicDataSourceFactory方式</a></li>
+<li><a href="#无参-硬编码">无参，硬编码</a></li>
+<li><a href="#有参-配置文件">有参，配置文件</a></li>
+<li><a href="#数据源工具类">数据源工具类</a></li>
+</ul></li>
+<li><a href="#apache-dbutils">Apache DBUtils</a>
+<ul>
+<li><a href="#apache-dbutils-增删改">apache dbutils 增删改</a></li>
+<li><a href="#手动提交事务">手动提交事务</a></li>
+</ul></li>
+<li><a href="#元数据-metadata">元数据(MetaData)</a></li>
+<li><a href="#自定义标签">自定义标签</a>
+<ul>
+<li><a href="#编写标签处理类">编写标签处理类</a></li>
+<li><a href="#编写标签描述符-tld">编写标签描述符  tld</a></li>
+<li><a href="#导入并使用">导入并使用</a></li>
+<li><a href="#实际开发步骤">实际开发步骤</a></li>
+<li><a href="#简单方式">简单方式</a></li>
+<li><a href="#实例使用简单标签实现登录功能">实例使用简单标签实现登录功能</a></li>
+</ul></li>
+<li><a href="#验证码">验证码</a></li>
+</ul></li>
+<li><a href="#集群">集群：</a>
+<ul>
+<li><a href="#搭建集群">搭建集群：</a>
+<ul>
+<li><a href="#配置mod-jk-so">配置mod_jk.so：</a></li>
+<li><a href="#分布式session策略">分布式session策略：</a></li>
+<li><a href="#集群-1">集群</a></li>
+<li><a href="#细节">细节：</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >JSP进阶学习笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/j2ee/"> J2EE </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:17866字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:36分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/JSP">源码</a></p>
+
+<h3 id="el">EL</h3>
+
+<p>Expression Launguage:可以代替JSp页面中的Java代码</p>
+
+<p>传统的在jsp代码中显示java代码  需要使用<code>&lt;%%&gt;&lt;%=%&gt;</code>   需要处理null  类型转换   代码参杂   &mdash;》EL</p>
+
+<p>EL示例</p>
+
+<pre><code>${域对象.域对象中的属性.对象属性的属性......级联属性}
+${requestScope.student.sno}、
+${requestScope.student.address.homeAddress}
+${requestScope.student[&quot;address&quot;]['schoolAddress']}
+</code></pre>
+
+<p>EL操作符：</p>
+
+<ul>
+<li>点操作符.                 使用方便</li>
+
+<li><p><code>[&quot;&quot;]</code> 或者<code>['']</code>操作符  功能强大：可以使用特殊字符<code>(.   、  -)</code> 获取变量值<code>int a =10</code> ;   <code>[a]</code>可以获取变量值10 加&rdquo;&ldquo;是常量，不加&rdquo;&ldquo;是变量,可以访问数组</p>
+
+<pre><code>点操作符：$(requestScope.my-name)       不可以
+[&quot;&quot;]操作符：$(requestScope['my-name'])  可以
+数组：$(requestScope。hobbies[0])
+数组：$(requestScope。hobbies[1])
+</code></pre></li>
+</ul>
+
+<p>获取 map属性   map</p>
+
+<pre><code>Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;ud&quot;,&quot;df&quot;);
+map.put(&quot;dfs&quot;,&quot;dsfsdf&quot;);
+request.setAttribute(&quot;map&quot;,map);
+
+${requestScope.map.ud}
+${requestScope.map[&quot;dfs&quot;]
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/EL.png" alt="EL" title="EL.png" /></p>
+
+<pre><code>${9&gt;8}、${9 gt 8}
+
+${3&gt;2||3&lt;2&gt;}、${3&gt;2 or 3&lt;2&gt;}
+</code></pre>
+
+<p>Empty运算符</p>
+
+<p>判断一个值是否null，</p>
+
+<p>不存在或null:true</p>
+
+<p>存在:false</p>
+
+<pre><code>${empty requestScope[&quot;my-name&quot;]}
+</code></pre>
+
+<h4 id="el表达式的隐式对象">EL表达式的隐式对象</h4>
+
+<p>不需要new就能使用的对象，自带的</p>
+
+<ol>
+<li><p>作用域访问对象（EL域对象）</p>
+
+<pre><code>pageScopeScope
+requestScope
+sessionScope
+applicationScope   
+</code></pre>
+
+<p>如果没指定域对象则从小到大一次查找</p></li>
+
+<li><p>参数访问对象</p>
+
+<p>获取表单数据\超链接地址栏的值
+jsp :</p>
+
+<pre><code>request.getParameter()request.getParameterValues()
+</code></pre>
+
+<p>EL</p>
+
+<pre><code>${param}
+${paramValues}
+</code></pre>
+
+<p>如</p>
+
+<pre><code>${param.uname}
+${paramValues.hobbies[0]}
+${paramValues.hobbies[1]}
+</code></pre></li>
+
+<li><p>JSP隐式对象</p>
+
+<p>pageContext</p>
+
+<p>在 jsp中可以使用pageContext获取其他jsp的隐式对象：
+因此如果在EL中使用JSP隐式对象，就可以通过pageContext间接获取
+    ${pageContext.方法名去掉get并且将首字母小写}
+    ${pageContext.request}
+    ${pageContext.session}</p>
+
+<p>可以使用此方法获取级联对象</p>
+
+<pre><code>${pageContext.request.serverPort}
+</code></pre></li>
+</ol>
+
+<h3 id="jstl">JSTl</h3>
+
+<p>JSTl比EL更加强大比EL更加强大</p>
+
+<p>需要引入jar包：</p>
+
+<pre><code>jstl.jar    
+standard.jar    
+</code></pre>
+
+<p>复制到lib</p>
+
+<p>引入tablib</p>
+
+<p>在jsp中导包</p>
+
+<pre><code>&lt;%@ uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;
+</code></pre>
+
+<p>其中prefix=&ldquo;c&rdquo;：前缀</p>
+
+<p>核心标签库：通用标签库、条件标签库  迭代标签库</p>
+
+<h3 id="通用标签库">通用标签库</h3>
+
+<h4 id="c-set-赋值"><code>&lt;c:set&gt;</code>赋值</h4>
+
+<ol>
+<li><p>某个作用域（4个范围对象）中给某个变量赋值</p>
+
+<pre><code>&lt;c:set var=&quot;属性名&quot;   value=&quot;属性值&quot;   scope=&quot;作用域&quot;/&gt;
+&lt;c:set var=&quot;name&quot;   value=&quot;aaa&quot;   scope=&quot;request&quot;/&gt;
+</code></pre></li>
+
+<li><p>在某个作用域中给某个对象（和map）的属性进行赋值,不需要指定scope属性</p>
+
+<pre><code>&lt;c:set target=&quot;对象&quot; property=&quot;对象的属性&quot;  value=&quot;赋值&quot; /&gt;
+${requestScope.student.sname}
+&lt;c:set target=&quot;${requestScope.student}&quot;  property=&quot;sname&quot;  value=&quot;fdsdf&quot;/&gt;
+</code></pre>
+
+<p>给map对象赋值</p>
+
+<pre><code>&lt;c:set target=&quot;${requestScope.countries}&quot; property=&quot;cn&quot;  value=&quot;中国&quot; /&gt;
+</code></pre>
+
+<p><code>&lt;c:set/&gt;</code>可以给不存在的变量赋值,不能给不存在的对象赋值</p>
+
+<pre><code>&lt;c：set var=&quot;x&quot; values= &quot;dfg&quot; dcope=&quot;request&quot;/&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="c-out-显示"><code>&lt;c:out&gt;</code>  ：显示</h4>
+
+<pre><code>传统EL：${requestScope.student }&lt;br/&gt;
+c:out方式：&lt;c:out value=&quot;${requestScope.student }&quot;   /&gt;&lt;br/&gt;
+c:out显示不存在的数据：&lt;c:out value=&quot;${requestScope.stu }&quot;   default=&quot;zs-23&quot;/&gt;&lt;br/&gt;
+
+true:&lt;c:out value='&lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;' default=&quot;当value为空的，显示的默认值&quot; escapeXml=&quot;true&quot; /&gt;      原样输出
+
+false：  &lt;c:out value='&lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;' escapeXml=&quot;false&quot; /&gt;  解析标签
+</code></pre>
+
+<h4 id="c-remove-删除属性"><code>&lt;c:remove &gt;</code>：删除属性</h4>
+
+<pre><code>&lt;c:remove var=&quot;a&quot; scope=&quot;request&quot;/&gt;
+</code></pre>
+
+<h4 id="选择">选择：</h4>
+
+<p>if(boolean)</p>
+
+<p>单重选择</p>
+
+<pre><code>&lt;c:if test=&quot;${1&gt;2}&quot;&gt;&lt;/c:if&gt;
+&lt;c:if test=&quot;${1&gt;2}&quot; var=&quot;result&quot; scope=&quot;request&quot; &gt;&lt;/c:if&gt;
+</code></pre>
+
+<p>将运算结果赋值为result并且放入scope域中</p>
+
+<p>多重选择</p>
+
+<pre><code>if else if... esle if... else  /switch
+</code></pre>
+
+<pre><code>&lt;c:choose&gt;
+	&lt;c:when test=&quot;${}&quot;&gt;   &lt;/c:when&gt;
+	&lt;c:when test=&quot;${}&quot;&gt;   &lt;/c:when&gt;
+	&lt;c:when test=&quot;${}&quot;&gt;   &lt;/c:when&gt;
+	&lt;c:otherwise&gt;   &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+</code></pre>
+
+<p>判断语句使用el语法</p>
+
+<p>在使用 test=&ldquo;&rdquo; 一定要注意后面是否有空格
+例如：</p>
+
+<pre><code>test=&quot;${10&gt;2 }&quot;   true
+test=&quot;${10&gt;2 } &quot;  非true
+
+true+&quot; &quot;==String
+</code></pre>
+
+<p>任何类型遇到字符串变成字符串</p>
+
+<p>循环（迭代标签库）</p>
+
+<pre><code>for(int i=0;i&lt;=5;i++)
+</code></pre>
+
+<pre><code>&lt;c:forEach  begin=&quot;0&quot;  end=&quot;5&quot; step=&quot;1&quot;  varStatus=&quot;status&quot;&gt;
+    ${status.index } 第几次
+        test....
+&lt;/c:forEach&gt;
+</code></pre>
+
+<pre><code>for(String str:names)
+</code></pre>
+
+<pre><code>&lt;c:forEach  var=&quot;student&quot; items=&quot;${requestScope.students }&quot; &gt;
+    ${student.sname }-${student.sno }
+&lt;/c:forEach&gt;
+</code></pre>
+
+<h3 id="过滤器">过滤器：</h3>
+
+<p>实现一个Filter接口</p>
+
+<p>init()、destroy() 原理、执行时机 同Servlet</p>
+
+<pre><code>//要想将 一个普通的class 编程一个 具有特定功能的类（过滤器、拦截....），要么继承 父类、要么实现一个接口、要么增加一个注解
+public class MyFilter implements Filter {//过滤器
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println(&quot;filter..init..&quot;);
+    }
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        System.out.println(&quot;拦截请求......&quot;);
+        chain.doFilter(request, response);//放行
+        System.out.println(&quot;拦截响应......&quot;);
+    }
+    @Override
+    public void destroy() {
+        System.out.println(&quot;filter..destroy..&quot;);
+    }
+}
+</code></pre>
+
+<p>配置过滤器，类似servlet</p>
+
+<pre><code> &lt;!-- 配置过滤器 --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;MyServlet&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.student.filter.MyFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;MyFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/MyServlet&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre>
+
+<p>通过doFilter()处理拦截，并且通过chain.doFilter(request, response);放行</p>
+
+<p>filter映射</p>
+
+<p>只拦截 访问MyServlet的请求</p>
+
+<pre><code>&lt;url-pattern&gt;/MyServlet&lt;/url-pattern&gt;
+</code></pre>
+
+<p>拦截一切请求（每一次访问 都会被拦截）</p>
+
+<pre><code>&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+</code></pre>
+
+<p>通配符</p>
+
+<p>dispatcher请求方式：</p>
+
+<pre><code>REQUEST：拦截HTTP请求 get post
+FORWARD：只拦截 通过 请求转发方式的请求
+INCLUDE:只拦截拦截通过 request.getRequestDispatcher(&quot;&quot;).include()  、通过&lt;jsp:include page=&quot;...&quot; /&gt;此种方式发出的请求
+ERROR：只拦截&lt;error-page&gt;发出的请求
+</code></pre>
+
+<p>过滤器中doFilter方法参数：ServletRequest</p>
+
+<p>在Servlet中的方法参数：HttpServletRequest</p>
+
+<pre><code>&lt;filter-mapping&gt;
+    &lt;filter-name&gt;MyServlet&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+    &lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt;
+&lt;/filter-mapping&gt;
+
+</code></pre>
+
+<p>过滤器链</p>
+
+<p>可以配置多个过滤器，过滤器的先后顺序 是由
+<code>&lt;filter-mapping&gt;</code>的位置 决定</p>
+
+<h3 id="监听器">监听器</h3>
+
+<p>一个类实现了三个接口</p>
+
+<p>监听对象的创建销毁</p>
+
+<p>&mdash;四个范围对象   PageContext  request  session  application</p>
+
+<p>监听对象request  response  application   各自一个监听器</p>
+
+<pre><code>request：ServletRequestListener
+response：HttpSessionListener
+application：ServletContextListener
+</code></pre>
+
+<p>每个监听器提供了两个方法   一个开始一个结束</p>
+
+<p>ServletContext在Servlet启动时自动创建</p>
+
+<pre><code>
+//监听器实现接听接口    
+public class ContextSessionRequestListner implements ServletRequestListener,HttpSessionListener,ServletContextListener{
+    //application（ServletContext）
+    public void contextDestroyed(ServletContextEvent arg0) {
+        System.out.println(&quot;监听ServletConntext，创建Servlet对象........&quot;+arg0);
+    }
+    public void contextInitialized(ServletContextEvent arg0) {
+        System.out.println(&quot;监听ServletConntext，销毁Servlet对象........&quot;+arg0);
+    }
+    //session
+    public void sessionCreated(HttpSessionEvent se) {
+        System.out.println(&quot;监听HttpSession，创建HttpSession对象........&quot;+se);
+    }
+    public void sessionDestroyed(HttpSessionEvent se) {
+        System.out.println(&quot;监听HttpSession,销毁HttpSession对象........&quot;+se);
+    }
+    //request
+    public void requestDestroyed(ServletRequestEvent sre) {
+        System.out.println(&quot;监听ServletRequest,销毁ServletRequest对象........&quot;+sre);
+    }
+    public void requestInitialized(ServletRequestEvent sre) {
+        System.out.println(&quot;初始化ServletRequest,创建ServletRequest对象........&quot;+sre);
+    }
+}
+</code></pre>
+
+<p>web.xml配置监听器</p>
+
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;org.ycit.listner.ContextSessionRequestListner&lt;/listener-class&gt;
+&lt;/listener&gt; 
+</code></pre>
+
+<h4 id="监听对象属性的变更">监听对象属性的变更</h4>
+
+<pre><code>request：ServletRequestAttributeListener
+response：HttpSessionAttributeListener
+application：ServletServletContextAttributeListener
+</code></pre>
+
+<p>每个方法有三个方法(创建、删除、修改)</p>
+
+<pre><code>
+public class AttributeListener implements ServletRequestAttributeListener,HttpSessionAttributeListener,ServletContextAttributeListener{
+    public void attributeAdded(ServletContextAttributeEvent arg0) {
+        String attrName = arg0.getName();
+        Object attrValue = arg0.getServletContext().getAttribute(attrName);
+        System.out.println(&quot;ServletContex【增加】属性&quot;+attrName+&quot;属性值:  &quot;+attrValue);
+    }
+    @Override
+    public void attributeRemoved(ServletContextAttributeEvent arg0) {
+        System.out.println(&quot;ServletContex【删除】属性&quot;+arg0.getName());
+    }
+    public void attributeReplaced(ServletContextAttributeEvent arg0) {
+        String attrName = arg0.getName();
+        Object attrValue = arg0.getServletContext().getAttribute(attrName);
+        System.out.println(&quot;ServletContex【替换】属性&quot;+attrName+&quot;属性值:  &quot;+attrValue);
+    }
+    public void attributeAdded(HttpSessionBindingEvent arg0) {
+    }
+    public void attributeRemoved(HttpSessionBindingEvent arg0) {
+    }
+    public void attributeReplaced(HttpSessionBindingEvent arg0) {
+    }
+    public void attributeAdded(ServletRequestAttributeEvent srae) {
+    }
+    public void attributeRemoved(ServletRequestAttributeEvent srae) {
+    }
+    public void attributeReplaced(ServletRequestAttributeEvent srae) {
+    }
+}
+</code></pre>
+
+<p>配置  web.xml</p>
+
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;&lt;/listener-class&gt;
+
+&lt;/listener&gt;     
+</code></pre>
+
+<h3 id="session钝化">session钝化</h3>
+
+<p>客户端访问服务器会分配session对象(在内存中)
+当访问量很多的时候会使得内存放不下   我们可以将session放入硬盘中(钝化)</p>
+
+<p>从硬盘取到内存中叫活化</p>
+
+<p>session对象的四种状态：     不需要配xml</p>
+
+<p>监听绑定和解绑<code>HttpSessionBindingListener</code></p>
+
+<p>监听Session对象的钝化和活<code>HttpSessionActivationListener</code></p>
+
+<ol>
+<li><p>session.setAttribute(&ldquo;aa&rdquo;,&ldquo;dfg&rdquo;)对象aa绑定到session中(增加)</p></li>
+
+<li><p>session.removeAttribute(&ldquo;aa&rdquo;) 将对象aa从session中解绑(删除)</p>
+
+<p>每次访问时会先后创建session对象，然后再删除之前绑定的session对象</p></li>
+
+<li><p>钝化</p></li>
+
+<li><p>活化</p>
+
+<p>方法WillPa  监听钝化之前</p>
+
+<p>Did  刚刚进行活化之后</p></li>
+</ol>
+
+<p>如何钝化和活化</p>
+
+<p>钝化</p>
+
+<p>配置  tomcat安装目录/conf/context.xml</p>
+
+<p>添加； 最大空闲时间；5秒钟没访问就钝化</p>
+
+<pre><code>&lt;Manager className=&quot;org.apache.catalina.session.PersistentManager&quot; maxIdleSwap=&quot;5&quot;&gt;
+    &lt;Store className=&quot;apache.catalina.session.FileStore&quot; directory=&quot;aqa&quot;/&gt;
+&lt;/Manager&gt;
+</code></pre>
+
+<pre><code>FileStore:拖过该类具体操作
+
+directory:相对路径      
+
+相对于tomcat/work/Catalina/localhost/项目名/aqa
+</code></pre>
+
+<p>活化:自动活化</p>
+
+<p>两个本质：序列化反序列化   需要借助Serializable接口</p>
+
+<pre><code>类名 implements HttpSessionActivationListener,Serializable
+</code></pre>
+
+<p>总结：
+钝化活化实际的执行是通过tomcat中的context.xml中进行配置</p>
+
+<p>HttpSessionActivationListener只是负责session钝化和活化时予以监听</p>
+
+<p>需要实现Serializable接口</p>
+
+<p>活化：session中获取某一个对象时，如果该对象不存在时，则直接尝试从之前钝化的文件中去获取(活化)</p>
+
+<h3 id="ajax">Ajax</h3>
+
+<p>异步js 和 xml</p>
+
+<p>异步刷新： 如果网页中某一个地方需要修改，异步刷新可以使：只刷新该需要修改的地方，而页面中其他地方 保持不变。例如：百度搜索框、视频的点赞</p>
+
+<p>实现：</p>
+
+<p>js:   XMLHttpRequest对象</p>
+
+<p>XMLHttpRequest对象的方法：</p>
+
+<pre><code>open(方法名(提交方式get|post),服务器地址,true) :与服务端建立连接true异步刷新，false全局刷新
+
+send():
+
+    get:    send(null)
+    post:   send(参数值)
+
+setRequestHeader(header,value):
+    get:不需要设置此方法
+
+    post:需要设置：
+    a.如果请求元素中包含了 文件上传:
+
+        setRequestHeader(&quot;Content-Type&quot;,&quot;multipart/form-data&quot;);
+    b.不包含了 文件上传
+
+        setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;)
+</code></pre>
+
+<p>XMLHttpRequest对象的属性：</p>
+
+<pre><code>readyState:请求状态   只有状态为4 代表请求完毕
+status:响应状态  只有200 代表响应正常
+onreadystatechange:回调函数
+responseText：响应格式为String
+responseXML：相应格式为XML
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/请求状态.png" alt="请求状态" title="请求状态" /></p>
+
+<p><img src="/resources/技术收录/J2EE/响应状态.png" alt="响应状态" title="响应状态" /></p>
+
+<h4 id="js">js</h4>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function register()
+    {
+        var mobile = document.getElementById(&quot;mobile&quot;).value;
+        //通过ajax异步方式 请求服务端
+        xmlHttpRequest = new XMLHttpRequest();
+        //设置xmlHttpRequest对象的回调函数
+        xmlHttpRequest.onreadystatechange = callBack  ;
+        xmlHttpRequest.open(&quot;post&quot;,&quot;MobileServlet&quot;,true);
+        //设置post方式的 头信息
+        xmlHttpRequest.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+    }
+    function registerGet()
+    {
+        var mobile = document.getElementById(&quot;mobile&quot;).value;
+        //通过ajax异步方式 请求服务端
+        xmlHttpRequest = new XMLHttpRequest();
+        //设置xmlHttpRequest对象的回调函数
+        xmlHttpRequest.onreadystatechange = callBack  ;
+        xmlHttpRequest.open(&quot;get&quot;,&quot;MobileServlet?mobile=&quot;+mobile,true);
+        //设置post方式的 头信息  ,get不需要
+        //xmlHttpRequest.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+        xmlHttpRequest.send(null);//k=v
+    }
+    //定义回调函数 (接收服务端的返回值)
+    function callBack(){
+        if(xmlHttpRequest.readyState ==4 &amp;&amp; xmlHttpRequest.status   ==200){
+            //接收服务端返回的数据
+            var data = xmlHttpRequest.responseText ;//服务端返回值为string格式
+            alert(data.length +&quot;===&quot;+data)
+            if(data == &quot;true&quot;){
+                alert(&quot;请号码已存在,请更换！&quot;);
+            }else{
+                alert(&quot;注册成功！&quot;);
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+
+<pre><code>手机：&lt;input  id=&quot;mobile&quot;/&gt;
+    &lt;br/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;注册&quot; onclick=&quot;registerGet()&quot; /&gt;
+</code></pre>
+
+<pre><code>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+    response.setCharacterEncoding(&quot;utf-8&quot;);
+    response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+    String mobile =  request.getParameter(&quot;mobile&quot;) ;
+    //假设此时 数据库中 只有一个号码：18888888888
+    //if(mobile.equals(&quot;18888888888&quot;)) {
+    PrintWriter out = response.getWriter();
+    if(&quot;18888888888&quot;.equals(mobile)) {
+        //return true ;
+    //out.write(&quot;true&quot;);//servlet以输出流的方式  将信息 返回给客户端
+        //out.write(&quot;此号码已存在！&quot;);
+        //如果客户端是getJSON(),则需要以json格式返回数据
+        out.write( &quot;{\&quot;msg\&quot;:\&quot;true\&quot;}&quot;   );//   {&quot;\&quot;msg\&quot;:\&quot;true\&quot;&quot;}
+    }else {
+        //return false ;
+    //out.write(&quot;false&quot;);
+        //out.write(&quot;注册成功！&quot;);
+        out.write( &quot;{\&quot;msg\&quot;:\&quot;false\&quot;}&quot;   );// &quot;\&quot;msg\&quot;:\&quot;false\&quot;&quot; 
+    }
+    out.close();
+}
+</code></pre>
+
+<h4 id="jquery-推荐">jquery:推荐</h4>
+
+<pre><code>$.ajax({
+    url:服务器地址,
+    请求方式:get|post,
+    data:请求数据,
+    success:function(result,testStatus)
+    {
+    },
+    error:function(xhr,errrorMessage,e){
+    }
+});
+</code></pre>
+
+<pre><code>$.get(
+    服务器地址,
+    请求数据,
+function (result){
+
+},
+预期返回值类型（string\xml）
+);
+</code></pre>
+
+<pre><code>$.post(
+    服务器地址,
+    请求数据,
+function (result){
+
+},
+	&quot;xml&quot; 或 &quot;json&quot; 或 &quot;text&quot; 
+);
+</code></pre>
+
+<pre><code>$(xxx).load(
+    服务器地址,
+    请求数据
+);
+</code></pre>
+
+<p>load:将服务端的返回值  直接加载到$(xxx)所选择的元素中
+JSON</p>
+
+<pre><code>$.getJSON(
+服务器地址,
+JSON格式的请求数据,
+function (result){
+
+}
+
+);
+</code></pre>
+
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    function register()
+    {
+        var $mobile = $(&quot;#mobile&quot;).val();
+        /*
+        $.ajax({
+            url:&quot;MobileServlet&quot;,
+            请求方式:&quot;post&quot;,
+            data:&quot;mobile=&quot;+$mobile, 
+            success:function(result,testStatus)
+            {
+                if(result == &quot;true&quot;){
+                    alert(&quot;已存在！注册失败！&quot;);
+                }else{
+                    alert(&quot;注册成功！&quot;);
+                }
+            },
+            error:function(xhr,errrorMessage,e){
+                alert(&quot;系统异常！&quot;);
+            }
+            });
+        $.post(
+                &quot;MobileServlet&quot;,
+                &quot;mobile=&quot;+$mobile,
+            function (result){
+                if(result == &quot;true&quot;){
+                    alert(&quot;已存在！注册失败！&quot;);
+                }else{
+                    alert(&quot;注册成功！&quot;);
+                }
+            },
+            &quot;text&quot;
+            );
+        $.get(
+                &quot;MobileServlet&quot;,
+                &quot;mobile=&quot;+$mobile,
+            function (result){
+                if(result == &quot;true&quot;){
+                    alert(&quot;已存在！注册失败！&quot;);
+                }else{
+                    alert(&quot;注册成功！&quot;);
+                }
+            }
+            );
+        $(&quot;#tip&quot;).load(
+            &quot;MobileServlet&quot;,
+            &quot;mobile=&quot;+$mobile
+        );
+        var student = {&quot;name&quot;:&quot;zs&quot; ,  &quot;age&quot;:23} ;
+        //alert(student.name +&quot;--&quot; +student.age) ;
+        //var name = [&quot;xx&quot;,&quot;xx&quot;,&quot;xx&quot;] ;
+        var students =[
+            {&quot;name&quot;:&quot;zs&quot; ,  &quot;age&quot;:23} ,
+            {&quot;name&quot;:&quot;ls&quot; ,  &quot;age&quot;:24} ,
+            {&quot;name&quot;:&quot;ww&quot; ,  &quot;age&quot;:25} 
+        ];
+        alert(students[1].name +&quot;--&quot; +students[1].age) ;
+        */
+        $.getJSON(
+            &quot;MobileServlet&quot;,
+        //	&quot;mobile=&quot;+$mobile,
+            {&quot;mobile&quot;:$mobile},
+        function (result){//msg:true|false
+                alert(123);
+                if(result.msg == &quot;true&quot;){
+                    alert(&quot;已存在！注册失败！&quot;);
+                }else{
+                    alert(&quot;注册成功！&quot;);
+                }
+            }
+        );
+    }
+&lt;/script&gt;
+</code></pre>
+
+<pre><code>手机：&lt;input  id=&quot;mobile&quot;/&gt;
+&lt;br/&gt;
+&lt;input type=&quot;button&quot; value=&quot;注册&quot; onclick=&quot;register()&quot; /&gt;
+&lt;span id=&quot;tip&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+<h3 id="ajax处理json数据">Ajax处理JSON数据</h3>
+
+<p>jar包</p>
+
+<pre><code>commons-beanutils-1.7.0.jar
+commons-lang-2.6.jar
+commons-collections-3.2.1.jar
+commons-logging-1.1.3.jar
+ezmorph-1.0.6.jar
+json-lib-2.4-jdk15.jar
+</code></pre>
+
+<pre><code>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+    response.setCharacterEncoding(&quot;utf-8&quot;);
+    response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+    PrintWriter out = response.getWriter();
+    //测试前端传来的数据
+    String name2 = request.getParameter(&quot;name&quot;) ;
+    String age2 = request.getParameter(&quot;age&quot;) ;
+    System.out.println(name2+&quot;--&quot;+age2);
+    Student stu1 = new Student();
+    stu1.setAge(23);
+    stu1.setName(&quot;zs&quot;);
+    Student stu2 = new Student();
+    stu2.setAge(44);
+    stu2.setName(&quot;ls&quot;);
+    Student stu3 = new Student();
+    stu3.setAge(55);
+    stu3.setName(&quot;ww&quot;);
+
+    JSONObject json = new JSONObject() ;
+    json.put(&quot;stu1&quot;,stu1 ) ;
+    json.put(&quot;stu2&quot;,stu2 ) ;
+    json.put(&quot;stu3&quot;,stu3 ) ;
+    out.print( json);// 返回json对象     {&quot;stu1&quot;:stu1, &quot;stu2&quot;:stu2,&quot;stu3&quot;:stu3 }
+    out.close(); 
+}
+</code></pre>
+
+<pre><code>/* json中只有一个对象的情况
+function  testJson()
+{
+    $.getJSON(
+            &quot;JsonServlet&quot;,
+            {&quot;name&quot;:&quot;zs&quot;,  &quot;age&quot;:24},
+        function (result){
+                //js需要通过eval()函数  将返回值 转为一个js能够识别的json对象
+            var jsonStudent = eval(result.stu1) ;
+            alert(jsonStudent.name  +&quot;---&quot;+ jsonStudent.age) ;
+        }
+    );
+}
+*/
+/* json中有多对象的情况*/
+function  testJson()
+{
+    $.getJSON(
+            &quot;JsonServlet&quot;,
+            {&quot;name&quot;:&quot;zs&quot;,  &quot;age&quot;:24},
+        function (result){ 
+                // result：  {&quot;stu1&quot;:stu1, &quot;stu2&quot;:stu2,&quot;stu3&quot;:stu3 }
+                //js需要通过eval()函数  将返回值 转为一个js能够识别的json对象
+            var json = eval(result) ;
+            $.each( json, function(i,element){
+                alert( this.name +&quot;---&quot;+ this.age );
+            } );
+        }
+    );
+}
+</code></pre>
+
+<h2 id="idea开发web">IDEA开发Web</h2>
+
+<h3 id="配置tomcat">配置tomcat</h3>
+
+<p>run&ndash;》Edit Configurations&ndash;&gt;点击加号&ndash;&gt;Tomcat Server</p>
+
+<p>选择tomcat，jre</p>
+
+<p>Deployment部署项目，设置项目名</p>
+
+<h4 id="idea中tomcat乱码">idea中tomcat乱码：</h4>
+
+<ol>
+<li>file - settings - 搜File Encodings,全部改为utf-8</li>
+
+<li><p>打开idea安装目录/bin，在idea64.exe.vmoptions和idea.exe.vmoptions最后追加</p>
+
+<pre><code>-Dfile.encoding=UTF-8
+</code></pre></li>
+
+<li><p>配置tomcat的页面中：VM option设置：</p>
+
+<pre><code>-Dfile.encoding=UTF-8
+</code></pre></li>
+</ol>
+
+<h4 id="热部署问题-jsp-java">热部署问题(jsp+java)</h4>
+
+<p>在配置tomcat的页面</p>
+
+<ul>
+<li>Update:更新操作（经过测试，很多时候无效）</li>
+<li>Frame:idea失去焦点时触发</li>
+</ul>
+
+<p>推荐选项：</p>
+
+<ul>
+<li>Update：任意</li>
+<li>Frame:update classes and resources</li>
+</ul>
+
+<p>idea：热部署</p>
+
+<ul>
+<li>如果是run启动，仅JSP等静态资源有效</li>
+<li>如果是debug启动，java和jsp等均有效</li>
+</ul>
+
+<p>总结 热部署：</p>
+
+<ol>
+<li>Frame:update classes and resources</li>
+<li>以debug模式启动</li>
+</ol>
+
+<p>注意：编写servlet前 需要先加入tomcat环境</p>
+
+<p>打开Project Structure &ndash;》Modules &ndash;&gt;右边加号&ndash;&gt;Library&ndash;》tomcat</p>
+
+<p>Servlet3.0注解方式的参数设置访问路径的为url-pattern,也是默认值，值中要含有项目根目录/;例</p>
+
+<pre><code>@javax.servlet.annotation.WebServlet( &quot;/MyServlet&quot;)
+</code></pre>
+
+<p>注意注解参数的值中有没有url-pattern,和值正不正确</p>
+
+<p>自动导包</p>
+
+<p>Settings&ndash;&gt;Editor&ndash;&gt;General&ndash;&gt;Auto Import</p>
+
+<h3 id="jndi">JNDI</h3>
+
+<p>java命名与目录接口</p>
+
+<p>pageContext &lt; request&lt; session&lt;  application(一个项目运行期间都有效)</p>
+
+<p>jndi:将某一个资源（对象），以配置文件(tomcat/conf/context.xml)的形式写入；</p>
+
+<p>实现步骤：</p>
+
+<p>tomcat/conf/context.xml配置：</p>
+
+<pre><code>&lt;Context&gt;
+    &lt;Environment  name=&quot;jndiName&quot;  value=&quot;jndiValue&quot; type=&quot;java.lang.String&quot; /&gt;
+</code></pre>
+
+<p>jsp中用：</p>
+
+<pre><code>&lt;%
+    Context ctx =  new InitialContext() ;
+    String testJndi =  (String)ctx.lookup(&quot;java:comp/env/jndiName&quot;);
+    out.print(testJndi);
+%&gt;
+</code></pre>
+
+<h4 id="diea-jar包">DIEA JAR包</h4>
+
+<ul>
+<li><p>java项目</p>
+
+<p>复制粘贴jar包&ndash;》右键Add as Library</p></li>
+
+<li><p>Web项目</p>
+
+<ol>
+<li><p>WEB-INF新建目录lib</p></li>
+
+<li><p>将jar包复制到目录</p></li>
+
+<li><p>Project Structure&ndash;&gt;Artifacts&ndash;&gt;右边添加文件夹lib</p></li>
+</ol></li>
+</ul>
+
+<p>Eclipse中的web项目引入jar:只需要 jar 放入web-context/lib/xx.jar,Eclipse就会将web-context/lib/中的所有jar存放到项目的全部生命周期中</p>
+
+<p>IDEA：会将web-context/lib/中的所有jar包，只存在于运行阶段生效</p>
+
+<p>开发（编写、编译）- 运行(commons-dbcp.jar  )</p>
+
+<p>即idea中Web-Content/lib/的jar，只在运行时生效，在其他阶段不生效。</p>
+
+<p>解决方案： gradle/maven</p>
+
+<p>手工解决（了解）:原理-结论</p>
+
+<ol>
+<li><p>jar包本身只在 运行时有效(ojdbc.jar)</p>
+
+<pre><code>    Class.forName()
+    DriverManager.getCOnnection()
+    Presss
+    Connection
+</code></pre>
+
+<p>处理办法：</p>
+
+<ol>
+<li><p>只需要将jar复制在Web-Content/lib/ojdbc7.jar</p>
+
+<p>问题：有时候延迟较长</p></li>
+
+<li><p>Structure - Artifacts - output</p></li>
+</ol></li>
+</ol>
+
+<p>2.commons-dbcp.jar （开发时、运行均有效）</p>
+
+<pre><code>Web-Content/lib/commons-dbcp.jar  --只在运行时有效
+
+手工解决： 将commons-dbcp.jar 在开发时也有效：
+
+直接将jar复制到工程src中，右键-Add as Library...    
+</code></pre>
+
+<p>常见错误：</p>
+
+<p>仅仅将jar引用在了Dependencies中，并且将jar的生命周期选择为了compile -错误</p>
+
+<p>错误原因：</p>
+
+<p>web项目结构：web约定jar是存放在lib中</p>
+
+<p>总结论：</p>
+
+<ol>
+<li>java项目，和eclipse,在项目src中复制粘贴jar包右键 add as library</li>
+
+<li><p>web项目：</p>
+
+<ol>
+<li><p>jar本身就只在运行阶段有效ojdbc.jar</p>
+
+<p>只需要复制Web-Content/lib/中即可。</p></li>
+
+<li><p>jar在各个阶段均有效</p>
+
+<p>要复制Web-Content/lib/中即可</p>
+
+<p>再复制src中，右键-Add as library&hellip;</p></li>
+</ol></li>
+</ol>
+
+<p>或Project Structure中Modules添加jar包</p>
+
+<h3 id="连接池">连接池</h3>
+
+<p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。</p>
+
+<p>常见连接池：Tomcat-dbcp、dbcp、c3p0、druid</p>
+
+<p>可以用数据源(javax.sql.DataSource)管理连接池</p>
+
+<h4 id="tomcat-dbcp">Tomcat-dbcp</h4>
+
+<p><img src="/resources/技术收录/J2EE/resource.png" alt="resource" title="resource" /></p>
+
+<ol>
+<li><p>类似jndi,在context.xml中配置数据库</p>
+
+<pre><code>&lt;Context&gt;    
+    &lt;Resource name=&quot;student&quot; auth=&quot;Container&quot; type=&quot;javax.sql.DataSource&quot; 
+        maxActive=&quot;400&quot; 
+        maxIdle=&quot;20&quot;  maxWait=&quot;5000&quot;  username=&quot;scott&quot; password=&quot;tiger&quot; 
+driverClassName=&quot;oracle.jdbc.driver.OracleDriver&quot;  url=&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot; /&gt;
+</code></pre></li>
+
+<li><p>在项目的web.xml中</p>
+
+<pre><code>&lt;resource-ref&gt;
+    &lt;res-ref-name&gt;student&lt;/res-ref-name&gt;
+    &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+    &lt;res-auth&gt;Container&lt;/res-auth&gt;
+&lt;/resource-ref&gt;
+</code></pre></li>
+
+<li><p>使用数据源</p>
+
+<p>更改 连接对象Connection的获取方式  ：</p>
+
+<ul>
+<li><p>传统Jdbc方式</p>
+
+<pre><code>connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+</code></pre></li>
+
+<li><p>数据源方式：</p>
+
+<pre><code>Context ctx = new InitialContext() ;//context.xml
+DataSource ds = (DataSource)ctx.lookup(&quot;java:comp/env/student&quot;) ;
+connection = ds.getConnection();
+</code></pre></li>
+</ul></li>
+</ol>
+
+<p>tomcat-dbcp数据源总结：</p>
+
+<ol>
+<li>配置数据源（context.xml）<br /></li>
+<li>指定数据源（web.xml）</li>
+<li>用数据源  ：通过数据库获取Connection</li>
+</ol>
+
+<h4 id="dbcp连接池">dbcp连接池</h4>
+
+<p>Jar包</p>
+
+<pre><code>commons-dbcp-1.4.jar
+commons-pool.jar
+</code></pre>
+
+<p>连接池：</p>
+
+<p>怎么用？
+* 不用连接池</p>
+
+<pre><code>    Class.forName();
+    Connection connection = DriverManager.getConnection();//连接指向数据库
+</code></pre>
+
+<ul>
+<li><p>用连接池的核心：将连接的指向改了，现在指向的是数据源 而不是数据库。</p>
+
+<pre><code>....-&gt; DataSource ds = ....
+Connection connection =ds.getConnection();//指向的是数据源的连接
+</code></pre></li>
+</ul>
+
+<p>数据库访问核心 -&gt; pstmt/stmt -&gt;connection</p>
+
+<ol>
+<li>直接数据库</li>
+
+<li><p>数据源 ds.getConnection()</p>
+
+<pre><code>PreparedStatemnt pstmt = connection.preparedStatement();
+</code></pre></li>
+</ol>
+
+<p>dbcp获取ds:</p>
+
+<pre><code>1. BasicDataSource
+2. BasicDataSourceFactory
+</code></pre>
+
+<h4 id="basicdatasource方式">BasicDataSource方式</h4>
+
+<p>（硬编码）：DasicDataSource对象设置各种数据</p>
+
+<p><img src="/resources/技术收录/J2EE/BasicDataSource.png" alt="BasicDataSource" title="BasicDataSource" /></p>
+
+<pre><code>//获取dbcp方式的ds对象
+public static DataSource getDataSourceWIthDBCP(){
+    BasicDataSource dbcp = new BasicDataSource();
+    dbcp.setDriverClassName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+    dbcp.setUrl(&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;);
+    dbcp.setUsername(&quot;scott&quot;);
+    dbcp.setPassword(&quot;tiger&quot;);
+    dbcp.setInitialSize(20);
+    dbcp.setMaxActive(10);
+    return dbcp;
+}
+</code></pre>
+
+<pre><code>getDataSourceWIthDBCP().getConnection() 
+</code></pre>
+
+<h4 id="basicdatasourcefactory方式">BasicDataSourceFactory方式</h4>
+
+<p>配置方式（.properties文件, 编写方式key=value）</p>
+
+<p>dbcpconfig.properties</p>
+
+<pre><code>driverClassName=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+username=scott
+password=tiger
+initialSize=10
+</code></pre>
+
+<pre><code>public static DataSource getDataSourceWIthDBCPByProperties() throws Exception{
+    DataSource dbcp = null ;
+    Properties props = new Properties();
+    InputStream input = new DBCPDemo().getClass().getClassLoader().getResourceAsStream(&quot;dbcpconfig.properties&quot;);
+    props.load(input);
+    //只需要记住以下一句
+    dbcp = BasicDataSourceFactory.createDataSource(props) ;
+    return dbcp;
+}
+</code></pre>
+
+<pre><code>getDataSourceWIthDBCPByProperties().getConnection();
+</code></pre>
+
+<p>报错：NoClassDefFoundError异常 说明少jar</p>
+
+<p>DataSource 是所有sql数据源的上级类。BasicDataSource是dbcp类型的数据源,ComboPooledDataSource是c3p0类型的数据源；XxxDataSource&hellip;</p>
+
+<p>###c3p0连接池</p>
+
+<p>两种方式</p>
+
+<ul>
+<li>硬编码</li>
+<li>配置文件</li>
+</ul>
+
+<p>-&gt;合二为一 ，通过<code>ComboPooledDataSource</code>的构造方法参数区分：</p>
+
+<ul>
+<li>如果无参，硬编码；</li>
+<li>有参，配置文件</li>
+</ul>
+
+<p>jar包</p>
+
+<pre><code>c3p0.jar  c3p0-oracle-thin-extras.jar
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/ComboPooledDataSource.png" alt="ComboPooledDataSource" title="ComboPooledDataSource" /></p>
+
+<h4 id="无参-硬编码">无参，硬编码</h4>
+
+<pre><code>public static DataSource getDataSourceWithC3P0(){
+    ComboPooledDataSource c3p0 = new ComboPooledDataSource();
+    try {
+        c3p0.setDriverClass(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+    } catch (PropertyVetoException e) {
+        e.printStackTrace();
+    }
+    c3p0.setJdbcUrl(&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;);
+    c3p0.setUser(&quot;scott&quot;);
+    c3p0.setPassword(&quot;tiger&quot;);
+    return c3p0 ;
+}
+</code></pre>
+
+<h4 id="有参-配置文件">有参，配置文件</h4>
+
+<p>c3p0-config.xml</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;c3p0-config&gt;
+    &lt;default-config&gt;
+        &lt;!-- 如果要研究某个xml中可以设置哪些属性。找相关类的 属性 或者setXxx()--&gt;
+        &lt;property name=&quot;user&quot;&gt;scott&lt;/property&gt;
+        &lt;property name=&quot;password&quot;&gt;tiger&lt;/property&gt;
+        &lt;property name=&quot;driverClass&quot;&gt;oracle.jdbc.driver.OracleDriver&lt;/property&gt;
+        &lt;property name=&quot;jdbcUrl&quot;&gt;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&lt;/property&gt;
+        &lt;property name=&quot;checkoutTimeout&quot;&gt;30000&lt;/property&gt;
+    &lt;/default-config&gt;
+    &lt;named-config name=&quot;yanqun&quot;&gt;
+        &lt;property name=&quot;user&quot;&gt;scott&lt;/property&gt;
+        &lt;property name=&quot;password&quot;&gt;tiger&lt;/property&gt;
+        &lt;property name=&quot;driverClass&quot;&gt;oracle.jdbc.driver.OracleDriver&lt;/property&gt;
+        &lt;property name=&quot;jdbcUrl&quot;&gt;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&lt;/property&gt;
+        &lt;property name=&quot;checkoutTimeout&quot;&gt;20000&lt;/property&gt;
+    &lt;/named-config&gt;
+&lt;/c3p0-config&gt;
+</code></pre>
+
+<pre><code>public static DataSource getDataSourceWithC3P0ByXml(){
+    ComboPooledDataSource c3p0 = new ComboPooledDataSource(&quot;yanqun&quot;);
+    return c3p0 ;
+}
+</code></pre>
+
+<p>oralce修改密码：</p>
+
+<p>管理员状态 sqlplus / as sysdba</p>
+
+<pre><code>alter user scott identified by tiger ;
+</code></pre>
+
+<p>所有连接池的思路：</p>
+
+<ul>
+<li><p>硬编码，某个连接池数据源的</p>
+
+<pre><code>对象 ds = new XxxDataSource(); ds.setXxx();  return ds ;
+</code></pre></li>
+
+<li><p>配置文件</p>
+
+<pre><code>ds = new XxxDataSource();加载配置文件  ,return ds ;
+</code></pre></li>
+</ul>
+
+<h4 id="数据源工具类">数据源工具类</h4>
+
+<p>dbcp、c3p0,  druid</p>
+
+<pre><code>public class DataSourceUtil {
+    //获取dbcp方式的ds对象
+    public static DataSource getDataSourceWIthDBCP(){
+        BasicDataSource dbcp = new BasicDataSource();
+        dbcp.setDriverClassName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+        dbcp.setUrl(&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;);
+        dbcp.setUsername(&quot;scott&quot;);
+        dbcp.setPassword(&quot;tiger&quot;);
+        dbcp.setInitialSize(20);
+        dbcp.setMaxActive(10);
+        return dbcp;
+    }
+    public static DataSource getDataSourceWIthDBCPByProperties() throws Exception{
+        DataSource dbcp = null ;
+        Properties props = new Properties();
+        InputStream input = new DBCPDemo().getClass().getClassLoader().getResourceAsStream(&quot;dbcpconfig.properties&quot;);
+        props.load(  input );
+        //只需要记住以下一句
+        dbcp = BasicDataSourceFactory.createDataSource(props ) ;
+        return dbcp;
+    }
+    public static DataSource getDataSourceWithC3P0(){
+        ComboPooledDataSource c3p0 = new ComboPooledDataSource();
+        try {
+            c3p0.setDriverClass(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+        } catch (PropertyVetoException e) {
+            e.printStackTrace();
+        }
+        c3p0.setJdbcUrl(&quot;jdbc:oracle:thin:@127.0.0.1:1521:ORCL&quot;);
+        c3p0.setUser(&quot;scott&quot;);
+        c3p0.setPassword(&quot;tiger&quot;);
+        return c3p0 ;
+    }
+    public static DataSource getDataSourceWithC3P0ByXml(){
+        ComboPooledDataSource c3p0 = new ComboPooledDataSource(&quot;yanqun&quot;);
+        return c3p0 ;
+    }
+}
+</code></pre>
+
+<h3 id="apache-dbutils">Apache DBUtils</h3>
+
+<p>jar</p>
+
+<pre><code>commons-dbutils-1.7.jar
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/DbUtils常见方法.png" alt="DbUtils常见方法" title="DbUtils常见方法" /></p>
+
+<p>其中包含以下几个重点类：</p>
+
+<pre><code>DbUtils、QueryRunner、ResultSetHandler
+</code></pre>
+
+<ol>
+<li>DbUtils：辅助</li>
+
+<li><p>QueryRunner：增删改查</p>
+
+<pre><code>update()
+query()
+</code></pre>
+
+<p>oracle:dml,commit</p>
+
+<p>mysql:dml自动提交</p></li>
+
+<li><p>如果是查询，则需要ResultSetHandler接口，有很多实现类,一个实现类对应于一种 不同的查询结果类型</p></li>
+</ol>
+
+<p>实现类ArrayHandler ：返回结果集中的第一行数据，并用Object[]接收</p>
+
+<pre><code>//select *from student ;  -&gt; List&lt;Student&gt;
+//查询单行数据
+public static void testArrayHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    Object[] student = runner.query(&quot;select * from student where id &gt; ? &quot; ,new ArrayHandler(),1) ;
+    System.out.println( student[0]+&quot;,&quot;+student[1]);
+}
+</code></pre>
+
+<p>实现类ArrayListHandler：返回结果集中的多行数据， <code>List&lt;Object[]&gt;</code></p>
+
+<pre><code>//查询单多数据
+public static void testArrayListHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    List&lt;Object[]&gt; students = runner.query(&quot;select * from student where id &gt; ? &quot; ,new ArrayListHandler(),1) ;
+    for(Object[] student:students){
+        System.out.println( student[0]+&quot;,&quot;+student[1]);
+    }
+}
+</code></pre>
+
+<p>BeanHandler ：返回结果集中的第一行数据，用对象(Student)接收</p>
+
+<pre><code>//查询单行数据(放入对象中)
+public static void testBeanHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    Student student = runner.query(&quot;select * from student where id &gt; ? &quot; ,new BeanHandler&lt;Student&gt;(Student.class),1) ;
+    System.out.println( student.getId()+&quot;,&quot;+student.getName());
+}
+</code></pre>
+
+<p>BeanListHandler：返回结果集中的多行数据， <code>List&lt;Student&gt; students</code>,   stu   stu2  stu3</p>
+
+<pre><code> //查询多行数据(放入对象中)
+public static void testBeanListHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    List&lt;Student&gt; students = runner.query(&quot;select * from student where id &gt; ? &quot; ,new BeanListHandler&lt;Student&gt;(Student.class),1) ;
+    for(Student student:students){
+        System.out.println( student.getId()+&quot;,&quot;+student.getName());
+    }
+}
+</code></pre>
+
+<p>BeanMapHandler</p>
+
+<p>1:stu1,2:stu2.3:stu3</p>
+
+<pre><code>//查询多行数据(放入map中)
+public static void testBeanMapHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务     --   java中对应oracle默认的数值类型  BigDecimal
+    Map&lt;BigDecimal,Student&gt; students = runner.query(&quot;select * from student where id &gt; ? &quot; ,new BeanMapHandler&lt;BigDecimal,Student&gt;( Student.class,&quot;id&quot; ),1) ;
+
+    // 2: ls,  3:ww
+    Student stu = students.get(new BigDecimal(2)) ;
+    System.out.println(stu.getId()+&quot;,&quot;+stu.getName());
+}
+</code></pre>
+
+<p>反射会通过无参构造来创建对象</p>
+
+<p>&ndash; Map</p>
+
+<p>MapHandler:：返回结果集中的第一行数据</p>
+
+<p>{id=1 ,name=zs}</p>
+
+<pre><code>//查询单行数据 map
+public static void testMapHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    Map&lt;String,Object&gt; student = runner.query(&quot;select * from student where id &gt; ? &quot; ,new MapHandler(),1) ;
+    System.out.println( student);
+}
+</code></pre>
+
+<p>MapListHandler：返回结果集中的多行数据</p>
+
+<p>{{id=2 ,name=ls}，{id=3 ,name=ww}}</p>
+
+<pre><code>//查询多行数据 map
+public static void testMapListHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    List&lt;Map&lt;String,Object&gt;&gt; students = runner.query(&quot;select * from student where id &gt; ? &quot; ,new MapListHandler(),1) ;
+    System.out.println( students);
+}
+</code></pre>
+
+<p>KeyedHanlder:</p>
+
+<p>{ls={id=2 ,name=ls}，ww={id=3 ,name=ww}}</p>
+
+<pre><code>//查询多行数据 keyed
+public static void testKeyedHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    Map&lt;String,Map&lt;String,Object&gt;&gt; students = runner.query(&quot;select * from student where id &gt; ? &quot; ,new KeyedHandler&lt;String&gt;(&quot;name&quot;),1) ;
+    System.out.println( students);
+}
+</code></pre>
+
+<p>ColumnListHander ：把结果集中的某一列 保存到List中</p>
+
+<pre><code>//查询多行数据中的某一列
+public static void testColumnListHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+    List&lt;String&gt; names = runner.query(&quot;select * from student where id &gt; ? &quot; ,new ColumnListHandler&lt;String&gt;(&quot;name&quot;),1) ;
+    System.out.println( names);
+}
+</code></pre>
+
+<p>ScalarHandler   ：单值结果</p>
+
+<pre><code>//查询单值数据
+public static void testScalarHandler() throws SQLException {
+    QueryRunner runner = new QueryRunner(DataSourceUtil.getDataSourceWithC3P0ByXml());//自动提交事务
+//        BigDecimal result = runner.query(&quot;select name from student where id = ? &quot; ,new ScalarHandler&lt;BigDecimal&gt;(),2) ;
+    String result = runner.query(&quot;select name from student where id = ? &quot; ,new ScalarHandler&lt;String&gt;(),2) ;
+    System.out.println( result);
+}
+</code></pre>
+
+<p>问题：查询的实现类的参数问题</p>
+
+<pre><code>query(...,  Object... params ) 
+</code></pre>
+
+<p>其中Object&hellip; params代表可变参数：  既可以写单值，也可以写一个数组</p>
+
+<pre><code>runner.query(&quot;... where id = ? and name like ?  &quot; ,new ArrayHandler(),new Object[]{1,&quot;%s%&quot;}) ;
+
+runner.query(&quot;... where id = ?&quot; ,new ArrayHandler(),1) ;
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/QueryRunner类的常用方法.png" alt="QueryRunner类的常用方法" title="QueryRunner类的常用方法" /></p>
+
+<p><img src="/resources/技术收录/J2EE/ResultSetHandler实现类.png" alt="ResultSetHandler实现类" title="ResultSetHandler实现类" /></p>
+
+<h4 id="apache-dbutils-增删改">apache dbutils 增删改</h4>
+
+<p>自动提交事务 update(sql,参数);update(sql);</p>
+
+<p>手动提交事务 update(connection ,sql,参数);</p>
+
+<pre><code>public static void add() throws SQLException {
+    QueryRunner runner =  new QueryRunner(DataSourceUtil.getDataSourceWithC3P0()) ;
+    int count = runner.update( &quot;insert into student(id,name) values(?,?)&quot;,new Object[]{4,&quot;zl&quot;} ) ;
+    System.out.println(count);
+}
+public static void delete() throws SQLException {
+    QueryRunner runner =  new QueryRunner(DataSourceUtil.getDataSourceWithC3P0()) ;
+    int count = runner.update( &quot;delete from student where id = ?&quot;,4 ) ;
+    System.out.println(count);
+}
+public static void update() throws SQLException {
+    QueryRunner runner =  new QueryRunner(DataSourceUtil.getDataSourceWithC3P0()) ;
+    int count = runner.update( &quot;update student set name = ? where id = ?&quot;,new Object[]{&quot;xx&quot;,3} ) ;
+    System.out.println(count);
+}
+</code></pre>
+
+<h4 id="手动提交事务">手动提交事务</h4>
+
+<p>基础知识：</p>
+
+<p>如果既要保证数据安全，又要保证性能，可以考虑ThreadLocal</p>
+
+<p>ThreadLocal:可以为每个线程 复制一个副本。每个线程可以访问自己内部的副本。
+别名 :线程本地变量</p>
+
+<pre><code>set():给tl中存放一个 变量
+get():从tl中获取变量（副本），
+remove();删除副本
+</code></pre>
+
+<p>对于数据库来说，一个连接 对应于一个事务 ，一个事务可以包含多个DML操作</p>
+
+<pre><code>Service(多个原子操作) -&gt; Dao(原子操作)
+</code></pre>
+
+<p>如果给每个 dao操作 都创建一个connection，则 多个dao操作对应于多个事务；</p>
+
+<p>但是 一般来讲，一个业务(service) 中的多个dao操作 应该包含在一个事务中。</p>
+
+<p>-&gt;解决，ThreadLocal, 在第一个dao操作时 真正的创建一个connection对象，然后在其他几次dao操作时，借助于tl本身特性 自动将该connection复制多个（connection只创建了一个，因此该connection中的所有操作 必然对应于同一个事务； 并且tl将connection在使用层面复制了多个，因此可以同时完成多个dao操作）</p>
+
+<p>事务流程： 开启事务（将自动提交-&gt;手工提交） -&gt;进行各种DML
+-&gt;正常，将刚才所有DML全部提交 （全部成功）</p>
+
+<p>-&gt;失败（异常），将刚才所有DML全部回滚（全部失败）</p>
+
+<p>事务的操作 全部和连接Connection密切相关</p>
+
+<pre><code>public class JDBCUtil {
+    private static ThreadLocal&lt;Connection&gt; threadLocal = new ThreadLocal&lt;&gt;() ;
+    public static Connection getConnection() throws SQLException {
+        Connection conn = threadLocal.get();//获取tl中的变量，如果不够，会自动创建副本
+        if(conn == null){
+            conn = DataSourceUtil.getDataSourceWithC3P0().getConnection();
+            threadLocal.set(conn);
+        }
+        return conn;
+    }
+    //开启事务
+    public static void beginTransaction() throws SQLException {
+       //连接
+        Connection conn =  getConnection() ;
+        conn.setAutoCommit(false);//开启事务
+    }
+    //正常。提交事务
+    public static void commitTransaction() throws SQLException {
+        //连接
+        Connection conn =  getConnection() ;
+        //所有的 对象.方法()  全部排空
+        if(conn !=null)
+            conn.commit();
+    }
+    //失败。回滚事务
+    public static void rollbackTransaction() throws SQLException {
+        //连接
+        Connection conn =  getConnection() ;
+        if(conn !=null)
+            conn.rollback();
+    }
+    public static void close() throws SQLException{
+        Connection conn =  getConnection() ;
+        if(conn !=null)
+           conn.close();
+        threadLocal.remove();
+        conn = null ;
+    }
+}
+</code></pre>
+
+<pre><code>public class AccountDaoImpl implements AccountDao {
+    @Override
+    public Account queryAccountByCard(int cardId) throws SQLException {
+        QueryRunner runner = new QueryRunner() ;
+        Connection conn = JDBCUtil.getConnection() ;
+        Account account = runner.query(conn, &quot;select * from account where carid = ?&quot;, new BeanHandler&lt;Account&gt;(Account.class), cardId);//如果是手动提交：  QueryRunner()无参；query()update()必须传入connection
+        return account;
+    }
+    //carid   余额
+    @Override
+    public void updateAccount(Account account) throws SQLException{
+        QueryRunner runner = new QueryRunner() ;
+        Connection conn = JDBCUtil.getConnection() ;
+        runner.update(conn,&quot;update account set balance = ? where carid = ?&quot;,new Object[]{account.getBalance(),account.getCardId()} );
+    }
+}
+</code></pre>
+
+<pre><code>public class AccountServiceImpl implements AccountService {
+    @Override
+    public void transfer(int fromCardId, int toCardId, int money) {
+        AccountDaoImpl accountDao = new AccountDaoImpl();
+        //开启事务
+        try {
+            JDBCUtil.beginTransaction();
+            //各种DML操作
+            //a. -1000   b.+1000
+            //根据cardid查询相应的账户
+            Account fromAccount = accountDao.queryAccountByCard(fromCardId) ;//付款方
+            Account toAccount =  accountDao.queryAccountByCard(toCardId) ;//收款方
+            //转账
+            if(fromAccount.getBalance() &gt;   money){
+                //付款方 -1000
+                int fromBalance = fromAccount.getBalance() - money;
+                fromAccount.setBalance( fromBalance    );
+                fromAccount.setCardId(fromCardId );
+                accountDao.updateAccount(fromAccount);
+                System.out.println(1/0);
+                //收款方+1000
+                int toBalance = toAccount.getBalance() + money ;
+                toAccount.setBalance(toBalance);
+                toAccount.setCardId(toCardId);
+                accountDao.updateAccount(toAccount);
+                System.out.println(&quot;转账成功!&quot;);
+                //正常提交事务
+                JDBCUtil.commitTransaction();
+            }else{
+                System.out.println(&quot;余额不足！&quot;);
+            }
+        } catch (Exception e) {
+            try {
+                JDBCUtil.rollbackTransaction();
+                System.out.println(&quot;转账失败，回滚操作！&quot;);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }catch (Exception e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally{
+            try {
+                JDBCUtil.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        //结束事务（正常、失败）
+    }
+}
+</code></pre>
+
+<pre><code>public class Test {
+    public static void main(String[] args) {
+        AccountServiceImpl accountService = new AccountServiceImpl();
+        accountService.transfer(1234,1111,100);
+    }
+}
+</code></pre>
+
+<h3 id="元数据-metadata">元数据(MetaData)</h3>
+
+<p><img src="/resources/技术收录/J2EE/DataBaseMetaData接口方法.png" alt="DataBaseMetaData接口方法" title="DataBaseMetaData接口方法" /></p>
+
+<p><img src="/resources/技术收录/J2EE/ParameterMetaData接口方法.png" alt="ParameterMetaData接口方法" title="ParameterMetaData接口方法" /></p>
+
+<p><img src="/resources/技术收录/J2EE/ResultSetMetaData接口的常见方法.png" alt="ResultSetMetaData接口的常见方法" title="ResultSetMetaData接口的常见方法" />
+描述数据的数据</p>
+
+<p>三类：</p>
+
+<ul>
+<li>数据库元数据</li>
+<li>参数元数据</li>
+<li>结果集元数据</li>
+</ul>
+
+<p>1.数据库元数据  DataBaseMetaData</p>
+
+<pre><code>Connection -&gt; DataBaseMetaData -&gt; .
+</code></pre>
+
+<p>2.参数元数据  ParameterMetaData
+    pstmt -&gt; ParameterMetaData -&gt; .</p>
+
+<p>3.结果集元数据 ResultSetMetaData
+    ResultSet -&gt; ResultSetMetaData</p>
+
+<pre><code>
+public class MeteDataDemo {
+    private  final static String  DRIVER=&quot;oracle.jdbc.OracleDriver&quot;;
+    private  final static String  URL=&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;;
+    private  final static String  USERNAME=&quot;scott&quot;;
+    private  final static String  PASSWORD=&quot;tiger&quot;;
+    public static void databaseMetaData(){
+        try {
+            Class.forName(DRIVER);
+            Connection connection =  DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            //数据库元信息
+            DatabaseMetaData dbMetadata = connection.getMetaData() ;
+            String dbName =  dbMetadata.getDatabaseProductName() ;
+            System.out.println(&quot;数据库名&quot;+dbName);
+            String dbVersion = dbMetadata.getDatabaseProductVersion() ;//11.1.22
+            System.out.println(&quot;数据库版本&quot;+dbVersion);
+            String driverName = dbMetadata.getDriverName();
+            System.out.println(driverName);
+            String url = dbMetadata.getURL();
+            System.out.println(url);
+            String userName = dbMetadata.getUserName();
+            System.out.println(userName);
+            System.out.println(&quot;-----------&quot;);
+            ResultSet rs = dbMetadata.getPrimaryKeys(null, userName, &quot;STUDENT&quot;);
+            while(rs.next()){
+                Object tableName = rs.getObject(3);
+                Object columnName = rs.getObject(4);
+                Object pkName = rs.getObject(6);
+                System.out.println(tableName+&quot;--&quot;+columnName+&quot;--&quot;+pkName);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void parameterMetaData(){
+        try {
+            Class.forName(DRIVER);
+            Connection connection =  DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            PreparedStatement pstmt = connection.prepareStatement(&quot;select * from student where id = ? and name = ?&quot;);
+            //通過pstmt獲取參數元数据
+            ParameterMetaData metaData = pstmt.getParameterMetaData();
+            int count = metaData.getParameterCount() ;
+            System.out.println(&quot;参数个数：&quot;+count);
+            for(int i=1;i&lt;=count ; i++){
+                String typeName =  metaData.getParameterTypeName(i) ;
+                System.out.println(typeName);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void resultSetMetaData(){
+        try {
+            Class.forName(DRIVER);
+            Connection connection =  DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            PreparedStatement pstmt = connection.prepareStatement(&quot;select * from student &quot;);
+            ResultSet rs = pstmt.executeQuery();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int count = metaData.getColumnCount();
+            System.out.println(&quot;列的个数：&quot;+count);
+            System.out.println(&quot;---&quot;);
+            for(int i=1;i&lt;=count ;i++){
+                String columnName = metaData.getColumnName(i);
+                String columnTypeName = metaData.getColumnTypeName(i);
+                System.out.println( columnName+&quot;\t&quot;+columnTypeName);
+            }
+            while(rs.next()){
+                for(int i=1;i&lt;=count;i++){
+                    System.out.print( rs.getObject(i)+&quot;\t&quot;);
+                }
+                System.out.println();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+<p>很多数据库对元数据的支持问题：</p>
+
+<p>Oralce目前必须使用ojdbc7.jar作为驱动包；</p>
+
+<p>MySql必须在url中附加参数配置：</p>
+
+<pre><code>jdbc:mysql://localhost:3306/数据库名?generateSimpleParameterMetadata=true
+</code></pre>
+
+<h3 id="自定义标签">自定义标签</h3>
+
+<p><img src="/resources/技术收录/J2EE/自定义标签结构.png" alt="自定义标签结构" title="自定义标签结构" /></p>
+
+<p><img src="/resources/技术收录/J2EE/Tag.png" alt="Tag" title="Tag" /></p>
+
+<p>步骤：</p>
+
+<ol>
+<li>编写标签处理类</li>
+<li>编写标签描述符<br /></li>
+<li>导入并使用</li>
+</ol>
+
+<h4 id="编写标签处理类">编写标签处理类</h4>
+
+<ul>
+<li><p>传统方式（JSP1.1）：实现</p>
+
+<pre><code>javax.servlet.jsp.tagext.Tag接口      doStartTag()
+</code></pre></li>
+
+<li><p>简单方式（JSP2.0）：实现</p>
+
+<pre><code>javax.servlet.jsp.tagext.SimpleTag接口   doTag()
+</code></pre></li>
+</ul>
+
+<p>如果jsp在编译阶段 发现了自定义标签<code>&lt;xx:yyy&gt;</code>，就会交给doStartTag()或doTag()</p>
+
+<h4 id="编写标签描述符-tld">编写标签描述符  tld</h4>
+
+<p>编写建议：可以仿照一个 其他标签语言（el jstl  ） 的tld文件</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!-- 标签库的头文件--&gt;
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;
+    version=&quot;2.0&quot;&gt;
+    &lt;description&gt;标签库描述&lt;/description&gt;
+    &lt;tlib-version&gt;1.0&lt;/tlib-version&gt;
+    &lt;short-name&gt;xxxxxx&lt;/short-name&gt;
+    &lt;uri&gt;标签库的url&lt;/uri&gt;
+    &lt;!-- -自定义标签的相关信息 --&gt;
+    &lt;tag&gt;
+        &lt;description&gt;标签描述&lt;/description&gt;
+        &lt;name&gt;标签名&lt;/name&gt;
+        &lt;tag-class&gt;标签的处理&lt;/tag-class&gt;
+        &lt;body-content&gt;标签体的类型&lt;/body-content&gt;
+    &lt;/tag&gt;
+&lt;/taglib&gt;
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/body-content.png" alt="body-content" title="body-content" /></p>
+
+<p>scriptlet：</p>
+
+<pre><code>&lt;%   ...  %&gt;  &lt;%！   ...  %&gt;   &lt;%=   ...  %&gt;
+</code></pre>
+
+<h4 id="导入并使用">导入并使用</h4>
+
+<p>位置：myTag.tld导入 WEB-INF或子目录下WEB-INF/xxx/(特例排除，不能是WEB-INF/lib、WEB-INF/classes )</p>
+
+<p>使用：</p>
+
+<p>引入具体要使用的.tld文件</p>
+
+<pre><code>&lt;%@ taglib uri=&quot;...&quot;  prefix=&quot;d&quot;  %&gt;
+</code></pre>
+
+<ul>
+<li>uri：每个tld文件的 唯一描述符</li>
+<li>prefix：使用tld标签时 的前缀</li>
+</ul>
+
+<p>具体的使用：</p>
+
+<ol>
+<li><p>空标签（没有标签体的标签）</p>
+
+<pre><code>&lt;d:foreach&gt;&lt;/d:foreach&gt;
+&lt;d:foreach /&gt;
+</code></pre></li>
+
+<li><p>带标签体</p>
+
+<pre><code>&lt;d:foreach&gt; xxx &lt;/d:foreach&gt;
+</code></pre></li>
+
+<li><p>带属性</p>
+
+<pre><code>&lt;d:foreach  属性名=&quot;属性值&quot; &gt; xxx &lt;/d:foreach&gt;
+&lt;d:foreach  collection=&quot;${students}&quot; &gt; xxx &lt;/d:foreach&gt;
+</code></pre></li>
+
+<li><p>嵌套</p>
+
+<pre><code>&lt;d:foreach&gt; 
+    &lt;d:foreach&gt; xxx &lt;/d:foreach&gt;
+    &lt;/d:foreach&gt;
+&lt;d:foreach&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="实际开发步骤">实际开发步骤</h4>
+
+<p>编写标签处理类</p>
+
+<p>先确保项目有tomcat环境</p>
+
+<p>Tag接口：</p>
+
+<p>doStartTag()：标签处理类的核心方法 （标签体的执行逻辑）</p>
+
+<p>该方法有以下2个返回值：0/1</p>
+
+<pre><code>int SKIP_BODY = 0;  标签体不会被执行
+int EVAL_BODY_INCLUDE = 1; 标签体会被执行
+</code></pre>
+
+<p>doEndTag()：标签执行完毕之后 的方法.例如可以让 标签在执行完毕后，再执行一次</p>
+
+<pre><code>int SKIP_PAGE = 5;后面的JSP页面内容不被执行
+int EVAL_PAGE = 6;后面的JSP页面内容继续执行
+</code></pre>
+
+<p>Tag接口中的所有方法执行顺序：</p>
+
+<p>jsp - servlet</p>
+
+<p>当JSP容器（Tomcat、jetty）在将.jsp翻译成.servlet(.java)的时候 ,如果遇到JSP中有标签，就会依次执行 <code>setPageContext()</code> <code>setParent()</code><code>doStartTag()</code>  <code>doEndTag</code><code>realease()</code>,用于解析标签的执行逻辑。</p>
+
+<p><img src="/resources/技术收录/J2EE/BodyTag.png" alt="BodyTag" title="BodyTag" /></p>
+
+<p>javax.servlet.jsp.tagext.IterationTag接口：（是Tag的子接口）</p>
+
+<ul>
+<li><p>如果有循环：IterationTag，</p></li>
+
+<li><p>没有循环：Tag</p></li>
+</ul>
+
+<p>IterationTag接口中存在以下方法：</p>
+
+<p>doAfterBody()：当标签体执行完毕之后的操作 ，通过返回值决定 ：</p>
+
+<pre><code>（EVAL_BODY_AGAIN = 2）要么重复执行 ；
+（SKIP_BODY=0）：要么不再执行
+</code></pre>
+
+<p>目标：遍历3次 (hello)</p>
+
+<pre><code>&lt;xxx&gt;hello&lt;xxx&gt;
+</code></pre>
+
+<p>执行一次，并重复两次</p>
+
+<pre><code>public class MyIteration extends TagSupport {
+    private int num  ;//执行次数  3
+    public  void setNum(int num){
+        this.num = num ;
+    }
+    //执行标签
+    @Override
+    public int doStartTag() throws JspException {
+        return EVAL_BODY_INCLUDE ;//先执行一次
+    }
+    //执行完毕后
+    @Override
+    public int doAfterBody() throws JspException {
+        num-- ;
+        return num&gt;0 ? EVAL_BODY_AGAIN :SKIP_BODY; //重复执行
+    }
+}
+</code></pre>
+
+<p>编写标签描述符</p>
+
+<p>myTag.tld</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!-- 标签库的头文件--&gt;
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;
+    version=&quot;2.0&quot;&gt;
+    &lt;description&gt;这是我的迭代器标签库&lt;/description&gt;
+    &lt;tlib-version&gt;1.0&lt;/tlib-version&gt;
+    &lt;short-name&gt;mytaglib&lt;/short-name&gt;
+    &lt;uri&gt;http://www.yanqun.com&lt;/uri&gt;
+    &lt;!-- -自定义标签的相关信息 --&gt;
+    &lt;tag&gt;
+        &lt;description&gt;这是我的迭代器标签&lt;/description&gt;
+        &lt;name&gt;mytag&lt;/name&gt;
+        &lt;tag-class&gt;com.yanqun.tag.MyIteration&lt;/tag-class&gt;
+        &lt;body-content&gt;JSP&lt;/body-content&gt;
+        &lt;attribute&gt;
+            &lt;name&gt;num&lt;/name&gt;
+            &lt;required&gt;true&lt;/required&gt;
+        &lt;/attribute&gt;
+    &lt;/tag&gt;
+&lt;/taglib&gt;
+</code></pre>
+
+<p>导入并使用</p>
+
+<p>位置：myTag.tld导入 WEB-INF或子目录下WEB-INF/xxx/(特例排除，不能是WEB-INF/lib、WEB-INF/classes )</p>
+
+<pre><code>&lt;%@ taglib uri=&quot;http://www.yanqun.com&quot;  prefix=&quot;yq&quot;%&gt;
+</code></pre>
+
+<pre><code>  &lt;body&gt;
+    &lt;yq:mytag num=&quot;3&quot;&gt;
+      hello
+    &lt;/yq:mytag&gt;
+  &lt;/body&gt;
+</code></pre>
+
+<p>BoyTag接口：如果在标签体 被显示之前，进行一些其他的“额外”操作</p>
+
+<p>hello hello hello -&gt; HELLO HELLO HELLO</p>
+
+<p>包含属性：</p>
+
+<pre><code>int EVAL_BODY_BUFFERED = 2
+</code></pre>
+
+<p>是doStartTag()的第三个返回值 ，代表一个缓冲区（BodyContent）。</p>
+
+<p>BodyContent是abstract,具体使用时需要使用实现类 BodyContentImpl(再引入jasper.jar)</p>
+
+<p>缓冲区（BodyContent）的使用用途：hello -&gt;HELLO</p>
+
+<p>如果返回值是EVAL_BODY_BUFFERED ，则服务器会自动 将标签体需要显示的内容 放入缓冲区中（BodyContent）</p>
+
+<p>。因此，如果要更改最终显示结果，只需要从 缓冲区 获取原来的数据 进行修改即可。</p>
+
+<p>如何修改、获取 缓冲区：详见BodyContent的方法,具体就是 通过getXxx()获取原来的数据(hello),自己修改（HELLO）,输出getEnclosingWriter();</p>
+
+<p><img src="/resources/技术收录/J2EE/BodyContent类的方法.png" alt="BodyContent类的方法" title="BodyContent类的方法" /></p>
+
+<p><img src="/resources/技术收录/J2EE/传统标签处理类执行流程.png" alt="传统标签处理类执行流程" title="传统标签处理类执行流程" /></p>
+
+<pre><code>public class ToUpperCase extends BodyTagSupport {
+    //第一步，告诉程序 我要将原来的hello变成大写，即将 doStartTag()的返回值设置成 EVAL_BODY_BUFFER (此步骤，已经在父类默认实现)
+    //第二步：获取，并修改
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            String content = getBodyContent().getString();//hello
+            content = content.toUpperCase();//修改
+            bodyContent.getEnclosingWriter().write(content);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return super.doEndTag();//默认6，代表标签执行完毕后 是否执行其他的JSP元素
+    }
+}
+</code></pre>
+
+<pre><code>&lt;tag&gt;
+    &lt;name&gt;myToUpperCase&lt;/name&gt;
+    &lt;tag-class&gt;com.yanqun.tag.ToUpperCase&lt;/tag-class&gt;
+    &lt;body-content&gt;JSP&lt;/body-content&gt;
+&lt;/tag&gt;
+</code></pre>
+
+<h4 id="简单方式">简单方式</h4>
+
+<p>SimpleTag</p>
+
+<p><img src="/resources/技术收录/J2EE/SimpleTag接口中的方法.png" alt="SimpleTag接口中的方法" title="SimpleTag接口中的方法" /></p>
+
+<p>最大的简化：</p>
+
+<p>将传统方式的doStartTag()  doEndTag() doafterBody()等方法 简化成了一个通用的 doTag()方法。</p>
+
+<p>doTag() ：传统方式 可以对标签的最终显示 进行修改, hello -&gt;HELLO  ,核心是有一个缓冲区。</p>
+
+<p>但是简单方式 没有“缓冲区”。 如何修改显示内容？ 流</p>
+
+<p>javax.servlet.jsp.tagext.JspFragment类 ：代表一块JSP元素（该块 不包含scriptlet,因此简单方式的tld文件中<code>&lt;body-content&gt;</code>不能是JSP ）</p>
+
+<p>JspFragment中有一个invoke(Writer var1) 方法，入参是 “流”，即如果要修改显示内容，只需要修改此 流</p>
+
+<p>invoke(Writer var1) ：每调用一次invoke()方法，会执行一次 标签体。</p>
+
+<p>SimpleTagSupport的 getJspBody()可以获取JspFragment对象。</p>
+
+<p>SimpleTagSupport的 getJspContext()方法 可以获取 jsp一些内置对象：getJspContext()的返回值是JspContext对象  是JSP内置对象的入口对象PageContext 的父类。</p>
+
+<p>简单标签方式 ，获取JSP内置对象：  getJspContext() -&gt; JspContext -&gt;转成子类PageContext -&gt;PageContext就是所有JSP内置对象的入口，即可以获取一切JSP内置对象</p>
+
+<pre><code>public class MySimpleTagIterator extends SimpleTagSupport {
+    private int num ;//3
+    public int getNum() {
+        return num;
+    }
+    public void setNum(int num) {
+        this.num = num;
+    }
+/*
+    &lt;aa&gt;
+            xxx
+    &lt;/aa&gt;
+ */
+    @Override
+    public void doTag() throws JspException, IOException {
+        JspFragment jspFragment = getJspBody();
+        for(int i=0;i&lt;num ;i++){
+            jspFragment.invoke(null);
+        }
+    }
+}
+</code></pre>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!-- 标签库的头文件--&gt;
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;
+    version=&quot;2.0&quot;&gt;
+    &lt;description&gt;这是我的简单迭代器标签库&lt;/description&gt;
+    &lt;tlib-version&gt;1.0&lt;/tlib-version&gt;
+    &lt;short-name&gt;mysimpletaglib&lt;/short-name&gt;
+    &lt;uri&gt;http://www.yanqunsimple.com&lt;/uri&gt;
+    &lt;!-- -自定义标签的相关信息 --&gt;
+    &lt;tag&gt;
+        &lt;description&gt;这是我的简单迭代器标签&lt;/description&gt;
+        &lt;name&gt;mysimpletag&lt;/name&gt;
+        &lt;tag-class&gt;com.yanqun.tag.MySimpleTagIterator&lt;/tag-class&gt;
+        &lt;body-content&gt;scriptless&lt;/body-content&gt;
+        &lt;attribute&gt;
+            &lt;name&gt;num&lt;/name&gt;
+            &lt;required&gt;true&lt;/required&gt;
+        &lt;/attribute&gt;
+    &lt;/tag&gt;
+&lt;/taglib&gt;
+</code></pre>
+
+<pre><code>&lt;%@ taglib uri=&quot;http://www.yanqunsimple.com&quot; prefix=&quot;yqs&quot;%&gt;
+&lt;yqs:mysimpletag num=&quot;5&quot;&gt;
+nihao
+&lt;/yqs:mysimpletag&gt;
+</code></pre>
+
+<p>条件选择：</p>
+
+<p>当某一个条件满足时，再执行某个标签体</p>
+
+<p>传统标签：如果条件不满足，让doStartTag()的返回值为0；</p>
+
+<p>简单标签(不允许写scriplet &lt;% &hellip;%&gt;)：   如果条件不满足，不调用invoke()即可。</p>
+
+<h4 id="实例使用简单标签实现登录功能">实例使用简单标签实现登录功能</h4>
+
+<pre><code>&lt;tag&gt;
+    &lt;name&gt;login&lt;/name&gt;
+    &lt;tag-class&gt;com.yanqun.tag.LoginTag&lt;/tag-class&gt;
+    &lt;body-content&gt;scriptless&lt;/body-content&gt;
+&lt;/tag&gt;
+</code></pre>
+
+<p>input.jsp</p>
+
+<pre><code>&lt;form action=&quot;LoginServlet&quot;&gt;
+    用户名 &lt;input  name=&quot;uname&quot;/&gt;&lt;br/&gt;
+    密码 &lt;input type=&quot;password&quot; name=&quot;upwd&quot;/&gt;&lt;br/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;登录&quot;/&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>input.jsp</p>
+
+<pre><code>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String name =  request.getParameter(&quot;uname&quot;) ;
+    String pwd =  request.getParameter(&quot;upwd&quot;) ;
+    //zs  ,abc
+    if(name.equals(&quot;zs&quot;) &amp;&amp; pwd.equals(&quot;abc&quot;)){
+        //登录成功，将当前用户名  保存到session
+        request.getSession().setAttribute(&quot;name&quot;,name); //User user = new User();
+        request.getRequestDispatcher(&quot;show.jsp&quot;).forward(request,response);
+    }else{
+        //跳转到失败页面
+        response.sendRedirect(&quot;error.jsp&quot;);
+    }
+}
+</code></pre>
+
+<p>show.jsp</p>
+
+<pre><code>&lt;%@taglib uri=&quot;http://www.yanqunsimple.com&quot; prefix=&quot;yqs&quot;%&gt;
+&lt;yqs:login&gt;
+        ${sessionScope.name},已登录
+        ${name}
+&lt;/yqs:login&gt;
+</code></pre>
+
+<p>LoginTag.java</p>
+
+<pre><code>public class LoginTag extends SimpleTagSupport {
+    @Override
+    public void doTag() throws JspException, IOException {
+        //判断 是否已经登录成功
+        PageContext pageContext = (PageContext)getJspContext() ;
+        HttpSession session = pageContext.getSession();
+        String name = (String)session.getAttribute(&quot;name&quot;) ;
+        if(name !=null){
+            //执行一次标签体
+            getJspBody().invoke(null) ;
+        }
+        //如果成功，执行标签体
+        //如果失败，不执行
+    }
+}
+</code></pre>
+
+<h3 id="验证码">验证码</h3>
+
+<p>强制刷新：除了禁止缓存以外，还需要给服务端传递一个唯一的参数值（没有实际用处）。随机数、时间</p>
+
+<p>img.jsp</p>
+
+<pre><code>&lt;%@ page import=&quot;java.awt.*&quot; %&gt;
+&lt;%@ page import=&quot;java.util.Random&quot; %&gt;
+&lt;%@ page import=&quot;java.awt.image.BufferedImage&quot; %&gt;
+&lt;%@ page import=&quot;javax.imageio.ImageIO&quot; %&gt;
+&lt;%@ page contentType=&quot;image/jpeg;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+
+&lt;%!
+     //随机产生颜色值
+        public Color getColor(){
+            Random ran = new Random() ;//Math.random()  0-1
+            int r = ran.nextInt(256) ;
+            int g = ran.nextInt(256) ;
+            int b = ran.nextInt(256) ;
+            return new Color(r,g,b) ;//red green blue  0-255
+        }
+        //产生验证码值
+        public String getNum()
+        {
+                //  0-8999   1000-9999
+            int ran = (int)( Math.random()*9000) +1000 ;
+            return String.valueOf(ran) ;
+        }
+%&gt;
+&lt;%
+    //禁止缓存，防止验证码过期
+    response.setHeader(&quot;Pragma&quot;,&quot;no-cache&quot;);
+    response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);
+    response.setHeader(&quot;Expires&quot;,&quot;0&quot;);
+    //绘制验证码
+    BufferedImage image = new BufferedImage(80,30,BufferedImage.TYPE_INT_RGB) ;
+    //画笔
+    Graphics graphics = image.getGraphics();
+    graphics.fillRect(0,0,80,30);
+    //绘制干扰线条
+    for(int i=0;i&lt;60;i++)
+    {
+        Random ran = new Random() ;
+        int xBegin = ran.nextInt(80) ;//55
+        int yBegin = ran.nextInt(30) ;
+        int xEnd = ran.nextInt(xBegin +10 ) ;
+        int yEnd = ran.nextInt(yBegin + 10) ;
+        graphics.setColor( getColor());
+        //绘制线条
+        graphics.drawLine(xBegin,yBegin,xEnd,yEnd);
+    }
+    graphics.setFont(new Font(&quot;seif&quot;,Font.BOLD,20));
+     //绘制验证码
+     graphics.setColor(Color.BLACK);
+     String checkCode = getNum() ; //2 1 3 4
+    StringBuffer sb = new StringBuffer() ;
+     for(int i=0;i&lt;checkCode.length();i++){
+         sb.append(checkCode.charAt(i)+&quot; &quot;  )  ;//验证码的每一位数字
+     }
+    graphics.drawString( sb.toString(), 15,20 );//绘制验证码
+    //将验证码真实值 保存在session中，供使用时比较真实性
+    session.setAttribute(&quot;CKECKCODE&quot;  ,checkCode );
+    //真实的产生图片
+    ImageIO.write(image,&quot;jpeg&quot;,  response.getOutputStream()) ;
+    //关闭
+    out.clear();
+    out = pageContext.pushBody() ;  //&lt;input type=&quot;image&quot; src=&quot;xxx&quot; /&gt;
+%&gt;
+</code></pre>
+
+<p>CheckCodeServlet.java</p>
+
+<pre><code>@WebServlet(&quot;/CheckCodeServlet&quot;)
+public class CheckCodeServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      String resultTip = &quot;imgs/wrong.jpg&quot;;
+        //获取用户输入验证码
+       String checkcodeClient =  request.getParameter(&quot;checkcode&quot;);
+       //真实的验证码值
+       String checkcodeServer = (String) request.getSession().getAttribute(&quot;CKECKCODE&quot;);
+       if(checkcodeServer.equals(checkcodeClient)){
+           resultTip = &quot;imgs/right.jpg&quot;;
+       }
+       response.setContentType(&quot;text/html;charset=UTF-8&quot;);
+        PrintWriter writer = response.getWriter();//输出流
+        writer.write(resultTip);
+        writer.flush();
+        writer.close();
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
+}
+</code></pre>
+
+<p>index.jsp</p>
+
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.3.1.js&quot; &gt;
+    &lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; &gt;
+      function reloadCheckImg()
+      {
+          $(&quot;img&quot;).attr(&quot;src&quot;, &quot;img.jsp?t=&quot;+(new Date().getTime()));  //&lt;img src=&quot;...&quot;&gt;
+      }
+      $(document).ready(function(){
+        $(&quot;#checkcodeId&quot;).blur(function(){
+          var $checkcode = $(&quot;#checkcodeId&quot;).val();
+          //校验   :文本框中输入的值 发送到服务端。
+           //服务端： 获取文本框输入的值 ，和真实验证码图片中的值对比 ，并返回验证结果
+          $.post(
+                &quot;CheckCodeServlet&quot;,//服务端地址
+                &quot;checkcode=&quot;+$checkcode ,
+                function(result){//图片地址（imgs/right.jpg   imgs/wrong.jpg）
+                //result:  imgs/right.jpg
+                var resultHtml =  $(&quot;&lt;img src='&quot;+result+&quot;' height='15' width='15px'   /&gt;&quot;) ;
+                $(&quot;#tip&quot;).html(resultHtml);
+                }
+            );
+        });
+      });
+    &lt;/script&gt;
+    &lt;title&gt;验证码&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+        验证码：
+          &lt;input type=&quot;text&quot; name=&quot;checkcode&quot; id=&quot;checkcodeId&quot; size=&quot;4&quot;  /&gt;
+          &lt;!-- 验证码--&gt;
+        &lt;a href=&quot;javascript:reloadCheckImg();&quot;&gt; &lt;img src=&quot;img.jsp&quot;/&gt;&lt;/a&gt;
+        &lt;span id=&quot;tip&quot;&gt;  &lt;/span&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="集群">集群：</h2>
+
+<pre><code>apache、 nginx
+</code></pre>
+
+<p>tomcat:理论上 单节点tomcat能够稳定的 处理请求并发量200-300；</p>
+
+<p>负载均衡</p>
+
+<p>失败迁移</p>
+
+<p>服务端集群：</p>
+
+<ol>
+<li><p>水平集群  :将服务器安装在 各个不同的计算机上 （失败迁移）</p></li>
+
+<li><p>垂直集群  ：将多个服务器，安装在同一个计算机上 （负载均衡）</p></li>
+
+<li><p>水平+垂直</p></li>
+</ol>
+
+<h3 id="搭建集群">搭建集群：</h3>
+
+<p>apache :特点是处理静态资源（html 图片 js） .这里的apache是一个服务工具，不是 之前理解的 基金组织。</p>
+
+<p>tomcat:特点 可以处理动态资源</p>
+
+<p>apache+tomcat:动静分离</p>
+
+<p>apache：请求的分流操作</p>
+
+<p>下载apache服务器工具<a href="https://www.apachelounge.com/download/VS16/binaries/httpd-2.4.41-win64-VS16.zip">下载地址</a></p>
+
+<p>配置：</p>
+
+<p>conf/http.conf（37行左右）</p>
+
+<pre><code>Define SRVROOT &quot;D:\dev\cluster\Apache24&quot;
+</code></pre>
+
+<p>看一看将apache配置成windows服务，既可以在服务中启动停止服务：</p>
+
+<p>管理员身份打开cmd，通过命令注册apache服务</p>
+
+<pre><code>&quot;C:\workplace\jar\cluster\httpd-2.4.41-win64-VS16\Apache24\bin\httpd.exe&quot; -k install -n apache24
+</code></pre>
+
+<p>删除服务</p>
+
+<pre><code>sc delete 服务名
+</code></pre>
+
+<p>如果在注册apache服务时，提示“丢失VCRUNTIME140.DLL”，则需要下载并安装vc_redist.x64.exe。<a href="https://www.microsoft.com/en-US/download/details.aspx?id=48145">下载地址</a></p>
+
+<p>注册成功后，启动，浏览器访问</p>
+
+<pre><code>localhost
+</code></pre>
+
+<p>查看是否成功访问</p>
+
+<p>准备tomcat：复制两份，改端口</p>
+
+<ol>
+<li><p>规划并修改端口： server.xml</p>
+
+<pre><code>        22行                63行          108行
+        server端口号   http协议端口    ajp协议端口号
+tomcat-a:   1005        1080            1009
+tomcat-b:   2005        2080            2009
+</code></pre></li>
+
+<li><p>配置引擎Engine   ： server.xml</p>
+
+<p>增加jvmRoute（128行）</p>
+
+<pre><code>&lt;Engine name=&quot;Catalina&quot; defaultHost=&quot;localhost&quot; jvmRoute=&quot;tomcat-b&quot;&gt;
+</code></pre></li>
+
+<li><p>打开集群开关 server.xml（133行）</p>
+
+<p>打开以下注释</p>
+
+<pre><code>&lt;Cluster className=&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;/&gt;
+</code></pre></li>
+</ol>
+
+<p>tomcat集群配置搞定，apache启动</p>
+
+<p>-&gt;结合apache+tomcat :mod_jk.so</p>
+
+<p><a href="http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/binaries/windows/tomcat-connectors-1.2.40-windows-x86_64-httpd-2.4.x.zip">下载地址</a></p>
+
+<h4 id="配置mod-jk-so">配置mod_jk.so：</h4>
+
+<ol>
+<li><p>存放位置，\Apache24\modules\mod_jk.so</p></li>
+
+<li><p>配置\Apache24\conf\workers.properties</p></li>
+
+<li><p>配置\Apache24\conf\mod_jk.conf （用于加载mod_jk.so和workers.properties）</p></li>
+
+<li><p>配置httpd.conf： 在apache启动时 自动加载mod_jk.conf：</p>
+
+<p>追加(最后)</p>
+
+<pre><code>include conf/mod_jk.conf
+</code></pre>
+
+<p>mod_jk.so,workers.properties -&gt;mod_jk.conf  -&gt; apache程序会自动加载httpd.conf</p></li>
+
+<li><p>在项目web.xml中添加</p>
+
+<pre><code>&lt;distributable/&gt;
+</code></pre>
+
+<p>表示开启项目同步</p></li>
+</ol>
+
+<p>部署项目将项目分别部署到tomcat中</p>
+
+<p>依次启动apache、tomcata、tomcatb
+访问</p>
+
+<pre><code>http://localhost/ClusterProject/
+</code></pre>
+
+<p><img src="/resources/技术收录/J2EE/workers.png" alt="workers" title="workers" /></p>
+
+<p>workers.properties</p>
+
+<pre><code>worker.list=controller,tomcata,tomcatb
+#tomcata
+worker.tomcata.port=1009
+worker.tomcata.host=localhost
+worker.tomcata.type=ajp13
+#负载均衡的权重
+worker.tomcata.lbfactor=1
+#tomcatb
+worker.tomcatb.port=2009
+worker.tomcatb.host=localhost
+worker.tomcatb.type=ajp13
+#负载均衡的权重
+worker.tomcatb.lbfactor=2
+#controller
+worker.controller.type=lb
+worker.controller.balanced_workers=tomcata,tomcatb
+worker.controller.sticky_session=false
+</code></pre>
+
+<h4 id="分布式session策略">分布式session策略：</h4>
+
+<ol>
+<li><p>sticky:固定将每一个用户的请求 分给特定的服务器，后期的请求不会分给其他服务器</p>
+
+<p>弊端：无法失败迁移</p></li>
+
+<li><p>session广播（自动同步session）： 自动同步session，</p>
+
+<p>弊端：如果服务器太多，可能造成广播风暴（将一个服务器的session,需要同步到其他所有的服务器中）</p></li>
+
+<li><p>集中管理方式（推荐）：将各个服务器的session集群存储到一个 数据库中</p></li>
+</ol>
+
+<p>mod_jk.conf</p>
+
+<pre><code>#加载mod_jk.so
+LoadModule jk_module modules/mod_jk.so
+#加载workers.properties
+JkWorkersFile conf/workers.properties
+JkMount /* controller
+</code></pre>
+
+<p>路径以apache的根目录开始找</p>
+
+<p>其中<code>JkMount /* controller</code>，表示拦截一切请求。也可以只拦截jsp： <code>/*.jsp</code></p>
+
+<h4 id="集群-1">集群</h4>
+
+<p>应用阶段、部署实施</p>
+
+<p>CATALINA_HOME会使 启动tomcat时  自动开启CATALINA_HOME指定的tomcat。而集群中 需要开启多个不同的tomcat，因此 在单机环境下，需要删除CATALINA_HOME。</p>
+
+<p>依次启动apache、tomcata、tomcatb</p>
+
+<p>原因：</p>
+
+<pre><code>apache之前已经成功运行，但是重启时 失败
+</code></pre>
+
+<p>分析思路：</p>
+
+<pre><code>成功运行的时机：第一把apche下载完后
+
+失败时机： apache+tomcat整合
+</code></pre>
+
+<p>得出结论： 整合</p>
+
+<p>测试：失败迁移  负载均衡  session共享</p>
+
+<h4 id="细节">细节：</h4>
+
+<ul>
+<li><p>apache:</p>
+
+<pre><code>worker.list=controller,tomcata,tomcatb
+</code></pre>
+
+<p>流程：apache-&gt;workers.properties中配置的 ip:端口 找到具体的tomcat服务（与tomcat中的jvmRoute=&ldquo;tomcat-a&rdquo;的没有关系）</p></li>
+
+<li><p>tomcat配置：（只需要保证 所有tomcat的jvmRoute不能重名即可 ，可以和apache中的命名不一致）</p>
+
+<pre><code>jvmRoute=&quot;tomcat-a&quot;
+jvmRoute=&quot;tomcat-b&quot;
+</code></pre></li>
+
+<li><p>tomcat服务的目录名：（任意）</p>
+
+<pre><code>tomcata
+tomcatb
+</code></pre></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JSP进阶学习笔记" target="_blank" rel="external">https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/" title="Linux Centos6安装"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                    title="JSP学习笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
