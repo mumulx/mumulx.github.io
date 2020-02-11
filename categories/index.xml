@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/categories/</link>
     <description>Recent content in Categories on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>校园失物招领项目实战</title>
+      <link>https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</guid>
+      <description>搭建ssm环境 jar 表和类 配置数据库db.properties,log4j.properties 加载spring配置文件applicationC</description>
+    </item>
     
     <item>
       <title>Quartz框架</title>
@@ -79,7 +88,7 @@
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
-      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /rj/easymock/easy-mock npm run dev 本机访问 http://centos6:7300/ li</description>
+      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /app/easyMock/easy-mock/ npm run dev 本机访问 http://centos6:7300/ li</description>
     </item>
     
     <item>

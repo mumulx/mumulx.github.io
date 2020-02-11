@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="8854">
+<meta itemprop="wordCount" content="8864">
 
 
 
@@ -165,7 +165,7 @@
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">8</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
         </ul>
     </div>
 </div>
@@ -192,7 +192,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
@@ -230,6 +230,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="title">校园失物招领项目实战</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/01/quartz%E6%A1%86%E6%9E%B6/" class="title">Quartz框架</a>
                     </p>
                     <p class="item-date">
@@ -261,16 +271,6 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/" class="title">MybatisPlus和Mapper框架</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/01/%E8%87%AA%E5%AE%9A%E4%B9%89rpc-java/" class="title">自定义RPC Java</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-19</time>
@@ -437,7 +437,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8854字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8864字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:18分 </span>
       </div>
     </div>
@@ -666,8 +666,13 @@ git teset head xxx
 <p>&emsp;当我们每次使用<code>git push</code>来将文件推到远程仓库的的时候，会发现每次都需要输入用户名和密码，为了解决它，可以给项目配置用户名，邮箱，这样每次push的时候就不需要再次输入用户名和密码，配置的方式分为三种，分别是：</p>
 
 <ol>
-<li><p><code>git config --global</code>（基本不用）给整个计算机一次性设置</p></li>
+<li><code>git config --global</code>（基本不用）给整个计算机一次性设置</li>
+</ol>
 
+<p>git config &ndash;global user.name &ldquo;mumulx&rdquo;<br />
+git config &ndash;global user.email &ldquo;2606964863@qq.com&rdquo;</p>
+
+<ol>
 <li><p><code>git config --system</code>（推荐）给当前用户一次性设置</p>
 
 <pre><code>cd ~ 切换到当前用户得系统文件夹
@@ -1938,16 +1943,24 @@ git push origin master
 <p><a href="https://about.gitlab.com/install/">安装说明</a></p>
 
 <pre><code>yum install -y curl policycoreutils-python openssh-server
+
 systemctl enable sshd
+
 systemctl start sshd
+
 systemctl start firewalld
+
 firewall-cmd --permanent --add-service=http
+
 firewall-cmd --permanent --add-service=https
+
 systemctl reload firewalld
 </code></pre>
 
 <pre><code>yum install postfix
+
 systemctl enable postfix
+
 systemctl start postfix
 
 EXTERNAL_URL=&quot;https://192.168.2.150&quot;
