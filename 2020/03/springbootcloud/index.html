@@ -1,0 +1,3163 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        SpringCloud自学笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="SpringCloud的学习记录." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>SpringCloud自学笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="SpringCloud自学笔记" />
+<meta property="og:description" content="SpringCloud的学习记录." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/03/springbootcloud/" />
+<meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-03T00:00:00+00:00" />
+
+<meta itemprop="name" content="SpringCloud自学笔记">
+<meta itemprop="description" content="SpringCloud的学习记录.">
+
+
+<meta itemprop="datePublished" content="2020-03-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="18931">
+
+
+
+<meta itemprop="keywords" content="Spring家族," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SpringCloud自学笔记"/>
+<meta name="twitter:description" content="SpringCloud的学习记录."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">12</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/03/springbootcloud/" class="title">SpringCloud自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" class="title">Redis笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/springdata/" class="title">SpringData JPA自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" class="title">我的阿里云服务器Centos7</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="title">校园失物招领项目实战</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#springcloud">SpringCloud</a>
+<ul>
+<li><a href="#微服务概述">微服务概述</a></li>
+<li><a href="#微服务与微服务架构">微服务与微服务架构</a>
+<ul>
+<li>
+<ul>
+<li><a href="#微服务">微服务</a></li>
+</ul></li>
+<li><a href="#微服务架构">微服务架构</a></li>
+<li><a href="#微服务优缺点">微服务优缺点</a></li>
+<li><a href="#微服务技术">微服务技术</a></li>
+</ul></li>
+<li><a href="#springcloud入门概述">SpringCloud入门概述</a>
+<ul>
+<li><a href="#springcloud和springboot关系">SpringCloud和SpringBoot关系</a></li>
+<li><a href="#dubbo-和springcloud技术选型">Dubbo 和SpringCloud技术选型</a></li>
+<li><a href="#dubbo和springcloud对比">Dubbo和SpringCloud对比</a></li>
+<li><a href="#springcloud能干嘛">SpringCloud能干嘛</a></li>
+<li><a href="#springcloud在哪下">SpringCloud在哪下</a></li>
+<li><a href="#springcloud版本选择">SpringCloud版本选择</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#实践">实践</a>
+<ul>
+<li><a href="#第一个springcloud项目">第一个springCloud项目</a>
+<ul>
+<li><a href="#添加依赖">添加依赖</a></li>
+<li><a href="#新建子模块-maven-springcloud-api">新建子模块（maven）springCloud-api</a></li>
+<li><a href="#数据库脚本">数据库脚本</a></li>
+</ul></li>
+<li><a href="#eureka服务注册与发现">Eureka服务注册与发现</a>
+<ul>
+<li><a href="#什么是eureka">什么是Eureka</a></li>
+<li><a href="#原理讲解">原理讲解</a></li>
+<li><a href="#获取微服务的一些信息">获取微服务的一些信息</a></li>
+<li><a href="#eureka集群">eureka集群</a></li>
+<li><a href="#对比zookeeper">对比zookeeper</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ribbon">ribbon</a>
+<ul>
+<li><a href="#使用">使用</a></li>
+<li><a href="#创建多个服务提供者">创建多个服务提供者</a>
+<ul>
+<li><a href="#自定义分配算法">自定义分配算法</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#feign负载均衡">Feign负载均衡</a>
+<ul>
+<li>
+<ul>
+<li><a href="#使用-1">使用</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#服务熔断">服务熔断</a>
+<ul>
+<li><a href="#使用-2">使用</a>
+<ul>
+<li><a href="#添加依赖-1">添加依赖</a></li>
+</ul></li>
+<li><a href="#服务降级">服务降级</a></li>
+<li><a href="#监控">监控</a></li>
+</ul></li>
+<li><a href="#zuul路由网关">Zuul路由网关</a>
+<ul>
+<li><a href="#概述">概述</a></li>
+<li><a href="#代码">代码</a></li>
+</ul></li>
+<li><a href="#springcloud-config分布式配置">SpringCloud config分布式配置</a>
+<ul>
+<li><a href="#概述-1">概述</a></li>
+<li><a href="#使用-3">使用</a>
+<ul>
+<li><a href="#服务端">服务端</a></li>
+<li><a href="#客户端">客户端</a></li>
+<li><a href="#bootstrap-yml与application-yml">bootstrap.yml与application.yml</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/03/springbootcloud/"
+    >SpringCloud自学笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/03/springbootcloud/" class="article-date">
+  <time datetime="2020-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-03</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/spring%E5%AE%B6%E6%97%8F/"> Spring家族 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/springbootcloud/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:18931字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:38分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/springCloud">源码</a></p>
+
+<h2 id="springcloud">SpringCloud</h2>
+
+<p><img src="/resources/技术框架/Spring家族/总的.png" alt="总的.png" /></p>
+
+<p>微服务架构4个核心问题?</p>
+
+<ol>
+<li>服务很多，客户端该怎么访问?</li>
+<li>这么多服务?服务之间如何通信?</li>
+<li>这么多服务? 如何治理?</li>
+<li>服务挂了怎么办?</li>
+</ol>
+
+<p>解决方案:Spring Cloud生态!</p>
+
+<p><strong>Spring Cloud NetFlix</strong>一站式解决方案！</p>
+
+<p>api网关，zuu1组件</p>
+
+<p>Feign &mdash;Httpclinet &mdash;- Http通信方式，同步，阻塞</p>
+
+<p>服务注册发现: Eureka</p>
+
+<p>熔断机制: Hystrix</p>
+
+<p><strong>Apache Dubbo Zookeeper</strong>半自动，需要整个别人的</p>
+
+<p>API:没有，找第三方组件，或者自己实现</p>
+
+<p>Dubbo</p>
+
+<p>Zookeeper</p>
+
+<p>没有:借助Hystrix</p>
+
+<p>Dubbo这个方案并不完善~</p>
+
+<p><strong>spring Cloud Alibaba</strong>一站式解决方案</p>
+
+<p>新概念:服务网格~Server Mesh</p>
+
+<p>istio</p>
+
+<p>万变不离其宗
+1. API
+2. HTTP,RPC
+3. 注册和发现
+4. 熔断机制</p>
+
+<p>归根结底的原因是：网络不可靠！</p>
+
+<h3 id="微服务概述">微服务概述</h3>
+
+<p>什么是微服务</p>
+
+<p>什么是微服务?微服务(Microservice Architecture)是近几年流行的一种架构思想，关于它的概念很难一言以蔽
+之。</p>
+
+<p>究竟什么是微服务呢?我们在此引用ThoughtWorks公司的首席科学家Martin Fowler于2014年提出的- -段话:</p>
+
+<p><a href="https://martinfowler.com/articles/microservices.html">原文：</a></p>
+
+<p><a href="https://www.cnblogs.com/iuning8023/p/4493156.html">汉化:</a></p>
+
+<ul>
+<li>就目前而言，对于微服务，业界并没有一个统- -的， 标准的定义</li>
+<li>但通常而言，微服务架构是一 种架构模式，或者说是一-种架构风格， 它提倡将单- -的应用程序划分成- -组小
+的服务，每个服务运行在其独立的自己的进程内，服务之间互相协调，互相配置，为用户提供最终价值。服务
+之间采用轻量级的通信机制互相沟通，每个服务都围绕着具体的业务进行构建，并且能够被独立的部署到生产
+环境中，另外，应尽量避免统- -的，集中式的服务管理机制，对具体的一个服务而言,应根据业务上下文,选
+择合适的语言，工具对其进行构建,可以有一个非常轻 量级的集中式管理来协调这些服务，可以使用不同的语
+言来编写服务,也可以使用不同的数据存储;</li>
+</ul>
+
+<p>可能有的人觉得官方的话太过生涩，我们从技术维度来理解下:</p>
+
+<p>微服务化的核心就是将传统的一站式应用，根据业务拆分成: 个一 的服务,彻底地去耦合,每一个微服务提
+供单个业务功能的服务，-个服务做-件事情,无识别结果种小而独立的处理过程，类似进程的概念，能够自行单独启动或销毁,拥有自己独立的数据库。</p>
+
+<h3 id="微服务与微服务架构">微服务与微服务架构</h3>
+
+<h5 id="微服务">微服务</h5>
+
+<p>强调的是服务的大小，他关注的是某-个点, 是具体解决某-个问题/提供落地对应服务的- 一个服务应用，狭义的
+看，可以看做是IDEA中的-一个个微服务工程,或者Moudel</p>
+
+<p>IDEA工具里面使用Maven开发的一个个独立的小Moudle, 它具体是使用springboot开发的一个小模块，专业的事
+情交给专业的模块来做，- 一个模块就做着一 -件事情</p>
+
+<p>强调的是-一个个的个体，每个个体完成-一个具体的任务或者功能!</p>
+
+<h4 id="微服务架构">微服务架构</h4>
+
+<p>一种新的架构形式，Martin Fowler, 2014提出</p>
+
+<h4 id="微服务优缺点">微服务优缺点</h4>
+
+<p><strong>优点</strong></p>
+
+<ul>
+<li>每个服务足够内聚,足够小，代码容易理解，这样能聚焦-个指定的业务功能或业务需求;</li>
+<li>开发简单,开发效率提高，-个服务可能就是专- -的只干一 -件事;</li>
+<li>微服务能够被小团队单独开发,这个小团队是2~5人的开发人员组成;</li>
+<li>微服务是松耦合的,是有功能意义的服务,无论是在开发阶段或部署阶段都是独立的。</li>
+<li>微服务能使用不同的语言开发。</li>
+<li>易于和第三方集成,微服务允许容易且灵活的方式集成自动部署，通过持续集成工具，如jenkins, Hudson,
+bamboo</li>
+<li>微服务易于被一个开发人员理解，修改和维护,这样小团队能够更关注自己的工作成果。无需通过合作才能体
+现价值。</li>
+<li>微服务允许你利用融合最新技术。</li>
+<li>微服务只是业务逻辑的代码，不会和HTML，CSsS 或其他界面混合</li>
+<li>每个微服务都有自己的存储能力，可以有自己的数据库,也可以有统- -数据库</li>
+</ul>
+
+<p><strong>缺点:</strong></p>
+
+<ul>
+<li>开发人员要处理分布式系统的复杂性</li>
+<li>多服务运维难度，随着服务的增加，运维的压力也在增大</li>
+<li>系统部署依赖</li>
+<li>服务间通信成本</li>
+<li>数据一致性</li>
+<li>系统集成测试</li>
+<li>性能监控.</li>
+</ul>
+
+<h4 id="微服务技术">微服务技术</h4>
+
+<table>
+<thead>
+<tr>
+<th>微服务条目</th>
+<th>落地技术</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>微服务开发</td>
+<td>springBoot、Spring、SpringMVC</td>
+</tr>
+
+<tr>
+<td>服务配置与管理</td>
+<td>Netflix公司的Archaius、阿里的Diamond等</td>
+</tr>
+
+<tr>
+<td>服务注册与发现</td>
+<td>Eureka、Consul、Zookeeper等</td>
+</tr>
+
+<tr>
+<td>服务调用</td>
+<td>Rest、RPC、gGPC</td>
+</tr>
+
+<tr>
+<td>服务熔断器</td>
+<td>Hystrix、Envoy等</td>
+</tr>
+
+<tr>
+<td>负载均衡</td>
+<td>Ribbon、Nginx等</td>
+</tr>
+
+<tr>
+<td>服务接口调用（客户端调用服务的简化工具）</td>
+<td>Feign等</td>
+</tr>
+
+<tr>
+<td>消息队列</td>
+<td>kafka、rabbitMQ、Chef等</td>
+</tr>
+
+<tr>
+<td>服务配置中心管理</td>
+<td>Zuul等</td>
+</tr>
+
+<tr>
+<td>服务路由（API网关）</td>
+<td>Zabbix、Nagios、Metrics、Specatator等</td>
+</tr>
+
+<tr>
+<td>服务监控</td>
+<td>Ziokin、Brave、Dapper</td>
+</tr>
+
+<tr>
+<td>全链路追踪</td>
+<td>Docker、OpenStack、Kubernets等</td>
+</tr>
+
+<tr>
+<td>服务部署</td>
+<td>SpringCloud Stream（封装Redis、Rabbit、Kafka等发送接收消息）</td>
+</tr>
+
+<tr>
+<td>数据流操作开发包</td>
+<td>SpringCloud Bus</td>
+</tr>
+
+<tr>
+<td>时间消息总线</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>为什么选择SpringCloud作为微服务架构</p>
+
+<p><strong>选型依据</strong></p>
+
+<ul>
+<li><p>整体解决方案和框架成熟度</p></li>
+
+<li><p>社区热度</p></li>
+
+<li><p>可维护性</p></li>
+</ul>
+
+<p>学习曲线
+<strong>当前各大IT公司用的微服务架构有哪些?</strong></p>
+
+<ul>
+<li>阿里: dubbo+HFS</li>
+<li>京东: JSF</li>
+<li>新浪: Motan</li>
+<li>当当网DubboX</li>
+</ul>
+
+<p><strong>各微服务框架对比</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>功能点/服务框架</th>
+<th>Netfix/SpringCloud</th>
+<th>Motan</th>
+<th>gRPC</th>
+<th>Thrift</th>
+<th>Dubbo/DubboX</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>功能定位</td>
+<td>完整的微服务架构</td>
+<td>RPC框架，但整合了ZK或Consul，实现集群环境的基本服务注册/发现</td>
+<td>RPC框架</td>
+<td>RPC框架</td>
+<td>服务框架</td>
+</tr>
+
+<tr>
+<td>支持Rest</td>
+<td>是，Ribbon支持多种可拔插的序列化选择</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+
+<tr>
+<td>支持RPC</td>
+<td>否</td>
+<td>是(Hession2)是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+
+<tr>
+<td>支持多语言</td>
+<td>是（Rest形式）</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+
+<tr>
+<td>负载均衡</td>
+<td>是（服务端zuul+客户端Ribbon），zuul-服务，动态路由，云端负载均衡Eureka（针对中间层服务器）</td>
+<td>是（客户端）</td>
+<td>否</td>
+<td>否</td>
+<td>是（客户端）</td>
+</tr>
+
+<tr>
+<td>配置服务</td>
+<td>NEtfix Archaius，Spring Cloud Config Server集中配置</td>
+<td>是（Zookeeper提供）</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+
+<tr>
+<td>服务调用链监控</td>
+<td>是（zuul），zuul提供边缘服务，API网关</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+
+<tr>
+<td>高可用/容错</td>
+<td>是（服务端Hystrlx+服务端Ribbon）</td>
+<td>是（客户端）</td>
+<td>否</td>
+<td>否</td>
+<td>是（客户端）</td>
+</tr>
+
+<tr>
+<td>典型应用案例</td>
+<td>Netflix</td>
+<td>Sina</td>
+<td>Google</td>
+<td>FaceBook</td>
+<td></td>
+</tr>
+
+<tr>
+<td>社区活跃程度</td>
+<td>高</td>
+<td>一般</td>
+<td>高</td>
+<td>一般</td>
+<td>2017年后重启开始维护，之前终段了五年</td>
+</tr>
+
+<tr>
+<td>学习难度</td>
+<td>中等</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+<td>低</td>
+</tr>
+
+<tr>
+<td>文档丰富程度</td>
+<td>高</td>
+<td>一般</td>
+<td>一般</td>
+<td>一般</td>
+<td>高</td>
+</tr>
+
+<tr>
+<td>其他</td>
+<td>Spring Cloud Bus为我们的应用程序带来了更多管理端点</td>
+<td>支持降级</td>
+<td>Netflix内部再开发继承gRPC</td>
+<td>IDL定义</td>
+<td>时间的公司比较多</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="springcloud入门概述">SpringCloud入门概述</h3>
+
+<p>SpringCloud是什么</p>
+
+<p><a href="https://spogio/">Spring官网:</a></p>
+
+<p>SpringCloiud,基于SpringBoot提供了-套微服务解决方案，包括服务注册与发现，配置中心，全链路监控,服务
+网关，负载均衡，熔断器等组件,除了基于NetFlix的开源组件做高度抽象封装之外,还有一些选型中立的开源组
+件。</p>
+
+<p>SpringCloud利用SpringBoot的开发便利性，巧妙地简化了分布式系统基础设施的开发, SpringCloud为开发人员
+提供了快速构建分布式系统的-些工具，包括配置管理,服务发现，断路器，路由，微代理，事件总线,全局锁,
+决策竞选，分布式会话等等,他们都可以用SpringBoot的开发风格做到一-键启动和部署。</p>
+
+<p>SpringBoot并没有重复造轮子，它只是将目前各家公司开发的比较成熟，经得起实际考研的服务框架组合起来,
+通过SpringBoot风格进行再封装，屏蔽掉了复杂的配置和实现原理，最终给开发者留出了一套简单易懂，易部署
+和易维护的分布式系统开发工具包</p>
+
+<p>SpringCloud是分布式微服务架构下的一-站式解决方案，是各个微服务架构落地技术的集合体，俗称微服务全家
+桶。</p>
+
+<h4 id="springcloud和springboot关系">SpringCloud和SpringBoot关系</h4>
+
+<ul>
+<li>SpringBoot专注于 快速方便的开发单个个体微服务。</li>
+<li>SpringCloud是关注全 局的微服务协调整理治理框架，它将SpringBoot开发的一 个个单体微服务整合并管理起
+来,为各个微服务之间提供:配置管理，服务发现，断路器，路由，微代理，事件总线，全局锁，决策竞选,
+分布式会话等等集成服务。</li>
+
+<li><p>SpringBoot可以离开SpringClooud独立使用，开发项目，但是SpringCloud离不开SpringBoot, 属于依赖关
+系</p></li>
+
+<li><p>SpringBoot专注于快速、 方便的开发单个个体微服务, SpringCloud关注全 局的服务治理框架</p></li>
+</ul>
+
+<h4 id="dubbo-和springcloud技术选型">Dubbo 和SpringCloud技术选型</h4>
+
+<p>分布式+服务治理Dubbo</p>
+
+<p>目前成熟的互联网架构:应用服务化拆分+消息中间件</p>
+
+<p><img src="/resources/技术框架/Spring家族/传统的互联网架构.png" alt="传统的互联网架构.png" /></p>
+
+<h4 id="dubbo和springcloud对比">Dubbo和SpringCloud对比</h4>
+
+<p>可以看一- 下社区活跃度</p>
+
+<p><a href="https://github.com/dubbo">https://github.com/dubbo</a></p>
+
+<p><a href="https://github.com/spring-cloud">https://github.com/spring-cloud</a></p>
+
+<p>结果:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dubbo</th>
+<th>Spring</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>服务注册中心</td>
+<td>Zookeeper</td>
+<td>Spring Cloud Netflix Eureka</td>
+</tr>
+
+<tr>
+<td>服务调用方式</td>
+<td>RPC</td>
+<td>REST API</td>
+</tr>
+
+<tr>
+<td>服务监控</td>
+<td>Dubbo-monitor</td>
+<td>Spring Boot Admin</td>
+</tr>
+
+<tr>
+<td>短路器</td>
+<td>不完善</td>
+<td>Spring Cloud Netflix Hystrix</td>
+</tr>
+
+<tr>
+<td>服务网关</td>
+<td>无</td>
+<td>Spring Cloud Netflix Zuul</td>
+</tr>
+
+<tr>
+<td>分布式配置</td>
+<td>无</td>
+<td>Spring Cloud Config</td>
+</tr>
+
+<tr>
+<td>服务追踪</td>
+<td>无</td>
+<td>Spring Cloud Sleuth</td>
+</tr>
+
+<tr>
+<td>消息总线</td>
+<td>无</td>
+<td>Spring Cloud Bus</td>
+</tr>
+
+<tr>
+<td>数据流</td>
+<td>无</td>
+<td>Spring Cloud Stream</td>
+</tr>
+
+<tr>
+<td>批量任务</td>
+<td>无</td>
+<td>Spring Cloud Task</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>最大区别: SpringCloud抛弃 了Dubbo的RPC通信，采用的是基于HTTP的REST方式。</strong></p>
+
+<p>严格来说，这两种方式各有优劣。虽然从一定程度上来说，后者牺牲了服务调用的性能，但也避免了上面提到的原
+生RPC带来的问题。而且REST相比RPC更为灵活，服务提供方和调用方的依赖只依靠一纸契约，不存在代码级别的
+强依赖，这在强调快速演化的微服务环境下,显得更加合适。</p>
+
+<p><strong>品牌机与组装机的区别</strong></p>
+
+<p>很明显，Spring Cloud的功能比DUBBO更加强大，涵盖面更广，而且作为Spring的拳头项目，它也能够与Spring
+Framework. Spring Boot. Spring Data. Spring Batch等其他Spring项目完美融合,这些对于微服务而言是至
+关重要的。使用Dubbo构建的微服务架构就像组装电脑，各环节我们的选择自由度很高,但是最终结果很有可能
+因为一条内存质量不行就点不亮了，总是让人不怎么放心，但是如果你是一名高手, 那这些都不是问题;而Spring
+Cloud就像品牌机，在Spring Source的整合下，做了大量的兼容性测试，保证了机器拥有更高的稳定性,但是如
+果要在使用非原装组件外的东西，就需要对其基础有足够的了解。</p>
+
+<p><strong>社区支持与更新力度</strong></p>
+
+<p>最为重要的是，DUBBO停止了5年左右的更新，虽然2017.7重启了。对于技术发展的新需求，需要由开发者自行
+拓展升级(比如当当网弄出了DubboX)，这对于很多想要采用微服务架构的中小软件组织，显然是不太合适的,
+中小公司没有这么强大的技术能力去修改Dubbo源码+周边的一整套解决方案,并不是每一个公司都有阿里的大牛
++真实的线上生产环境测试过。</p>
+
+<p><strong>总结:</strong></p>
+
+<p>曾风靡国内的开源RPC服务框架Dubbo在重启维护后，令许多用户为之雀跃，但同时，也迎来了一一些质疑的声
+音。互联网技术发展迅速，Dubbo 是否还能跟上时代? Dubbo与Spring Cloud相比又有何优势和差异?是否会
+有相关举措保证Dubbo的后续更新频率?</p>
+
+<p>人物: Dubbo重启维护开发的刘军,主要负责人之一</p>
+
+<p>刘军，阿里巴巴中间件高级研发工程师，主导了Dubbo重启维护以后的几个发版计划，专注于高性能RPC框架
+和微服务相关领域。曾负责网易考拉RPC框架的研发及指导在内部使用，参与了服务治理平台、分布式跟踪系
+统、分布式一致性框架等从无到有的设计与开发过程。</p>
+
+<p><strong>解决的问题域不-样: Dubbo的定位是一 -款RPC框架, Spring Cloud的目标是微服务架构下的一站式解决方案</strong></p>
+
+<p><strong>设计模式+微服务拆分思想</strong></p>
+
+<h4 id="springcloud能干嘛">SpringCloud能干嘛</h4>
+
+<ul>
+<li>Distributed/versioned configuration (分布式/版本控制配置)</li>
+<li>Service registration and discovery (服务注册与发现)</li>
+<li>Routing (路由)</li>
+<li>Service-to-service calls (服务到服务的调用)</li>
+<li>Load balancing (负载均衡配置)</li>
+<li>Circuit Breakers (断路器)</li>
+<li>Distributed messaging (分布式消息管理)</li>
+</ul>
+
+<h4 id="springcloud在哪下">SpringCloud在哪下</h4>
+
+<p>官网: <a href="http://projects.spring.io/spring-cloud/">http://projects.spring.io/spring-cloud/</a></p>
+
+<p>这玩意的版本号有点特别</p>
+
+<p>Spring Cloud是一个由众多独立了项目组成的大型综合项目，每个了项目有不同的发行节奏，都维护着自己的发布版
+本号。spring Cloud通过一个资源清单BOM (Bi11 of Materials) 来管理每个版本的子项目清单。为避免与子项
+目的发布号混淆，所以没有采用版本号的方式，而是通过命名的方式。</p>
+
+<p>这些版本名称的俞名方式采用了伦敦地铁站的名称，同时根据字母表的顺序来对应版本时间顺序，比如:最早的
+Release版本: Ange1, 第二个Release版本: Brixton, 然后是Camden、Dalston、Edgware, 日前最新的是
+Finch7ey版本。</p>
+
+<p>参考书:</p>
+
+<ul>
+<li><a href="https://springcloud.cc/spring-cloud-netflix.html">https://springcloud.cc/spring-cloud-netflix.html</a></li>
+<li>中文API文档: <a href="https://springcloud.cc/spring-cloud-dalston.html">https://springcloud.cc/spring-cloud-dalston.html</a></li>
+<li>SpringCloud中国社区 <a href="http://springcloud.cn/">http://springcloud.cn/</a></li>
+<li>SpringCloud中文网 <a href="https://springcloud.cc">https://springcloud.cc</a></li>
+</ul>
+
+<h4 id="springcloud版本选择">SpringCloud版本选择</h4>
+
+<p>大版本说明</p>
+
+<table>
+<thead>
+<tr>
+<th>Spring Boot</th>
+<th>Spring Cloud</th>
+<th>关系</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.2.x</td>
+<td>Angel版本（天使）</td>
+<td>兼容Spring Boot 1.2.x</td>
+</tr>
+
+<tr>
+<td>1.3.x</td>
+<td>Brixton版本（布里克斯顿）</td>
+<td>兼容Spring Boot 1.3.x，也兼容Spring Boot 1.4.x</td>
+</tr>
+
+<tr>
+<td>1.4.x</td>
+<td>Camden版本（卡姆登）</td>
+<td>兼容Spring Boot 1.4.x，也兼容Spring Boot 1.5.x</td>
+</tr>
+
+<tr>
+<td>1.5.x</td>
+<td>Dalstion版本（多尔斯顿）</td>
+<td>兼容Spring Boot 1.5.x，不兼容Spring Boot 2.0.x</td>
+</tr>
+
+<tr>
+<td>1.5.x</td>
+<td>Edware版本（埃奇韦尔）</td>
+<td>兼容Spring Boot 1.5.x，不兼容Spring Boot 2.0.x</td>
+</tr>
+
+<tr>
+<td>2.0.x</td>
+<td>Funchley版本（芬奇利）</td>
+<td>兼容Spring Boot 2.0.x，不兼容Spring Boot 1.5.x</td>
+</tr>
+
+<tr>
+<td>2.1.x</td>
+<td>GreenWich版本（格林威治）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>实际开发版本关系</p>
+
+<p><img src="/resources/技术框架/Spring家族/实际版本.png" alt="实际版本.png" /></p>
+
+<h2 id="实践">实践</h2>
+
+<h3 id="第一个springcloud项目">第一个springCloud项目</h3>
+
+<p>新建一个maven的父工程</p>
+
+<p>使用springcloud的版本为Greenwich.SR1</p>
+
+<h4 id="添加依赖">添加依赖</h4>
+
+<pre><code class="language-xml">&lt;!--    打包方式--&gt;
+&lt;packaging&gt;pom&lt;/packaging&gt;
+
+&lt;!--    依赖版本控制--&gt;
+&lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;junit.version&gt;4.12&lt;/junit.version&gt;
+    &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;
+    &lt;lombok.version&gt;1.16.20&lt;/lombok.version&gt;
+&lt;/properties&gt;
+
+&lt;!--    依赖管理--&gt;
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+
+        &lt;!--            springcloud的依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;Greenwich.SR1&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            springboot的依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;2.1.4.RELEASE&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            数据库依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;5.1.46&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            数据源依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;druid&lt;/artifactId&gt;
+            &lt;version&gt;1.1.10&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            springboot启动依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.3.2&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            junit测试依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            lombok插件依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;${lombok.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--            日志依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+            &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
+            &lt;version&gt;1.2.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;${log4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre>
+
+<h4 id="新建子模块-maven-springcloud-api">新建子模块（maven）springCloud-api</h4>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependencies&gt;
+    &lt;!-- 当前的module依赖，可以导入父工程依赖(如果父工程有此依赖)--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h4 id="数据库脚本">数据库脚本</h4>
+
+<pre><code class="language-sql">CREATE TABLE `dept` (
+  `dname` varchar(60) DEFAULT NULL,
+  `deptno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `db_source` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`deptno`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='部门表';
+insert  into `dept`(`dname`,`deptno`,`db_source`) values ('开发部',1,'db01'),('人事部',2,'db01'),('财务部',3,'db01'),('市场部',4,'db01'),('运维部',5,'db01'),('klz',10,'db01');
+</code></pre>
+
+<p>实体类</p>
+
+<pre><code class="language-java">@Data
+@NoArgsConstructor//无参构造
+@Accessors(chain = true)    //链式写法
+//实现序列化的目的是为了保证流传输不出问题
+public class Dept implements Serializable {
+       /**
+     * 链式写法
+     * dept.setDeptNo(11).setDname('sss').setDb_source()
+     */
+    private long deptno;    //主键
+    private String dname;
+    //这个数据存在哪个数据库
+    private  String db_source;
+    /**
+     * 链式写法
+     * dept.setDeptNo(11).setDname('sss').setDb_source()
+     */
+    public Dept(String dname) {
+        this.dname = dname;
+    }
+}
+</code></pre>
+
+<p>新建子模块springcloud-provider-dept-8001(可以加上端口名)</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependencies&gt;
+&lt;!--    我们要拿到实体类，所以要配置api Module--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.mumulx&lt;/groupId&gt;
+        &lt;artifactId&gt;springCloud-api&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;!--junit--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--mysql--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--数据源--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+        &lt;artifactId&gt;druid&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+&lt;!-- 日志--&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+        &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+&lt;!--mybatis--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+&lt;!--test--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--web--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+        &lt;artifactId&gt;shiro-spring-boot-web-starter&lt;/artifactId&gt;
+        &lt;version&gt;1.4.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;!--web容器jetty--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--    热部署--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<pre><code class="language-yml">server:
+  port: 8001
+# mybatis配置文件
+mybatis:
+  type-aliases-package: com.mumulx.springCloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#spring配置
+spring:
+  application:
+    name: springboot-cloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/db01?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: 111111
+</code></pre>
+
+<p>mybatis配置</p>
+
+<pre><code>&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;settings&gt;
+        &lt;!--       设置二级缓存--&gt;
+        &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+    &lt;/settings&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<p>消费者</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependencies&gt;
+    &lt;!--    实体类依赖，从api中导--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.mumulx&lt;/groupId&gt;
+        &lt;artifactId&gt;springcloud-api&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!--        spirngboot的web依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!--        热部署依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-java">
+@Configuration
+public class ConfigBean {
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">@RestController
+public class DeptConsumerController {
+    //消费者 没有servicec层
+    //RestTemplate ...方法供我们调用就可以了！ 注册sring中
+    //(url, 实体: Map, Class&lt;T&gt; ResponseType)
+    @Autowired
+    private RestTemplate restTemplate;
+
+    private static final String REST_URL_PREFIX = &quot;http://localhost:8001&quot;;
+
+    @RequestMapping(&quot;/consumer/dept/get/{id}&quot;)
+    public Dept get(@PathVariable(&quot;id&quot;) Long id) {
+        return restTemplate.getForObject(REST_URL_PREFIX + &quot;/dept/get/&quot;+id, Dept.class);
+    }
+
+    @RequestMapping(&quot;/consumer/dept/add&quot;)
+    public boolean add(Dept dept) {
+        return restTemplate.postForObject(REST_URL_PREFIX +&quot;/dept/add&quot;, dept, boolean.class);
+    }
+
+    @RequestMapping(&quot;/consumer/dept/list&quot;)
+    public List&lt;Dept&gt; list() {
+        return restTemplate.getForObject(REST_URL_PREFIX + &quot;/dept/list&quot;, List.class);
+
+    }
+}
+</code></pre>
+
+<p>消费者 没有servicec层</p>
+
+<p><strong>RestTemplate</strong> &hellip;方法供我们调用就可以了！ 注册sring中</p>
+
+<p>(url, 实体: Map, Class<T> ResponseType)</p>
+
+<h3 id="eureka服务注册与发现">Eureka服务注册与发现</h3>
+
+<h4 id="什么是eureka">什么是Eureka</h4>
+
+<ul>
+<li>Eureka: 怎么读?</li>
+<li>Netflix 在设计Eureka时,遵循的就是AP原则</li>
+<li>Eureka是Netflix的一 -个子模块, I也是核心模块之-。Eureka是一 个基于REST的服务，用于定位服务,以实现
+云端中间层服务发现和故障转移,服务注册与发现对于微服务来说是非常重要的,有了服务发现与注册，只需
+要使用服务的标识符，就可以访问到服务,而不需要修改服务调用的配置文件了，功能类似于Dubbo的注册
+中心，比如Zookeeper;</li>
+</ul>
+
+<h4 id="原理讲解">原理讲解</h4>
+
+<p>Eureka的基本架构</p>
+
+<ul>
+<li>SpringCloud 封装了NetFlix公司开发的Eureka模块来实现服务注册和发现(对比Zookeeper)</li>
+<li>Eureka采用了C-S的架构设计，EurekaServer 作为服务注册功能的服务器，他是服务注册中心</li>
+
+<li><p>而系统中的其他微服务。使用Eureka的客户端连接到EurekaServer并维持心跳连接。 这样系统的维护人
+员就可以通过EurekaServer来监控系统中各个微服务是否正常运行，SpringCloud的一 些其他模块(比如
+Zuu)_就可以通过EurekaServer来发现系统中的其他微服务，并执行相关的逻辑:</p></li>
+
+<li><p>Eureka 包含两个组件: Eureka Server和Eureka Client。</p></li>
+
+<li><p>Eureka Server提供服务注册服务,各个节点启动后，会在EurekaServer中进行注册， 这样Eureka Server
+中的服务注册表中将会村粗所有可用服务节点的信息，服务节点的信息可以在界面中直观的看到。</p></li>
+
+<li><p>Eureka Client是-个Java客户端，用于简化EurekaServer的交互， 客户端同时也具备- -个内置的，使用轮
+询负载算法的负载均衡器。在应用启动后，将会向EurekaServer发送心跳(默认周期为30秒)。如果
+Eureka Server在多个心跳周期内没有接收到某个节点的心跳，EurekaServer将 会从服务注册表中把这个
+服务节点移除掉(默认周期为90秒)</p></li>
+</ul>
+
+<p>三大角色</p>
+
+<ul>
+<li>Eureka Server:提供服务的注册于发现。</li>
+<li>Service Provider:将自身服务注册到Eureka中,从而使消费方能够找到。</li>
+<li>Service Consumer:服务消费方从Eureka中获取注册服务列表,从而找到消费服务。</li>
+</ul>
+
+<p>新建一个项目之后的步骤</p>
+
+<ol>
+<li>导入依赖</li>
+<li>编写配日志文件</li>
+<li>开启这个功能@Enablexxx</li>
+<li>配置类</li>
+</ol>
+
+<p>依赖</p>
+
+<pre><code class="language-xml">&lt;!--        导包--&gt;
+        &lt;!--    eureka依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-eureka-server&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+&lt;!--        热部署--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 7001
+
+#eureka配置
+eureka:
+  instance:
+    hostname: localhost  #Eureka服务端的实例名称,localhost代表服务器的地址，最后要换的
+  client:
+    register-with-eureka: false  #表示是否向eureka注册中心注册自己
+    fetch-registry: false       #fetch-registry如果为false, 则表示自己为注册中心
+    service-url:                # 监控页面
+     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+</code></pre>
+
+<p>访问</p>
+
+<pre><code>http://localhost:7001/
+</code></pre>
+
+<p>注册，服务提供方添加配置</p>
+
+<pre><code class="language-yml">#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+</code></pre>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;!--        eureka依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+    &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>开启服务</p>
+
+<pre><code class="language-java">@EnableEurekaClient//开启服务
+@SpringBootApplication
+public class SpringCloudProvider {
+</code></pre>
+
+<p>启动，先启动注册中心，在启动服务提供方</p>
+
+<p>完善7001的监控信息</p>
+
+<p>服务提供方添加依赖</p>
+
+<pre><code class="language-xml">&lt;!--        actutor完善监控信息(erekua的status指向网页的信息依赖)--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>添加配置</p>
+
+<pre><code class="language-yml">#info配置
+info:
+  app.name: mumulx-springcloud
+  company.name: com.mumulx
+</code></pre>
+
+<p>自我保护机制:好死不如赖活着</p>
+
+<p>一句话总结:某时刻某一个微服务不可以用了，eureka不会立刻清理，依旧会对该微服务的信息进行保存!</p>
+
+<p>默认情况下，如果EurekaServer在一 定时间内没有接收到某个微服务实例的心跳，EurekaServer将会注销该实例(默认90秒)。但是当网络分区故障发生时，微服务与Eureka之间无法正常通行，以上行为可能变得非常危险了&ndash;因为微服务本身其实是健康的，此时本不应该注销这个服务。Eureka通过 自我保护机制来解决这个问题&ndash;当EurekaServer节点在短时间内丢失过多客户端时(可能发生了网络分区故障)， 那么这个节点就会进入自我保护模式。- -旦进入该模式，EurekaServer就会保护服务注册表中的信息，不再删除服务注册表中的数据(也就是不会注销任何微服务)。当网络故障恢复后，EurekaServer节 点会自动退出自我保护模式。</p>
+
+<p>在自我保护模式中, EurekaServer会保护服务注册表中的信息，不再注销任何服务实例。当它收到的心跳数重新恢复到阈值以上时,该EurekaServer节 点就会自动退出自我保护模式。它的设计哲学就是宁可保留错误的服务注册信息，也不盲目注销任何可能健康的服务实例。-句话:好死不如赖活着</p>
+
+<p>综上，自我保护模式是一种应对网络异常的安全保护措施。它的架构哲学是宁可同时保留所有微服务(健康的微服务和不健康的微服务都会保留)，也不盲目注销任何健康的微服务。使用自我保护模式，可以让Eureka集群更加的健壮和稳定</p>
+
+<p>在SpringCloud中，可以使用<code>eureka. server. enable-self-preservation = false</code> 禁用自我保护模式[不推荐关闭自我保护机制]</p>
+
+<h4 id="获取微服务的一些信息">获取微服务的一些信息</h4>
+
+<pre><code class="language-java">  //获取一些配置信息，得到具体的微服务
+    @Autowired
+    private DiscoveryClient client;
+    @GetMapping(&quot;/dept/discovery&quot;)
+    //注册进来的微服务，获取一些信息
+    public Object discovery() {
+        //获得微服务列表的清单
+        List&lt;String&gt; services = client.getServices();
+        System.out.println(&quot;discovery=&gt;services&quot; + services);
+        //得到一个具体的微服务信息
+        List&lt;ServiceInstance&gt; instance = client.getInstances(&quot;SPRINGCLOUD-PROVIDER-DEPT&quot;);
+        for (ServiceInstance serviceInstance : instance) {
+            System.out.println(
+                    serviceInstance.getHost()+&quot;\t&quot;+
+                            serviceInstance.getPort()+&quot;\t&quot;+
+                            serviceInstance.getUri()+&quot;\t&quot;+
+                            serviceInstance.getServiceId()
+            );
+        }
+        return  this.client;
+    }
+</code></pre>
+
+<p>添加注解</p>
+
+<pre><code>@EnableDiscoveryClient//服务发现
+@SpringBootApplication
+</code></pre>
+
+<h4 id="eureka集群">eureka集群</h4>
+
+<p>增加7002，7003.除了端口不一样其他都是相同的</p>
+
+<p>增加相互间的关系()</p>
+
+<p>7003</p>
+
+<pre><code class="language-yml"># defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   单个
+defaultZone: http://localhost:7001/eureka/,http://127.0.0.1:7002/eureka/ # 集群
+</code></pre>
+
+<p>服务提供方，分别向三个注册中心进行发送</p>
+
+<pre><code class="language-yml">#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/ # 集群
+</code></pre>
+
+<h4 id="对比zookeeper">对比zookeeper</h4>
+
+<p><strong>回顾CAP原则</strong></p>
+
+<p>RDBMS (Mysql. Oracle. sqlServer) ===&gt;ACID .</p>
+
+<p>NoSQL (redis. mongdb) ===&gt; CAP</p>
+
+<p><strong>ACID是什么?</strong></p>
+
+<ul>
+<li><p>A (Atomicity) 原子性</p></li>
+
+<li><p>C (Consistency)- 致性</p></li>
+
+<li><p>I (Isolation) 隔离性</p></li>
+
+<li><p>D (Durability) 持久性</p></li>
+</ul>
+
+<p><strong>CAP是什么?</strong></p>
+
+<ul>
+<li><p>C (Consistency) 强-致性</p></li>
+
+<li><p>A(Availability) 可用性</p></li>
+
+<li><p>P (Partition tolerance) 分区容错性</p>
+
+<p>CAP的三进二: CA、AP、CP</p></li>
+</ul>
+
+<p>CAP理论的核心</p>
+
+<ul>
+<li>一个分布式系统不可能同时很好的满足一 致性，可用性和分区容错性这三个需求</li>
+<li>根据CAP原理,将NoSQL数据库分成了满足CA原则，满足CP原则和满足AP原则三大类:</li>
+<li>CA:单点集群，满足一致性,可用性的系统，通常可扩展性较差</li>
+<li>CP:满足一致性，分区容错性的系统，通常性能不是特别高</li>
+<li>AP:满足可用性，分区容错性的系统,通常可能对一致性要求低一些</li>
+</ul>
+
+<p><strong>回作为服务注册中心，Eureka比Zookeeper好在哪里?</strong></p>
+
+<p>著名的CAP理论指出，-个分布式系统不可能同时满足C (- 致性)、A (可用性)、P (容错性)。
+由于分区容错性P在分布式系统中是必须要保证的，因此我们只能在A和C之间进行权衡。</p>
+
+<ul>
+<li>Zookeeper保证的是CP;</li>
+<li>Eureka保证的是AP; .</li>
+</ul>
+
+<p><strong>Zookeeper保证的是CP</strong></p>
+
+<p>当向注册中心查询服务列表时，我们可以容忍注册中心返回的是几分钟以前的注册信息，但不能接受服务直接down掉不可用。也就是说，服务注册功能对可用性的要求要高于一致性。 但是zk会出现这样一种情况， 当master节点因为网络故障与其他节点失去联系时,剩余节点会重新进行leader选举。问题在于，选举leader的时间太长,30~120s，且选举期间整个zk集群都是不可用的，这就导致在选举期间注册服务瘫痪。在云部署的环境下，因为网络问题使得zk集群失去master节点是较大概率会发生的事件，虽然服务最终能够恢复,但是漫长的选举时间导致的注册长期不可用是不能容忍的。</p>
+
+<p><strong>Eureka保证的是AP</strong></p>
+
+<p>Eureka看明白了这一点，因此在设计时就优先保证可用性。Eureka各个节点都是平等的，几个节点挂掉不会影响正常节点的工作,剩余的节点依然可以提供注册和查询服务。而Eureka的客户端在向某个Eureka注册时,如果发现连接失败，则会自动切换至其他节点，只要有一台Eureka还在，就能保住注册服务的可用性，只不过查到的</p>
+
+<p>信息可能不是最新的，除此之外，Eureka还有一 种自我保护机制，如果在15分钟内超过85%的节点都没有正常的心跳，那么Eureka就认为客户端与注册中心出现了网络故障,此时会出现以下几种情况:
+1. Eureka不再从注册列表中移除因为长时间没收到心跳而应该过期的服务
+2. Eureka仍然能够接受新服务的注册和查询请求，但是不会被同步到其他节点上(即保证当前节点依然可用)
+3. 当网络稳定时，当前实例新的注册信息会被同步到其他节点中</p>
+
+<p>因此，Eureka可以很好的应对因网络故障导致部分节点失去联系的情况，而不会像zookeeper那样使整个注册服务瘫痪</p>
+
+<h2 id="ribbon">ribbon</h2>
+
+<p>ribbon是什么</p>
+
+<ul>
+<li><p>Spring Cloud Ribbon是基于Netlix Ribbon实现的一套客户端负载均衡的工具。</p></li>
+
+<li><p>简单的说，Ribbon是Netflix发布的开源项目, 主要功能是提供客户端的软件负载均衡算法，将NetFlix的中间层服务连接在一起。Ribbon的客户端组件提供一系列完整的配置项如: 连接超时、重试等等。简单的说，就是在配置文件中列出LoadBalancer (简称LB:负载均衡)后面所有的机器，Ribbon会 自动的帮助你基于某种规则(如简单轮询，随机连接等等)去连接这些机器。我们也很容易使用Ribbon实现自定义的负载均衡算法!</p>
+
+<p>ribbon能干嘛?</p>
+
+<ul>
+<li><p>LB,即负载均衡(Load Balance) ，在微服务或分布式集群中经常用的-种应用。</p></li>
+
+<li><p>负载均衡简单的说就是将用户的请求平摊的分配到多个服务上，从而达到系统的HA (高可用)。</p></li>
+
+<li><p>常见的负载均衡软件有Nginx, Lvs等等</p></li>
+
+<li><p>dubbo. SpringCloud中均给我们提供了负载均衡, SpringCloud的负载均衡算法可以自定义</p></li>
+
+<li><p>负载均衡简单分类:</p>
+
+<p>集中式LB</p>
+
+<ul>
+<li>即在服务的消费方和提供方之间使用独立的LB设施，如Nginx, 由该设施负责把访问请求通过某种策
+略转发至服务的提供方!</li>
+</ul>
+
+<p>进程式LB</p>
+
+<ul>
+<li>将LB逻辑集成到消费方，消费方从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选出一个合适的服务器。</li>
+<li>”Ribbon就属于进程内LB, 它只是一 个类库，集成于消费方进程,消费方通过它来获取到服务提供方的地址</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3 id="使用">使用</h3>
+
+<p>添加依赖（在消费方）</p>
+
+<pre><code class="language-xml">        &lt;!--        Ribbon的依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--        Eureka依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">#Eureka配置
+eureka:
+  client:
+    register-with-eureka: false  #不向eureka注册自己
+    service-url:
+      #做集群需要关联集群的eureka服务器的地址,其实端口号都应该是7001，
+      #关联的只是服务器地址，这里因为只有一台电脑，就用了端口号代替
+      defaultZone: http://127.0.0.1:7001/eureka/,http://127.0.0.1:7002/eureka/,http://127.0.0.1:7003/eureka/
+      #常见错误
+      #参考文档博客园 https://www.cnblogs.com/cangqinglang/p/11704475.html
+</code></pre>
+
+<pre><code class="language-java">    //负载均衡实现RestTemplate
+    @Bean
+    @LoadBalanced       //Reibbon
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
+</code></pre>
+
+<p>controller使用负载均衡</p>
+
+<pre><code class="language-java">//Ribbon 我们这里的地址，应该是一个变量，通过服务名来访问
+// private static final String REST_URL_PREFIX = &quot;http://localhost:8001&quot;;
+private static final String REST_URL_PREFIX = &quot;http://SPRINGCLOUD-PROVIDER-DEPT&quot;;
+</code></pre>
+
+<p>启动</p>
+
+<pre><code class="language-java">@SpringBootApplication
+@EnableEurekaClient//启动
+public class SpringCloudConsumer {
+</code></pre>
+
+<p>IRule接口</p>
+
+<h3 id="创建多个服务提供者">创建多个服务提供者</h3>
+
+<p>创建db02、db03数据库</p>
+
+<pre><code class="language-sql">
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db02` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `db02`;
+DROP TABLE IF EXISTS `dept`;
+CREATE TABLE `dept` (
+  `dname` varchar(60) DEFAULT NULL,
+  `deptno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `db_source` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`deptno`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='部门表';
+insert  into `dept`(`dname`,`deptno`,`db_source`) values ('开发部',1,'db02'),('人事部',2,'db02'),('财务部',3,'db02'),('市场部',4,'db02'),('运维部',5,'db02'),('klz',10,'db02');
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db03` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `db03`;
+DROP TABLE IF EXISTS `dept`;
+CREATE TABLE `dept` (
+  `dname` varchar(60) DEFAULT NULL,
+  `deptno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `db_source` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`deptno`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='部门表';
+insert  into `dept`(`dname`,`deptno`,`db_source`) values ('开发部',1,'db03'),('人事部',2,'db03'),('财务部',3,'db03'),('市场部',4,'db03'),('运维部',5,'db03'),('klz',10,'db03');
+</code></pre>
+
+<p>创建服务提供者8002、8003</p>
+
+<p>修改数据库和服务提供者id，端口号</p>
+
+<pre><code class="language-yml">url: jdbc:mysql://localhost:3306/db02?useUnicode=true&amp;serverTimezone=GMT%2B8&amp;characterEncoding=UTF-8&amp;useSSL=false
+instance-id: springcloud-provider-dept8002
+port: 8002
+</code></pre>
+
+<p>但是服务名一定是一致的</p>
+
+<pre><code class="language-yml">application:
+	name: springcloud-provider-dept
+</code></pre>
+
+<p>测试</p>
+
+<p>可以发现</p>
+
+<pre><code>SPRINGCLOUD-PROVIDER-DEPT	n/a (3)	(3)	UP (3) - springcloud-provider-dept8001 , springcloud-provider-dept8003 , springcloud-provider-dept8002
+</code></pre>
+
+<p>启动客户端&ndash;使用者80</p>
+
+<p>访问，可以发现数据是轮询的</p>
+
+<pre><code>http://localhost/consumer/dept/list
+</code></pre>
+
+<h4 id="自定义分配算法">自定义分配算法</h4>
+
+<p>注意IRule接口，具有以下实现类</p>
+
+<pre><code>AbstractLoadBalancerRule		一般
+AvailabilityFilleringRule		会先过滤掉，崩溃(跳闸)的服务，对剩下的进行轮询
+BestAvailableRule
+ClientConfigEnabledRoundRobinRule
+PredicateBasedRule
+RandomRule					随机
+ResponseTimeWeightedRule
+RetryRule					重试，会先按照轮询获取服务，如果服务获取失败，则会在指定的时间内进行重试
+RoundRobinRule				轮询
+WeightedResponseTimeRule		权重
+ZoneAvoidanceRule
+</code></pre>
+
+<p>添加注解</p>
+
+<pre><code class="language-java">//规则，轮询
+@Bean
+public IRule myRule(){
+    return new RandomRule();
+}
+</code></pre>
+
+<p>自定义规则只需要实现IRule接口</p>
+
+<p>FooConf iguration必须是@Configuration.但请注意，它不在主应用程序上下文的@ComponentScan中，否则将由所有@RibbonClients共享,如果您使用@ComponentScan (或@SpringBootApplication) .则需要采取措施避免包含({例如将其放在一 个单独的， 不重叠的包中，或者指定要在@ComponentScan) .</p>
+
+<p>所以我们的自定义的类，不能放在启动类的目录下</p>
+
+<h2 id="feign负载均衡">Feign负载均衡</h2>
+
+<p>简介</p>
+
+<p>feign是声明式的web service客户端，它让微服务之间的调用变得更简单了，类似controller调用service。 SpringCloud集成了Ribbon和Eureka,可在使用Feign时提供负载均衡的http客户端。只需要创建一一个接口，然后添加注解即可!feign，主要是社区，大家都习惯面向接口编程。这个是很多开发人员的规范。调用微服务访问两种方法</p>
+
+<ol>
+<li><p>微服务名字[ribbon]</p></li>
+
+<li><p>接口和注解[feign ]</p></li>
+</ol>
+
+<p>Feign能干什么?</p>
+
+<p>Feign旨在使编写Java Http客户端变得更容易</p>
+
+<p>前面在使用Ribbon + RestTemplate时, 利用RestTemplate对Http请求的封装处理，形成了一套模板化的调用方法。但是在实际开发中，由于对服务依赖的调用可能不止- -处， 往往一个接口会被多处调用,所以通常都会针对每个微服务自行封装-些客户端类来包装这些依赖服务的调用。 所以，Feign在此基础 上做了进一步封装，由他来帮助我们定义和实现依赖服务接口的定义，在Feign的实现下，我们只需要创建一一个接口并使用注解的方式来配置它(类似于以前Dao接口上标注Mapper注解，现在是一个微服务接口上面标注一个Feign注解即可。)即可完成对服务提供方的接口绑定，简化了使用Spring Cloud Ribbon时，自动封装服务调用客户端的开发量。</p>
+
+<p>Feign集成了Ribbon</p>
+
+<p>利用Ribbon维护了MicroServiceCloud-Dept的服务列表信息，并且通过轮询实现了客户端的负载均衡，而与Ribbon不同的是，通过Feign只需要定义服务绑定接口且以声明式的方法,优雅而且简单的实现了服务调用。</p>
+
+<h4 id="使用-1">使用</h4>
+
+<p>api添加service</p>
+
+<pre><code class="language-java">//@Component
+@FeignClient(value = &quot;SPRINGCLOUD-PROVIDER-DEPT&quot;)
+public interface DeptServiceFeign {
+    @GetMapping(&quot;/dept/get/{id}&quot;)
+    public Dept queryId(@PathVariable(&quot;id&quot;) Long id);
+
+    @GetMapping(&quot;/dept/list&quot;)
+    public List&lt;Dept&gt; queryAll();
+
+    @PostMapping(&quot;/dept/list&quot;)
+    public boolean addDept(Dept dept);
+}
+</code></pre>
+
+<p>api 添加依赖</p>
+
+<pre><code class="language-xml">  &lt;!--Feign依赖--&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;
+      &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+  &lt;/dependency&gt;
+</code></pre>
+
+<p>创建module：springcloud-comsumer-feign、</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;!--Feign依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;
+    &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>controller调用</p>
+
+<pre><code class="language-java">
+@RestController
+public class DeptController {
+    @Autowired
+    private DeptServiceFeign service =null;
+    @RequestMapping(&quot;/consumer/dept/get/{id}&quot;)
+    public Dept get(@PathVariable(&quot;id&quot;) Long id) {
+        return this.service.queryId(id);
+    }
+    @RequestMapping(&quot;/consumer/dept/add&quot;)
+    public boolean add(Dept dept) {
+        return this.service.addDept(dept);
+    }
+    @RequestMapping(&quot;/consumer/dept/list&quot;)
+    public List&lt;Dept&gt; list() {
+        return this.service.queryAll();
+    }
+}
+</code></pre>
+
+<p>启用</p>
+
+<pre><code class="language-java">@SpringBootApplication
+@EnableEurekaClient//启动
+@EnableFeignClients(basePackages = &quot;com.mumulx&quot;)
+public class SpringCloudConsumerFeign {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudConsumerFeign.class, args);
+    }
+}
+</code></pre>
+
+<p>测试</p>
+
+<p>启动7001、8001，feign</p>
+
+<p>访问</p>
+
+<pre><code>http://localhost/consumer/dept/list
+</code></pre>
+
+<h2 id="服务熔断">服务熔断</h2>
+
+<p>服务端</p>
+
+<p>分布式系统面临的问题</p>
+
+<p>复杂分布式体系结构中的应用程序有数十个依赖关系，每个依赖关系在某些时候将不可避免的失败!</p>
+
+<p><strong>服务雪崩</strong></p>
+
+<p>多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其他的微服务,这就是所谓的&rdquo;扇出”、如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的“雪崩效应&rdquo;。对于高流量的应用来说，单- -的后端依赖可能会导致所有服务器上的所有资源都在几秒中内饱和。比失败更糟糕的是，这些应用程序还可能导致服务之间的延迟增加，备份队列，线程和其他系统资源紧张，导致整个系统发生更多的级联故障，这些都表示需要对故障和延迟进行隔离和管理，以便单个依赖关系的失败，不能取消整个应用程序或系统。</p>
+
+<p>我们需要:弃车保帅</p>
+
+<p><strong>什么是Hystrix</strong></p>
+
+<p>Hystrix是一个用于处理分 布式系统的延迟和容错的开源库,在分布式系统里，许多依赖不可避免的会调用失败，比如超时，异常等, Hystrix能够保证在一 个依赖出问题的情况下， 不会导致整体服务失败,避免级联故障,以提高分布式系统的弹性。</p>
+
+<p>&ldquo;断路器”本身是一种开关装置，当某个服务单元发生故障之后，通过断路器的故障监控(类似熔断保险丝)，向调用方返回一个服务预期的，可处理的备选响应(FallBack) ，而不是长时间的等待或者抛出调用方法无法处理的异常，这样就可以保证了服务调用方的线程不会被长时间，不必要的占用，从而避免了故障在分布式系统中的蔓延,乃至雪崩</p>
+
+<p><strong>能干嘛</strong></p>
+
+<ul>
+<li>服务降级</li>
+<li>服务熔断</li>
+<li>服务限流</li>
+<li>接近实时的监控</li>
+</ul>
+
+<p><a href="https://github.com/Netfix/Hystrix/wiki">官网资料</a></p>
+
+<p>服务熔断</p>
+
+<p>是什么</p>
+
+<p>熔断机制是对应雪崩效应的一种微服务链路保护机制。当扇出链路的某个微服务不可用或者响应时间太长时，会进行服务的降级，进而熔断该节点微服务的调用，快速返回错误的响应信息。当检测到该节点微服务调用响应正常后恢复调用链路。在SpringCloud框架里熔断机制通过Hystrix实现。Hystrix会监控微服务间调用的状况， 当失败的调用到- -定阈值,缺省是5秒内20次调用失败就会启动熔断机制。熔断机制的注解是@HystrixCommand.</p>
+
+<h3 id="使用-2">使用</h3>
+
+<h4 id="添加依赖-1">添加依赖</h4>
+
+<pre><code>        &lt;!--        hystrix依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+</code></pre>
+
+<pre><code class="language-java">@RestController
+public class DeptController {
+    @Resource(name = &quot;deptService&quot;)
+    private DeptServiceFeign deptService;
+
+    @HystrixCommand(fallbackMethod = &quot;getHystrix&quot;)//指定备选方法
+    @GetMapping(&quot;/dept/get/{id}&quot;)
+    public Dept get(@PathVariable(&quot;id&quot;) Long id){
+
+        Dept dept = deptService.queryId(id);
+        if (dept == null) {
+            throw new RuntimeException(&quot;id=&gt;&quot; + id + &quot;,不存在该用户，或信息无法找到&quot;);
+        }
+        return dept;
+    }
+    //备选方法
+    public Dept getHystrix(@PathVariable(&quot;id&quot;) Long id){
+        
+        return new Dept().setDeptno(id).setDname(&quot;id=&gt;&quot;+id+&quot;,没有对应的信息，null~~&quot;).setDb_source(&quot;不存在该数据库&quot;);
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-java">@EnableEurekaClient//在服务启动后自动注册到eureka
+@SpringBootApplication
+@EnableDiscoveryClient//服务发现
+@EnableCircuitBreaker//增加对熔断的支持
+public class SpringCloudProvider8001 {
+</code></pre>
+
+<p>测试</p>
+
+<p>启动7001，7002，8001-hystrix</p>
+
+<h3 id="服务降级">服务降级</h3>
+
+<p>客户端</p>
+
+<p>api提供降级</p>
+
+<pre><code class="language-java">
+//降级
+@Component
+public class DeptServiceFeignFallbackFactory implements FallbackFactory {
+
+    @Override
+    public DeptServiceFeign create(Throwable throwable) {
+        // 谁失败了就返回谁
+
+
+        return new DeptServiceFeign() {
+            @Override
+            public Dept queryId(Long id) {
+                return new Dept()
+                        .setDeptno(id)
+                        .setDname(&quot;id=&gt;&quot;+id+&quot;没有对应的信息，客户端提供了降级的信息，这个服务现在已经被关闭了&quot;)
+                        .setDb_source(&quot;n没有数据&quot;);
+            }
+
+            @Override
+            public List&lt;Dept&gt; queryAll() {
+                return null;
+            }
+
+            @Override
+            public boolean addDept(Dept dept) {
+                return false;
+            }
+        };
+    }
+}
+
+</code></pre>
+
+<p>指定关系</p>
+
+<pre><code class="language-java">@FeignClient(value = &quot;SPRINGCLOUD-PROVIDER-DEPT&quot;,fallbackFactory = DeptServiceFeignFallbackFactory.class)
+public interface DeptServiceFeign {
+</code></pre>
+
+<p>feign开启</p>
+
+<pre><code class="language-yml"># 开启降级
+feign:
+  hystrix:
+    enabled: true
+</code></pre>
+
+<p>测试</p>
+
+<p>启动7001，7002，8001，feign</p>
+
+<p>访问</p>
+
+<pre><code>http://localhost/consumer/dept/get/1
+</code></pre>
+
+<p>关闭8001</p>
+
+<p>继续访问</p>
+
+<pre><code class="language-json">{
+    deptno: 1,
+    dname: &quot;id=&gt;1没有对应的信息，客户端提供了降级的信息，这个服务现在已经被关闭了&quot;,
+    db_source: &quot;n没有数据&quot;
+}
+</code></pre>
+
+<p>服务熔断:服务端某 个服务超时或者异常，引起熔脚，保险丝~</p>
+
+<p>服务降级:客户端从整体网站请求负载考虑，当某个服务熔断或者关闭之后，服务将不再被调用此时在客户端，我们可以准备一个FallbackFactory,返回一个默认的值( 缺省值)，整体的服务水平下降了但是，好歹能用</p>
+
+<h3 id="监控">监控</h3>
+
+<p>客户端</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependencies&gt;
+
+    &lt;!--        我们需要拿到实体类,从api项目的pojo拿--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.mumulx&lt;/groupId&gt;
+        &lt;artifactId&gt;springcloud-api&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        junit--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        mysql依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        druid数据源依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+        &lt;artifactId&gt;druid&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        日志核心依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+        &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        springboot启动依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        spirngboot测试依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-test&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        springboot的web依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        jetty依赖相当于tomcat(springboot自带tomcat)--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        热部署依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--        eureka依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+        &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!--        actutor完善监控信息(erekua的status指向网页的信息依赖)--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--        Hystrix依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+          &lt;!--        Hystrix监控依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-hystrix-dashboard&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+</code></pre>
+
+<p>springcloud-consumer-hystrix-dashboard</p>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 9001
+
+</code></pre>
+
+<p>启动类</p>
+
+<pre><code class="language-java">@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@EnableHystrixDashboard//开启监控
+public class SpringCloudConsumerHystrixDashboard {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudConsumerHystrixDashboard.class,args);
+    }
+
+}
+</code></pre>
+
+<p>服务提供者端添加依赖</p>
+
+<p>（以将添加过了）</p>
+
+<pre><code class="language-xml">&lt;!--        actutor完善监控信息(erekua的status指向网页的信息依赖)--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>测试</p>
+
+<p>启动9001</p>
+
+<p>访问</p>
+
+<pre><code>http://localhost:9001/hystrix
+</code></pre>
+
+<p>8001-hystrix</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;!--        hystrix依赖--&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
+	&lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;	
+</code></pre>
+
+<p>启动类添加配置</p>
+
+<pre><code class="language-java">//增加一个servlet,将8001服务注册到dashboard流监控
+@Bean
+public ServletRegistrationBean getServlet() {
+    HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+    ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+    registrationBean.setLoadOnStartup(1);
+    registrationBean.addUrlMappings(&quot;/actuator/hystrix.stream&quot;);
+    registrationBean.setName(&quot;HystrixMetricsStreamServlet&quot;);
+    return registrationBean;
+}
+</code></pre>
+
+<p>启动7001，8001-hystrix、9001</p>
+
+<p>先访问</p>
+
+<pre><code>http://localhost:8001/dept/get/5
+</code></pre>
+
+<p>访问的方法必须是支持熔断的</p>
+
+<p>即含有注解 @HystrixCommand(fallbackMethod = &ldquo;getHystrix&rdquo;)的</p>
+
+<pre><code class="language-java"> @HystrixCommand(fallbackMethod = &quot;getHystrix&quot;)//指定备选方法
+    @GetMapping(&quot;/dept/get/{id}&quot;)
+    public Dept get(@PathVariable(&quot;id&quot;) Long id){
+
+        Dept dept = deptService.queryId(id);
+        if (dept == null) {
+            throw new RuntimeException(&quot;id=&gt;&quot; + id + &quot;,不存在该用户，或信息无法找到&quot;);
+        }
+        return dept;
+    }
+    //备选方法
+    public Dept getHystrix(@PathVariable(&quot;id&quot;) Long id){
+
+        return new Dept().setDeptno(id).setDname(&quot;id=&gt;&quot;+id+&quot;,没有对应的信息，null~~&quot;).setDb_source(&quot;不存在该数据库&quot;);
+    }
+</code></pre>
+
+<p>在监控</p>
+
+<pre><code>http://localhost:8001/actuator/hystrix.stream
+</code></pre>
+
+<p>进入9001</p>
+
+<p>添加监控</p>
+
+<pre><code>http://localhost:8001/actuator/hystrix.stream
+</code></pre>
+
+<p>Delay: 2000ms</p>
+
+<p>Title: xxx</p>
+
+<p>进入后进行监控</p>
+
+<h2 id="zuul路由网关">Zuul路由网关</h2>
+
+<h3 id="概述">概述</h3>
+
+<p>什么是Zuul?</p>
+
+<p>Zuul包含了对请求的路由和过滤两个最主要的功能:</p>
+
+<p>其中路由功能负责将外部请求转发到具体的微服务实例上，是实现外部访问统一入口的基础， 而过滤器功能则负责对请求的处理过程进行干预，是实现请求校验，服务聚合等功能的基础。Zuul和Eureka进行整合, 将Zuul自身注册为Eureka服务治理下的应用，同时从Eureka中获得其他微服务的消息，也即以后的访问微服务都是通过Zuul跳转后获得。</p>
+
+<p>注意: Zuul服务最终还是会注册进Eureka</p>
+
+<p>提供:代理+路由+过滤三大功能!</p>
+
+<p>Zuul能干嘛?</p>
+
+<ul>
+<li>路由</li>
+<li>过滤</li>
+</ul>
+
+<p><a href="https://github.com/Netflix/zuul">官网文档: </a></p>
+
+<h3 id="代码">代码</h3>
+
+<p>新建module：springcloud-zuul-9527</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">  &lt;dependencies&gt;
+
+        &lt;!--        我们需要拿到实体类,从api项目的pojo拿--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.mumulx&lt;/groupId&gt;
+            &lt;artifactId&gt;springcloud-api&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+        &lt;/dependency&gt;
+
+
+        &lt;!--        springboot的web依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--        jetty依赖相当于tomcat(springboot自带tomcat)--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--        热部署依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--        actutor完善监控信息(erekua的status指向网页的信息依赖)--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--        Ribbon的依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--        Hystrix依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.reactivestreams&lt;/groupId&gt;
+            &lt;artifactId&gt;reactive-streams&lt;/artifactId&gt;
+            &lt;version&gt;1.0.3&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--        Hystrix监控依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-hystrix-dashboard&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--       Eureka依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--       Zuul依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;
+            &lt;version&gt;1.4.6.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 9527
+spring:
+  application:
+    name: springCloud-zuul
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-zuul-9527
+    prefer-ip-address: true
+#info配置
+info:
+  app.name: mumulx-springcloud
+  company.name: com.mumulx
+</code></pre>
+
+<p>开启</p>
+
+<pre><code class="language-java">@SpringBootApplication
+@EnableZuulProxy
+public class SpringCloudZuul9527 {
+    public static void main(String[] args)
+</code></pre>
+
+<p>本地添加网关，C:\Windows\System32\drivers\etc\hosts文件</p>
+
+<pre><code>127.0.0.1 www.mywin10.com
+</code></pre>
+
+<p>测试：</p>
+
+<p>启动7001，8001-hystrix，9527</p>
+
+<p>访问</p>
+
+<p>方式一</p>
+
+<pre><code>http://localhost:8001/dept/get/5
+</code></pre>
+
+<p>方式二</p>
+
+<pre><code>http://www.mywin10.com:9527/springcloud-provider-dept/dept/get/2
+</code></pre>
+
+<p>这样就把真实的地址隐藏起来了</p>
+
+<p>但是这样暴漏了微服务的名称springcloud-provider-dept</p>
+
+<p>配置zuul</p>
+
+<p>增加9527配置</p>
+
+<pre><code># zuul配置
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**                         #将服务名改一个名字代替服务名
+  ignored-services: springcloud-provider-dept       #忽略服务名，不能用服务名访问了，否则报500
+  prefix:                                           #设置公共前缀
+</code></pre>
+
+<p>访问</p>
+
+<pre><code>http://www.mywin10.com:9527/mydept/dept/get/2
+</code></pre>
+
+<p>这样就隐藏了ip和微服务的名称</p>
+
+<h2 id="springcloud-config分布式配置">SpringCloud config分布式配置</h2>
+
+<h3 id="概述-1">概述</h3>
+
+<p>分布式系统面临的-配置文件的问题</p>
+
+<p>微服务意味着要将单体应用中的业务拆分成一个个子服务,每个服务的粒度相对较小，因此系统中会出现大量的服务，由于每个服务都需要必要的配置信息才能运行，所以一套集中式的， 动态的配置管理设施是必不可少的。SpringCloud提供了ConfigServer来解决这个问题,我们每一个微服务自 己带着- -个application.yml, 那上百的的配置文件要修改起来，岂不是要发疯!</p>
+
+<p>什么是SpringCloud config分布式配置中心</p>
+
+<p>可以将配置文件放在本地git仓库，也可以放在远程git仓库</p>
+
+<p>Spring Cloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同微服务应用的所有环节提供了一个中心化的外部配置。</p>
+
+<p>Spring Cloud Config 分为服务端和客户端两部分;</p>
+
+<p>服务端也称为分布式配置中心，它是一 个独立的微服务应用，用来连接配置服务器并为客户端提供获取配置信息,加密,解密信息等访问接口。</p>
+
+<p>客户端则是通过指定的配置中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息。配置服务器默认采用git来存储配置信息,这样就有助于对环境配置进行版本管理。并且可以通过git客户端工具来方便的管理和访问配置内容.</p>
+
+<p><strong>SpringCloud config分布式配置中心能干嘛</strong></p>
+
+<ul>
+<li><p>集中管理配置文件</p></li>
+
+<li><p>不同环境，不同配置，动态化的配置更新，分环境部署,比如/dev /test/ /prod /beta /release</p></li>
+
+<li><p>运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件,服务会向配置中心统-拉取配置自己的信息。</p></li>
+
+<li><p>当配置发生变动时，服务不需要重启，即可感知到配置的变化，并应用新的配置</p></li>
+
+<li><p>将配置信息以REST接口的形式暴露</p></li>
+</ul>
+
+<p><strong>SpringCloud config分布式配置中心与github整合</strong></p>
+
+<p>由于Spring Cloud Config默认使用Git来存储配置文件(也有其他方式，比如支持SVN和本地文件)，但是最推荐的还是Git，而且使用的是http / https访问的形式;</p>
+
+<h3 id="使用-3">使用</h3>
+
+<h4 id="服务端">服务端</h4>
+
+<p>git新建仓库springCloud-config</p>
+
+<p>新建spring配置文件application.yml</p>
+
+<pre><code class="language-yml">spring:
+  profiles:
+    active: dev
+---
+#spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-dev
+
+---
+#spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-test
+</code></pre>
+
+<p>创建新module：springcloud-config-service-3344</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependencies&gt;
+&lt;!--    web--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!--config--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-config-server&lt;/artifactId&gt;
+        &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!--        actuator完善页面监控依赖--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+        &lt;version&gt;2.1.11.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 3344
+spring:
+  application:
+    name: springcloud-config-server-3344
+
+  #连接远端仓库
+  cloud:
+    config:
+      server:
+        git:
+           uri: https://github.com/mumulx/springCloud-config.git #是http，不是ssh
+
+</code></pre>
+
+<p>启用</p>
+
+<pre><code class="language-java">@SpringBootApplication
+@EnableConfigServer
+public class SpringCloudConfigServer3344 {
+</code></pre>
+
+<p>测试</p>
+
+<p>启动3344</p>
+
+<p>测试</p>
+
+<p>访问的三种方式</p>
+
+<pre><code>http://localhost:3344/application-dev.yml
+http://localhost:3344/application/test/master
+http://localhost:3344/master/application-dev.yml
+</code></pre>
+
+<h4 id="客户端">客户端</h4>
+
+<p>客户端去 请求服务端获取配置</p>
+
+<p>仓库新建config-server.yml</p>
+
+<pre><code class="language-yml">spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8201
+#spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-provider-dept
+
+#Eureka的配置，服务注册在哪里
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7002/eureka/,http://127.0.0.1:7003/eureka/
+---
+server:
+  port: 8202
+#spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-provider-dept
+
+#Eureka的配置，服务注册在哪里
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7002/eureka/,http://127.0.0.1:7003/eureka/
+</code></pre>
+
+<p>git push</p>
+
+<p>新建module：springcloud-config-client-3355</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">    &lt;dependencies&gt;
+        &lt;!--    web--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--config--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
+            &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--        actuator完善页面监控依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+            &lt;version&gt;2.1.11.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre>
+
+<h4 id="bootstrap-yml与application-yml">bootstrap.yml与application.yml</h4>
+
+<p>配置</p>
+
+<p>bootstrap.yml</p>
+
+<pre><code class="language-yml">#系统级别的配置(高于用户级别的配置)
+#只能识别application.yml和boostrap.yml,别的名字不能识别
+spring:
+  cloud:
+    config:
+      #springcloud-config采用的是sv(服务器客户端)的架构模式
+      #服务器(3344)连gitee，客户端(3355)连服务器
+      uri: http://localhost:3344  #服务器地址
+      name: config-client         #需要从gitee上读取的资源名称
+      profile: dev                #开发模式  test是测试模式
+      label: master               #geitee的分支
+</code></pre>
+
+<p>application.yml</p>
+
+<pre><code class="language-yml">#用户级别的配置
+spring:
+  application:
+    name: springcloud-config-client-3355
+</code></pre>
+
+<p>编写controller获取配置信息ConfigClientController</p>
+
+<pre><code class="language-java">@RestController
+public class ConfigClientController {
+    @Value(&quot;${spring.application.name}&quot;)
+    private String applicationName;
+
+    @Value(&quot;${eureka.client.service-url.defaultZone}&quot;)
+    private String eurekaServer;
+
+    @Value(&quot;${server.port}&quot;)
+    private String port;
+
+    @RequestMapping(&quot;/config&quot;)
+    public String getConfig() {
+        return &quot;applicationName:&quot;+applicationName+
+                &quot;eurekaServer:&quot;+eurekaServer+
+                &quot;port:&quot;+port;
+    }
+}
+
+</code></pre>
+
+<p>测试</p>
+
+<p>启动3344，3355</p>
+
+<p>测试3344能获取配置</p>
+
+<pre><code>http://localhost:3344/master/config-client-dev.yml
+</code></pre>
+
+<p>访问</p>
+
+<pre><code>http://localhost:8201/config
+</code></pre>
+
+<p>获取配置信息，此时我们发现我们并没有配置8201的端口，但是客户端却是通过8201进行访问的</p>
+
+<p>使用springCloud-config将之前的模块优化</p>
+
+<p>新建配置文件config-eureka.yml、config-dept.yml</p>
+
+<p>config-eureka.yml</p>
+
+<pre><code class="language-yml">spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 7001
+#spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+#eureka配置
+eureka:
+  instance:
+    hostname: localhost  #Eureka服务端的实例名称,localhost代表服务器的地址，最后要换的
+  client:
+    register-with-eureka: false  #表示是否向eureka注册中心注册自己
+    fetch-registry: false       #fetch-registry如果为false, 则表示自己为注册中心
+    service-url:                # 监控页面
+      #单机不做集群defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+       #localhost代表服务器的地址，最后要换的 ,集群互相关联7001关联7002和7003
+       #其实用的端口号都应该是7001，关联的是不同服务器的地址，因为我只有一个电脑，就用了端口号代替
+      defaultZone: http://localhost:7002/eureka/,http://127.0.0.1:7003/eureka/
+---
+server:
+  port: 7001
+#spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-eureka
+#eureka配置
+eureka:
+  instance:
+    hostname: localhost  #Eureka服务端的实例名称,localhost代表服务器的地址，最后要换的
+  client:
+    register-with-eureka: false  #表示是否向eureka注册中心注册自己
+    fetch-registry: false       #fetch-registry如果为false, 则表示自己为注册中心
+    service-url:                # 监控页面
+      #单机不做集群defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+       #localhost代表服务器的地址，最后要换的 ,集群互相关联7001关联7002和7003
+       #其实用的端口号都应该是7001，关联的是不同服务器的地址，因为我只有一个电脑，就用了端口号代替
+      defaultZone: http://localhost:7002/eureka/,http://127.0.0.1:7003/eureka/
+</code></pre>
+
+<p>config-dept.yml</p>
+
+<pre><code class="language-yml">spring:
+  profiles:
+    active: dev
+---
+Server:
+  port: 8001
+mybatis:
+  # 指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 指定实体类
+  type-aliases-package: com.mumulx.entity
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+  datasource:
+    #   数据源基本配置
+    username: root
+    password: 135451
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/db01?useUnicode=true&amp;serverTimezone=GMT%2B8&amp;characterEncoding=UTF-8&amp;useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001
+    prefer-ip-address: true #true，显示服务的ip地址
+#info配置
+info:
+  app.name: mumulx-springcloud
+  company.name: com.mumulx
+---
+Server:
+  port: 8001
+mybatis:
+  # 指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 指定实体类
+  type-aliases-package: com.mumulx.entity
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-eureka
+  datasource:
+    #   数据源基本配置
+    username: root
+    password: 135451
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/db01?useUnicode=true&amp;serverTimezone=GMT%2B8&amp;characterEncoding=UTF-8&amp;useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001
+    prefer-ip-address: true #true，显示服务的ip地址
+#info配置
+info:
+  app.name: mumulx-springcloud
+  company.name: com.mumulx
+</code></pre>
+
+<p>新建module：springcloud-config-eureka-7001</p>
+
+<p>将7001全部复制到config-7001</p>
+
+<p>导包</p>
+
+<pre><code class="language-xml">&lt;!--config--&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
+	&lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>新建bootstrap.yml</p>
+
+<pre><code class="language-yml">#系统级别的配置(高于用户级别的配置)
+#只能识别application.yml和boostrap.yml,别的名字不能识别
+spring:
+  cloud:
+    config:
+      #springcloud-config采用的是sv(服务器客户端)的架构模式
+      #服务器(3344)连gitee，客户端(3355)连服务器
+      uri: http://localhost:3344  #服务器地址
+      name: config-eureka         #需要从gitee上读取的资源名称
+      profile: dev                #开发模式  test是测试模式
+      label: master               #geitee的分支
+</code></pre>
+
+<p>application.yml</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: springcloud-config-eureka-7001
+</code></pre>
+
+<p>测试</p>
+
+<p>启动3344</p>
+
+<p>测试</p>
+
+<pre><code>http://localhost:3344/master/config-eureka-dev.yml
+</code></pre>
+
+<p>可以获取eureka的配置信息</p>
+
+<p>启动config-7001</p>
+
+<p>测试</p>
+
+<pre><code>http://localhost:7001/
+</code></pre>
+
+<p>新建module：springcloud-config-provider-8001</p>
+
+<p>将8001复制到config-8001</p>
+
+<p>导包</p>
+
+<pre><code class="language-xml">        &lt;!--config--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
+            &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<p>bootstrap.yml</p>
+
+<pre><code class="language-yml">#系统级别的配置(高于用户级别的配置)
+        #只能识别application.yml和boostrap.yml,别的名字不能识别
+        spring:
+          cloud:
+            config:
+              #springcloud-config采用的是sv(服务器客户端)的架构模式
+              #服务器(3344)连gitee，客户端(3355)连服务器
+              uri: http://localhost:3344  #服务器地址
+              name: config-dept         #需要从gitee上读取的资源名称
+              profile: dev                #开发模式  test是测试模式
+              label: master               #geitee的分支
+</code></pre>
+
+<p>application.yml</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: springcloud-config-provider-dept-8001
+
+</code></pre>
+
+<p>测试</p>
+
+<p>启动3344</p>
+
+<pre><code>http://localhost:3344/master/config-dept-dev.yml
+</code></pre>
+
+<p>启动config-7001，config-8001</p>
+
+<p>查看是否注册进来</p>
+
+<pre><code>http://localhost:7001/
+</code></pre>
+
+<p>是否可以使用</p>
+
+<p><img src="/resources/技术框架/Spring家族/总的.png" alt="总的.png" /></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/03/springbootcloud/" title="SpringCloud自学笔记" target="_blank" rel="external">https://mumulx.github.io/2020/03/springbootcloud/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" title="Redis笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

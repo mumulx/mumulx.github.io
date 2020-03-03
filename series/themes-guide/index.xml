@@ -5,10 +5,46 @@
     <link>https://mumulx.github.io/series/themes-guide/</link>
     <description>Recent content in Themes Guide on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringCloud自学笔记</title>
+      <link>https://mumulx.github.io/2020/03/springbootcloud/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/03/springbootcloud/</guid>
+      <description>源码 SpringCloud 微服务架构4个核心问题? 服务很多，客户端该怎么访问? 这么多服务?服务之间如何通信? 这么多服务? 如何治理? 服务挂了怎么办? 解决方案:Sp</description>
+    </item>
+    
+    <item>
+      <title>Redis笔记</title>
+      <link>https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/</guid>
+      <description>Redis Redis 是完全开源免费的，遵守BSD协议，是一个高性能的（noSQL）key-value数据库 Redis 与其他 key - value 缓存产品有以下三个特点： Redis支</description>
+    </item>
+    
+    <item>
+      <title>SpringData JPA自学笔记</title>
+      <link>https://mumulx.github.io/2020/02/springdata/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/springdata/</guid>
+      <description>[源码]() JPA 简介 JPA是Java Persistence API的简称，中文名Java持久层API，是JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行</description>
+    </item>
+    
+    <item>
+      <title>我的阿里云服务器Centos7</title>
+      <link>https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</guid>
+      <description>win10远程桌面连接阿里云centos7.3 使用secureCRT连接到自己的服务器 安装x windows yum groupinstall -y &amp;quot;X Window System&amp;quot; 查看已安装软件 yum grouplist 安装桌面 yum groupinstall &amp;quot;GNOME Desktop&amp;quot;</description>
+    </item>
     
     <item>
       <title>校园失物招领项目实战</title>
@@ -17,6 +53,15 @@
       
       <guid>https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</guid>
       <description>搭建ssm环境 jar 表和类 配置数据库db.properties,log4j.properties 加载spring配置文件applicationC</description>
+    </item>
+    
+    <item>
+      <title>Springboot整合</title>
+      <link>https://mumulx.github.io/2020/02/springboot-examples/</link>
+      <pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/springboot-examples/</guid>
+      <description>源码 Springboot整合缓存 JSR-107、Spring缓存抽象、整合Redis JSR107 Java Caching定义了5个核心接口，分别是Cachin</description>
     </item>
     
     <item>
@@ -34,7 +79,7 @@
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>软件发展史 All In One 所有代码在一个类/模块中编写容易造成代码混乱 MVC/三层架构 将各个功能根据层次进行了划分，但是所有代码任然在同一台计算机中编</description>
+      <description>源码 软件发展史 All In One 所有代码在一个类/模块中编写容易造成代码混乱 MVC/三层架构 将各个功能根据层次进行了划分，但是所有代码任然在同一台计算机</description>
     </item>
     
     <item>
@@ -88,7 +133,7 @@
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
-      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /app/easyMock/easy-mock/ npm run dev 本机访问 http://centos6:7300/ li</description>
+      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /app/easymock/easy-mock/ npm run dev 本机访问 http://centos6:7300/ li</description>
     </item>
     
     <item>
@@ -245,12 +290,21 @@
     </item>
     
     <item>
-      <title>Spring自学笔记</title>
+      <title>Spring自学笔记-01</title>
       <link>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC、Aop Spring data, spring boot, spring cloud, spring framework ，spri</description>
+    </item>
+    
+    <item>
+      <title>Spring自学笔记-02</title>
+      <link>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
+      <description>源码 一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
     </item>
     
     <item>

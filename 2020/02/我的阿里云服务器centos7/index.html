@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        我的阿里云服务器Centos7 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="我的阿里云服务器Centos7." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>我的阿里云服务器Centos7 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="我的阿里云服务器Centos7" />
+<meta property="og:description" content="我的阿里云服务器Centos7." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" />
+<meta property="article:published_time" content="2020-02-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-13T00:00:00+00:00" />
+
+<meta itemprop="name" content="我的阿里云服务器Centos7">
+<meta itemprop="description" content="我的阿里云服务器Centos7.">
+
+
+<meta itemprop="datePublished" content="2020-02-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1958">
+
+
+
+<meta itemprop="keywords" content="Linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="我的阿里云服务器Centos7"/>
+<meta name="twitter:description" content="我的阿里云服务器Centos7."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">12</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/03/springbootcloud/" class="title">SpringCloud自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" class="title">Redis笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/springdata/" class="title">SpringData JPA自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" class="title">我的阿里云服务器Centos7</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="title">校园失物招领项目实战</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#win10远程桌面连接阿里云centos7-3">win10远程桌面连接阿里云centos7.3</a>
+<ul>
+<li><a href="#安装x-windows">安装x windows</a></li>
+<li><a href="#设置系统以图像化界面启动">设置系统以图像化界面启动</a></li>
+<li><a href="#安装xrdp">安装xrdp</a></li>
+<li><a href="#安装vnc-server">安装vnc server</a></li>
+<li><a href="#启动vncserver-设置开机自启">启动vncserver，设置开机自启</a></li>
+<li><a href="#重启服务器">重启服务器</a></li>
+<li><a href="#window远程桌面连接">window远程桌面连接</a></li>
+<li><a href="#服务器开启端口">服务器开启端口</a></li>
+</ul></li>
+<li><a href="#在window上配置别名">在window上配置别名</a></li>
+<li><a href="#securecrt远程连接服务器">secureCRT远程连接服务器</a></li>
+</ul></li>
+<li><a href="#eclipse发布项目到github">Eclipse发布项目到github</a>
+<ul>
+<li>
+<ul>
+<li><a href="#eclipse配置git信息">eclipse配置git信息</a></li>
+<li><a href="#配置ssh">配置ssh</a></li>
+<li><a href="#创建本地git仓库">创建本地git仓库</a></li>
+<li><a href="#向本地仓库提交项目-填写-commit信息">向本地仓库提交项目，填写 Commit信息</a></li>
+<li><a href="#将本地仓库项目内容推送到远程仓库-github">将本地仓库项目内容推送到远程仓库（github）</a></li>
+</ul></li>
+<li><a href="#部署tomcat发布项目">部署tomcat发布项目</a></li>
+<li><a href="#部署项目">部署项目</a></li>
+<li><a href="#安装rabbitmq3-6-1">安装RabbitMQ3.6.1</a></li>
+<li><a href="#安装docker">安装docker</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/"
+    >我的阿里云服务器Centos7</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" class="article-date">
+  <time datetime="2020-02-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-13</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/linux/"> Linux </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1958字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h3 id="win10远程桌面连接阿里云centos7-3">win10远程桌面连接阿里云centos7.3</h3>
+
+<p>使用secureCRT连接到自己的服务器</p>
+
+<h4 id="安装x-windows">安装x windows</h4>
+
+<pre><code>yum groupinstall -y &quot;X Window System&quot;
+</code></pre>
+
+<p>查看已安装软件</p>
+
+<pre><code>yum grouplist
+</code></pre>
+
+<p>安装桌面</p>
+
+<pre><code>yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;
+</code></pre>
+
+<h4 id="设置系统以图像化界面启动">设置系统以图像化界面启动</h4>
+
+<pre><code>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+</code></pre>
+
+<h4 id="安装xrdp">安装xrdp</h4>
+
+<pre><code>yum install -y xrdp
+</code></pre>
+
+<h4 id="安装vnc-server">安装vnc server</h4>
+
+<pre><code>yum install tigervnc tigervnc-server
+</code></pre>
+
+<h4 id="启动vncserver-设置开机自启">启动vncserver，设置开机自启</h4>
+
+<pre><code>systemctl start xrdp
+systemctl enable xrdp
+systemctl status xrdp.service   
+ss -antup|grep xrdp
+</code></pre>
+
+<h4 id="重启服务器">重启服务器</h4>
+
+<pre><code>reboot
+</code></pre>
+
+<h4 id="window远程桌面连接">window远程桌面连接</h4>
+
+<pre><code>win+r 
+mstsc
+</code></pre>
+
+<p>输入服务公网ip</p>
+
+<p>注意的是服务器要配置安全组规则，开放端口3389</p>
+
+<p>在阿里云实例列表左侧菜单找到网络与安全，打开安全组，右侧选择配置规则</p>
+
+<p>右上角快速创建规则</p>
+
+<p>自定义端口</p>
+
+<pre><code>3389/3389
+</code></pre>
+
+<p>授权对象</p>
+
+<pre><code>0.0.0.0/0
+</code></pre>
+
+<p>可以将一些常见的端口配置进去，在快速创建规则时可以将常用端口打上勾</p>
+
+<p>另外今后想要访问服务器的某个端口时，先要在服务器开启端口，再在阿里云安全组规则，开放端口</p>
+
+<h4 id="服务器开启端口">服务器开启端口</h4>
+
+<p>centos7.x用firewall打开80端口</p>
+
+<ol>
+<li><p>关闭与开启防火墙</p>
+
+<pre><code>启动：systemctl start firewalld
+
+关闭： systemctl stop firewalld
+</code></pre></li>
+
+<li><p>查看防火墙是否开启的状态，以及开放端口的情况</p>
+
+<pre><code>systemctl status firewalld.service
+
+firewall-cmd --list-all 
+</code></pre></li>
+
+<li><p>通过以下命令开放http  80 端口</p>
+
+<pre><code>firewall-cmd  --add-port=80/tcp --permanent
+</code></pre>
+
+<p>命令末尾的&ndash;permanent表示用久有效，不加这句的话重启后刚才开放的端口就又失效了</p></li>
+
+<li><p>然后重启防火墙：</p>
+
+<pre><code>sudo firewall-cmd --reload
+</code></pre></li>
+
+<li><p>再次查看端口的开放情况：</p>
+
+<pre><code> firewall-cmd --list-all
+</code></pre>
+
+<p>ports：里出现了 80 端口</p></li>
+</ol>
+
+<p>然后再阿里云上添加安全组</p>
+
+<h3 id="在window上配置别名">在window上配置别名</h3>
+
+<p>打开C: \Windows \System32\drivers\etc \hosts</p>
+
+<p>追加:</p>
+
+<pre><code>公网ip  别名
+
+x.x.x.x  myCentos7
+</code></pre>
+
+<p>今后可以使用别名(myCentos7)代替公网ip</p>
+
+<p>可以在服务器上安装jdk，部署mysql，部署一些小型项目</p>
+
+<h3 id="securecrt远程连接服务器">secureCRT远程连接服务器</h3>
+
+<p>默认使用的ssh端口是22，如果修改了端口需要更换端口连接服务器</p>
+
+<h2 id="eclipse发布项目到github">Eclipse发布项目到github</h2>
+
+<h4 id="eclipse配置git信息">eclipse配置git信息</h4>
+
+<p>window-&gt;preferences-&gt;Team-&gt;Git-&gt;Configuration-&gt;UserSettings&ndash;》点击AddEntry…</p>
+
+<p>添加key(user.name)和value(自己的github名称)</p>
+
+<p>点击AddEntry…</p>
+
+<p>添加key(user.email)和value(自己注册github的邮箱)</p>
+
+<p>也可以直接点击open在文件中设置</p>
+
+<h4 id="配置ssh">配置ssh</h4>
+
+<p>General&ndash;》Network connections&ndash;》ssh2</p>
+
+<p>选择本地的.ssh文件夹</p>
+
+<h4 id="创建本地git仓库">创建本地git仓库</h4>
+
+<p>右键项目&ndash;》Team&ndash;》share Project</p>
+
+<p>点击 Use or create repository xxxxx</p>
+
+<p>点击create Repository</p>
+
+<h4 id="向本地仓库提交项目-填写-commit信息">向本地仓库提交项目，填写 Commit信息</h4>
+
+<p>右击项目-&gt;Team-&gt;Commit…</p>
+
+<p>在unstaged Changes中选中要提交的东西，右击add to index
+（或直接右击项目&ndash;》team&ndash;》add to index）
+commit</p>
+
+<p>github创建仓库</p>
+
+<h4 id="将本地仓库项目内容推送到远程仓库-github">将本地仓库项目内容推送到远程仓库（github）</h4>
+
+<p>右击项目-&gt;Team-&gt;remote-&gt;push</p>
+
+<p>URL填写git仓库ssh地址(或http)</p>
+
+<p>输入用户名密码</p>
+
+<p>选择master分支&ndash;》add Spec</p>
+
+<p>next&ndash;》finish</p>
+
+<p>commit and push或commit的区别</p>
+
+<p>commit按钮：不能单独的Push某一个文件，只能Push整个项目</p>
+
+<p>commit and push可以单独Push某一个文件</p>
+
+<h3 id="部署tomcat发布项目">部署tomcat发布项目</h3>
+
+<p><a href="https://blog.csdn.net/qq_39530754/article/details/82381831">参考博客</a></p>
+
+<pre><code>cd /app
+
+mkdir -p tools
+
+cd tools/
+
+wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz
+
+tar -zxvf apache-tomcat-9.0.31.tar.gz
+
+mv apache-tomcat-9.0.31 tomcat9.0.31/
+vim /etc/profile
+</code></pre>
+
+<p>追加</p>
+
+<pre><code> CATALINA_HOME=/app/tools/tomcat9.0.31
+ 
+ CATALINA_BASE=/app/tools/tomcat9.0.31
+ 
+ PATH=$PATH:$CATALINA_BASE/bin
+ 
+ export PATH CATALINA_BASE
+</code></pre>
+
+<pre><code>cd /app/tools/tomcat9.0.31/conf
+
+vi server.xml
+</code></pre>
+
+<p>修改编码、端口</p>
+
+<pre><code>&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot; /&gt;
+</code></pre>
+
+<pre><code>cd ../bin/
+
+vi catalina.sh
+</code></pre>
+
+<p>在 # OS specific support. 前面加入如下代码：</p>
+
+<pre><code>JAVA_HOME=/usr/java/jdk1.8.0_231-amd64
+JRE_HOME=$JAVA_HOME/jre
+</code></pre>
+
+<p>启动</p>
+
+<pre><code>./startup.sh
+</code></pre>
+
+<p>将 tomcat9 加入到系统服务列表中：</p>
+
+<pre><code>cd /etc/init.d
+
+vi tomcat9
+</code></pre>
+
+<p>添加内容</p>
+
+<pre><code> #tomcat config start - 2019-01-15
+
+  #!/bin/bash
+   # description: Tomcat Start Stop Restart
+   # processname: tomcat9
+   # chkconfig: 2345 20 80
+   JAVA_HOME=//usr/java/jdk1.8.0_231-amd64/
+   export JAVA_HOME
+   PATH=$JAVA_HOME/bin:$PATH
+   export PATH
+   CATALINA_HOME=/app/tools/tomcat9.0.31/
+
+   case $1 in
+   start)
+     sh $CATALINA_HOME/bin/startup.sh
+   ;;
+   stop)
+     sh $CATALINA_HOME/bin/shutdown.sh
+   ;;
+   restart)
+     sh $CATALINA_HOME/bin/shutdown.sh
+     sh $CATALINA_HOME/bin/startup.sh
+   ;;
+   esac
+   exit 0
+
+   #chmod 755 tomcat
+   #chkconfig --add tomcat
+   #chkconfig --level 2345 tomcat on
+   #chkconfig --list tomcat
+
+  # tomcat config end - 2019-01-15
+</code></pre>
+
+<pre><code>chmod +x tomcat9
+
+chkconfig --add tomcat9
+
+chkconfig --list
+</code></pre>
+
+<p>关闭 tomcat9 服务：</p>
+
+<pre><code>service tomcat9 stop
+</code></pre>
+
+<p>启动 tomcat9 服务：</p>
+
+<pre><code>service tomcat9 start
+</code></pre>
+
+<p>重启 tomcat9 服务：</p>
+
+<pre><code> service tomcat9 restart
+</code></pre>
+
+<h3 id="部署项目">部署项目</h3>
+
+<p>将项目打成war包</p>
+
+<p>将war包复制到webapps下</p>
+
+<p>打开tomcat配置文件，添加虚拟路径</p>
+
+<pre><code>&lt;Context path=&quot;/LostSomething&quot; docBase=&quot;LostSomething.war&quot; debug=&quot;0&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;
+
+&lt;Context docBase=&quot;/app/tools/upload&quot; path=&quot;/LostSomething/upload&quot; reloadable=&quot;true&quot;/&gt;
+</code></pre>
+
+<p>启动tomcat</p>
+
+<pre><code>service tomcat9 start
+</code></pre>
+
+<h3 id="安装rabbitmq3-6-1">安装RabbitMQ3.6.1</h3>
+
+<p><a href="https://www.cnblogs.com/JavaHxm/p/10837472.html">参考博客</a></p>
+
+<pre><code>cd /app
+
+mkdir -p rabbitmq
+
+cd rabbitmq/
+
+yum -y install gcc glibc-devel make ncurses-devel openssl-devel xmlto perl wget
+
+wget http://www.erlang.org/download/otp_src_18.3.tar.gz
+
+
+tar -xzvf otp_src_18.3.tar.gz
+
+cd otp_src_18.3/
+
+./configure --prefix=/usr/local/erlang
+
+make &amp;&amp; make install
+
+vi /etc/profile
+</code></pre>
+
+<pre><code>#set erlang environment
+ERL_HOME=/usr/local/erlang
+PATH=$ERL_HOME/bin:$PATH
+export ERL_HOME PATH
+</code></pre>
+
+<pre><code>source /etc/profile
+
+erl     //测试
+
+cd /app/rabbitmq
+
+wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-generic-unix-3.6.1.tar.xz
+
+xz -d rabbitmq-server-generic-unix-3.6.1.tar.xz
+
+tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
+
+vi /etc/profile
+</code></pre>
+
+<pre><code>#set rabbitmq environment
+export PATH=$PATH:/app/rabbitmq/rabbitmq/sbin
+</code></pre>
+
+<pre><code>source /etc/profile
+
+rabbitmq-server -detached       //启动rabbitmq，-detached代表后台守护进程方式启动。
+
+rabbitmqctl status
+
+mkdir /etc/rabbitmq
+
+rabbitmq-plugins enable rabbitmq_management
+
+firewall-cmd --permanent --add-port=15672/tcp
+
+firewall-cmd --permanent --add-port=5672/tcp
+
+systemctl restart firewalld.service
+
+
+</code></pre>
+
+<pre><code>rabbitmqctl add_user superrd superrd  //添加用户，后面两个参数分别是用户名和密码，我这都用superrd了。
+rabbitmqctl set_permissions -p / superrd &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;  //添加权限
+rabbitmqctl set_user_tags superrd administrator  //修改用户角色
+</code></pre>
+
+<pre><code>启动服务：rabbitmq-server -detached【 /usr/local/rabbitmq/sbin/rabbitmq-server  -detached 】
+查看状态：rabbitmqctl status【 /usr/local/rabbitmq/sbin/rabbitmqctl status  】
+关闭服务：rabbitmqctl stop【 /usr/local/rabbitmq/sbin/rabbitmqctl stop  】
+列出角色：rabbitmqctl list_users
+</code></pre>
+
+<h3 id="安装docker">安装docker</h3>
+
+<pre><code>uname -r  查看内核版本  要大于3.10
+
+yum install -y yum-utils device-mapper-persistent-data lvm2
+
+
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+显示
+
+repo saved to /etc/yum.repos.d/docker-ce.repo
+
+
+yum install -y docker-ce
+
+
+systemctl start docker
+
+vim /etc/docker/daemon.json
+
+</code></pre>
+
+<pre><code>{
+  &quot;registry-mirrors&quot;: [&quot;https://br10hqrl.mirror.aliyuncs.com&quot;]
+}
+</code></pre>
+
+<pre><code>systemctl daemon-reload &amp;&amp; systemctl restart docker
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" title="我的阿里云服务器Centos7" target="_blank" rel="external">https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="校园失物招领项目实战"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/02/springdata/"
+                    title="SpringData JPA自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

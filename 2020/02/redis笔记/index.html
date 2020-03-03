@@ -1,0 +1,3084 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Redis笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Redis笔记." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Redis笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Redis笔记" />
+<meta property="og:description" content="Redis笔记." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-02-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="Redis笔记">
+<meta itemprop="description" content="Redis笔记.">
+
+
+<meta itemprop="datePublished" content="2020-02-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="27957">
+
+
+
+<meta itemprop="keywords" content="中间件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis笔记"/>
+<meta name="twitter:description" content="Redis笔记."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">12</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/03/springbootcloud/" class="title">SpringCloud自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" class="title">Redis笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/springdata/" class="title">SpringData JPA自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/" class="title">我的阿里云服务器Centos7</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="title">校园失物招领项目实战</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-02-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#redis">Redis</a>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#redis配置详解">Redis配置详解</a>
+<ul>
+<li><a href="#配置redis">配置Redis</a></li>
+<li><a href="#配置文件redis-conf">配置文件redis.conf</a></li>
+<li><a href="#redis中的内存维护策略">Redis中的内存维护策略</a>
+<ul>
+<li><a href="#一为数据设置超时时间">一为数据设置超时时间</a></li>
+<li><a href="#二采用lru算法动态将不用的数据删除">二采用LRU算法动态将不用的数据删除</a></li>
+</ul></li>
+<li><a href="#自定义配置redis">自定义配置Redis</a></li>
+</ul></li>
+<li><a href="#启动redis服务">启动redis服务</a></li>
+<li><a href="#关闭redis">关闭redis</a>
+<ul>
+<li><a href="#第一种方式">第一种方式</a></li>
+<li><a href="#第二种方式">第二种方式</a></li>
+</ul></li>
+<li><a href="#远程连接">远程连接</a></li>
+<li><a href="#docker安装redis">Docker安装Redis</a>
+<ul>
+<li><a href="#安装单机版redis">安装单机版Redis</a></li>
+</ul></li>
+<li><a href="#redis命令">redis命令</a>
+<ul>
+<li><a href="#常用命令管理">常用命令管理</a></li>
+<li><a href="#应用场景">应用场景</a></li>
+<li><a href="#key的命名建议-命名规范">key的命名建议（命名规范）</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#redis数据类型">Redis数据类型</a>
+<ul>
+<li><a href="#string类型">String类型</a>
+<ul>
+<li><a href="#string类型的常用命令">String类型的常用命令</a>
+<ul>
+<li><a href="#赋值语法">赋值语法</a></li>
+<li><a href="#取值语法">取值语法</a></li>
+<li><a href="#getset-语法">getset 语法</a></li>
+<li><a href="#删除语法">删除语法</a></li>
+<li><a href="#批量操作">批量操作</a></li>
+<li><a href="#自增-自减">自增/自减:</a></li>
+<li><a href="#字符拼接">字符拼接：</a></li>
+<li><a href="#字符长度">字符长度：</a></li>
+</ul></li>
+<li><a href="#string类型的应用场景">String类型的应用场景</a></li>
+</ul></li>
+<li><a href="#hash类型">Hash类型</a>
+<ul>
+<li><a href="#hash命令">Hash命令</a>
+<ul>
+<li><a href="#赋值命令">赋值命令</a></li>
+<li><a href="#取值命令">取值命令</a></li>
+<li><a href="#删除语法-1">删除语法</a></li>
+<li><a href="#其他语法">其他语法</a></li>
+</ul></li>
+<li><a href="#应用场景-1">应用场景</a></li>
+</ul></li>
+<li><a href="#set类型">SET类型</a>
+<ul>
+<li><a href="#基本概念">基本概念</a></li>
+<li><a href="#常用命令">常用命令</a>
+<ul>
+<li><a href="#基本操作">基本操作</a></li>
+<li><a href="#注意">注意</a></li>
+<li><a href="#集合间操作">集合间操作</a></li>
+<li><a href="#应用场景-2">应用场景</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#zset类型">ZSET类型</a>
+<ul>
+<li><a href="#基本概念-1">基本概念</a></li>
+<li><a href="#常用命令-1">常用命令</a>
+<ul>
+<li><a href="#赋值语法-1">赋值语法</a></li>
+<li><a href="#取值语法-1">取值语法</a></li>
+<li><a href="#删除语法-2">删除语法</a></li>
+<li><a href="#应用场景-3">应用场景</a></li>
+<li><a href="#例子">例子</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hyperloglog类型">Hyperloglog类型</a>
+<ul>
+<li><a href="#基本概念-2">基本概念</a></li>
+<li><a href="#什么是基数">什么是基数？</a></li>
+<li><a href="#为什么需要-hyperloglog">为什么需要 Hyperloglog</a></li>
+<li><a href="#误差率">误差率</a></li>
+<li><a href="#基本命令">基本命令</a></li>
+<li><a href="#场景">场景</a></li>
+<li><a href="#总结">总结</a></li>
+<li><a href="#底层存储结构">底层存储结构</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#springboot整合jedis">SpringBoot整合Jedis</a>
+<ul>
+<li><a href="#redis常用客户端">Redis常用客户端</a></li>
+<li><a href="#简介">简介</a></li>
+<li><a href="#1-引入依赖">1）、引入依赖</a></li>
+<li><a href="#2-配置">2）、配置</a></li>
+<li><a href="#3-配置类">3）、配置类</a></li>
+<li><a href="#4-测试">4）、测试</a></li>
+<li><a href="#springboot中redis使用lettuce">SpringBoot中Redis使用lettuce</a>
+<ul>
+<li><a href="#maven配置">maven配置</a></li>
+<li><a href="#配置">配置</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#redis的其他功能">Redis的其他功能</a>
+<ul>
+<li><a href="#redis发布订阅">Redis发布订阅</a>
+<ul>
+<li><a href="#常用命令-2">常用命令</a></li>
+<li><a href="#应用场景-4">应用场景</a></li>
+</ul></li>
+<li><a href="#redis多数据库">Redis多数据库</a>
+<ul>
+<li><a href="#一些基本概念">一些基本概念</a></li>
+<li><a href="#常用命令-3">常用命令</a></li>
+<li><a href="#注意-1">注意</a></li>
+</ul></li>
+<li><a href="#redis事务">Redis事务</a>
+<ul>
+<li><a href="#一些概念">一些概念</a></li>
+<li><a href="#常用命令-4">常用命令</a></li>
+<li><a href="#执行过程">执行过程</a></li>
+<li><a href="#应用场景-5">应用场景</a></li>
+<li><a href="#总结-1">总结</a></li>
+</ul></li>
+<li><a href="#redis持久化">Redis持久化</a>
+<ul>
+<li><a href="#基本概念-3">基本概念</a></li>
+<li><a href="#快照条件">快照条件：</a>
+<ul>
+<li><a href="#自动触发">自动触发</a></li>
+<li><a href="#手动触发">手动触发</a></li>
+</ul></li>
+<li><a href="#aof">AOF</a></li>
+</ul></li>
+<li><a href="#主从分离">主从分离</a>
+<ul>
+<li><a href="#主从复制的用途">主从复制的用途</a></li>
+<li><a href="#常见拓扑结构">常见拓扑结构</a>
+<ul>
+<li><a href="#一主一从">一主一从</a></li>
+<li><a href="#一主多从">一主多从</a></li>
+<li><a href="#树状主从结构">树状主从结构</a></li>
+</ul></li>
+<li><a href="#配置方式">配置方式</a>
+<ul>
+<li><a href="#redis-server启动命令">redis-server启动命令</a></li>
+<li><a href="#redis-cli中直接使用命令">redis-cli中直接使用命令</a></li>
+</ul></li>
+<li><a href="#传输延迟">传输延迟</a></li>
+<li><a href="#复制过程步骤">复制过程步骤</a></li>
+<li><a href="#数据同步">数据同步</a></li>
+<li><a href="#全量复制">全量复制</a></li>
+<li><a href="#无盘复制">无盘复制</a></li>
+<li><a href="#部分复制">部分复制</a></li>
+<li><a href="#心跳">心跳</a>
+<ul>
+<li><a href="#心跳的关键机制如下"><strong>心跳的关键机制如下：</strong></a></li>
+</ul></li>
+<li><a href="#异步复制">异步复制</a></li>
+</ul></li>
+<li><a href="#哨兵模式">哨兵模式</a>
+<ul>
+<li><a href="#主从复制的优缺点">主从复制的优缺点</a></li>
+<li><a href="#redis-sentinel模式">Redis Sentinel模式</a></li>
+<li><a href="#redis-sentinel的主要功能">Redis Sentinel的主要功能</a></li>
+<li><a href="#关于部署的建议">关于部署的建议</a></li>
+<li><a href="#监控机制-三个定时监控任务">监控机制&ndash;三个定时监控任务</a></li>
+<li><a href="#领导者sentinel节点选举">领导者Sentinel节点选举</a></li>
+</ul></li>
+<li><a href="#redis-clister集群">Redis Clister集群</a>
+<ul>
+<li><a href="#集群描述">集群描述</a></li>
+<li><a href="#redis-cluster简介">redis-cluster简介</a></li>
+<li><a href="#结构">结构</a></li>
+<li><a href="#容错性">容错性</a></li>
+<li><a href="#节点分配-数据分片">节点分配（数据分片）</a>
+<ul>
+<li><a href="#redis-cluster节点分配">redis cluster节点分配</a></li>
+<li><a href="#新增一个主节点">新增一个主节点:</a></li>
+<li><a href="#redis-cluster主从模式">Redis Cluster主从模式</a></li>
+</ul></li>
+<li><a href="#安装集群">安装集群</a></li>
+<li><a href="#redis5集群的安装">redis5集群的安装</a></li>
+<li><a href="#redis-cluster集群验证">redis-cluster集群验证</a></li>
+<li><a href="#基本命令-1">基本命令</a></li>
+<li><a href="#查看集群状态">查看集群状态</a></li>
+<li><a href="#启动集群">启动集群</a></li>
+<li><a href="#创建集群">创建集群</a></li>
+<li><a href="#关闭集群">关闭集群</a></li>
+<li><a href="#官方工具包-启动-关闭">官方工具包 启动/关闭</a></li>
+</ul></li>
+<li><a href="#集群伸缩">集群伸缩</a>
+<ul>
+<li><a href="#查看现有集群状态">查看现有集群状态</a></li>
+</ul></li>
+<li><a href="#集群扩容">集群扩容</a>
+<ul>
+<li><a href="#集群缩容">集群缩容</a>
+<ul>
+<li><a href="#删除主节点">删除主节点</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#集群演变">集群演变</a>
+<ul>
+<li>
+<ul>
+<li><a href="#单机版">单机版</a></li>
+<li><a href="#复制">复制</a></li>
+<li><a href="#哨兵">哨兵</a></li>
+<li><a href="#集群">集群</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/02/redis%E7%AC%94%E8%AE%B0/"
+    >Redis笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-25</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/redis%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:27957字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:56分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h2 id="redis">Redis</h2>
+
+<p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的（noSQL）key-value数据库</p>
+
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
+
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ul>
+
+<p>BSD是&rdquo;Berkeley Software Distribution&rdquo;的缩写,意思是”伯克利软件发行版&rdquo;。BSD开源协议是一个给于使用者很大自由的协议。 可以自由的使用,修改源代码,也可以将修改后的代码作为开源或者专有软件再发布。BSD代码鼓励代码共享.但需要尊重代码作者的著作权。BSD由于允许使用者修改和重新发布代码,也允许使用或在BSD代码上开发商业软件发布和销售,因此是对商业集成很友好的协议。</p>
+
+<p>NoSQL,泛指非关系型的数据库。随着互联网web2. 0网站的兴起，传统的关系数据库在应付web2. 0网站,特别是超大规模和高并发的SNS类型的web2. 0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本身的特点得到了非常迅速的发展. NoSQL数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题。</p>
+
+<p>NOSQL :</p>
+
+<p>非关系数据库:数据与数据之间没有关联关系。</p>
+
+<p>SQL :</p>
+
+<p>关系型数据库:表与表之间建立关联关系</p>
+
+<p>NoSQL的类别</p>
+
+<p>键值(key-value)存储数据库、列存储数据库、文档型数据库、图形（Graph）数据库</p>
+
+<h3 id="安装">安装</h3>
+
+<p>Redia<a href="https://redis.io/">官网</a></p>
+
+<p><a href="http://download.redis.io/releases/redis-5.0.7.tar.gz">下载</a></p>
+
+<p>安装gcc</p>
+
+<p>gcc的安装很简单,首先要确保root登录,其次就是Linux要能连外网</p>
+
+<pre><code class="language-shell">yum -y install gcc automake autoconf 1ibtoo1 make
+</code></pre>
+
+<pre><code class="language-shell">wget http://download.redis.io/releases/redis -5.0.7. tar.gz
+tar zxvf redis-5.0.7.tar.gz -C /app		解压并移动文件到
+cd /app
+cd redis-5.0.7
+make		编译
+</code></pre>
+
+<p>安装到指定位置</p>
+
+<pre><code class="language-shell">make PREFIX=/usr/loca1/redis instal1
+</code></pre>
+
+<p>启动服务端</p>
+
+<pre><code>cd /usr/local/redis
+./bin/redis-server
+</code></pre>
+
+<p>连接客户端</p>
+
+<pre><code class="language-shell">./bin/redis-cli
+</code></pre>
+
+<p>赋值取值</p>
+
+<pre><code>set name 1234
+get name
+</code></pre>
+
+<p>启动Redis客户端命令语法:</p>
+
+<pre><code>redis-cli -h IP地址 -p端口			//默认IP本机 端口6379
+</code></pre>
+
+<pre><code>ps -ef | grep -i redis			查看进程
+</code></pre>
+
+<h3 id="redis配置详解">Redis配置详解</h3>
+
+<p>Redis默认定义了很多默认配置。但在实际开发中,一般我们都会通过手动配置完成。</p>
+
+<p>回到安装目录下找到解压文件中的reids.conf</p>
+
+<p>Redis的配置文件位于Redis安装目录下,文件名为redis.conf</p>
+
+<h4 id="配置redis">配置Redis</h4>
+
+<p>命令:解压目录下的redis.conf配置文件复制到安装文件的目录下</p>
+
+<pre><code class="language-shell">cp /opt/redis-5.0.0/redis.conf /usr/1oca1/redis/
+</code></pre>
+
+<h4 id="配置文件redis-conf">配置文件redis.conf</h4>
+
+<p>Redis默认不是以守护进程的方式运行 ，可以通过该配置项修改，使用yes启用守护进程</p>
+
+<pre><code>daemonize no
+</code></pre>
+
+<p>当Redis以守护进程方式运行时 ，Redis默认会把pid写入/var/run/redis.pid文件，可以通过pidfile指定</p>
+
+<pre><code>pidfile /var/run/redis.pid
+</code></pre>
+
+<p>指定Redis监听端口，默认端口为6379，作者在自己的一篇博文中解释了为什么选用6379作为默认端口，因为
+6379在手机按键上MERZ对应的号码，而MERZ取自意大利歌女Alessia Merz的名字</p>
+
+<pre><code>port 6379
+</code></pre>
+
+<p>绑定的主机地址</p>
+
+<pre><code>bind 127.0.0.1
+</code></pre>
+
+<p>当客户端闲置多长时间后关闭连接，如果指定为0，表示关闭该功能</p>
+
+<pre><code>timeout 300
+</code></pre>
+
+<p>指定日志记录级别, Redis总共支持四个级别: debug. verbose、 notice. warning，默认为verbose</p>
+
+<pre><code>loglevel verbose
+</code></pre>
+
+<p>日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则
+日志将会发送给/dev/nu11</p>
+
+<pre><code>logfile stdout
+</code></pre>
+
+<p>设置数据库的数量默认数据库为0，可以使用<code>SELECT &lt;dbid&gt;</code>命令在连接 上指定数据库id</p>
+
+<pre><code>databases 16
+</code></pre>
+
+<p>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</p>
+
+<pre><code>save &lt;s econds&gt; &lt;changes&gt;
+</code></pre>
+
+<p>Redis默认配置文件中提供了三个条件:</p>
+
+<pre><code>save 900 1
+save 300 10
+save 60 10000
+</code></pre>
+
+<p>分别表示900秒( 15分钟)内有1个更改，300秒( 5分钟)内有10个更改以及60秒内有10000个更改。</p>
+
+<p>.指定存储至本地数据库时是否压缩数据，默认为yes , Redis采用LZF (压缩算法)压缩，如果为了节省CPU时间，
+可以关闭该选项，但会导致数据库文件变的巨大</p>
+
+<pre><code>rdbcompression yes
+</code></pre>
+
+<p>指定本地数据库文件名,默认值为dump.rdb</p>
+
+<pre><code>dbfilename dump.rdb
+</code></pre>
+
+<p>12.指定本地数据库存放目录</p>
+
+<pre><code>dir ./
+</code></pre>
+
+<p>设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步</p>
+
+<pre><code>slaveof &lt;masterip&gt; &lt;master port&gt;
+</code></pre>
+
+<p>当master服务设置了 密码保护时，s1av服务连接master的密码</p>
+
+<pre><code>master auth &lt;master-passwor d&gt;
+</code></pre>
+
+<p>设置Redis连接密码 ，如果配置了连接密码，客户端在连接Redis时需要通过<code>AUTH &lt;password&gt;</code> 命令提供密码，
+默认关闭</p>
+
+<pre><code>requirepass foobared
+</code></pre>
+
+<p>设置同一时间最大客户端连接数,默认无限制，Redis可以同时打开的客户端连接数为Redi s进程可以打开的最大文
+件描述符数,如果设置maxclients 0,表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端
+返回max number of clients reached错误信息</p>
+
+<pre><code>maxclients 128
+</code></pre>
+
+<p>指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或
+即将到期的Key，当此方法处理后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis
+新的vm机制，会把Key存放内存，value会存放在swap区</p>
+
+<pre><code>maxmemory &lt;bytes&gt;
+</code></pre>
+
+<p>指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断
+电时导致- -段时间内的数据丢失。因为redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间
+内只存在于内存中。默认为no</p>
+
+<pre><code>appendonly no
+</code></pre>
+
+<p>指定更新日志文件名，默认为appendonly. aof</p>
+
+<pre><code>appendfilename appendonly.aof
+</code></pre>
+
+<p>指定更新日志条件，共有3个可选值:</p>
+
+<pre><code>no :表示等操作系统进行数据缓存同步到磁盘(快)
+always :表示每次更新操作后手动调用fsync ()将数据写到磁盘(慢，安全) 
+everysec :表示每秒同步一次(折衷，默认值)
+
+
+appendfsync everysec
+</code></pre>
+
+<p>指定是否启用虚拟内存机制，默认值为no,简单的介绍一- 下，VM机制将数据分页存放，由Redis将访问量较少的页即
+冷数据swap到磁盘上,访问多的页面由磁盘自动换出到内存中(在后面的文章我会仔细分析Redis的VM机制)</p>
+
+<pre><code>vm-enabled no
+</code></pre>
+
+<p>虚拟内存文件路径，默认值为/tmp/redis . swap，不可多个Redis实例共享</p>
+
+<p>vm-swap-file /tmp/redis . swap</p>
+
+<p>将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小，所有索引数据都是内存存储的
+(Redis的索引数揭就是keys)，也就是说,当vm-max- memory设置为0的时候，其实是所有value都存在于磁盘。默认值
+为0</p>
+
+<pre><code>vm-max -memory 0
+</code></pre>
+
+<p>Redis swap文件分成了 很多的page ,一个对象可以保存在多个page.上面,但一-个page上不能被多个对象共享,
+vm-page-size是要根据存储的数据大小来设定的，作者建议如果存储很多小对象, page大小最好设置为32或者
+64bytes ;如果存储很大大对象，则可以使用更大的page，如果不确定，就使用默认值</p>
+
+<pre><code>vm-page-size 32
+</code></pre>
+
+<p>设置swap文件中的page数量， 由于页表( -种表示页面空闲或使用的bitmap)是在放在内存中的，, 在磁盘上每8
+个pages将消耗1byt e的内存。</p>
+
+<pre><code>vm-pages 134217728
+</code></pre>
+
+<p>设置访问swap文件的线程数，最好不要超过机鼹的核数，如果设置为0,那么所有对swap文件的操作都是串行的，可能
+会造成比较长时间的延迟。默认值为4</p>
+
+<pre><code>vm-max-threads 4
+</code></pre>
+
+<p>设置在向客户端应答时，是否把较小的包合并为-一个包发送，默认为开启</p>
+
+<pre><code>glueoutputbuf yes
+</code></pre>
+
+<p>指定在超过一定的数量或者最大的元素超过某-临界值时,采用一-种特殊的哈希算法</p>
+
+<pre><code>hash-max-zipmap-entries 64
+hash-max-zi pmap-value 512
+</code></pre>
+
+<p>指定是否激活重置哈希，默认为开启(后面在介绍Redis的哈希算法时具体介绍)</p>
+
+<pre><code>activer ehashing yes
+</code></pre>
+
+<p>指定包含其它的配置文件，可以在同一-主机上多个Redis实例之间使用同一-份配置文件,而同时各个实例又拥有自己
+的特定配置文件</p>
+
+<pre><code>include /path/to/1oca1.conf
+</code></pre>
+
+<h4 id="redis中的内存维护策略">Redis中的内存维护策略</h4>
+
+<p>redis作为优秀的中间缓存件,时常会存储大量的数据,即使采取了集群部署来动态扩容,也应该即时的整理内
+存，维持系统性能。</p>
+
+<p>在redis中有两种解决方案</p>
+
+<h5 id="一为数据设置超时时间">一为数据设置超时时间</h5>
+
+<p>设置过期时间</p>
+
+<pre><code>expire key time (以秒为单位)--这是最常用的方式
+setex(String key, int seconds, String value)--字符串独有的方式
+</code></pre>
+
+<ul>
+<li><p>除了字符串自己独有设置过期时间的方法外,其他方法都需要依靠expire方法来设置时间</p></li>
+
+<li><p>如果没有设置时间.那缓存就是永不过期</p></li>
+
+<li><p>如果设置了过期时间,之后又想让缓存永不过期,使用persist key</p>
+
+<h5 id="二采用lru算法动态将不用的数据删除">二采用LRU算法动态将不用的数据删除</h5>
+
+<p>内存管理的一种页面置换算法,对于在内存中但又不用的数据块(内存块)叫做LRU。</p>
+
+<p>操作系统会根据哪些数据属于LRU而将其移出内存而腾出空间来加载另外的数据。</p></li>
+</ul>
+
+<ol>
+<li>volatile-lru :设定超时时间的数据中删除最不常使用的数据.</li>
+<li>allkeys-lru :查询所有的key中最近最不常使用的数据进行删除,这是应用最广泛的策略.</li>
+<li>volatile-random :在已经设定了超时的数据中随机删除.</li>
+<li>allkeys-random :查询所有的key,之后随机删除.</li>
+<li>volatile-ttl :查询全部设定超时时间的数据,之后排序,将马上将要过期的数据进行删除操作.</li>
+<li>noeviction :如果设置为该属性.则不会进行删除操作,如果内存溢出则报错返回.</li>
+<li>volatile-lfu :从所有配置了过期时间的键中驱逐使用频率最少的键</li>
+<li>allkeys-lfu :从所有键中驱逐使用频率最少的键</li>
+</ol>
+
+<h4 id="自定义配置redis">自定义配置Redis</h4>
+
+<p>进入对应的安装目录/usr/local/redis</p>
+
+<p>修改redis.conf配置文件yim redis.conf (进入命令模式通过/内容查找相应字符串)</p>
+
+<pre><code>daemonize no修改为 daemonize yes守护进程启动
+
+bind 127.0.01 注释掉 允许除本机外的机器访问Redis服务
+
+requirepass设置密码设定数据库密码(保证服务安全/有些情况下不设定密码是无法进行远程连接访问的)
+</code></pre>
+
+<p>Redis采用的是单进程多线程的模式。当redis.conf中选项daemonize设置 成yes时,代表开启守护进程模式。在该模式下, redis会在后台运行,并将进程pid号写入至redis.conf选项pidfile设置的文件中,此时redis将一直运行,除非手动ill该进程。但当daemonize选项设置 成no时,当前界面将进入redis的命令行界面, exit强制退出或者关闭连接I具(putty,xshell等)都会导致redis进程退出。服务端开发的大部分应用都是采用后台运行的模式</p>
+
+<p>requirepass设置密码。因为redis速度相当快,所以一台比较好的服务器下,一个外部用户在一秒内可以进行15W次密码尝试,这意味着你需要设定非常强大的密码来防止暴力破解。可以通过redis的配置文件设置密码参数,这样客户端连接到redis服务就需要密码验证,这样可以让你的redis服务更安全</p>
+
+<h3 id="启动redis服务">启动redis服务</h3>
+
+<pre><code class="language-shell">./bin/redis-server ./redis.conf
+</code></pre>
+
+<h3 id="关闭redis">关闭redis</h3>
+
+<h4 id="第一种方式">第一种方式</h4>
+
+<p>（断电、非正常关闭。容易导致数据丢失）</p>
+
+<p>查看进行</p>
+
+<pre><code class="language-shell">ps -ef | grep -i redis
+</code></pre>
+
+<p>杀死进程</p>
+
+<pre><code class="language-shell">kill -9 进程id
+</code></pre>
+
+<h4 id="第二种方式">第二种方式</h4>
+
+<p>正常关闭、数据保存</p>
+
+<p>关闭redis服务，通过客户端进行shutdown</p>
+
+<pre><code>redis-cli shutdown
+</code></pre>
+
+<p>如果redis设置了密码，需要先在客户端进行密码登录，在进行shutdown即可关闭客户端</p>
+
+<pre><code>./redis-cli -a dsfsdf
+shutdown
+</code></pre>
+
+<h3 id="远程连接">远程连接</h3>
+
+<p>远程连接比较流行的软件:RedisDesktopManager</p>
+
+<p>默认不允许远程连接,需要修改一下信息才可以进行修改 ，</p>
+
+<pre><code>bind 127.0.01 注释掉 允许除本机外的机器访问Redis服务
+requirepass设置密码设定数据库密码(有 些情况下不设定密码是无法进行远程连接访问的)
+</code></pre>
+
+<p>开放端口</p>
+
+<p>开放8080端口(如下命令只针对Centos7以上)</p>
+
+<p>查看已经开放的端口:</p>
+
+<pre><code class="language-shell">firewa1l-cmd --1ist-ports
+</code></pre>
+
+<p>开启端口:</p>
+
+<pre><code class="language-shell">firewall-cmd --zone=public --add-port=6379/tcp --permanent
+</code></pre>
+
+<p>重启防火墙:</p>
+
+<pre><code class="language-shell">firewall-cmd --reload #重启
+firewal1 systemct1 stop firewalld.service #停止
+firewall systemct1 disable firewalld.service #禁止firewa11开机启动
+</code></pre>
+
+<h3 id="docker安装redis">Docker安装Redis</h3>
+
+<h4 id="安装单机版redis">安装单机版Redis</h4>
+
+<p>启动docker</p>
+
+<pre><code>systemctl start docker
+</code></pre>
+
+<p>搜索redis</p>
+
+<pre><code class="language-shell">docker search redis
+</code></pre>
+
+<p>下载镜像</p>
+
+<pre><code class="language-shell">docker pull redis:latest
+</code></pre>
+
+<p>创建并运行容器</p>
+
+<pre><code class="language-shell">docker run -d --name redis6397 -p 6397:6397 redis --requirepass &quot;xxxx&quot;
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-shell">docker ps
+</code></pre>
+
+<pre><code class="language-shell">docker exec -it redis6379 bash
+pwd
+exit
+docker exec -it redis6379 redis-cli -a xxxx
+</code></pre>
+
+<h3 id="redis命令">redis命令</h3>
+
+<p>Redis命令用于在redis服务上执行操作。要在redis服务上执行命令需要一一个 redis客户端。
+Redis客户端在我们之前下载的的redis 的安装包中。</p>
+
+<p>Redis支持五种数据类型: string (字符串) , hash(哈希) , list (列表) , set(集合)及zset(sorted
+set :有序集合)等</p>
+
+<h4 id="常用命令管理">常用命令管理</h4>
+
+<pre><code>Keys * ：返回满足的所有键，可以模胡匹配比如 keys abc*代表 abc 开头的 key
+
+exists key: 是否存在指定的 key，存在返回 1, 不存在返回 0
+
+expire key second：设置某个 key 的过期时间单位为秒
+
+del key：删除某个 key
+
+ttl key：查看剩余时间，当 key 不存在时，返回-2; 存在但没有设置剩余生存时间时，返回-1, 否则，以秒为单位，返回 key 的剩余生存时司。
+
+persist key：取消过去时间
+
+PEXPIRE key mi11iseconds 修改 key 的过期时间为毫秒
+
+select：选择数据库数据库为 0-15（默认一共 16 个数括库）——&gt; 设计成多个数据库实际上是为了数据库安全和备份
+
+move key dbindex：将当前数据中的 key 转移到其他数据库
+
+randomkey：随机返回一个 key
+
+rename key key2: 重命名 key
+
+echo：打印命令
+
+dbsize：查看数据库的 key 数量
+
+info：查看数据库信息
+
+config get * 实时传储收到的请求，返回相关的配置
+
+flushdb：清空当前数据库
+
+flusha11: 清空所有数据库
+
+type key：返回key所存储的值类型
+</code></pre>
+
+<h4 id="应用场景">应用场景</h4>
+
+<p><code>expire key seconds 、EXISTS Key</code></p>
+
+<ol>
+<li>限时的优惠活动信息</li>
+<li>网站数据缓存（对于一些需要定时更新的数据，例如：积分排行榜）</li>
+<li>手机验证码</li>
+<li>限制网站访客访问频率（例如：1分钟最多访问10次）</li>
+</ol>
+
+<h4 id="key的命名建议-命名规范">key的命名建议（命名规范）</h4>
+
+<p>redis 单个key允许放入512M大小</p>
+
+<p>redis是非关系型数据库；数据与数据之间没有关联</p>
+
+<ol>
+<li><p>key不要太长，尽量不要超过1024字节，这不仅消耗内存，而且会降低查找的效率</p></li>
+
+<li><p>key不要太短，太短的话影响可读性</p></li>
+
+<li><p>在一个项目中，key最好使用统一的命名模式，例如user:123:password</p></li>
+
+<li><p>key的名称区分大小写</p></li>
+</ol>
+
+<h2 id="redis数据类型">Redis数据类型</h2>
+
+<h3 id="string类型">String类型</h3>
+
+<p>简介</p>
+
+<ul>
+<li>String类型使redis的最基本的数据类型，一个键最大存储512MB</li>
+<li>String数据结构式简单的key-value类型，value其不仅是String，也可以是数字，是包含很多种类型的特殊类型</li>
+<li>String类型使二进制安全的，（字符串不是根据某种特殊的标志来解析的，无论输入是什么，总能保证输出是处理的原始输入而不是根据某种特殊格式来处理）的，可以包含任何数据，比如序列化的对象存储，比如一张图片进行二进制存储，比如一个简单的字符串，数值等。</li>
+</ul>
+
+<h4 id="string类型的常用命令">String类型的常用命令</h4>
+
+<h5 id="赋值语法">赋值语法</h5>
+
+<pre><code>set key_name value
+</code></pre>
+
+<p>多次设置同一个name的值会被覆盖,且无视类型。Redis SET命令用于设置给定key的值。如果key已经存储值，SET就要写旧值，且无视类型</p>
+
+<pre><code>setnx key1 value
+</code></pre>
+
+<p>如果keyi1不存在，则设值 并返回1。</p>
+
+<p>如果key1存在，则不设置值并返回0。</p>
+
+<p>引申： 解决分布式锁方案之一，只有在key不存在时设置key的值。setnx（set if Not exists）命令在指定的key不存在时，为key设置指定的值。</p>
+
+<pre><code>setex key1 10 lx
+</code></pre>
+
+<p>设置key1的值为lx，过期时间为10秒，10秒后key1清除（key也清除）</p>
+
+<pre><code>setrange string range value
+</code></pre>
+
+<p>替换字符串</p>
+
+<h5 id="取值语法">取值语法</h5>
+
+<pre><code>get key_name
+</code></pre>
+
+<p>redis get命令获取指定key的值；如果key不存在，返回nil；如果key存储的值不是字符串类型，返回一个错误</p>
+
+<pre><code>getrange key start end
+</code></pre>
+
+<p>用于获取存储在指定key中字符串的子字符串。字符串的截取范围由start和end两个偏移量决定（包括start和end在内）</p>
+
+<pre><code>getbit key offset
+</code></pre>
+
+<p>对key所存储的字符串值，获取指定偏移量上的位（bit）</p>
+
+<h5 id="getset-语法">getset 语法</h5>
+
+<pre><code> getset key_name value
+</code></pre>
+
+<p>getset 命令用于设置指定key的值，并返回key的旧值，当key不存在时，返回nil</p>
+
+<pre><code>setlen key
+</code></pre>
+
+<p>返回key所存储的字符串值的长度</p>
+
+<h5 id="删除语法">删除语法</h5>
+
+<pre><code>DEL key_name
+</code></pre>
+
+<p>删除指定的key，如果存在，返回值数据类型</p>
+
+<h5 id="批量操作">批量操作</h5>
+
+<p>批量写</p>
+
+<pre><code>mset k1 v1 k2 v2 k3 v3  一次性写入多个值
+</code></pre>
+
+<p>批量读</p>
+
+<pre><code>mget k1 k2 k3
+</code></pre>
+
+<pre><code>getset name value
+</code></pre>
+
+<p>一次性设置和读取（返回旧值，写上新值）</p>
+
+<h5 id="自增-自减">自增/自减:</h5>
+
+<pre><code>INGR KEY-Name:
+</code></pre>
+
+<p>Incr 命令将 key 中存的数字值 1, 如果 key 不存在，那么 key 的值会先被初始化为 0，然后再执行 INCR 操作</p>
+
+<p>自增</p>
+
+<pre><code> INCRBY KEY Name 増量值Inorby 
+</code></pre>
+
+<p>命令将 key 中储存的数字加上指定的增量值</p>
+
+<p>自滅</p>
+
+<pre><code> DECR KEY_NAME 
+ 或 
+ DECYBY KEY_NAME 减值
+</code></pre>
+
+<p>DECR 命令将 key 中储存的数字减 1</p>
+
+<p>（注意这些 key 对应的必须是数字类型字符串，否则会出错，)</p>
+
+<h5 id="字符拼接">字符拼接：</h5>
+
+<pre><code>APPEND KEY_ NAME VALUE
+</code></pre>
+
+<p>Append 命令用于为指定的 key 追加至未尾，如果不存在，为其赋值</p>
+
+<h5 id="字符长度">字符长度：</h5>
+
+<pre><code>STRLEN key
+</code></pre>
+
+<h4 id="string类型的应用场景">String类型的应用场景</h4>
+
+<ul>
+<li>1、Stringi 通常用于保存单个字符串或 json 字符串数据</li>
+<li>2、因 String 是二进制安全的，所以你完全可以把一个图片文件的内容作为字符串来存储</li>
+<li>3、计数器（常规 key-value 线存应用。常规计数：微博数，粉丝数）</li>
+</ul>
+
+<p>INCR 等指令本身就具有原子操作的特性，所以我们完全可以利用 Redis 的 NCR、INCRBY、DECR、DECRBY 等指令来实现原子计数的效果。假如，在某种场景下有 3 个客户端同时读取了 minum 的值（值为 2），然后对其同时进行了加 1 的操作，那么，最后 bynum 的值一定是 5。不少网站都利用 reds 的这个特性来实现业务上的统计计数需求。</p>
+
+<h3 id="hash类型">Hash类型</h3>
+
+<p>Hash类型是String类型的field和value的映射表，或者说是一个String集合。</p>
+
+<p>hash适合用于存储对象，相比较而言，对一个对象类型的存储在hash类型比存储在String类型里占有更少的内存空间，并对整个对象的存取。</p>
+
+<p>可以看成具有key和value的map容器，该类型非常适合于存储值对象的信息</p>
+
+<p>如：uname，upass，age等。</p>
+
+<p>Redis中每个hash可以存储2的32次方-1键值对（40多亿）</p>
+
+<h4 id="hash命令">Hash命令</h4>
+
+<h5 id="赋值命令">赋值命令</h5>
+
+<pre><code>hset key field value ：为指定的key，设定field/value
+
+hmset key field value [field1 value2] …… ：同时将多个 field-value （域-值）对设置到哈希表key中。
+</code></pre>
+
+<h5 id="取值命令">取值命令</h5>
+
+<pre><code>hget key field : 获取存储在hash中的值，根据field得到value
+
+hmget key field[field1] : 获取key所有给定字段的值
+
+hgetall key：返回hash表中的所有的字段和值
+</code></pre>
+
+<p>hkeys key： 获取所有哈希表中的字段</p>
+
+<p>hlen key：获取哈希表中字段的数量</p>
+
+<h5 id="删除语法-1">删除语法</h5>
+
+<pre><code>hdel key field1[field2] : 删除一个或多个hash表字段
+del key ： 也可以删除 hash类型值整体删除
+</code></pre>
+
+<h5 id="其他语法">其他语法</h5>
+
+<pre><code>hsetnx key field value: 只有字段field不存在时，设置哈希表字段的值
+hincrby key field increment： 为哈希表key 中的指定字段的证书值加上增量 increment
+hincrbyfloat key field increment ： 为哈希表key中的指定字段的浮点数值加上增量 increment
+hexists key field ： 查看哈希表 key 中，指定的字段是否存在
+</code></pre>
+
+<h4 id="应用场景-1">应用场景</h4>
+
+<ol>
+<li>常用用于存储一个对象</li>
+<li>为什么不用string存储一个对象呢？</li>
+</ol>
+
+<p>Hash 是最接近关系数据库结构的数据类型，可以将数据库一条记录或程序中一个对象转换成 hashmap 存放在 redis 中</p>
+
+<p>用户 D 为查找的 key，存储的 value 用户对象包含姓名，年龄，生日等信息，如果用普通的 key-value结构来存储，主要有以下 2 种存储方式</p>
+
+<p>第一种方式将用户工 D 作为意找 key，把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是, 増加了序列化/反序列化的开销,并且在需要修改其中一项信息时,需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS 等复杂问题（并发安全问题）。</p>
+
+<p>比如：</p>
+
+<p>user对象有 id  name  age 三个字段</p>
+
+<p>将对象转成JSON字符串</p>
+
+<pre><code> set user:1 {&quot;id&quot;,&quot;name&quot;:&quot;lisi&quot;,score:&quot;20&quot;}
+</code></pre>
+
+<p>取得时候：json转成对象</p>
+
+<p>第二种方法是这个用户信息对象有多少成员就存成多少个 key- value 对儿，用用户 ID+对应属性的名称作为唯一标识来取得对应属性的值，虽然省去了序列化开销和并发问题，但是用户ID 为重复存储，如果存在大量这样的数据，内存浪费还是非常可观的。</p>
+
+<pre><code>set user:1:id  1
+set user:1:name lisi
+set user:1:score 20
+</code></pre>
+
+<p>总结：</p>
+
+<p>Redist 提供的 Hash 很好的解決了这个问题，Redis 的 Hash 实际是内部存储的 Value 为一个 Hashmap,</p>
+
+<p>并提供了直接存取这个 Map 成员的接口</p>
+
+<p>springboot1 对redis的连接默认采用jedis。在springboot2之后，默认采用lettuce。这一点也说明了lettuce与jedis的优劣。</p>
+
+<h3 id="set类型">SET类型</h3>
+
+<h4 id="基本概念">基本概念</h4>
+
+<ul>
+<li>集合（set）用来保存多个的字符串元素</li>
+<li>不允许重复</li>
+<li>元素是无序，不能通过索引下标获取元素</li>
+<li>一个集合最多可以存储2的32次方-1个元 素。</li>
+<li>支持多个集合取交集、并集、差集</li>
+</ul>
+
+<h4 id="常用命令">常用命令</h4>
+
+<h5 id="基本操作">基本操作</h5>
+
+<pre><code>sadd key element [element ...]             # 添加元素，返回结果为添加成功的元素个数
+
+srem key element [element ...]             #  删除元素，返回结果为删除成功的元素个数
+
+scard key 								 # 计算元素个数，
+
+sismember key element                       # 判定元素是否在集合中，如果给定元素element在集合内返回1，反之返回0
+
+srandmember key [count]                    # 随机从集合返回指定个数元素，count为可选参数，如果不写，默认为1
+
+spop key                                              # 从集合随机弹出元素，![\color{red}{Redis从3.2版本开始，spop
+
+smembers key                                      # 获取所有元素
+</code></pre>
+
+<h5 id="注意">注意</h5>
+
+<p>smembers和lrange、hgetall都属于比较重的命令，如果元素过多存在阻 塞Redis的可能性，这时候可以使用sscan来完成</p>
+
+<h5 id="集合间操作">集合间操作</h5>
+
+<ul>
+<li><p>求多个集合的交集：sinter key [key &hellip;]</p></li>
+
+<li><p>求多个集合的并集：suinon key [key &hellip;]</p></li>
+
+<li><p>求多个集合的差集：sdiff key [key &hellip;]</p></li>
+
+<li><p>将交集、并集、差集的结果保存</p>
+
+<pre><code> sinterstore destination key [key ...]
+ suionstore destination key [key ...]
+ sdiffstore destination key [key ...]
+</code></pre></li>
+</ul>
+
+<p>说明：</p>
+
+<p>集合间的运算在元素较多的情况下会比较耗时，所以Redis提供了上面 三个命令(原命令+store)将集合间交集、并集、差集的结果保存在 destination key中</p>
+
+<h5 id="应用场景-2">应用场景</h5>
+
+<p>应用核心思想：set集合，不允许重复，元素是无序</p>
+
+<ul>
+<li>网站访问的黑名单、白名单</li>
+<li>访问的UV，IP （PV可以使用String的自增实现）</li>
+<li>用户tag</li>
+</ul>
+
+<h3 id="zset类型">ZSET类型</h3>
+
+<p>有序集合(sorted set)
+ 一般将有序集合成为zsets，因为相关命令是以z开头的</p>
+
+<h4 id="基本概念-1">基本概念</h4>
+
+<ul>
+<li>String类型元素的集合</li>
+<li>不允许重复成员</li>
+<li>每个元素关联一个double类型的分数，redis通过此分数为集合成员从小到大排序</li>
+<li>有序集合的成员是唯一的，但是分数（score）却可以重复</li>
+<li>集合通过哈希表实现的</li>
+<li>集合中最大成员为2的次方32 -1 ，共计 40多亿个成员</li>
+</ul>
+
+<h4 id="常用命令-1">常用命令</h4>
+
+<h5 id="赋值语法-1">赋值语法</h5>
+
+<pre><code>ZADD key score1 member1 [score2 member2】：向有序集合添加一个或多个成员，或者更新已存在成员的分数
+</code></pre>
+
+<h5 id="取值语法-1">取值语法</h5>
+
+<pre><code>ZCARD key：获取有序集合的成员数
+
+ZCOUNT key min max：计算在有序集合中指定区间分数的成员数
+
+ZRANK key member：返回有序集合中指定成员的索引
+
+ZRANGE key start stop [WITHSCORES】：通过索引区间返回有序集合成指定区间内的成员（低到高）
+
+ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT】：通过分数返回有序集合指定区间内的成员
+
+ZREVRANGE key start stop [WITHSCORES】：返回有序集中指定区间内的成员，通过索引，分数从高到底 （索引从0开始）
+
+ZREVRANGEBYSCORE key max min [WITHSCORES】：返回有序集中指定分数区间内的成员，分数从高到低排序
+</code></pre>
+
+<h5 id="删除语法-2">删除语法</h5>
+
+<ul>
+<li>DEL key  移除集合</li>
+<li>ZREM key member [member&hellip;】：移除有序集合中的一个或多个成员</li>
+<li>ZREMRANGEBYRANK key start stop：移除有序集合中给定的排名区间的所有成员（第一名是 0)（低到高排序）</li>
+<li>ZREMRANGEBYSCORE key min max：移除有序集合中给定的分数区间的所有成员</li>
+<li>ZエNCRBY key increment member：加 memeber 元素的分数 increment，返回值是更改后的分数</li>
+</ul>
+
+<h5 id="应用场景-3">应用场景</h5>
+
+<p>排行榜，销量排名，积分排名</p>
+
+<p>1 如 twitter 的 public timeline 可以以发表时间作为 score：来存储，这样获取时就是自动按时间排好序的。</p>
+
+<p>2 比如一个存储全班同学成绩的 Sorted Set，其集合 value 可以是同学的学号，而 scorei就可以是其考试得分，这样在数据插入集合的时候，就已经进行了天然的排序。</p>
+
+<p>3 还可以用 Sorted Set 来做帯权重的队列，比如普通消息的 score 为 1, 重要消息的 score 为 2, 然后工作线程可以选择按 core 的倒序来获取工作务。让重要的任务优先执行。</p>
+
+<h5 id="例子">例子</h5>
+
+<p>学员成绩排行榜</p>
+
+<p>需求1：在zset 中插入6名学生成绩</p>
+
+<pre><code class="language-swift">zadd z1 30 a 40 b 50 c 60 d 70 e
+</code></pre>
+
+<p>需求2：按成绩由高到低排序，查出前3名学生成绩</p>
+
+<pre><code class="language-undefined">zrevrange z1 0 2 
+</code></pre>
+
+<p>需求3： 查询成绩在 60~80分之间的学生个数</p>
+
+<pre><code class="language-undefined">zcount z1 60 80
+</code></pre>
+
+<p>需求3： 查询成绩在 60~80分之间的学生信息</p>
+
+<pre><code class="language-undefined">ZRANGEBYSCORE z1 60 80
+</code></pre>
+
+<h3 id="hyperloglog类型">Hyperloglog类型</h3>
+
+<h4 id="基本概念-2">基本概念</h4>
+
+<ul>
+<li>Redis 在 2.8.9 版本添加了 HyperLoglog 结构</li>
+<li>Redis Hyperloglog 是用来做基数统计的算法</li>
+<li>Hyperloglog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定的、并且是很小的</li>
+<li>在 Redis 里面，每个 Hyper Loglog 键只需要花費 12 KB 内存，就可以计算接近 2 的64方个不同元素的基数。这和计算基数时，元素越多耗费內存就越多的集合形成鲜明对比。</li>
+<li>但是，因为 Hyperloglog 只会根据输入元素来计算基数，而不会储存输入元素本身，所以 Hyperloglog 不能像集合那样，返回输入的各个元素</li>
+</ul>
+
+<h4 id="什么是基数">什么是基数？</h4>
+
+<p>比如数据集{1,3,5,7,5,7,8｝，那么这个数据集的基数集为{1,3,5,7,8｝，基数（不重复元素）为 5。基数估计就是在误差可接受的范围内，快速计算基数</p>
+
+<h4 id="为什么需要-hyperloglog">为什么需要 Hyperloglog</h4>
+
+<p>如果要統计1亿个数据的基数值,大约需要内存100000008/1024/1024 s  12 M，内存減少占用的效果显警。
+ 统计一个对象的基数值需要 12 M，如果统计 10000 个对象，就需要将近 1206, 同样不能广泛用于大数据场景。</p>
+
+<h4 id="误差率">误差率</h4>
+
+<p>HyperLogLog内存占用量小得惊人，但是用如此小空间来估算如此巨大的数据，必然不是100%的正确，其中一定存在误差率。Redis官 方给出的数字是0.81%的失误率。</p>
+
+<h4 id="基本命令">基本命令</h4>
+
+<pre><code>PFADD key element [element・】：添加指定元素到 Hyperloglog 中
+
+PFCOUNT key [key,,】：返回给定 Hyper Loglog 的基数估算值
+
+PFMERGE deskey sourcekey [sourcekey,】：将多个 Hyper Loglog 合并为一个 Hyperloglog
+
+
+</code></pre>
+
+<h4 id="场景">场景</h4>
+
+<p>HyperLogLog内存占用量非常小，但是存在错误率，开发者在进行数据 229</p>
+
+<p>结构选型时只需要确认如下几条即可:</p>
+
+<ul>
+<li>只为了计算独立总数，不需要获取单条数据。</li>
+<li>可以容忍一定误差率，毕竟HyperLogLog在内存的占用量上有很大的优 势。</li>
+<li>基数不大，数据量不大就用不上，会有点大材小用的浪费空间</li>
+<li>统计注册IP数</li>
+<li>统计每日访问IP数</li>
+<li>统计页面实时UV数</li>
+<li>统计在线用户数</li>
+<li>统计用户每天搜索不同词条的个数</li>
+<li>统计真实文章阅读数</li>
+</ul>
+
+<h4 id="总结">总结</h4>
+
+<p>Hyper Loglog 是一种算法，并非 redis？独有</p>
+
+<p>目的是做基数统计，故不是集合，不会保存元数据，只记录数量而不是数值</p>
+
+<p>耗空间极小，支持输入非常体积的数据量</p>
+
+<p>核心是基数估算算法，主要表现为计算时内的使用和数据合并的处理，最终数值存在一定误差</p>
+
+<h4 id="底层存储结构">底层存储结构</h4>
+
+<p>redis 中每个 hyperloglog key 占用了 12 K 的内存用于标记基数（官方文档）</p>
+
+<p>pfadd 命令并不会一次性分配 12 k 内存，而是随着基数的増加而逐浙増加内存分配；而 pfmerge 操作则会将 sourcekey 合并后存储在 12 k 大小的 key 中，这由 hyperloglog 合并操作的原理（两个hyperloglogg 合并时需要单独比较每个桶的值）可以很容易理解。</p>
+
+<p>误差说明：基数估计的结果是一个带有 0.81%标准错误（standard error）的近似值。是可接受的范围</p>
+
+<p>Redis 对 Hyper Loglog 的存储进行了优化，在计数比较小时，它的存储空间采用稀疏矩阵存储，空间占用很小，仅仅在计数慢慢变大，稀疏矩阵占用空间渐新超过了國值时オ会一次性转变成稠空矩阵，オ会占用 12 k 的空间</p>
+
+<h2 id="springboot整合jedis">SpringBoot整合Jedis</h2>
+
+<h3 id="redis常用客户端">Redis常用客户端</h3>
+
+<p>Jedis api在线网址: <a href="http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/ledis.html">Hhtp://tool.oschina.net/uploads/apidocs/redis/clients/jedis/ledis html</a></p>
+
+<p>redisson官网地址: <a href="https://redisson.org">https://redisson.org/</a></p>
+
+<p>redisson git项目地址: <a href="https://github.com/redisson/redisson">https://github.com/redisson/redisson</a></p>
+
+<p>lettuce官网地址: <a href="https://lettuce.io/">https://lettuce.io/</a></p>
+
+<p>lettuce git项目地址: <a href="https://github.com/lettuce-io/lettuce-core">https://github.com/lettuce-io/lettuce-core</a></p>
+
+<p>首先,在spring boot2之后,对redis连接的支持,默认就采用了lettuce.这就-定程度说明了lettuce 和
+Jedis的优劣。</p>
+
+<p>概念</p>
+
+<pre><code>Jedis：是老牌的 Redis 的Java 实现客户端，提供了比较全面的 Redis 命令的支持，
+Redisson：实现了分布式和可扩展的Java 数据结构。
+Lettuce：高级 Redis 客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器
+</code></pre>
+
+<p>优点：</p>
+
+<p>Jedis：比较全面的提供了 Redis的操作特性</p>
+
+<p>Redisson：促使使用者对 Redist 的关注分离，提供很多分布式相关操作服务，例如，分布式锁，分布式集台，可通过 Redis 支持延退队列</p>
+
+<p>Lettuce：基于 Netty 框架的事件驱动的通信层，其方法调用是异步的。Lettuce 的 API 是程安全的，所以可以操作单个 Lettuce 连接来完成各种操作</p>
+
+<p>总结：</p>
+
+<p>优先使用 Lettuce，如果需要分布式锁，分布式集合等分布式的高级特性，添加 Redisson 结合使用，因为 Redisson 本身对字符串的操作支持很差。</p>
+
+<p>在一些高并发的场景中，比如秒杀，抢票，抢购这些场景，都存在对核心资源，商品库存的争，控制不好，库存数量可能被减少到负数，出现超卖的情況，或者产生唯一的一个递增 ID，由于 web 应用部在多个机器上，简单的同步 加锁是无法实现的,给数据库加锁的话,对于高并发,1000/5的并发,数据库可能由行锁变成表锁，性能下降会历害。那相对而言，redis 的分布式锁，相对而言，是个很好的选择，redis官方推荐使用的 Redisson 就提供了分布式锁和相关服务。</p>
+
+<p>在官方网站列一些java客户端, 有: Jedis/Redisson/redis/JDBC.Reds 等，其中官方推荐使用 redis 和 Redisson。常用 edis。</p>
+
+<h3 id="简介">简介</h3>
+
+<p>我们在使用springboot搭建微服务的时候,在很多时候还是需要redis的高速缓存来缓存一些数据 ,存储-些高频率访问的数据,如果直接使用redis的话又比较麻烦,在这里,我们使用jedis来实现redis缓存来达到高效缓存的目的</p>
+
+<p>创建module&ndash;&gt;场景选择spring Web、Spring Boot DevTools、Lombok</p>
+
+<p>此时不要选择Redis，yin&rsquo;w</p>
+
+<h3 id="1-引入依赖">1）、引入依赖</h3>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="2-配置">2）、配置</h3>
+
+<pre><code class="language-yml">spring:
+  redis:
+    port: 6389
+    password: xxx
+    host: 222.22.22.22
+    jedis:
+      pool:
+        max-idle: 10 #最大空闲数
+        max-active: 10 #最大连接数
+        min-idle: 2 #最小连接数
+    timeout: 2000 # 连接超时
+</code></pre>
+
+<h3 id="3-配置类">3）、配置类</h3>
+
+<pre><code class="language-java">import redis.clients.jedis.JedisPoolConfig;
+@Configuration
+public class JedisConfig {
+    private Logger logger = LoggerFactory.getLogger(JedisConfig.class);
+
+    /**
+     * SpringSession  需要注意的就是redis需要2.8以上版本，然后开启事件通知，在redis配置文件里面加上
+     * notify-keyspace-events Ex
+     * Keyspace notifications功能默认是关闭的（默认地，Keyspace 时间通知功能是禁用的，因为它或多或少会使用一些CPU的资源）。
+     * 或是使用如下命令：
+     * redis-cli config set notify-keyspace-events Egx
+     * 如果你的Redis不是你自己维护的，比如你是使用阿里云的Redis数据库，你不能够更改它的配置，那么可以使用如下方法：在applicationContext.xml中配置
+     * &lt;util:constant static-field=&quot;org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP&quot;/&gt;
+     * @return
+     */
+    @Value(&quot;${spring.redis.host}&quot;)
+    private String host;
+
+    @Value(&quot;${spring.redis.port}&quot;)
+    private int port;
+
+    @Value(&quot;${spring.redis.password}&quot;)
+    private String password;
+
+    @Value(&quot;${spring.redis.timeout}&quot;)
+    private int timeout;
+
+    @Value(&quot;${spring.redis.jedis.pool.max-active}&quot;)
+    private int maxActive;
+
+    @Value(&quot;${spring.redis.jedis.pool.max-idle}&quot;)
+    private int maxIdle;
+
+    @Value(&quot;${spring.redis.jedis.pool.min-idle}&quot;)
+    private int minIdle;
+
+    @Bean
+    public JedisPool redisPoolFactory(){
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxIdle(maxIdle);
+        jedisPoolConfig.setMaxTotal(maxActive);
+        jedisPoolConfig.setMinIdle(minIdle);
+        JedisPool jedisPool = new JedisPool(jedisPoolConfig,host,port,timeout,password);
+        logger.info(&quot;JedisPool注入成功！&quot;);
+        logger.info(&quot;redis地址：&quot; + host + &quot;:&quot; + port);
+        return  jedisPool;
+    }
+}
+</code></pre>
+
+<h3 id="4-测试">4）、测试</h3>
+
+<pre><code class="language-java">@SpringBootTest
+class SpringbootJedisApplicationTests {
+    @Autowired
+    private JedisPool jedisPool;
+    @Test
+    void contextLoads() {
+        System.out.println(jedisPool);
+    }
+}
+</code></pre>
+
+<h3 id="springboot中redis使用lettuce">SpringBoot中Redis使用lettuce</h3>
+
+<p>java代码操作Redis，需要使用Jedis ,也就是redis支持java的第三方类库</p>
+
+<p>注意:Jedis2.7以上的版本才支持集群操作</p>
+
+<h4 id="maven配置">maven配置</h4>
+
+<pre><code class="language-xml">&lt;!--默认就是lettuce客户端--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--redis依赖commons-pool这个依赖一定要添加--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--测试库的信息--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+
+<h4 id="配置">配置</h4>
+
+<pre><code class="language-yml">server:
+  port: 8080
+spring:
+  redis:
+    port: 6389
+    password: xxx
+    host: 22.22.22.22
+    lettuce:
+      pool:
+        max-idle: 10 #最大空闲数
+        max-active: 10 #最大连接数
+        min-idle: 2 #最小连接数
+        max-wait: 1000 #连接池最大阻塞等待事件（使用负值表示没有限制）
+    timeout: 2000 # 连接超时
+</code></pre>
+
+<p>编写缓存配置类RedisConfig用于调优缓存默认配置，RedisTemplate<String, Object>的类型兼容性更高大家可以看到在redisTemplate(这个方法中用<code>acksonjsonRedisSerializer</code>更换掉了Redis默认的序列化方式: <code>JdkSerializationRedisSerializer</code></p>
+
+<p>spring- data-redis中序列化类有以下几个:</p>
+
+<pre><code>GenericToStringSerializer :可以将任何对象泛化为字符创并序列化
+
+Jackson2JsonRediSrializer :序列化Object对象为json字符创(与JacksonsonRedisSerallzer相同)
+
+JdkSerializationRedisSerializer :序列化java对象
+
+StringRedisSerializer :简单的字符串序列化
+
+JdkSerializationRedisSerializer序列化被序列化对象必须实现Serializable接口,被序列化除属性内容还有其
+他内容,长度长且不易阅读，默认就是采用这种序列化方式
+</code></pre>
+
+<p>存储内容如下:</p>
+
+<pre><code>&quot;\xacxed\x00\x05sr\x00!com.oreilly.springdata.redis.Userxb1lx1c
+\Inlxcd\xed%\xd8\x02Xx00x021x00\x03ageLx00\buserNametx00x12Ljava/ang/String;xplx00x00lx0
+0lx 14t\x00\x05user1&quot;
+</code></pre>
+
+<pre><code>JacksonjsonRedisSerializer序列化;被序列化对象不需要实现Serializable接口,被序列化的结果清晰,容易阅
+读，而且存储字节少,速度快
+</code></pre>
+
+<h2 id="redis的其他功能">Redis的其他功能</h2>
+
+<h3 id="redis发布订阅">Redis发布订阅</h3>
+
+<p>简介</p>
+
+<p>Redis发布订阅(pub/sub)是-种消息通信模式:发送者(pub)发送消息,订阅者(sub)接收消息。Redis客户端可以订阅任意数量的频道。</p>
+
+<p>Redis发布订阅(pub/sub)是一种消息通信模式:发送者(pub)发送消息,订阅者(sub)接收消息。</p>
+
+<p>Redis客户端可以订阅任意数量的频道。</p>
+
+<h4 id="常用命令-2">常用命令</h4>
+
+<p>订阅频道:</p>
+
+<pre><code>SUBSCRIBE channe1 [channe1 ...] :订阅给定的一一个或多个频道的信息
+PSUBSCRIBE pattern [pattern ...] :订阅- 一个或多个符合给定模式的频道。
+</code></pre>
+
+<p>发布频道:</p>
+
+<pre><code>PUBLISH channe1 message : 将信息发送到指定的频道。
+</code></pre>
+
+<p>退订频道:</p>
+
+<pre><code>UNSUBSCRIBE [channe1 [channe1 ...]] :指退订给定的频道。
+PUNSUBSCRIBE [pattern [pattern ...1]:退订所有给定模式的频道。
+</code></pre>
+
+<h4 id="应用场景-4">应用场景</h4>
+
+<p>这一功能最明显的用法就是构建实时消息系统,比如普通的即时聊天,群聊等功能</p>
+
+<ol>
+<li>在一个博客网站中,有100个粉丝订阅了你.当你发布新文章,就可以推送消息给粉丝们。</li>
+<li>微信公众号模式</li>
+<li>微博，每个用户的粉丝都是该用户的订阅者，当用户发完微博,所有粉丝都将收到他的动态;</li>
+<li>新闻,资讯站点通常有多个频道,每个频道就是一个主题 ,用户可以通过主题来做订阅(如RSS) ,这样当新闻
+发布时,订阅者可以获得更新</li>
+</ol>
+
+<h3 id="redis多数据库">Redis多数据库</h3>
+
+<h4 id="一些基本概念">一些基本概念</h4>
+
+<ul>
+<li>redis 数据库由整数索引标识，而不是一个数据库名称</li>
+<li>默认情况下，一个客户端连接到数据库0</li>
+
+<li><p>redis配置文件中下面的参数来控制数据库总数:</p>
+
+<pre><code class="language-cpp">database 16  // 从0开始， 0~15
+</code></pre></li>
+</ul>
+
+<h4 id="常用命令-3">常用命令</h4>
+
+<pre><code>select数据库 // 数据库的切换 ： select  数据库索引标识
+
+
+移动数据（将当前key移动到另一个库）： move key名称    数据库索引标识
+
+清空数据库：
+
+flushdb：清除当前数据库的所有key
+flushall：清除整个redis的数据库所有key
+</code></pre>
+
+<h4 id="注意-1">注意</h4>
+
+<p>redis为什么默认16个数据库？</p>
+
+<ul>
+<li><p>Redis支持多个数据库，并且每个数据库的数据是隔离的不能共享，并且基于单机才有，如果是集群就没有数据库的概念</p></li>
+
+<li><p>隔离业务或是隔离生产环境与测试环境</p>
+
+<p>redis之所以分这么多个数据库，也是为了区分业务，不同的业务存放在不同的库，但是一个redis，一般是给一个项目用，项目内的不同业务，单独用一个库，这样不会相互有数据交叉。现在很多微服务项目，一个项目里有多个微服务，redis统一由团队管理，每个服务连接自己的库就可以了。</p></li>
+</ul>
+
+<h3 id="redis事务">Redis事务</h3>
+
+<p>redis事务可以一次执行多个命令，（按顺序地串行化执行，执行中不会被其他命令插入，不许加塞）</p>
+
+<h4 id="一些概念">一些概念</h4>
+
+<p>Redis 事务可以一次执行多个命令（允许在一次单独的步骤中执行一组命令），并且帯有以下两个重要的保证：</p>
+
+<ol>
+<li>Redis 会将一个事务中的所有命令序列化，然后按顺序执行</li>
+<li>执行中不会被其它命令插入，不许出现加塞 行为</li>
+</ol>
+
+<p>说明：</p>
+
+<p>批量操作在发送 EXEC 命令前被放入队列缓存。收到 EXEC 命令后进入事务执行，事务中任意命令执行失败，其余的命令依然被执行。在事务执行过程，其他客户端提交的命令请求不会插入到事务执行命令序列中。</p>
+
+<h4 id="常用命令-4">常用命令</h4>
+
+<pre><code>DISCARD   ：取消事务，放弃执行事务块内的所有命令
+
+EXEC：执行所有事务块内的命令
+
+MULTI：标记一个事务决的开始
+
+UNWATCH：取消 WATCH 命令对所有 key 的监视
+
+WATCH key  [key..] ：监视一个（或多个）key，如果在事务执行之前这个（或这些）key 被其他命令所改动，那么事务将被打断
+</code></pre>
+
+<h4 id="执行过程">执行过程</h4>
+
+<p>一个事务从开始到执行会经历一下三个阶段：</p>
+
+<ul>
+<li>开始事务</li>
+<li>命令入队</li>
+<li>执行事 务</li>
+</ul>
+
+<h4 id="应用场景-5">应用场景</h4>
+
+<p>一组命令必须同时都执行，或者都不执行</p>
+
+<p>我们想要保证一组命令在执行过程中不被其他命令插入</p>
+
+<p>秒杀</p>
+
+<h4 id="总结-1">总结</h4>
+
+<p>Redis提供了简单的事务，之所以说它简单，主要是因为它不支持事务 中的回滚特性，同时无法实现命令之间的逻辑关系计算，当然也体现了 Redis的“keep it simple”的特性，下一篇文章介绍的Lua脚本同样可以实现事务 的相关功能，但是功能要强大很多。</p>
+
+<h3 id="redis持久化">Redis持久化</h3>
+
+<p>RDB &ndash; 快照</p>
+
+<h4 id="基本概念-3">基本概念</h4>
+
+<ul>
+<li><p>默认的redis持久化机制</p></li>
+
+<li><p>RDB相当于照快照，保存的是一种状态， 几十G数据 -&gt; 几kb快照
+ 这种方式就是将内存中数据以快照的方式写入到二进制文件中，默认的文件名为dump.rdb</p></li>
+
+<li><p>优点：</p>
+
+<pre><code>    快照保存数据极快，还原数据极快，适用于灾难备份
+</code></pre></li>
+
+<li><p>缺点：</p>
+
+<p>​        小内存机器不适合使用，只有复合RDB机制要求的才会照快照</p></li>
+</ul>
+
+<h4 id="快照条件">快照条件：</h4>
+
+<h5 id="自动触发">自动触发</h5>
+
+<p>服务器正常关机时</p>
+
+<pre><code> ./bin/redis-cli shutdown
+</code></pre>
+
+<p>key 满足一定的条件，会进行快照</p>
+
+<p>vim redis.conf  搜索 save</p>
+
+<p>redis.conf中的save配置</p>
+
+<pre><code>save 900 1   //每 900 秒（15 分钟）至少 1 个 key 发生变化, 产生快照
+ save 300 10 //每300秒(5分钟)至少10个key发生变化,产生快照
+ save 60   10000  //毎60秒(1分钟)至少10000个key发生变化，产生快照
+</code></pre>
+
+<h5 id="手动触发">手动触发</h5>
+
+<p>包括save和bgsave命令。</p>
+
+<p>因为save会阻塞当前Redis节点，所以，Redis内部所有涉及RDB持久化的的操作都通过bgsave方式，save方式已废弃。</p>
+
+<h4 id="aof">AOF</h4>
+
+<p>&ndash; 操作记录（增量）</p>
+
+<p>由于快照方式是在一定间隔时间快照一次的，所以如果 redis 意外 down 掉的话，就会丢失最后一次快照之后的所有修改。如果应用要求不能丢失任何修改的话，可以采用 aof 持久化方式。</p>
+
+<p>Append-only file: aof 比快照方式有更好的持久化性，是由于在使用 aof 持久化方式时，redis将每一个收到的写命令都通过 wrte 函数追加到文件中（默认是 appendonly. Aof）。当 redis 重启时会通过重新执行文件中保存的写命令来在内存中重建整个数据库的内容。</p>
+
+<p>触发条件 有三种方式如下（默认是：每秒 fsync 一次）</p>
+
+<pre><code>appendonly yes/启用 aof 持久化方式
+</code></pre>
+
+<pre><code>appendfsync always //收到写命令就立即写入磁盘，最慢，但是保证完全的持久化
+appendfsync everysec //每秒钟写入磁盘一次，在性能和持久化方面做了很好的折中
+appendfsync no //完全依赖os，性能最好，持久化没保证
+</code></pre>
+
+<p>产生的问题：</p>
+
+<p>aof 的方式也同时带来了另ー个问题。持久化文件会变的越来越大。例如我们调用 incr test命令 100 次文件中必须保存全部的 100 条命令，其实有 99 条都是多余的。</p>
+
+<p>Redis-4.0以后的混合持久化</p>
+
+<p>简介</p>
+
+<p>redis4.0相对与3.X版本其中一个比较大的变化是4.0添加了新的混合持久化方式。前面已经详细介绍了AOF持久化以RDB持久化，这里介绍的混合持久化就是同时结合RDB持久化以及AOF持久化混合写入AOF文件。这样做的好处是可以结合rdb 和 aof 的优点, 快速加载同时避免丢失过多的数据，缺点是 aof 里面的 rdb 部分就是压缩格式不再是 aof 格式，可读性差。</p>
+
+<p>开启混合持久化</p>
+
+<p>4.0版本的混合持久化默认关闭的，通过aof-use-rdb-preamble配置参数控制，yes则表示开启，no表示禁用，默认是禁用的，可通过config set修改。</p>
+
+<p>混合持久化过程</p>
+
+<p>了解了AOF持久化过程和RDB持久化过程以后，混合持久化过程就相对简单了。</p>
+
+<p>混合持久化同样也是通过bgrewriteaof完成的，不同的是当开启混合持久化时，fork出的子进程先将共享的内存副本全量的以RDB方式写入aof文件，然后在将重写缓冲区的增量命令以AOF方式写入到文件，写入完成后通知主进程更新统计信息，并将新的含有RDB格式和AOF格式的AOF文件替换旧的的AOF文件。简单的说：新的AOF文件前半段是RDB格式的全量数据后半段是AOF格式的增量数据。</p>
+
+<h3 id="主从分离">主从分离</h3>
+
+<p>为什么需要主从分离&mdash;单节点redis的问题</p>
+
+<ol>
+<li>单机故障</li>
+</ol>
+
+<p>​</p>
+
+<pre><code>如果发生机器故障，例如磁盘损坏，主板损坏等，未能在短时间内修复好，客户端将无法连接redis。 当然如果仅仅是redis节点挂掉了，可以进行问题排查然后重启，姑且不考虑这段时间对外服务的可用性，那还是可以接受的。而发生机器故障，基本是无济于事。除非把redis迁移到另一台机器上，并且还要考虑数据同步的问题。
+</code></pre>
+
+<ol>
+<li>容量瓶颈</li>
+</ol>
+
+<p>​</p>
+
+<pre><code>假如一台机器是16G内存，redis使用了12G内存，而其他应用还需要使用内存，假设我们总共需要60G内存要如何去做呢，是否有必要购买64G内存的机器？
+</code></pre>
+
+<ol>
+<li>QPS瓶颈</li>
+</ol>
+
+<p>​</p>
+
+<pre><code>redis官方数据显示可以达到10w的QPS，如果业务需要100w的QPS怎么去做呢？
+
+
+
+关于容量瓶颈和QPS瓶颈是redis分布式需要解决的问题，而机器故障就是高可用的问题了。
+</code></pre>
+
+<h4 id="主从复制的用途">主从复制的用途</h4>
+
+<ol>
+<li><p>读写分离</p>
+
+<p>Redis实例划分为主节点(master)和从节点(slave)。默认 情况下，主节点负责写操作，从节点负责读操作</p></li>
+
+<li><p>容灾备份</p></li>
+</ol>
+
+<h4 id="常见拓扑结构">常见拓扑结构</h4>
+
+<h5 id="一主一从">一主一从</h5>
+
+<p>从节点也是可以对外提供服务的，主节点是有数据的，从节点可以通过复制操作将主节点的数据同步来，并且随着主节点数据不断写入，从节点数据也会做同步的更新。整体起到的就是数据备份的效果。</p>
+
+<p>应对高并发时的一种解决方法 &mdash;&ndash; 关闭 主节点的aof</p>
+
+<ul>
+<li>关注主节点的aof</li>
+<li>只开启从节点的aof</li>
+</ul>
+
+<p>重启服务时，先在从节点断开slaveof no one与主节点的复制关系，再重启主节点。防止复制主节点导致从节点数据丢失</p>
+
+<h5 id="一主多从">一主多从</h5>
+
+<ul>
+<li>一主多从结构(又称为星形拓扑结构)使得应用端可以利用多个从节点 实现读写分离</li>
+<li>对于读占比较大的场景，可以把读命令发送到 从节点来分担主节点压力。</li>
+<li>同时在日常开发中如果需要执行一些比较耗时的 读命令，如:keys、sort等，可以在其中一台从节点上执行，防止慢查询对 主节点造成阻塞从而影响线上服务的稳定性。</li>
+<li>对于写并发量较高的场景，多个从节点会导致主节点写命令的多次发送从而过度消耗网络带宽，同时也加重了主节点的负载影响服务稳定性。</li>
+</ul>
+
+<h5 id="树状主从结构">树状主从结构</h5>
+
+<ul>
+<li>树状主从结构(又称为树状拓扑结构)使得从节点不但可以复制主节点数据，同时可以作为其他从节点的主节点继续向下层复制。</li>
+<li>通过引入复制中间层，可以有效降低主节点负载和需要传送给从节点的数据量。</li>
+<li>数据写入节点A后会同步到B和C节点，B节点再把数据同步到D和E节 点，数据实现了一层一层的向下复制。</li>
+<li>当主节点需要挂载多个从节点时为了 避免对主节点的性能干扰，可以采用树状主从结构降低主节点压力。</li>
+</ul>
+
+<h4 id="配置方式">配置方式</h4>
+
+<p>方式一</p>
+
+<p>建立连复制</p>
+
+<p>修改redis.conf</p>
+
+<pre><code class="language-css"># 配置主节点的IP和端口号
+slaveof 127.0.0.1 8000
+# 从节点只做读的操作，保证主从数据的一致性
+slave-read-only yes
+</code></pre>
+
+<h5 id="redis-server启动命令">redis-server启动命令</h5>
+
+<pre><code class="language-undefined">redis-server   --slaveof  {masterHost}{masterPort}
+</code></pre>
+
+<p>方式二</p>
+
+<h5 id="redis-cli中直接使用命令">redis-cli中直接使用命令</h5>
+
+<pre><code class="language-undefined">slaveof  {masterHost}{masterPort}
+</code></pre>
+
+<p>注意：</p>
+
+<p>slaveof本身是异步命令，执行slaveof命令时，节点只保存主节点信息后 返回，后续复制流程在节点内部异步执行。</p>
+
+<p>info replication命令 查看复制状态信息</p>
+
+<p>断开复制</p>
+
+<pre><code class="language-undefined">slaveof no one
+</code></pre>
+
+<p>断开后的主要流程</p>
+
+<p>1)、断开与主节点复制关系。</p>
+
+<p>2)、从节点晋升为主节点。</p>
+
+<p>注意</p>
+
+<ul>
+<li>从节点断开复制后并不会抛弃原有数据，只是无法再获取主节点上的数据变化。</li>
+<li>切换主节点后的从节点会清空之前所有的数据，线上人工操作时小心slaveof在错 误的节点上执行或者指向错误的主节点。</li>
+</ul>
+
+<h4 id="传输延迟">传输延迟</h4>
+
+<p>主从节点一般部署在不同机器上，复制时的网络延迟就成为需要考虑的 问题，Redis为我们提供了repl-disable-tcp-nodelay参数用于控制是否关闭 TCP_NODELAY，默认关闭，说明如下:</p>
+
+<ul>
+<li>当关闭时，主节点产生的命令数据无论大小都会及时地发送给从节 点，这样主从之间延迟会变小，但增加了网络带宽的消耗。适用于主从之间 的网络环境良好的场景，如同机架或同机房部署。</li>
+<li>当开启时，主节点会合并较小的TCP数据包从而节省带宽。默认发送 时间间隔取决于Linux的内核，一般默认为40毫秒。这种配置节省了带宽但 增大主从之间的延迟。适用于主从网络环境复杂或带宽紧张的场景，如跨机 房部署。</li>
+</ul>
+
+<h4 id="复制过程步骤">复制过程步骤</h4>
+
+<ul>
+<li><p>从节点执行 slaveof 命令</p></li>
+
+<li><p>从节点只是保存了 slaveof 命令中主节点的信息，并没有立即发起复制</p></li>
+
+<li><p>从节点内部的定时任务发现有主节点的信息，开始使用 socket 连接主节点</p></li>
+
+<li><p>连接建立成功后，发送 ping 命令，希望得到 pong 命令响应，否则会进行重连</p></li>
+
+<li><p>如果主节点设置了权限，那么就需要从节点必须配置masterauth参数进行权限验证；如果验证失败，复制终止。</p></li>
+
+<li><p>权限验证通过后，进行数据同步，这是耗时最长的操作，主节点将把所有的数据全部发送给从节点。</p></li>
+
+<li><p>当主节点把当前的数据同步给从节点后，便完成了复制的建立流程。接下来，主节点就会持续的把写命令发 送给从节点，保证主从数据一致性。</p></li>
+</ul>
+
+<h4 id="数据同步">数据同步</h4>
+
+<p>上面说的复制过程，其中有一个步骤是“同步数据集”，这个就是现在讲的‘数据间的同步’。同步过程分为『全量同步』与『部分同步』</p>
+
+<ul>
+<li><p>全量复制:</p>
+
+<p>一般用于初次复制场景，Redis早期支持的复制功能只有全 量复制，它会把主节点全部数据一次性发送给从节点，当数据量较大时，会 对主从节点和网络造成很大的开销。</p></li>
+
+<li><p>部分复制:</p>
+
+<p>用于处理在主从复制中因网络闪断等原因造成的数据丢失 场景，当从节点再次连上主节点后，如果条件允许，主节点会补发丢失数据 给从节点。因为补发的数据远远小于全量数据，可以有效避免全量复制的过 高开销。</p></li>
+</ul>
+
+<p>当使用复制功能时，尽量采用2.8以上版本的Redis。</p>
+
+<p>redis 同步有 2 个命令：</p>
+
+<pre><code>sync 和 psync，
+</code></pre>
+
+<p>前者是 redis 2.8 之前的同步命令，后者是 redis 2.8 为了优化 sync 新设计的命令。我们会重点关注 2.8 的 psync 命令。</p>
+
+<p>psync 命令需要 3 个组件支持：</p>
+
+<p>1）、主从节点各自复制偏移量</p>
+
+<p>参与复制的主从节点都会维护自身的复制偏移量。</p>
+
+<p>主节点在处理完写入命令后，会把命令的字节长度做累加记录，统计信息在 info replication 中的 masterreploffset 指标中。</p>
+
+<p>从节点每秒钟上报自身的的复制偏移量给主节点，因此主节点也会保存从节点的复制偏移量。从节点在接收到主节点发送的命令后，也会累加自身的偏移量，统计信息在 info replication 中。 通过对比主从节点的复制偏移量，可以判断主从节点数据是否一致。</p>
+
+<p>2）、主节点复制积压缓冲区</p>
+
+<p>复制积压缓冲区是一个保存在主节点的一个固定长度的先进先出的队列。默认大小 1MB。 这个队列在 slave 连接是创建。这时主节点响应写命令时，不但会把命令发送给从节点，也会写入复制缓冲区。他的作用就是用于部分复制和复制命令丢失的数据补救。通过 info replication 可以看到相关信息。</p>
+
+<p>3）、主节点运行 ID</p>
+
+<p>每个 redis 启动的时候，都会生成一个 40 位的运行 ID。运行 ID 的主要作用是用来识别 Redis 节点。如果使用 ip+port 的方式，那么如果主节点重启修改了 RDB/AOF 数据，从节点再基于偏移量进行复制将是不安全的。所以，当运行 id 变化后，从节点将进行全量复制。也就是说，redis 重启后，默认从节点会进行全量复制。</p>
+
+<p>如果在重启时不改变运行 ID 呢？</p>
+
+<p>可以通过 debug reload 命令重新加载 RDB 并保持运行 ID 不变。从而有效的避免不必要的全量复制。</p>
+
+<p>他的缺点则是：debug reload 命令会阻塞当前 Redis 节点主线程，因此对于大数据量的主节点或者无法容忍阻塞的节点，需要谨慎使用。一般通过故障转移机制可以解决这个问题。</p>
+
+<p>流程说明：从节点发送 psync 命令给主节点，runId 就是目标主节点的 ID，如果没有默认为 -1，offset 是从节点保存的复制偏移量，如果是第一次复制则为 -1.</p>
+
+<p>主节点会根据 runid 和 offset 决定返回结果：</p>
+
+<p>如果回复 +FULLRESYNC {runId} {offset} ，那么从节点将触发全量复制流程。</p>
+
+<p>如果回复 +CONTINUE，从节点将触发部分复制。</p>
+
+<p>如果回复 +ERR，说明主节点不支持 2.8 的 psync 命令，将使用 sync 执行全量复制。</p>
+
+<p>到这里，数据之间的同步就讲的差不多了，篇幅还是比较长的。主要是针对 psync 命令相关之间的介绍。</p>
+
+<h4 id="全量复制">全量复制</h4>
+
+<p>全量复制是 Redis 最早支持的复制方式，也是主从第一次建立复制时必须经历的的阶段。触发全量复制的命令是 sync 和 psync。</p>
+
+<p>redis 2.8 之前使用 sync 只能执行全量不同，2.8 之后同时支持全量同步和部分同步。</p>
+
+<p>发送 psync 命令（spync ？ -1）</p>
+
+<p>主节点根据命令返回 FULLRESYNC</p>
+
+<p>从节点记录主节点 ID 和 offset</p>
+
+<p>主节点 bgsave 并保存 RDB 到本地</p>
+
+<p>主节点发送 RBD 文件到从节点</p>
+
+<p>从节点收到 RDB 文件并加载到内存中</p>
+
+<p>主节点在从节点接受数据的期间，将新数据保存到“复制客户端缓冲区”，当从节点加载 RDB 完毕，再发送过去。（如果从节点花费时间过长，将导致缓冲区溢出，最后全量同步失败）</p>
+
+<p>从节点清空数据后加载 RDB 文件，如果 RDB 文件很大，这一步操作仍然耗时，如果此时客户端访问，将导致数据不一致，可以使用配置slave-server-stale-data 关闭.</p>
+
+<p>从节点成功加载完 RBD 后，如果开启了 AOF，会立刻做 bgrewriteaof。</p>
+
+<p>以上加粗的部分是整个全量同步耗时的地方。</p>
+
+<p>注意：</p>
+
+<p>如过 RDB 文件大于 6GB，并且是千兆网卡，Redis 的默认超时机制（60 秒），会导致全量复制失败。可以通过调大 repl-timeout 参数来解决此问题。</p>
+
+<h4 id="无盘复制">无盘复制</h4>
+
+<p>为了降低主节点磁盘开销，Redis支持无盘复制，生成 的RDB文件不保存到硬盘而是直接通过网络发送给从节点，通过repl- diskless-sync参数控制，默认关闭。无盘复制适用于主节点所在机器磁盘性 能较差但网络带宽较充裕的场景。注意无盘复制目前依然处于试验阶段，线 上使用需要做好充分测试。</p>
+
+<h4 id="部分复制">部分复制</h4>
+
+<p>当从节点正在复制主节点时，如果出现网络闪断和其他异常，从节点会让主节点补发丢失的命令数据，主节点只需要将复制缓冲区的数据发送到从节点就能够保证数据的一致性，相比较全量复制，成本小很多。</p>
+
+<p>当从节点出现网络中断，超过了 repl-timeout 时间，主节点就会中断复制连接。</p>
+
+<p>主节点会将请求的数据写入到“复制积压缓冲区”，默认 1MB。</p>
+
+<p>当从节点恢复，重新连接上主节点，从节点会将 offset 和主节点 id 发送到主节点</p>
+
+<p>主节点校验后，如果偏移量的数后的数据在缓冲区中，就发送 cuntinue 响应 —— 表示可以进行部分复制</p>
+
+<p>主节点将缓冲区的数据发送到从节点，保证主从复制进行正常状态。</p>
+
+<h4 id="心跳">心跳</h4>
+
+<p>主从节点在建立复制后，他们之间维护着长连接并彼此发送心跳命令。</p>
+
+<h5 id="心跳的关键机制如下"><strong>心跳的关键机制如下：</strong></h5>
+
+<p>中从都有心跳检测机制，各自模拟成对方的客户端进行通信，通过 client list 命令查看复制相关客户端信息，主节点的连接状态为 flags = M，从节点的连接状态是 flags = S。</p>
+
+<p>主节点默认每隔 10 秒对从节点发送 ping 命令，可修改配置 repl-ping-slave-period 控制发送频率。</p>
+
+<p>从节点在主线程每隔一秒发送 replconf ack{offset} 命令，给主节点上报自身当前的复制偏移量。</p>
+
+<p>主节点收到 replconf 信息后，判断从节点超时时间，如果超过 repl-timeout 60 秒，则判断节点下线。</p>
+
+<p><strong>注意：</strong>为了降低主从延迟，一般把 redis 主从节点部署在相同的机房/同城机房，避免网络延迟带来的网络分区造成的心跳中断等情况。</p>
+
+<h4 id="异步复制">异步复制</h4>
+
+<p>主节点不但负责数据读写，还负责把写命令同步给从节点，写命令的发送过程是异步完成，也就是说主节点处理完写命令后立即返回客户端，并不等待从节点复制完成。</p>
+
+<p>异步复制的步骤很简单，如下：</p>
+
+<p>主节点接受处理命令</p>
+
+<p>主节点处理完后返回响应结果</p>
+
+<p>对于修改命令，异步发送给从节点，从节点在主线程中执行复制的命令。</p>
+
+<p>总结</p>
+
+<p>缺点:</p>
+
+<ol>
+<li><p>由于所有的写操作都是先在Master上操作，然后同步更新到Slave上，所以从Master同步到Slave机器有一定的延迟，当系统很繁忙的时候，延迟问题会更加严重，Slave机器数量的增加也会使这个问题更加严重。</p></li>
+
+<li><p>当主机宕机之后，将不能进行写操作，需要手动将从机升级为主机，从机需要重新制定master</p></li>
+</ol>
+
+<p>简单总结：</p>
+
+<p>一个master可以有多个Slave</p>
+
+<p>一个slave只能有一个master</p>
+
+<p>数据流向是单向的，只能从主到从</p>
+
+<h3 id="哨兵模式">哨兵模式</h3>
+
+<h4 id="主从复制的优缺点">主从复制的优缺点</h4>
+
+<p>优点</p>
+
+<ul>
+<li>从节点可作为主节点的备份：如果主节点废了，可以变从为主</li>
+<li>从节点可以扩展主节点的读能力，分担负载</li>
+</ul>
+
+<p>缺点</p>
+
+<ul>
+<li><p>故障时需人工干预</p>
+
+<p>一旦主节点出现故障，需要手动将一个从节点晋升为主节点，同时需 要修改应用方的主节点地址，还需要命令其他从节点去复制新的主节点，整 个过程都需要人工干预。</p></li>
+
+<li><p>主节点的写能力受到单机的限制。</p></li>
+
+<li><p>·主节点的存储能力受到单机的限制。</p></li>
+</ul>
+
+<h4 id="redis-sentinel模式">Redis Sentinel模式</h4>
+
+<p>自动化故障处理</p>
+
+<p>当主节点出现故障时，Redis Sentinel能自动完成故障发现和故障转移，
+ 并通知应用方，从而实现真正的高可用。</p>
+
+<p>简述过程</p>
+
+<p>Redis Sentinel是一个分布式架构，其中包含若干个Sentinel节点和Redis 数据节点，每个Sentinel节点会对数据节点和其余Sentinel节点进行监控，当 它发现节点不可达时，会对节点做下线标识。如果被标识的是主节点，它还 会和其他Sentinel节点进行“协商”，当大多数Sentinel节点都认为主节点不可 达时，它们会选举出一个Sentinel节点来完成自动故障转移的工作，同时会 将这个变化实时通知给Redis应用方。整个过程完全是自动的，不需要人工 来介入，所以这套方案很有效地解决了Redis的高可用问题。</p>
+
+<p>版本预警</p>
+
+<p>建议使用2.8以上稳定版本的哨兵</p>
+
+<h4 id="redis-sentinel的主要功能">Redis Sentinel的主要功能</h4>
+
+<p>Sentinel 的主要功能包括 主节点存活检测、主从运行情况检测、自动故障转移 （failover）、主从切换。Redis 的 Sentinel 最小配置是 一主一从。</p>
+
+<p>Redis 的 Sentinel 系统可以用来管理多个 Redis 服务器，该系统可以执行以下四个任务：</p>
+
+<ul>
+<li>监控
+ Sentinel 会不断的检查 主服务器 和 从服务器 是否正常运行。</li>
+<li>通知
+ 当被监控的某个 Redis 服务器出现问题，Sentinel 通过 API 脚本 向 管理员 或者其他的 应用程序 发送通知。</li>
+<li>自动故障转移
+ 当 主节点 不能正常工作时，Sentinel 会开始一次 自动的 故障转移操作，它会将与 失效主节点 是 主从关系 的其中一个 从节点 升级为新的 主节点，并且将其他的 从节点 指向 新的主节点。</li>
+<li>配置提供者
+ 在 Redis Sentinel 模式下，客户端应用 在初始化时连接的是 Sentinel 节点集合，从中获取 主节点 的信息。</li>
+</ul>
+
+<h4 id="关于部署的建议">关于部署的建议</h4>
+
+<ul>
+<li><p>Sentinel节点不应该部署在一台物理“机器”上。
+ 特意强调物理机是因为一台物理机做成了若干虚拟机或者现今比较 流行的容器，它们虽然有不同的IP地址，但实际上它们都是同一台物理机， 同一台物理机意味着如果这台机器有什么硬件故障，所有的虚拟机都会受到 影响，为了实现Sentinel节点集合真正的高可用，请勿将Sentinel节点部署在 同一台物理机器上。</p></li>
+
+<li><p>部署至少三个且奇数个的Sentinel节点。
+ 3个以上是通过增加Sentinel节点的个数提高对于故障判定的准确性，因为领导者选举需要至少一半加1个节点，奇数个节点可以在满足该条件的基 础上节省一个节点。</p></li>
+
+<li><p>只有一套Sentinel，还是每个主节点配置一套Sentinel?</p></li>
+</ul>
+
+<p><strong>方案一:</strong></p>
+
+<p>一套Sentinel，很明显这种方案在一定程度上降低了维护成 本，因为只需要维护固定个数的Sentinel节点，集中对多个Redis数据节点进 行管理就可以了。但是这同时也是它的缺点，如果这套Sentinel节点集合出 现异常，可能会对多个Redis数据节点造成影响。还有如果监控的Redis数据 节点较多，会造成Sentinel节点产生过多的网络连接，也会有一定的影响。</p>
+
+<p><strong>方案二:</strong></p>
+
+<p>多套Sentinel，显然这种方案的优点和缺点和上面是相反的， 每个Redis主节点都有自己的Sentinel节点集合，会造成资源浪费。但是优点 也很明显，每套Redis Sentinel都是彼此隔离的。</p>
+
+<p>如果Sentinel节点集合监控的是同一个业务的多个主节点集合，那么使 用方案一、否则一般建议采用方案二。</p>
+
+<h4 id="监控机制-三个定时监控任务">监控机制&ndash;三个定时监控任务</h4>
+
+<p>1）、每隔10秒，每个Sentinel节点会向主节点和从节点发送info命令获取
+最新的拓扑结构</p>
+
+<p>作用：</p>
+
+<ul>
+<li>从过主节点获取从节点信息</li>
+<li>感知新增从节点</li>
+<li>节点不可达或者故障转移后，可以通过info命令实时更新节点拓扑信息。</li>
+</ul>
+
+<p>2)、每隔2秒，每个Sentinel节点会向Redis数据节点的<strong>sentinel</strong>:hello 频道上发送该Sentinel节点对于主节点的判断以及当前Sentinel节点的信息同时每个Sentinel节点也会订阅该频道，来了解其他 Sentinel节点以及它们对主节点的判断，所以这个定时任务可以完成以下两 个工作:</p>
+
+<ul>
+<li>发现新的Sentinel节点:通过订阅主节点的<strong>sentinel</strong>:hello了解其他 的Sentinel节点信息，如果是新加入的Sentinel节点，将该Sentinel节点信息保 存起来，并与该Sentinel节点创建连接。</li>
+<li>Sentinel节点之间交换主节点的状态，作为后面客观下线以及领导者选 528
+ 举的依据。</li>
+</ul>
+
+<p>3)、每隔1秒，每个Sentinel节点会向主节点、从节点、其余Sentinel节点 发送一条ping命令做一次心跳检测，来确认这些节点当前是否可达。</p>
+
+<h4 id="领导者sentinel节点选举">领导者Sentinel节点选举</h4>
+
+<p>Redis使用了Raft算法实 现领导者选举，因为Raft算法相对比较抽象和复杂，以及篇幅所限，所以这 里给出一个Redis Sentinel进行领导者选举的大致思路</p>
+
+<p>1)每个在线的Sentinel节点都有资格成为领导者，当它确认主节点主观 下线时候，会向其他Sentinel节点发送sentinel is-master-down-by-addr命令， 要求将自己设置为领导者。</p>
+
+<p>2)收到命令的Sentinel节点，如果没有同意过其他Sentinel节点的sentinel is-master-down-by-addr命令，将同意该请求，否则拒绝。</p>
+
+<p>3)如果该Sentinel节点发现自己的票数已经大于等于max(quorum， num(sentinels)/2+1)，那么它将成为领导者。</p>
+
+<p>4)如果此过程没有选举出领导者，将进入下一次选举。</p>
+
+<h3 id="redis-clister集群">Redis Clister集群</h3>
+
+<p>集群模式是实际使用最多的模式。</p>
+
+<p>Redis Cluster是社区版推出的Redis分布式集群解决方案,主要解决Redis分布式方面的需求,比如,当遇到单机
+内存,并发和流量等瓶颈的时候, Redis Cluster能起到很好的负载均衡的目的。</p>
+
+<p>为什么使用redis-cluster ?</p>
+
+<ul>
+<li>为了在大流量访问下提供稳定的业务，集群化是存储的必然形态</li>
+<li>未来的发展趋势肯定是云计算和大数据的紧密结合</li>
+<li>只有分布式架构能满足要求</li>
+</ul>
+
+<h4 id="集群描述">集群描述</h4>
+
+<ol>
+<li><p>Twitter开发的twemproxy</p></li>
+
+<li><p>豌豆荚开发的codis</p></li>
+
+<li><p>redis官方的redis-cluster</p>
+
+<p>亲儿子毕竟是更新最快，维护和支持新版本redis新特性好的，所以选择方案上业界一般选择redis-cluster</p></li>
+</ol>
+
+<h4 id="redis-cluster简介">redis-cluster简介</h4>
+
+<ul>
+<li>redis-cluster是redis社区中推出的redis分布式集群解决方案</li>
+<li>主要解决redis分布式的需求：
+
+<ol>
+<li>单机内存瓶颈</li>
+<li>并发和流量瓶颈</li>
+<li>同步复制带宽瓶颈等</li>
+</ol></li>
+<li>redis3.0之后版本支持redis-cluster集群</li>
+<li>至少需要3主（master）+3从（slave）才能建立集群</li>
+<li>redis-cluster 采用无中心结构（类比区块链的去中心化）结构
+ 每个节点保存数据和集群信息状态，每个节点和其他节点连接</li>
+</ul>
+
+<h4 id="结构">结构</h4>
+
+<p>每个节点保存数据和集群信息状态，每个节点和其他节点连接</p>
+
+<p>其结构特点：
+ 1、所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽。
+ 2、节点的fail是通过集群中超过半数的节点检测失效时才生效。
+ 3、客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可。
+ 4、redis-cluster把所有的物理节点映射到[0-16383]slot上（不一定是平均分配）,cluster 负责维护node&lt;-&gt;slot&lt;-&gt;value。
+ 5、Redis集群预分好16384个桶，当需要在 Redis 集群中放置一个 key-value 时，根据 CRC16(key) mod 16384的值，决定将一个key放到哪个桶中。</p>
+
+<h4 id="容错性">容错性</h4>
+
+<p>容错性指软件检测应用程序所在运行的软件或硬件中发生的错误并从错误中恢复的能力，通常可以从系统的可靠性，可用性，可测性的等几方面来衡量。</p>
+
+<ul>
+<li>1 什么时候判断 master 不可用？</li>
+</ul>
+
+<p>投票机制。投票过程是集群中所有 master 参与，如果半数以上 master 节点与 master节点通信超时（cluster-node-timeout）认为当前 master 节点挂掉</p>
+
+<ul>
+<li>2 什么时候整个集群不可用（cluster state: fail)</li>
+</ul>
+
+<p>如果集群任意 master 挂掉，且当前 master 没有 slave。集群进入fail状态也可以理解成集群的 Slot 映射 0-16383] 不完整时进入 fail 状态。如果集群超过半数以上 master 挂掉，无论是否有 slave，集群进入 fail 状态</p>
+
+<h4 id="节点分配-数据分片">节点分配（数据分片）</h4>
+
+<h5 id="redis-cluster节点分配">redis cluster节点分配</h5>
+
+<p>现在我们是三个主节点分别是：A, B, C 三个节点，它们可以是一台机器上的三个端口，也可以是三台不同的服务器。那么，采用哈希槽 (hash slot)的方式来分配16384个slot 的话，它们三个节点分别承担的slot 区间是：</p>
+
+<ul>
+<li><p>节点A覆盖0－5460;</p></li>
+
+<li><p>节点B覆盖5461－10922;</p></li>
+
+<li><p>节点C覆盖10923－16383.</p>
+
+<p>获取数据:</p>
+
+<p>如果存入一个值，按照redis cluster哈希槽的<a href="https://links.jianshu.com/go?to=http%3A%2F%2Flib.csdn.net%2Fbase%2Fdatastructure">算法</a>： CRC16(&lsquo;key&rsquo;)384 = 6782。 那么就会把这个key 的存储分配到 B 上了。同样，当我连接(A,B,C)任何一个节点想获取&rsquo;key&rsquo;这个key时，也会这样的算法，然后内部跳转到B节点上获取数据</p></li>
+</ul>
+
+<h5 id="新增一个主节点">新增一个主节点:</h5>
+
+<p>新增一个节点D，redis cluster的这种做法是从各个节点的前面各拿取一部分slot到D上，我会在接下来的实践中实验。大致就会变成这样：</p>
+
+<ul>
+<li>节点A覆盖1365-5460</li>
+<li>节点B覆盖6827-10922</li>
+<li>节点C覆盖12288-16383</li>
+<li>节点D覆盖0-1364,5461-6826,10923-12287</li>
+</ul>
+
+<p>同样删除一个节点也是类似，移动完成后就可以删除这个节点了。</p>
+
+<h5 id="redis-cluster主从模式">Redis Cluster主从模式</h5>
+
+<p>redis cluster 为了保证数据的高可用性，加入了主从模式，一个主节点对应一个或多个从节点，主节点提供数据存取，从节点则是从主节点拉取数据备份，当这个主节点挂掉后，就会有这个从节点选取一个来充当主节点，从而保证集群不会挂掉</p>
+
+<p>上面那个例子里, 集群有ABC三个主节点, 如果这3个节点都没有加入从节点，如果B挂掉了，我们就无法访问整个集群了。A和C的slot也无法访问。</p>
+
+<p>所以我们在集群建立的时候，一定要为每个主节点都添加了从节点, 比如像这样, 集群包含主节点A、B、C, 以及从节点A1、B1、C1, 那么即使B挂掉系统也可以继续正确工作。</p>
+
+<p>B1节点替代了B节点，所以Redis集群将会选择B1节点作为新的主节点，集群将会继续正确地提供服务。 当B重新开启后，它就会变成B1的从节点。</p>
+
+<p>不过需要注意，如果节点B和B1同时挂了，Redis集群就无法继续正确地提供服务了。</p>
+
+<h4 id="安装集群">安装集群</h4>
+
+<ul>
+<li><p>Redis 5 直接 用redis-cli</p></li>
+
+<li><p>Redis version 3 or 4,</p>
+
+<p>需要</p>
+
+<ol>
+<li><p>先安装一个Ruby环境</p></li>
+
+<li><p>再redis-trib.rb（ruby语言开发）的工具</p></li>
+</ol></li>
+</ul>
+
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fu010533511%2Farticle%2Fdetails%2F89389906">Redis version 3 or 4可参考此处</a></p>
+
+<h4 id="redis5集群的安装">redis5集群的安装</h4>
+
+<p><a href="https://redis.io/topics/cluster-tutorial">集群搭建参考官网</a></p>
+
+<p>redis集群需要至少要三个master节点,我们这里搭建三个master节点,并且给每个master再搭建一个slave节点，总共6个redis节点,这里用一台机器(可以多台机器部署,修改一下ip地址就可以了 )部署6个redis实例，三主三从，搭建集群的步骤如下:</p>
+
+<p>创建Redis节点安装目录</p>
+
+<pre><code class="language-bash">mkdir -p /usr/local/redis-cluster    
+</code></pre>
+
+<p>在redis-cluster目录下，分别创建7000-7005个文件夹</p>
+
+<pre><code class="language-undefined">mkdir 7000 7001 7002 7003 7004 7005
+</code></pre>
+
+<p>并将redis-conf拷贝到7000文件夹下</p>
+
+<pre><code class="language-undefined">cp /opt/redis-5.0.7/redis-conf   ./7000
+</code></pre>
+
+<p>4.分别修改redis配置文件</p>
+
+<p>./7000/redis.conf</p>
+
+<pre><code class="language-csharp">#关闭保护模式用 于公网访问 
+protected-mode no 
+port 7000 
+#开启集群模式 
+cluster-enabled yes
+cluster-config-file nodes-7000.conf
+cluster-node-timeout 5000
+# 后台启动 
+daemonize yes
+pidfile  /var/run/redis_7000.pid 
+logfile 7000.log 
+# 此处绑定 ip 可以是阿里内网 ip 和本地 ip 也可以直接注释掉该项 #bind127.0.0.1 
+# 用于连接主节点密码 
+masterauth fatsnake
+#设置redis密码各个节点请保持密码一致 
+requirepass fatsnake
+</code></pre>
+
+<p>依次修改并复制 6个redis.conf</p>
+
+<pre><code class="language-ruby">cp ./7000/redis.conf ./7001/     
+vim ./7000/redis.conf
+执行 :%s/oldPort/newPort/g    全局替换端口 :wq  保存并退出  即可
+</code></pre>
+
+<p>依次启动6个节点</p>
+
+<p>将安装的 redis 目录下的 src 复制到 cluster文件目录下，方便启动服务端</p>
+
+<pre><code class="language-bash">cd /opt/redis-5.0.7: 进入 redis 安装目录
+cp -r ./src   /usr/local/redid-cluster/   将src文件复制到 redis- cluster 目录中
+
+./src/redis-server  ./7000/redis.conf
+
+./src/redis-server  ./7001/redis.conf
+
+./src/redis-server  ./7002/redis.conf
+
+./src/redis-server  ./7003/redis.conf
+
+./src/redis-server  ./7004/redis.conf
+
+./src/redis-server  ./7005/redis.conf
+
+启动后，可以用 PS 查看进程：
+
+ps -ef | grep redis
+</code></pre>
+
+<p>创建集群通信（见上文版本差异）</p>
+
+<p>redis5版本以后使用redis-cli客户端来创建集群
+ -a 参数为 集群密码</p>
+
+<pre><code class="language-undefined">./src/redis-cli --cluster create -a fatsnake 127.0.0.1:7000 127.0.0.1:7001 \
+127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
+--cluster-replicas 1
+</code></pre>
+
+<p>cluster-replicas 1  代表  一个master后有几个slave，1代表为1个slave节点</p>
+
+<p>询问是否满意如此分配节点：输入yes之后，如图显示表示集群创建成功</p>
+
+<h4 id="redis-cluster集群验证">redis-cluster集群验证</h4>
+
+<p>再描述一遍集群特点</p>
+
+<ul>
+<li><p>Redis cluster 为了保证数据的高可用性，加入了主从模式，一个主节点对应一个或多个从节点</p></li>
+
+<li><p>主节点提供数据存取，从节点则是从主节点拉取数据备份，从节点提供查询</p></li>
+
+<li><p>当这个主节点挂掉后，就会有这个从节点选取一个来充当主节点，从而保证集群不会挂掉</p></li>
+
+<li><p>集群如果有 ABC 三个主节点如果这 3 个节点都没有加入从节点，如果 B 桂掉了，我们就无法访问整个集群了。A 和C的slot（哈希槽） 也无法访问。 所以我们在集群建立的时候，一定要为每个主节点都添加了从节点，比如像这样集群包含主节点 A、B、C，以及从节点 A1、B1、C1, 那么即使 B 挂掉系统也可以继续正确工作。B1 节点替代了 B 节点，所以 Redis 集群将会选择 B1 节点作为新的主节点，集群将会继续正确地提供服务。当 B 新开启后，它就会变成 B1 的从节点。 不过需要注意，如果节点 B 和 B1 同时挂了，Redis 集群就无法继续正确地提供服务了。</p>
+
+<p>连接集群中的某个节点，验证</p>
+
+<pre><code class="language-css">redis-cli -h 127.0.0.1 -c -p 7000 -a fatsnake
+</code></pre></li>
+</ul>
+
+<p>参数说明：</p>
+
+<pre><code> -h ： ip
+ -c ： 添加此参数，可连接到集群
+ -a ：集群密码
+</code></pre>
+
+<p>redis cluster 在设计的时候，就考虑到了去中心化，去中间件，也就是说，集群中的每个节点都是平等的关系，都是对等的，每个节点都保存各自的数据和整个集群的状态。毎个节点都和其他所有节点连接，而这些连接保持活跃，这样就保证了我们只需要连接集群中的任意一个节点，就可以获取到其他节点的数据</p>
+
+<h4 id="基本命令-1">基本命令</h4>
+
+<p>查看单节点状态</p>
+
+<pre><code>info replication
+</code></pre>
+
+<h4 id="查看集群状态">查看集群状态</h4>
+
+<pre><code>Cluster Nodes 
+命令 或者 
+Cluster Infor
+</code></pre>
+
+<p>说明：</p>
+
+<p>myself 表示当前 操作节点</p>
+
+<p>唯一性节点ID说明：</p>
+
+<ul>
+<li>每个 Redist 的节点都有一个 ID 值，此 ID 将被此特定 redis 实例永久使用，以便实例在集群上下文中具有唯一的名称。</li>
+<li>每个节点都会记住使用此 ID 的每个其他节点，而不是通过 IP 或端口。</li>
+<li>IP 地址和端口可能会发生变化，但唯一的节点标识符在节点的整个生命周期内都不会改变。我们简单地称这个标识符为节点 ID。</li>
+</ul>
+
+<h4 id="启动集群">启动集群</h4>
+
+<p>//  /Users/izaodao/Documents/redis-cluster目录下，自己写个启动集群脚本</p>
+
+<pre><code class="language-bash"># redisAllStart.sh
+
+cd /Users/izaodao/Documents/redis-cluster
+./src/redis-server  ./7000/redis.conf
+./src/redis-server  ./7001/redis.conf
+./src/redis-server  ./7002/redis.conf
+./src/redis-server  ./7003/redis.conf
+./src/redis-server  ./7004/redis.conf
+./src/redis-server  ./7005/redis.conf
+</code></pre>
+
+<p>使用./src/redis-server  ./7000/redis.conf命令可以将实例重新启动，启动完成之后，自动加入到集群当中</p>
+
+<h4 id="创建集群">创建集群</h4>
+
+<pre><code class="language-bash"># createCluster.sh
+cd /Users/izaodao/Documents/redis-cluster
+./src/redis-cli --cluster create -a fatsnake 127.0.0.1:7000 127.0.0.1:7001 \
+127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
+--cluster-replicas 1
+</code></pre>
+
+<pre><code class="language-undefined">chmod u +x  redisAllStart.sh : 将redisAllStart.sh变为可执行文件
+./redisAllStart.sh : 在当前目录下启动
+</code></pre>
+
+<h4 id="关闭集群">关闭集群</h4>
+
+<p>//  /Users/izaodao/Documents/redis-cluster目录下，自己写个关闭集群脚本</p>
+
+<pre><code class="language-swift"># redisAllStop.sh.sh
+cd /Users/izaodao/Documents/redis-cluster
+./src/redis-cli -c -h 127.0.0.1 -p 7000  -a fatsnake shutdown
+./src/redis-cli -c -h 127.0.0.1 -p 7001  -a fatsnake shutdown
+./src/redis-cli -c -h 127.0.0.1 -p 7002  -a fatsnake shutdown
+./src/redis-cli -c -h 127.0.0.1 -p 7003  -a fatsnake shutdown
+./src/redis-cli -c -h 127.0.0.1 -p 7004  -a fatsnake shutdown
+./src/redis-cli -c -h 127.0.0.1 -p 7005  -a fatsnake shutdown
+</code></pre>
+
+<pre><code class="language-undefined">chmod u +x  shutdown.sh : 将shutdown.sh变为可执行文件
+./shutdown.sh : 在当前目录下启动
+</code></pre>
+
+<p>说明：</p>
+
+<p>/src/redis-cli -c -h 127.0.0.1 -p 7000 -a 访问服务端密码  -c 表示集群模式  -h 指定ip 地址 -p 指定端口号</p>
+
+<p>*** 为什么不直接kill进程，因为影响redis数据持久化（aof、rdb），会丢数据 ***</p>
+
+<h4 id="官方工具包-启动-关闭">官方工具包 启动/关闭</h4>
+
+<p>./redis-5.0.0/utils/create-cluster</p>
+
+<p>打开此文件修改端口为我们自己的</p>
+
+<h3 id="集群伸缩">集群伸缩</h3>
+
+<p>集群的伸缩： 如何进行给集群增加新的主从节点(集群扩容)以及如何从集群中删除节点(集群缩容)</p>
+
+<p>集群伸缩的原理是控制虚拟槽和数据在节点之间进行移动</p>
+
+<h4 id="查看现有集群状态">查看现有集群状态</h4>
+
+<ul>
+<li><p>登录集群节点</p>
+
+<pre><code class="language-bash">cd /Users/izaodao/Documents/redis-cluster
+./src/redis-cli -c -h 127.0.0.1 -p 7000  -a fatsnake
+</code></pre></li>
+
+<li><p>查看状态</p>
+
+<pre><code class="language-undefined">cluster nodes
+</code></pre></li>
+</ul>
+
+<p>集群为三主三从，端口号为7000、7001、7002、7003、7004、7005。</p>
+
+<p>本文中的例子：</p>
+
+<ul>
+<li>新增主节点7006和从节点7007，并给7006分配4096个slots，设置7007为7006的从节点</li>
+<li>然后再将这两个节点从集群中删除，一定要先删除主节点，再删除从节点，要不然故障转移会生效。</li>
+</ul>
+
+<h3 id="集群扩容">集群扩容</h3>
+
+<p>准备两个新节点</p>
+
+<p>在集群目录redis_cluster目录下增加redis7006和redis7007目录</p>
+
+<p>复制端口7000的redis.conf配置文件到redis7006和redis7007目录下，并修改配置文件中的端口为对应目录的端口号。</p>
+
+<pre><code class="language-ruby">mkdir  redis7006
+mkdir redis7007
+cp ./7000/redis.conf ./7001/     
+vim ./7000/redis.conf
+执行 :%s/oldPort/newPort/g    全局替换端口 :wq  保存并退出  即可
+</code></pre>
+
+<p>redis.conf 主要内容：</p>
+
+<pre><code class="language-csharp">#关闭保护模式用 于公网访问 
+protected-mode no 
+port 7000 
+#开启集群模式 
+cluster-enabled yes
+cluster-config-file nodes-7000.conf
+cluster-node-timeout 5000
+# 后台启动 
+daemonize yes
+pidfile  /var/run/redis_7000.pid 
+logfile 7000.log 
+# 此处绑定 ip 可以是阿里内网 ip 和本地 ip 也可以直接注释掉该项 #bind127.0.0.1 
+# 用于连接主节点密码 
+masterauth fatsnake
+#设置redis密码各个节点请保持密码一致 
+requirepass fatsnake
+#设置节点持久化文件或是目录名，让各个节点分开：rdb文件名或者aof文件名
+dbfilename dump_7000.rdb
+appendfilename &quot;appendonly_7000.aof&quot;
+</code></pre>
+
+<p>启动新节点</p>
+
+<pre><code class="language-bash">cd /opt/redis-5.0.7    #: 进入 redis 安装目录
+./src/redis-server  ./7006/redis.conf
+./src/redis-server  ./7007/redis.conf
+ps -ef | grep  redis   //查看新的redis节点是否启动成功
+</code></pre>
+
+<p>登录7006查看节点状态</p>
+
+<pre><code class="language-swift"> ./src/redis-cli -c -h 127.0.0.1 -p 7006  -a fatsnake
+cluster nodes
+</code></pre>
+
+<p>只有节点自己孤独的自己</p>
+
+<p>添加节点</p>
+
+<p>（1）向集群中添加节点7006，注意一定要保证节点里面没有添加过任何数据，不然添加会报错。
+ 添加 主节点 7006</p>
+
+<pre><code class="language-csharp">　cd /usr/local/redis/redis/src
+
+redis-cli --cluster add-node -a fatsnake 127.0.0.1:7006 127.0.0.1:7000
+ //第一次节点为新增的节点  第二个节点为集群中的节点 -a 参数节点登录密码,没有请忽略
+</code></pre>
+
+<p>重新分配(迁移)哈希槽slot</p>
+
+<pre><code class="language-css">redis-cli --cluster reshard  -a fatsnake 127.0.0.1:7000
+</code></pre>
+
+<p>(3) 添加新增节点的从节点</p>
+
+<pre><code class="language-css">redis-cli --cluster add-node -a fatsnake 127.0.0.1:7007 127.0.0.1:7000 --cluster-slave --cluster-master-id c2c7fed1eb89e1ecba3ceb8dc1098e0b796d0eb5
+</code></pre>
+
+<p>把节点7007节点加入到集群，并且是以从节点的形式存在，并且指定masterid为节点7006</p>
+
+<p>添加接电视遇到问题</p>
+
+<p>添加节点时对哈希槽检查报错处理：</p>
+
+<h4 id="集群缩容">集群缩容</h4>
+
+<p>需要注意</p>
+
+<p>如果你要下线一对主从节点，请务必贤下线从节点（7007），并且讲主节点（7006）的slot的迁移到其他节点
+ 如果先下线主节点（7006），会发生故障切换，原从节点（7007）会变为主节点</p>
+
+<p>删除从节点</p>
+
+<pre><code class="language-css">redis-cli --cluster del-node -a fatsnake 127.0.0.1:7007  7007节点id
+</code></pre>
+
+<h5 id="删除主节点">删除主节点</h5>
+
+<p>将主节点7006的slots分配到其他主节点上</p>
+
+<pre><code class="language-css">redis-cli --cluster reshard -a fatsnake 127.0.0.1:7006
+</code></pre>
+
+<p>输入yes,表示接受这个计划，然后回车，完成7006节点的槽的移除。</p>
+
+<p>登录集群查看当前集群情况：</p>
+
+<p>节点7006上没有任何槽。</p>
+
+<p>使用del-node命令来删除7006主节点。</p>
+
+<pre><code class="language-css">redis-cli --cluster del-node -a fatsnake 127.0.0.1:7006  7006节点id
+</code></pre>
+
+<p>删除成功</p>
+
+<h3 id="集群演变">集群演变</h3>
+
+<h5 id="单机版">单机版</h5>
+
+<p>核心技术：持久化</p>
+
+<p>持久化是最简单的高可用方法（有时甚至不被归为高可用的手段），主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。</p>
+
+<h5 id="复制">复制</h5>
+
+<p>复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷是故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。</p>
+
+<h5 id="哨兵">哨兵</h5>
+
+<p>在复制的基础上，哨兵实现了自动化的故障恢复。缺陷是写操作无法负载均衡；存储能力受到单机的限制。</p>
+
+<h5 id="集群">集群</h5>
+
+<p>通过集群，Redis解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案</p>
+
+<p>Redis集群相对单机在功能上存在一些限制，需要开发人员提前了解，</p>
+
+<p>在使用时做好规避。限制如下:</p>
+
+<p>1)、key批量操作支持有限。如mset、mget，目前只支持具有相同slot值的 key执行批量操作。对于映射为不同slot值的key由于执行mget、mget等操作可 能存在于多个节点上因此不被支持。</p>
+
+<p>2)、key事务操作支持有限。同理只支持多key在同一节点上的事务操 作，当多个key分布在不同的节点上时无法使用事务功能。</p>
+
+<p>3)、key作为数据分区的最小粒度，因此不能将一个大的键值对象如 hash、list等映射到不同的节点。</p>
+
+<p>4)、不支持多数据库空间。单机下的Redis可以支持16个数据库，集群模 式下只能使用一个数据库空间，即db0。</p>
+
+<p>5)、复制结构只支持一层，从节点只能复制主节点，不支持嵌套树状复 制结构。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/" title="Redis笔记" target="_blank" rel="external">https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/02/springdata/" title="SpringData JPA自学笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/03/springbootcloud/"
+                    title="SpringCloud自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
