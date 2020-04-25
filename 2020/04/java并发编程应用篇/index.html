@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java并发编程应用篇 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java并发编程应用篇" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java并发编程应用篇 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java并发编程应用篇" />
+<meta property="og:description" content="Java并发编程应用篇" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" />
+<meta property="article:published_time" content="2020-04-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java并发编程应用篇">
+<meta itemprop="description" content="Java并发编程应用篇">
+
+
+<meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6996">
+
+
+
+<meta itemprop="keywords" content="Java,Java并发编程," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java并发编程应用篇"/>
+<meta name="twitter:description" content="Java并发编程应用篇"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/03/nginx%E7%AC%94%E8%AE%B0/" class="title">Nginx进阶学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-07</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#应用篇">应用篇</a>
+<ul>
+<li><a href="#效率">效率</a>
+<ul>
+<li><a href="#1-使用多线程充分利用-cpu">1.使用多线程充分利用 CPU</a>
+<ul>
+<li><a href="#1-环境搭建">1)环境搭建</a></li>
+</ul></li>
+<li><a href="#2-双核-cpu-4-个逻辑cpu">2) 双核 CPU（ 4 个逻辑CPU）</a></li>
+<li><a href="#3-单核-cpu">3) 单核 CPU</a></li>
+</ul></li>
+<li><a href="#限制">限制</a>
+<ul>
+<li><a href="#1-限制对-cpu-的使用">1. 限制对 CPU 的使用</a></li>
+<li><a href="#2-限制对共享资源的使用">2. 限制对共享资源的使用</a></li>
+<li><a href="#3-单位时间内限流">3. 单位时间内限流</a></li>
+</ul></li>
+<li><a href="#互斥">互斥</a>
+<ul>
+<li><a href="#1-悲观互斥">1. 悲观互斥</a></li>
+<li><a href="#2-乐观重试">2. 乐观重试</a></li>
+</ul></li>
+<li><a href="#同步和异步">同步和异步</a>
+<ul>
+<li><a href="#1-需要等待结果">1. 需要等待结果</a>
+<ul>
+<li><a href="#1-join-实现-同步">1.join 实现（同步）</a></li>
+</ul></li>
+<li><a href="#2-future-实现-同步">2.Future 实现（同步）</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/"
+    >Java并发编程应用篇</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="article-date">
+  <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+    <a class="article-tag-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"> Java并发编程 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:6996字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:14分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="应用篇">应用篇</h1>
+
+<h2 id="效率">效率</h2>
+
+<h3 id="1-使用多线程充分利用-cpu">1.使用多线程充分利用 CPU</h3>
+
+<h4 id="1-环境搭建">1)环境搭建</h4>
+
+<blockquote>
+<p>基准测试工具选择，使用了比较靠谱的 JMH，它会执行程序预热，执行多次测试并平均</p>
+</blockquote>
+
+<p>cpu 核数限制，有两种思路</p>
+
+<ol>
+<li><p>使用虚拟机，分配合适的核</p></li>
+
+<li><p>使用 msconfig，分配合适的核，需要重启比较麻烦</p></li>
+</ol>
+
+<p>并行计算方式的选择</p>
+
+<ol>
+<li><p>最初想直接使用 parallel stream，后来发现它有自己的问题</p></li>
+
+<li><p>改为了自己手动控制 thread，实现简单的并行计算</p></li>
+</ol>
+
+<p>​</p>
+
+<p>测试代码如下</p>
+
+<pre><code>mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=org.openjdk.jmh -
+DarchetypeArtifactId=jmh-java-benchmark-archetype -DgroupId=org.sample -DartifactId=test -
+Dversion= 1.0
+</code></pre>
+
+<p>代码</p>
+
+<pre><code class="language-java">package org.sample;
+import java.util.Arrays;
+import java.util.concurrent.FutureTask;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.Warmup;
+@Fork( 1 )
+@BenchmarkMode(Mode.AverageTime)
+@Warmup(iterations= 3 )
+@Measurement(iterations= 5 )
+public class MyBenchmark {
+static int[] ARRAY = new int[1000_000_00];
+static {
+Arrays.fill(ARRAY, 1 );
+}
+@Benchmark
+public int c() throws Exception {
+int[] array = ARRAY;
+FutureTask&lt;Integer&gt; t1 = new FutureTask&lt;&gt;(()-&gt;{
+ int sum = 0;
+ for(int i = 0; i &lt; 250_000_00;i++) {
+ sum += array[0+i];
+ }
+ return sum;
+ });
+ FutureTask&lt;Integer&gt; t2 = new FutureTask&lt;&gt;(()-&gt;{
+ int sum = 0;
+ for(int i = 0; i &lt; 250_000_00;i++) {
+ sum += array[250_000_00+i];
+ }
+ return sum;
+ });
+ FutureTask&lt;Integer&gt; t3 = new FutureTask&lt;&gt;(()-&gt;{
+ int sum = 0;
+ for(int i = 0; i &lt; 250_000_00;i++) {
+ sum += array[500_000_00+i];
+ }
+ return sum;
+ });
+ FutureTask&lt;Integer&gt; t4 = new FutureTask&lt;&gt;(()-&gt;{
+ int sum = 0;
+ for(int i = 0; i &lt; 250_000_00;i++) {
+ sum += array[750_000_00+i];
+ }
+ return sum;
+ });
+ new Thread(t1).start();
+ new Thread(t2).start();
+ new Thread(t3).start();
+ new Thread(t4).start();
+ return t1.get() + t2.get() + t3.get()+ t4.get();
+ }
+ @Benchmark
+ public int d() throws Exception {
+ int[] array = ARRAY;
+ FutureTask&lt;Integer&gt; t1 = new FutureTask&lt;&gt;(()-&gt;{
+ int sum = 0;
+ for(int i = 0; i &lt; 1000_000_00;i++) {
+ sum += array[0+i];
+ }
+ return sum;
+ });
+ new Thread(t1).start();
+ return t1.get();
+ }
+}
+</code></pre>
+
+<h3 id="2-双核-cpu-4-个逻辑cpu">2) 双核 CPU（ 4 个逻辑CPU）</h3>
+
+<pre><code>C:\Users\lenovo\eclipse-workspace\test&gt;java -jar target/benchmarks.jar
+# VM invoker: C:\Program Files\Java\jdk-11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.c
+# Run progress: 0.00% complete, ETA 00:00:16
+# Fork: 1 of 1
+# Warmup Iteration 1: 0.022 s/op
+# Warmup Iteration 2: 0.019 s/op
+# Warmup Iteration 3: 0.020 s/op
+Iteration 1: 0.020 s/op
+Iteration 2: 0.020 s/op
+Iteration 3: 0.020 s/op
+Iteration 4: 0.020 s/op
+Iteration 5: 0.020 s/op
+Result: 0.020 ±(99.9%) 0.001 s/op [Average]
+ Statistics: (min, avg, max) = (0.020, 0.020, 0.020), stdev = 0.000
+ Confidence interval (99.9%): [0.019, 0.021]
+# VM invoker: C:\Program Files\Java\jdk-11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.d
+# Run progress: 50.00% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Warmup Iteration 1: 0.042 s/op
+# Warmup Iteration 2: 0.042 s/op
+# Warmup Iteration 3: 0.041 s/op
+Iteration 1: 0.043 s/op
+Iteration 2: 0.042 s/op
+Iteration 3: 0.042 s/op
+Iteration 4: 0.044 s/op
+Iteration 5: 0.042 s/op
+Result: 0.043 ±(99.9%) 0.003 s/op [Average]
+ Statistics: (min, avg, max) = (0.042, 0.043, 0.044), stdev = 0.001
+ Confidence interval (99.9%): [0.040, 0.045]
+# Run complete. Total time: 00:00:20
+Benchmark Mode Samples Score Score error Units
+o.s.MyBenchmark.c avgt 5 0.020 0.001 s/op
+o.s.MyBenchmark.d avgt 5 0.043 0.003 s/op
+</code></pre>
+
+<p>可以看到多核下，效率提升还是很明显的，快了一倍左右</p>
+
+<h3 id="3-单核-cpu">3) 单核 CPU</h3>
+
+<pre><code>Benchmark Mode Samples Score Score error Units
+o.s.MyBenchmark.c avgt 5 0 .020 0 .001 s/op
+o.s.MyBenchmark.d avgt 5 0 .043 0 .003 s/op
+C:\Users\lenovo\eclipse-workspace\test&gt;java -jar target/benchmarks.jar
+# VM invoker: C:\Program Files\Java\jdk-11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.c
+# Run progress: 0.00% complete, ETA 00:00:
+# Fork: 1 of 1
+# Warmup Iteration 1: 0.064 s/op
+# Warmup Iteration 2: 0.052 s/op
+# Warmup Iteration 3: 1.127 s/op
+Iteration 1 : 0 .053 s/op
+Iteration 2 : 0 .052 s/op
+Iteration 3 : 0 .053 s/op
+Iteration 4 : 0 .057 s/op
+Iteration 5 : 0 .088 s/op
+Result: 0 .061 ±(99.9%) 0 .060 s/op [Average]
+Statistics: (min, avg, max) = (0.052, 0 .061, 0 .088), stdev = 0.
+Confidence interval (99.9%): [0.001, 0 .121]
+# VM invoker: C:\Program Files\Java\jdk-11\bin\java.exe
+# VM options: &lt;none&gt;
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.sample.MyBenchmark.d
+# Run progress: 50.00% complete, ETA 00:00:
+# Fork: 1 of 1
+# Warmup Iteration 1: 0.054 s/op
+# Warmup Iteration 2: 0.053 s/op
+# Warmup Iteration 3: 0.051 s/op
+Iteration 1 : 0 .096 s/op
+Iteration 2 : 0 .054 s/op
+Iteration 3 : 0 .065 s/op
+Iteration 4 : 0 .050 s/op
+Iteration 5: 0.055 s/op
+Result: 0.064 ±(99.9%) 0.071 s/op [Average]
+ Statistics: (min, avg, max) = (0.050, 0.064, 0.096), stdev = 0.018
+ Confidence interval (99.9%): [-0.007, 0.135]
+# Run complete. Total time: 00:00:22
+Benchmark Mode Samples Score Score error Units
+o.s.MyBenchmark.c avgt 5 0.061 0.060 s/op
+o.s.MyBenchmark.d avgt 5 0.064 0.071 s/op
+</code></pre>
+
+<p>性能几乎是一样的</p>
+
+<h2 id="限制">限制</h2>
+
+<h3 id="1-限制对-cpu-的使用">1. 限制对 CPU 的使用</h3>
+
+<p>sleep 实现</p>
+
+<p>在没有利用 cpu 来计算时，不要让 while(true) 空转浪费 cpu，这时可以使用 yield 或 sleep 来让出 cpu 的使用权
+给其他程序</p>
+
+<pre><code class="language-java">while(true) {
+ try {
+ 	Thread.sleep(50);
+ } catch (InterruptedException e) {
+ 	e.printStackTrace();
+ }
+}
+</code></pre>
+
+<blockquote>
+<p>可以用 wait 或 条件变量达到类似的效果
+不同的是，后两种都需要加锁，并且需要相应的唤醒操作，一般适用于要进行同步的场景
+sleep 适用于无需锁同步的场景</p>
+</blockquote>
+
+<p>wait 实现</p>
+
+<pre><code class="language-java">synchronized(锁对象) {
+ while(条件不满足) { 
+ try {
+ 锁对象.wait();
+ } catch(InterruptedException e) {
+ e.printStackTrace();
+ }
+ }
+ // do sth...
+}
+</code></pre>
+
+<p>条件变量实现</p>
+
+<pre><code class="language-java">lock.lock();
+try {
+ while(条件不满足) {
+ try {
+ 条件变量.await();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ }
+ // do sth...
+} finally {
+ lock.unlock();
+}
+</code></pre>
+
+<h3 id="2-限制对共享资源的使用">2. 限制对共享资源的使用</h3>
+
+<p>semaphore 实现</p>
+
+<ul>
+<li>使用 Semaphore 限流，在访问高峰期时，让请求线程阻塞，高峰期过去再释放许可，当然它只适合限制单机
+线程数量，并且仅是限制线程数，而不是限制资源数（例如连接数，请对比 Tomcat LimitLatch 的实现）</li>
+
+<li><p>用 Semaphore 实现简单连接池，对比『享元模式』下的实现（用wait notify），性能和可读性显然更好，
+注意下面的实现中线程数和数据库连接数是相等的</p>
+
+<pre><code class="language-java">@Slf4j(topic = &quot;c.Pool&quot;)
+class Pool {
+// 1. 连接池大小
+private final int poolSize;
+// 2. 连接对象数组
+private Connection[] connections;
+// 3. 连接状态数组 0 表示空闲， 1 表示繁忙
+private AtomicIntegerArray states;
+private Semaphore semaphore;
+// 4. 构造方法初始化
+public Pool(int poolSize) {
+    this.poolSize = poolSize;
+    // 让许可数与资源数一致
+    this.semaphore = new Semaphore(poolSize);
+    this.connections = new Connection[poolSize];
+    this.states = new AtomicIntegerArray(new int[poolSize]);
+    for (int i = 0; i &lt; poolSize; i++) {
+        connections[i] = new MockConnection(&quot;连接&quot; + (i+1));
+    }
+}
+// 5. 借连接
+public Connection borrow() {// t1, t2, t3
+    // 获取许可
+    try {
+        semaphore.acquire(); // 没有许可的线程，在此等待
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    for (int i = 0; i &lt; poolSize; i++) {
+        // 获取空闲连接
+        if(states.get(i) == 0) {
+            if (states.compareAndSet(i, 0, 1)) {
+                log.debug(&quot;borrow {}&quot;, connections[i]);
+                return connections[i];
+            }
+        }
+    }
+    // 不会执行到这里
+    return null;
+}
+// 6. 归还连接
+public void free(Connection conn) {
+    for (int i = 0; i &lt; poolSize; i++) {
+        if (connections[i] == conn) {
+            states.set(i, 0);
+            log.debug(&quot;free {}&quot;, conn);
+            semaphore.release();
+            break;
+        }
+    }
+}
+}
+</code></pre></li>
+</ul>
+
+<h3 id="3-单位时间内限流">3. 单位时间内限流</h3>
+
+<p>guava 实现</p>
+
+<pre><code class="language-java">@RestController
+public class TestController {
+    private RateLimiter limiter = RateLimiter.create(50);
+    @GetMapping(&quot;/test&quot;)
+    public String test() {
+        // limiter.acquire();
+        return &quot;ok&quot;;
+    }
+}
+</code></pre>
+
+<p>没有限流之前</p>
+
+<pre><code>ab -c 10 -t 10 http://localhost:8080/test
+</code></pre>
+
+<p>结果</p>
+
+<pre><code>This is ApacheBench, Version 2.3 &lt;$Revision: 1843412 $&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+Benchmarking localhost (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Completed 15000 requests
+Completed 20000 requests
+Finished 24706 requests
+Server Software:
+Server Hostname: localhost
+Server Port: 8080
+Document Path: /test
+Document Length: 2 bytes
+Concurrency Level: 10
+Time taken for tests: 10.005 seconds
+Complete requests: 24706
+Failed requests: 0
+Total transferred: 3311006 bytes
+HTML transferred: 49418 bytes
+Requests per second: 2469.42 [#/sec] (mean)
+Time per request: 4.050 [ms] (mean)
+Time per request: 0.405 [ms] (mean, across all concurrent requests)
+Transfer rate: 323.19 [Kbytes/sec] received
+Connection Times (ms)
+ min mean[+/-sd] median max
+Connect: 0 0 1.4 0 16
+Processing: 0 4 7.6 0 323
+Waiting: 0 3 6.9 0 323
+Total: 0 4 7.6 0 323
+Percentage of the requests served within a certain time (ms)
+ 50% 0
+ 66% 2
+ 75% 8
+ 80% 8
+ 90% 10
+ 95% 16
+ 98% 16
+ 99% 16
+ 100% 323 (longest request)
+</code></pre>
+
+<p>限流之后</p>
+
+<pre><code>This is ApacheBench, Version 2.3 &lt;$Revision: 1843412 $&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+Benchmarking localhost (be patient)
+Finished 545 requests
+Server Software:
+Server Hostname: localhost
+Server Port: 8080
+Document Path: /test
+Document Length: 2 bytes
+Concurrency Level: 10
+Time taken for tests: 10.007 seconds
+Complete requests: 545
+Failed requests: 0
+Total transferred: 73030 bytes
+HTML transferred: 1090 bytes
+Requests per second: 54.46 [#/sec] (mean)
+Time per request: 183.621 [ms] (mean)
+Time per request: 18.362 [ms] (mean, across all concurrent requests)
+Transfer rate: 7.13 [Kbytes/sec] received
+Connection Times (ms)
+ min mean[+/-sd] median max
+Connect: 0 0 1.1 0 16
+Processing: 0 179 57.0 199 211
+Waiting: 0 178 57.6 198 211
+Total: 0 179 56.9 199 211
+Percentage of the requests served within a certain time (ms)
+ 50% 199
+ 66% 200
+ 75% 200
+ 80% 200
+ 90% 201
+ 95% 201
+ 98% 202
+ 99% 203
+ 100% 211 (longest request)
+</code></pre>
+
+<h2 id="互斥">互斥</h2>
+
+<h3 id="1-悲观互斥">1. 悲观互斥</h3>
+
+<p>互斥实际是悲观锁的思想</p>
+
+<p>例如，有下面取款的需求</p>
+
+<pre><code class="language-java">interface Account {
+ // 获取余额
+ Integer getBalance();
+ // 取款
+ void withdraw(Integer amount);
+ /**
+ * 方法内会启动 1000 个线程，每个线程做 -10 元 的操作
+ * 如果初始余额为 10000 那么正确的结果应当是 0
+ */
+ static void demo(Account account) {
+ List&lt;Thread&gt; ts = new ArrayList&lt;&gt;();
+ for (int i = 0; i &lt; 1000; i++) {
+ ts.add(new Thread(() -&gt; {
+ account.withdraw(10);
+ }));
+ }
+ long start = System.nanoTime();
+ ts.forEach(Thread::start);
+ ts.forEach(t -&gt; {
+ try {
+ t.join();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ });
+ long end = System.nanoTime();
+ System.out.println(account.getBalance()
+ + &quot; cost: &quot; + (end-start)/1000_000 + &quot; ms&quot;);
+ }
+}
+</code></pre>
+
+<p>用互斥来保护</p>
+
+<pre><code class="language-java">class AccountSync implements Account {
+ private Integer balance;
+ public AccountUnsafe(Integer balance) {
+ this.balance = balance;
+ }
+ @Override
+ public Integer getBalance() {
+ synchronized (this) {
+ return this.balance;
+ }
+ }
+ @Override
+ public void withdraw(Integer amount) {
+ synchronized (this) {
+ this.balance -= amount;
+ }
+ }
+}
+</code></pre>
+
+<h3 id="2-乐观重试">2. 乐观重试</h3>
+
+<p>另外一种是乐观锁思想，它其实不是互斥</p>
+
+<pre><code class="language-java">class AccountCas implements Account {
+ private AtomicInteger balance;
+ public AccountCas(int balance) {
+ this.balance = new AtomicInteger(balance);
+ }
+ @Override
+ public Integer getBalance() {
+ return balance.get();
+ }
+ @Override
+ public void withdraw(Integer amount) {
+ while(true) {
+ // 获取余额的最新值
+ int prev = balance.get();
+ // 要修改的余额
+ int next = prev - amount;
+ // 真正修改
+ if(balance.compareAndSet(prev, next)) {
+ break;
+  }
+ }
+ }
+}
+</code></pre>
+
+<h2 id="同步和异步">同步和异步</h2>
+
+<h3 id="1-需要等待结果">1. 需要等待结果</h3>
+
+<p>这时既可以使用同步处理，也可以使用异步来处理</p>
+
+<h4 id="1-join-实现-同步">1.join 实现（同步）</h4>
+
+<pre><code>static int result = 0;
+private static void test1() throws InterruptedException {
+ log.debug(&quot;开始&quot;);
+ Thread t1 = new Thread(() -&gt; {
+ log.debug(&quot;开始&quot;);
+ sleep(1);
+ log.debug(&quot;结束&quot;);
+ result = 10;
+ }, &quot;t1&quot;);
+ t1.start();
+ t1.join();
+ log.debug(&quot;结果为:{}&quot;, result);
+}
+</code></pre>
+
+<p>评价</p>
+
+<blockquote>
+<p>需要外部共享变量，不符合面向对象封装的思想</p>
+
+<p>必须等待线程结束，不能配合线程池使用</p>
+</blockquote>
+
+<h3 id="2-future-实现-同步">2.Future 实现（同步）</h3>
+
+<pre><code class="language-java">private static void test2() throws InterruptedException, ExecutionException {
+ log.debug(&quot;开始&quot;);
+ FutureTask&lt;Integer&gt; result = new FutureTask&lt;&gt;(() -&gt; {
+ log.debug(&quot;开始&quot;);
+ sleep(1);
+ log.debug(&quot;结束&quot;);
+ return 10;
+ });
+ new Thread(result, &quot;t1&quot;).start();
+ log.debug(&quot;结果为:{}&quot;, result.get());
+}
+</code></pre>
+
+<p>评价</p>
+
+<blockquote>
+<pre><code>&gt; 规避了使用 join 之前的缺点
+&gt; 可以方便配合线程池使用
+&gt; ```
+&gt;
+
+</code></pre>
+
+<p>java
+private static void test3() throws InterruptedException, ExecutionException {
+ ExecutorService service = Executors.newFixedThreadPool(1);
+ log.debug(&ldquo;开始&rdquo;);
+ Future<Integer> result = service.submit(() -&gt; {
+ log.debug(&ldquo;开始&rdquo;);
+ sleep(1);
+ log.debug(&ldquo;结束&rdquo;);
+ return 10;
+ });
+ log.debug(&ldquo;结果为:{}, result 的类型:{}&ldquo;, result.get(), result.getClass());
+ service.shutdown();
+}</p>
+
+<pre><code>
+评价
+
+&gt; 仍然是 main 线程接收结果
+&gt; get 方法是让调用线程同步等待
+
+ 
+
+### 3. 自定义实现（同步）
+
+见模式篇：保护性暂停模式
+
+#### CompletableFuture 实现（异步）
+
+</code></pre>
+
+<p>private static void test4() {
+ // 进行计算的线程池
+ ExecutorService computeService = Executors.newFixedThreadPool(1);
+ // 接收结果的线程池
+ ExecutorService resultService = Executors.newFixedThreadPool(1);
+ log.debug(&ldquo;开始&rdquo;);
+ CompletableFuture.supplyAsync(() -&gt; {
+ log.debug(&ldquo;开始&rdquo;);
+ sleep(1);
+ log.debug(&ldquo;结束&rdquo;);
+ return 10;
+ }, computeService).thenAcceptAsync((result) -&gt; {
+ log.debug(&ldquo;结果为:{}&ldquo;, result);
+ }, resultService);
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>10:36:28.114 c.TestSync [main] - 开始
+10:36:28.164 c.TestSync [pool-1-thread-1] - 开始
+10:36:29.165 c.TestSync [pool-1-thread-1] - 结束
+10:36:29.165 c.TestSync [pool-2-thread-1] - 结果为:10</p>
+
+<pre><code>
+评价
+
+* 可以让调用线程异步处理结果，实际是其他线程去同步等待
+
+* 可以方便地分离不同职责的线程池
+
+* 以任务为中心，而不是以线程为中心
+
+**BlockingQueue 实现（异步）**
+
+</code></pre>
+
+<p>java
+private static void test6() {
+    ExecutorService consumer = Executors.newFixedThreadPool(1);
+    ExecutorService producer = Executors.newFixedThreadPool(1);
+    BlockingQueue<Integer> queue = new SynchronousQueue&lt;&gt;();
+    log.debug(&ldquo;开始&rdquo;);
+    producer.submit(() -&gt; {
+        log.debug(&ldquo;开始&rdquo;);
+        sleep(1);
+        log.debug(&ldquo;结束&rdquo;);
+        try {
+            queue.put(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    });
+    consumer.submit(() -&gt; {
+        try {
+            Integer result = queue.take();
+            log.debug(&ldquo;结果为:{}&ldquo;, result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    });
+}</p>
+
+<pre><code>
+### 2. 不需等待结果
+
+这时最好是使用异步来处理
+
+### 1. 普通线程实现
+
+</code></pre>
+
+<p>java
+@Slf4j(topic = &ldquo;c.FileReader&rdquo;)
+public class FileReader {
+    public static void read(String filename) {
+        int idx = filename.lastIndexOf(File.separator);
+        String shortName = filename.substring(idx + 1);
+        try (FileInputStream in = new FileInputStream(filename)) {
+            long start = System.currentTimeMillis();
+            log.debug(&ldquo;read [{}] start &hellip;&ldquo;, shortName);
+            byte[] buf = new byte[1024];
+            int n = -1;
+            do {
+                n = in.read(buf);
+            } while (n != -1);
+            long end = System.currentTimeMillis();
+            log.debug(&ldquo;read [{}] end &hellip; cost: {} ms&rdquo;, shortName, end - start);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</p>
+
+<pre><code>
+
+
+没有用线程时，方法的调用是同步的：
+
+</code></pre>
+
+<p>java
+@Slf4j(topic = &ldquo;c.Sync&rdquo;)
+public class Sync {
+    public static void main(String[] args) {
+        String fullPath = &ldquo;E:\1.mp4&rdquo;;
+        FileReader.read(fullPath);
+        log.debug(&ldquo;do other things &hellip;&rdquo;);
+    }
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>18:39:15 [main] c.FileReader - read [1.mp4] start &hellip;
+18:39:19 [main] c.FileReader - read [1.mp4] end &hellip; cost: 4090 ms
+18:39:19 [main] c.Sync - do other things &hellip;</p>
+
+<pre><code>
+使用了线程后，方法的调用时异步的：
+
+输出
+
+</code></pre>
+
+<p>18:39:15 [main] c.FileReader - read [1.mp4] start &hellip;
+18:39:19 [main] c.FileReader - read [1.mp4] end &hellip; cost: 4090 ms
+18:39:19 [main] c.Sync - do other things &hellip;</p>
+
+<pre><code>
+使用了线程后，方法的调用时异步的：
+
+</code></pre>
+
+<p>java
+private static void test1() {
+    new Thread(() -&gt; FileReader.read(Constants.MP4_FULL_PATH)).start();
+    log.debug(&ldquo;do other things &hellip;&rdquo;);
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>18:41:53 [main] c.Async - do other things &hellip;
+18:41:53 [Thread-0] c.FileReader - read [1.mp4] start &hellip;
+18:41:57 [Thread-0] c.FileReader - read [1.mp4] end &hellip; cost: 4197 ms</p>
+
+<pre><code>
+### 2. 线程池实现
+
+</code></pre>
+
+<p>java
+private static void test2() {
+    ExecutorService service = Executors.newFixedThreadPool(1);
+    service.execute(() -&gt; FileReader.read(Constants.MP4_FULL_PATH));
+    log.debug(&ldquo;do other things &hellip;&rdquo;);
+    service.shutdown();
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>11:03:31.245 c.TestAsyc [main] - do other things &hellip;
+11:03:31.245 c.FileReader [pool-1-thread-1] - read [1.mp4] start &hellip;
+11:03:33.479 c.FileReader [pool-1-thread-1] - read [1.mp4] end &hellip; cost: 2235 ms</p>
+
+<pre><code>
+## 缓存
+
+### 1. 缓存更新策略
+
+更新时，是先清缓存还是先更新数据库
+
+先清缓存
+
+</code></pre>
+
+<p>mermaid
+sequenceDiagram
+  participant B
+　participant A
+　participant 缓存
+　participant 数据库
+　B-&gt;&gt;缓存:1)清空缓存
+　A-&gt;&gt;数据库:2)查询数据库(x=1)
+　A-&gt;&gt;缓存:3)将查询结果放入缓存(x=1)
+　B-&gt;&gt;数据库:4)将新数据存入库(x=2)
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!</p>
+
+<pre><code>
+先更新数据库
+
+</code></pre>
+
+<p>mermaid
+sequenceDiagram
+  participant B
+　participant A
+　participant 缓存
+　participant 数据库
+　B-&gt;&gt;数据库:1)将新数据存入库(x=2)
+　A-&gt;&gt;缓存:2)查询缓存(x=1)！！
+　B-&gt;&gt;缓存:3)清空缓存(x=1)
+　A-&gt;&gt;数据库:4)查询数据库(x=2)
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=2)</p>
+
+<pre><code>
+
+
+</code></pre>
+
+<p>java
+private static void test3() throws IOException {
+    CompletableFuture.runAsync(() -&gt; FileReader.read(Constants.MP4_FULL_PATH));
+    log.debug(&ldquo;do other things &hellip;&rdquo;);
+    System.in.read();
+}</p>
+
+<pre><code>
+补充一种情况，假设查询线程 A 查询数据时恰好缓存数据由于时间到期失效，或是第一次查询
+
+</code></pre>
+
+<p>mermaid
+sequenceDiagram
+  participant B
+　participant A
+　participant 缓存
+　participant 数据库
+　A-&gt;&gt;数据库:1)缓存没有，查询数据库（x=1）
+　B-&gt;&gt;数据库:2)将新数据村入库(x=2)
+　B-&gt;&gt;缓存:3)清空缓存
+　A-&gt;&gt;缓存:4)将查询结果放入缓存(x=1)
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!!</p>
+
+<pre><code>
+这种情况的出现几率非常小，见 facebook 论文
+
+### 2. 读写锁实现一致性缓存
+
+使用读写锁实现一个简单的按需加载缓存
+
+</code></pre>
+
+<p>java
+class GenericCachedDao<T> {
+    // HashMap 作为缓存非线程安全, 需要保护
+    HashMap<SqlPair, T> map = new HashMap&lt;&gt;();
+    ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    GenericDao genericDao = new GenericDao();
+    public int update(String sql, Object&hellip; params) {
+        SqlPair key = new SqlPair(sql, params);
+        // 加写锁, 防止其它线程对缓存读取和更改
+        lock.writeLock().lock();
+        try {
+            int rows = genericDao.update(sql, params);
+            map.clear();
+            return rows;
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+    public T queryOne(Class<T> beanClass, String sql, Object&hellip; params) {
+        SqlPair key = new SqlPair(sql, params);
+        // 加读锁, 防止其它线程对缓存更改
+        lock.readLock().lock();
+        try {
+            T value = map.get(key);
+            if (value != null) {
+                return value;
+            }
+        } finally {
+            lock.readLock().unlock();
+        }
+        // 加写锁, 防止其它线程对缓存读取和更改
+        lock.writeLock().lock();
+        try {
+            // get 方法上面部分是可能多个线程进来的, 可能已经向缓存填充了数据
+            // 为防止重复查询数据库, 再次验证
+            T value = map.get(key);
+            if (value == null) {
+                // 如果没有, 查询数据库
+                value = genericDao.queryOne(beanClass, sql, params);
+                map.put(key, value);
+            }
+            return value;
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+    // 作为 key 保证其是不可变的
+    class SqlPair {
+        private String sql;
+        private Object[] params;
+        public SqlPair(String sql, Object[] params) {
+            this.sql = sql;
+            this.params = params;
+        }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {return true;
+                           }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            SqlPair sqlPair = (SqlPair) o;
+            return sql.equals(sqlPair.sql) &amp;&amp;
+                Arrays.equals(params, sqlPair.params);
+        }
+        @Override
+        public int hashCode() {
+            int result = Objects.hash(sql);
+            result = 31 * result + Arrays.hashCode(params);
+            return result;
+        }
+    }
+}</p>
+
+<pre><code>
+注意
+
+* 以上实现体现的是读写锁的应用，保证缓存和数据库的一致性，但有下面的问题没有考虑适合读多写少，如果写操作比较频繁，以上实现性能低
+    * 没有考虑缓存容量
+    * 没有考虑缓存过期
+    * 只适合单机
+    * 并发性还是低，目前只会用一把锁
+    * 更新方法太过简单粗暴，清空了所有 key（考虑按类型分区或重新设计 key）
+* 乐观锁实现：用 CAS 去更新
+
+## 分治
+
+### 1. 案例 - 单词计数
+
+</code></pre>
+
+<p>java
+private static <V> void demo(Supplier<Map<String, V>&gt; supplier, BiConsumer<Map<String, V>,
+                             List<String>&gt; consumer) {
+    Map<String, V> counterMap = supplier.get();
+    List<Thread> ts = new ArrayList&lt;&gt;();
+    for (int i = 1; i &lt;= 26; i++) {
+        int idx = i;
+        Thread thread = new Thread(() -&gt; {
+            List<String> words = readFromFile(idx);
+            consumer.accept(counterMap, words);
+        });
+        ts.add(thread);
+    }
+    ts.forEach(t -&gt; t.start());
+    ts.forEach(t -&gt; {
+        try {t.join();
+            } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    });
+    System.out.println(counterMap);
+}
+public static List<String> readFromFile(int i) {
+    ArrayList<String> words = new ArrayList&lt;&gt;();
+    try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(&ldquo;tmp/&rdquo;
+                                                                                          + i + &ldquo;.txt&rdquo;)))) {
+        while (true) {
+            String word = in.readLine();
+            if (word == null) {
+                break;
+            }
+            words.add(word);
+        }
+        return words;
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+}</p>
+
+<pre><code>
+解法 1 ：
+
+</code></pre>
+
+<p>java
+demo(
+    () -&gt; new ConcurrentHashMap<String, LongAdder>(),
+    (map, words) -&gt; {
+        for (String word : words) {
+            map.computeIfAbsent(word, (key) -&gt; new LongAdder()).increment();
+        }
+    }
+);</p>
+
+<pre><code>
+解法 2 ：
+
+</code></pre>
+
+<p>java
+Map<String, Integer> collect = IntStream.range(1, 27).parallel()
+    .mapToObj(idx -&gt; readFromFile(idx))
+    .flatMap(list -&gt; list.stream())
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(w -&gt; 1)));</p>
+
+<pre><code>
+### 2. 案例 - 求和
+
+</code></pre>
+
+<p>java
+class AddTask3 extends RecursiveTask<Integer> {</p>
+</blockquote>
+
+<pre><code>int begin;
+int end;
+public AddTask3(int begin, int end) {
+    this.begin = begin;
+    this.end = end;
+}
+@Override
+public String toString() {
+    return &quot;{&quot; + begin + &quot;,&quot; + end + '}';
+}
+@Override
+protected Integer compute() {
+    // 5, 5
+    if (begin == end) {
+        log.debug(&quot;join() {}&quot;, begin);
+        return begin;
+    }
+    // 4, 5
+    if (end - begin == 1) {
+        log.debug(&quot;join() {} + {} = {}&quot;, begin, end, end + begin);
+        return end + begin;
+    }
+
+    // 1 5
+    int mid = (end + begin) / 2; // 3
+    AddTask3 t1 = new AddTask3(begin, mid); // 1,3
+    t1.fork();
+    AddTask3 t2 = new AddTask3(mid + 1, end); // 4,5
+    t2.fork();
+    log.debug(&quot;fork() {} + {} = ?&quot;, t1, t2);
+    int result = t1.join() + t2.join();
+    log.debug(&quot;join() {} + {} = {}&quot;, t1, t2, result);
+    return result;
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+然后提交给 ForkJoinPool 来执行
+
+</code></pre>
+
+<p>public static void main(String[] args) {
+ ForkJoinPool pool = new ForkJoinPool(4);
+ System.out.println(pool.invoke(new AddTask3(1, 10)));
+}</p>
+
+<pre><code>
+结果
+
+</code></pre>
+
+<p>[ForkJoinPool-1-worker-0] - join() 1 + 2 = 3
+[ForkJoinPool-1-worker-3] - join() 4 + 5 = 9
+[ForkJoinPool-1-worker-0] - join() 3
+[ForkJoinPool-1-worker-1] - fork() {1,3} + {4,5} = ?
+[ForkJoinPool-1-worker-2] - fork() {1,2} + {3,3} = ?
+[ForkJoinPool-1-worker-2] - join() {1,2} + {3,3} = 6
+[ForkJoinPool-1-worker-1] - join() {1,3} + {4,5} = 15
+15</p>
+
+<pre><code>
+## 统筹
+
+### 案例 - 烧水泡茶
+
+#### 解法 1 ：join
+
+</code></pre>
+
+<p>java
+Thread t1 = new Thread(() -&gt; {
+ log.debug(&ldquo;洗水壶&rdquo;);
+ sleep(1);
+ log.debug(&ldquo;烧开水&rdquo;);
+ sleep(15);
+}, &ldquo;老王&rdquo;);
+Thread t2 = new Thread(() -&gt; {
+ log.debug(&ldquo;洗茶壶&rdquo;);
+ sleep(1);
+ log.debug(&ldquo;洗茶杯&rdquo;);
+ sleep(2);
+ log.debug(&ldquo;拿茶叶&rdquo;);
+ sleep(1);
+ try {
+ t1.join();
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ log.debug(&ldquo;泡茶&rdquo;);
+}, &ldquo;小王&rdquo;);
+t1.start();
+t2.start();</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>19:19:37.547 [小王] c.TestMakeTea - 洗茶壶
+19:19:37.547 [老王] c.TestMakeTea - 洗水壶
+19:19:38.552 [小王] c.TestMakeTea - 洗茶杯
+19:19:38.552 [老王] c.TestMakeTea - 烧开水
+19:19:40.553 [小王] c.TestMakeTea - 拿茶叶
+19:19:53.553 [小王] c.TestMakeTea - 泡茶</p>
+
+<pre><code>
+#### 解法 1 的缺陷：
+
+* 上面模拟的是小王等老王的水烧开了，小王泡茶，如果反过来要实现老王等小王的茶叶拿来了，老王泡茶呢？代码最好能适应两种情况
+
+* 上面的两个线程其实是各执行各的，如果要模拟老王把水壶交给小王泡茶，或模拟小王把茶叶交给老王泡茶呢
+
+### 解法 2 ：wait/notify
+
+</code></pre>
+
+<p>java
+class S2 {
+    static String kettle = &ldquo;冷水&rdquo;;
+    static String tea = null;
+    static final Object lock = new Object();
+    static boolean maked = false;
+    public static void makeTea() {
+        new Thread(() -&gt; {
+            log.debug(&ldquo;洗水壶&rdquo;);
+            sleep(1);
+            log.debug(&ldquo;烧开水&rdquo;);
+            sleep(5);
+            synchronized (lock) {
+                kettle = &ldquo;开水&rdquo;;
+                lock.notifyAll();
+                while (tea == null) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (!maked) {
+                    log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+                    maked = true;
+                }
+            }
+        }, &ldquo;老王&rdquo;).start();
+        new Thread(() -&gt; {
+            log.debug(&ldquo;洗茶壶&rdquo;);
+            sleep(1);
+            log.debug(&ldquo;洗茶杯&rdquo;);
+            sleep(2);
+            log.debug(&ldquo;拿茶叶&rdquo;);
+            sleep(1);
+            synchronized (lock) {
+                tea = &ldquo;花茶&rdquo;;
+                lock.notifyAll();
+                while (kettle.equals(&ldquo;冷水&rdquo;)) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (!maked) {
+                    log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+                    maked = true;
+                }
+            }
+        }, &ldquo;小王&rdquo;).start();
+    }
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>20:04:48.179 c.S2 [小王] - 洗茶壶
+20:04:48.179 c.S2 [老王] - 洗水壶
+20:04:49.185 c.S2 [老王] - 烧开水
+20:04:49.185 c.S2 [小王] - 洗茶杯
+20:04:51.185 c.S2 [小王] - 拿茶叶
+20:04:54.185 c.S2 [老王] - 拿(开水)泡(花茶)</p>
+
+<pre><code>
+解法 2 解决了解法 1 的问题，不过老王和小王需要相互等待，不如他们只负责各自的任务，泡茶交给第三人来做
+
+### 解法 3 ：第三者协调
+
+
+
+</code></pre>
+
+<p>java
+class S3 {
+    static String kettle = &ldquo;冷水&rdquo;;
+    static String tea = null;
+    static final Object lock = new Object();
+    public static void makeTea() {
+        new Thread(() -&gt; {
+            log.debug(&ldquo;洗水壶&rdquo;);
+            sleep(1);
+            log.debug(&ldquo;烧开水&rdquo;);
+            sleep(5);
+            synchronized (lock) {
+                kettle = &ldquo;开水&rdquo;;
+                lock.notifyAll();
+            }
+        }, &ldquo;老王&rdquo;).start();
+        new Thread(() -&gt; {
+            log.debug(&ldquo;洗茶壶&rdquo;);
+            sleep(1);
+            log.debug(&ldquo;洗茶杯&rdquo;);
+            sleep(2);
+            log.debug(&ldquo;拿茶叶&rdquo;);
+            sleep(1);
+            synchronized (lock) {
+                tea = &ldquo;花茶&rdquo;;
+                lock.notifyAll();
+            }
+        }, &ldquo;小王&rdquo;).start();
+        new Thread(() -&gt; {
+            synchronized (lock) {
+                while (kettle.equals(&ldquo;冷水&rdquo;) || tea == null) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+            }
+        }, &ldquo;王夫人&rdquo;).start();
+    }
+}</p>
+
+<pre><code>
+输出
+
+</code></pre>
+
+<p>20:13:18.202 c.S3 [小王] - 洗茶壶
+20:13:18.202 c.S3 [老王] - 洗水壶
+20:13:19.206 c.S3 [小王] - 洗茶杯
+20:13:19.206 c.S3 [老王] - 烧开水
+20:13:21.206 c.S3 [小王] - 拿茶叶
+20:13:24.207 c.S3 [王夫人] - 拿(开水)泡(花茶)</p>
+
+<pre><code>
+## 定时
+
+### 1. 定期执行
+
+如何让每周四 18:00:00 定时执行任务？
+
+</code></pre>
+
+<p>java
+// 获得当前时间
+LocalDateTime now = LocalDateTime.now();</p>
+
+<p>// 获取本周四 18:00:00.000
+//LocalDateTime jdk1.8新增的线程安全类
+LocalDateTime thursday =
+now.with(DayOfWeek.THURSDAY).withHour(18).withMinute(0).withSecond(0).withNano(0);
+// 如果当前时间已经超过 本周四 18:00:00.000， 那么找下周四 18:00:00.000
+if(now.compareTo(thursday) &gt;= 0) {
+ 	thursday = thursday.plusWeeks(1);
+}</p>
+
+<p>// 计算时间差，即延时执行时间
+long initialDelay = Duration.between(now, thursday).toMillis();
+// 计算间隔时间，即 1 周的毫秒值
+long oneWeek = 7 * 24 * 3600 * 1000;</p>
+
+<p>ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+System.out.println(&ldquo;开始时间：&rdquo; + new Date());</p>
+
+<p>executor.scheduleAtFixedRate(() -&gt; {
+ 	System.out.println(&ldquo;执行时间：&rdquo; + new Date());
+}, initialDelay, oneWeek, TimeUnit.MILLISECONDS);
+```</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" title="Java并发编程应用篇" target="_blank" rel="external">https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" title="Java并发编程模式篇"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+                    title="Java并发编程"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,3025 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java常见应用 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java常见应用." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java常见应用 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java常见应用" />
+<meta property="og:description" content="Java常见应用." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/" />
+<meta property="article:published_time" content="2020-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-18T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java常见应用">
+<meta itemprop="description" content="Java常见应用.">
+
+
+<meta itemprop="datePublished" content="2020-01-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="14414">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java常见应用"/>
+<meta name="twitter:description" content="Java常见应用."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/03/nginx%E7%AC%94%E8%AE%B0/" class="title">Nginx进阶学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-07</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#java反射">Java反射</a>
+<ul>
+<li><a href="#反射提供的功能">反射提供的功能:</a></li>
+<li><a href="#获取反射对象-反射入口">获取反射对象（反射入口）</a></li>
+<li><a href="#获取方法">获取方法</a></li>
+<li><a href="#获取所有的方法">获取所有的方法</a></li>
+<li><a href="#获取接口">获取接口</a></li>
+<li><a href="#获取父类">获取父类</a></li>
+<li><a href="#获取所有的构造方法">获取所有的构造方法</a></li>
+<li><a href="#获取所有的公共属性">获取所有的公共属性</a></li>
+<li><a href="#获取所有属性">获取所有属性</a></li>
+<li><a href="#获取当前反射所代表类-接口-的对象">获取当前反射所代表类（接口）的对象</a></li>
+<li><a href="#获取对象的实例-并操作对象">获取对象的实例，并操作对象</a></li>
+<li><a href="#操作属性">操作属性</a></li>
+<li><a href="#操作方法">操作方法</a></li>
+<li><a href="#操作方法-带参">操作方法  带参</a></li>
+<li><a href="#操作构造方法">操作构造方法</a></li>
+<li><a href="#获取私有的构造方法">获取私有的构造方法</a></li>
+<li><a href="#构造方法new对象">构造方法new对象</a></li>
+<li><a href="#动态加载类名和方法">动态加载类名和方法</a></li>
+<li><a href="#反射可以越过-泛型检查">反射可以越过 泛型检查</a></li>
+<li><a href="#万能set">万能set</a></li>
+<li><a href="#源码">源码</a></li>
+</ul></li>
+<li><a href="#java加密解密">java加密解密</a>
+<ul>
+<li><a href="#使用异或进行加密解密">使用异或进行加密解密</a></li>
+<li><a href="#md5">MD5</a>
+<ul>
+<li><a href="#引入jar包">引入jar包</a></li>
+<li><a href="#代码">代码</a></li>
+</ul></li>
+<li><a href="#sha256加密">SHA256加密</a>
+<ul>
+<li><a href="#引入jar包-1">引入jar包</a></li>
+<li><a href="#代码-1">代码</a></li>
+<li><a href="#md5和sha256的异同">MD5和SHA256的异同</a></li>
+</ul></li>
+<li><a href="#base64">Base64</a></li>
+<li><a href="#源码-1">源码</a></li>
+</ul></li>
+<li><a href="#rpc">RPC</a>
+<ul>
+<li><a href="#客户端-client-java">客户端 Client.java</a></li>
+<li><a href="#服务端">服务端</a>
+<ul>
+<li><a href="#mycenter-java">MyCenter.java</a></li>
+<li><a href="#mycenterserver-java">MyCenterServer.java</a></li>
+</ul></li>
+<li><a href="#service">Service</a>
+<ul>
+<li><a href="#helloservice-java">HelloService.java</a></li>
+<li><a href="#helloserviceimpl-java">HelloServiceImpl.java</a></li>
+</ul></li>
+<li><a href="#test">Test</a>
+<ul>
+<li><a href="#clienttest-java">ClientTest.java</a></li>
+<li><a href="#servertest">ServerTest</a></li>
+</ul></li>
+<li><a href="#源码地址">源码地址</a></li>
+</ul></li>
+<li><a href="#发送邮件">发送邮件</a>
+<ul>
+<li><a href="#简单邮件">简单邮件</a></li>
+<li><a href="#复杂邮件">复杂邮件</a></li>
+</ul></li>
+<li><a href="#中文分词">中文分词</a></li>
+<li><a href="#二维码">二维码</a>
+<ul>
+<li><a href="#qrcode">QRCode</a></li>
+<li><a href="#zxing">ZXing</a></li>
+</ul></li>
+<li><a href="#socket">Socket</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#服务端-1">服务端</a></li>
+</ul></li>
+<li><a href="#客户端">客户端</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#文件的拆分和合并">文件的拆分和合并</a>
+<ul>
+<li><a href="#拆分文件">拆分文件</a>
+<ul>
+<li><a href="#简单拆分">简单拆分</a></li>
+<li><a href="#限制使用次数的拆分文件">限制使用次数的拆分文件</a></li>
+</ul></li>
+<li><a href="#合并文件">合并文件</a>
+<ul>
+<li><a href="#简单合并">简单合并</a></li>
+<li><a href="#多线程合并文件">多线程合并文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#序列化反序列化">序列化反序列化</a>
+<ul>
+<li>
+<ul>
+<li><a href="#说明">说明</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#xml解析">XML解析</a></li>
+<li><a href="#json">Json</a>
+<ul>
+<li><a href="#map变json">map变Json</a></li>
+<li><a href="#javabean变json">JavaBean变JSon</a></li>
+<li><a href="#string变json">String变JSon</a></li>
+<li><a href="#json文件变json">JSon文件变JSon</a>
+<ul>
+<li><a href="#方式一">方式一</a></li>
+<li><a href="#方式二">方式二</a></li>
+</ul></li>
+<li><a href="#生成json文件">生成JSon文件</a></li>
+<li><a href="#jsonarray">JSonArray</a></li>
+<li><a href="#map转换为json数组">Map转换为JSon数组</a></li>
+<li><a href="#jsonarray-map">JSONArray&ndash;&gt;map</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/"
+    >Java常见应用</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/" class="article-date">
+  <time datetime="2020-01-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-18</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14414字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:29分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h2 id="java反射">Java反射</h2>
+
+<p>反射机制是在[运行状态]中:</p>
+
+<ul>
+<li><p>对于任意一个类，都能够知道这个类的所有属性和方法;</p></li>
+
+<li><p>对于任意一个对象，都能够调用它的任意一一个方法和属性;</p></li>
+</ul>
+
+<h3 id="反射提供的功能">反射提供的功能:</h3>
+
+<ul>
+<li><p>在运行时判断任意一个对象所属的类;</p></li>
+
+<li><p>在运行时构造任意一个类的对象;</p></li>
+
+<li><p>在运行时判断任意一个类所具有的成员变量和方法;</p></li>
+
+<li><p>在运行时调用任意&ndash;个对象的方法;</p></li>
+
+<li><p>生成动态代理。</p></li>
+</ul>
+
+<h3 id="获取反射对象-反射入口">获取反射对象（反射入口）</h3>
+
+<ol>
+<li>Class.forName(全类名)</li>
+<li>xx.class</li>
+
+<li><p>对象.getClass</p>
+
+<pre><code>//通过反射获取类
+//1. Class.forname()
+try {
+Class&lt;?&gt; forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+System.out.println(forName);
+} catch (ClassNotFoundException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+//2. 类名.class
+Class&lt;?&gt; forName2 =Person.class;
+System.out.println(forName2);
+//3. 对象.getClass
+Person per = new Person();
+Class&lt;?&gt; forName3=per.getClass();
+System.out.println(forName3);
+
+</code></pre></li>
+</ol>
+
+<h3 id="获取方法">获取方法</h3>
+
+<pre><code>public static void test2() {
+    Class&lt;?&gt; forName = null ;
+    //class
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    //获取所有的公共的方法
+    /*
+        * 本类以及父类、接口中的所有的方法
+        * 
+        * 符合访问修饰符的规律
+        * */
+    Method[] methods = forName.getMethods();
+    for(Method method:methods) {
+        System.out.println(method);
+    }
+}
+</code></pre>
+
+<h3 id="获取所有的方法">获取所有的方法</h3>
+
+<pre><code>// 获取当前类所有方法
+//1.只能是当前类
+//2.忽略访问修饰符限制
+public static void test7() {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+        Method[] declaredMethods = forName.getDeclaredMethods();
+    for (Method declaredMethod : declaredMethods)
+    {
+        System.out.println(declaredMethod);
+    }
+}
+
+</code></pre>
+
+<h3 id="获取接口">获取接口</h3>
+
+<pre><code>//获取所有接口
+public static void test3() {
+    Class&lt;?&gt; forName = null ;
+    //class
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    // 获取当前类的所有接口
+    Class&lt;?&gt;[] interfaces = forName.getInterfaces();
+    for(Class&lt;?&gt; inter:interfaces) {
+        System.out.println(inter);
+    }
+}
+</code></pre>
+
+<h3 id="获取父类">获取父类</h3>
+
+<pre><code>//获取所有父类
+public static void test4() {
+    Class&lt;?&gt; forName = null ;
+    //class
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    // 获取所有父类  单继承
+    Class&lt;?&gt; superclass = forName.getSuperclass();
+    System.out.println(superclass);
+}
+</code></pre>
+
+<h3 id="获取所有的构造方法">获取所有的构造方法</h3>
+
+<pre><code>//获取所有构造方法
+public static void test5() {
+    Class&lt;?&gt; forName = null ;
+    //class
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    // 获取所有父类  单继承
+    Constructor&lt;?&gt;[] constructors = forName.getConstructors();
+    for(Constructor&lt;?&gt; constructor:constructors)
+    System.out.println(constructor);
+}	
+</code></pre>
+
+<h3 id="获取所有的公共属性">获取所有的公共属性</h3>
+
+<pre><code>// 获取所有公共属性
+public static void test6() {
+    Class&lt;?&gt; forName = null;
+    // class
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    // 获取所有父类 单继承
+    Field[] fields = forName.getFields();
+    for (Field field : fields)
+    {
+        System.out.println(field);
+    }
+}
+</code></pre>
+
+<h3 id="获取所有属性">获取所有属性</h3>
+
+<pre><code>// 获取当前类所有属性
+//1.只能是当前类
+//2.忽略访问修饰符限制
+public static void test8() {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Field[] declaredFields = forName.getDeclaredFields();
+    for (Field declaredField : declaredFields)
+    {
+        System.out.println(declaredField);
+    }
+}	
+</code></pre>
+
+<h3 id="获取当前反射所代表类-接口-的对象">获取当前反射所代表类（接口）的对象</h3>
+
+<pre><code>// 获取当前反射所代表类（接口）的对象
+public static void test9() throws InstantiationException, IllegalAccessException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Object instance = forName.newInstance();
+    Person person = (Person)instance;
+    System.out.println(person);
+}
+</code></pre>
+
+<h3 id="获取对象的实例-并操作对象">获取对象的实例，并操作对象</h3>
+
+<pre><code>// 获取对象的实例，并操作对象
+public static void test1() throws InstantiationException, IllegalAccessException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Person person = (Person) forName.newInstance();
+    person.setId(22);
+    person.setName(&quot;zs&quot;);
+    System.out.println(person.getId() + &quot;---&quot; + person.getName());
+}
+</code></pre>
+
+<h3 id="操作属性">操作属性</h3>
+
+<pre><code>// 操作属性
+public static void test2() throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Person person = (Person) forName.newInstance();
+    Field idField = forName.getDeclaredField(&quot;id&quot;);
+    //访问的是private修饰的id，但是 peivate是私有
+    // 因此要修改属性的访问权限，使用反射时，如果是因为访问修饰符限制造成异常，可以通过setAccessible(true)方法解决
+	// 同理方法也具有setAccessible(true)的方法
+    idField.setAccessible(true);
+    idField.set(person, 1);//相当于  person.setId(1);
+    System.out.println(person.getId());
+}
+
+</code></pre>
+
+<h3 id="操作方法">操作方法</h3>
+
+<pre><code>// 操作方法
+public static void test3()
+        throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Person person = (Person) forName.newInstance();
+    Method  myPrivateMethod= forName.getDeclaredMethod(&quot;privateMethod&quot;, null);
+    // 同理方法也具有setAccessible(true)的方法
+    myPrivateMethod.setAccessible(true);
+    myPrivateMethod.invoke(person, null);
+}
+
+</code></pre>
+
+<h3 id="操作方法-带参">操作方法  带参</h3>
+
+<pre><code>// 操作方法  带参
+public static void test4()
+        throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Person person = (Person) forName.newInstance();
+    Method  myPrivateMethod1= forName.getDeclaredMethod(&quot;privateMethod1&quot;, String.class);
+    // 同理方法也具有setAccessible(true)的方法
+    myPrivateMethod1.setAccessible(true);
+    myPrivateMethod1.invoke(person, &quot;hello&quot;);
+}
+
+</code></pre>
+
+<h3 id="操作构造方法">操作构造方法</h3>
+
+<pre><code>// 操作构造方法
+public static void test5() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
+        SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    // 在反射中，根据类型获取方法时；基本类型(int\char) 和包装类（Integer，Character）时不同的类型
+    Constructor&lt;?&gt; constructor = forName.getConstructor(int.class);
+    System.out.println(constructor);
+}
+
+</code></pre>
+
+<h3 id="获取私有的构造方法">获取私有的构造方法</h3>
+
+<pre><code>// 操作构造方法
+public static void test6() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
+        SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Constructor&lt;?&gt; constructor = forName.getDeclaredConstructor(String.class);
+    System.out.println(constructor);
+}
+</code></pre>
+
+<h3 id="构造方法new对象">构造方法new对象</h3>
+
+<pre><code>// 操作构造方法 new对象
+public static void test7() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
+        SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Constructor&lt;?&gt; constructor = forName.getConstructor(int.class);
+    System.out.println(constructor);
+    Person per = (Person) constructor.newInstance(10);
+    System.out.println(per);
+}
+</code></pre>
+
+<p>注意传参</p>
+
+<h3 id="动态加载类名和方法">动态加载类名和方法</h3>
+
+<p>class.txt</p>
+
+<pre><code>className=com.lx.myclass.Person
+methodName = staticMethod
+</code></pre>
+
+<pre><code>//动态加载类名和方法
+public static void test8() throws FileNotFoundException, IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
+    Properties properties = new Properties();
+    properties.load(new FileReader(&quot;class.txt&quot;));
+    String classname = properties.getProperty(&quot;className&quot;);
+    String methodName = properties.getProperty(&quot;methodName&quot;);
+    Class&lt;?&gt; forName = null;
+    try {
+        forName = Class.forName(classname);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    Method method = forName.getMethod(methodName);
+    method.invoke(forName.newInstance());
+    
+    
+}
+</code></pre>
+
+<h3 id="反射可以越过-泛型检查">反射可以越过 泛型检查</h3>
+
+<pre><code>//反射可以越过 泛型检查
+public static void test9() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
+    //此时只能添加Integer类型
+    ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+    list.add(1);
+    list.add(2);
+    //list.add(&quot;zs&quot;);
+    Class&lt;?&gt; listclass= list.getClass();
+    Method method = listclass.getMethod(&quot;add&quot;, Object.class);
+    method.invoke(list, &quot;zs&quot;);
+    System.out.println(list);
+    
+}
+</code></pre>
+
+<p>不推荐这样做</p>
+
+<p>就像不推荐反射操作private修饰的东西</p>
+
+<p>虽然可以通反射访问 private等修饰符不允许访问的属性/方法，也可以忽略掉泛型的约束；但是实际的开发，不建议这样使用，因此可能造成程序的混乱。</p>
+
+<h3 id="万能set">万能set</h3>
+
+<pre><code>import java.lang.reflect.Field;
+public class MyProperty {
+	//per.setXxx(value)
+	public static void setProperty(Object obj,String propertyName,Object value) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		Class&lt;?&gt; class1 = obj.getClass();
+		Field field = class1.getDeclaredField(propertyName);
+		field.setAccessible(true);
+		field.set(obj, value);
+	}
+}
+
+</code></pre>
+
+<pre><code>public static void test10() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+    Person person = new Person();
+    MyProperty.setProperty(person, &quot;name&quot;, &quot;zs&quot;);
+    MyProperty.setProperty(person, &quot;age&quot;, 23);
+    Student student = new Student();
+    MyProperty.setProperty(student, &quot;score&quot;, 98);
+    System.out.println(person);
+    System.out.println(student);
+}
+
+</code></pre>
+
+<h3 id="源码">源码</h3>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/java/java%E5%8F%8D%E5%B0%84/">github地址</a></p>
+
+<h2 id="java加密解密">java加密解密</h2>
+
+<h3 id="使用异或进行加密解密">使用异或进行加密解密</h3>
+
+<p>异或:
+* 同为0，异为1;
+* 一个数，两次异或之后，是原数本身</p>
+
+<p>一个数据异或一次：加密</p>
+
+<p>一个数据异或两次：解密</p>
+
+<p>是可逆的</p>
+
+<pre><code>package utils;
+public class SecurityUtil {
+	//通过异或进行加密和解密  传入string(&quot;abc&quot;)---&gt;String(&quot;xyz&quot;)
+	public static String xor(String in) {//&quot;abc&quot;---&gt;{'a','b','c'}字符串变成字符数组
+		//char 和int之间时可以直接转换的
+		//String 和int之间时无法进行运算的
+		char[] chs = in.toCharArray();
+		for(int i = 0; i &lt; chs.length;i++) {
+			//^ 异或符号
+			chs[i] = (char)(chs[i]^3000);
+		}
+		return new String(chs);
+	}
+	public static void main(String[] args) {
+		String str = &quot;hello&quot;;
+		str = xor(str);// 第一次异或  加密
+		System.out.println(str);
+		
+		str = xor(str);// 第二次异或  解密
+		System.out.println(str);
+	}
+}
+</code></pre>
+
+<h3 id="md5">MD5</h3>
+
+<p>字符串 &mdash;&gt; 十六进制串</p>
+
+<p>是不可逆的</p>
+
+<h4 id="引入jar包">引入jar包</h4>
+
+<p>commons-codec-1.10.jar</p>
+
+<h4 id="代码">代码</h4>
+
+<pre><code>import org.apache.commons.codec.digest.DigestUtils;
+public class MD5 {
+	public static String md5Encode(byte[] input) {
+		return DigestUtils.md5Hex(input);//byte[]---&gt;String
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = &quot;hello&quot;;
+		str = md5Encode(str.getBytes());
+		System.out.println(str);
+	}
+}
+
+</code></pre>
+
+<h3 id="sha256加密">SHA256加密</h3>
+
+<h4 id="引入jar包-1">引入jar包</h4>
+
+<p>commons-codec-1.10.jar</p>
+
+<h4 id="代码-1">代码</h4>
+
+<pre><code>import org.apache.commons.codec.digest.DigestUtils;
+public class MD5 {
+	//SHA256
+	public static String SHA256Encode(byte[] input) {
+		return DigestUtils.sha256Hex(input);//byte[]---&gt;String
+	}	
+	public static void main(String[] args) {
+		String str = &quot;hello&quot;;
+		str = SHA256Encode(str.getBytes());
+		System.out.println(str);
+	}
+}
+</code></pre>
+
+<h4 id="md5和sha256的异同">MD5和SHA256的异同</h4>
+
+<ul>
+<li><p>同：</p>
+
+<p>都是不可逆</p></li>
+
+<li><p>异</p>
+
+<p>MD5：速度较快</p>
+
+<p>SHA256：安全性较高</p></li>
+</ul>
+
+<h3 id="base64">Base64</h3>
+
+<pre><code>import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+public class Base {
+	//base64 加密
+	public static String base64Encode(byte[] input) {
+		String result = null;
+		//反射
+		try {
+			Class clazz = Class.forName(&quot;com.sun.org.apache.xerces.internal.impl.dv.util.Base64&quot;);
+			Method method = clazz.getMethod(&quot;encode&quot;, byte[].class);
+			result = (String)method.invoke(null, input);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	//base64解密
+	public static byte[] base64Decode(String input) {
+		byte[] result = null ;
+		try {
+			Class clazz = Class.forName(&quot;com.sun.org.apache.xerces.internal.impl.dv.util.Base64&quot;);
+			Method method = clazz.getMethod(&quot;decode&quot;, String.class);
+			result = (byte[])method.invoke(null, input);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	public static void main(String[] args) {
+		String str = &quot;hello&quot;;
+		//加密
+		str = base64Encode(str.getBytes());
+		System.out.println(&quot;加密&quot;+str);
+		//解密
+		byte[] rs = base64Decode(str);
+		System.out.println(&quot;解密&quot;+new String(rs));
+	}
+}
+</code></pre>
+
+<p>可逆</p>
+
+<p>使用的是jdk自带的一个加密解密</p>
+
+<p>运用到了反射技术</p>
+
+<h3 id="源码-1">源码</h3>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/java/java%E5%8A%A0%E5%AF%86/">git地址</a></p>
+
+<h2 id="rpc">RPC</h2>
+
+<p>RPC:Remote Procedure Call （远程过程调用）</p>
+
+<ol>
+<li>&ldquo;HelloService&rdquo;，而服务端需要通过该字符串解析出该字符串代表的接口的一切信息&ndash;》通过反射技术</li>
+<li>客户端&ndash;》服务端：socket</li>
+<li>服务端需要根据客户端的不同请求，返回不同的接口类型，客户端就要接收到不同的接口类型&mdash;》通过动态代理</li>
+</ol>
+
+<h3 id="客户端-client-java">客户端 Client.java</h3>
+
+<pre><code>package com.lx.client;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+public class Client {
+	// 获取代表服务端接口的动态代理对象
+	// serviceInterface:请求的接口名
+	// addr:带请求服务端的ip：端口
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public static &lt;T&gt; T getRemoteProxyObj(Class serviceInterface, InetSocketAddress addr) {
+		// 动态代理对象
+		/*
+		 * newProxyInstance(a,b,c) a:类加载器：需要代理哪一个类 b:需要代理的对象具有哪些功能(方法) --- 接口（方法在接口中存放 ）
+		 */
+		return (T) Proxy.newProxyInstance(serviceInterface.getClassLoader(), new Class&lt;?&gt;[] {serviceInterface },
+				new InvocationHandler() {
+					/**
+					 * proxy 代理的对象
+					 * 
+					 * method 对象的哪一个方法
+					 * 
+					 * args 参数列表
+					 * 
+					 */
+					@Override
+					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+						ObjectInputStream input = null;
+						ObjectOutputStream output = null;
+						Socket socket = new Socket();
+						try {
+							// 客户端向服务端发送请求：请求某一个具体的接口
+							
+							// socketAddress:Ip：端口
+							socket.connect(addr);
+							output = new ObjectOutputStream(socket.getOutputStream());// 发送 通过序列化流(对象流)
+							// 发送：接口名，方法名，方法的参数的类型,方法的参数，
+							output.writeUTF(serviceInterface.getName());
+							output.writeUTF(method.getName());
+							output.writeObject(method.getParameterTypes());
+							output.writeObject(args);
+							// 等待服务端处理
+							// 接收服务端处理后的返回值
+							input = new ObjectInputStream(socket.getInputStream());
+							Object result = input.readObject();
+							return result;
+						} catch (Exception e) {
+							// TODO: handle exception
+							e.printStackTrace();
+							return null;
+						} finally {
+							try {
+								if (output != null) {
+									output.close();
+								}
+								if (input != null) {
+									input.close();
+								}
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+								return null;
+							}
+						}
+					}
+				});
+	}
+}
+</code></pre>
+
+<h3 id="服务端">服务端</h3>
+
+<h4 id="mycenter-java">MyCenter.java</h4>
+
+<pre><code>package com.lx.center;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+//服务中心
+public interface MyCenter {
+	public void start();
+	public void stop();
+	//注册服务
+	public void register(Class name,Class serviceImpl);
+}
+</code></pre>
+
+<h4 id="mycenterserver-java">MyCenterServer.java</h4>
+
+<pre><code>package com.lx.center;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javax.sound.sampled.Port;
+public class MyCenterServer implements MyCenter {
+	// map:服务端的所有可供客户端访问的接口，都注册到map中
+	// key:接口的名字 value:真正的接口的实现
+	private static HashMap&lt;String, Class&gt; serviceRegister = new HashMap&lt;String, Class&gt;();
+	// 端口
+	private static int Port;// =9999
+	// 连接池：连接池中存在多个和连接对象，每一个连接对象都可以处理一个客户请求
+	// jdk1.5提供
+	private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+	private static boolean isRunning = false;
+	public MyCenterServer(int port) {
+		this.Port = port;
+	}
+	// 开启服务
+	@Override
+	public void start() {
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = new ServerSocket();
+			serverSocket.bind(new InetSocketAddress(Port));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		isRunning = true;
+		while (true) {
+			// 具体的服务内容；接收客户端请求，处理请求，并返回结果
+			// TODO Auto-generated method stub
+			// 如果想要让多个客户端请求并发执行 多线程
+			System.out.println(&quot;start server  ...  &quot;);
+			// 客户端每次请求一次连接（发送一次请求），则服务端 从连接池中获取一个线程对象去处理
+			Socket socket = null;
+			try {
+				socket = serverSocket.accept();// 等待客户端连接
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			executor.execute(new ServiceTask(socket));// .参数是一个多线程对象
+		}
+	}
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		isRunning = false;
+		executor.shutdown();
+	}
+	@Override
+	public void register(Class service, Class serviceImpl) {
+		serviceRegister.put(service.getName(), serviceImpl);
+	}
+	private static class ServiceTask implements Runnable {
+		private Socket socket;
+		public ServiceTask(Socket socket) {
+			this.socket = socket;
+		}
+		public ServiceTask() {
+		}
+		@Override
+		public void run() {// 线程所做的事情
+			ObjectOutputStream output = null;
+			ObjectInputStream input = null;
+			// 具体的服务内容；接收客户端请求，处理请求，并返回结果
+			try {
+				// 接收到客户端连接及请求，处理该请求
+				input = new ObjectInputStream(socket.getInputStream());
+				// 因为ObjectInputStream对发送数据的顺序严格要求，因此需要参照发送的顺序逐个接收
+				String serviceName = input.readUTF();
+				String methodName = input.readUTF();
+				Class[] parameterTypes = (Class[]) input.readObject();// 参数类型
+				Object[] arguments = (Object[]) input.readObject();// 方法的参数名
+				// 根据客户端的请求，找到map中与之对应的具体的接口
+				Class SerciceClass = serviceRegister.get(serviceName);
+				Method method = SerciceClass.getMethod(methodName, parameterTypes);
+				// 执行该方法
+				Object result = method.invoke(SerciceClass.newInstance(), arguments);
+				// 向客户端 将执行完毕的返回值 传给客户端
+				output = new ObjectOutputStream(socket.getOutputStream());
+				output.writeObject(result);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				try {
+					if (output != null) {
+						output.close();
+					}
+					if (input != null) {
+						input.close();
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}
+</code></pre>
+
+<h3 id="service">Service</h3>
+
+<h4 id="helloservice-java">HelloService.java</h4>
+
+<pre><code>package com.lx.service;
+public interface HelloService {
+	public String sayHi(String name);
+}
+</code></pre>
+
+<h4 id="helloserviceimpl-java">HelloServiceImpl.java</h4>
+
+<pre><code>package com.lx.service;
+public class HelloServiceImpl implements HelloService{
+	@Override
+	public String sayHi(String name) {
+		// TODO Auto-generated method stub
+		System.out.println(&quot;hi&quot;+name);
+		return &quot;hi&quot;+name;
+	}
+}
+</code></pre>
+
+<h3 id="test">Test</h3>
+
+<h4 id="clienttest-java">ClientTest.java</h4>
+
+<pre><code>package com.lx.test;
+import java.net.InetSocketAddress;
+import com.lx.client.Client;
+import com.lx.service.HelloService;
+import com.lx.service.HelloServiceImpl;
+public class ClientTest {
+	public static void main(String[] args) throws ClassNotFoundException {
+		HelloService helloService = Client.getRemoteProxyObj(Class.forName(&quot;com.lx.service.HelloService&quot;), new InetSocketAddress(&quot;127.0.0.1&quot;, 9999));
+		System.out.println(helloService.sayHi(&quot;zs&quot;));
+	}
+}
+
+</code></pre>
+
+<h4 id="servertest">ServerTest</h4>
+
+<pre><code>package com.lx.test;
+import com.lx.center.MyCenter;
+import com.lx.center.MyCenterServer;
+import com.lx.service.HelloService;
+import com.lx.service.HelloServiceImpl;
+public class ServeTest {
+	public static void main(String[] args) {
+		// 开启一个线程
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// 服务中心
+				MyCenter serverCenter = new MyCenterServer(9999);
+				// 将helloService接口及其实现类注册到服务中心
+				serverCenter.register(HelloService.class, HelloServiceImpl.class);
+				serverCenter.start();
+			}
+		}).start();
+	}
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/RPC.png" alt="RPC解析" title="RPC解析" /></p>
+
+<h3 id="源码地址">源码地址</h3>
+
+<p><a href="https://github.com/mumulx/Project-source-code/tree/master/java/RPCJava%E5%AE%9E%E7%8E%B0/">github地址</a></p>
+
+<h2 id="发送邮件">发送邮件</h2>
+
+<h3 id="简单邮件">简单邮件</h3>
+
+<p>导包</p>
+
+<pre><code>javax.mail.jar
+</code></pre>
+
+<pre><code class="language-java">import java.util.Date;
+import java.util.Properties;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+public class JavaMailDemo {
+	// 发件人的 邮箱 和 密码（替换为自己的邮箱和密码）
+    // PS: 某些邮箱服务器为了增加邮箱本身密码的安全性，给 SMTP 客户端设置了独立密码（有的邮箱称为“授权码”）, 
+    //     对于开启了独立密码的邮箱, 这里的邮箱密码必需使用这个独立密码（授权码）。
+    public static String sendEmailAccount = &quot;收件人qq邮箱&quot;;
+    public static String sendEmailPwd = &quot;请更换为自己的独立密码（授权码）&quot;;
+    public static String receiveMailAccount = &quot;发件人qq邮箱&quot;;
+    //发件人邮箱服务器地址
+    public static String emailProtocolType = &quot;smtp&quot;; 
+    public static String sendEmailSMTPHost = &quot;smtp.qq.com&quot;;
+    public static String smtpPort = &quot;465&quot;;
+    public static String sslSocketFactory = &quot;javax.net.ssl.SSLSocketFactory&quot;;
+    // 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般格式为: smtp.xxx.com
+    // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
+    // 收件人邮箱（替换为自己知道的有效邮箱）
+    public static void main(String[] args) throws Exception {
+        // 1. 创建参数配置, 用于连接邮件服务器的参数配置
+        Properties props = new Properties();                    // 参数配置
+        props.setProperty(&quot;mail.transport.protocol&quot;, emailProtocolType);   // 使用的协议（JavaMail规范要求）
+        props.setProperty(&quot;mail.smtp.host&quot;, sendEmailSMTPHost);   // 发件人的邮箱的 SMTP 服务器地址
+        props.setProperty(&quot;mail.smtp.auth&quot;, &quot;true&quot;);            // 需要请求认证
+
+        // PS: 某些邮箱服务器要求 SMTP 连接需要使用 SSL 安全认证 (为了提高安全性, 邮箱支持SSL连接, 也可以自己开启),
+        //     如果无法连接邮件服务器, 仔细查看控制台打印的 log, 如果有有类似 “连接失败, 要求 SSL 安全连接” 等错误,
+        //     打开下面 /* ... */ 之间的注释代码, 开启 SSL 安全连接。
+        /*
+        // SMTP 服务器的端口 (非 SSL 连接的端口一般默认为 25, 可以不添加, 如果开启了 SSL 连接,
+        //                  需要改为对应邮箱的 SMTP 服务器的端口, 具体可查看对应邮箱服务的帮助,
+        //                  QQ邮箱的SMTP(SLL)端口为465或587, 其他邮箱自行去查看)
+         */
+        //ssl安全认证
+        props.setProperty(&quot;mail.smtp.port&quot;, smtpPort);
+        //设置socketfactory									
+        props.setProperty(&quot;mail.smtp.socketFactory.class&quot;, sslSocketFactory);
+        //只处理SSL的连接, 对于非SSL的连接不做处理
+        props.setProperty(&quot;mail.smtp.socketFactory.fallback&quot;, &quot;false&quot;);
+        props.setProperty(&quot;mail.smtp.socketFactory.port&quot;, smtpPort);
+        // 2. 根据配置创建会话对象, 用于和邮件服务器交互
+        Session session = Session.getInstance(props);
+        session.setDebug(true);  // 设置为debug模式, 可以查看详细的发送 log
+        // 3. 创建一封邮件
+        MimeMessage message = createMimeMessage(session, sendEmailAccount, receiveMailAccount);
+        // 4. 根据 Session 获取邮件传输对象
+        Transport transport = session.getTransport();
+        // 5. 使用 邮箱账号 和 密码 连接邮件服务器, 这里认证的邮箱必须与 message 中的发件人邮箱一致, 否则报错
+        //    PS_01: 成败的判断关键在此一句, 如果连接服务器失败, 都会在控制台输出相应失败原因的 log,
+        //           仔细查看失败原因, 有些邮箱服务器会返回错误码或查看错误类型的链接, 根据给出的错误
+        //           类型到对应邮件服务器的帮助网站上查看具体失败原因。
+        //
+        //    PS_02: 连接失败的原因通常为以下几点, 仔细检查代码:
+        //           (1) 邮箱没有开启 SMTP 服务;
+        //           (2) 邮箱密码错误, 例如某些邮箱开启了独立密码;
+        //           (3) 邮箱服务器要求必须要使用 SSL 安全连接;
+        //           (4) 请求过于频繁或其他原因, 被邮件服务器拒绝服务;
+        //           (5) 如果以上几点都确定无误, 到邮件服务器网站查找帮助。
+        //
+        //    PS_03: 仔细看log, 认真看log, 看懂log, 错误原因都在log已说明。
+        transport.connect(sendEmailAccount, sendEmailPwd);
+        // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
+        transport.sendMessage(message, message.getAllRecipients());
+        // 7. 关闭连接
+        transport.close();
+    }
+    /**
+     * 创建一封只包含文本的简单邮件
+     * @param session 和服务器交互的会话
+     * @param sendMail 发件人邮箱
+     * @param receiveMail 收件人邮箱
+     * @return
+     * @throws Exception
+     */
+    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
+        // 1. 创建一封邮件
+        MimeMessage message = new MimeMessage(session);
+        // 2. From: 发件人（昵称有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改昵称）
+        message.setFrom(new InternetAddress(sendMail, &quot;setFrom&quot;, &quot;UTF-8&quot;));
+        // 3. To: 收件人（可以增加多个收件人、抄送、密送）
+        //    CC:抄送人，BCC:密送
+        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, &quot;XX用户&quot;, &quot;UTF-8&quot;));
+        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress(&quot;xxxxxxx@qq.com&quot;, &quot;XX用户&quot;, &quot;UTF-8&quot;));
+        // 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）
+        message.setSubject(&quot;setSubject&quot;, &quot;UTF-8&quot;);
+        // 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发送内容）
+        message.setContent(&quot;正文...&quot;, &quot;text/html;charset=utf-8&quot;);
+        // 6. 设置发件时间
+        message.setSentDate(new Date());
+        // 7. 保存设置
+        message.saveChanges();
+        return message;
+    }
+}
+</code></pre>
+
+<h3 id="复杂邮件">复杂邮件</h3>
+
+<pre><code class="language-java">import java.util.Date;
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.Message.RecipientType;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
+public class JavaMailWithAttachments {
+    // 发件人的 邮箱 和 密码（替换为自己的邮箱和密码）
+    public static String sendEmailAccount = &quot;收件人qq邮箱&quot;;
+    public static String sendEmailPwd = &quot;请更换为自己的独立密码（授权码）&quot;;
+    // 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般格式为: smtp.xxx.com
+    // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
+    public static String myEmailSMTPHost = &quot;smtp.qq.com&quot;;
+    // 收件人邮箱（替换为自己知道的有效邮箱）
+    public static String receiveMailAccount = &quot;发件人qq邮箱&quot;;
+    public static void main(String[] args) throws Exception {
+        // 1. 创建参数配置, 用于连接邮件服务器的参数配置
+        Properties props = new Properties();                    // 参数配置
+        props.setProperty(&quot;mail.transport.protocol&quot;, &quot;smtp&quot;);   // 使用的协议（JavaMail规范要求）
+        props.setProperty(&quot;mail.smtp.host&quot;, myEmailSMTPHost);   // 发件人的邮箱的 SMTP 服务器地址
+        props.setProperty(&quot;mail.smtp.auth&quot;, &quot;true&quot;);            // 需要请求认证
+        final String smtpPort = &quot;465&quot;;
+        props.setProperty(&quot;mail.smtp.port&quot;, smtpPort);
+        props.setProperty(&quot;mail.smtp.socketFactory.class&quot;, &quot;javax.net.ssl.SSLSocketFactory&quot;);
+        props.setProperty(&quot;mail.smtp.socketFactory.fallback&quot;, &quot;false&quot;);
+        props.setProperty(&quot;mail.smtp.socketFactory.port&quot;, smtpPort);
+        // 开启 SSL 连接, 以及更详细的发送步骤请看上一篇: 基于 JavaMail 的 Java 邮件发送：简单邮件发送
+        // 2. 根据配置创建会话对象, 用于和邮件服务器交互
+        //Session对象的构造方法为private因此需要借助getInstance方法
+        Session session = Session.getInstance(props);
+        session.setDebug(true);                                 // 设置为debug模式, 可以查看详细的发送 log
+        // 3. 创建一封邮件
+        MimeMessage message = createMimeMessage(session, sendEmailAccount, receiveMailAccount);
+        // 也可以保持到本地查看
+        // message.writeTo(file_out_put_stream);
+        // 4. 根据 Session 获取邮件传输对象
+        Transport transport = session.getTransport();
+        // 5. 使用 邮箱账号 和 密码 连接邮件服务器
+        //    这里认证的邮箱必须与 message 中的发件人邮箱一致，否则报错
+        transport.connect(sendEmailAccount, sendEmailPwd);
+        // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
+        transport.sendMessage(message, message.getAllRecipients());
+        // 7. 关闭连接
+        transport.close();
+    }
+    /**
+     * 创建一封复杂邮件（文本+图片+附件）
+     */
+    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
+		// 1. 创建邮件对象
+		MimeMessage message = new MimeMessage(session);
+		// 2. From: 发件人
+		message.setFrom(new InternetAddress(sendMail, &quot;我昵称&quot;, &quot;UTF-8&quot;));
+		// 3. To: 收件人（可以增加多个收件人、抄送、密送）
+		message.addRecipient(RecipientType.TO, new InternetAddress(receiveMail, &quot;我的收件人昵称&quot;, &quot;UTF-8&quot;));
+		// 4. Subject: 邮件主题
+		message.setSubject(&quot;T图片+附件）&quot;, &quot;UTF-8&quot;);
+		// 5. 创建图片“节点”
+		MimeBodyPart imagePart = new MimeBodyPart();
+		DataHandler imageDataHandler = new DataHandler(new FileDataSource(&quot;src//abc.png&quot;)); // 读取本地文件
+		imagePart.setDataHandler(imageDataHandler);                   // 将图片数据添加到“节点”
+		imagePart.setContentID(&quot;image_fairy_tail&quot;);     // 为“节点”设置一个唯一编号（在文本“节点”将引用该ID）
+		// 6. 创建文本“节点”
+		MimeBodyPart textPart = new MimeBodyPart();
+		//    这里添加图片的方式是将整个图片包含到邮件内容中, 实际上也可以以 http 链接的形式添加网络图片
+		textPart.setContent(&quot;这是一张图片&lt;br/&gt;&lt;img src='cid:image_fairy_tail'/&gt;&quot;, 
+						&quot;text/html;charset=UTF-8&quot;);
+		// 7. （文本+图片）设置 文本 和 图片 “节点”的关系（将 文本 和 图片 “节点”合成一个混合“节点”）
+		MimeMultipart mm_text_image = new MimeMultipart();
+		mm_text_image.addBodyPart(textPart);
+		mm_text_image.addBodyPart(imagePart);
+		mm_text_image.setSubType(&quot;related&quot;);    // 关联关系
+		// 8. 将 文本+图片 的混合“节点”封装成一个普通“节点”
+		MimeBodyPart text_image = new MimeBodyPart();
+		text_image.setContent(mm_text_image);
+		// 9. 创建附件“节点”
+		MimeBodyPart attachment = new MimeBodyPart();
+		DataHandler attDataHandler = new DataHandler
+					(new FileDataSource(&quot;src//上课前检查插头.txt&quot;));  // 读取本地文件
+		attachment.setDataHandler(attDataHandler);                                             // 将附件数据添加到“节点”
+		attachment.setFileName(MimeUtility.encodeText(attDataHandler.getName()));              // 设置附件的文件名（需要编码）
+		// 10. 设置（文本+图片）和 附件 的关系（合成一个大的混合“节点” / Multipart ）
+		MimeMultipart mm = new MimeMultipart();
+		mm.addBodyPart(text_image);
+		mm.addBodyPart(attachment);     // 如果有多个附件，可以创建多个多次添加
+		mm.setSubType(&quot;mixed&quot;);         // 混合关系
+		// 11. 设置整个邮件的关系（将最终的混合“节点”作为邮件的内容添加到邮件对象）
+		message.setContent(mm);
+		// 12. 设置发件时间
+		message.setSentDate(new Date());
+		// 13. 保存上面的所有设置
+		message.saveChanges();
+		return message;
+    }
+}
+</code></pre>
+
+<h2 id="中文分词">中文分词</h2>
+
+<p>另一个分词开源项目</p>
+
+<p>使用</p>
+
+<p>中科院分词包ictclas4j:</p>
+
+<ol>
+<li>将Data目录拷贝到项目根目录</li>
+<li>将ictclas4 j提供的bin目录，覆盖eclipse中的bin目录</li>
+<li>将ictclas4 j提供的src源码复制到项目中</li>
+<li>导入需要的commons-lang.jar、log4j.jar</li>
+</ol>
+
+<p><a href="https://blog.csdn.net/hwwn2009/article/details/42103939">参考博客</a></p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+    Segment st = new Segment(1);  
+    String line = &quot;一块勤奋地漂亮的一块钱,/打造经济的航空母舰。ABCD.#$% Hello World!\n又一段文本123辆 ！3.0&quot;;  
+    SegResult sr = st.split(line);  
+    System.out.println(sr.getFinalResult()); 
+}
+</code></pre>
+
+<h2 id="二维码">二维码</h2>
+
+<h3 id="qrcode">QRCode</h3>
+
+<p>日本的</p>
+
+<p>jar包</p>
+
+<pre><code>Qrcode.jar
+</code></pre>
+
+<p>工具类</p>
+
+<pre><code class="language-java">import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import com.swetake.util.Qrcode;
+import jp.sourceforge.qrcode.QRCodeDecoder;
+public class QRCodeUtil {
+	//加密：  文字信息 -&gt;二维码.png  
+	/*
+	 * imgPath：src/二维码.png
+	 * content:  文字信息
+	 * imgType：png
+	 */
+	public void encoderQRCode(String content,String imgPath,String imgType,int size)  throws Exception{
+		//BufferedImage ：内存中的一张图片 
+		BufferedImage bufImg =   qRcodeCommon(content,imgType,size);
+		File file = new File(imgPath);// &quot;src/二维码.png&quot; --&gt; 二维码.png
+		//生成图片
+		ImageIO.write(bufImg, imgType, file) ;
+	}
+	
+	//产生一个二维码的BufferedImage
+	/*
+	 *content:二维码中隐藏的信息
+	 *imgType:图片格式
+	 *size :二维码边长
+	 */
+	public  BufferedImage qRcodeCommon(String content ,String imgType,int size)  throws Exception{
+		BufferedImage bufImg = null ;
+		//Qrcode对象：字符串-&gt;boolean[][]
+		Qrcode qrCodeHandler = new Qrcode();
+		//设置二维码的排错率：7% L&lt;M&lt;Q&lt;H30%  ：排错率越高,可存储的信息越少；但是对二维码清晰对要求越小
+		qrCodeHandler.setQrcodeErrorCorrect('M');
+		//可存放的信息类型：N：数字、  A：数字+A-Z  B：所有
+		qrCodeHandler.setQrcodeEncodeMode('B');
+		//尺寸：取值范围：1-40 
+		qrCodeHandler.setQrcodeVersion(size);
+		byte[] contentBytes = content.getBytes(&quot;UTF-8&quot;) ;//&quot;Hello world&quot; -&gt; byte[]&quot;Hello world&quot;
+		//  --&gt;boolean[][]
+		boolean[][] codeOut = qrCodeHandler.calQrcode(contentBytes) ;
+		int imgSize =  67 + 12*(size -1) ;
+		//BufferedImage：内存中的图片 
+		bufImg = new BufferedImage(imgSize,imgSize,BufferedImage.TYPE_INT_RGB );//red green blue     
+		//创建一个画板
+		Graphics2D gs = bufImg.createGraphics() ;
+		gs.setBackground(Color.WHITE);//将画板的背景色设置为白色
+		gs.clearRect( 0,0, imgSize,imgSize); //初始化
+		gs.setColor(Color.BLACK);//设置 画板上 图像的颜色（二维码的颜色）
+		int pixoff = 2 ;
+		for(int j=0;j&lt;codeOut.length;j++) {
+			for(int i=0;i&lt;codeOut.length;i++) {
+				if(codeOut[j][i]) {
+					gs.fillRect(j*3+pixoff , i*3+pixoff, 3, 3);
+				}
+			}
+		}
+		//增加LOGO
+		//将硬盘中的src/logo.png  加载为一个Image对象
+		Image logo =  ImageIO.read(new File(&quot;src/logo.png&quot;)  ) ;
+		int maxHeight = bufImg.getHeight() ;
+		int maxWdith = bufImg.getWidth() ;
+		//在已生成的二维码上 画logo
+		gs.drawImage(logo,imgSize/5*2,imgSize/5*2, maxWdith/5,maxHeight/5 ,null) ;
+		gs.dispose(); //释放空间
+		bufImg.flush(); //清理
+		return bufImg ;
+	}
+	//解密：  二维码(图片路径) -&gt; 文字信息 
+	public String decoderQRCode(String imgPath) throws Exception{
+		//BufferedImage内存中的图片  ：硬盘中的imgPath图片 -&gt;内存BufferedImage
+		BufferedImage bufImg =  ImageIO.read( new File(imgPath) ) ;
+		//解密
+		QRCodeDecoder decoder = new QRCodeDecoder() ;
+		TwoDimensionCodeImage tdcImage = new TwoDimensionCodeImage(bufImg);
+		byte[] bs = decoder.decode(tdcImage) ;	//bufImg
+		//byte[] --&gt;String
+		String content    = new String(bs,&quot;UTF-8&quot;);
+		return content;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.awt.image.BufferedImage;
+import jp.sourceforge.qrcode.data.QRCodeImage;
+public class TwoDimensionCodeImage implements QRCodeImage {  
+    BufferedImage bufImg;  //将图片加载到内存中
+    public TwoDimensionCodeImage(BufferedImage bufImg) {  
+        this.bufImg = bufImg;  
+    }  
+    @Override  
+    public int getHeight() {  
+        return bufImg.getHeight();  
+    }  
+    @Override  
+    public int getPixel(int x, int y) {  
+        return bufImg.getRGB(x, y);  
+    }  
+    @Override  
+    public int getWidth() {  
+        return bufImg.getWidth();  
+    }  
+}  
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class Test {
+	public static void main(String[] args)  throws Exception{
+		//生成二维码
+		/*
+		 * 生成图片的路径        src/二维码.png
+		 * 文字信息、网址信息 ：  &quot;helloworld&quot;
+		 */
+		String imgPath = &quot;src/二维码123.png&quot;; 
+		String content =  &quot;http://www.baidu.com&quot;;  //扫描二维码后，网页跳转
+		//生成二维码
+		/*
+		 * 加密：  文字信息 -&gt;二维码 
+		 * 解密：  二维码 -&gt; 文字信息 
+		 */
+		QRCodeUtil qrUtil = new QRCodeUtil();
+		//加密：  文字信息 -&gt;二维码 
+		qrUtil.encoderQRCode(content, imgPath, &quot;png&quot;, 17);
+//		   TwoDimensionCode handler = new TwoDimensionCode();  
+//		   handler.encoderQRCode(content, imgPath, &quot;png&quot;, 7);
+//		//解密：  二维码 -&gt; 文字信息 
+		String imgContent = qrUtil.decoderQRCode(imgPath) ;
+		System.out.println(imgContent);
+	}
+}
+</code></pre>
+
+<h3 id="zxing">ZXing</h3>
+
+<p>google的</p>
+
+<p>jar</p>
+
+<pre><code>javase-3.1.0.jar
+core-3.1.0.jar
+</code></pre>
+
+<p>工具类</p>
+
+<pre><code class="language-java">import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+public class LogoUtil {
+	//传入logo、二维码 -&gt;带logo的二维码
+	public  static BufferedImage  logoMatrix( BufferedImage matrixImage,String logo ) throws IOException {
+		//在二维码上画logo:产生一个  二维码画板
+		Graphics2D g2 = matrixImage.createGraphics() ;
+		//画logo： String-&gt;BufferedImage(内存)
+		BufferedImage logoImg = ImageIO.read(new File(logo)) ;
+		int height = matrixImage.getHeight() ;
+		int width = matrixImage.getWidth();
+		//纯logo图片
+		g2.drawImage(logoImg  , width*2/5,height* 2/5,    width*1/5,height* 1/5  ,   null) ;
+		//产生一个 画 白色圆角正方形的 画笔
+		BasicStroke stroke = new BasicStroke(5,BasicStroke.CAP_ROUND ,BasicStroke.JOIN_ROUND) ;
+		//将画板-画笔 关联
+		g2.setStroke(stroke);
+		//创建一个正方形
+		RoundRectangle2D.Float round = new RoundRectangle2D.Float(width*2/5,height* 2/5,    width*1/5,height* 1/5 , BasicStroke.CAP_ROUND ,BasicStroke.JOIN_ROUND);
+		g2.setColor(Color.WHITE);
+		g2.draw(round);
+		//灰色边框
+		BasicStroke stroke2 = new BasicStroke(1,BasicStroke.CAP_ROUND ,BasicStroke.JOIN_ROUND) ;
+		g2.setStroke(stroke2);
+		//创建一个正方形
+		RoundRectangle2D.Float round2 = new RoundRectangle2D.Float(width*2/5+2,height* 2/5+2,    width*1/5-4,height* 1/5 -4, BasicStroke.CAP_ROUND ,BasicStroke.JOIN_ROUND);
+//		Color color = new Color(128,128,128) ;
+		g2.setColor(Color.GRAY);
+		g2.draw(round2);
+		g2.dispose();
+		matrixImage.flush();	
+		return matrixImage;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import javax.imageio.ImageIO;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.Binarizer;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.Result;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import jp.sourceforge.qrcode.util.Color;
+public class ZXingUtil {
+	//加密：文字-&gt;二维码（图片）  
+	public static void  encodeImg(String imgPath,String format,String content,int width, int height,String logo) throws WriterException, IOException {//format:gif
+		Hashtable&lt;EncodeHintType,Object &gt; hints = new Hashtable&lt;EncodeHintType,Object&gt;() ;
+		//排错率  L&lt;M&lt;Q&lt;H
+		hints.put( EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H) ;
+		//编码
+		hints.put( EncodeHintType.CHARACTER_SET, &quot;utf-8&quot;) ;
+		//外边距：margin
+		hints.put( EncodeHintType.MARGIN, 1) ;
+		/*
+		 * content : 需要加密的 文字
+		 * BarcodeFormat.QR_CODE:要解析的类型（二维码）
+		 * hints：加密涉及的一些参数：编码、排错率
+		 */
+		BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE , width, height,hints) ;
+		//内存中的一张图片：此时需要的图片 是二维码-&gt; 需要一个boolean[][] -&gt;BitMatrix
+		//BufferedImage img = MatrixToImageWriter.toBufferedImage(bitMatrix) ;
+		BufferedImage img = new BufferedImage(width, height,  BufferedImage.TYPE_INT_RGB); 
+		for(int x=0;x&lt;width;x++) {
+			for(int y=0;y&lt;height;y++) {
+				img.setRGB(x, y,     (bitMatrix.get(x,y)? Color.BLACK:Color.WHITE)  );
+			}
+		}
+		//画logo
+		img = LogoUtil.logoMatrix(img, logo) ;
+		//String -&gt;File
+		File file = new File(imgPath);
+		//生成图片
+		ImageIO.write(img, format,file) ;//format:图片格式
+	}
+//	ZXing 
+	//解密：二维码-&gt;文字
+	public static void decodeImg(File file) throws Exception {
+		if(!file.exists()) return ;
+		//file-&gt;内存中的一张图片
+		 BufferedImage imge = ImageIO.read(file)  ;
+		 MultiFormatReader formatReader = new MultiFormatReader() ;
+		 LuminanceSource source = new BufferedImageLuminanceSource(imge);
+		 Binarizer binarizer = new HybridBinarizer(source);
+		 BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
+		 //图片 -&gt;result
+		 Map map = new HashMap();
+		 map.put(EncodeHintType.CHARACTER_SET, &quot;utf-8&quot;) ;
+		 Result result = formatReader.decode(binaryBitmap  ,map ) ;
+		 System.out.println(&quot;解析结果：&quot;+ result.toString());
+	}
+	public static void main(String[] args) {
+		int i=6,j=8,k=10,m=7; if(i &lt; j | m &gt; ++k) k++;
+		System.out.println(k);
+	}
+}
+</code></pre>
+
+<p>使用</p>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.IOException;
+import com.google.zxing.WriterException;
+public class Test {
+	public static void main(String[] args) throws Exception {
+		String imgPath = &quot;src/颜群.png&quot; ;
+		String content = &quot;hello你好&quot; ;
+		String logo = &quot;src/logo.png&quot; ;
+		//加密：文字-&gt;二维码
+		ZXingUtil.encodeImg(imgPath,&quot;gif&quot;,content,430,430,logo);
+		//解密：二维码-&gt;文字
+		ZXingUtil.decodeImg(new File(imgPath));
+	}
+}
+</code></pre>
+
+<h2 id="socket">Socket</h2>
+
+<p><img src="/resources/技术收录/Java/Socket.png" alt="Socket.png" /></p>
+
+<p>基于TCP的Socket传输</p>
+
+<p>输入输出流发送的都是内存中的东西</p>
+
+<h5 id="服务端-1">服务端</h5>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+public class MyServer {
+	public static void main(String[] args) throws IOException {
+		// 绑定了服务端的端口：ip：为本机的IP
+		// 暴漏了一个服务，该 服务的地址：localhost:9999
+		ServerSocket serverSocket = new ServerSocket(9999);
+		while (true) {
+			Socket accept = serverSocket.accept();
+			System.out.println(&quot;客户端连接成功&quot;);
+			// 服务端向客户端发送消息Output
+			OutputStream out = accept.getOutputStream();
+			String info = &quot;hello&quot;;
+			/*
+			 * out.write(info.getBytes());
+			 */
+			// 发送文件
+			// 准备要发送的文件
+			File file = new File(&quot;D:\\_model2.prt&quot;);
+			// 将文件放入内存中
+			InputStream fileIn = new FileInputStream(file);
+			byte[] FileBytes = new byte[1000];
+			int len = -1;
+			// 发送（因为文件较大，不能一次发送完毕，因此需要通过循环来分次发送）
+			while ((len = fileIn.read(FileBytes)) != -1) {
+				out.write(FileBytes);
+			}
+			System.out.println(&quot;文件发送成功&quot;);
+			// 服务端接收客户端的信息
+			/*
+			 * InputStream in = accept.getInputStream(); byte[] bs = new byte[100];
+			 * in.read(bs); System.out.println(&quot;服务端接收到的消息为：&quot;+new String(bs));
+			 */
+			// in.close();
+			out.close();
+			accept.close();
+			serverSocket.close();
+			fileIn.close();
+		}
+	}
+}
+
+</code></pre>
+
+<h4 id="客户端">客户端</h4>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import com.sun.org.apache.bcel.internal.generic.NEW;
+public class MyClient {
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		//客户端连接server发布的服务
+		Socket socket = new Socket(&quot;127.0.0.1&quot;,9999);
+		//客户端接收消息
+		InputStream in = socket.getInputStream();
+		//接收普通文字
+		//byte[] bs = new byte[100];
+		//in.read(bs);
+		//System.out.println(&quot;客户端接收到的消息为：&quot;+new String(bs));
+		//接收文件
+		OutputStream fileOut = new FileOutputStream(&quot;D:\\aa.prt&quot;);
+		byte[] bs = new byte[1000];
+		int len  =-1;
+		while((len=in.read(bs))!=-1) {
+			fileOut.write(bs,0,len);
+		}
+		System.out.println(&quot;文件接收成功&quot;);
+		//客户端向服务端返回信息
+		/*
+		 * OutputStream out = socket.getOutputStream(); String info = &quot;hello Server&quot;;
+		 * out.write(info.getBytes());
+		 */
+		in.close();
+		//out.close();
+		socket.close();
+		fileOut.close();
+	}
+}
+</code></pre>
+
+<p>优化服务端，多线程</p>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+//处理下载的线程
+public class MyDownload implements Runnable{
+	private Socket socket;
+	public MyDownload() {
+	}
+	public MyDownload(Socket socket) {
+		this.socket = socket;
+	}
+	@Override
+	public void run() {
+		System.out.println(&quot;客户端连接成功&quot;);
+		try {
+		// 服务端向客户端发送消息Output
+		OutputStream out = socket.getOutputStream();
+		// 发送文件
+		// 准备要发送的文件
+		File file = new File(&quot;D:\\_model2.prt&quot;);
+		// 将文件放入内存中
+		InputStream fileIn = new FileInputStream(file);
+		byte[] FileBytes = new byte[1000];
+		int len = -1;
+		// 发送（因为文件较大，不能一次发送完毕，因此需要通过循环来分次发送）
+		while ((len = fileIn.read(FileBytes)) != -1) {
+			out.write(FileBytes);
+		}
+		System.out.println(&quot;文件发送成功&quot;);
+		out.close();
+		socket.close();
+		fileIn.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+public class MyService01 {
+	public static void main(String[] args) throws IOException {
+		ServerSocket serverSocket = new ServerSocket(9999);
+		while(true) {
+			Socket socket = serverSocket.accept();
+			//下载的线程
+			//MyDownload mydownload =new MyDownload(socket);
+			//Runnable--&gt;Thread
+			new Thread(new MyDownload(socket)).start();
+		}
+	}
+}
+</code></pre>
+
+<h2 id="文件的拆分和合并">文件的拆分和合并</h2>
+
+<p>将一个文件7.5M据分成若干个子文件8个文件(7个1M+1个0. 5)</p>
+
+<p>将拆分后的8个文件合并成源文件7.5M</p>
+
+<p>对象&ndash;&gt;硬盘：序列化</p>
+
+<p>硬盘&ndash;》对象：反序列化</p>
+
+<p>拆分的时候：如何将文件名，分割的数量保留，为后续的合并做准备</p>
+
+<p>再生成一个配置文件conf.properties保存上述信息</p>
+
+<h3 id="拆分文件">拆分文件</h3>
+
+<h4 id="简单拆分">简单拆分</h4>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Properties;
+public class SplitFile {
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		// 源文件(待拆分的文件)
+		File resFile = new File(&quot;d:\\data.zip&quot;);
+		// 拆分后的目录
+		File splitDir = new File(&quot;d:\\splitDir&quot;);
+		splitFile(resFile,splitDir);
+	}
+	// 拆分文件
+	public static void splitFile(File resFile, File splitDir) throws IOException {
+		if (!splitDir.exists()) {
+			splitDir.mkdir();
+		}
+		// 思路：拆分：1个输入流，n个输出流(a,b,c)
+		// 合并：n个输入流，1和输出流(注意顺序a,b,c)
+		// 拆分：1个输入流
+		InputStream in = new FileInputStream(resFile);
+		OutputStream out = null;
+		byte[] buf = new byte[1024 * 1024];
+		int len = -1;
+		int count = 1;
+		while ((len = in.read(buf)) != -1) {
+			out = new FileOutputStream(new File(splitDir, count++ + &quot;.part&quot;));
+			out.write(buf, 0, len);
+			// out.flush();//专门的清理缓冲区
+			out.close();// 关闭流、关闭之前会清理缓冲区
+		}
+		// 拆分的时候：如何将文件名，分割的数量保留，为后续的合并做准备
+		// 再生成一个配置文件conf.properties保存上述信息
+		/*
+		 * //方式一 out = new FileOutputStream(new File(splitDir,&quot;conf.properties&quot;));
+		 * //查询当前操作系统的换行符 String property = System.getProperty(&quot;line.separator&quot;);
+		 * out.write((&quot;filename=&quot;+resFile.getName()).getBytes());
+		 * out.write(property.getBytes());
+		 * 
+		 * out.write((&quot;partcount=&quot;+(count-1)).getBytes()); out.close();
+		 */
+		// 方式二Properties，将内存中的多个属性以key=value的形式写到硬盘中
+		out = new FileOutputStream(new File(splitDir, &quot;conf.properties&quot;));
+		Properties prop = new Properties();
+		prop.setProperty(&quot;filename&quot;, resFile.getName());
+		prop.setProperty(&quot;partcount&quot;, (count - 1) + &quot;&quot;);
+		// 写入磁盘（保存：持久化）
+		prop.store(out, &quot;file configuration...&quot;);
+		out.close();
+		in.close();
+	}
+}
+</code></pre>
+
+<h4 id="限制使用次数的拆分文件">限制使用次数的拆分文件</h4>
+
+<h3 id="合并文件">合并文件</h3>
+
+<h4 id="简单合并">简单合并</h4>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.SequenceInputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+public class MergeFile {
+	public static void main(String[] args) throws IOException {
+		//文件合并方法一
+//		//读取多个拆分后的文件（inouts:所有输入流的集合）
+//		List&lt;FileInputStream&gt; inputs = new ArrayList&lt;&gt;();
+//		for(int i =1;i&lt;=8;i++) {
+//			inputs.add(new FileInputStream(&quot;D:\\splitDir\\&quot;+i+&quot;.part&quot;));
+//			
+//		}
+//		//指定合并后的文件输出流
+//		OutputStream out = new FileOutputStream(&quot;d:\\asd.zip&quot;);
+//		//将多个输入流一次读入内存，最后再一次性输出到asd.zip中
+//		byte[] buf = new byte[1024*1024];
+//		for(FileInputStream in:inputs) {
+//			int len = in.read(buf);
+//			out.write(buf,0,len);
+//		}
+//		out.close();
+//		for(FileInputStream in:inputs) {
+//			in.close();
+//		}
+//		
+		//文件合并方法二
+		File splitDir = new File(&quot;D:\\splitDir&quot;);
+		mergeFile(splitDir);
+
+	}
+	public static void mergeFile(File splitDir) throws IOException {
+		List&lt;FileInputStream&gt; inputs = new ArrayList&lt;&gt;();
+		for(int i =1;i&lt;=8;i++) {
+			inputs.add(new FileInputStream(&quot;D:\\splitDir\\&quot;+i+&quot;.part&quot;));
+		}
+		Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(inputs);
+		//多个流--》1个流
+		SequenceInputStream sin = new SequenceInputStream(en);
+		//指定合并后的文件输出流
+		OutputStream out = new FileOutputStream(&quot;d:\\asd.zip&quot;);
+		//将多个输入流一次读入内存，最后再一次性输出到asd.zip中
+		byte[] buf = new byte[1024*1024];
+		int len = -1;
+		while((len=sin.read(buf))!=-1) {
+			out.write(buf,0,len);
+		}
+		out.close();
+		sin.close();
+	}
+	public static Properties getProperties() throws FileNotFoundException, IOException {
+		//找到配置文件的位置
+		String configFileName = &quot;D:\\splitDir\\conf.properties&quot;;
+		Properties properties= new Properties();
+		properties.load(new FileInputStream(configFileName));
+		return properties;
+	}
+}
+</code></pre>
+
+<h4 id="多线程合并文件">多线程合并文件</h4>
+
+<pre><code class="language-java">import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+public class ConfigReader {
+	public static void main(String[] args) throws IOException {
+		File configFile = new File(&quot;d:\\splitDir\\9.config&quot;);
+		readConfig(configFile);
+	}
+	public static void readConfig(File configFile) throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(configFile));
+		String line = null;
+		while((line=bufferedReader.readLine())!=null) {
+			String[] arr  = line.split(&quot;=&quot;);
+			if(line.startsWith(&quot;filename&quot;)) {
+			}else if(line.startsWith(&quot;partcount&quot;)) {
+			}else {
+				System.out.println(&quot;暂未处理&quot;);
+			}
+		}
+		bufferedReader.close();
+	}
+}
+
+</code></pre>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.SequenceInputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+public class MergeFile {
+	public static void main(String[] args) throws IOException {
+		//文件合并方法一
+//		//读取多个拆分后的文件（inouts:所有输入流的集合）
+//		List&lt;FileInputStream&gt; inputs = new ArrayList&lt;&gt;();
+//		for(int i =1;i&lt;=8;i++) {
+//			inputs.add(new FileInputStream(&quot;D:\\splitDir\\&quot;+i+&quot;.part&quot;));
+//		}
+//		//指定合并后的文件输出流
+//		OutputStream out = new FileOutputStream(&quot;d:\\asd.zip&quot;);
+//		//将多个输入流一次读入内存，最后再一次性输出到asd.zip中
+//		byte[] buf = new byte[1024*1024];
+//		for(FileInputStream in:inputs) {
+//			int len = in.read(buf);
+//			out.write(buf,0,len);
+//		}
+//		out.close();
+//		for(FileInputStream in:inputs) {
+//			in.close();
+//		}
+		//文件合并方法二
+		File splitDir = new File(&quot;D:\\splitDir&quot;);
+		mergeFile1(splitDir);
+	}
+	public static Properties getProperties() throws FileNotFoundException, IOException {
+		//找到配置文件的位置
+		String configFileName = &quot;D:\\splitDir\\conf.properties&quot;;
+		Properties properties= new Properties();
+		properties.load(new FileInputStream(configFileName));
+		return properties;
+	}
+	public static void mergeFile1(File splitDir) throws FileNotFoundException, IOException {
+		//合并之前先读取配置文件的信息
+		Properties prop = getProperties();
+		String fileName = prop.getProperty(&quot;filename&quot;);
+		int partCount = Integer.parseInt(prop.getProperty(&quot;partcount&quot;));
+		List&lt;FileInputStream&gt; inputs = new ArrayList&lt;&gt;();
+		for(int i =1;i&lt;=partCount;i++) {
+			inputs.add(new FileInputStream(&quot;D:\\splitDir\\&quot;+i+&quot;.part&quot;));
+		}
+		Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(inputs);
+		//多个流--》1个流
+		SequenceInputStream sin = new SequenceInputStream(en);
+		//指定合并后的文件输出流
+		OutputStream out = new FileOutputStream(&quot;d:\\aa\\&quot;+fileName);
+		//将多个输入流一次读入内存，最后再一次性输出到asd.zip中
+		byte[] buf = new byte[1024*1024];
+		int len = -1;
+		while((len=sin.read(buf))!=-1) {
+			out.write(buf,0,len);
+		}
+		out.close();
+		sin.close();
+	}
+}
+</code></pre>
+
+<h2 id="序列化反序列化">序列化反序列化</h2>
+
+<p><img src="/resources/技术收录/Java/序列化反序列化.png" alt="序列化反序列化.png" /></p>
+
+<pre><code class="language-java">import java.io.Serializable;
+public class Person implements Serializable{
+	/**
+	 * 指定该类的SUID
+	 */
+	private static final long serialVersionUID = 12L;
+	private String name;
+	private int age;
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	public Person() {
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+public class Test {
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		//序列化
+		objectOut();
+		//反序列化
+		objectIn();
+	}
+	public static void objectOut() throws FileNotFoundException, IOException {
+		Person per = new Person(&quot;zs&quot;,24);
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;d:\\per.obj&quot;));
+		oos.writeObject(per);
+		oos.close();
+	}
+	public static void objectIn() throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(&quot;d:\\per.obj&quot;));
+		Object readObject = ois.readObject();
+		Person per = (Person)readObject;
+		System.out.println(per.getName()+&quot;====&quot;+per.getAge());
+	}
+}
+</code></pre>
+
+<h4 id="说明">说明</h4>
+
+<p>序列化和反序列化都依赖对象所在的类：类不能改变</p>
+
+<p>再序列化和反序列化时JVM给Person对象计算一个SUID，计算时类是计算的一个因子，当类改变时SUID也随之改变，反序列化时，二者的SUID不一致，因此报错，可以指定该类的SUID</p>
+
+<pre><code>private static final long serialVersionUID = 12L;
+</code></pre>
+
+<p>序列化运行时使用一个称为serialVersionUID 的版本号与每个可序列化类相关联，该序列号在反序列化过程中用于验证列化对象的发送者和接收者是否为该对象加载了与序列化兼容的类。如果接收者加载的该对象的类的seri alVersi onUID与对应的发送者的类的版本号不同，则反序列化将会导致InvalidClassException.可序列化类可以通过声明为&rdquo;serialVersionUID&rdquo; 的字段(该字段必须是静态(static)、 最终(final) 的long 型字段)显式声明其自己的seria1VersionUID:</p>
+
+<pre><code>ANT-ACESS-MODIFIER static final long serialVersionUID = 42L:
+</code></pre>
+
+<p>如果可序列化类未显式声明serialVersionUID, 则序列化运行时将基于该类的各个方面年算该类的默认serlalVersi1onU1D值，如ava(TD对象序列化规范”中所述。不过。强列建论所有可序列化类都显式声明serialVersinIITD 值，原因是计算默认的seria1Versi onUID对类的详细信息具有较高的敏感性，根据编译器实现的不同可能千差万别，这样在反序列化过程中可能会导致意外的InvalidClassException. 因此，为保证serlalVerstonUID值跨不同Java编译器实现的致性，序列化类必须声明一个 明确的serlalVerstonUID值。还强烈建议使用private修饰符显示声明seria1VersionUID (如果可能)，原因是这种声明仅应用于直接声明类&ndash; serialVersi onUID字段作为继承成员没有用处。数组类不能声明一个明确的serialVersionUID, 因此它们总是具有默认的计算值，但是数组类没有匹配serialVersionUID 值的要求。</p>
+
+<p><strong>因此建议写死</strong></p>
+
+<p>序列化和反序列化的顺序要严格一致</p>
+
+<ul>
+<li>序列化时a,b,c</li>
+<li>反序列化时a,b,c</li>
+</ul>
+
+<p>多个对象时，可以将对象挨个序列化，也可以将所有的对象放到一个List集合中</p>
+
+<p>序列化基本类型变量就使用write方法，对象类型就使用writeObject方法</p>
+
+<p>原因是</p>
+
+<pre><code>//ObjectOutputStream继承了OutputStream
+public class ObjectOutputStream
+    extends OutputStream implements ObjectOutput, ObjectStreamConstants
+{
+</code></pre>
+
+<h2 id="xml解析">XML解析</h2>
+
+<p>dogs.xml</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;dogs&gt;
+	&lt;dog id =&quot;1&quot;&gt;
+		&lt;name&gt;YAYA&lt;/name&gt;
+		&lt;score&gt;100&lt;/score&gt;
+		&lt;level&gt;10&lt;/level&gt;
+	&lt;/dog&gt;
+	&lt;dog id =&quot;2&quot;&gt;
+		&lt;name&gt;HAHA&lt;/name&gt;
+		&lt;score&gt;10&lt;/score&gt;
+		&lt;level&gt;1&lt;/level&gt;
+	&lt;/dog&gt;
+	&lt;dog id =&quot;3&quot;&gt;
+		&lt;name&gt;LALA&lt;/name&gt;
+		&lt;score&gt;200&lt;/score&gt;
+		&lt;level&gt;20&lt;/level&gt;
+	&lt;/dog&gt;
+&lt;/dogs&gt;
+
+</code></pre>
+
+<pre><code class="language-java">public class Dog {
+	private int id;
+	private String name;
+	private double score;
+	private int level;
+	public Dog(int id, String name, double score, int level) {
+		this.id = id;
+		this.name = name;
+		this.score = score;
+		this.level = level;
+	}
+	public Dog() {
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getScore() {
+		return score;
+	}
+	public void setScore(double score) {
+		this.score = score;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	@Override
+	public String toString() {
+		return &quot;Dog [id=&quot; + id + &quot;, name=&quot; + name + &quot;, score=&quot; + score + &quot;, level=&quot; + level + &quot;]&quot;;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+public class XMLParsrUtil {
+	// 输入一个xml文件的路径(//dogs.xml)，输出一个List&lt;Dog&gt;
+	public static List&lt;Dog&gt; parseXmlToList(String fileName)
+			throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
+		List&lt;Dog&gt; dogs = new ArrayList&lt;&gt;();
+		// DOM方式解析：入口
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();// 产生一个DOM工厂实例
+		// 产品
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		// 准备输出流，为parse()做准备
+		// 解析为一个可以使用java来处理的document对象
+		Document document = builder.parse(new FileInputStream(fileName));
+		Element element = document.getDocumentElement();// 获取所有文档的节点
+		// nodeList存储了3个&lt;dog&gt;
+		NodeList nodeList = element.getElementsByTagName(&quot;dog&quot;);// 获取dog节点
+		// 遍历nodeList，3个&lt;dog&gt;
+		for (int i = 0; i &lt; nodeList.getLength(); i++) {
+			Dog dog = new Dog();
+			// Node node = nodeList.item(i);//list.get(i)
+			// 获取dog的id属性
+			// node.getAttributes()[0]//node中只有getAttributes获取所有的属性而我们只有一个属性id
+			// 可以使用他的子接口
+			// 获取节点属性
+			Element dogElement = (Element) nodeList.item(i);// list.get(i)
+			int id = Integer.parseInt(dogElement.getAttribute(&quot;id&quot;));
+			dog.setId(id);
+			// 获取dog的子节点&lt;name&gt;&lt;score&gt;
+			NodeList childNodes = dogElement.getChildNodes();
+			// 遍历每一个子节点
+			for (int j = 0; j &lt; childNodes.getLength(); j++) {
+				// 每一个子节点&lt;name&gt;&lt;level&gt;&lt;score&gt;包括文字、空格
+				Node dogChild = childNodes.item(j);
+				// 排除空格，只拿&lt;xxx&gt;形式的子节点,即Node.ELEMENT_NODE形式的
+				if (dogChild.getNodeType() == Node.ELEMENT_NODE) {
+					// 判断节点名
+					if (dogChild.getNodeName().equals(&quot;name&quot;)) {// &lt;name&gt;
+						String name = dogChild.getFirstChild().getNodeValue();
+						dog.setName(name);
+					} else if (dogChild.getNodeName().equals(&quot;score&quot;)) {
+						double score = Double.parseDouble(dogChild.getFirstChild().getNodeValue());
+						dog.setScore(score);
+					} else if (dogChild.getNodeName().equals(&quot;level&quot;)) {
+						int level = Integer.parseInt(dogChild.getFirstChild().getNodeValue());
+						dog.setLevel(level);
+					}
+				}
+			}
+			dogs.add(dog);
+		}
+		return dogs;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
+//XML解析
+public class Sample {
+	public static void main(String[] args) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+		List&lt;Dog&gt; dogs = XMLParsrUtil.parseXmlToList(&quot;src/com/mumulx/dogs.xml&quot;);
+		System.out.println(dogs);
+	}
+}
+</code></pre>
+
+<h2 id="json">Json</h2>
+
+<p><a href="https://www.json.org/json-en.html">jspn官网</a></p>
+
+<p><a href="https://github.com/stleary/JSON-java">git下载java</a></p>
+
+<p>引入json</p>
+
+<p>方法一：打成jar包</p>
+
+<p>新建java项目&ndash;&gt;新建包org.json将下载的zip包中的文件复制到org.json中</p>
+
+<p>右键项目导出，java:jar文件，将源码一起打包</p>
+
+<p>方式二：直接使用</p>
+
+<h3 id="map变json">map变Json</h3>
+
+<pre><code class="language-java">//1.Map集合、JavaBean、字符串--》JSon对象
+	//a.Map集合JSon对象
+	public static void mapAndJaon() {
+		Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
+		map.put(&quot;s01&quot;, &quot;zs1&quot;);
+		map.put(&quot;s02&quot;, &quot;zs2&quot;);
+		map.put(&quot;s03&quot;, &quot;zs3&quot;);
+		map.put(&quot;s04&quot;, &quot;zs4&quot;);
+		//map--&gt;json
+		JSONObject json = new JSONObject(map);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h3 id="javabean变json">JavaBean变JSon</h3>
+
+<pre><code class="language-java">public class Person {
+	private int age;
+	private String name;
+	private Address address;
+	public Person() {
+	}
+	public Person(int age, String name, Address address) {
+		this.age = age;
+		this.name = name;
+		this.address = address;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">public class Address {
+	private String homeAddress;
+	private String schoolAddress;
+	public Address() {
+	}
+	public Address(String homeAddress, String schoolAddress) {
+		this.homeAddress = homeAddress;
+		this.schoolAddress = schoolAddress;
+	}
+	public String getHomeAddress() {
+		return homeAddress;
+	}
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+	public String getSchoolAddress() {
+		return schoolAddress;
+	}
+	public void setSchoolAddress(String schoolAddress) {
+		this.schoolAddress = schoolAddress;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">	//JavaBean(普通java对象)--&gt;JSon
+	public static void javaBeanAndJSon() {
+		Address address = new  Address(&quot;js&quot;,&quot;xz&quot;);
+		Person per = new Person(18,&quot;zs&quot;,address);
+		//JavaBean--&gt;JSon
+		JSONObject json = new JSONObject(per);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h3 id="string变json">String变JSon</h3>
+
+<pre><code class="language-java">	//String--&gt;JSon
+	public static void stringAndJSon() {
+		//字符串的形式必须是json的形式
+		String str = &quot;{\&quot;name\&quot;:\&quot;zs\&quot;,\&quot;age\&quot;:23}&quot;;
+		JSONObject json = new JSONObject(str);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h3 id="json文件变json">JSon文件变JSon</h3>
+
+<p>per.json</p>
+
+<pre><code class="language-json">{
+&quot;name&quot;:&quot;zs&quot;,
+&quot;age&quot;:23,
+&quot;address&quot;:{&quot;hAddress&quot;:&quot;js&quot;,&quot;sAddress&quot;:&quot;xz&quot;}
+}
+</code></pre>
+
+<h4 id="方式一">方式一</h4>
+
+<pre><code class="language-java">//文件--&gt;JSon
+	//方式一
+	//per.json--&gt;JSON
+	//思路：将文件变成字符串，再将字符串变成JSon
+	public void fileAndJSon01() throws IOException {//static方法只能调用static函数
+		//将文件变成String
+		//相对路径文件流
+		InputStream in = super.getClass().getClassLoader().getResourceAsStream(&quot;com/mumulx/per.json&quot;);
+		byte[] bs = new byte[1024];
+		int len = -1;
+		StringBuffer sb = new StringBuffer();
+		while((len=in.read(bs))!=-1) {
+			//byte[]--&gt;String
+			String str = new String(bs,0,len);
+			sb.append(str);
+		}
+		String rs = sb.toString();
+		JSONObject json = new JSONObject(rs);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h4 id="方式二">方式二</h4>
+
+<p>需要引入commons-io.jar</p>
+
+<pre><code class="language-java">//方式二
+	public void fileAndJSon02() throws IOException {//static方法只能调用static函数
+		//文件--&gt;字符串  需要引入commons-io.jar
+		String rs = FileUtils.readFileToString(new File(&quot;src/com/mumulx/per.json&quot;));
+		JSONObject json = new JSONObject(rs);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h3 id="生成json文件">生成JSon文件</h3>
+
+<pre><code class="language-java">	//生成JSon文件
+	public static void createJSonFile() throws JSONException, IOException {
+		//准备JSon数据
+		Map&lt;String,Person&gt; map = new HashMap&lt;&gt;();
+		Person per1 = new Person(11,&quot;zs1&quot;,new Address(&quot;js1&quot;,&quot;yc1&quot;));
+		Person per2 = new Person(12,&quot;zs2&quot;,new Address(&quot;js2&quot;,&quot;yc2&quot;));
+		Person per3 = new Person(13,&quot;zs3&quot;,new Address(&quot;js3&quot;,&quot;yc3&quot;));
+		map.put(&quot;per1&quot;, per1);
+		map.put(&quot;per2&quot;, per2);
+		map.put(&quot;per3&quot;, per3);
+		//map--&gt;JSon
+		JSONObject json = new JSONObject(map);
+		//生成json文件
+		Writer writer = new FileWriter(&quot;d:\\aa.obj&quot;);
+		json.write(writer);
+		writer.close();
+	}
+</code></pre>
+
+<h3 id="jsonarray">JSonArray</h3>
+
+<pre><code class="language-java">//JSonArray
+	//[{&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:23},{&quot;classname&quot;:&quot;aa&quot;,&quot;classno&quot;:1},{&quot;schoolname&quot;:&quot;bb&quot;,&quot;schooladdr&quot;:&quot;sdfsdf&quot;}]
+	public static void jsonArray() {
+		String jsonArrayStr = &quot;[{\&quot;name\&quot;:\&quot;zs\&quot;,\&quot;age\&quot;:23},{\&quot;classname\&quot;:\&quot;aa\&quot;,\&quot;classno\&quot;:1},{\&quot;schoolname\&quot;:\&quot;bb\&quot;,\&quot;schooladdr\&quot;:\&quot;sdfsdf\&quot;}]&quot;;
+		//String格式的json数组--&gt;json数组
+		JSONArray jArray = new JSONArray(jsonArrayStr);
+		System.out.println(jArray);
+	}
+</code></pre>
+
+<h3 id="map转换为json数组">Map转换为JSon数组</h3>
+
+<p>添加jar包</p>
+
+<pre><code>commons-beantils-1.8.0.jar
+commons-collections-3.2.1jar
+commons-lang-2.5.jar
+commons-logging-1.1.1jar
+ezmorph-1.0.6.jar
+json-lib-2.4-jdk15.jar
+</code></pre>
+
+<pre><code class="language-java">//对于json的类型转换通常需要引入另外一个json库
+	public static void mapAndJSONArray() {
+		Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
+		map.put(&quot;s01&quot;, &quot;zs1&quot;);
+		map.put(&quot;s02&quot;, &quot;zs2&quot;);
+		map.put(&quot;s03&quot;, &quot;zs3&quot;);
+		map.put(&quot;s04&quot;, &quot;zs4&quot;);
+		//冲突: JSONArray既存在于json.jar又 存在于json-lib库
+		net.sf.json.JSONArray jArray = new net.sf.json.JSONArray();
+		//map-&gt;json
+		jArray=jArray.fromObject(map);
+		System.out.println(jArray);
+	}
+</code></pre>
+
+<p>新增的jar包功能更加强大，常用</p>
+
+<pre><code class="language-java">	//String--&gt;JSon
+	public static void stringAndJSon01() {
+		//字符串的形式必须是json的形式
+		String str = &quot;{\&quot;name\&quot;:\&quot;zs\&quot;,\&quot;age\&quot;:23}&quot;;
+		//JSONObject json = new JSONObject(str);
+		net.sf.json.JSONObject json = new net.sf.json.JSONObject();
+		
+		json=json.fromObject(str);
+		System.out.println(json);
+
+	}
+</code></pre>
+
+<pre><code class="language-java">	//JavaBean(普通java对象)--&gt;JSon
+	public static void javaBeanAndJSon01() {
+		Address address = new  Address(&quot;js&quot;,&quot;xz&quot;);
+		Person per = new Person(18,&quot;zs&quot;,address);
+		//JavaBean--&gt;JSon
+		net.sf.json.JSONObject json = new net.sf.json.JSONObject();
+		json = json.fromObject(per);
+		System.out.println(json);
+	}
+</code></pre>
+
+<h3 id="jsonarray-map">JSONArray&ndash;&gt;map</h3>
+
+<pre><code class="language-java">//JSonArray--&gt;map
+	public static void jsonArrayToMap() {
+		//JSONArray--》每获得一个json--&gt;key:value--&gt;map
+		//准备数据
+		String jsonArrayStr = &quot;[{\&quot;name\&quot;:\&quot;zs\&quot;,\&quot;age\&quot;:23},{\&quot;classname\&quot;:\&quot;aa\&quot;,\&quot;classno\&quot;:1},{\&quot;schoolname\&quot;:\&quot;bb\&quot;,\&quot;schooladdr\&quot;:\&quot;sdfsdf\&quot;}]&quot;;
+		//string--&gt;jsonArray
+		net.sf.json.JSONArray jArray = new net.sf.json.JSONArray();
+		jArray=jArray.fromObject(jsonArrayStr);
+		//JSONArray--》获取每一个JSOn
+		Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+		for(int i = 0;i&lt;jArray.size();i++) {
+			Object object = jArray.get(i);
+			net.sf.json.JSONObject json = (net.sf.json.JSONObject)object;
+			//获取每一个json的key/value--&gt;map
+			Set&lt;String&gt; keys = json.keySet();//每个json的所有key
+			for(String key:keys) {
+				Object value=json.getString(key);
+				map.put(key, value);
+			}
+		}
+		System.out.println(map);
+	}
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/" title="Java常见应用" target="_blank" rel="external">https://mumulx.github.io/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/" title="虚拟机搭建easymock"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/"
+                    title="MybatisPlus和Mapper框架"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
