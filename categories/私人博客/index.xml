@@ -20,21 +20,21 @@
     </item>
     
     <item>
+      <title>Java并发编程原理篇</title>
+      <link>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</link>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</guid>
+      <description>原理篇 指令级并行原理 1. 名词 Clock Cycle Time 主频的概念大家接触的比较多，而 CPU 的 Clock Cycle Time（时钟周期时间），等于主频的倒数，意思是 CPU 能 够识别的最小时间单</description>
+    </item>
+    
+    <item>
       <title>Java并发编程应用篇</title>
       <link>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</guid>
       <description>应用篇 效率 1.使用多线程充分利用 CPU 1)环境搭建 基准测试工具选择，使用了比较靠谱的 JMH，它会执行程序预热，执行多次测试并平均 cpu 核数限制，有两</description>
-    </item>
-    
-    <item>
-      <title>Java并发编程模式篇</title>
-      <link>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</link>
-      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</guid>
-      <description>模式篇 指令级并行原理 1. 名词 Clock Cycle Time 主频的概念大家接触的比较多，而 CPU 的 Clock Cycle Time（时钟周期时间），等于主频的倒数，意思是 CPU 能 够识别的最小时间单</description>
     </item>
     
     <item>

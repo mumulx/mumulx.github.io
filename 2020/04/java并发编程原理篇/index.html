@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Java并发编程模式篇 - 木木的个人博客
+        Java并发编程原理篇 - 木木的个人博客
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,23 +23,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="Java并发编程模式篇" />
+  <meta name="description" content="Java并发编程原理篇" />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>Java并发编程模式篇 - 木木的个人博客</title>
+  <title>Java并发编程原理篇 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="Java并发编程模式篇" />
-<meta property="og:description" content="Java并发编程模式篇" />
+  <meta property="og:title" content="Java并发编程原理篇" />
+<meta property="og:description" content="Java并发编程原理篇" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" />
 <meta property="article:published_time" content="2020-04-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-04-25T00:00:00+00:00" />
 
-<meta itemprop="name" content="Java并发编程模式篇">
-<meta itemprop="description" content="Java并发编程模式篇">
+<meta itemprop="name" content="Java并发编程原理篇">
+<meta itemprop="description" content="Java并发编程原理篇">
 
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
@@ -50,8 +50,8 @@
 
 <meta itemprop="keywords" content="Java,Java并发编程," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Java并发编程模式篇"/>
-<meta name="twitter:description" content="Java并发编程模式篇"/>
+<meta name="twitter:title" content="Java并发编程原理篇"/>
+<meta name="twitter:description" content="Java并发编程原理篇"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -252,7 +252,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程原理篇</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
@@ -262,7 +262,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
@@ -303,7 +303,7 @@
         <h3 class="toc-title">文章目录</h3>
         <div class="toc-content always-active"><nav id="TableOfContents">
 <ul>
-<li><a href="#模式篇">模式篇</a>
+<li><a href="#原理篇">原理篇</a>
 <ul>
 <li><a href="#指令级并行原理">指令级并行原理</a>
 <ul>
@@ -440,7 +440,7 @@
   <a
     class="article-title"
     href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/"
-    >Java并发编程模式篇</a
+    >Java并发编程原理篇</a
   >
 </h1>
 
@@ -469,7 +469,7 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h1 id="模式篇">模式篇</h1>
+<h1 id="原理篇">原理篇</h1>
 
 <h2 id="指令级并行原理">指令级并行原理</h2>
 
@@ -5298,7 +5298,7 @@ class MyQueue&lt;E&gt; implements Queue&lt;E&gt; {
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" title="Java并发编程模式篇" target="_blank" rel="external">https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</a>
+      <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" title="Java并发编程原理篇" target="_blank" rel="external">https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -5330,13 +5330,13 @@ class MyQueue&lt;E&gt; implements Queue&lt;E&gt; {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/" title="Java并发编程模式篇"><i
+                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" title="Java并发编程应用篇"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
             <li class="next">
-                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/"
-                    title="Java并发编程应用篇"><span>上一篇&nbsp;&nbsp;</span><i
+                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+                    title="Java并发编程"><span>上一篇&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
