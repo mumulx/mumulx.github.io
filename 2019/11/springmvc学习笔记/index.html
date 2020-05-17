@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="14638">
+<meta itemprop="wordCount" content="14005">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">22</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,11 +180,11 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">5</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
@@ -242,6 +242,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
                     </p>
                     <p class="item-date">
@@ -279,16 +289,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/03/nginx%E7%AC%94%E8%AE%B0/" class="title">Nginx进阶学习笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-07</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -303,26 +303,24 @@
         <h3 class="toc-title">文章目录</h3>
         <div class="toc-content always-active"><nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#springmvc">SpringMVC</a>
 <ul>
-<li>
-<ul>
-<li><a href="#简介">简介</a>
-<ul>
-<li><a href="#jar">jar</a></li>
-</ul></li>
+<li><a href="#简介">简介</a></li>
 <li><a href="#第一个springmvc程序">第一个SpringMVC程序</a>
 <ul>
+<li><a href="#jar">jar</a></li>
 <li><a href="#springmvc配置文件-springmvc-xml">springmvc配置文件 springmvc.xml</a></li>
 </ul></li>
-<li><a href="#requestmapping">@RequestMapping</a>
+<li><a href="#requestmapping">@RequestMapping</a></li>
+<li><a href="#ant风格的请求路径">ant风格的请求路径</a>
 <ul>
-<li><a href="#method">method</a></li>
-<li><a href="#params">params</a></li>
-<li><a href="#headers">headers</a></li>
-<li><a href="#ant风格的请求路径">ant风格的请求路径</a></li>
 <li><a href="#pathvariable">@PathVariable</a></li>
-<li><a href="#rest风格-软件编程风格">REST风格 ：软件编程风格</a></li>
+</ul></li>
+<li><a href="#rest风格-软件编程风格">REST风格 ：软件编程风格</a>
+<ul>
+<li>
+<ul>
+<li><a href="#delete与put">delete与put</a></li>
 <li><a href="#springmvc实现-put-post请求方式的步骤">springmvc实现 ：put|post请求方式的步骤</a></li>
 <li><a href="#delete">delete</a></li>
 <li><a href="#put">put</a></li>
@@ -331,21 +329,27 @@
 <li><a href="#处理delete-put的源码分析">处理delete|put的源码分析</a></li>
 <li><a href="#普通传值">普通传值</a></li>
 <li><a href="#获取请求头信息-requestheader">获取请求头信息 @RequestHeader</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#通过mvc获取cookie值-jsessionid">通过mvc获取cookie值（JSESSIONID）</a></li>
 <li><a href="#使用对象-实体类student-接受请求参数">使用对象（实体类Student）接受请求参数</a></li>
 <li><a href="#initbinder注解">@InitBinder注解</a></li>
 <li><a href="#在springmvc中使用原生态的servlet-api">在SpringMVC中使用原生态的Servlet API</a></li>
-</ul></li>
 <li><a href="#处理模型数据">处理模型数据</a>
+<ul>
+<li>
 <ul>
 <li><a href="#modelandview">ModelAndView</a></li>
 <li><a href="#modelmap">ModelMap</a></li>
 <li><a href="#map">Map</a></li>
 <li><a href="#model">Model</a></li>
 <li><a href="#如何将上述数据放入session中">如何将上述数据放入session中</a></li>
-<li><a href="#modelattribute">@ModelAttribute</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#modelattribute">@ModelAttribute</a></li>
 <li><a href="#视图-视图解析器">视图、视图解析器</a>
+<ul>
+<li>
 <ul>
 <li><a href="#具体实现国际化步骤">具体实现国际化步骤：</a></li>
 </ul></li>
@@ -353,40 +357,28 @@
 <ul>
 <li><a href="#mvc-view-controller"><code>&lt;mvc:view-controller ...&gt;</code></a></li>
 </ul></li>
+</ul></li>
 <li><a href="#指定请求方式">指定请求方式</a></li>
 <li><a href="#处理静态资源">处理静态资源：</a></li>
 <li><a href="#类型转换">类型转换</a>
 <ul>
+<li>
+<ul>
 <li><a href="#spring自带一些-常见的类型转换器">Spring自带一些 常见的类型转换器</a></li>
 <li><a href="#可以自定义类型转换器">可以自定义类型转换器</a></li>
-<li><a href="#数据格式化">数据格式化</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#数据格式化">数据格式化</a>
+<ul>
 <li><a href="#错误消息">错误消息：</a></li>
+</ul></li>
 <li><a href="#数据校验">数据校验</a>
+<ul>
+<li>
 <ul>
 <li><a href="#jar-1">jar</a></li>
 <li><a href="#配置springmvc-xml">配置springMVC.xml</a></li>
 <li><a href="#直接使用注解">直接使用注解</a></li>
-</ul></li>
-<li><a href="#ajax请求springmvc-并且返回json格式的数据">Ajax请求SpringMVC，并且返回JSON格式的数据</a></li>
-<li><a href="#springmvc实现文件上传">SpringMVC实现文件上传</a></li>
-<li><a href="#拦截器">拦截器</a></li>
-<li><a href="#异常处理">异常处理</a>
-<ul>
-<li><a href="#exceptionhandlerexceptionresolver">ExceptionHandlerExceptionResolver</a></li>
-<li><a href="#responsestatusexceptionresolver">ResponseStatusExceptionResolver</a></li>
-<li><a href="#defaulthandlerexceptionresolver">DefaultHandlerExceptionResolver</a></li>
-<li><a href="#simplemappingexceptionresolver">SimpleMappingExceptionResolver</a></li>
-</ul></li>
-<li><a href="#表单标签">表单标签:</a>
-<ul>
-<li><a href="#idea开发springmvc">IDEA开发springmvc</a></li>
-<li><a href="#引入标签库">引入标签库</a></li>
-<li><a href="#使用">使用：</a></li>
-<li><a href="#各种表单的提交方式">各种表单的提交方式</a></li>
-<li><a href="#checkbox">checkbox</a></li>
-<li><a href="#单选按钮">单选按钮</a></li>
-<li><a href="#select">select</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -426,8 +418,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14638字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:30分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14005字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:28分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -435,7 +427,9 @@
 
 <p><a href="https://github.com/mumulx/Project-source-code/tree/master/springMVC/SpringMVCProject">git源码</a></p>
 
-<h3 id="简介">简介</h3>
+<h1 id="springmvc">SpringMVC</h1>
+
+<h2 id="简介">简介</h2>
 
 <p>Servlet发展史</p>
 
@@ -443,7 +437,9 @@
 
 <p>springmvc:</p>
 
-<h4 id="jar">jar</h4>
+<h2 id="第一个springmvc程序">第一个SpringMVC程序</h2>
+
+<h3 id="jar">jar</h3>
 
 <pre><code>spring-aop.jar
 spring-bean.jar
@@ -456,19 +452,17 @@ commons-logging.jar
 
 <p>报错NoClassDefFoundError：缺少jar</p>
 
-<h3 id="第一个springmvc程序">第一个SpringMVC程序</h3>
-
 <pre><code>Servet - Springmvc
 jsp -&gt;Servlet (Springmvc)-&gt;Jsp
 </code></pre>
 
 <p>url</p>
 
-<h4 id="springmvc配置文件-springmvc-xml">springmvc配置文件 springmvc.xml</h4>
+<h3 id="springmvc配置文件-springmvc-xml">springmvc配置文件 springmvc.xml</h3>
 
 <p>选中常用的命名空间：beans  aop context  mvc</p>
 
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
     xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
@@ -504,7 +498,7 @@ jsp -&gt;Servlet (Springmvc)-&gt;Jsp
 
 <p>通过以下配置，拦截所有请求，交给SpringMVC处理：web.xml</p>
 
-<pre><code>&lt;servlet&gt;
+<pre><code class="language-xml">&lt;servlet&gt;
     &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
     &lt;init-param&gt;
@@ -531,7 +525,7 @@ jsp -&gt;Servlet (Springmvc)-&gt;Jsp
 
 <p>通过</p>
 
-<pre><code>&lt;init-param&gt;
+<pre><code class="language-xml">&lt;init-param&gt;
     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
     &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;
 &lt;/init-param&gt;
@@ -544,7 +538,7 @@ jsp -&gt;Servlet (Springmvc)-&gt;Jsp
 
 <p>严格的来说是</p>
 
-<pre><code>&lt;servlet&gt;
+<pre><code class="language-xml">&lt;servlet&gt;
     &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
 &lt;servlet-mapping&gt;
     &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
@@ -554,12 +548,12 @@ jsp -&gt;Servlet (Springmvc)-&gt;Jsp
 
 <p>请求</p>
 
-<pre><code>&lt;a href=&quot;welcome&quot;&gt;first springmvc - welcome&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;welcome&quot;&gt;first springmvc - welcome&lt;/a&gt;
 </code></pre>
 
 <p>servlet</p>
 
-<pre><code>@RequestMapping(value=&quot;welcome&quot;,method=RequestMethod.POST,params= {&quot;name=zs&quot;,&quot;age!=23&quot;,&quot;!height&quot;})//映射
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome&quot;,method=RequestMethod.POST,params= {&quot;name=zs&quot;,&quot;age!=23&quot;,&quot;!height&quot;})//映射
 public String  welcome() {
     return &quot;success&quot; ;//  views/success.jsp
 }
@@ -567,17 +561,17 @@ public String  welcome() {
 
 <p>项目中同时兼容 springMVC和Servlet</p>
 
-<pre><code>&lt;servlet-mapping&gt;
+<pre><code class="language-xml">&lt;servlet-mapping&gt;
     &lt;servlet-name&gt;springDispatcherServlet&lt;/servlet-name&gt;
     &lt;url-pattern&gt;.action&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
 </code></pre>
 
-<h3 id="requestmapping">@RequestMapping</h3>
+<h2 id="requestmapping">@RequestMapping</h2>
 
 <p>映射是 去匹配@RequestMapping注解，可以和方法名、类名不一致，</p>
 
-<pre><code>//接口/类    注解   配置
+<pre><code class="language-java">//接口/类    注解   配置
 @Controller
 @RequestMapping(value=&quot;handler&quot;) //映射
 public class SpringMVCHandler {
@@ -590,7 +584,7 @@ public class SpringMVCHandler {
 
 <p>默认值的属性为value</p>
 
-<pre><code>@RequestMapping(value=&quot;welcome&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome&quot;)
 @RequestMapping(&quot;welcome&quot;)
 </code></pre>
 
@@ -603,23 +597,23 @@ public class SpringMVCHandler {
 
 <p>先去找类前面的，再去找方法前面的，默认使用了 请求转发的 跳转方式，地址栏的地址没有改变</p>
 
-<h4 id="method">method</h4>
+<p>method</p>
 
 <p>通过method指定 请求方式（get  post  delete put）</p>
 
-<pre><code>@RequestMapping(value=&quot;welcome&quot;,method=RequestMethod.POST)//映射
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome&quot;,method=RequestMethod.POST)//映射
 </code></pre>
 
-<h4 id="params">params</h4>
+<p>params</p>
 
 <p>参数值</p>
 
-<pre><code>params= {&quot;name&quot;}
+<pre><code class="language-java">params= {&quot;name&quot;}
 </code></pre>
 
 <p>请求参数值中一定要有name属性</p>
 
-<pre><code>params= {&quot;name=zs&quot;}
+<pre><code class="language-java">params= {&quot;name=zs&quot;}
 </code></pre>
 
 <p>请求参数值中一定要有name属性，并且参数值一定是zs
@@ -635,37 +629,39 @@ public class SpringMVCHandler {
 
 <li><p>要么没有age</p>
 
-<pre><code>params= {&quot;name=zs&quot;,&quot;age!=23&quot;,&quot;!height&quot;})
+<pre><code class="language-java">params= {&quot;name=zs&quot;,&quot;age!=23&quot;,&quot;!height&quot;})
 </code></pre>
 
-<p>请求参数中不能有height</p>
-
-<h4 id="headers">headers</h4>
-
-<p>请求头</p>
-
-<pre><code>headers= {&quot;Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,&quot;Accept-Encoding=gzip, deflate&quot;}
-</code></pre>
-
-<p>多个参数使用<code>,</code>隔开</p></li>
+<p>请求参数中不能有height</p></li>
 </ol></li>
 </ul>
 
-<h4 id="ant风格的请求路径">ant风格的请求路径</h4>
+<p>headers</p>
+
+<p>请求头</p>
+
+<pre><code class="language-java">headers= {&quot;Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,&quot;Accept-Encoding=gzip, deflate&quot;}
+</code></pre>
+
+<p>多个参数使用<code>,</code>隔开</p>
+
+<h2 id="ant风格的请求路径">ant风格的请求路径</h2>
 
 <pre><code>?  单字符
 *  任意个字符（0或多个）
 ** 任意目录
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;welcome3/a?c/test&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome3/a?c/test&quot;)
 </code></pre>
 
-<p>接受示例：
-    a href=&ldquo;welcome3/axc/test&rdquo;
-    a href=&ldquo;welcome3/ayc/test&rdquo;</p>
+<p>接受示例：</p>
 
-<pre><code>@RequestMapping(value=&quot;welcome3/*/test&quot;)
+<pre><code>    a href=&quot;welcome3/axc/test&quot;
+    a href=&quot;welcome3/ayc/test&quot;
+</code></pre>
+
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome3/*/test&quot;)
 </code></pre>
 
 <p>接受示例：</p>
@@ -674,7 +670,7 @@ public class SpringMVCHandler {
 a href=&quot;welcome3/xxx/test&quot;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;welcome3/**/test&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome3/**/test&quot;)
 </code></pre>
 
 <p>接受示例：</p>
@@ -683,18 +679,18 @@ a href=&quot;welcome3/xxx/test&quot;
 a href=&quot;welcome3/xxx/xxx/xxx/test&quot;
 </code></pre>
 
-<h4 id="pathvariable">@PathVariable</h4>
+<h3 id="pathvariable">@PathVariable</h3>
 
 <p>通过@PathVariable获取动态参数</p>
 
 <p>传参</p>
 
-<pre><code>&lt;a href=&quot;hander/welcome5/zs&quot;&gt;
+<pre><code class="language-html">&lt;a href=&quot;hander/welcome5/zs&quot;&gt;
 </code></pre>
 
 <p>zs为传递的值</p>
 
-<pre><code>@RequestMapping(value=&quot;welcome5/{name}&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;welcome5/{name}&quot;)
 public String  welcome5(@PathVariable(&quot;name&quot;) String name ) {
     System.out.println(name);
     return &quot;success&quot; ;
@@ -703,7 +699,7 @@ public String  welcome5(@PathVariable(&quot;name&quot;) String name ) {
 
 <p>name的值为zs</p>
 
-<h4 id="rest风格-软件编程风格">REST风格 ：软件编程风格</h4>
+<h2 id="rest风格-软件编程风格">REST风格 ：软件编程风格</h2>
 
 <p>conf.xml快速生成配置文件</p>
 
@@ -720,7 +716,9 @@ DELETE  :删
 PUT     :改
 </code></pre>
 
-<p>普通浏览器 只支持get post方式 ；其他请求方式 如 delelte|put请求是通过过滤器（HiddenHttpMethodFilter）新加入的支持。</p>
+<h4 id="delete与put">delete与put</h4>
+
+<p>普通浏览器 只支持<code>get</code> <code>post</code>方式 ；其他请求方式 如 <code>delelte</code> | <code>put</code>请求是通过过滤器（HiddenHttpMethodFilter）新加入的支持。</p>
 
 <p>过滤器拦截delelte|put请求的条件</p>
 
@@ -729,7 +727,7 @@ PUT     :改
 
 <li><p>标签有隐藏域，并且隐藏域的name为_method,value为delete或put</p>
 
-<pre><code>&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;delete|put&quot;&gt;
+<pre><code class="language-html">&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;delete|put&quot;&gt;
 </code></pre></li>
 </ol>
 
@@ -737,7 +735,7 @@ PUT     :改
 
 <p>增加过滤器,web.xml</p>
 
-<pre><code>&lt;!-- 增加HiddenHttpMethodFilte过滤器：目的是给普通浏览器 增加 put|delete请求方式 --&gt;
+<pre><code class="language-xml">&lt;!-- 增加HiddenHttpMethodFilte过滤器：目的是给普通浏览器 增加 put|delete请求方式 --&gt;
 &lt;filter&gt;
     &lt;filter-name&gt;HiddenHttpMethodFilte&lt;/filter-name&gt;
     &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
@@ -752,7 +750,7 @@ PUT     :改
 
 <p>表单</p>
 
-<pre><code>&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
     &lt;input type=&quot;hidden&quot;  name=&quot;_method&quot; value=&quot;DELETE&quot;/&gt;
     &lt;input type=&quot;submit&quot; value=&quot;删&quot;&gt;
 &lt;/form&gt;
@@ -760,7 +758,7 @@ PUT     :改
 
 <p>控制器</p>
 
-<pre><code>
+<pre><code class="language-java">
 @RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.DELETE)
 public String  testDelete(@PathVariable(&quot;id&quot;) Integer id) {
     System.out.println(&quot;delete：删 &quot; +id);
@@ -772,7 +770,7 @@ public String  testDelete(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>表单</p>
 
-<pre><code>&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
     &lt;input type=&quot;hidden&quot;  name=&quot;_method&quot; value=&quot;PUT&quot;/&gt;
     &lt;input type=&quot;submit&quot; value=&quot;改&quot;&gt;
 &lt;/form&gt;
@@ -780,7 +778,7 @@ public String  testDelete(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>控制器</p>
 
-<pre><code>@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.PUT)
+<pre><code class="language-java">@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.PUT)
 public String  testPut(@PathVariable(&quot;id&quot;) Integer id) {
     System.out.println(&quot;put：改 &quot;+id);
     return &quot;success&quot; ;
@@ -791,14 +789,14 @@ public String  testPut(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>表单</p>
 
-<pre><code>&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;get&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;get&quot;&gt;
     &lt;input type=&quot;submit&quot; value=&quot;查&quot;&gt;
 &lt;/form&gt;
 </code></pre>
 
 <p>控制器</p>
 
-<pre><code>@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.GET)
+<pre><code class="language-java">@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.GET)
 public String  testGet(@PathVariable(&quot;id&quot;) Integer id) {
     System.out.println(&quot;get：查 &quot; +id);
     return &quot;success&quot; ;
@@ -809,14 +807,14 @@ public String  testGet(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>表单</p>
 
-<pre><code>&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testRest/1234&quot; method=&quot;post&quot;&gt;
     &lt;input type=&quot;submit&quot; value=&quot;增&quot;&gt;
 &lt;/form&gt;
 </code></pre>
 
 <p>控制器</p>
 
-<pre><code>@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.POST)
+<pre><code class="language-java">@RequestMapping(value=&quot;testRest/{id}&quot;,method=RequestMethod.POST)
 public String  testPost(@PathVariable(&quot;id&quot;) Integer id) {
     System.out.println(&quot;post：增 &quot; +id);
     return &quot;success&quot; ;
@@ -831,7 +829,7 @@ public String  testPost(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>过滤器中 处理put|delete请求的部分源码：</p>
 
-<pre><code>protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)throws ServletException, IOException {
+<pre><code class="language-java">protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)throws ServletException, IOException {
     HttpServletRequest requestToUse = request;
     if (&quot;POST&quot;.equals(request.getMethod()) &amp;&amp; request.getAttribute(WebUtils.ERROR_EXCEPTION_ATTRIBUTE) == null) {
         String paramValue = request.getParameter(this.methodParam);
@@ -847,7 +845,7 @@ public String  testPost(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>但是如果 是&rdquo;POST&rdquo;  并且有隐藏域</p>
 
-<pre><code>&lt;input type=&quot;hidden&quot;  name=&quot;_method&quot; value=&quot;DELETE&quot;/&gt;
+<pre><code class="language-html">&lt;input type=&quot;hidden&quot;  name=&quot;_method&quot; value=&quot;DELETE&quot;/&gt;
 </code></pre>
 
 <p>则，过滤器 将原始的请求 request加入新的请求方式DELETE，并将原始请求 转为 requestToUse 请求（request+Delete请求）</p>
@@ -858,7 +856,7 @@ public String  testPost(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>表单</p>
 
-<pre><code>&lt;form action=&quot;handler/testParam&quot; method=&quot;get&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testParam&quot; method=&quot;get&quot;&gt;
     name:&lt;input name=&quot;uname&quot; type=&quot;text&quot; /&gt;
     &lt;input type=&quot;submit&quot; value=&quot;查&quot;&gt;
 &lt;/form&gt;
@@ -866,7 +864,7 @@ public String  testPost(@PathVariable(&quot;id&quot;) Integer id) {
 
 <p>控制器</p>
 
-<pre><code>@RequestMapping(value=&quot;testParam&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testParam&quot;)
 public String  testParam(@RequestParam(&quot;uname&quot;) String name) {
     String name = request.getParameter(&quot;uname&quot;);
     System.out.println(name);
@@ -876,42 +874,42 @@ public String  testParam(@RequestParam(&quot;uname&quot;) String name) {
 
 <p>前台传多个参数值，后台可以接收其中几个值，但是不可以接收多的值，即后台接收的的值，前台一定要发送；前台发送的值，后台可以不接收</p>
 
-<pre><code>@RequestParam(&quot;uname&quot;) String name,@RequestParam(value=&quot;uage&quot;,required=false,defaultValue=&quot;23&quot;)
+<pre><code class="language-java">@RequestParam(&quot;uname&quot;) String name,@RequestParam(value=&quot;uage&quot;,required=false,defaultValue=&quot;23&quot;)
 </code></pre>
 
 <p>设置默认值，不传的时候为23</p>
 
-<pre><code>@RequestParam(&quot;uname&quot;)
+<pre><code class="language-java">@RequestParam(&quot;uname&quot;)
 </code></pre>
 
 <p>接受前台传递的值，等价于</p>
 
-<pre><code>request.getParameter(&quot;uname&quot;);
+<pre><code class="language-java">request.getParameter(&quot;uname&quot;);
 </code></pre>
 
-<pre><code>required=false:该属性 不是必须的。
+<pre><code class="language-java">required=false:该属性 不是必须的。
 defaultValue=&quot;23&quot;：默认值23
 </code></pre>
 
 <h4 id="获取请求头信息-requestheader">获取请求头信息 @RequestHeader</h4>
 
-<pre><code>&lt;a href=&quot;handler/testRequestHeader&quot;&gt;testRequestHeader&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testRequestHeader&quot;&gt;testRequestHeader&lt;/a&gt;
 </code></pre>
 
-<pre><code>public String  testRequestHeader(@RequestHeader(&quot;Accept-Language&quot;) String al ) {
+<pre><code class="language-java">public String  testRequestHeader(@RequestHeader(&quot;Accept-Language&quot;) String al ) {}
 </code></pre>
 
 <p>通过<code>@RequestHeader(&quot;Accept-Language&quot;)  String al</code> 获取请求头中的<code>Accept-Language</code>值，并将值保存再al变量中</p>
 
-<h4 id="通过mvc获取cookie值-jsessionid">通过mvc获取cookie值（JSESSIONID）</h4>
+<h2 id="通过mvc获取cookie值-jsessionid">通过mvc获取cookie值（JSESSIONID）</h2>
 
 <p>@CookieValue
 (前置知识： 服务端在接受客户端第一次请求时，会给该客户端分配一个session （该session包含一个sessionId）),并且服务端会在第一次响应客户端时 ，将该sessionId赋值给JSESSIONID 并传递给客户端的cookie中</p>
 
-<pre><code>&lt;a href=&quot;handler/testCookieValue&quot;&gt;testCookieValue&lt;/a&gt;&lt;br/&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testCookieValue&quot;&gt;testCookieValue&lt;/a&gt;&lt;br/&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testRequestHeader&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testRequestHeader&quot;)
 public String  testRequestHeader(@RequestHeader(&quot;Accept-Language&quot;)  String al  ) {
     System.out.println( al);
     return &quot;success&quot; ;
@@ -926,15 +924,15 @@ public String  testRequestHeader(@RequestHeader(&quot;Accept-Language&quot;)  St
 
 <p>处理请求中的参数xyz：</p>
 
-<pre><code>@RequestMappting(&quot;a&quot;) 
+<pre><code class="language-java">@RequestMappting(&quot;a&quot;) 
 public String  aa(@Xxx注解(&quot;xyz&quot;)  xyz)
 {
 }
 </code></pre>
 
-<h4 id="使用对象-实体类student-接受请求参数">使用对象（实体类Student）接受请求参数</h4>
+<h2 id="使用对象-实体类student-接受请求参数">使用对象（实体类Student）接受请求参数</h2>
 
-<pre><code>public class Student {
+<pre><code class="language-java">public class Student {
     private int id;
     private String name;
     private Address address ;
@@ -960,7 +958,7 @@ public String  aa(@Xxx注解(&quot;xyz&quot;)  xyz)
 }
 </code></pre>
 
-<pre><code>public class Address {
+<pre><code class="language-java">public class Address {
     private String homeAddress ; 
     private String schoolAddress ;
     public String getHomeAddress() {
@@ -978,7 +976,7 @@ public String  aa(@Xxx注解(&quot;xyz&quot;)  xyz)
 }
 </code></pre>
 
-<pre><code>&lt;form action=&quot;handler/testObjectProperties&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testObjectProperties&quot; method=&quot;post&quot;&gt;
     id:&lt;input name=&quot;id&quot; type=&quot;text&quot; /&gt;
     name:&lt;input name=&quot;name&quot; type=&quot;text&quot; /&gt;
     家庭地址:&lt;input name=&quot;address.homeAddress&quot; type=&quot;text&quot; /&gt;
@@ -1006,13 +1004,13 @@ public String  testObjectProperties(Student student) {//student属性 必须 和
 }
 </code></pre>
 
-<h4 id="initbinder注解">@InitBinder注解</h4>
+<h2 id="initbinder注解">@InitBinder注解</h2>
 
 <p><a href="https://blog.csdn.net/qq_38016931/article/details/82080940">参考博客</a></p>
 
 <p>实现参数绑定</p>
 
-<pre><code>&lt;form action=&quot;/testBean&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;/testBean&quot; method=&quot;post&quot;&gt;
     name: &lt;input type=&quot;text&quot; name=&quot;u.name&quot;&gt; &lt;br&gt;
     age: &lt;input type=&quot;text&quot; name=&quot;u.age&quot;&gt; &lt;br&gt;
     name: &lt;input type=&quot;text&quot; name=&quot;s.name&quot;&gt; &lt;br&gt;
@@ -1021,7 +1019,7 @@ public String  testObjectProperties(Student student) {//student属性 必须 和
 &lt;/form&gt;
 </code></pre>
 
-<pre><code>@InitBinder(&quot;user&quot;)
+<pre><code class="language-java">@InitBinder(&quot;user&quot;)
     public void init1(WebDataBinder binder) {
         binder.setFieldDefaultPrefix(&quot;u.&quot;);
     }
@@ -1044,14 +1042,14 @@ public String  testObjectProperties(Student student) {//student属性 必须 和
 
 <p>@InitBinder(&ldquo;user&rdquo;)括号内的参数为类的首字母小写(默认命名规则),也可以用@ModelAttribute(&ldquo;stu&rdquo;)做限定.</p>
 
-<h4 id="在springmvc中使用原生态的servlet-api">在SpringMVC中使用原生态的Servlet API</h4>
+<h2 id="在springmvc中使用原生态的servlet-api">在SpringMVC中使用原生态的Servlet API</h2>
 
 <p>HttpServletRequest ,HttpServletResponse</p>
 
-<pre><code>&lt;a href=&quot;handler/testServletAPI&quot;&gt;testServletAPI&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testServletAPI&quot;&gt;testServletAPI&lt;/a&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testServletAPI&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testServletAPI&quot;)
 public String testServletAPI(HttpServletRequest  request,HttpServletResponse response) {
 //	request.getParameter(&quot;uname&quot;) ;
     System.out.println(request);
@@ -1061,20 +1059,20 @@ public String testServletAPI(HttpServletRequest  request,HttpServletResponse res
 
 <p>直接将 servlet-api中的类、接口等 写在springMVC所映射的方法参数中即可：</p>
 
-<h3 id="处理模型数据">处理模型数据</h3>
+<h2 id="处理模型数据">处理模型数据</h2>
 
 <p>如果跳转时需要带数据：V、M,则可以使用以下方式：</p>
 
-<pre><code>ModelAndView、ModelMap  、Map、Model   -数据放在了request作用域 
+<pre><code class="language-java">ModelAndView、ModelMap  、Map、Model   -数据放在了request作用域 
 @SessionAttributes、@ModelAttribute
 </code></pre>
 
 <h4 id="modelandview">ModelAndView</h4>
 
-<pre><code>&lt;a href=&quot;handler/testModelAndView&quot;&gt;testModelAndView&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testModelAndView&quot;&gt;testModelAndView&lt;/a&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testModelAndView&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testModelAndView&quot;)
 public ModelAndView testModelAndView() {
     //ModelAndView:既有数据，又有视图
     //ModelAndView:Model -M     View-V
@@ -1090,15 +1088,15 @@ public ModelAndView testModelAndView() {
 
 <p>取值</p>
 
-<pre><code>${requestScope.student.id } -${requestScope.student.name } &lt;br/&gt;
+<pre><code class="language-jsp">${requestScope.student.id } -${requestScope.student.name } &lt;br/&gt;
 </code></pre>
 
 <h4 id="modelmap">ModelMap</h4>
 
-<pre><code>&lt;a href=&quot;handler/testModelMap&quot;&gt;testModelMap&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testModelMap&quot;&gt;testModelMap&lt;/a&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testModelMap&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testModelMap&quot;)
 public String testModelMap(ModelMap mm) {
     Student student = new Student() ;
     student.setId(2);
@@ -1113,10 +1111,10 @@ public String testModelMap(ModelMap mm) {
 
 <h4 id="map">Map</h4>
 
-<pre><code>&lt;a href=&quot;handler/testMap&quot;&gt;testMap&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testMap&quot;&gt;testMap&lt;/a&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testMap&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testMap&quot;)
 public String testMap(Map&lt;String,Object&gt; m) {
     Student student = new Student() ;
     student.setId(2);
@@ -1131,10 +1129,10 @@ public String testMap(Map&lt;String,Object&gt; m) {
 
 <h4 id="model">Model</h4>
 
-<pre><code>&lt;a href=&quot;handler/testModel&quot;&gt;testModel
+<pre><code class="language-html">&lt;a href=&quot;handler/testModel&quot;&gt;testModel
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testModel&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testModel&quot;)
 public String testModel(Model model) {
     Student student = new Student() ;
     student.setId(2);
@@ -1153,36 +1151,36 @@ public String testModel(Model model) {
 
 <p>加上注解</p>
 
-<pre><code>@SessionAttributes(..)
+<pre><code class="language-java">@SessionAttributes(..)
 </code></pre>
 
 <p>在Handlee类前加注解</p>
 
-<pre><code>@SessionAttributes(value=&quot;student4&quot;) 
+<pre><code class="language-java">@SessionAttributes(value=&quot;student4&quot;) 
 </code></pre>
 
 <p>如果要在request中存放student4对象，则同时将该对象 放入session域中</p>
 
-<pre><code>@SessionAttributes(types= {Student.class,Address.class})  
+<pre><code class="language-java">@SessionAttributes(types= {Student.class,Address.class})  
 </code></pre>
 
 <p>如果要在request中存放Student类型的对象，则同时将该类型对象放入session域中</p>
 
-<h4 id="modelattribute">@ModelAttribute</h4>
+<h2 id="modelattribute">@ModelAttribute</h2>
 
 <ol>
 <li>经常在 更新时使用</li>
 
 <li><p>在不改变原有代码的基础之上，插入一个新方法。</p>
 
-<pre><code>&lt;form action=&quot;handler/testModelAttribute&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testModelAttribute&quot; method=&quot;post&quot;&gt;
 编号:&lt;input name=&quot;id&quot; type=&quot;hidden&quot; value=&quot;31&quot; /&gt;
 姓名:&lt;input name=&quot;name&quot; type=&quot;text&quot; /&gt;
 &lt;input type=&quot;submit&quot; value=&quot;修改&quot;&gt;
 &lt;/form&gt;
 </code></pre>
 
-<pre><code>@ModelAttribute//在任何一次请求前，都会先执行@ModelAttribute修饰的方法
+<pre><code class="language-java">@ModelAttribute//在任何一次请求前，都会先执行@ModelAttribute修饰的方法
 //@ModelAttribute  在请求 该类的各个方法前 均被执行的设计是基于一个思想：一个控制器 只做一个功能
 public void queryStudentById(Map&lt;String,Object&gt; map) {
 //StuentService stuService = new StudentServiceImpl();
@@ -1197,7 +1195,7 @@ map.put(&quot;stu&quot;, student) ;//约定：map的key 就是方法参数 类�
 }
 </code></pre>
 
-<pre><code>//修改:Zs-ls
+<pre><code class="language-java">//修改:Zs-ls
 @RequestMapping(value=&quot;testModelAttribute&quot;)
 public String testModelAttribute(@ModelAttribute(&quot;stu&quot;)Student student) {
 student.setName(student.getName());//将名字修改为ls
@@ -1213,14 +1211,14 @@ return &quot;success&quot;;
 <p>必须满足的约定：
 map.put(k,v) 其中的k 必须是即将查询的方法参数的首字母小写</p>
 
-<pre><code> //map.put(&quot;student&quot;, student) ;
+<pre><code class="language-java"> //map.put(&quot;student&quot;, student) ;
 
 public String testModelAttribute(Student student) 
 </code></pre>
 
 <p>如果不一致，需要通过@ModelAttribute声明。</p>
 
-<pre><code>map.put(&quot;stu&quot;, student);
+<pre><code class="language-java">map.put(&quot;stu&quot;, student);
 public String testModelAttribute(@ModelAttribute(&quot;stu&quot;)Student student) {
 </code></pre>
 
@@ -1230,7 +1228,7 @@ public String testModelAttribute(@ModelAttribute(&quot;stu&quot;)Student student
 
 <p>@ModelAttribute会在 该类的每个方法执行前 均被执行一次，因为使用时需要注意。</p>
 
-<h3 id="视图-视图解析器">视图、视图解析器</h3>
+<h2 id="视图-视图解析器">视图、视图解析器</h2>
 
 <p>流程</p>
 
@@ -1253,7 +1251,7 @@ public String testModelAttribute(@ModelAttribute(&quot;stu&quot;)Student student
 
 <p><img src="/resources/技术框架/Spring家族/View实现类简介.png" alt="View实现类简介" title="View实现类简介" /></p>
 
-<p>public class JstlView extends InternalResourceView：</p>
+<p><code>public class JstlView extends InternalResourceView：</code></p>
 
 <p>springMVC解析jsp时 会默认使用InternalResourceView，如果发现Jsp中包含了jstl语言相关的内容，则自动转为JstlView。</p>
 
@@ -1310,7 +1308,7 @@ native2ascii.exe回车
 
 <li><p>配置springmvc.xml，加载资源文件</p>
 
-<pre><code>&lt;!-- 加载国际化资源文件 --&gt;
+<pre><code class="language-xml">&lt;!-- 加载国际化资源文件 --&gt;
 &lt;bean id=&quot;messageSource&quot; class=&quot;org.springframework.context.support.ResourceBundleMessageSource&quot;&gt;
 &lt;property name=&quot;basename&quot; value=&quot;i18n&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
@@ -1329,21 +1327,21 @@ native2ascii.exe回车
 
 <p>导入命名空间success.jsp</p>
 
-<pre><code>&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;fmt&quot; %&gt;  
+<pre><code class="language-xml">&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;fmt&quot; %&gt;  
 </code></pre>
 
 <p>使用</p>
 
-<pre><code>&lt;fmt:message key=&quot;resources.welcome&quot;&gt;&lt;/fmt:message&gt;
+<pre><code class="language-xml">&lt;fmt:message key=&quot;resources.welcome&quot;&gt;&lt;/fmt:message&gt;
 &lt;fmt:message key=&quot;resources.exit&quot;&gt;&lt;/fmt:message&gt;
 </code></pre>
 
 <p>ResourceBundleMessageSource:在MVC响应时介入，因此不能直接访问success.jsp，需要响应请求后访问</p>
 
-<pre><code>&lt;a href=&quot;handler/testI18n&quot;&gt;testI18n&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testI18n&quot;&gt;testI18n&lt;/a&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testI18n&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testI18n&quot;)
 public String testI18n() {
     return &quot;success&quot;;
 }
@@ -1359,12 +1357,12 @@ public String testI18n() {
 
 <p>要用SpringMVC实现：index.jsp -&gt; succes.jsp  ：</p>
 
-<pre><code>&lt;a href=&quot;handler/testMvcViewController&quot;&gt;testMvcViewController&lt;/a&gt;
+<pre><code class="language-html">&lt;a href=&quot;handler/testMvcViewController&quot;&gt;testMvcViewController&lt;/a&gt;
 </code></pre>
 
 <p>配置，springMVC.xml</p>
 
-<pre><code>&lt;!--view-name会被视图解析器 加上前缀、后缀  --&gt;
+<pre><code class="language-xml">&lt;!--view-name会被视图解析器 加上前缀、后缀  --&gt;
 &lt;mvc:view-controller path=&quot;handler/testMvcViewController&quot; view-name=&quot;success&quot;/&gt;
 </code></pre>
 
@@ -1372,13 +1370,13 @@ public String testI18n() {
 
 <p>如果想让 @RequsetMapping(&ldquo;a&rdquo;)  和<code>&lt;mvc:..&gt;</code>共存，则需要加入一个注解：</p>
 
-<pre><code>&lt;!--此配置是SpringMVC的基础配置，很功能都需要通过该注解来协调  --&gt;
+<pre><code class="language-xml">&lt;!--此配置是SpringMVC的基础配置，很功能都需要通过该注解来协调  --&gt;
 &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;
 </code></pre>
 
-<p>​</p>
+<p>​	</p>
 
-<h3 id="指定请求方式">指定请求方式</h3>
+<h2 id="指定请求方式">指定请求方式</h2>
 
 <p>指定跳转方式：
 请求转发：地址栏不改变</p>
@@ -1391,7 +1389,7 @@ public String testI18n() {
 
 <p>forward:   redirect: ，需要注意 此种方式，不会被视图解析器加上前缀(/views)、后缀(.jsp)</p>
 
-<h3 id="处理静态资源">处理静态资源：</h3>
+<h2 id="处理静态资源">处理静态资源：</h2>
 
 <pre><code>html css js  图片 视频
 </code></pre>
@@ -1404,8 +1402,9 @@ public String testI18n() {
 
 <p><a href="http://localhost:8888/SpringMVCProject/img.png">http://localhost:8888/SpringMVCProject/img.png</a></p>
 
-<p>@RequsetMapping(&ldquo;img.png&rdquo;)
-return sucess</p>
+<pre><code>@RequsetMapping(&quot;img.png&quot;)
+return sucess
+</code></pre>
 
 <p>解决：如果是 需要mvc处理的，则交给@RequsetMapping(&ldquo;img.png&rdquo;)处理；如果不需要springmvc处理，则使用 tomcat默认的Servlet去处理。</p>
 
@@ -1419,7 +1418,7 @@ return sucess</p>
 
 <p>实现方法，只需要增加2个注解即可 springmvc.xml：</p>
 
-<pre><code>&lt;!-- 该注解 会让 springmvc： 接收一个请求，并且该请求 没有对应的@requestmapping时，将该请求 交给服务器默认的servlet去处理（直接访问）  --&gt;
+<pre><code class="language-xml">&lt;!-- 该注解 会让 springmvc： 接收一个请求，并且该请求 没有对应的@requestmapping时，将该请求 交给服务器默认的servlet去处理（直接访问）  --&gt;
 &lt;mvc:default-servlet-handler&gt;&lt;/mvc:default-servlet-handler&gt;
 
 &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;
@@ -1427,11 +1426,11 @@ return sucess</p>
 
 <p>总结：要让springmvc访问静态资源，只需要加入以下2个注解：</p>
 
-<pre><code>&lt;mvc:default-servlet-handler&gt;&lt;/mvc:default-servlet-handler&gt;
+<pre><code class="language-xml">&lt;mvc:default-servlet-handler&gt;&lt;/mvc:default-servlet-handler&gt;
 &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;
 </code></pre>
 
-<h3 id="类型转换">类型转换</h3>
+<h2 id="类型转换">类型转换</h2>
 
 <h4 id="spring自带一些-常见的类型转换器">Spring自带一些 常见的类型转换器</h4>
 
@@ -1445,7 +1444,7 @@ return sucess</p>
 <ol>
 <li><p>编写 自定义类型转器的类 （实现Converter接口）</p>
 
-<pre><code>//将字符串变成Student
+<pre><code class="language-java">//将字符串变成Student
 public class MyConverter  implements Converter&lt;String,Student&gt;{
     @Override
     public Student convert(String source) {//source:2-zs-23
@@ -1465,14 +1464,13 @@ public class MyConverter  implements Converter&lt;String,Student&gt;{
 <ol>
 <li><p>将 自定义转换器 纳入SpringIOC容器</p>
 
-<pre><code>&lt;!-- 1将 自定义转换器 纳入SpringIOC容器 --&gt;
+<pre><code class="language-xml">&lt;!-- 1将 自定义转换器 纳入SpringIOC容器 --&gt;
 &lt;bean  id=&quot;myConverter&quot; class=&quot;org.lanqiao.converter.MyConverter&quot;&gt;&lt;/bean&gt;
-        
 </code></pre></li>
 
 <li><p>将myConverter再纳入 SpringMVC提供的转换器Bean</p>
 
-<pre><code>&lt;!-- 2将myConverter再纳入 SpringMVC提供的转换器Bean --&gt;
+<pre><code class="language-xml">&lt;!-- 2将myConverter再纳入 SpringMVC提供的转换器Bean --&gt;
 &lt;bean id=&quot;conversionService&quot;  class=&quot;org.springframework.context.support.ConversionServiceFactoryBean&quot;&gt;
     &lt;property name=&quot;converters&quot;&gt;
         &lt;set&gt;
@@ -1484,7 +1482,7 @@ public class MyConverter  implements Converter&lt;String,Student&gt;{
 
 <li><p>将conversionService注册到annotation-driven中</p>
 
-<pre><code>&lt;!-- 3将conversionService注册到annotation-driven中 --&gt;
+<pre><code class="language-xml">&lt;!-- 3将conversionService注册到annotation-driven中 --&gt;
 &lt;!--此配置是SpringMVC的基础配置，很功能都需要通过该注解来协调  --&gt;
 &lt;mvc:annotation-driven conversion-service=&quot;conversionService&quot;&gt;&lt;/mvc:annotation-driven&gt;
 </code></pre></li>
@@ -1493,13 +1491,13 @@ public class MyConverter  implements Converter&lt;String,Student&gt;{
 
 <p>测试转换器：</p>
 
-<pre><code>&lt;form action=&quot;handler/testConverter&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testConverter&quot; method=&quot;post&quot;&gt;
     学生信息:&lt;input name=&quot;studentInfo&quot; type=&quot;text&quot;  /&gt;&lt;!-- 2-zs-23  --&gt;
     &lt;input type=&quot;submit&quot; value=&quot;转换&quot;&gt;
 &lt;/form&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testConverter&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testConverter&quot;)
 public String testConverter(@RequestParam(&quot;studentInfo&quot;)  Student student) {// 前端：2-zs-23 
     System.out.println(student.getId()+&quot;,&quot;+student.getName()+&quot;,&quot;+student.getAge());
     return &quot;success&quot;;
@@ -1509,22 +1507,22 @@ public String testConverter(@RequestParam(&quot;studentInfo&quot;)  Student stud
 <p>其中<code>@RequestParam(&quot;studentInfo&quot;)</code>是触发转换器的桥梁：
 <code>@RequestParam(&quot;studentInfo&quot;)</code>接收的数据 是前端传递过来的：<code>2-zs-23</code> ，但是需要将该数据赋值给修饰的目的对象<code>Student</code>；因此SPringMVC可以发现 接收的数据 和目标数据不一致，并且 这两种数据分别是 <code>String</code>、<code>Student</code>,正好符合<code>public Student convert(String source)</code>转换器。因此将类型进行转换</p>
 
-<h4 id="数据格式化">数据格式化</h4>
+<h2 id="数据格式化">数据格式化</h2>
 
 <p>主要用于对数字和日期的转换</p>
 
-<pre><code>SimpleDateForamt sdf = new SimpleDateFormat(&quot;yyyy-MM-dd  hh:mm:ss&quot;);
+<pre><code class="language-java">SimpleDateForamt sdf = new SimpleDateFormat(&quot;yyyy-MM-dd  hh:mm:ss&quot;);
 </code></pre>
 
 <p>SPringMVC提供了很多注解，方便我们数据格式化</p>
 
-<pre><code>    @DateTimeFormat(pattern=&quot;yyyy-MM-dd&quot;)
+<pre><code class="language-java">    @DateTimeFormat(pattern=&quot;yyyy-MM-dd&quot;)
     @NumberFormat(parttern=&quot;###,#&quot;)  
 </code></pre>
 
 <p>实现步骤：
 1. 配置,springMVC.xml
-    <code>
+    <code>xml
         &lt;!-- 配置 数据格式化 注解 所依赖的bean --&gt;
         &lt;bean id=&quot;conversionService&quot; class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;&gt;
         &lt;/bean&gt;
@@ -1532,20 +1530,22 @@ public String testConverter(@RequestParam(&quot;studentInfo&quot;)  Student stud
 2. 通过注解使用</p>
 
 <pre><code>Student.java
-```
+```java
 @DateTimeFormat(pattern=&quot;yyyy-MM-dd&quot;)
 private Date birthday ;//  2018-12-13
 @NumberFormat(pattern=&quot;###,#&quot;) 
-private int id;
-```
-格式化：前台传递来的数据，将前台传递来到数据 固定为yyyy-MM-dd
+</code></pre>
 
-当输入格式不正确时会报错
+<p>	private int id;
+    ```
+    格式化：前台传递来的数据，将前台传递来到数据 固定为yyyy-MM-dd</p>
+
+<pre><code>当输入格式不正确时会报错
 </code></pre>
 
 <p>测试</p>
 
-<pre><code>&lt;form action=&quot;handler/testDateTimeFormat&quot; method=&quot;post&quot;&gt;
+<pre><code class="language-html">&lt;form action=&quot;handler/testDateTimeFormat&quot; method=&quot;post&quot;&gt;
     编号:&lt;input name=&quot;id&quot; type=&quot;text&quot; value=&quot;31&quot; /&gt;
     姓名:&lt;input name=&quot;name&quot; type=&quot;text&quot; /&gt;
     出生日期:&lt;input name=&quot;birthday&quot; type=&quot;text&quot; /&gt;
@@ -1553,7 +1553,7 @@ private int id;
 &lt;/form&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(value=&quot;testDateTimeFormat&quot;)
+<pre><code class="language-java">@RequestMapping(value=&quot;testDateTimeFormat&quot;)
 //如果Student格式化出错，会将错误信息 传入result中，这样控制台会显示错误信息，但是前端不显示了，类似异常处理，将异常进行了处理
 public String testDateTimeFormat(Student student , BindingResult result) {
     System.out.println(student.getId()+&quot;,&quot;+student.getName()+&quot;,&quot;+student.getBirthday());
@@ -1576,7 +1576,7 @@ ConversionServiceFactoryBean
 
 <p>由</p>
 
-<pre><code>&lt;!--
+<pre><code class="language-xml">&lt;!--
     &lt;bean id=&quot;conversionService&quot;  class=&quot;org.springframework.context.support.ConversionServiceFactoryBean&quot;&gt;
         &lt;property name=&quot;converters&quot;&gt;
             &lt;set&gt;
@@ -1589,13 +1589,13 @@ ConversionServiceFactoryBean
 
 <p>整合到</p>
 
-<pre><code>&lt;bean id=&quot;conversionService&quot; class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;conversionService&quot; class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;&gt;
     &lt;property name=&quot;converters&quot;&gt;
         &lt;set&gt;
             &lt;ref bean=&quot;myConverter&quot;/&gt;
         &lt;/set&gt;
     &lt;/property&gt;
-&lt;/bean&gt;	
+&lt;/bean&gt; 
 </code></pre>
 
 <h3 id="错误消息">错误消息：</h3>
@@ -1604,7 +1604,7 @@ ConversionServiceFactoryBean
 
 <p>思路：将异常信息传到前端页面中即可</p>
 
-<pre><code>@RequestMapping(value=&quot;testDateTimeFormat&quot;)//如果Student格式化出错，会将错误信息 传入result中
+<pre><code class="language-java">@RequestMapping(value=&quot;testDateTimeFormat&quot;)//如果Student格式化出错，会将错误信息 传入result中
 public String testDateTimeFormat(@Valid Student student, BindingResult result ,Map&lt;String,Object&gt; map) {
     
 //System.out.println(student.getId()+&quot;,&quot;+student.getName()+&quot;,&quot;+student.getBirthday());
@@ -1612,14 +1612,14 @@ public String testDateTimeFormat(@Valid Student student, BindingResult result ,M
         for(FieldError error:  result.getFieldErrors() ) {
             System.out.println(error.getDefaultMessage());
             map.put(&quot;errors&quot;, result.getFieldErrors()  ) ;//将错误信息传入requset域中的errors中
-//					result.getFieldErrors().get(0).getDefaultMessage()
+//                  result.getFieldErrors().get(0).getDefaultMessage()
         }
     }
     return &quot;success&quot;;
 }
 </code></pre>
 
-<pre><code>&lt;c:forEach  items=&quot;${requestScope.errors}&quot; var=&quot;error&quot;&gt;
+<pre><code class="language-jsp">&lt;c:forEach  items=&quot;${requestScope.errors}&quot; var=&quot;error&quot;&gt;
         ${error.getDefaultMessage()}&lt;br/&gt;
 &lt;/c:forEach&gt;
 </code></pre>
@@ -1633,23 +1633,21 @@ public String testDateTimeFormat(@Valid Student student, BindingResult result ,M
 
 <p>引入jstl标签库xx.jsp</p>
 
-<pre><code> &lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;  
+<pre><code class="language-jsp"> &lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;  
 </code></pre>
 
-<pre><code>public String testDateTimeFormat(Student student, BindingResult result ,Map&lt;String,Object&gt; map) {
+<pre><code class="language-java">public String testDateTimeFormat(Student student, BindingResult result ,Map&lt;String,Object&gt; map) {}
 </code></pre>
 
-<p>需要验证的数据是 Student中的birthday, SPringMVC要求 如果校验失败  则将错误信息 自动放入 该对象之后紧挨着的   <code>BindingResult</code>中。即<code>Student student</code>, <code>BindingResult result之</code>间 不能有其他参数。</p>
+<p>需要验证的数据是 Student中的birthday, SPringMVC要求 如果校验失败  则将错误信息 自动放入 该对象之后紧挨着的	<code>BindingResult</code>中。即<code>Student student</code>, <code>BindingResult result之</code>间 不能有其他参数。</p>
 
 <p>如果要将控制台的错误消息 传到jsp中显示，则可以将 错误消息对象放入request域中，然后 在jsp中 从request中获取。</p>
 
-<h3 id="数据校验">数据校验</h3>
+<h2 id="数据校验">数据校验</h2>
 
-<pre><code>JSR303  
-Hibernate Validator 
-</code></pre>
-
-<p><img src="/resources/技术框架/Spring家族/JSR303注解.png" alt="JSR303注解" title="JSR303注解" /></p>
+<p>	JSR303<br />
+	Hibernate Validator
+<img src="/resources/技术框架/Spring家族/JSR303注解.png" alt="JSR303注解" title="JSR303注解" /></p>
 
 <p>Hibernate Validator 是JSR 303的扩展。Hibernate Validator 提供了 JSR 303中所有内置的注解，以及自身扩展的4个注解</p>
 
@@ -1661,13 +1659,13 @@ Hibernate Validator
 
 <p>（注意各个jar之间可能存在版本不兼容）</p>
 
-<pre><code>hibernate-validator-5.0.0.CR2.jar   classmate-0.8.0.jar     jboss-logging-3.1.1.GA.jar
-validation-api-1.1.0.CR1.jar    hibernate-validator-annotation-processor-5.0.0.CR2.jar
+<pre><code>hibernate-validator-5.0.0.CR2.jar 	classmate-0.8.0.jar 	jboss-logging-3.1.1.GA.jar
+validation-api-1.1.0.CR1.jar 	hibernate-validator-annotation-processor-5.0.0.CR2.jar
 </code></pre>
 
 <h4 id="配置springmvc-xml">配置springMVC.xml</h4>
 
-<pre><code>&lt;mvc:annotation-driven &gt;&lt;/mvc:annotation-driven&gt;
+<pre><code class="language-xml">&lt;mvc:annotation-driven &gt;&lt;/mvc:annotation-driven&gt;
 </code></pre>
 
 <p>此时<code>mvc:annotation-driven</code>的作用：要实现Hibernate Validator/JSR303 校验（或者其他各种校验），必须实现SpringMVC提供的一个接口：<code>ValidatorFactory</code></p>
@@ -1681,452 +1679,482 @@ validation-api-1.1.0.CR1.jar    hibernate-validator-annotation-processor-5.0.0.C
 <ol>
 <li><p>在属性前加注解</p>
 
-<pre><code>public class Student {
+<pre><code class="language-java">public class Student {
     @Past//当前时间以前
     private Date birthday ;
-}
-</code></pre></li>
+	}
+	```
+	
+2. 在校验的Controller中 ，给校验的对象前增加 @Valid
 
-<li><p>在校验的Controller中 ，给校验的对象前增加 @Valid</p>
-
-<pre><code>public String testDateTimeFormat(@Valid Student student, BindingResult result ,Map&lt;String,Object&gt; map) {
-</code></pre></li>
-</ol>
-
-<h3 id="ajax请求springmvc-并且返回json格式的数据">Ajax请求SpringMVC，并且返回JSON格式的数据</h3>
-
-<p>jar</p>
-
-<pre><code>jackson-annotations-2.8.9.jar
-jackson-core-2.8.9.jar
-jackson-databind-2.8.9.jar
 </code></pre>
 
-<p>ajax请求</p>
+<p>java
+public String testDateTimeFormat(@Valid Student student, BindingResult result ,Map<String,Object> map) {}</p>
 
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-1.8.3.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
+<pre><code>
+
+
+## Ajax请求SpringMVC，并且返回JSON格式的数据
+jar
+
+jackson-annotations-2.8.9.jar
+jackson-core-2.8.9.jar
+jackson-databind-2.8.9.jar
+
+ajax请求
+
+</code></pre>
+
+<p>html</p></li>
+</ol>
+
+<p><script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
     $(document).ready(function(){
-        $(&quot;#testJson&quot;).click(function(){
+        $(&ldquo;#testJson&rdquo;).click(function(){
             //通过ajax请求springmvc
             $.post(
-                &quot;handler/testJson&quot;,//服务器地址
-                //{&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:23}
-                function(result){//服务端处理完毕后的回调函数 List&lt;Student&gt; students， 加上@ResponseBody后， students实质是一个json数组的格式
+                &ldquo;handler/testJson&rdquo;,//服务器地址
+                //{&ldquo;name&rdquo;:&ldquo;zs&rdquo;,&ldquo;age&rdquo;:23}
+                function(result){//服务端处理完毕后的回调函数 List<Student> students， 加上@ResponseBody后， students实质是一个json数组的格式
                     for(var i=0;i&lt;result.length ;i++){
-                        alert(result[i].id +&quot;-&quot;+result[i].name +&quot;-&quot;+result[i].age);
+                        alert(result[i].id +&ldquo;-&rdquo;+result[i].name +&ldquo;-&rdquo;+result[i].age);
                     }
                 }
             );
         });
-    });
-</code></pre>
+    });</p>
 
-<pre><code>@ResponseBody//告诉SpringMVC，此时的返回 不是一个 View页面，而是一个 ajax调用的返回值（Json数组）
-@RequestMapping(value=&quot;testJson&quot;)
-public List&lt;Student&gt; testJson() {
+<pre><code></code></pre>
+
+<p>java
+@ResponseBody//告诉SpringMVC，此时的返回 不是一个 View页面，而是一个 ajax调用的返回值（Json数组）
+@RequestMapping(value=&ldquo;testJson&rdquo;)
+public List<Student> testJson() {
     //Controller-Service-dao
     //StudentService studentService = new StudentServiceImp();
-//List&lt;Student&gt; students =  studentService.qeuryAllStudent();
+//List<Student> students =  studentService.qeuryAllStudent();
     //模拟调用service的查询操作
-    Student stu1 = new Student(1,&quot;zs&quot;,23);
-    Student stu2 = new Student(2,&quot;ls&quot;,24);
-    Student stu3 = new Student(3,&quot;ww&quot;,25);
-    List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+    Student stu1 = new Student(1,&ldquo;zs&rdquo;,23);
+    Student stu2 = new Student(2,&ldquo;ls&rdquo;,24);
+    Student stu3 = new Student(3,&ldquo;ww&rdquo;,25);
+    List<Student> students = new ArrayList&lt;&gt;();
     students.add(stu1) ;
     students.add(stu2) ;
     students.add(stu3) ;
     return students;
-}
-</code></pre>
+}</p>
 
-<h3 id="springmvc实现文件上传">SpringMVC实现文件上传</h3>
+<pre><code>
 
-<p>和Servlet方式的本质一样，都是通过</p>
+## SpringMVC实现文件上传
 
-<pre><code>commons-fileupload.jar和commons-io.jar
-</code></pre>
+和Servlet方式的本质一样，都是通过
 
-<p>SpringMVC可以简化文件上传的代码，但是必须满足条件：实现<code>MultipartResolver</code>接口 ；而该接口的实现类SpringMVC也已经提供了<code>CommonsMultipartResolver</code></p>
+    commons-fileupload.jar和commons-io.jar
 
-<p>具体步骤：（直接使用<code>CommonsMultipartResolver</code>实现上传）
-1. jar包</p>
+SpringMVC可以简化文件上传的代码，但是必须满足条件：实现`MultipartResolver`接口 ；而该接口的实现类SpringMVC也已经提供了`CommonsMultipartResolver`
 
-<pre><code>    commons-fileupload.jar、commons-io.jar
-</code></pre>
+具体步骤：（直接使用`CommonsMultipartResolver`实现上传）
+1. jar包
 
-<ol>
-<li><p>配置<code>CommonsMultipartResolver</code></p>
+        commons-fileupload.jar、commons-io.jar
 
-<p>将其加入SpringIOC容器</p>
+2. 配置`CommonsMultipartResolver`
 
-<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
-        &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;&gt;&lt;/property&gt;
-        &lt;!-- 上传单个文件的最大值，单位Byte;如果-1，表示无限制 --&gt;
-        &lt;property name=&quot;maxUploadSize&quot;  value=&quot;104857600&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre>
+    将其加入SpringIOC容器
 
-<p>配置<code>CommonsMultipartResolver</code>，用于实现文件上传
-将其加入SpringIOC容器.</p>
+    ```xml
+    &lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
+            &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;&gt;&lt;/property&gt;
+            &lt;!-- 上传单个文件的最大值，单位Byte;如果-1，表示无限制 --&gt;
+            &lt;property name=&quot;maxUploadSize&quot;  value=&quot;104857600&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    ```
+    配置`CommonsMultipartResolver`，用于实现文件上传
+    将其加入SpringIOC容器.
 
-<p>springIoc容器在初始化时，会自动寻找一个<code>Id=&quot;multipartResolver&quot;</code>的bean，并将其加入Ioc容器</p></li>
+    springIoc容器在初始化时，会自动寻找一个`Id=&quot;multipartResolver&quot;`的bean，并将其加入Ioc容器
 
-<li><p>处理方法</p>
-
-<pre><code>&lt;form action=&quot;handler/testUpload&quot; method=&quot;post&quot;  enctype=&quot;multipart/form-data&quot;&gt;
-    &lt;input type=&quot;file&quot; name=&quot;file&quot; /&gt;
-    描述:&lt;input name=&quot;desc&quot; type=&quot;text&quot; /&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
-&lt;/form&gt;
-</code></pre>
-
-<pre><code>//文件上传处理方法
-@RequestMapping(value=&quot;testUpload&quot;) //abc.png
-public String testUpload(@RequestParam(&quot;desc&quot;) String desc  , @RequestParam(&quot;file&quot;) MultipartFile file  ) throws IOException {
-    System.out.println(&quot;文件描述信息：&quot;+desc);
-    //jsp中上传的文件：file
-    InputStream input = file.getInputStream() ;//IO
-    String fileName = file.getOriginalFilename() ;
-    OutputStream out = new FileOutputStream(&quot;d:\\&quot;+fileName) ;
-    byte[] bs = new byte[1024];
-    int len = -1;
-    while(( len = input.read(bs)) !=-1 ) {
-        out.write(bs, 0, len);
+1. 处理方法
+    ```html
+    &lt;form action=&quot;handler/testUpload&quot; method=&quot;post&quot;  enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;input type=&quot;file&quot; name=&quot;file&quot; /&gt;
+        描述:&lt;input name=&quot;desc&quot; type=&quot;text&quot; /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+    &lt;/form&gt;
+    ```
+    ```java
+    //文件上传处理方法
+    @RequestMapping(value=&quot;testUpload&quot;) //abc.png
+    public String testUpload(@RequestParam(&quot;desc&quot;) String desc  , @RequestParam(&quot;file&quot;) MultipartFile file  ) throws IOException {
+        System.out.println(&quot;文件描述信息：&quot;+desc);
+        //jsp中上传的文件：file
+        InputStream input = file.getInputStream() ;//IO
+        String fileName = file.getOriginalFilename() ;
+        OutputStream out = new FileOutputStream(&quot;d:\\&quot;+fileName) ;
+        byte[] bs = new byte[1024];
+        int len = -1;
+        while(( len = input.read(bs)) !=-1 ) {
+            out.write(bs, 0, len);
+        }
+        out.close();
+        input.close();
+        //将file上传到服务器中的 某一个硬盘文件中
+        System.out.println(&quot;上传成功！&quot;);
+        return &quot;success&quot;;
     }
-    out.close();
-    input.close();
-    //将file上传到服务器中的 某一个硬盘文件中
-    System.out.println(&quot;上传成功！&quot;);
-    return &quot;success&quot;;
-}
-</code></pre>
+    ```
+框架：  将原来自己写的1000行代码，变成：框架帮你写900行，剩下100行自己写
 
-<p>框架：  将原来自己写的1000行代码，变成：框架帮你写900行，剩下100行自己写</p></li>
-</ol>
+控制器：handler  servlet   controller   action  
 
-<p>控制器：handler  servlet   controller   action</p>
+## 拦截器
 
-<h3 id="拦截器">拦截器</h3>
+![拦截器](/resources/技术框架/Spring家族/拦截器.png &quot;拦截器&quot;)
 
-<p><img src="/resources/技术框架/Spring家族/拦截器.png" alt="拦截器" title="拦截器" /></p>
+拦截器的原理和过滤器相同。
 
-<p>拦截器的原理和过滤器相同。</p>
+SpringMVC：要想实现拦截器，必须实现一个接口
 
-<p>SpringMVC：要想实现拦截器，必须实现一个接口</p>
+    HandlerInterceptor
 
-<pre><code>HandlerInterceptor
-</code></pre>
+1. 编写拦截器
 
-<ol>
-<li><p>编写拦截器</p>
+    implements HandlerInterceptor
 
-<p>implements HandlerInterceptor</p>
-
-<p>拦截器一</p>
-
-<pre><code>public class MyInterceptor  implements HandlerInterceptor{
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-        System.out.println(&quot;拦截请求&quot;);  //
-        return true;//true:拦截操作之后，放行 ；false:拦截之后不放行，请求终止；
+    拦截器一
+    ```java
+    public class MyInterceptor  implements HandlerInterceptor{
+        @Override
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+                throws Exception {
+            System.out.println(&quot;拦截请求&quot;);  //
+            return true;//true:拦截操作之后，放行 ；false:拦截之后不放行，请求终止；
+        }
+        @Override
+        public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                ModelAndView modelAndView) throws Exception {
+            System.out.println(&quot;拦截响应&quot;);
+        }
+        @Override
+        public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+                throws Exception {
+            System.out.println(&quot;视图(jsp)被渲染完毕&quot;);
+        }
     }
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-            ModelAndView modelAndView) throws Exception {
-        System.out.println(&quot;拦截响应&quot;);
+    ```
+    拦截器二
+    ```java
+    public class MySecondInterceptor implements HandlerInterceptor {
+        @Override
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+                throws Exception {
+            System.out.println(&quot;第二个拦截器，拦截请求...22222&quot;);
+            return true;
+        }
+        @Override
+        public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                ModelAndView modelAndView) throws Exception {
+            System.out.println(&quot;第二个拦截器，拦截响应...22222&quot;);
+        }
+        @Override
+        public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+                throws Exception {
+            System.out.println(&quot;第二个拦截器，afterCompletion&quot;);
+        }
     }
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
-        System.out.println(&quot;视图(jsp)被渲染完毕&quot;);
-    }
-}
-</code></pre>
+    ```
+1. 配置
 
-<p>拦截器二</p>
-
-<pre><code>public class MySecondInterceptor implements HandlerInterceptor {
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-        System.out.println(&quot;第二个拦截器，拦截请求...22222&quot;);
-        return true;
-    }
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-            ModelAndView modelAndView) throws Exception {
-        System.out.println(&quot;第二个拦截器，拦截响应...22222&quot;);
-    }
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
-        System.out.println(&quot;第二个拦截器，afterCompletion&quot;);
-    }
-}
-</code></pre></li>
-
-<li><p>配置</p>
-
-<p>将自己写的拦截器 配置到springmvc中（spring）</p>
-
-<pre><code>&lt;!-- 将自己写的拦截器 配置到springmvc中（spring）；默认拦截全部请求 --&gt;
-&lt;mvc:interceptors&gt;
-    &lt;!--拦截一切请求时放在这
-        &lt;bean  class=&quot;org.lanqiao.interceptor.MySecondInterceptor&quot;&gt;&lt;/bean&gt;
-    --&gt;
-
+    将自己写的拦截器 配置到springmvc中（spring）
+    ```xml
+    &lt;!-- 将自己写的拦截器 配置到springmvc中（spring）；默认拦截全部请求 --&gt;
+	&lt;mvc:interceptors&gt;
+        &lt;!--拦截一切请求时放在这
+            &lt;bean  class=&quot;org.lanqiao.interceptor.MySecondInterceptor&quot;&gt;&lt;/bean&gt;
+        --&gt;
     &lt;!-- 配置具体的拦截路径,二者取交集 --&gt;
-    &lt;mvc:interceptor&gt;
-        &lt;!-- 指定拦截的路径,基于ant风格 --&gt;
-        &lt;mvc:mapping path=&quot;/**&quot;/&gt;  
-        &lt;!-- 指定拦不截的路径 --&gt;
-        &lt;mvc:exclude-mapping path=&quot;/handler/testUpload&quot;/&gt; 
-        &lt;bean  class=&quot;org.lanqiao.interceptor.MyInterceptor&quot;&gt;&lt;/bean&gt;
-    &lt;/mvc:interceptor&gt;
-        &lt;!-- 配置具体的拦截路径 --&gt;
-    &lt;mvc:interceptor&gt;
-        &lt;!-- 指定拦截的路径,基于ant风格 --&gt;
-        &lt;mvc:mapping path=&quot;/**&quot;/&gt;  
-        &lt;!-- 指定拦不截的路径 --&gt;
-        &lt;mvc:exclude-mapping path=&quot;/handler/testUpload&quot;/&gt; 
-        &lt;bean  class=&quot;org.lanqiao.interceptor.MySecondInterceptor&quot;&gt;&lt;/bean&gt;
-    &lt;/mvc:interceptor&gt;
-&lt;/mvc:interceptors&gt;
-</code></pre></li>
-</ol>
+        &lt;mvc:interceptor&gt;
+            &lt;!-- 指定拦截的路径,基于ant风格 --&gt;
+            &lt;mvc:mapping path=&quot;/**&quot;/&gt;  
+            &lt;!-- 指定拦不截的路径 --&gt;
+            &lt;mvc:exclude-mapping path=&quot;/handler/testUpload&quot;/&gt; 
+            &lt;bean  class=&quot;org.lanqiao.interceptor.MyInterceptor&quot;&gt;&lt;/bean&gt;
+        &lt;/mvc:interceptor&gt;
+            &lt;!-- 配置具体的拦截路径 --&gt;
+        &lt;mvc:interceptor&gt;
+            &lt;!-- 指定拦截的路径,基于ant风格 --&gt;
+            &lt;mvc:mapping path=&quot;/**&quot;/&gt;  
+            &lt;!-- 指定拦不截的路径 --&gt;
+            &lt;mvc:exclude-mapping path=&quot;/handler/testUpload&quot;/&gt; 
+            &lt;bean  class=&quot;org.lanqiao.interceptor.MySecondInterceptor&quot;&gt;&lt;/bean&gt;
+        &lt;/mvc:interceptor&gt;
+    &lt;/mvc:interceptors&gt;
+	```
 
-<p>拦截器1拦截请求- 拦截器2拦截请求 - 请求方法 - 拦截器2处理相应-拦截器1处理相应-    只会被 最后一个拦截器的afterCompletion()拦截</p>
+拦截器1拦截请求- 拦截器2拦截请求 - 请求方法 - 拦截器2处理相应-拦截器1处理相应-    只会被 最后一个拦截器的afterCompletion()拦截
 
-<p>如果有多个拦截器，则每个拦截器的<code>preHandle</code> <code>postHandle</code> 都会在相应时机各被触发一次；但是<code>afterCompletion</code>， 只会执行最后一个拦截器的该方法。</p>
+如果有多个拦截器，则每个拦截器的`preHandle` `postHandle` 都会在相应时机各被触发一次；但是`afterCompletion`， 只会执行最后一个拦截器的该方法。
 
-<h3 id="异常处理">异常处理</h3>
+## 异常处理
 
-<p>SpringMVC实现异常处理的顶级接口</p>
+SpringMVC实现异常处理的顶级接口
 
-<pre><code>HandlerExceptionResolver
+    HandlerExceptionResolver
+
+该接口的每个实现类 都是异常的一种处理方式：
+
+#### ExceptionHandlerExceptionResolver
+
+主要提供了`@ExceptionHandler`注解，并通过该注解处理异常
+
+controller中出现异常
+
 </code></pre>
 
-<p>该接口的每个实现类 都是异常的一种处理方式：</p>
-
-<h4 id="exceptionhandlerexceptionresolver">ExceptionHandlerExceptionResolver</h4>
-
-<p>主要提供了<code>@ExceptionHandler</code>注解，并通过该注解处理异常</p>
-
-<p>controller中出现异常</p>
-
-<pre><code>@RequestMapping(&quot;testExceptionHandler&quot;)
+<p>java
+@RequestMapping(&ldquo;testExceptionHandler&rdquo;)
 public String testExceptionHandler() {
     //try {
-        System.out.println( 1/0 );//
+        System.out.println( <sup>1</sup>&frasl;<sub>0</sub> );//
     //}catch(ArithmeticException e) e
     //}catch(Exception e) e
-return &quot;success&quot; ;
-}
+return &ldquo;success&rdquo; ;
+}</p>
+
+<pre><code>controller中定义捕获异常的方法
 </code></pre>
 
-<p>controller中定义捕获异常的方法</p>
-
-<pre><code>//该方法 可以捕获本类中  抛出的ArithmeticException异常,并返回error页面，将错误信息传递给error页面
+<p>java
+//该方法 可以捕获本类中  抛出的ArithmeticException异常,并返回error页面，将错误信息传递给error页面
 @ExceptionHandler({ArithmeticException.class})
 public ModelAndView handlerArithmeticException(ArithmeticException e) {
-    ModelAndView mv = new ModelAndView(&quot;error&quot;);
-    System.out.println(e +&quot;============&quot;);
-    mv.addObject(&quot;er&quot;, e) ;
+    ModelAndView mv = new ModelAndView(&ldquo;error&rdquo;);
+    System.out.println(e +&ldquo;============&rdquo;);
+    mv.addObject(&ldquo;er&rdquo;, e) ;
     return  mv;
-}
+}</p>
+
+<pre><code>error获取异常信息
+
 </code></pre>
 
-<p>error获取异常信息</p>
+<p>${requesrScope.e}</p>
 
-<pre><code>${requesrScope.e}
+<pre><code>数组越界异常
 </code></pre>
 
-<p>数组越界异常</p>
-
-<pre><code>@RequestMapping(&quot;testExceptionHandler2&quot;)
+<p>java
+@RequestMapping(&ldquo;testExceptionHandler2&rdquo;)
 public String testExceptionHandler2() {
     int[] nums = new int[2];
     System.out.println(nums[2]);//ArrayIndexOutOfBoundsException
-    return &quot;success&quot; ;
-}
-</code></pre>
+    return &ldquo;success&rdquo; ;
+}</p>
 
-<pre><code>//该方法 可以捕获本类中  抛出的ArithmeticException异常
+<pre><code></code></pre>
+
+<p>java
+//该方法 可以捕获本类中  抛出的ArithmeticException异常
 @ExceptionHandler({ArithmeticException.class,ArrayIndexOutOfBoundsException.class})
 public ModelAndView handlerArithmeticException(Exception e) {
-    ModelAndView mv = new ModelAndView(&quot;error&quot;);
-    System.out.println(e +&quot;============&quot;);
-    mv.addObject(&quot;er&quot;, e) ;
+    ModelAndView mv = new ModelAndView(&ldquo;error&rdquo;);
+    System.out.println(e +&ldquo;============&rdquo;);
+    mv.addObject(&ldquo;er&rdquo;, e) ;
     return  mv;
-}
+}</p>
+
+<pre><code>`@ExceptionHandler`标识的方法的参数 必须在异常类型(Throwable或其子类) ，不能包含其他类型的参数
+
+异常处理路径：最短优先  
+
+如果有方法抛出一个ArithmeticException异常，而该类中 有2个对应的异常处理方法：
+
 </code></pre>
 
-<p><code>@ExceptionHandler</code>标识的方法的参数 必须在异常类型(Throwable或其子类) ，不能包含其他类型的参数</p>
+<p>java
+@ExceptionHandler({Exception.class  })
+public ModelAndView handlerArithmeticException2(Exception e) {}</p>
 
-<p>异常处理路径：最短优先</p>
+<p>@ExceptionHandler({ArithmeticException.class  })
+public ModelAndView handlerArithmeticException1(Exception e) {}</p>
 
-<p>如果有方法抛出一个ArithmeticException异常，而该类中 有2个对应的异常处理方法：</p>
+<pre><code>
+则优先级：  最短优先。
 
-<pre><code>@ExceptionHandler({Exception.class  })
-public ModelAndView handlerArithmeticException2(Exception e) {}
+@ExceptionHandler默认只能捕获 当前类中的异常方法。
 
-@ExceptionHandler({ArithmeticException.class  })
-public ModelAndView handlerArithmeticException1(Exception e) {}
+如果发生异常的方法  和处理异常的方法 不在同一个类中：@ControllerAdvice
+
 </code></pre>
 
-<p>则优先级：  最短优先。</p>
+<p>java
+//@ControllerAdvice
+public class MyExceptionHandler {//不是控制器，仅仅是 用于处理异常的类</p>
 
-<p>@ExceptionHandler默认只能捕获 当前类中的异常方法。</p>
+<pre><code>将处理异常的方法放到该类中
 
-<p>如果发生异常的方法  和处理异常的方法 不在同一个类中：@ControllerAdvice</p>
 
-<pre><code>//@ControllerAdvice
-public class MyExceptionHandler {//不是控制器，仅仅是 用于处理异常的类
 </code></pre>
 
-<p>将处理异常的方法放到该类中</p>
-
-<pre><code>@ExceptionHandler({Exception.class  })
+<p>java
+@ExceptionHandler({Exception.class  })
 public ModelAndView handlerArithmeticException2(Exception e) {
-    ModelAndView mv = new ModelAndView(&quot;error&quot;);
-    System.out.println(e +&quot;============&quot;+&quot;该@ControllerAdvice中的异常处理方法，可以处理任何类中的异常&quot;);
-    mv.addObject(&quot;er&quot;, e) ;
+    ModelAndView mv = new ModelAndView(&ldquo;error&rdquo;);
+    System.out.println(e +&ldquo;============&rdquo;+&ldquo;该@ControllerAdvice中的异常处理方法，可以处理任何类中的异常&rdquo;);
+    mv.addObject(&ldquo;er&rdquo;, e) ;
     return  mv;
     }
-}
+}</p>
+
+<pre><code>总结：如果一个方法用于处理异常，并且只处理当前类中的异常：`@ExceptionHandler`
+
+如果一个方法用于处理异常，并且处理所有类中的异常： 类前加`@ControllerAdvice`、 处理异常的方法前加`@ExceptionHandler`
+
+#### ResponseStatusExceptionResolver
+
+自定义异常显示页面` @ResponseStatus`
+
 </code></pre>
 
-<p>总结：如果一个方法用于处理异常，并且只处理当前类中的异常：<code>@ExceptionHandler</code></p>
-
-<p>如果一个方法用于处理异常，并且处理所有类中的异常： 类前加<code>@ControllerAdvice</code>、 处理异常的方法前加<code>@ExceptionHandler</code></p>
-
-<h4 id="responsestatusexceptionresolver">ResponseStatusExceptionResolver</h4>
-
-<p>自定义异常显示页面<code>@ResponseStatus</code></p>
-
-<pre><code>@ResponseStatus(value=HttpStatus.FORBIDDEN,reason=&quot;数组越界222!!!&quot;)
+<p>java
+@ResponseStatus(value=HttpStatus.FORBIDDEN,reason=&ldquo;数组越界222!!!&rdquo;)
 public class MyArrayIndexOutofBoundsException extends Exception {//自定义异常
-}
-</code></pre>
+}</p>
 
-<pre><code>@RequestMapping(&quot;testMyException&quot;)
-public String testMyException(@RequestParam(&quot;i&quot;) Integer i) throws MyArrayIndexOutofBoundsException {
+<pre><code></code></pre>
+
+<p>java
+@RequestMapping(&ldquo;testMyException&rdquo;)
+public String testMyException(@RequestParam(&ldquo;i&rdquo;) Integer i) throws MyArrayIndexOutofBoundsException {
     if(i == 3) {
         throw new MyArrayIndexOutofBoundsException();//抛出异常
     }
-    return &quot;success&quot; ;
-}
+    return &ldquo;success&rdquo; ;
+}</p>
+
+<pre><code>@ResponseStatus也可以标志在方法前：
 </code></pre>
 
-<p>@ResponseStatus也可以标志在方法前：</p>
-
-<pre><code>@RequestMapping(&quot;testMyException2&quot;)
-public String testMyException2(@RequestParam(&quot;i&quot;) Integer i) {
+<p>java
+@RequestMapping(&ldquo;testMyException2&rdquo;)
+public String testMyException2(@RequestParam(&ldquo;i&rdquo;) Integer i) {
     if(i == 3) {
-        return &quot;redirect:testResponseStatus&quot; ;//跳转到某一个 异常处理方法里
+        return &ldquo;redirect:testResponseStatus&rdquo; ;//跳转到某一个 异常处理方法里
     }
-    return &quot;success&quot; ;
+    return &ldquo;success&rdquo; ;
 }
-@ResponseStatus(value=HttpStatus.CONFLICT  ,reason=&quot;测试。。。&quot;)
-@RequestMapping(&quot;testResponseStatus&quot;)
+@ResponseStatus(value=HttpStatus.CONFLICT  ,reason=&ldquo;测试。。。&rdquo;)
+@RequestMapping(&ldquo;testResponseStatus&rdquo;)
 public String testResponseStatus() {
-    return &quot;success&quot; ;
-}
+    return &ldquo;success&rdquo; ;
+}</p>
+
+<pre><code>
+#### DefaultHandlerExceptionResolver
+
+SPringMVC在一些常见异常的基础上（300 500  405），新增了一些异常，例如：
+
+    * @see org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
+    * @see #handleNoSuchRequestHandlingMethod
+    * @see #handleHttpRequestMethodNotSupported  ：如果springmvc的处理方法限制为post方式，如果实际请求为get,则会触发此异常显示的页面
+    * @see #handleHttpMediaTypeNotSupported
+    * @see #handleMissingServletRequestParameter
+    * @see #handleServletRequestBindingException
+    * @see #handleTypeMismatch
+    * @see #handleHttpMessageNotReadable
+    * @see #handleHttpMessageNotWritable
+    * @see #handleMethodArgumentNotValidException
+    * @see #handleMissingServletRequestParameter
+    * @see #handleMissingServletRequestPartException
+    * @see #handleBindException
+
+#### SimpleMappingExceptionResolver
+
+通过配置来实现异常的处理
+
 </code></pre>
 
-<h4 id="defaulthandlerexceptionresolver">DefaultHandlerExceptionResolver</h4>
-
-<p>SPringMVC在一些常见异常的基础上（300 500  405），新增了一些异常，例如：</p>
-
-<pre><code>* @see org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
-* @see #handleNoSuchRequestHandlingMethod
-* @see #handleHttpRequestMethodNotSupported  ：如果springmvc的处理方法限制为post方式，如果实际请求为get,则会触发此异常显示的页面
-* @see #handleHttpMediaTypeNotSupported
-* @see #handleMissingServletRequestParameter
-* @see #handleServletRequestBindingException
-* @see #handleTypeMismatch
-* @see #handleHttpMessageNotReadable
-* @see #handleHttpMessageNotWritable
-* @see #handleMethodArgumentNotValidException
-* @see #handleMissingServletRequestParameter
-* @see #handleMissingServletRequestPartException
-* @see #handleBindException
-</code></pre>
-
-<h4 id="simplemappingexceptionresolver">SimpleMappingExceptionResolver</h4>
-
-<p>通过配置来实现异常的处理</p>
-
-<pre><code>@RequestMapping(value=&quot;testSimpleMappingExceptionResolver&quot;)
+<p>java
+@RequestMapping(value=&ldquo;testSimpleMappingExceptionResolver&rdquo;)
 public String  testSimpleMappingExceptionResolver() {
-    System.out.println(1/0);
-    return &quot;success&quot; ;
-}
-</code></pre>
+    System.out.println(<sup>1</sup>&frasl;<sub>0</sub>);
+    return &ldquo;success&rdquo; ;
+}</p>
+
+<pre><code></code></pre>
+
+<p>xml
+<!-- SimpleMappingExceptionResolver:以配置的方式 处理异常 -->
+<bean  class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <!-- 如果发生异常，异常对象会被保存在  exceptionAttribute的value值中；并且会放入request域中 ；异常变量的默认值是 exception-->
+    <!--<property name="exceptionAttribute" value="exception"></property>-->
+    <property name="exceptionMappings">
+        <props>
+            <!-- 相当于catch(ArithmeticException ex){ 跳转：error } -->
+            <prop key="java.lang.ArithmeticException">
+                error
+            </prop>
+            <prop key="java.lang.NullPointerException">
+                error
+            </prop>
+        </props>
+    </property>
+</bean></p>
+
+<pre><code></code></pre>
+
+<p>${requestScope.exception}</p>
 
 <pre><code>
-&lt;!-- SimpleMappingExceptionResolver:以配置的方式 处理异常 --&gt;
-&lt;bean  class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt;
-    &lt;!-- 如果发生异常，异常对象会被保存在  exceptionAttribute的value值中；并且会放入request域中 ；异常变量的默认值是 exception--&gt;
-    &lt;!--&lt;property name=&quot;exceptionAttribute&quot; value=&quot;exception&quot;&gt;&lt;/property&gt;--&gt;
-    &lt;property name=&quot;exceptionMappings&quot;&gt;
-        &lt;props&gt;
-            &lt;!-- 相当于catch(ArithmeticException ex){ 跳转：error } --&gt;
-            &lt;prop key=&quot;java.lang.ArithmeticException&quot;&gt;
-                error
-            &lt;/prop&gt;
-            &lt;prop key=&quot;java.lang.NullPointerException&quot;&gt;
-                error
-            &lt;/prop&gt;
-        &lt;/props&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;
+
+## 表单标签:
+
+启动tomcat报错：
 </code></pre>
 
-<pre><code>${requestScope.exception}
-</code></pre>
+<p>Caused by: java.lang.IllegalArgumentException: More than one fragment with the name [spring_web] was found. This is not legal with relative ordering. See section 8.2.2 2c of the Servlet specification for details.</p>
 
-<h3 id="表单标签">表单标签:</h3>
+<pre><code>需要在web.xml添加标签
 
-<p>启动tomcat报错：</p>
+    &lt;absolute-ordering/&gt;
 
-<pre><code>Caused by: java.lang.IllegalArgumentException: More than one fragment with the name [spring_web] was found. This is not legal with relative ordering. See section 8.2.2 2c of the Servlet specification for details.
-</code></pre>
 
-<p>需要在web.xml添加标签</p>
+自定义标签el/ jstl
 
-<pre><code>&lt;absolute-ordering/&gt;
-</code></pre>
-
-<p>自定义标签el/ jstl</p>
-
-<p>Spring EL :
+Spring EL : 
 1. 支持各种类型的请求方式(查询doGet增 加doPost、删除doDelete 、修改doPut)
-2. 可以将对象和表单绑定起来；对象的属性&ndash;表单path值 一一对应</p>
+2. 可以将对象和表单绑定起来；对象的属性--表单path值 一一对应
 
-<h4 id="idea开发springmvc">IDEA开发springmvc</h4>
+#### IDEA开发springmvc
 
-<p>SPringMVC项目:</p>
+SpringMVC项目:
 
-<p>选择Springmvc:自动下载springmvc相关的jar</p>
+选择Springmvc:自动下载springmvc相关的jar
 
-<p>处理Jar :artifacts - fix : miss all&hellip;</p>
+处理Jar :artifacts - fix : miss all...
 
-<p>开发代码:</p>
+开发代码:
 
-<h4 id="引入标签库">引入标签库</h4>
 
-<pre><code>&lt;%@ taglib prefix=&quot;form&quot; uri=&quot;http://www.springframework.org/tags/form&quot; %&gt;
+#### 引入标签库
+
 </code></pre>
 
-<h4 id="使用">使用：</h4>
-
-<p>类</p>
+<p>jsp
+&lt;%@ taglib prefix=&ldquo;form&rdquo; uri=&ldquo;<a href="http://www.springframework.org/tags/form&quot;">http://www.springframework.org/tags/form&quot;</a> %&gt;</p>
 
 <pre><code>
-public class Persion {
+#### 使用：
+
+类
+</code></pre>
+
+<p>java</p>
+
+<p>public class Persion {
     private String name;
     private int age;
     public String getName() {
@@ -2141,364 +2169,397 @@ public class Persion {
     public void setAge(int age) {
         this.age = age;
     }
-}
+}</p>
+
+<pre><code>表单
 </code></pre>
 
-<p>表单</p>
+<p>html
+<a href="form:form">form:form</a>
+    姓名：<form:input path="name"/><br>
+    年龄：<form:input path="age"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
 
-<pre><code>&lt;form:form&gt;
-    姓名：&lt;form:input path=&quot;name&quot;/&gt;&lt;br&gt;
-    年龄：&lt;form:input path=&quot;age&quot;/&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
+<pre><code>控制器
 </code></pre>
 
-<p>控制器</p>
-
-<pre><code>@Controller
-@RequestMapping(&quot;/FormDemo&quot;)
+<p>java
+@Controller
+@RequestMapping(&ldquo;/FormDemo&rdquo;)
 public class FormDemo {
-    public String testForm(Map&lt;String,Object&gt; map){
+    public String testForm(Map<String,Object> map){
         Persion per = new Persion();
         per.setAge(23);
-        per.setName(&quot;zs&quot;);
-        map.put(&quot;command&quot;, per);//将per放入了request域中的command中
-        return &quot;forward:/views/springForm.jsp&quot;;
+        per.setName(&ldquo;zs&rdquo;);
+        map.put(&ldquo;command&rdquo;, per);//将per放入了request域中的command中
+        return &ldquo;forward:/views/springForm.jsp&rdquo;;
     }
-}
+}</p>
+
+<pre><code>`&lt;form id=&quot;command&quot;&gt;`:SpringMVC标签会默认自动从名为&quot;command&quot;的对象中获取值，因此传值时将值放入command中
+
+如果在map.put()时，名字不是command，则需要手工指定
+
+
 </code></pre>
 
-<p><code>&lt;form id=&quot;command&quot;&gt;</code>:SpringMVC标签会默认自动从名为&rdquo;command&rdquo;的对象中获取值，因此传值时将值放入command中</p>
-
-<p>如果在map.put()时，名字不是command，则需要手工指定</p>
-
-<pre><code>&lt;form:form commandName=&quot;person&quot;&gt;
+<p>html
+<form:form commandName="person">
 或
-&lt;form:form modelAttribute=&quot;person&quot;&gt;
-</code></pre>
+<form:form modelAttribute="person"></p>
 
-<p>则传值时</p>
+<pre><code>
+则传值时
 
-<pre><code> map.put(&quot;person&quot;, per);//将per放入了request
-</code></pre>
+     map.put(&quot;person&quot;, per);//将per放入了request
 
-<h4 id="各种表单的提交方式">各种表单的提交方式</h4>
+#### 各种表单的提交方式
 
-<ol>
-<li><p>编写method属性</p>
+1. 编写method属性
 
-<pre><code>&lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;post&quot;&gt;
+    ```html
+    &lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;post&quot;&gt;
 
-&lt;input type=&quot;submit&quot; value=&quot;增加&quot;&gt;
-&lt;/form:form&gt;
-&lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;delete&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;增加&quot;&gt;
+    &lt;/form:form&gt;
+    &lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;delete&quot;&gt;
 
-&lt;input type=&quot;submit&quot; value=&quot;删除&quot;&gt;
-&lt;/form:form&gt;
-&lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;put&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;删除&quot;&gt;
+    &lt;/form:form&gt;
+    &lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;put&quot;&gt;
 
-&lt;input type=&quot;submit&quot; value=&quot;修改&quot;&gt;
-&lt;/form:form&gt;
-&lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;get&quot;&gt;
-
-&lt;input type=&quot;submit&quot; value=&quot;查询&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<pre><code>@RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.POST)
-public String testPost(){
-    System.out.println(&quot;post&quot;);
-    return &quot;/index.jsp&quot;;
-}
-@RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.DELETE)
-public String testDelete(){
-    System.out.println(&quot;delete&quot;);
-    return &quot;/index.jsp&quot;;
-}
-
-@RequestMapping(value = &quot;/testMethod&quot;,method =RequestMethod.PUT)
-public String testPut(){
-    System.out.println(&quot;put&quot;);
-    return &quot;/index.jsp&quot;;
-}
-@RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.GET)
-public String testGet(){
-    System.out.println(&quot;get&quot;);
-    return &quot;/index.jsp&quot;;
-}
-
-</code></pre></li>
-
-<li><p>配置过滤器</p>
-
-<pre><code>&lt;!--增加过滤器 支持delete和put请求--&gt;
-&lt;filter&gt;
-    &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
-&lt;/filter&gt;
-&lt;filter-mapping&gt;
-    &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-&lt;/filter-mapping&gt;
-</code></pre>
-
-<p>HiddenHttpMethodFilter会将全部请求中名为&rdquo;method&rdquo;的隐藏域进行Put|Delete处理</p></li>
-</ol>
-
-<p>可以配置</p>
-
-<pre><code> &lt;filter&gt;
-    &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;methodParam&lt;/param-name&gt;
-        &lt;param-value&gt;myMethod&lt;/param-value&gt;
-    &lt;/init-param&gt;
-&lt;/filter&gt;
-</code></pre>
-
-<p>指定要处理的隐藏的名字</p>
-
-<pre><code>&lt;form action=&quot;FormDemo/testMethod&quot; method=&quot;post&quot;&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;myMethod&quot; value=&quot;delete&quot;&gt;
     &lt;input type=&quot;submit&quot; value=&quot;修改&quot;&gt;
-&lt;/form&gt;
+    &lt;/form:form&gt;
+    &lt;form:form action=&quot;FormDemo/testMethod&quot; method=&quot;get&quot;&gt;
+
+    &lt;input type=&quot;submit&quot; value=&quot;查询&quot;&gt;
+    &lt;/form:form&gt;
+    ```
+    ```java
+    @RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.POST)
+    public String testPost(){
+        System.out.println(&quot;post&quot;);
+        return &quot;/index.jsp&quot;;
+    }
+    @RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.DELETE)
+    public String testDelete(){
+        System.out.println(&quot;delete&quot;);
+        return &quot;/index.jsp&quot;;
+    }
+
+    @RequestMapping(value = &quot;/testMethod&quot;,method =RequestMethod.PUT)
+    public String testPut(){
+        System.out.println(&quot;put&quot;);
+        return &quot;/index.jsp&quot;;
+    }
+    @RequestMapping(value = &quot;/testMethod&quot;,method = RequestMethod.GET)
+    public String testGet(){
+        System.out.println(&quot;get&quot;);
+        return &quot;/index.jsp&quot;;
+    }
+
+    ```
+2. 配置过滤器
+    ```xml
+    &lt;!--增加过滤器 支持delete和put请求--&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+    ```
+HiddenHttpMethodFilter会将全部请求中名为&quot;method&quot;的隐藏域进行Put|Delete处理
+
+可以配置
+
 </code></pre>
 
-<p>如果是使用的是SpringMvc标签：</p>
+<p>xml
+ <filter>
+    <filter-name>HiddenHttpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    <init-param>
+        <param-name>methodParam</param-name>
+        <param-value>myMethod</param-value>
+    </init-param>
+</filter></p>
 
-<pre><code>method=&quot;put|delete&quot;
+<pre><code>指定要处理的隐藏的名字
+
 </code></pre>
 
-<p>如果不是SpringMVC标签，是传统的htnl标签</p>
+<p>html
+<form action="FormDemo/testMethod" method="post">
+    <input type="hidden" name="myMethod" value="delete">
+    <input type="submit" value="修改">
+</form></p>
 
-<pre><code>method=&quot;post&quot;
-&lt;input type=&quot;hidden&quot; name=&quot;myMethod&quot; value=&quot;delete|put&quot;&gt;
+<pre><code>
+如果是使用的是SpringMvc标签：
+
+    method=&quot;put|delete&quot;
+如果不是SpringMVC标签，是传统的htnl标签
+
+    method=&quot;post&quot;
+    &lt;input type=&quot;hidden&quot; name=&quot;myMethod&quot; value=&quot;delete|put&quot;&gt;
+
+#### checkbox
+
+    自动绑定request域中的值
+1. 通过boolean值绑定
+
 </code></pre>
 
-<h4 id="checkbox">checkbox</h4>
-
-<pre><code>自动绑定request域中的值
-</code></pre>
-
-<ol>
-<li><p>通过boolean值绑定</p>
-
-<pre><code>@RequestMapping(&quot;/testForm2&quot;)
-public String testForm2(Map&lt;String,Object&gt; map){
-Persion per = new Persion();
-//per.setAge(23);
-//per.setName(&quot;zs&quot;);
-per.setSex(false);
-map.put(&quot;per&quot;, per);
-return &quot;springForm&quot;;
-//return &quot;forward:/views/springForm.jsp&quot;;
-}
-</code></pre>
-
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm2&quot;&gt;
-&lt;for:checkbox path=&quot;sex&quot;/&gt;
-&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre></li>
-</ol>
-
-<p>绑定集合（有值的打上勾）</p>
-
-<pre><code>@RequestMapping(&quot;/testForm3&quot;)
-public String testForm3(Map&lt;String,Object&gt; map){
-
+<p>java
+@RequestMapping(&ldquo;/testForm2&rdquo;)
+public String testForm2(Map<String,Object> map){
     Persion per = new Persion();
-    List&lt;String&gt; hobbirs=new ArrayList&lt;&gt;();
-    hobbirs.add(&quot;football&quot;);
-    hobbirs.add(&quot;basketball&quot;);
+    //per.setAge(23);
+    //per.setName(&ldquo;zs&rdquo;);
+    per.setSex(false);
+    map.put(&ldquo;per&rdquo;, per);
+    return &ldquo;springForm&rdquo;;
+    //return &ldquo;forward:/views/springForm.jsp&rdquo;;
+}</p>
+
+<pre><code></code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm2">
+    <for:checkbox path="sex"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>绑定集合（有值的打上勾）
+
+</code></pre>
+
+<p>java
+@RequestMapping(&ldquo;/testForm3&rdquo;)
+public String testForm3(Map<String,Object> map){
+    Persion per = new Persion();
+    List<String> hobbirs=new ArrayList&lt;&gt;();
+    hobbirs.add(&ldquo;football&rdquo;);
+    hobbirs.add(&ldquo;basketball&rdquo;);
     per.setHobbies(hobbirs);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
-    return &quot;springForm&quot;;
-}
+    map.put(&ldquo;per&rdquo;, per);//将per放入了request域中
+    return &ldquo;springForm&rdquo;;
+}</p>
+
+<pre><code></code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm3">
+    <form:checkbox path="hobbies" value="football"><a href="/form:checkbox">/form:checkbox</a>
+    <form:checkbox path="hobbies" value="basketball"><a href="/form:checkbox">/form:checkbox</a>
+    <form:checkbox path="hobbies" value="pingpang"><a href="/form:checkbox">/form:checkbox</a>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>(了解）嵌套对象的toString（）返回值
 </code></pre>
 
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm3&quot;&gt;
-    &lt;form:checkbox path=&quot;hobbies&quot; value=&quot;football&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;form:checkbox path=&quot;hobbies&quot; value=&quot;basketball&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;form:checkbox path=&quot;hobbies&quot; value=&quot;pingpang&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<p>(了解）嵌套对象的toString（）返回值</p>
-
-<pre><code>@RequestMapping(&quot;/testForm4&quot;)
-public String testForm4(Map&lt;String,Object&gt; map){
+<p>java
+@RequestMapping(&ldquo;/testForm4&rdquo;)
+public String testForm4(Map<String,Object> map){
     Persion per = new Persion();
     Other other = new Other();
     per.setOther(other);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
-    return &quot;springForm&quot;;
-}
+    map.put(&ldquo;per&rdquo;, per);//将per放入了request域中
+    return &ldquo;springForm&rdquo;;
+}</p>
 
-</code></pre>
+<pre><code></code></pre>
 
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:checkbox path=&quot;other&quot; value=&quot;football&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;form:checkbox path=&quot;other&quot; value=&quot;basketball&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;form:checkbox path=&quot;other&quot; value=&quot;pingpang&quot;&gt;&lt;/form:checkbox&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
+<p>html
+<form:form commandName="per" action="textForm">
+    <form:checkbox path="other" value="football"><a href="/form:checkbox">/form:checkbox</a>
+    <form:checkbox path="other" value="basketball"><a href="/form:checkbox">/form:checkbox</a>
+    <form:checkbox path="other" value="pingpang"><a href="/form:checkbox">/form:checkbox</a>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
 
-<pre><code>public class Other {
+<pre><code></code></pre>
+
+<p>java
+public class Other {
     @Override
     public String toString() {
-        return &quot;pingpang&quot;;
+        return &ldquo;pingpang&rdquo;;
     }
-}
+}</p>
+
+<pre><code>
+path:选中的选项（选中）
+
+item:所有的选项  a,b ,c d：如果是list，set，数组，则标签名默认就是选项值，如果想自定义标签名需要使用map
+
 </code></pre>
 
-<p>path:选中的选项（选中）</p>
+<p>java
+@RequestMapping(&ldquo;/testForm5&rdquo;)
+public String testForm5(Map<String,Object> map){</p>
 
-<p>item:所有的选项  a,b ,c d：如果是list，set，数组，则标签名默认就是选项值，如果想自定义标签名需要使用map</p>
+<pre><code>Persion per = new Persion();
+List&lt;String&gt; hobbies=new ArrayList&lt;&gt;();
+hobbies.add(&quot;football&quot;);
+hobbies.add(&quot;basketball&quot;);
+per.setHobbies(hobbies);
+map.put(&quot;per&quot;, per);//将per放入了request域中
 
-<pre><code>@RequestMapping(&quot;/testForm5&quot;)
-public String testForm5(Map&lt;String,Object&gt; map){
+List&lt;String&gt; allHobbies=new ArrayList&lt;&gt;();
+allHobbies.add(&quot;football&quot;);
+allHobbies.add(&quot;basketball&quot;);
+allHobbies.add(&quot;pingpang&quot;);
+allHobbies.add(&quot;aaa&quot;);
+allHobbies.add(&quot;bbb&quot;);
+map.put(&quot;allHobbies&quot;, allHobbies);
+return &quot;springForm&quot;;
+</code></pre>
 
+<p>}</p>
+
+<pre><code></code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm">
+    <form:checkboxes path="hobbies" items="${allHobbies}"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>加载所有的选项allHobbies并且选中选中的hobbies
+
+指定标签名
+
+可以通过   `Map&lt;Value值，标签名&gt;`
+
+
+</code></pre>
+
+<p>java
+Map<String, String> allHobbiesMap = new HashMap&lt;&gt;();
+allHobbiesMap.put(&ldquo;football&rdquo;,&ldquo;足球&rdquo;);
+allHobbiesMap.put(&ldquo;basketball&rdquo;,&ldquo;篮球&rdquo;);
+allHobbiesMap.put(&ldquo;pingpang&rdquo;,&ldquo;乒乓球&rdquo;);
+allHobbiesMap.put(&ldquo;aaa&rdquo;,&ldquo;bbb&rdquo;);
+map.put(&ldquo;allHobbies&rdquo;, allHobbiesMap);</p>
+
+<pre><code>
+#### 单选按钮
+
+</code></pre>
+
+<p>java
+@RequestMapping(&ldquo;/testForm6&rdquo;)
+public String testForm6(Map<String,Object> map){
     Persion per = new Persion();
-    List&lt;String&gt; hobbies=new ArrayList&lt;&gt;();
-    hobbies.add(&quot;football&quot;);
-    hobbies.add(&quot;basketball&quot;);
-    per.setHobbies(hobbies);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
+    per.setCountry(&ldquo;China&rdquo;);
+    map.put(&ldquo;per&rdquo;, per);//将per放入了request域中
+    return &ldquo;springForm&rdquo;;
+}</p>
 
-    List&lt;String&gt; allHobbies=new ArrayList&lt;&gt;();
-    allHobbies.add(&quot;football&quot;);
-    allHobbies.add(&quot;basketball&quot;);
-    allHobbies.add(&quot;pingpang&quot;);
-    allHobbies.add(&quot;aaa&quot;);
-    allHobbies.add(&quot;bbb&quot;);
-    map.put(&quot;allHobbies&quot;, allHobbies);
-    return &quot;springForm&quot;;
-}
+<pre><code></code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm">
+   中国：<form:radiobutton path="country" value="China"/>
+   美国：<form:radiobutton path="country" value="USE"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>一批
+
 </code></pre>
 
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:checkboxes path=&quot;hobbies&quot; items=&quot;${allHobbies}&quot;/&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<p>加载所有的选项allHobbies并且选中选中的hobbies</p>
-
-<p>指定标签名</p>
-
-<p>可以通过   <code>Map&lt;Value值，标签名&gt;</code></p>
-
-<pre><code>Map&lt;String, String&gt; allHobbiesMap = new HashMap&lt;&gt;();
-allHobbiesMap.put(&quot;football&quot;,&quot;足球&quot;);
-allHobbiesMap.put(&quot;basketball&quot;,&quot;篮球&quot;);
-allHobbiesMap.put(&quot;pingpang&quot;,&quot;乒乓球&quot;);
-allHobbiesMap.put(&quot;aaa&quot;,&quot;bbb&quot;);
-map.put(&quot;allHobbies&quot;, allHobbiesMap);
-</code></pre>
-
-<h4 id="单选按钮">单选按钮</h4>
-
-<pre><code>@RequestMapping(&quot;/testForm6&quot;)
-public String testForm6(Map&lt;String,Object&gt; map){
+<p>java
+@RequestMapping(&ldquo;/testForm7&rdquo;)
+public String testForm7(Map<String,Object> map){
     Persion per = new Persion();
-    per.setCountry(&quot;China&quot;);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
-    return &quot;springForm&quot;;
-}
+    per.setFavouriteBall(&ldquo;pingpang&rdquo;);
+    map.put(&ldquo;per&rdquo;, per);//将per放入了request域中
+    Map<String, String> allHobbiesMap = new HashMap&lt;&gt;();
+    allHobbiesMap.put(&ldquo;football&rdquo;,&ldquo;足球&rdquo;);
+    allHobbiesMap.put(&ldquo;basketball&rdquo;,&ldquo;篮球&rdquo;);
+    allHobbiesMap.put(&ldquo;pingpang&rdquo;,&ldquo;乒乓球&rdquo;);
+    allHobbiesMap.put(&ldquo;aaa&rdquo;,&ldquo;bbb&rdquo;);
+    map.put(&ldquo;allBallMap&rdquo;, allHobbiesMap);
+    return &ldquo;springForm&rdquo;;
+}</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-   中国：&lt;form:radiobutton path=&quot;country&quot; value=&quot;China&quot;/&gt;
-   美国：&lt;form:radiobutton path=&quot;country&quot; value=&quot;USE&quot;/&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
+<p><form:form commandName="per" action="textForm">
+    <form:radiobuttons path="favouriteBall" items="${allBallMap}"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>属性`delimiter`可以指定选项与选项之间的分隔符
+
+
+    &lt;form:radiobuttons path=&quot;favouriteBall&quot; items=&quot;${allBallMap}&quot; delimiter=&quot;、&quot;/&gt;
+
+#### select
+写法一
 </code></pre>
 
-<p>一批</p>
+<p>html
+<form:form commandName="per" action="textForm">
+    <form:select path="favouriteBall" items="${allBallMap}"/>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
 
-<pre><code>@RequestMapping(&quot;/testForm7&quot;)
-public String testForm7(Map&lt;String,Object&gt; map){
+<pre><code>写法二：指定选定的值，选项是自己写的，后端不传所有的选项只传favouriteBall
+</code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm">
+    <form:select path="favouriteBall">
+        <form:option value="football">足球11<a href="/form:option">/form:option</a>
+        <form:option value="basketball">篮球11<a href="/form:option">/form:option</a>
+        <form:option value="pingpang">乒乓球11<a href="/form:option">/form:option</a>
+        <form:option value="aaa">bbb11<a href="/form:option">/form:option</a>
+    <a href="/form:select">/form:select</a>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code>写法三
+</code></pre>
+
+<p>html
+<form:form commandName="per" action="textForm">
+    <form:select path="favouriteBall">
+        <form:options items="${allBallMap}"><a href="/form:options">/form:options</a>
+       &lt;%&ndash; <form:option value="football">足球11<a href="/form:option">/form:option</a>
+        <form:option value="basketball">篮球11<a href="/form:option">/form:option</a>
+        <form:option value="pingpang">乒乓球11<a href="/form:option">/form:option</a>
+        <form:option value="aaa">bbb11<a href="/form:option">/form:option</a>&ndash;%&gt;
+    <a href="/form:select">/form:select</a>
+    <input type="submit" value="提交">
+<a href="/form:form">/form:form</a></p>
+
+<pre><code></code></pre>
+
+<p>java
+@RequestMapping(&ldquo;/testForm7&rdquo;)
+public String testForm7(Map<String,Object> map){
     Persion per = new Persion();
-    per.setFavouriteBall(&quot;pingpang&quot;);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
-    Map&lt;String, String&gt; allHobbiesMap = new HashMap&lt;&gt;();
-    allHobbiesMap.put(&quot;football&quot;,&quot;足球&quot;);
-    allHobbiesMap.put(&quot;basketball&quot;,&quot;篮球&quot;);
-    allHobbiesMap.put(&quot;pingpang&quot;,&quot;乒乓球&quot;);
-    allHobbiesMap.put(&quot;aaa&quot;,&quot;bbb&quot;);
-    map.put(&quot;allBallMap&quot;, allHobbiesMap);
-    return &quot;springForm&quot;;
+    per.setFavouriteBall(&ldquo;pingpang&rdquo;);
+    map.put(&ldquo;per&rdquo;, per);//将per放入了request域中
+    Map<String, String> allHobbiesMap = new HashMap&lt;&gt;();
+    allHobbiesMap.put(&ldquo;football&rdquo;,&ldquo;足球&rdquo;);
+    allHobbiesMap.put(&ldquo;basketball&rdquo;,&ldquo;篮球&rdquo;);
+    allHobbiesMap.put(&ldquo;pingpang&rdquo;,&ldquo;乒乓球&rdquo;);
+    allHobbiesMap.put(&ldquo;aaa&rdquo;,&ldquo;bbb&rdquo;);
+    map.put(&ldquo;allBallMap&rdquo;, allHobbiesMap);
+    return &ldquo;springForm&rdquo;;
 }
-</code></pre>
-
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:radiobuttons path=&quot;favouriteBall&quot; items=&quot;${allBallMap}&quot;/&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<p>属性<code>delimiter</code>可以指定选项与选项之间的分隔符</p>
-
-<pre><code>&lt;form:radiobuttons path=&quot;favouriteBall&quot; items=&quot;${allBallMap}&quot; delimiter=&quot;、&quot;/&gt;
-</code></pre>
-
-<h4 id="select">select</h4>
-
-<p>写法一</p>
-
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:select path=&quot;favouriteBall&quot; items=&quot;${allBallMap}&quot;/&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<p>写法二：指定选定的值，选项是自己写的，后端不传所有的选项只传favouriteBall</p>
-
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:select path=&quot;favouriteBall&quot;&gt;
-        &lt;form:option value=&quot;football&quot;&gt;足球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;basketball&quot;&gt;篮球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;pingpang&quot;&gt;乒乓球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;aaa&quot;&gt;bbb11&lt;/form:option&gt;
-    &lt;/form:select&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<p>写法三</p>
-
-<pre><code>&lt;form:form commandName=&quot;per&quot; action=&quot;textForm&quot;&gt;
-    &lt;form:select path=&quot;favouriteBall&quot;&gt;
-        &lt;form:options items=&quot;${allBallMap}&quot;&gt;&lt;/form:options&gt;
-       &lt;%-- &lt;form:option value=&quot;football&quot;&gt;足球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;basketball&quot;&gt;篮球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;pingpang&quot;&gt;乒乓球11&lt;/form:option&gt;
-        &lt;form:option value=&quot;aaa&quot;&gt;bbb11&lt;/form:option&gt;--%&gt;
-    &lt;/form:select&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form:form&gt;
-</code></pre>
-
-<pre><code>@RequestMapping(&quot;/testForm7&quot;)
-public String testForm7(Map&lt;String,Object&gt; map){
-    Persion per = new Persion();
-    per.setFavouriteBall(&quot;pingpang&quot;);
-    map.put(&quot;per&quot;, per);//将per放入了request域中
-    Map&lt;String, String&gt; allHobbiesMap = new HashMap&lt;&gt;();
-    allHobbiesMap.put(&quot;football&quot;,&quot;足球&quot;);
-    allHobbiesMap.put(&quot;basketball&quot;,&quot;篮球&quot;);
-    allHobbiesMap.put(&quot;pingpang&quot;,&quot;乒乓球&quot;);
-    allHobbiesMap.put(&quot;aaa&quot;,&quot;bbb&quot;);
-    map.put(&quot;allBallMap&quot;, allHobbiesMap);
-    return &quot;springForm&quot;;
-}
-</code></pre>
-
-<p>如果方式三和方式二同时存在则会优先选择方式二</p>
+```
+如果方式三和方式二同时存在则会优先选择方式二</p>
 
 <p>如果方式一和方式二同时存在则会优先选择一</p>
 
@@ -2549,8 +2610,8 @@ public String testForm7(Map&lt;String,Object&gt; map){
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
             <li class="next">
-                <a href="https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-                    title="Mybatis自学笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                <a href="https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/"
+                    title="Spring Boot自学笔记-02"><span>上一篇&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             

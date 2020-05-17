@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">22</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,11 +180,11 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">5</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
@@ -242,6 +242,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
                     </p>
                     <p class="item-date">
@@ -276,16 +286,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/03/nginx%E7%AC%94%E8%AE%B0/" class="title">Nginx进阶学习笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-07</time>
                     </p>
                 </div>
             </li>
@@ -4363,7 +4363,7 @@ for (Entry&lt;K,V&gt; e : table) {
 
 <p>扩容时元素个数要超过容量的3/4；处理下标从最后进行处理处理结束后会加上一个头节点ForwardingNode，其他线程来的时候会发现该结点是ForwardingNode，就说明该结点已经被处理过了，就不会对这个链表做其他的操作了；将原先的链表进行搬迁操作，迁移到扩容之后的新的数组中；如果在扩容的过程中，其他线程来get去getkey，如果发现是ForwardingNode，就会去扩容后的新的数组中获取值找key</p>
 
-<p>TreeBin是非常有用的，我们都知道如果链表过长那么它的查找的速度是很低的；那么就可以使用红黑树的数据结构来替换掉一维的链表结构；红黑树是jdk8对hashMap的优化，除了能够增加查询的效率外，还能防止dos攻击(攻击者会构造很多hash码一样的对象，来往hashmap中填充，造成性能直线下降)；这时会有一个链表的长度预值：8；当链表的长度超过8的时候就会将链表的结构转换为红黑树，当然转换之前会尝试扩容，如果hash表的长度容量还没有达到64的时候，先不会把链表的结果变成红黑树，会先扩容。因为扩容能在一定的程度上减少链表的长度(一般能减一半)；当容量扩容到64的时候就不会使用扩容的方式了，就会将链表转换为红黑树；当然如果将来的链表有一些比如删除的操作，红黑树的结点的个数又小于6了，那么又会将红黑树的结构转换为链表</p>
+<p>TreeBin是非常有用的，我们都知道如果链表过长那么它的查找的速度是很低的；那么就可以使用红黑树的数据结构来替换掉一维的链表结构；红黑树是jdk8对hashMap的优化，除了能够增加查询的效率外，还能防止dos攻击(攻击者会构造很多hash码一样的对象，来往hashmap中填充，造成性能直线下降)；这时会有一个链表的长度预值：8；当链表的长度超过8的时候就会将链表的结构转换为红黑树，当然转换之前会尝试扩容，如果hash表的长度容量还没有达到64的时候，先不会把链表的结果变成红黑树，会先扩容。因为扩容能在一定的程度上减少链表的长度(一般能减一半)；当容量扩容到64的时候就不会使用扩容的方式了，就会将链表转换为红黑树；当然如果将来的链表有一些比如删除的操作，红黑树的结点的个数又小于8了，那么又会将红黑树的结构转换为链表</p>
 
 <p>重要属性和内部类</p>
 

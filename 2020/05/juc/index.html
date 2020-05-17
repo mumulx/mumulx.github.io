@@ -1,0 +1,4101 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java并发编程JUC - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java并发编程JUC" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java并发编程JUC - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java并发编程JUC" />
+<meta property="og:description" content="Java并发编程JUC" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/05/juc/" />
+<meta property="article:published_time" content="2020-05-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-16T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java并发编程JUC">
+<meta itemprop="description" content="Java并发编程JUC">
+
+
+<meta itemprop="datePublished" content="2020-05-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="17050">
+
+
+
+<meta itemprop="keywords" content="Java,Java并发编程," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java并发编程JUC"/>
+<meta name="twitter:description" content="Java并发编程JUC"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">22</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程原理篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/" class="title">Java并发编程模式篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#juc">JUC</a>
+<ul>
+<li><a href="#1-什么是juc">1 、什么是JUC</a></li>
+<li><a href="#2-线程和进程">2 、线程和进程</a></li>
+<li><a href="#3-lock锁-重点">3 、Lock锁（重点）</a></li>
+<li><a href="#4-生产者和消费者问题">4 、生产者和消费者问题</a>
+<ul>
+<li>
+<ul>
+<li><a href="#代码实现">代码实现：</a></li>
+<li><a href="#代码测试">代码测试：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#5-8-锁现象">5 、 8 锁现象</a></li>
+<li><a href="#6-集合类不安全">6 、集合类不安全</a></li>
+<li><a href="#7-callable-简单">7 、Callable ( 简单 )</a></li>
+<li><a href="#8-常用的辅助类-必会">8 、常用的辅助类(必会)</a>
+<ul>
+<li><a href="#8-1-countdownlatch">8.1、CountDownLatch</a>
+<ul>
+<li><a href="#原理">原理：</a></li>
+</ul></li>
+<li><a href="#8-2-cyclicbarrier">8.2、CyclicBarrier</a></li>
+<li><a href="#8-3-semaphore">8.3、Semaphore</a>
+<ul>
+<li><a href="#原理-1">原理：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#9-读写锁">9 、读写锁</a></li>
+<li><a href="#10-阻塞队列">10 、阻塞队列</a></li>
+<li><a href="#11-线程池-重点">11 、线程池(重点)</a></li>
+<li><a href="#12-四大函数式接口-必需掌握">12 、四大函数式接口（必需掌握）</a>
+<ul>
+<li>
+<ul>
+<li><a href="#代码测试-1">代码测试：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#13-stream流式计算">13 、Stream流式计算</a></li>
+<li><a href="#14-forkjoin">14 、ForkJoin</a></li>
+<li><a href="#15-异步回调">15 、异步回调</a></li>
+<li><a href="#16-jmm">16 、JMM</a>
+<ul>
+<li>
+<ul>
+<li><a href="#关于jmm的一些同步的约定">关于JMM的一些同步的约定：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#17-volatile">17 、Volatile</a></li>
+<li><a href="#18-彻底玩转单例模式">18 、彻底玩转单例模式</a></li>
+<li><a href="#19-深入理解cas">19 、深入理解CAS</a></li>
+<li><a href="#20-原子引用">20 、原子引用</a></li>
+<li><a href="#21-各种锁的理解">21 、各种锁的理解</a>
+<ul>
+<li><a href="#1-公平锁-非公平锁">1 、公平锁、非公平锁</a></li>
+<li><a href="#2-可重入锁">2 、可重入锁</a></li>
+<li><a href="#3-自旋锁">3 、自旋锁</a></li>
+<li><a href="#4-死锁">4 、死锁</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/05/juc/"
+    >Java并发编程JUC</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/05/juc/" class="article-date">
+  <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+    <a class="article-tag-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"> Java并发编程 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/juc/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:17050字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:35分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="juc">JUC</h1>
+
+<h2 id="1-什么是juc">1 、什么是JUC</h2>
+
+<p><img src="/resources/技术收录/Java/image-20200515104551684.png" alt="image-20200515104551684" /></p>
+
+<p>java.util 工具包、包、分类</p>
+
+<p><strong>业务：普通的线程代码 Thread</strong></p>
+
+<p><strong>Runnable</strong> 没有返回值、效率相比入 Callable 相对较低！</p>
+
+<h2 id="2-线程和进程">2 、线程和进程</h2>
+
+<blockquote>
+<p>线程、进程，如果不能使用一句话说出来的技术，不扎实！</p>
+</blockquote>
+
+<p>进程：一个程序，QQ.exe Music.exe 程序的集合；</p>
+
+<p>一个进程往往可以包含多个线程，至少包含一个！</p>
+
+<p>Java默认有几个线程？ 2 个 mian、GC</p>
+
+<p>线程：开了一个进程 Typora，写字，自动保存（线程负责的）</p>
+
+<p>对于Java而言：Thread、Runnable、Callable</p>
+
+<p><strong>Java 真的可以开启线程吗？</strong> 开不了,底层调用的是native方法，调用本地方法</p>
+
+<pre><code class="language-java">public synchronized void start() {
+        /**
+         * This method is not invoked for the main method thread or &quot;system&quot;
+         * group threads created/set up by the VM. Any new functionality added
+         * to this method in the future may have to also be added to the VM.
+         *
+         * A zero status value corresponds to state &quot;NEW&quot;.
+         */
+        if (threadStatus != 0)
+            throw new IllegalThreadStateException();
+
+        /* Notify the group that this thread is about to be started
+         * so that it can be added to the group's list of threads
+         * and the group's unstarted count can be decremented. */
+        group.add(this);
+
+        boolean started = false;
+        try {
+            start0();
+            started = true;
+        } finally {
+            try {
+                if (!started) {
+                    group.threadStartFailed(this);
+                }
+            } catch (Throwable ignore) {
+                /* do nothing. If start0 threw a Throwable then
+                  it will be passed up the call stack */
+            }
+        }
+    }
+// 本地方法，底层的C++ ，Java 无法直接操作硬件 
+private native void start0();
+
+
+</code></pre>
+
+<blockquote>
+<p>并发、并行</p>
+</blockquote>
+
+<p>并发编程：并发、并行</p>
+
+<p>并发（多线程操作同一个资源）</p>
+
+<ul>
+<li>CPU 一核 ，模拟出来多条线程，天下武功，唯快不破，快速交替</li>
+</ul>
+
+<p>并行（多个人一起行走）</p>
+
+<ul>
+<li>CPU 多核 ，多个线程可以同时执行； 线程池</li>
+</ul>
+
+<p>并发编程的本质： 充分利用CPU的资源</p>
+
+<p>所有的公司都很看重！</p>
+
+<p>企业，挣钱=&gt; 提高效率，裁员，找一个厉害的人顶替三个不怎么样的人；</p>
+
+<p>人员（减） 、技术成本（高）</p>
+
+<blockquote>
+<p>线程有几个状态</p>
+</blockquote>
+
+<pre><code class="language-java">//Thread.State
+public enum State {
+    // 新生
+    NEW,
+    // 运行 
+    RUNNABLE, 
+    // 阻塞 
+    BLOCKED, 
+    // 等待，死死地等 
+    WAITING, 
+    // 超时等待 
+    TIMED_WAITING, 
+    // 终止 
+    TERMINATED; 
+}
+</code></pre>
+
+<blockquote>
+<p>wait/sleep 区别</p>
+</blockquote>
+
+<p><strong>1 、来自不同的类</strong></p>
+
+<p>wait =&gt; Object</p>
+
+<p>sleep =&gt; Thread</p>
+
+<pre><code>TimeUnit.SECONDS.sleep(1);
+</code></pre>
+
+<p><strong>2 、关于锁的释放</strong></p>
+
+<p>wait 会释放锁，sleep 睡觉了，抱着锁睡觉，不会释放！</p>
+
+<p><strong>3 、使用的范围是不同的</strong></p>
+
+<p>wait:必须在同步代码块中</p>
+
+<p>sleep 可以再任何地方睡</p>
+
+<p><strong>4 、是否需要捕获异常</strong></p>
+
+<p>wait 不需要捕获异常</p>
+
+<p>sleep 必须要捕获异常</p>
+
+<p>都需要捕获中断异常，它们都可以被interrupted方法中断。</p>
+
+<p><img src="/resources/技术收录/Java/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMDA5MDE1,size_16,color_FFFFFF,t_70" alt="img" /></p>
+
+<h2 id="3-lock锁-重点">3 、Lock锁（重点）</h2>
+
+<blockquote>
+<p>传统 Synchronized</p>
+</blockquote>
+
+<pre><code class="language-java">// 基本的卖票例子
+import java.time.OffsetDateTime;
+/**
+     * 真正的多线程开发，公司中的开发，降低耦合性
+     * 线程就是一个单独的资源类，没有任何附属的操作！
+     * 1、 属性、方法
+     */
+public class SaleTicketDemo01 {
+    public static void main(String[] args) {
+        // 并发：多线程操作同一个资源类, 把资源类丢入线程
+        Ticket ticket = new Ticket();
+        // @FunctionalInterface 函数式接口，jdk1.8 lambda表达式 (参数)-&gt;{ 代码 }
+        new Thread(()-&gt;{
+            for (int i = 1 ; i &lt; 40 ; i++) {
+                ticket.sale();
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 1 ; i &lt; 40 ; i++) {
+                ticket.sale();
+            }
+        },&quot;B&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 1 ; i &lt; 40 ; i++) {
+                ticket.sale();
+            }
+        },&quot;C&quot;).start();
+
+         }
+     }
+ // 资源类 OOP
+    class Ticket {
+        // 属性、方法
+        private int number = 30 ;
+
+        // 卖票的方式
+        // synchronized 本质: 队列，锁
+        public synchronized void sale(){
+            if (number&gt; 0 ){
+                System.out.println(Thread.currentThread().getName()+&quot;卖出了&quot;+(number--)+&quot;票,剩余：&quot;+number);
+            }
+        }
+    }
+</code></pre>
+
+<blockquote>
+<p>Lock接口</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515122556889.png" alt="image-20200515122556889" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515122626359.png" alt="image-20200515122626359" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515122638790.png" alt="image-20200515122638790" /></p>
+
+<p>公平锁：十分公平：可以先来后到
+非公平锁：十分不公平：可以插队 （默认）</p>
+
+<pre><code class="language-java">package com.kuang.demo01;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class SaleTicketDemo02  {
+    public static void main(String[] args) {
+
+        // 并发：多线程操作同一个资源类, 把资源类丢入线程
+        Ticket2 ticket = new Ticket2();
+
+        // @FunctionalInterface 函数式接口，jdk1.8  lambda表达式 (参数)-&gt;{ 代码 }
+        new Thread(()-&gt;{for (int i = 1; i &lt; 40 ; i++) 
+            ticket.sale();},&quot;A&quot;).start();
+        new Thread(()-&gt;{for (int i = 1; i &lt; 40 ; i++) 
+            ticket.sale();},&quot;B&quot;).start();
+        new Thread(()-&gt;{for (int i = 1; i &lt; 40 ; i++) 
+            ticket.sale();},&quot;C&quot;).start();
+
+    }
+    // Lock三部曲
+    // 1、 new ReentrantLock();
+    // 2、 lock.lock(); // 加锁
+    // 3、 finally=&gt;  lock.unlock(); // 解锁
+    class Ticket2 {
+        // 属性、方法
+        private int number = 30;
+
+        Lock lock = new ReentrantLock();
+
+        public void sale(){
+
+            lock.lock(); // 加锁
+
+            try {
+                // 业务代码
+
+                if (number&gt;0){
+                    System.out.println(Thread.currentThread().getName()+&quot;卖出了&quot;+
+                                       (number--)+&quot;票,剩余：&quot;+number);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock(); // 解锁
+            }
+        }
+
+    }
+</code></pre>
+
+<blockquote>
+<p>Synchronized 和 Lock 区别</p>
+</blockquote>
+
+<p>1 、Synchronized 内置的Java关键字， Lock 是一个Java类</p>
+
+<p>2 、Synchronized 无法判断获取锁的状态，Lock 可以判断是否获取到了锁</p>
+
+<p>3 、Synchronized 会自动释放锁，lock 必须要手动释放锁！如果不释放锁， <strong>死锁</strong></p>
+
+<p>4 、Synchronized 线程 1 （获得锁，阻塞）、线程 2 （等待，傻傻的等）；Lock锁就不一定会等待下
+去；</p>
+
+<p>5 、Synchronized 可重入锁，不可以中断的，非公平；Lock ，可重入锁，可以 判断锁，非公平（可以
+自己设置）；</p>
+
+<p>6 、Synchronized 适合锁少量的代码同步问题，Lock 适合锁大量的同步代码！</p>
+
+<blockquote>
+<p>锁是什么，如何判断锁的是谁！</p>
+</blockquote>
+
+<h2 id="4-生产者和消费者问题">4 、生产者和消费者问题</h2>
+
+<p>面试的：单例模式、排序算法、生产者和消费者、死锁</p>
+
+<blockquote>
+<p>生产者和消费者问题 Synchronized   版</p>
+</blockquote>
+
+<pre><code class="language-java">package com.kuang.pc;
+
+/**
+     * 线程之间的通信问题：生产者和消费者问题！  等待唤醒，通知唤醒
+     * 线程交替执行  A   B 操作同一个变量   num = 0
+     * A num+1
+     * B num-1
+     */
+public class A {
+    public static void main(String[] args) {
+        Data data = new Data();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.decrement();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;B&quot;).start();
+    }
+}
+
+// 判断等待，业务，通知
+class Data{ // 数字 资源类
+
+    private int number = 0;
+
+    //+1
+    public synchronized void increment() throws InterruptedException {
+        if (number!=0){  //0
+            // 等待
+            this.wait();
+        }
+        number++;
+        System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+        // 通知其他线程，我+1完毕了
+        this.notifyAll();
+    }
+
+    //-1
+    public synchronized void decrement() throws InterruptedException {
+        if (number==0){ // 1
+            // 等待
+            this.wait();
+        }
+        number--;
+        System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+        // 通知其他线程，我-1完毕了
+        this.notifyAll();
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>问题存在，A B C D 4 个线程！ 虚假唤醒</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515123000517.png" alt="image-20200515123000517" /></p>
+
+<p>if  改为 while 判断</p>
+
+<pre><code class="language-java">package com.kuang.pc;
+
+/**
+     * 线程之间的通信问题：生产者和消费者问题！  等待唤醒，通知唤醒
+     * 线程交替执行  A   B 操作同一个变量   num = 0
+     * A num+1
+     * B num-1
+     */
+public class A {
+    public static void main(String[] args) {
+        Data data = new Data();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.decrement();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;B&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;C&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.decrement();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;D&quot;).start();
+    }
+}
+
+// 判断等待，业务，通知
+class Data{ // 数字 资源类
+
+    private int number = 0;
+
+    //+1
+    public synchronized void increment() throws InterruptedException {
+        while (number!=0){  //0
+            // 等待
+            this.wait();
+        }
+        number++;
+        System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+        // 通知其他线程，我+1完毕了
+        this.notifyAll();
+    }
+
+    //-1
+    public synchronized void decrement() throws InterruptedException {
+        while (number==0){ // 1
+            // 等待
+            this.wait();
+        }
+        number--;
+        System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+        // 通知其他线程，我-1完毕了
+        this.notifyAll();
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>JUC版的生产者和消费者问题</p>
+
+<p>使用JUC的lock，就是要有一个try catch finally块，在try前<code>lock.lock()</code>,在try中写具体的业务代码，finnally中释放锁lock.unlock();</p>
+</blockquote>
+
+<p>模板</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515123222296.png" alt="image-20200515123222296" /></p>
+
+<p>通过Lock 找到 Condition</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515123233826.png" alt="image-20200515123233826" /></p>
+
+<h4 id="代码实现">代码实现：</h4>
+
+<pre><code class="language-java">package com.kuang.pc;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class B  {
+    public static void main(String[] args) {
+        Data2 data = new Data2();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.decrement();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;B&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;C&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt; 10; i++) {
+                try {
+                    data.decrement();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },&quot;D&quot;).start();
+
+    }
+}
+
+// 判断等待，业务，通知
+class Data2{ // 数字 资源类
+
+    private int number = 0;
+
+    Lock lock = new ReentrantLock();
+    Condition condition = lock.newCondition();
+
+    //condition.await(); // 等待
+    //condition.signalAll(); // 唤醒全部
+    //+1
+    public void increment() throws InterruptedException {
+        lock.lock();
+        try {
+            // 业务代码
+            while (number!=0){  //0
+                // 等待
+                condition.await();
+            }
+            number++;
+            System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+            // 通知其他线程，我+1完毕了
+            condition.signalAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+
+    }
+
+    //-1
+    public synchronized void decrement() throws InterruptedException {
+        lock.lock();
+        try {
+            while (number==0){ // 1
+                // 等待
+                condition.await();
+            }
+            number--;
+            System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+number);
+            // 通知其他线程，我-1完毕了
+            condition.signalAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+}
+</code></pre>
+
+<p><strong>任何一个新的技术，绝对不是仅仅只是覆盖了原来的技术，优势和补充！</strong></p>
+
+<blockquote>
+<p>Condition 精准的通知和唤醒线程</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515123357875.png" alt="image-20200515123357875" /></p>
+
+<h4 id="代码测试">代码测试：</h4>
+
+<pre><code class="language-java">package com.kuang.pc;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+     * @author 狂神说Java 24736743@qq.com
+     * A 执行完调用B，B执行完调用C，C执行完调用A
+     */
+public class C {
+
+    public static void main(String[] args) {
+        Data3 data = new Data3();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt;10 ; i++) {
+                data.printA();
+            }
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt;10 ; i++) {
+                data.printB();
+            }
+        },&quot;B&quot;).start();
+
+        new Thread(()-&gt;{
+            for (int i = 0; i &lt;10 ; i++) {
+                data.printC();
+            }
+        },&quot;C&quot;).start();
+    }
+
+}
+
+class Data3{ // 资源类 Lock
+
+    private Lock lock = new ReentrantLock();
+    private Condition condition1 = lock.newCondition();
+    private Condition condition2 = lock.newCondition();
+    private Condition condition3 = lock.newCondition();
+    private int number = 1; // 1A  2B  3C
+
+    public void printA(){
+        lock.lock();
+        try {
+            // 业务，判断-&gt; 执行-&gt; 通知
+            while (number!=1){
+                // 等待
+                condition1.await();
+            }
+            System.out.println(Thread.currentThread().getName()+&quot;=&gt;AAAAAAA&quot;);
+            // 唤醒，唤醒指定的人，B
+            number = 2;
+            condition2.signal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void printB(){
+        lock.lock();
+        try {
+            // 业务，判断-&gt; 执行-&gt; 通知
+            while (number!=2){
+                condition2.await();
+            }
+            System.out.println(Thread.currentThread().getName()+&quot;=&gt;BBBBBBBBB&quot;);
+            // 唤醒，唤醒指定的人，c
+            number = 3;
+            condition3.signal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+    public void printC(){
+        lock.lock();
+        try {
+            // 业务，判断-&gt; 执行-&gt; 通知
+            // 业务，判断-&gt; 执行-&gt; 通知
+            while (number!=3){
+                condition3.await();
+            }
+            System.out.println(Thread.currentThread().getName()+&quot;=&gt;BBBBBBBBB&quot;);
+            // 唤醒，唤醒指定的人，c
+            number = 1;
+            condition1.signal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+}
+</code></pre>
+
+<h2 id="5-8-锁现象">5 、 8 锁现象</h2>
+
+<p>如何判断锁的是谁！永远的知道什么锁，锁到底锁的是谁！</p>
+
+<p>深刻理解我们的锁（只会锁两个东西1.new出来的对象，class模板）</p>
+
+<pre><code class="language-java">package com.kuang.lock8;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 8锁，就是关于锁的8个问题
+ * 1、标准情况下，两个线程先打印 发短信还是 打电话？ 1/发短信  2/打电话  （锁的是同一个对象，谁先拿到锁谁就先执行）
+ * 1、sendSms延迟4秒，两个线程先打印 发短信还是 打电话？ 1/发短信  2/打电话（锁的是同一个对象，谁先拿到锁谁就先执行）
+ */
+public class Test1 {
+    public static void main(String[] args) {
+        Phone phone = new Phone();
+
+        //锁的存在
+        new Thread(()-&gt;{
+            phone.sendSms();
+        },&quot;A&quot;).start();
+
+        // 捕获
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        }
+
+        new Thread(()-&gt;{
+            phone.call();
+        },&quot;B&quot;).start();
+    }
+}
+
+class Phone{
+
+    // synchronized 锁的对象是方法的调用者！、
+    // 两个方法用的是同一个锁，谁先拿到谁执行！
+    public synchronized void sendSms(){
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(&quot;发短信&quot;);
+    }
+
+    public synchronized void call(){
+        System.out.println(&quot;打电话&quot;);
+    }
+
+}
+</code></pre>
+
+<pre><code class="language-java">package com.kuang.lock8;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 3、 增加了一个普通方法后！先执行发短信还是打电话？ 普通方法：打电话（这里没有锁！不是同步方法，不受锁的影响）
+ * 4、 两个对象，两个同步方法， 发短信还是 打电话？ // 打电话（两个对象，两个调用者，两把锁！普通方法锁的是迪调用者）
+ */
+public class Test2  {
+    public static void main(String[] args) {
+        // 两个对象，两个调用者，两把锁！
+        Phone2 phone1 = new Phone2();
+        Phone2 phone2 = new Phone2();
+
+        //锁的存在
+        new Thread(()-&gt;{
+            phone1.sendSms();
+        },&quot;A&quot;).start();
+
+        // 捕获
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(()-&gt;{
+            phone2.call();
+        },&quot;B&quot;).start();
+    }
+    }
+
+class Phone2{
+
+    // synchronized 锁的对象是方法的调用者！
+    public synchronized void sendSms(){
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(&quot;发短信&quot;);
+    }
+
+    public synchronized void call(){
+        System.out.println(&quot;打电话&quot;);
+    }
+
+    // 这里没有锁！不是同步方法，不受锁的影响
+    public void hello(){
+        System.out.println(&quot;hello&quot;);
+    }
+
+}
+</code></pre>
+
+<pre><code class="language-java">package com.kuang.lock8;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 5、增加两个静态的同步方法，只有一个对象，先打印 发短信？打电话？    发短信（静态方法锁的是class，谁先拿到锁谁先执行）
+ * 6、两个对象！增加两个静态的同步方法， 先打印 发短信？打电话？		 发短信（静态方法锁的是class，谁先拿到锁谁先执行）
+ */
+public class Test3  {
+    public static void main(String[] args) {
+        // 两个对象的Class类模板只有一个，static，锁的是Class
+        Phone3 phone1 = new Phone3();
+        Phone3 phone2 = new Phone3();
+
+        //锁的存在
+        new Thread(()-&gt;{
+            phone1.sendSms();
+        },&quot;A&quot;).start();
+
+        // 捕获
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(()-&gt;{
+            phone2.call();
+        },&quot;B&quot;).start();
+    }
+}
+
+// Phone3唯一的一个 Class 对象
+class Phone3{
+
+    // synchronized 锁的对象是方法的调用者！
+    // static 静态方法
+    // 类一加载就有了！锁的是Class
+    public static synchronized void sendSms(){
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(&quot;发短信&quot;);
+    }
+
+    public static synchronized void call(){
+        System.out.println(&quot;打电话&quot;);
+    }
+
+}
+</code></pre>
+
+<pre><code class="language-java">package com.kuang.lock8;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+     * 1、1个静态的同步方法，1个普通的同步方法 ，一个对象，先打印 发短信？打电话？    打电话（二者锁的对象不一样，是两把锁：静态同步方法锁的是class，普通对象锁的是 调用者）
+     * 2、1个静态的同步方法，1个普通的同步方法 ，两个对象，先打印 发短信？打电话？打电话（二者锁的对象不一样，是两把锁：静态同步方法锁的是class，普通对象锁的是 调用者）
+     */
+public class Test4  {
+    public static void main(String[] args) {
+        // 两个对象的Class类模板只有一个，static，锁的是Class
+        Phone4 phone1 = new Phone4();
+        Phone4 phone2 = new Phone4();
+        //锁的存在
+        new Thread(()-&gt;{
+            phone1.sendSms();
+        },&quot;A&quot;).start();
+
+        // 捕获
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(()-&gt;{
+            phone2.call();
+        },&quot;B&quot;).start();
+    }
+}
+
+// Phone3唯一的一个 Class 对象
+class Phone4{
+
+    // 静态的同步方法 锁的是 Class 类模板
+    public static synchronized void sendSms(){
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(&quot;发短信&quot;);
+    }
+
+    // 普通的同步方法  锁的调用者
+    public synchronized void call(){
+        System.out.println(&quot;打电话&quot;);
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>小结</p>
+</blockquote>
+
+<p>new this 具体的一个手机</p>
+
+<p>static Class 唯一的一个模板</p>
+
+<h2 id="6-集合类不安全">6 、集合类不安全</h2>
+
+<blockquote>
+<p>List 不安全</p>
+</blockquote>
+
+<pre><code class="language-java">package com.kuang.unsafe;
+
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+// java.util.ConcurrentModificationException 并发修改异常！
+public class ListTest {
+    public static void main(String[] args) {
+        // 并发下 ArrayList 不安全的吗，Synchronized；
+        /**
+             * 解决方案；
+             * 1、List&lt;String&gt; list = new Vector&lt;&gt;();  vector先于Arraylist出现
+             * 2、List&lt;String&gt; list = Collections.synchronizedList(new ArrayList&lt;&gt;
+    ());
+             * 3、List&lt;String&gt; list = new CopyOnWriteArrayList&lt;&gt;()；
+             */
+        // CopyOnWrite 写入时复制   COW  计算机程序设计领域的一种优化策略；
+        // 多个线程调用的时候，list，读取的时候，固定的，写入（覆盖）
+        // 在写入的时候避免覆盖，造成数据问题！
+        // 读写分离
+        // CopyOnWriteArrayList  比 Vector Nb 在哪里？
+        /**
+        Vector使用的是synchronized  //效率低
+        CopyOnWriteArrayList使用的是Lock   
+        */
+
+        List&lt;String&gt; list = new CopyOnWriteArrayList&lt;&gt;();
+
+        for (int i = 1; i &lt;= 10; i++) {
+            new Thread(()-&gt;{
+                list.add(UUID.randomUUID().toString().substring(0,5));
+                System.out.println(list);
+            },String.valueOf(i)).start();
+        }
+    }
+}
+</code></pre>
+
+<p>学习方法推荐： 1 、先会用、 2 、货比 3 家，寻找其他解决方案， 3 、分析源码！</p>
+
+<blockquote>
+<p>Set 不安全</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515204253420.png" alt="image-20200515204253420" /></p>
+
+<p>blockingQueue：阻塞队列</p>
+
+<pre><code class="language-java">package com.kuang.unsafe;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+/**
+ * 同理可证 ： ConcurrentModificationException 并发修改异常
+ * //1、Set&lt;String&gt; set = Collections.synchronizedSet(new HashSet&lt;&gt;());
+ * //2、Set&lt;String&gt; set = new CopyOnWriteArraySet&lt;&gt;();
+ */
+public class SetTest {
+    public static void main(String[] args) {
+//        Set&lt;String&gt; set = new HashSet&lt;&gt;();
+//        Set&lt;String&gt; set = Collections.synchronizedSet(new HashSet&lt;&gt;());
+
+        Set&lt;String&gt; set = new CopyOnWriteArraySet&lt;&gt;();
+
+        for (int i = 1; i &lt;=30 ; i++) {
+           new Thread(()-&gt;{
+               set.add(UUID.randomUUID().toString().substring(0,5));
+               System.out.println(set);
+           },String.valueOf(i)).start();
+        }
+
+    }
+}
+</code></pre>
+
+<p>hashSet 底层是什么？</p>
+
+<pre><code class="language-java">public HashSet() {//HashSet的底层就是HashMap
+    map = new HashMap&lt;&gt;();
+}
+
+// add set 本质就是 map key是无法重复的！
+public boolean add(E e) {
+    return map.put(e, PRESENT)==null;
+}
+
+private static final Object PRESENT = new Object(); // 不变得值！
+</code></pre>
+
+<blockquote>
+<p>Map 不安全</p>
+</blockquote>
+
+<p>回顾Map基本操作</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515123931862.png" alt="image-20200515123931862" /></p>
+
+<pre><code class="language-java">package com.kuang.unsafe;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
+// ConcurrentModificationException
+public class MapTest {
+
+    public static void main(String[] args) {
+        // map 是这样用的吗？ 不是，工作中不用 HashMap
+        // 默认等价于什么？  new HashMap&lt;&gt;(16,0.75);
+        // Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        //Map&lt;String, String&gt; map1 = Collections.synchronizedMap(map);
+        // 唯一的一个家庭作业：研究ConcurrentHashMap的原理
+        Map&lt;String, String&gt; map = new ConcurrentHashMap&lt;&gt;();
+
+        for (int i = 1; i &lt;=30; i++) {
+            new Thread(()-&gt;{
+                
+map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(
+0,5));
+                System.out.println(map);
+            },String.valueOf(i)).start();
+        }
+
+    }
+}
+</code></pre>
+
+<h2 id="7-callable-简单">7 、Callable ( 简单 )</h2>
+
+<p><img src="/resources/技术收录/Java/image-20200515124006139.png" alt="image-20200515124006139" /></p>
+
+<p>1 、可以有返回值</p>
+
+<p>2 、可以抛出异常</p>
+
+<p>3 、方法不同，run()/ call()</p>
+
+<blockquote>
+<p>代码测试</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515124046297.png" alt="image-20200515124046297" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124056913.png" alt="image-20200515124056913" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124104859.png" alt="image-20200515124104859" /></p>
+
+<pre><code class="language-java">package com.kuang.callable;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+     * 1、探究原理
+     * 2、觉自己会用
+     */
+public class CallableTest {
+    public static void main(String[] args) throws ExecutionException, 
+    InterruptedException {
+        // new Thread(new Runnable()).start();
+        // new Thread(new FutureTask&lt;V&gt;()).start();
+        // new Thread(new FutureTask&lt;V&gt;( Callable )).start();
+        new Thread().start(); // 怎么启动Callable
+
+        MyThread thread = new MyThread();
+        FutureTask futureTask = new FutureTask(thread); // 适配类
+
+        new Thread(futureTask,&quot;A&quot;).start();
+        new Thread(futureTask,&quot;B&quot;).start(); // 结果会被缓存，效率高
+
+        Integer o = (Integer) futureTask.get(); //这个get 方法可能会产生阻塞！把他放到
+        最后
+            // 或者使用异步通信来处理！
+            System.out.println(o);
+
+    }
+}
+
+class MyThread implements Callable&lt;Integer&gt; {
+
+    @Override
+    public Integer call() {
+        System.out.println(&quot;call()&quot;); // 会打印几个call
+        // 耗时的操作
+        return 1024;
+    }
+}
+class MyThread1 implements Runnable {
+    @Override
+    public void run() {
+    }
+}
+</code></pre>
+
+<p>细节：</p>
+
+<p>1 、有缓存</p>
+
+<p>2 、结果可能需要等待，会阻塞！</p>
+
+<h2 id="8-常用的辅助类-必会">8 、常用的辅助类(必会)</h2>
+
+<h3 id="8-1-countdownlatch">8.1、CountDownLatch</h3>
+
+<p><img src="/resources/技术收录/Java/image-20200515124148603.png" alt="image-20200515124148603" /></p>
+
+<pre><code class="language-java">import java.util.concurrent.CountDownLatch;
+// 计数器
+public class CountDownLatchDemo {
+    public static void main(String[] args) throws InterruptedException {
+        // 总数是6，必须要执行任务的时候，再使用！
+        CountDownLatch countDownLatch = new CountDownLatch(6);
+        for (int i = 1; i &lt;=6 ; i++) {
+            new Thread(()-&gt;{
+                System.out.println(Thread.currentThread().getName()+&quot; Go out&quot;);
+                countDownLatch.countDown(); // 数量-1
+            },String.valueOf(i)).start();
+        }
+        countDownLatch.await(); // 等待计数器归零，然后再向下执行
+        System.out.println(&quot;Close Door&quot;);
+    }
+}
+</code></pre>
+
+<h4 id="原理">原理：</h4>
+
+<pre><code>countDownLatch.countDown(); // 数量-1
+countDownLatch.await(); // 等待计数器归零，然后再向下执行
+每次有线程调用 countDown() 数量-1，假设计数器变为0，countDownLatch.await() 就会被唤醒，继续
+执行！
+</code></pre>
+
+<h3 id="8-2-cyclicbarrier">8.2、CyclicBarrier</h3>
+
+<p><img src="/resources/技术收录/Java/image-20200515124308086.png" alt="image-20200515124308086" /></p>
+
+<p>加法计数器</p>
+
+<pre><code class="language-java">import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+public class CyclicBarrierDemo {
+    public static void main(String[] args) {
+        /**
+         * 集齐7颗龙珠召唤神龙
+         */
+        // 召唤龙珠的线程
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(7,()-&gt;{
+            System.out.println(&quot;召唤神龙成功！&quot;);
+        });
+
+        for (int i = 1; i &lt;=7 ; i++) {
+            final int temp = i;
+            // lambda能操作到 i 吗
+            new Thread(()-&gt;{
+                System.out.println(Thread.currentThread().getName()+&quot;收
+集&quot;+temp+&quot;个龙珠&quot;);
+                try {
+                    cyclicBarrier.await(); // 等待
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+
+    }
+}
+</code></pre>
+
+<h3 id="8-3-semaphore">8.3、Semaphore</h3>
+
+<p>Semaphore：信号量</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124341655.png" alt="image-20200515124341655" /></p>
+
+<p>抢车位！</p>
+
+<p>6 车&mdash;3个停车位置</p>
+
+<pre><code class="language-java">package com.kuang.add;
+
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+
+public class SemaphoreDemo {
+    public static void main(String[] args) {
+        // 线程数量：停车位! 限流！
+        Semaphore semaphore = new Semaphore(3);
+
+        for (int i = 1; i &lt;=6 ; i++) {
+            new Thread(()-&gt;{
+                // acquire() 得到
+                try {
+                    semaphore.acquire();
+                    System.out.println(Thread.currentThread().getName()+&quot;抢到车
+位&quot;);
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println(Thread.currentThread().getName()+&quot;离开车
+位&quot;);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    semaphore.release(); // release() 释放
+                }
+
+            },String.valueOf(i)).start();
+        }
+
+    }
+}
+</code></pre>
+
+<h4 id="原理-1">原理：</h4>
+
+<blockquote>
+<p>semaphore.acquire() 获得，假设如果已经满了，等待，等待被释放为止！</p>
+
+<p>semaphore.release(); 释放，会将当前的信号量释放 + 1，然后唤醒等待的线程！
+作用： 多个共享资源互斥的使用！并发限流，控制最大的线程数！</p>
+</blockquote>
+
+<h2 id="9-读写锁">9 、读写锁</h2>
+
+<p>ReadWriteLock</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124504483.png" alt="image-20200515124504483" /></p>
+
+<pre><code class="language-java">package com.kuang.rw;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+/**
+ * 独占锁（写锁） 一次只能被一个线程占有
+ * 共享锁（读锁） 多个线程可以同时占有
+ * ReadWriteLock
+ * 读-读  可以共存！
+ * 读-写  不能共存！
+ * 写-写  不能共存！
+ */
+public class ReadWriteLockDemo {
+    public static void main(String[] args) {
+        MyCache myCache = new MyCache();
+
+        // 写入
+        for (int i = 1; i &lt;= 5 ; i++) {
+            final int temp = i;
+            new Thread(()-&gt;{
+
+
+                myCache.put(temp+&quot;&quot;,temp+&quot;&quot;);
+            },String.valueOf(i)).start();
+        }
+        
+        // 读取
+        for (int i = 1; i &lt;= 5 ; i++) {
+            final int temp = i;
+            new Thread(()-&gt;{
+                myCache.get(temp+&quot;&quot;);
+            },String.valueOf(i)).start();
+        }
+    }
+}
+
+// 加锁的
+class MyCacheLock{
+
+    private volatile Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    // 读写锁： 更加细粒度的控制
+    private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+    private Lock lock = new ReentrantLock();
+
+    // 存，写入的时候，只希望同时只有一个线程写
+    public void put(String key,Object value){
+        readWriteLock.writeLock().lock();
+        try {
+            System.out.println(Thread.currentThread().getName()+&quot;写入&quot;+key);
+            map.put(key,value);
+            System.out.println(Thread.currentThread().getName()+&quot;写入OK&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            readWriteLock.writeLock().unlock();
+        }
+    }
+
+    // 取，读，所有人都可以读！
+    public void get(String key){
+        readWriteLock.readLock().lock();
+        try {
+            System.out.println(Thread.currentThread().getName()+&quot;读取&quot;+key);
+            Object o = map.get(key);
+            System.out.println(Thread.currentThread().getName()+&quot;读取OK&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            readWriteLock.readLock().unlock();
+        }
+    }
+
+}
+
+/**
+ * 自定义缓存
+ */
+class MyCache{
+
+    private volatile Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+
+
+ 
+
+10、阻塞队列 
+
+阻塞队列：
+
+    // 存，写
+    public void put(String key,Object value){
+        System.out.println(Thread.currentThread().getName()+&quot;写入&quot;+key);
+        map.put(key,value);
+        System.out.println(Thread.currentThread().getName()+&quot;写入OK&quot;);
+    }
+
+    // 取，读
+    public void get(String key){
+        System.out.println(Thread.currentThread().getName()+&quot;读取&quot;+key);
+        Object o = map.get(key);
+        System.out.println(Thread.currentThread().getName()+&quot;读取OK&quot;);
+    }
+
+}
+</code></pre>
+
+<h2 id="10-阻塞队列">10 、阻塞队列</h2>
+
+<p><img src="/resources/技术收录/Java/image-20200515124626295.png" alt="image-20200515124626295" /></p>
+
+<p>阻塞队列：</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124639854.png" alt="image-20200515124639854" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124651273.png" alt="image-20200515124651273" /></p>
+
+<p>BlockingQueue BlockingQueue 不是新的东西</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515124708261.png" alt="image-20200515124708261" /></p>
+
+<p>什么情况下我们会使用 阻塞队列：多线程并发处理，线程池！</p>
+
+<p>学会使用队列</p>
+
+<p>添加、移除</p>
+
+<p>四组API</p>
+
+<p>方式 抛出异常 有返回值，不抛出异常 阻塞 等待 超时等待</p>
+
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>抛出异常</th>
+<th>（不抛出异常）有返回值</th>
+<th>阻塞等待</th>
+<th>超时等待</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>添加</td>
+<td>add</td>
+<td>oﬀer()</td>
+<td>put()</td>
+<td>oﬀer(,,)</td>
+</tr>
+
+<tr>
+<td>移除</td>
+<td>remove</td>
+<td>poll()</td>
+<td>take()</td>
+<td>poll(,)</td>
+</tr>
+
+<tr>
+<td>检测队首元素</td>
+<td>element</td>
+<td>peek</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">/**
+ * 抛出异常
+ */
+public static void test1(){
+    // 队列的大小
+    ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue&lt;&gt;(3);
+
+    System.out.println(blockingQueue.add(&quot;a&quot;));
+    System.out.println(blockingQueue.add(&quot;b&quot;));
+    System.out.println(blockingQueue.add(&quot;c&quot;));
+    // IllegalStateException: Queue full 抛出异常！
+    // System.out.println(blockingQueue.add(&quot;d&quot;));
+    
+    System.out.println(&quot;=-===========&quot;);
+
+    System.out.println(blockingQueue.remove());
+    System.out.println(blockingQueue.remove());
+    System.out.println(blockingQueue.remove());
+
+    // java.util.NoSuchElementException 抛出异常！
+    // System.out.println(blockingQueue.remove());
+}
+</code></pre>
+
+<pre><code class="language-java">/**
+ * 有返回值，没有异常
+ */
+public static void test2(){
+    // 队列的大小
+    ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue&lt;&gt;(3);
+
+    System.out.println(blockingQueue.offer(&quot;a&quot;));
+    System.out.println(blockingQueue.offer(&quot;b&quot;));
+    System.out.println(blockingQueue.offer(&quot;c&quot;));
+
+    // System.out.println(blockingQueue.offer(&quot;d&quot;)); // false 不抛出异常！
+    System.out.println(&quot;============================&quot;);
+    System.out.println(blockingQueue.poll());
+    System.out.println(blockingQueue.poll());
+    System.out.println(blockingQueue.poll());
+    System.out.println(blockingQueue.poll()); // null  不抛出异常！
+}
+</code></pre>
+
+<pre><code class="language-java">/**
+ * 等待，阻塞（一直阻塞）
+ */
+public static void test3() throws InterruptedException {
+    // 队列的大小
+    ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue&lt;&gt;(3);
+    // 一直阻塞
+    blockingQueue.put(&quot;a&quot;);
+    blockingQueue.put(&quot;b&quot;);
+    blockingQueue.put(&quot;c&quot;);
+    // blockingQueue.put(&quot;d&quot;); // 队列没有位置了，一直阻塞
+    System.out.println(blockingQueue.take());
+    System.out.println(blockingQueue.take());
+    System.out.println(blockingQueue.take());
+    System.out.println(blockingQueue.take()); // 没有这个元素，一直阻塞
+
+}
+</code></pre>
+
+<pre><code class="language-java">/**
+     * 等待，阻塞（等待超时）
+     */
+public static void test4() throws InterruptedException {
+    // 队列的大小
+    ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue&lt;&gt;(3);
+    blockingQueue.offer(&quot;a&quot;);
+    blockingQueue.offer(&quot;b&quot;);
+    blockingQueue.offer(&quot;c&quot;);
+    // blockingQueue.offer(&quot;d&quot;,2,TimeUnit.SECONDS); // 等待超过2秒就退出
+    System.out.println(&quot;===============&quot;);
+    System.out.println(blockingQueue.poll());
+    System.out.println(blockingQueue.poll());
+    System.out.println(blockingQueue.poll());
+    blockingQueue.poll(2,TimeUnit.SECONDS); // 等待超过2秒就退出
+}
+</code></pre>
+
+<blockquote>
+<p>SynchronousQueue 同步队列</p>
+</blockquote>
+
+<p>没有容量，</p>
+
+<p>进去一个元素，必须等待取出来之后，才能再往里面放一个元素！(容量为1)</p>
+
+<pre><code class="language-java">package com.kuang.bq;
+
+import java.sql.Time;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.TimeUnit;
+
+/**
+     * 同步队列
+     * 和其他的BlockingQueue 不一样， SynchronousQueue 不存储元素
+     * put了一个元素，必须从里面先take取出来，否则不能在put进去值！
+     */
+public class SynchronousQueueDemo {
+    public static void main(String[] args) {
+        BlockingQueue&lt;String&gt; blockingQueue = new SynchronousQueue&lt;&gt;(); // 同步队列
+        new Thread(()-&gt;{
+            try {
+                System.out.println(Thread.currentThread().getName()+&quot; put 1&quot;);
+                blockingQueue.put(&quot;1&quot;);
+                System.out.println(Thread.currentThread().getName()+&quot; put 2&quot;);
+                blockingQueue.put(&quot;2&quot;);
+                System.out.println(Thread.currentThread().getName()+&quot; put 3&quot;);
+                blockingQueue.put(&quot;3&quot;);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        },&quot;T1&quot;).start();
+
+        new Thread(()-&gt;{
+            try {
+                TimeUnit.SECONDS.sleep(3);
+                System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+blockingQueue.take());
+                TimeUnit.SECONDS.sleep(3);
+                System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+blockingQueue.take());
+                TimeUnit.SECONDS.sleep(3);
+                System.out.println(Thread.currentThread().getName()+&quot;=&gt;&quot;+blockingQueue.take());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        },&quot;T2&quot;).start();
+    }
+}
+</code></pre>
+
+<p>学了技术，不会用！ 看的少！</p>
+
+<h2 id="11-线程池-重点">11 、线程池(重点)</h2>
+
+<p>线程池：三大方法、 7 大参数、 4 种拒绝策略</p>
+
+<blockquote>
+<p>池化技术</p>
+</blockquote>
+
+<p>程序的运行，本质：占用系统的资源！ 优化资源的使用！=&gt;池化技术</p>
+
+<p>线程池、连接池、内存池、对象池///&hellip;.. 创建、销毁。十分浪费资源</p>
+
+<p>池化技术：事先准备好一些资源，有人要用，就来我这里拿，用完之后还给我。</p>
+
+<p><strong>线程池的好处:</strong></p>
+
+<p>1 、降低资源的消耗</p>
+
+<p>2 、提高响应的速度</p>
+
+<p>3 、方便管理。</p>
+
+<p><strong>线程复用、可以控制最大并发数、管理线程</strong></p>
+
+<blockquote>
+<p>线程池：三大方法</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515143929375.png" alt="image-20200515143929375" /></p>
+
+<pre><code class="language-java">package com.kuang.pool;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+// Executors 工具类、3大方法
+public class Demo01 {
+    public static void main(String[] args) {
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();// 单个线
+程
+//        ExecutorService threadPool = Executors.newFixedThreadPool(5); // 创建一
+个固定的线程池的大小
+//        ExecutorService threadPool = Executors.newCachedThreadPool(); // 可伸缩
+的，遇强则强，遇弱则弱
+
+        try {
+            for (int i = 0; i &lt; 100; i++) {
+                // 使用了线程池之后，使用线程池来创建线程
+                threadPool.execute(()-&gt;{
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                });
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 线程池用完，程序结束，关闭线程池
+            threadPool.shutdown();
+        }
+
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>7 大参数</p>
+</blockquote>
+
+<p>源码分析</p>
+
+<pre><code class="language-java">public static ExecutorService newSingleThreadExecutor() {
+    return new FinalizableDelegatedExecutorService
+        (new ThreadPoolExecutor(1, 1,0L, TimeUnit.MILLISECONDS,
+                                new LinkedBlockingQueue&lt;Runnable&gt;()));
+}
+public static ExecutorService newFixedThreadPool(int nThreads) {
+    return new ThreadPoolExecutor(5, 5,
+                                  0L, TimeUnit.MILLISECONDS,
+                                  new LinkedBlockingQueue&lt;Runnable&gt;());
+}
+public static ExecutorService newCachedThreadPool() {
+    return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                  60L, TimeUnit.SECONDS,
+                                  new SynchronousQueue&lt;Runnable&gt;());
+}
+
+// 本质ThreadPoolExecutor（）
+    
+public ThreadPoolExecutor(int corePoolSize, // 核心线程池大小
+                          int maximumPoolSize, // 最大核心线程池大小
+                          long keepAliveTime, // 超时了没有人调用就会释放
+                          TimeUnit unit, // 超时单位
+                          BlockingQueue&lt;Runnable&gt; workQueue, // 阻塞队列
+                          ThreadFactory threadFactory, // 线程工厂：创建线程的，一般
+不用动
+                          RejectedExecutionHandler handle // 拒绝策略) {
+    if (corePoolSize &lt; 0 ||
+        maximumPoolSize &lt;= 0 ||
+        maximumPoolSize &lt; corePoolSize ||
+        keepAliveTime &lt; 0)
+        throw new IllegalArgumentException();
+    if (workQueue == null || threadFactory == null || handler == null)
+        throw new NullPointerException();
+    this.acc = System.getSecurityManager() == null ?
+        null :
+    AccessController.getContext();
+    this.corePoolSize = corePoolSize;
+    this.maximumPoolSize = maximumPoolSize;
+    this.workQueue = workQueue;
+    this.keepAliveTime = unit.toNanos(keepAliveTime);
+    this.threadFactory = threadFactory;
+    this.handler = handler;
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/image-20200515144038465.png" alt="image-20200515144038465" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515144048302.png" alt="image-20200515144048302" /></p>
+
+<blockquote>
+<p>手动创建一个线程池</p>
+</blockquote>
+
+<pre><code class="language-java">import java.util.concurrent.*;
+
+// Executors 工具类、3大方法
+
+/**
+ * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异
+常
+ * new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里！
+ * new ThreadPoolExecutor.DiscardPolicy() //队列满了，丢掉任务，不会抛出异常！
+ * new ThreadPoolExecutor.DiscardOldestPolicy() //队列满了，尝试去和最早的竞争，也不会
+抛出异常！
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        // 自定义线程池！工作 ThreadPoolExecutor
+        ExecutorService threadPool = new ThreadPoolExecutor(
+                2,
+                5,
+                3,
+                TimeUnit.SECONDS,
+                new LinkedBlockingDeque&lt;&gt;(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardOldestPolicy());  //队列满了，尝试去和
+最早的竞争，也不会抛出异常！
+        try {
+            // 最大承载：Deque + max
+            // 超过 RejectedExecutionException
+            for (int i = 1; i &lt;= 9; i++) {
+                // 使用了线程池之后，使用线程池来创建线程
+                threadPool.execute(()-&gt;{
+                    System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                });
+
+</code></pre>
+
+<blockquote>
+<p>4 种拒绝策略</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144207911.png" alt="image-20200515144207911" /></p>
+
+<pre><code class="language-java">/**
+ * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异
+常
+ * new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里！
+ * new ThreadPoolExecutor.DiscardPolicy() //队列满了，丢掉任务，不会抛出异常！
+ * new ThreadPoolExecutor.DiscardOldestPolicy() //队列满了，尝试去和最早的竞争，也不会
+抛出异常！
+ */
+</code></pre>
+
+<blockquote>
+<p>小结和拓展</p>
+</blockquote>
+
+<p>池的最大的大小如何去设置！</p>
+
+<p>了解：IO密集型，CPU密集型：（调优）</p>
+
+<pre><code class="language-java">package com.kuang.pool;
+
+import java.util.concurrent.*;
+
+public class Demo01 {
+    public static void main(String[] args) {
+        // 自定义线程池！工作 ThreadPoolExecutor
+
+        // 最大线程到底该如何定义
+        // 1、CPU 密集型，几核，就是几，可以保持CPu的效率最高！
+        // 2、IO  密集型   &gt; 判断你程序中十分耗IO的线程，（大于这个线程数，一般设置为两倍）
+        // 程序   15个大型任务  io十分占用资源！
+
+        // 获取CPU的核数
+        System.out.println(Runtime.getRuntime().availableProcessors());
+        ExecutorService threadPool = new ThreadPoolExecutor(
+            2,
+            Runtime.getRuntime().availableProcessors(),
+            3,
+            TimeUnit.SECONDS,
+            new LinkedBlockingDeque&lt;&gt;(3),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.DiscardOldestPolicy());  //队列满了，尝试去和
+        最早的竞争，也不会抛出异常！
+            try {
+                // 最大承载：Deque + max
+                // 超过 RejectedExecutionException
+                for (int i = 1; i &lt;= 9; i++) {
+                    // 使用了线程池之后，使用线程池来创建线程
+                    threadPool.execute(()-&gt;{
+                        System.out.println(Thread.currentThread().getName()+&quot; ok&quot;);
+                    });
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                // 线程池用完，程序结束，关闭线程池
+                threadPool.shutdown();
+            }
+
+    }
+}
+</code></pre>
+
+<h2 id="12-四大函数式接口-必需掌握">12 、四大函数式接口（必需掌握）</h2>
+
+<p>新时代的程序员：lambda表达式、链式编程、函数式接口、Stream流式计算</p>
+
+<blockquote>
+<p>函数式接口： 只有一个方法的接口</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144447796.png" alt="image-20200515144447796" /></p>
+
+<h4 id="代码测试-1">代码测试：</h4>
+
+<blockquote>
+<p>Function函数式接口</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144518701.png" alt="image-20200515144518701" /></p>
+
+<pre><code class="language-java">package com.kuang.function;
+
+import java.util.function.Function;
+
+/**
+ * Function 函数型接口, 有一个输入参数，有一个输出
+ * 只要是 函数型接口 可以 用 lambda表达式简化
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        //
+//        Function&lt;String,String&gt; function = new Function&lt;String,String&gt;() {
+//            @Override
+//            public String apply(String str) {
+//                return str;
+//            }
+//        };
+
+        Function&lt;String,String&gt; function = (str)-&gt;{return str;};
+
+        System.out.println(function.apply(&quot;asd&quot;));
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>断定型接口：有一个输入参数，返回值只能是 布尔值！</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144614911.png" alt="image-20200515144614911" /></p>
+
+<pre><code class="language-java">package com.kuang.function;
+
+import java.util.function.Predicate;
+
+/**
+ * 断定型接口：有一个输入参数，返回值只能是 布尔值！
+ */
+public class Demo02 {
+    public static void main(String[] args) {
+        // 判断字符串是否为空
+//        Predicate&lt;String&gt; predicate = new Predicate&lt;String&gt;(){
+////            @Override
+////            public boolean test(String str) {
+////                return str.isEmpty();
+////            }
+////        };
+
+        Predicate&lt;String&gt; predicate = (str)-&gt;{return str.isEmpty(); };
+        System.out.println(predicate.test(&quot;&quot;));
+
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Consumer 消费型接口</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144651288.png" alt="image-20200515144651288" /></p>
+
+<pre><code class="language-java">package com.kuang.function;
+
+import java.util.function.Consumer;
+
+/**
+ * Consumer 消费型接口: 只有输入，没有返回值
+ */
+public class Demo03 {
+    public static void main(String[] args) {
+//        Consumer&lt;String&gt; consumer = new Consumer&lt;String&gt;() {
+//            @Override
+//            public void accept(String str) {
+//                System.out.println(str);
+//            }
+//        };
+        Consumer&lt;String&gt; consumer = (str)-&gt;{System.out.println(str);};
+        consumer.accept(&quot;sdadasd&quot;);
+
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Supplier  供给型接口</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144716523.png" alt="image-20200515144716523" /></p>
+
+<pre><code class="language-java">package com.kuang.function;
+
+import java.util.function.Supplier;
+
+/**
+ * Supplier 供给型接口 没有参数，只有返回值
+ */
+public class Demo04 {
+    public static void main(String[] args) {
+//        Supplier supplier = new Supplier&lt;Integer&gt;() {
+//            @Override
+//            public Integer get() {
+//                System.out.println(&quot;get()&quot;);
+//                return 1024;
+//            }
+//        };
+
+        Supplier supplier = ()-&gt;{ return 1024; };
+        System.out.println(supplier.get());
+    }
+}
+</code></pre>
+
+<h2 id="13-stream流式计算">13 、Stream流式计算</h2>
+
+<blockquote>
+<p>什么是Stream流式计算</p>
+</blockquote>
+
+<p>大数据：存储 + 计算</p>
+
+<p>集合、MySQL 本质就是存储东西的；</p>
+
+<p>计算都应该交给流来操作！</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515144813379.png" alt="image-20200515144813379" /></p>
+
+<pre><code class="language-java">package com.kuang.stream;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * 题目要求：一分钟内完成此题，只能用一行代码实现！
+ * 现在有5个用户！筛选：
+ * 1、ID 必须是偶数
+ * 2、年龄必须大于23岁
+ * 3、用户名转为大写字母
+ * 4、用户名字母倒着排序
+ * 5、只输出一个用户！
+ */
+public class Test {
+    public static void main(String[] args) {
+        User u1 = new User(1,&quot;a&quot;,21);
+        User u2 = new User(2,&quot;b&quot;,22);
+        User u3 = new User(3,&quot;c&quot;,23);
+        User u4 = new User(4,&quot;d&quot;,24);
+        User u5 = new User(6,&quot;e&quot;,25);
+        // 集合就是存储
+        List&lt;User&gt; list = Arrays.asList(u1, u2, u3, u4, u5);
+
+        // 计算交给Stream流
+        // lambda表达式、链式编程、函数式接口、Stream流式计算
+        list.stream()
+                .filter(u-&gt;{return u.getId()%2==0;})
+                .filter(u-&gt;{return u.getAge()&gt;23;})
+                .map(u-&gt;{return u.getName().toUpperCase();})
+                .sorted((uu1,uu2)-&gt;{return uu2.compareTo(uu1);})
+                .limit(1)
+                .forEach(System.out::println);
+    }
+}
+</code></pre>
+
+<h2 id="14-forkjoin">14 、ForkJoin</h2>
+
+<blockquote>
+<p>什么是 ForkJoin</p>
+</blockquote>
+
+<p>ForkJoin 在 JDK 1.7 ， 并行执行任务！提高效率。大数据量！</p>
+
+<p>大数据：Map Reduce （把大任务拆分为小任务）
+<img src="/resources/技术收录/Java/image-20200515144855133.png" alt="image-20200515144855133" /></p>
+
+<blockquote>
+<p>ForkJoin 特点：工作窃取</p>
+</blockquote>
+
+<p>这个里面维护的都是双端队列</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515144930537.png" alt="image-20200515144930537" /></p>
+
+<blockquote>
+<p>ForkJoin</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515144942932.png" alt="image-20200515144942932" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515144951327.png" alt="image-20200515144951327" /></p>
+
+<pre><code class="language-java">package com.kuang.forkjoin;
+
+import java.util.concurrent.RecursiveTask;
+
+/**
+ * 求和计算的任务！
+ * 3000   6000（ForkJoin）  9000（Stream并行流）
+ * // 如何使用 forkjoin
+ * // 1、forkjoinPool 通过它来执行
+ * // 2、计算任务 forkjoinPool.execute(ForkJoinTask task)
+ * // 3. 计算类要继承 ForkJoinTask
+ */
+public class ForkJoinDemo extends RecursiveTask&lt;Long&gt; {
+
+    private Long start;  // 1
+    private Long end;    // 1990900000
+
+    // 临界值
+    private Long temp = 10000L;
+
+    public ForkJoinDemo(Long start, Long end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    // 计算方法
+    @Override
+    protected Long compute() {
+        if ((end-start)&lt;temp){
+            Long sum = 0L;
+            for (Long i = start; i &lt;= end; i++) {
+                sum += i;
+            }
+            return sum;
+        }else { // forkjoin 递归
+            long middle = (start + end) / 2; // 中间值
+            ForkJoinDemo task1 = new ForkJoinDemo(start, middle);
+            task1.fork(); // 拆分任务，把任务压入线程队列
+            ForkJoinDemo task2 = new ForkJoinDemo(middle+1, end);
+            task2.fork(); // 拆分任务，把任务压入线程队列
+            return task1.join() + task2.join();
+        }
+    }
+}
+</code></pre>
+
+<p>测试：</p>
+
+<pre><code class="language-java">package com.kuang.forkjoin;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+
+/**
+     * 同一个任务，别人效率高你几十倍！
+     */
+public class Test {
+    public static void main(String[] args) throws ExecutionException, 
+    InterruptedException {
+        // test1(); // 12224
+        // test2(); // 10038
+        // test3(); // 153
+    }
+
+    // 普通程序员
+    public static void test1(){
+        Long sum = 0L;
+        long start = System.currentTimeMillis();
+        for (Long i = 1L; i &lt;= 10_0000_0000; i++) {
+            sum += i;
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;sum=&quot;+sum+&quot; 时间：&quot;+(end-start));
+    }
+
+    // 会使用ForkJoin
+    public static void test2() throws ExecutionException, InterruptedException {
+        long start = System.currentTimeMillis();
+
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        ForkJoinTask&lt;Long&gt; task = new ForkJoinDemo(0L, 10_0000_0000L);
+        ForkJoinTask&lt;Long&gt; submit = forkJoinPool.submit(task);// 提交任务
+        Long sum = submit.get();
+
+        long end = System.currentTimeMillis();
+
+        System.out.println(&quot;sum=&quot;+sum+&quot; 时间：&quot;+(end-start));
+    }
+
+    public static void test3(){
+        long start = System.currentTimeMillis();
+        // Stream并行流 ()  (]
+        long sum = LongStream.rangeClosed(0L, 
+                                          10_0000_0000L).parallel().reduce(0, Long::sum);
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;sum=&quot;+&quot;时间：&quot;+(end-start));
+    }
+
+}
+</code></pre>
+
+<h2 id="15-异步回调">15 、异步回调</h2>
+
+<blockquote>
+<p>Future 设计的初衷： 对将来的某个事件的结果进行建模</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515145111868.png" alt="image-20200515145111868" /></p>
+
+<pre><code class="language-java">package com.kuang.future;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 异步调用： CompletableFuture
+ * // 异步执行
+ * // 成功回调
+ * // 失败回调
+ */
+public class Demo01 {
+    public static void main(String[] args) throws ExecutionException, 
+InterruptedException {
+        // 没有返回值的 runAsync 异步回调
+//        CompletableFuture&lt;Void&gt; completableFuture = 
+CompletableFuture.runAsync(()-&gt;{
+//            try {
+//                TimeUnit.SECONDS.sleep(2);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            
+System.out.println(Thread.currentThread().getName()+&quot;runAsync=&gt;Void&quot;);
+//        });
+//
+//        System.out.println(&quot;1111&quot;);
+//
+//        completableFuture.get(); // 获取阻塞执行结果
+
+        // 有返回值的 supplyAsync 异步回调
+        // ajax，成功和失败的回调
+         // 返回的是错误信息；
+        CompletableFuture&lt;Integer&gt; completableFuture = 
+CompletableFuture.supplyAsync(()-&gt;{
+            
+System.out.println(Thread.currentThread().getName()+&quot;supplyAsync=&gt;Integer&quot;);
+            int i = 10/0;
+            return 1024;
+        });
+
+        System.out.println(completableFuture.whenComplete((t, u) -&gt; {
+            System.out.println(&quot;t=&gt;&quot; + t); // 正常的返回结果
+            System.out.println(&quot;u=&gt;&quot; + u); // 错误信息：
+java.util.concurrent.CompletionException: java.lang.ArithmeticException: / by 
+zero
+        }).exceptionally((e) -&gt; {
+            System.out.println(e.getMessage());
+            return 233; // 可以获取到错误的返回结果
+        }).get());
+
+        /**
+         * succee Code 200
+         * error Code 404 500
+         */
+    }
+}
+</code></pre>
+
+<h2 id="16-jmm">16 、JMM</h2>
+
+<p>jmm:java内存模型（java memory model）</p>
+
+<blockquote>
+<p>请你谈谈你对 Volatile 的理解</p>
+</blockquote>
+
+<p>Volatile 是 Java 虚拟机提供 <strong>轻量级的同步机制</strong>(synchronized)</p>
+
+<p>1 、保证可见性</p>
+
+<p>2 、不保证原子性</p>
+
+<p>3 、禁止指令重排</p>
+
+<blockquote>
+<p>什么是JMM</p>
+</blockquote>
+
+<p>JMM ： Java内存模型，不存在的东西，概念！约定！</p>
+
+<h4 id="关于jmm的一些同步的约定">关于JMM的一些同步的约定：</h4>
+
+<p>1 、线程解锁前，必须把共享变量 立刻 刷回主存。</p>
+
+<p>2 、线程加锁前，必须读取主存中的最新值到工作内存中！</p>
+
+<p>3 、加锁和解锁是同一把锁</p>
+
+<p>线程 <strong>工作内存</strong> 、 <strong>主内存</strong></p>
+
+<p>jmm8 种操作：</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145242074.png" alt="image-20200515145242074" /></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145249079.png" alt="image-20200515145249079" /></p>
+
+<p>内存交互操作有 8 种，虚拟机实现必须保证每一个操作都是原子的，不可在分的（对于double和long类
+型的变量来说，load、store、read和write操作在某些平台上允许例外）</p>
+
+<blockquote>
+<ul>
+<li>lock （锁定）：作用于主内存的变量，把一个变量标识为线程独占状态</li>
+<li>unlock （解锁）：作用于主内存的变量，它把一个处于锁定状态的变量释放出来，释放后的变量
+才可以被其他线程锁定</li>
+<li>read （读取）：作用于主内存变量，它把一个变量的值从主内存传输到线程的工作内存中，以便
+随后的load动作使用</li>
+<li>load （载入）：作用于工作内存的变量，它把read操作从主存中变量放入工作内存中</li>
+<li>use （使用）：作用于工作内存中的变量，它把工作内存中的变量传输给执行引擎，每当虚拟机
+遇到一个需要使用到变量的值，就会使用到这个指令</li>
+<li>assign （赋值）：作用于工作内存中的变量，它把一个从执行引擎中接受到的值放入工作内存的变
+量副本中</li>
+<li>store （存储）：作用于主内存中的变量，它把一个从工作内存中一个变量的值传送到主内存中，
+以便后续的write使用</li>
+<li>write （写入）：作用于主内存中的变量，它把store操作从工作内存中得到的变量的值放入主内
+存的变量中</li>
+</ul>
+</blockquote>
+
+<p><strong>JMM对这八种指令的使用，制定了如下规则：</strong></p>
+
+<blockquote>
+<ul>
+<li>不允许read和load、store和write操作之一单独出现。即使用了read必须load，使用了store必须
+write</li>
+<li>不允许线程丢弃他最近的assign操作，即工作变量的数据改变了之后，必须告知主存</li>
+<li>不允许一个线程将没有assign的数据从工作内存同步回主内存</li>
+<li>一个新的变量必须在主内存中诞生，不允许工作内存直接使用一个未被初始化的变量。就是怼变量实施use、store操作之前，必须经过assign和load操作</li>
+<li>一个变量同一时间只有一个线程能对其进行lock。多次lock后，必须执行相同次数的unlock才能解锁</li>
+<li>如果对一个变量进行lock操作，会清空所有工作内存中此变量的值，在执行引擎使用这个变量前，必须重新load或assign操作初始化变量的值</li>
+<li>如果一个变量没有被lock，就不能对其进行unlock操作。也不能unlock一个被其他线程锁住的变量</li>
+<li>对一个变量进行unlock操作之前，必须把此变量同步回主内存</li>
+</ul>
+</blockquote>
+
+<p>问题： 程序不知道主内存的值已经被修改过了</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145413571.png" alt="image-20200515145413571" /></p>
+
+<h2 id="17-volatile">17 、Volatile</h2>
+
+<blockquote>
+<p>1 、保证可见性</p>
+</blockquote>
+
+<pre><code class="language-java">import java.util.concurrent.TimeUnit;
+public class JMMDemo {
+    // 不加 volatile 程序就会死循环！
+    // 加 volatile 可以保证可见性
+    private volatile static int num = 0;
+    public static void main(String[] args) { // main
+        new Thread(()-&gt;{ // 线程 1 对主内存的变化不知道的
+            while (num==0){
+
+            }
+        }).start();
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        num = 1;
+        System.out.println(num);
+
+    }
+}
+</code></pre>
+
+<p>2 、不保证原子性（acid原则）</p>
+
+<p>原子性 : 不可分割</p>
+
+<p>线程A在执行任务的时候，不能被打扰的，也不能被分割。要么同时成功，要么同时失败。</p>
+
+<pre><code class="language-java">package com.kuang.tvolatile;
+
+// volatile 不保证原子性
+public class VDemo02 {
+
+    // volatile 不保证原子性 synchronized可以保证
+    private volatile static int num = 0;
+
+    public static void add(){
+        num++;
+    }
+
+    public static void main(String[] args) {
+
+        //理论上num结果应该为 2 万
+        for (int i = 1; i &lt;= 20; i++) {
+            new Thread(()-&gt;{
+                for (int j = 0; j &lt; 1000 ; j++) {
+                    add();
+                }
+            }).start();
+        }
+
+        while (Thread.activeCount()&gt;2){ // main  gc
+            Thread.yield();
+        }
+
+        System.out.println(Thread.currentThread().getName() + &quot; &quot; + num);
+
+    }
+    }
+</code></pre>
+
+<p><strong>如果不加 lock 和 synchronized ，怎么样保证原子性</strong></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145530137.png" alt="image-20200515145530137" /></p>
+
+<p>使用原子类，解决 原子性问题</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145542168.png" alt="image-20200515145542168" /></p>
+
+<pre><code class="language-java">package com.kuang.tvolatile;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+// volatile 不保证原子性
+public class VDemo02 {
+
+    // volatile 不保证原子性
+    // 原子类的 Integer
+    private volatile static AtomicInteger num = new AtomicInteger();
+
+    public static void add(){
+     // num++; // 不是一个原子性操作
+        num.getAndIncrement(); // AtomicInteger + 1 方法， CAS
+    }
+
+    public static void main(String[] args) {
+
+        //理论上num结果应该为 2 万
+        for (int i = 1; i &lt;= 20; i++) {
+            new Thread(()-&gt;{
+                for (int j = 0; j &lt; 1000 ; j++) {
+                    add();
+                }
+            }).start();
+        }
+
+        while (Thread.activeCount()&gt;2){ // main  gc
+            Thread.yield();
+        }
+
+        System.out.println(Thread.currentThread().getName() + &quot; &quot; + num);
+
+    }
+}
+</code></pre>
+
+<p>这些类的底层都直接和操作系统挂钩！在内存中修改值！Unsafe类是一个很特殊的存在！</p>
+
+<blockquote>
+<p>指令重排</p>
+</blockquote>
+
+<p>什么是 指令重排： 你写的程序，计算机并不是按照你写的那样去执行的。</p>
+
+<p>源代码&ndash;&gt;编译器优化的重排&ndash;&gt; 指令并行也可能会重排&ndash;&gt; 内存系统也会重排&mdash;&gt; 执行</p>
+
+<p>处理器在进行指令重排的时候，考虑：数据之间的依赖性！</p>
+
+<pre><code>int x = 1; // 1
+int y = 2; // 2
+x = x + 5; // 3
+y = x * x; // 4
+
+我们所期望的：1234  但是可能执行的时候回变成 2134  1324 
+可不可能是  4123！
+</code></pre>
+
+<p>可能造成影响的结果： a b x y 这四个值默认都是 0 ；</p>
+
+<table>
+<thead>
+<tr>
+<th>线程A</th>
+<th>线程B</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>x=a</td>
+<td>y=b</td>
+</tr>
+
+<tr>
+<td>b=1</td>
+<td>a=2</td>
+</tr>
+</tbody>
+</table>
+
+<p>正常的结果： x = 0；y = 0；但是可能由于指令重排</p>
+
+<table>
+<thead>
+<tr>
+<th>线程A</th>
+<th>线程B</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>b=1</td>
+<td>a=2</td>
+</tr>
+
+<tr>
+<td>x=a</td>
+<td>y=b</td>
+</tr>
+</tbody>
+</table>
+
+<p>指令重排导致的诡异结果： x = 2；y = 1；</p>
+
+<blockquote>
+<p>非计算机专业</p>
+</blockquote>
+
+<p><strong>volatile可以避免指令重排：</strong></p>
+
+<p>内存屏障。CPU指令。作用：</p>
+
+<p>1 、保证特定的操作的执行顺序！</p>
+
+<p>2 、可以保证某些变量的内存可见性 （利用这些特性volatile实现了可见性）</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515145847914.png" alt="image-20200515145847914" /></p>
+
+<p><strong>Volatile 是可以保持 可见性。不能保证原子性，由于内存屏障，可以保证避免指令重排的现象产生！</strong></p>
+
+<h2 id="18-彻底玩转单例模式">18 、彻底玩转单例模式</h2>
+
+<p>饿汉式 DCL懒汉式，深究！</p>
+
+<blockquote>
+<p>饿汉式</p>
+</blockquote>
+
+<pre><code class="language-java">// 饿汉式单例
+public class Hungry {
+    // 可能会浪费空间
+    /*
+    private byte[] data1 = new byte[1024*1024];
+    private byte[] data2 = new byte[1024*1024];
+    private byte[] data3 = new byte[1024*1024];
+    private byte[] data4 = new byte[1024*1024];*/
+   //单例模式最重要的思想就是构造器私有化
+    private Hungry(){
+    }
+    //不管三七二十一上来就先new一个对象
+    private final static Hungry HUNGRY = new Hungry();
+
+    public static Hungry getInstance(){
+        return HUNGRY;
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>DCL 懒汉式</p>
+</blockquote>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        System.out.println(Thread.currentThread().getName()+&quot;Ok&quot;);
+    }
+    private static LazyMan lazyMan;
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            lazyMan = new LazyMan(); // 不是一个原子性操作
+        }
+        return lazyMan;
+    }
+    //单线程下确实单例ok，但是在多线程下会出错
+    public static void main(String args[]){
+        for(int i=0;i&lt;10;i++){
+            new Thread(()-&gt;{
+                
+                LazyMan.getInstance();
+                
+            }).start();
+        }
+    }
+}
+</code></pre>
+
+<p>加锁</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        System.out.println(Thread.currentThread().getName()+&quot;Ok&quot;);
+    }
+    private static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){//第一层加测
+            synchronized (LazyMan.class){//锁
+                if (lazyMan==null){//第二层检测
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                    
+                }
+            }
+        }
+        return lazyMan;
+    }
+    //这样的话理论上是没有什么问题的，但是有可能会出现问题 lazyMan = new LazyMan();不是原子性操作
+    /**
+ * 1. 分配内存空间
+ * 2、执行构造方法，初始化对象
+ * 3、把这个对象指向这个空间
+ * 会发生指令重排现象
+ * 123
+ * 132 A
+ *     B // 此时lazyMan还没有完成构造
+ 
+ 因此需要加 volatile
+ */
+    public static void main(String args[]){
+        for(int i=0;i&lt;10;i++){
+            new Thread(()-&gt;{
+
+                LazyMan.getInstance();
+
+            }).start();
+        }
+    }
+}
+</code></pre>
+
+<p>真正的DCL</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        System.out.println(Thread.currentThread().getName()+&quot;Ok&quot;);
+    }
+    //加锁防止new的时候发生指令重排的现象
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){//第一层加测
+            synchronized (LazyMan.class){//锁
+                if (lazyMan==null){//第二层检测
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                    
+                }
+            }
+        }
+        return lazyMan;
+    }
+    //这样的话理论上是没有什么问题的，但是有可能会出现问题 lazyMan = new LazyMan();不是原子性操作
+    /**
+ * 1. 分配内存空间
+ * 2、执行构造方法，初始化对象
+ * 3、把这个对象指向这个空间
+ * 会发生指令重排现象
+ * 123
+ * 132 A
+ *     B // 此时lazyMan还没有完成构造
+ 
+ 因此需要加 volatile
+ */
+    public static void main(String args[]){
+        for(int i=0;i&lt;10;i++){
+            new Thread(()-&gt;{
+
+                LazyMan.getInstance();
+
+            }).start();
+        }
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>静态内部类</p>
+</blockquote>
+
+<pre><code class="language-java">// 静态内部类
+public class Holder {
+    private Holder(){
+    }
+    public static Holder getInstace(){
+        return InnerClass.HOLDER;
+    }
+    public static class InnerClass{
+        private static final Holder HOLDER = new Holder();
+    }
+}
+</code></pre>
+
+<p><strong>但是者三种方法在反射面前都是不安全的</strong></p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        System.out.println(Thread.currentThread().getName()+&quot;Ok&quot;);
+    }
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            synchronized (LazyMan.class){
+                if (lazyMan==null){
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                }
+            }
+        }
+        return lazyMan;
+    }
+    // 反射！
+    public static void main(String[] args) throws Exception {
+        LazyMan instance = LazyMan.getInstance();
+        Constructor&lt;LazyMan&gt; declaredConstructor = 
+LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
+        declaredConstructor.setAccessible(true);
+        LazyMan instance2 = declaredConstructor.newInstance();
+        System.out.println(instance);
+        System.out.println(instance2);
+    }
+}
+//可以发现这两个对象不是同一个对象
+</code></pre>
+
+<p>解决：在构造器在判断一次</p>
+
+<p>三重检测：可以避免某一种反射的破坏</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        synchronized (LazyMan.class){
+            if (lazyMan != null){
+                throw new RuntimeException(&quot;不要试图使用反射破坏异常&quot;);
+            }
+        }
+    }
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            synchronized (LazyMan.class){
+                if (lazyMan==null){
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                }
+            }
+        }
+        return lazyMan;
+    }
+    // 反射！
+    public static void main(String[] args) throws Exception {
+        LazyMan instance = LazyMan.getInstance();
+        Constructor&lt;LazyMan&gt; declaredConstructor = 
+            LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
+        declaredConstructor.setAccessible(true);
+        LazyMan instance2 = declaredConstructor.newInstance();
+        System.out.println(instance);
+        System.out.println(instance2);
+    }
+}
+</code></pre>
+
+<p>在我们两个对象都是使用反射获取的时候又会发生错误</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private LazyMan(){
+        synchronized (LazyMan.class){
+            if (lazyMan != null){
+                throw new RuntimeException(&quot;不要试图使用反射破坏异常&quot;);
+            }
+        }
+    }
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            synchronized (LazyMan.class){
+                if (lazyMan==null){
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                }
+            }
+        }
+        return lazyMan;
+    }
+    // 反射！
+    public static void main(String[] args) throws Exception {
+        Constructor&lt;LazyMan&gt; declaredConstructor = 
+LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
+        declaredConstructor.setAccessible(true);
+        LazyMan instance = declaredConstructor.newInstance();
+        LazyMan instance2 = declaredConstructor.newInstance();
+        System.out.println(instance);
+        System.out.println(instance2);
+    }
+}
+</code></pre>
+
+<p>解决：红绿灯</p>
+
+<p>可以定义一个变量（可以进行加密）qinjiang进行处理，如果不通过反编译的话，它是找不到qinjiang这个关键字的</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private static boolean qinjiang = false;
+    private LazyMan(){
+        synchronized (LazyMan.class){
+            if (qinjiang == false){
+                qinjiang = true;
+            }else {
+                throw new RuntimeException(&quot;不要试图使用反射破坏异常&quot;);
+            }
+            }
+    }
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            synchronized (LazyMan.class){
+                if (lazyMan==null){
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                }
+            }
+        }
+        return lazyMan;
+    }
+    // 反射！
+    public static void main(String[] args) throws Exception {
+      Constructor&lt;LazyMan&gt; declaredConstructor = 
+LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
+        declaredConstructor.setAccessible(true);
+        LazyMan instance = declaredConstructor.newInstance();
+        LazyMan instance2 = declaredConstructor.newInstance();
+        System.out.println(instance);
+        System.out.println(instance2);
+    }
+}
+</code></pre>
+
+<p>再破坏一下，通过反射可以获取变量qinjiang，通过反射修改这个值</p>
+
+<p>这样的话反射又被破坏了</p>
+
+<pre><code class="language-java">import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+// 懒汉式单例DCL
+// 道高一尺，魔高一丈！
+public class LazyMan {
+    private static boolean qinjiang = false;
+    private LazyMan(){
+        synchronized (LazyMan.class){
+            if (qinjiang == false){
+                qinjiang = true;
+            }else {
+                throw new RuntimeException(&quot;不要试图使用反射破坏异常&quot;);
+            }
+            }
+    }
+    private volatile static LazyMan lazyMan;
+    // 双重检测锁模式的 懒汉式单例  DCL懒汉式
+    public static LazyMan getInstance(){
+        if (lazyMan==null){
+            synchronized (LazyMan.class){
+                if (lazyMan==null){
+                    lazyMan = new LazyMan(); // 不是一个原子性操作
+                }
+            }
+        }
+        return lazyMan;
+    }
+    // 反射！
+    public static void main(String[] args) throws Exception {
+//        LazyMan instance = LazyMan.getInstance();
+        Field qinjiang = LazyMan.class.getDeclaredField(&quot;qinjiang&quot;);
+        qinjiang.setAccessible(true);
+        Constructor&lt;LazyMan&gt; declaredConstructor = 
+LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
+        declaredConstructor.setAccessible(true);
+        LazyMan instance = declaredConstructor.newInstance();
+        qinjiang.set(instance,false);
+        LazyMan instance2 = declaredConstructor.newInstance();
+        System.out.println(instance);
+        System.out.println(instance2);
+    }
+}
+/**
+ * 1. 分配内存空间
+ * 2、执行构造方法，初始化对象
+ * 3、把这个对象指向这个空间
+ *
+ * 123
+ * 132 A
+ *     B // 此时lazyMan还没有完成构造
+ */
+</code></pre>
+
+<p>究极解决办法使用枚举</p>
+
+<blockquote>
+<p>单例不安全，反射</p>
+
+<p>枚举</p>
+</blockquote>
+
+<p>我们观察反射newInstance的方法</p>
+
+<pre><code class="language-java">@CallerSensitive
+    public T newInstance(Object ... initargs)
+        throws InstantiationException, IllegalAccessException,
+               IllegalArgumentException, InvocationTargetException
+    {
+        if (!override) {
+            if (!Reflection.quickCheckMemberAccess(clazz, modifiers)) {
+                Class&lt;?&gt; caller = Reflection.getCallerClass();
+                checkAccess(caller, clazz, null, modifiers);
+            }
+        }
+        if ((clazz.getModifiers() &amp; Modifier.ENUM) != 0)
+            throw new IllegalArgumentException(&quot;Cannot reflectively create enum objects&quot;);
+        ConstructorAccessor ca = constructorAccessor;   // read volatile
+        if (ca == null) {
+            ca = acquireConstructorAccessor();
+        }
+        @SuppressWarnings(&quot;unchecked&quot;)
+        T inst = (T) ca.newInstance(initargs);
+        return inst;
+    }
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/image-20200516221415880.png" alt="image-20200516221415880" /></p>
+
+<p>可以发现这里有一个会抛出一个枚举的异常（不能使用反射破坏枚举），所以我们有了一个解决的思路</p>
+
+<pre><code class="language-Java">import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+// enum 是一个什么？ 本身也是一个Class类
+public enum EnumSingle {
+    INSTANCE;
+    public EnumSingle getInstance(){
+        return INSTANCE;
+    }
+}
+class Test{
+    public static void main(String[] args){
+        EnumSingle instance1 = EnumSingle.INSTANCE;
+        EnumSingle instance2 = EnumSingle.INSTANCE;
+        System.out.println(instance1);
+        System.out.println(instance2);
+    }
+}
+//结果发现这两个对象肯定是一致的
+</code></pre>
+
+<p>我们说反射不能破坏枚举，这里我们尝试使用反射破坏枚举</p>
+
+<p>通过class文件分析源码时有参构造还是无参构造：发现</p>
+
+<p><img src="/resources/技术收录/Java/image-20200516222046503.png" alt="image-20200516222046503" /></p>
+
+<pre><code class="language-java">import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+// enum 是一个什么？ 本身也是一个Class类
+public enum EnumSingle {
+    INSTANCE;
+    public EnumSingle getInstance(){
+        return INSTANCE;
+    }
+}
+class Test{
+    public static void main(String[] args) throws NoSuchMethodException, 
+IllegalAccessException, InvocationTargetException, InstantiationException {
+        EnumSingle instance1 = EnumSingle.INSTANCE;
+        Constructor&lt;EnumSingle&gt; declaredConstructor = 
+EnumSingle.class.getDeclaredConstructor(null);
+        declaredConstructor.setAccessible(true);
+        EnumSingle instance2 = declaredConstructor.newInstance();
+        // NoSuchMethodException: com.kuang.single.EnumSingle.&lt;init&gt;()
+        System.out.println(instance1);
+        System.out.println(instance2);
+
+    }
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/image-20200516222300442.png" alt="image-20200516222300442" /></p>
+
+<p>结果发现此时抛出的异常和我们预想的异常不一样（枚举类中没有这样一个空参的构造方法）：idea欺骗了我们</p>
+
+<p>然后我们去反编译这个类看一下源码</p>
+
+<pre><code>javap -p EnumSingle.class
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/image-20200515150118486.png" alt="image-20200515150118486" /></p>
+
+<p>但是我们发现这个代码中也有一个空参的构造方法，此时的我们就有点蒙，这个源码也欺骗了我们(因为程序执行的结果告诉我们它确实没有无参构造函数，运行的结果时不能欺骗我们的)</p>
+
+<p>这样的话，我们就需要一个更专业的软件jad.exe</p>
+
+<p>将jas.exe放到class文件目录</p>
+
+<pre><code>jad -sjava EnumSingle.class
+</code></pre>
+
+<p>得到源码文件</p>
+
+<p>枚举类型的最终反编译源码：</p>
+
+<pre><code class="language-java">// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   EnumSingle.java
+
+package com.kuang.single;
+
+public final class EnumSingle extends Enum
+{
+
+    public static EnumSingle[] values()
+    {
+        return (EnumSingle[])$VALUES.clone();
+    }
+
+    public static EnumSingle valueOf(String name)
+    {
+        return (EnumSingle)Enum.valueOf(com/kuang/single/EnumSingle, name);
+    }
+
+    private EnumSingle(String s, int i)
+    {
+        super(s, i);
+    }
+
+    public EnumSingle getInstance()
+    {
+        return INSTANCE;
+    }
+
+    public static final EnumSingle INSTANCE;
+    private static final EnumSingle $VALUES[];
+
+    static 
+    {
+        INSTANCE = new EnumSingle(&quot;INSTANCE&quot;, 0);
+        $VALUES = (new EnumSingle[] {
+            INSTANCE
+        });
+    }
+}
+</code></pre>
+
+<p>枚举类本身就是一个class，只不过是继承了Enum类</p>
+
+<p>我们发现它确实有一个有参构造器(String ,int)</p>
+
+<pre><code class="language-java">package com.kuang.single;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+// enum 是一个什么？ 本身也是一个Class类
+public enum EnumSingle {
+
+    INSTANCE;
+
+    public EnumSingle getInstance(){
+        return INSTANCE;
+    }
+
+}
+
+class Test{
+
+    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        EnumSingle instance1 = EnumSingle.INSTANCE;
+        Constructor&lt;EnumSingle&gt; declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);//一定不要写成Integer
+        declaredConstructor.setAccessible(true);
+        EnumSingle instance2 = declaredConstructor.newInstance();
+
+        // NoSuchMethodException: com.kuang.single.EnumSingle.&lt;init&gt;()
+        System.out.println(instance1);
+        System.out.println(instance2);
+
+    }
+
+}
+</code></pre>
+
+<p>此时确实抛出了反射中异常</p>
+
+<p><img src="/resources/技术收录/Java/image-20200516223259849.png" alt="image-20200516223259849" /></p>
+
+<h2 id="19-深入理解cas">19 、深入理解CAS</h2>
+
+<blockquote>
+<p>什么是 CAS</p>
+</blockquote>
+
+<p>大厂你必须要深入研究底层！有所突破！ 修内功，操作系统，计算机网络原理</p>
+
+<pre><code class="language-java">package com.kuang.cas;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class CASDemo {
+
+    // CAS  compareAndSet : 比较并交换！
+    public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(2020);
+
+        // 期望、更新
+        // public final boolean compareAndSet(int expect, int update)
+        // 如果我期望的值达到了，那么就更新，否则，就不更新, CAS 是CPU的并发原语！
+        System.out.println(atomicInteger.compareAndSet(2020, 2021));
+        System.out.println(atomicInteger.get());
+
+        atomicInteger.getAndIncrement()
+        System.out.println(atomicInteger.compareAndSet(2020, 2021));
+        System.out.println(atomicInteger.get());
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Unsafe 类</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515150218050.png" alt="image-20200515150218050" /></p>
+
+<p>操作内存</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150227032.png" alt="image-20200515150227032" /></p>
+
+<p>如果var1对象的内存地址偏移值var2还是我们期望的var5,我们就把var5+偏移量var4(1)</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150235282.png" alt="image-20200515150235282" /></p>
+
+<blockquote>
+<p>CAS ： 比较当前工作内存中的值和主内存中的值，如果这个值是期望的，那么则执行操作！如果不是就
+一直循环！</p>
+</blockquote>
+
+<p>缺点：</p>
+
+<p>1 、 循环会耗时</p>
+
+<p>2 、一次性只能保证一个共享变量的原子性</p>
+
+<p>3 、ABA问题</p>
+
+<blockquote>
+<p>CAS ： ABA 问题（狸猫换太子）</p>
+</blockquote>
+
+<p>其中一个线程将A=1改为了A=3,又将A=3改为了A=1</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150315112.png" alt="image-20200515150315112" /></p>
+
+<pre><code class="language-java">package com.kuang.cas;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class CASDemo {
+
+    // CAS  compareAndSet : 比较并交换！
+    public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(2020);
+
+        // 期望、更新
+        // public final boolean compareAndSet(int expect, int update)
+        // 如果我期望的值达到了，那么就更新，否则，就不更新, CAS 是CPU的并发原语！
+        // ============== 捣乱的线程 ==================
+        System.out.println(atomicInteger.compareAndSet(2020, 2021));
+        System.out.println(atomicInteger.get());
+
+        System.out.println(atomicInteger.compareAndSet(2021, 2020));
+        System.out.println(atomicInteger.get());
+
+        // ============== 期望的线程 ==================
+        System.out.println(atomicInteger.compareAndSet(2020, 6666));
+        System.out.println(atomicInteger.get());
+    }
+}
+</code></pre>
+
+<h2 id="20-原子引用">20 、原子引用</h2>
+
+<blockquote>
+<p>解决ABA 问题，引入原子引用！ 对应的思想：乐观锁！</p>
+</blockquote>
+
+<p>带版本号 的原子操作！</p>
+
+<pre><code class="language-java">package com.kuang.cas;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicStampedReference;
+
+public class CASDemo {
+
+    //AtomicStampedReference 注意，如果泛型是一个包装类，注意对象的引用问题
+    
+    // 正常在业务操作，这里面比较的都是一个个对象
+    static AtomicStampedReference&lt;Integer&gt; atomicStampedReference = new 
+AtomicStampedReference&lt;&gt;(1,1);
+
+    // CAS  compareAndSet : 比较并交换！
+    public static void main(String[] args) {
+
+        new Thread(()-&gt;{
+            int stamp = atomicStampedReference.getStamp(); // 获得版本号
+            System.out.println(&quot;a1=&gt;&quot;+stamp);
+
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            atomicStampedReference.compareAndSet(1, 2,
+                    atomicStampedReference.getStamp(), 
+atomicStampedReference.getStamp() + 1);
+
+            System.out.println(&quot;a2=&gt;&quot;+atomicStampedReference.getStamp());
+
+            System.out.println(atomicStampedReference.compareAndSet(2, 1,
+                    atomicStampedReference.getStamp(), 
+atomicStampedReference.getStamp() + 1));
+
+            System.out.println(&quot;a3=&gt;&quot;+atomicStampedReference.getStamp());
+
+        },&quot;a&quot;).start();
+
+        // 乐观锁的原理相同！
+        new Thread(()-&gt;{
+            int stamp = atomicStampedReference.getStamp(); // 获得版本号
+            System.out.println(&quot;b1=&gt;&quot;+stamp);
+
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(atomicStampedReference.compareAndSet(1, 6,
+                    stamp, stamp + 1));
+
+            System.out.println(&quot;b2=&gt;&quot;+atomicStampedReference.getStamp());
+
+        },&quot;b&quot;).start();
+        }
+}
+
+</code></pre>
+
+<p>注意：</p>
+
+<p><strong>Integer 使用了对象缓存机制，默认范围是 -128 ~ 127 ，推荐使用静态工厂方法 valueOf 获取对象实
+例，而不是 new，因为 valueOf 使用缓存，而 new 一定会创建新的对象分配新的内存空间；</strong></p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150443273.png" alt="image-20200515150443273" /></p>
+
+<h2 id="21-各种锁的理解">21 、各种锁的理解</h2>
+
+<h3 id="1-公平锁-非公平锁">1 、公平锁、非公平锁</h3>
+
+<p>公平锁： 非常公平， 不能够插队，必须先来后到！</p>
+
+<p>非公平锁：非常不公平，可以插队 （默认都是非公平）</p>
+
+<pre><code class="language-java">Lock lock =new ReentrantLock();//默认就是非公平锁
+public ReentrantLock() {
+    sync = new NonfairSync();
+}
+Lock lock =new ReentrantLock(true);//使用公平锁
+public ReentrantLock(boolean fair) {
+    sync = fair ? new FairSync() : new NonfairSync();
+}
+</code></pre>
+
+<h3 id="2-可重入锁">2 、可重入锁</h3>
+
+<p>可重入锁（递归锁）</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150637589.png" alt="image-20200515150637589" /></p>
+
+<blockquote>
+<p>Synchronized</p>
+</blockquote>
+
+<pre><code class="language-java">package com.kuang.lock;
+
+import javax.sound.midi.Soundbank;
+
+// Synchronized
+public class Demo01 {
+    public static void main(String[] args) {
+        Phone phone = new Phone();
+
+        new Thread(()-&gt;{
+            phone.sms();
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            phone.sms();
+        },&quot;B&quot;).start();
+    }
+}
+
+class Phone{
+
+    public synchronized void sms(){
+        System.out.println(Thread.currentThread().getName() + &quot;sms&quot;);
+        call(); // 这里也有锁
+    }
+
+    public synchronized void call(){
+        System.out.println(Thread.currentThread().getName() + &quot;call&quot;);
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Lock 版</p>
+</blockquote>
+
+<pre><code class="language-java">package com.kuang.lock;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Demo02 {
+    public static void main(String[] args) {
+        Phone2 phone = new Phone2();
+
+        new Thread(()-&gt;{
+            phone.sms();
+        },&quot;A&quot;).start();
+
+        new Thread(()-&gt;{
+            phone.sms();
+        },&quot;B&quot;).start();
+    }
+}
+
+class Phone2{
+    Lock lock = new ReentrantLock();
+
+    public void sms(){
+        lock.lock(); // 细节问题：lock.lock(); lock.unlock(); // lock 锁必须配对，否
+则就会死在里面
+        lock.lock();
+        try {
+            System.out.println(Thread.currentThread().getName() + &quot;sms&quot;);
+            call(); // 这里也有锁
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+            lock.unlock();
+        }
+
+    }
+
+    public void call(){
+
+        lock.lock();
+        try {
+            System.out.println(Thread.currentThread().getName() + &quot;call&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+</code></pre>
+
+<h3 id="3-自旋锁">3 、自旋锁</h3>
+
+<p>spinlock</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150752661.png" alt="image-20200515150752661" /></p>
+
+<p>我们来自定义一个锁测试</p>
+
+<pre><code class="language-java">package com.kuang.lock;
+
+import java.util.concurrent.atomic.AtomicReference;
+
+/**
+ * 自旋锁
+ */
+public class SpinlockDemo {
+
+    // int   0
+    // Thread  null
+    AtomicReference&lt;Thread&gt; atomicReference = new AtomicReference&lt;&gt;();
+
+    // 加锁
+    public void myLock(){
+        Thread thread = Thread.currentThread();
+        System.out.println(Thread.currentThread().getName() + &quot;==&gt; mylock&quot;);
+
+        // 自旋锁
+        while (!atomicReference.compareAndSet(null,thread)){
+
+        }
+    }
+
+    // 解锁
+    // 加锁
+    public void myUnLock(){
+        Thread thread = Thread.currentThread();
+        System.out.println(Thread.currentThread().getName() + &quot;==&gt; myUnlock&quot;);
+        atomicReference.compareAndSet(thread,null);
+    }
+
+}
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">package com.kuang.lock;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TestSpinLock {
+    public static void main(String[] args) throws InterruptedException {
+//        ReentrantLock reentrantLock = new ReentrantLock();
+//        reentrantLock.lock();
+//        reentrantLock.unlock();
+
+        // 底层使用的自旋锁CAS
+        SpinlockDemo lock = new SpinlockDemo();
+
+        new Thread(()-&gt; {
+            lock.myLock();
+
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.myUnLock();
+            }
+
+        },&quot;T1&quot;).start();
+
+        TimeUnit.SECONDS.sleep(1);
+
+        new Thread(()-&gt; {
+            lock.myLock();
+
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.myUnLock();
+            }
+
+        },&quot;T2&quot;).start();
+
+    }
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/image-20200515150845793.png" alt="image-20200515150845793" /></p>
+
+<h3 id="4-死锁">4 、死锁</h3>
+
+<blockquote>
+<p>死锁是什么</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/Java/image-20200515150909894.png" alt="image-20200515150909894" /></p>
+
+<p>死锁测试，怎么排除死锁：</p>
+
+<pre><code class="language-java">package com.kuang.lock;
+
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.util.concurrent.TimeUnit;
+
+public class DeadLockDemo {
+    public static void main(String[] args) {
+
+        String lockA = &quot;lockA&quot;;
+        String lockB = &quot;lockB&quot;;
+
+        new Thread(new MyThread(lockA, lockB), &quot;T1&quot;).start();
+        new Thread(new MyThread(lockB, lockA), &quot;T2&quot;).start();
+
+    }
+}
+class MyThread implements Runnable{
+
+    private String lockA;
+    private String lockB;
+
+    public MyThread(String lockA, String lockB) {
+        this.lockA = lockA;
+        this.lockB = lockB;
+    }
+
+    @Override
+    public void run() {
+        synchronized (lockA){
+        System.out.println(Thread.currentThread().getName() + 
+&quot;lock:&quot;+lockA+&quot;=&gt;get&quot;+lockB);
+
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            synchronized (lockB){
+                System.out.println(Thread.currentThread().getName() + 
+&quot;lock:&quot;+lockB+&quot;=&gt;get&quot;+lockA);
+            }
+
+        }
+    }
+}
+</code></pre>
+
+<p>解决问题</p>
+
+<p>1 、使用 jps -l 定位进程号</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515150957382.png" alt="image-20200515150957382" /></p>
+
+<p>2 、使用 jstack 进程号 找到死锁问题</p>
+
+<p><img src="/resources/技术收录/Java/image-20200515151004320.png" alt="image-20200515151004320" /></p>
+
+<p>面试，工作中！ 排查问题：</p>
+
+<p>1 、日志 9</p>
+
+<p>2 、堆栈 1</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/05/juc/" title="Java并发编程JUC" target="_blank" rel="external">https://mumulx.github.io/2020/05/juc/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="Java并发编程"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

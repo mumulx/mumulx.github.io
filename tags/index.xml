@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/</link>
     <description>Recent content in Tags on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java并发编程JUC</title>
+      <link>https://mumulx.github.io/2020/05/juc/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/juc/</guid>
+      <description>JUC 1 、什么是JUC java.util 工具包、包、分类 业务：普通的线程代码 Thread Runnable 没有返回值、效率相比入 Callable 相对较低！ 2 、线程和进程 线程、进程，如果不能使用一句话说</description>
+    </item>
     
     <item>
       <title>Java并发编程</title>
@@ -313,7 +322,16 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description>Mybatis 简介 官网 mybatis: ibatis:apache 2010 ibatis-&amp;gt; google colde ,Mybatis MyBatis可以简化JDBC操作，实现数据的持久化 。 ORM:Object Relational Mapping person对象 person表 之间一一映射起来 ORM：概</description>
+      <description>Mybatis 简介 官网 mybatis: ibatis:apache 2010 ibatis-&amp;gt; google colde ,Mybatis MyBatis可以简化JDBC操作，实现数据的持久化 。 ORM:Object Relational Mapping ORM可以解决数据库与程序间的异构性，比如在Java中我</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot自学笔记-02</title>
+      <link>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
+      <description>源码 一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
     </item>
     
     <item>
@@ -322,7 +340,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>git源码 简介 Servlet发展史 Struts1.x&amp;ndash;&amp;gt;Struts2.x&amp;ndash;&amp;gt;SpringMVC springmvc: jar spring-aop.jar spring-bean.jar spring-context.jar spring-core.jar spring-web.jar spring-webmvc.jar commons-logging.jar 报错NoClassDefFoundError：缺少jar 第一个SpringMVC程序 Servet</description>
+      <description>git源码 SpringMVC 简介 Servlet发展史 Struts1.x&amp;ndash;&amp;gt;Struts2.x&amp;ndash;&amp;gt;SpringMVC springmvc: 第一个SpringMVC程序 jar spring-aop.jar spring-bean.jar spring-context.jar spring-core.jar spring-web.jar spring-webmvc.jar commons-logging.jar 报错NoClassDefFoundError：缺少jar</description>
     </item>
     
     <item>
@@ -331,16 +349,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC、Aop Spring data, spring boot, spring cloud, spring framework ，spri</description>
-    </item>
-    
-    <item>
-      <title>Spring自学笔记-02</title>
-      <link>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
-      <description>源码 一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
+      <description>spring spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC、Aop Spring data, spring boot, spring cloud, spring framework ，spr</description>
     </item>
     
     <item>

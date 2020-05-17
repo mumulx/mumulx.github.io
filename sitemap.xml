@@ -4,21 +4,70 @@
   
   <url>
     <loc>https://mumulx.github.io/categories/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/tags/java/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/2020/05/juc/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/posts/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/series/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/tags/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/series/themes-guide/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/</loc>
+    <lastmod>2020-05-16T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -46,48 +95,6 @@
   
   <url>
     <loc>https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/posts/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/series/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/tags/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/series/themes-guide/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</loc>
-    <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/</loc>
     <lastmod>2020-04-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -402,6 +409,13 @@
   </url>
   
   <url>
+    <loc>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mumulx.github.io/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-11-11T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -410,13 +424,6 @@
   
   <url>
     <loc>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-11-11T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="19074">
+<meta itemprop="wordCount" content="19104">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">22</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,11 +180,11 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">5</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
@@ -242,6 +242,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
                     </p>
                     <p class="item-date">
@@ -279,16 +289,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/03/nginx%E7%AC%94%E8%AE%B0/" class="title">Nginx进阶学习笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-03-07</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -303,12 +303,9 @@
         <h3 class="toc-title">文章目录</h3>
         <div class="toc-content always-active"><nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li>
+<li><a href="#spring">spring</a>
 <ul>
 <li><a href="#spring简介">spring简介</a></li>
-</ul></li>
 <li><a href="#ioc-控制反转-di-依赖注入">IOC :控制反转 (DI:依赖注入)</a>
 <ul>
 <li><a href="#搭建spring环境">搭建Spring环境</a>
@@ -334,10 +331,11 @@
 <li><a href="#propagation-事务的传播属性">Propagation （事务的传播属性）</a></li>
 <li><a href="#spring事务的隔离级别">Spring事务的隔离级别</a></li>
 </ul></li>
+<li><a href="#什么是脏数据-脏读-不可重复读-幻觉读">什么是脏数据，脏读，不可重复读，幻觉读？</a></li>
 </ul></li>
 <li><a href="#aop-面向方面编程">AOP：面向方面编程</a>
 <ul>
-<li><a href="#前置通知实现步骤">前置通知实现步骤：</a>
+<li><a href="#前置通知">前置通知</a>
 <ul>
 <li><a href="#jar">jar</a></li>
 <li><a href="#配置-1">配置</a></li>
@@ -450,14 +448,16 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19074字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19104字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:39分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<h3 id="spring简介">spring简介</h3>
+<h1 id="spring">spring</h1>
+
+<h2 id="spring简介">spring简介</h2>
 
 <p>2002 Rod Johnon 发布<code>&lt;Expoer One-on-one j2eedevelopment and Design&gt;</code></p>
 
@@ -466,6 +466,8 @@
 <p>Spring data, spring boot, spring cloud, spring framework ，spring social</p>
 
 <h2 id="ioc-控制反转-di-依赖注入">IOC :控制反转 (DI:依赖注入)</h2>
+
+<p><strong>Inversion of control</strong></p>
 
 <p><a href="https://github.com/mumulx/Project-source-code/tree/master/spring/IOC/SpringProject">git源码</a></p>
 
@@ -515,7 +517,7 @@ xxx-sources.jar源码java文件</p>
 
 <h4 id="开发spring程序-ioc">开发Spring程序(IOC)</h4>
 
-<pre><code>package org.ycit.entity;
+<pre><code class="language-java">package org.ycit.entity;
 public class Student {
 	private int stuNo;
 	private String stuName;
@@ -554,7 +556,7 @@ public class Student {
 }
 </code></pre>
 
-<pre><code>	&lt;!-- 该文件创建的所有的对象，被spring放入了一个称之为spring  ioc容器的地方 --&gt;
+<pre><code class="language-xml">	&lt;!-- 该文件创建的所有的对象，被spring放入了一个称之为spring  ioc容器的地方 --&gt;
 	&lt;!-- id唯一标识符     class：指定类型  property：代表该类 的属性 --&gt;
 	&lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
         &lt;!--name 属性名，value：属性值--&gt;
@@ -564,8 +566,7 @@ public class Student {
 	&lt;/bean&gt;
 </code></pre>
 
-<pre><code>ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-
+<pre><code class="language-java">ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
 Student student = (Student)context.getBean(&quot;student&quot;);
 </code></pre>
 
@@ -576,7 +577,7 @@ Student student = (Student)context.getBean(&quot;student&quot;);
 <ol>
 <li><p>new</p>
 
-<pre><code>Student student = new Student();
+<pre><code class="language-java">Student student = new Student();
 student.setXxx();
 </code></pre>
 
@@ -593,7 +594,7 @@ student.setXxx();
 <p>SpringIOC容器帮我们解决了工厂的问题，可以存放任何对象</p></li>
 </ol>
 
-<p>IOc (控制反转)也可以称之为DI (依赖注入) :</p>
+<p>IOC(控制反转)也可以称之为DI (依赖注入) :</p>
 
 <p>反转的是获取对象的方式由通过自己<code>new</code>产生对象的方式变成直接从springioc容器中获取（applicationContext）<code>getBean()</code>的方式</p>
 
@@ -603,7 +604,7 @@ student.setXxx();
 
 <p>依赖注入:将属性值注入给了属性，将属性注入给了bean, 将bean注入给了ioc容器;</p>
 
-<p>总结：ioc/di ，无论要什么对象，都可以直接去springioc容器中获取，而不需要自己操作（new\setXxx()）</p>
+<p>总结：IOC/DI ，无论要什么对象，都可以直接去springioc容器中获取，而不需要自己操作（new\setXxx()）</p>
 
 <p>因此之后的ioc分为2步：</p>
 
@@ -614,7 +615,7 @@ student.setXxx();
 
 <p>DI:依赖注入</p>
 
-<p>依赖：B类中有A类地对象，B类中A类地对象依赖A类</p>
+<p>依赖：B类中有A类的对象，B类中&ndash;A类的对象依赖A类</p>
 
 <p>类的右上角有s标志，标志着这个类被纳入到了ioc容器中了</p>
 
@@ -633,7 +634,7 @@ student.setXxx();
 
 <p>依赖注入底层是通过反射实现的。</p>
 
-<pre><code>&lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
     &lt;property name=&quot;stuNo&quot; value=&quot;11&quot;&gt;&lt;/property&gt;
     &lt;property name=&quot;stuName&quot; value=&quot;zs&quot;&gt;&lt;/property&gt;
     &lt;property name=&quot;stuAge&quot; value=&quot;11&quot;&gt;&lt;/property&gt;
@@ -642,7 +643,7 @@ student.setXxx();
 
 <li><p>构造器注入：通过构造方法赋值</p>
 
-<pre><code>&lt;bean id=&quot;teacher&quot; class=&quot;org.ycit.entity.Teacher&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;teacher&quot; class=&quot;org.ycit.entity.Teacher&quot;&gt;
     &lt;!--
     通过构造方法赋值 顺序严格一致  
     不一致可以使用index属性指定参数的顺序   (从0开始) 
@@ -652,52 +653,52 @@ student.setXxx();
 &lt;/bean&gt;
 </code></pre>
 
-<pre><code>&lt;!--index从0开始--&gt;
+<pre><code class="language-xml">&lt;!--index从0开始--&gt;
 &lt;constructor-arg value=&quot;ls&quot; index=&quot;1&quot;&gt;&lt;/constructor-arg&gt;
 &lt;constructor-arg value=&quot;22&quot; index=&quot;0&quot;&gt;&lt;/constructor-arg&gt;
 </code></pre>
 
-<pre><code>&lt;!--通过name指定参数名--&gt;
+<pre><code class="language-xml-dtd">&lt;!--通过name指定参数名--&gt;
 &lt;constructor-arg value=&quot;ls&quot; name=&quot;name&quot;&gt;&lt;/constructor-arg&gt;
 &lt;constructor-arg value=&quot;22&quot; name=&quot;age&quot;&gt;&lt;/constructor-arg&gt;
 </code></pre>
 
-<pre><code>&lt;!--type--&gt;
+<pre><code class="language-xml">&lt;!--type--&gt;
 &lt;constructor-arg value=&quot;ls&quot; type=&quot;String&quot;&gt;&lt;/constructor-arg&gt;
 &lt;constructor-arg value=&quot;22&quot; type=&quot;int&quot;&gt;&lt;/constructor-arg&gt;
 </code></pre>
 
 <p>这几种方式也可以同时使用</p>
 
-<p>需要注意：如果  <code>&lt;constructor-arg&gt;</code>的顺序 与构造方法参数的顺序不一致，则需要通过<code>type</code>或者<code>index</code>或<code>name</code>指定。</p></li>
+<p><strong>需要注意：</strong>如果  <code>&lt;constructor-arg&gt;</code>的顺序 与构造方法参数的顺序不一致，则需要通过<code>type</code>或者<code>index</code>或<code>name</code>指定。</p></li>
 
 <li><p>p命名空间注入</p>
 
 <p>引入p命名空间</p>
 
-<pre><code>xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+<pre><code class="language-xml">xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
 </code></pre>
 
 <p>使用</p>
 
-<pre><code>&lt;bean id=&quot;teacher&quot; class=&quot;org.ycit.entity.Teacher&quot; p:age=&quot;25&quot; p:name=&quot;zs&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;teacher&quot; class=&quot;org.ycit.entity.Teacher&quot; p:age=&quot;25&quot; p:name=&quot;zs&quot;&gt;
 &lt;/bean&gt;
 </code></pre>
 
 <p>简单类型：</p>
 
-<pre><code>p:属性名=&quot;属性值&quot;
+<pre><code class="language-xml">p:属性名=&quot;属性值&quot;
 </code></pre>
 
 <p>引用类型（除了String外）：</p>
 
-<pre><code>p:属性名-ref=&quot;引用的id&quot;
+<pre><code class="language-xml">p:属性名-ref=&quot;引用的id&quot;
 </code></pre>
 
-<p>注意多个 p赋值的时候 要有空格,顺序无所谓。</p></li>
+<p><strong>注意</strong>:多个 p赋值的时候 要有空格,顺序无所谓。</p></li>
 </ol>
 
-<p>注意：</p>
+<p><strong>注意：</strong></p>
 
 <p>无论是String还是Int/short/long，在赋值时都是</p>
 
@@ -710,36 +711,36 @@ student.setXxx();
 
 <p><code>List  Set map properties</code></p>
 
-<pre><code>private List&lt;String&gt; list;
+<pre><code class="language-java">private List&lt;String&gt; list;
 private String[] array;
 private Set&lt;String&gt; set;
 private Map&lt;String,String&gt; map;
 private Properties props;
 </code></pre>
 
-<pre><code>&lt;bean id=&quot;collectionDemo&quot; class=&quot;org.ycit.entity.AllCollectionType&quot;&gt;
-	&lt;property name=&quot;list&quot;&gt;
-		&lt;list&gt;
-			&lt;value&gt;足球&lt;/value&gt;
-			&lt;value&gt;篮球&lt;/value&gt;
-			&lt;value&gt;乒乓球&lt;/value&gt;
-		&lt;/list&gt;
-	&lt;/property&gt;
-	&lt;property name=&quot;array&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;collectionDemo&quot; class=&quot;org.ycit.entity.AllCollectionType&quot;&gt;
+    &lt;property name=&quot;list&quot;&gt;
+        &lt;list&gt;
+            &lt;value&gt;足球&lt;/value&gt;
+            &lt;value&gt;篮球&lt;/value&gt;
+            &lt;value&gt;乒乓球&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;array&quot;&gt;
         &lt;array&gt;
             &lt;value&gt;asd&lt;/value&gt;
             &lt;value&gt;sdf&lt;/value&gt;
             &lt;value&gt;asdf&lt;/value&gt;
         &lt;/array&gt;
-	&lt;/property&gt;
-	&lt;property name=&quot;set&quot;&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;set&quot;&gt;
         &lt;set&gt;
             &lt;value&gt;asd2&lt;/value&gt;
             &lt;value&gt;sdf3&lt;/value&gt;
             &lt;value&gt;asdf4&lt;/value&gt;
         &lt;/set&gt;
-	&lt;/property&gt;
-	&lt;property name=&quot;map&quot;&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;map&quot;&gt;
         &lt;map&gt;
             &lt;entry&gt;
                 &lt;key&gt;
@@ -768,22 +769,22 @@ private Properties props;
             &lt;prop key=&quot;c4&quot;&gt;c4&lt;/prop&gt;
             &lt;prop key=&quot;d4&quot;&gt;d4&lt;/prop&gt;
         &lt;/props&gt;
-	&lt;/property&gt;
-	&lt;/bean&gt;
+    &lt;/property&gt;
+    &lt;/bean&gt;
 </code></pre>
 
-<p>set、list、数组 ;各自都有自己的标签<code>&lt;set&gt;</code> <code>&lt;list&gt;</code> <code>&lt;array&gt;</code>，但是也可以混着用,不建议使用</p>
+<p>set、list、数组 ;各自都有自己的标签<code>&lt;set&gt;</code> <code>&lt;list&gt;</code> <code>&lt;array&gt;</code>，但是也可以混着用,不建议混着使用</p>
 
 <p>注意：</p>
 
-<pre><code> &lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
+<pre><code class="language-xml"> &lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
         &lt;property name=&quot;stuNo&quot; value=&quot;11&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
 </code></pre>
 
 <p>与</p>
 
-<pre><code> &lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
+<pre><code class="language-xml"> &lt;bean id=&quot;student&quot; class=&quot;org.ycit.entity.Student&quot;&gt;
         &lt;property name=&quot;stuNo&quot;&gt;
             &lt;value&gt;11&lt;/value&gt; 
         &lt;/property&gt;
@@ -804,14 +805,14 @@ private Properties props;
 
 <p>赋值<code>null</code>：</p>
 
-<pre><code>&lt;property name=&quot;name&quot; &gt;  
+<pre><code class="language-xml">&lt;property name=&quot;name&quot; &gt;  
     &lt;null/&gt;
 &lt;/property&gt;
 </code></pre>
 
 <p>赋空值 <code>&quot;&quot;</code></p>
 
-<pre><code>&lt;property name=&quot;name&quot; &gt;  
+<pre><code class="language-xml">&lt;property name=&quot;name&quot; &gt;  
     &lt;value&gt;&lt;/value&gt;  
 &lt;/property&gt;
 </code></pre>
@@ -824,7 +825,7 @@ private Properties props;
 
 <p>自动装配：</p>
 
-<pre><code>&lt;bean ... class=&quot;org.lanqiao.entity.Course&quot;  autowire=&quot;byName|byType|constructor|no&quot; &gt;  
+<pre><code class="language-xml">&lt;bean ... class=&quot;org.lanqiao.entity.Course&quot;  autowire=&quot;byName|byType|constructor|no&quot; &gt;  
 </code></pre>
 
 <p><code>autowire=&quot;byName&quot;</code>Course类中有一个ref属性teracher（属性名），并且该ioc容器中恰好有一个bean的id也是teacher。bean的id值=类的属性名，则会自动装配</p>
@@ -843,7 +844,7 @@ private Properties props;
 
 <p>可以在头文件中 一次性将该ioc容器的所有bean  统一设置成自动装配：</p>
 
-<pre><code>&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+<pre><code class="language-xml">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
 ...
 default-autowire=&quot;byName&quot;&gt;
 </code></pre>
@@ -856,7 +857,7 @@ default-autowire=&quot;byName&quot;&gt;
 
 <h4 id="配置扫描器">配置扫描器</h4>
 
-<pre><code>&lt;context:component-scan base-package=&quot;org.lanqiao.dao,xxx&quot;&gt;
+<pre><code class="language-xml">&lt;context:component-scan base-package=&quot;org.lanqiao.dao,xxx&quot;&gt;
 &lt;/context:component-scan&gt;
 </code></pre>
 
@@ -866,12 +867,12 @@ default-autowire=&quot;byName&quot;&gt;
 
 <h4 id="添加注解">添加注解</h4>
 
-<pre><code>//id为Component中设置的studentDao
+<pre><code class="language-java">//id为Component中设置的studentDao
 @Component(&quot;studentDao&quot;)
 public class StudentDaoImpl {
-	public void addStudent(Student student) {
-		System.out.println(&quot;增加学生&quot;);
-	}
+    public void addStudent(Student student) {
+        System.out.println(&quot;增加学生&quot;);
+    }
 }
 </code></pre>
 
@@ -888,7 +889,7 @@ service层注解：     @Service
 
 <p>目标：通过事务 使以下方法 要么全成功、要么全失败</p>
 
-<pre><code>public void addStudent()
+<pre><code class="language-java">public void addStudent()
 {
     //增加班级
     //增加学生
@@ -917,13 +918,13 @@ aopalliance.jar
 
 <p>增加对事务的支持</p>
 
-<pre><code>&lt;!-- 增加对事务的支持 --&gt;
+<pre><code class="language-xml">&lt;!-- 增加对事务的支持 --&gt;
 &lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;  /&gt;
 </code></pre>
 
 <p>配置事务管理器</p>
 
-<pre><code>&lt;!-- 配置事务管理器txManager --&gt;
+<pre><code class="language-xml">&lt;!-- 配置事务管理器txManager --&gt;
 &lt;bean id = &quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
     &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
@@ -931,7 +932,7 @@ aopalliance.jar
 
 <p>配置数据库相关的事务</p>
 
-<pre><code>&lt;!-- 配置数据库相关的事务 --&gt;
+<pre><code class="language-xml">&lt;!-- 配置数据库相关的事务 --&gt;
 &lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
     &lt;property name=&quot;driverClassName&quot; value=&quot;oracle.jdbc.OracleDriver&quot;&gt;&lt;/property&gt;
     &lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@localhost:1521:MyOracleDB&quot;&gt;&lt;/property&gt;
@@ -946,7 +947,7 @@ aopalliance.jar
 
 <p>将需要 成为事务的方法 前增加注解：</p>
 
-<pre><code>@Transactional(readOnly = false,propagation = Propagation.REQUIRED)
+<pre><code class="language-java">@Transactional(readOnly = false,propagation = Propagation.REQUIRED)
 public void addStudent(Student student) {
     //if(该学生是否存在)
     //其他的判定条件
@@ -958,6 +959,7 @@ public void addStudent(Student student) {
 
 <h4 id="propagation-事务的传播属性">Propagation （事务的传播属性）</h4>
 
+<blockquote>
 <p><code>Propagationkey</code>属性确定代理应该给哪个方法增加事务行为。这样的属性最重要的部份是传播行为。有以下选项可供使用：<code>PROPAGATION_REQUIRED</code>&ndash;支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。</p>
 
 <p><code>PROPAGATION_SUPPORTS</code>&ndash;支持当前事务，如果当前没有事务，就以非事务方式执行。</p>
@@ -969,6 +971,7 @@ public void addStudent(Student student) {
 <p><code>PROPAGATION_NOT_SUPPORTED</code>&ndash;以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</p>
 
 <p><code>PROPAGATION_NEVER</code>&ndash;以非事务方式执行，如果当前存在事务，则抛出异常。</p>
+</blockquote>
 
 <ol>
 <li><p>PROPAGATION_REQUIRED</p>
@@ -1006,18 +1009,18 @@ public void addStudent(Student student) {
 
 <p>理解Nested的关键是savepoint。他与PROPAGATION_REQUIRES_NEW的区别是，PROPAGATION_REQUIRES_NEW另起一个事务，将会与他的父事务相互独立，而Nested的事务和他的父事务是相依的，他的提交是要等和他的父事务一块提交的。也就是说，如果父事务最后回滚，他也要回滚的。而Nested事务的好处是他有一个savepoint。</p>
 
-<pre><code>ServiceA {
-/**
-* 事务属性配置为 PROPAGATION_REQUIRED
-*/
-void methodA() {
-    try {
-        //savepoint
-        ServiceB.methodB(); //PROPAGATION_NESTED 级别
-    } catch (SomeException) {
-        // 执行其他业务, 如 ServiceC.methodC();
+<pre><code class="language-java">ServiceA {
+    /**
+    * 事务属性配置为 PROPAGATION_REQUIRED
+    */
+    void methodA() {
+        try {
+            //savepoint
+            ServiceB.methodB(); //PROPAGATION_NESTED 级别
+        } catch (SomeException) {
+            // 执行其他业务, 如 ServiceC.methodC();
+        }
     }
-}
 }
 </code></pre>
 
@@ -1050,7 +1053,7 @@ ServiceC.methodC，继续执行，来尝试完成自己的事务。
 <p>这是花费最高代价但是最可靠的事务隔离级别。事务被处理为顺序执行。除了防止脏读，不可重复读外，还避免了幻像读。</p></li>
 </ol>
 
-<p>什么是脏数据，脏读，不可重复读，幻觉读？</p>
+<h3 id="什么是脏数据-脏读-不可重复读-幻觉读">什么是脏数据，脏读，不可重复读，幻觉读？</h3>
 
 <p>脏读: 指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据， 那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</p>
 
@@ -1066,29 +1069,62 @@ ServiceC.methodC，继续执行，来尝试完成自己的事务。
 
 <p>一个普通的类&mdash;-&gt;有特定功能的类</p>
 
-<pre><code>a.继承类  b.实现接口  c.注解  d.配置
-</code></pre>
+<blockquote>
+<p>a.继承类</p>
+
+<p>b.实现接口</p>
+
+<p>c.注解</p>
+
+<p>d.配置</p>
+</blockquote>
 
 <p>类 -&gt; “通知” ：实现接口</p>
 
-<pre><code>xml方式的通知类型
+<p>xml方式的通知类型</p>
 
-通知类型		需要实现的接口				接口中的方法			执行时机
+<table>
+<thead>
+<tr>
+<th>通知类型</th>
+<th>需要实现的接口</th>
+<th>接口中的方法</th>
+<th>执行时机</th>
+</tr>
+</thead>
 
-前置通知		org-springframework			before()			目标方法执行前。
-			.aop.MethodBeforeAdvice
-			
-后置通知		org-springframework			afterRetuming()			目标方法执行后。
-			.aop.AfterReturningAdvice
+<tbody>
+<tr>
+<td>前置通知</td>
+<td>org-springframework.aop.MethodBeforeAdvice</td>
+<td>before()</td>
+<td>目标方法执行前。</td>
+</tr>
 
-异常通知		org.-springframework		无						目标方法发生异常时
-			.aop.ThrowsAdvice
-环绕通知		org.aopalliance.intercept	invoke()				拦截对目标方法调
-			.MethodInterceptor									用，即调用目标方法的整
-	
-</code></pre>
+<tr>
+<td>后置通知</td>
+<td>org-springframework.aop.AfterReturningAdvice</td>
+<td>afterRetuming()</td>
+<td>目标方法执行后。</td>
+</tr>
 
-<h3 id="前置通知实现步骤">前置通知实现步骤：</h3>
+<tr>
+<td>异常通知</td>
+<td>org.-springframework.aop.ThrowsAdvice</td>
+<td>无</td>
+<td>目标方法发生异常时</td>
+</tr>
+
+<tr>
+<td>环绕通知</td>
+<td>org.aopalliance.intercept.MethodInterceptor</td>
+<td>invoke()</td>
+<td>拦截对目标方法调用，即调用目标方法的整</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="前置通知">前置通知</h3>
 
 <h4 id="jar">jar</h4>
 
@@ -1105,9 +1141,8 @@ aspectjweaver.jar
 
 <p>将两个类放入ioc容器</p>
 
-<pre><code>&lt;bean id=&quot;studentServiceImpl&quot; class=&quot;org.ycit.service.impl.StudentServiceImpl&quot;&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;studentServiceImpl&quot; class=&quot;org.ycit.service.impl.StudentServiceImpl&quot;&gt;
     &lt;property name=&quot;studentDao&quot; ref=&quot;StudentDaoImpl&quot;&gt;&lt;/property&gt;
-
 &lt;/bean&gt;
 &lt;!--通知所在类--&gt;
 &lt;bean id=&quot;logBefore&quot; class = &quot;org.ycit.aop.LogBefore&quot;&gt;
@@ -1116,11 +1151,11 @@ aspectjweaver.jar
 
 <p>将二者进行关联</p>
 
-<pre><code>&lt;!-- 关联两个类 --&gt;
+<pre><code class="language-xml">&lt;!-- 关联两个类 --&gt;
 &lt;aop:config&gt;
     &lt;!--配置切入点（在哪里执行通知）  --&gt;
     &lt;!-- 如果想要在多个方法执行之前  执行同一个函数则execution(aa())orexecution(bb()) --&gt;
-    &lt;aop:pointcut expression=&quot;execution(public void org.ycit.service.impl.StudentServiceImpl.addStudent(org.ycit.entity.Student))&quot; id=&quot;poioncut&quot;/&gt;	
+    &lt;aop:pointcut expression=&quot;execution(public void org.ycit.service.impl.StudentServiceImpl.addStudent(org.ycit.entity.Student))&quot; id=&quot;poioncut&quot;/&gt;  
     
     &lt;!--advisor：相当于连接切入点和切面的线  --&gt;
     &lt;aop:advisor advice-ref=&quot;logBefore&quot; pointcut-ref=&quot;poioncut&quot;/&gt;
@@ -1138,7 +1173,7 @@ aspectjweaver.jar
 
 <p>测试</p>
 
-<pre><code>public static void testAop() {
+<pre><code class="language-java">public static void testAop() {
     ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
     IsStudentService student = (IsStudentService)context.getBean(&quot;studentServiceImpl&quot;);
     Student student = new Student();
@@ -1159,41 +1194,41 @@ aspectjweaver.jar
 
 <p>addStudent();  业务方法（IStudentService.java中的  addStudent()）</p>
 
-<pre><code>public interface IsStudentService {
+<pre><code class="language-java">public interface IsStudentService {
     void addStudent(Student studnet);
 }
 </code></pre>
 
 <p>log()</p>
 
-<pre><code>public class LogBefore implements MethodBeforeAdvice{
-	//前置通知的具体内容
-	@Override
-	public void before(Method method, Object[] args, Object target) throws Throwable {
-		System.out.println(&quot;before....&quot;);
-		//target 对象 method 方法 args输入参数
-	}
+<pre><code class="language-java">public class LogBefore implements MethodBeforeAdvice{
+    //前置通知的具体内容
+    @Override
+    public void before(Method method, Object[] args, Object target) throws Throwable {
+        System.out.println(&quot;before....&quot;);
+        //target 对象 method 方法 args输入参数
+    }
 }
 </code></pre>
 
-<pre><code>before();  自动执行的通知，即aop前置通知
-</code></pre>
+<p>	before();  自动执行的通知，即aop前置通知</p>
 
-<p>public class Xxx
+<pre><code class="language-java">public class Xxx
 {
     @Test
     a(){}
-}</p>
+}
+</code></pre>
 
 <h3 id="后置通知">后置通知：</h3>
 
 <p>通知类  ，普通实现接口</p>
 
-<pre><code>public class LogAfter implements AfterReturningAdvice{
-	@Override
-	public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-		System.out.println(&quot;**********后置通知：目标对象：&quot;+target+&quot;,调用的方法名：&quot;+method.getName()+&quot;,方法的参数个数：&quot;+args.length+&quot;，方法的返回值：&quot;+returnValue);
-	}
+<pre><code class="language-java">public class LogAfter implements AfterReturningAdvice{
+    @Override
+    public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
+        System.out.println(&quot;**********后置通知：目标对象：&quot;+target+&quot;,调用的方法名：&quot;+method.getName()+&quot;,方法的参数个数：&quot;+args.length+&quot;，方法的返回值：&quot;+returnValue);
+    }
 }
 
 </code></pre>
@@ -1208,7 +1243,7 @@ aspectjweaver.jar
 
 <p>业务类、业务方法</p>
 
-<pre><code>public interface IsStudentService {
+<pre><code class="language-java">public interface IsStudentService {
     void addStudent(Student studnet);
 }
 </code></pre>
@@ -1219,7 +1254,7 @@ aspectjweaver.jar
 
 <p>定义切入点（一端）、定义通知类（另一端），通过pointcut-ref将两端连接起来</p>
 
-<pre><code>&lt;!-- 将通知纳入springIOC容器 --&gt;
+<pre><code class="language-xml">&lt;!-- 将通知纳入springIOC容器 --&gt;
 &lt;bean id=&quot;logAfter&quot; class=&quot;org.lanqiao.aop.LogAfter&quot;&gt;&lt;/bean&gt;
 
 &lt;aop:config&gt;
@@ -1235,12 +1270,12 @@ aspectjweaver.jar
 
 <p>通知类</p>
 
-<pre><code>public class LogException implements ThrowsAdvice {
-	//异常通知的具体方法
-	public void afterThrowing(Method method, Object[] args ,Object target, NullPointerException ex)//只捕获NullPointerException类型的异常
-	{
-		System.out.println(&quot;00000000000异常通知：目标对象:&quot;+target+&quot;,方法名：&quot;+method.getName()+&quot;,方法的参数个数：&quot;+args.length+&quot;,异常类型:&quot;+ex.getMessage());
-	}
+<pre><code class="language-java">public class LogException implements ThrowsAdvice {
+    //异常通知的具体方法
+    public void afterThrowing(Method method, Object[] args ,Object target, NullPointerException ex)//只捕获NullPointerException类型的异常
+    {
+        System.out.println(&quot;00000000000异常通知：目标对象:&quot;+target+&quot;,方法名：&quot;+method.getName()+&quot;,方法的参数个数：&quot;+args.length+&quot;,异常类型:&quot;+ex.getMessage());
+    }
 }
 </code></pre>
 
@@ -1261,7 +1296,7 @@ b.public void afterThrowing(ThrowableSubclass)
 
 <p>配置</p>
 
-<pre><code>&lt;bean id=&quot;logException&quot; class=&quot;org.lanqiao.aop.LogException&quot;&gt;&lt;/bean&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;logException&quot; class=&quot;org.lanqiao.aop.LogException&quot;&gt;&lt;/bean&gt;
 
 &lt;aop:config&gt;
     &lt;!-- 切入点（连接线的一端：业务类的具体方法） --&gt;
@@ -1283,43 +1318,43 @@ b.public void afterThrowing(ThrowableSubclass)
 
 <h4 id="通知类">通知类</h4>
 
-<pre><code>public class LogAround  implements MethodInterceptor{
-	@Override
-	public Object invoke(MethodInvocation invocation) throws Throwable {
-		Object result  = null ;
-		//方法体1...
-		try {
-			//方法体2...
-			System.out.println(&quot;用环绕通知实现的[前置通知]...&quot;);
-			
-			// invocation.proceed() 之前的代码：前置通知
-			 result  = invocation.proceed() ;//控制着目标方法的执行  ，addStudent()
-			//result 就是目标方法addStudent()方法的返回值
-//			 invocation.proceed() 之后的代码：后置通知
-			System.out.println(&quot;用环绕通知实现的[后置通知]...:&quot;);
-			System.out.println(&quot;-----------------目标对象target&quot;+invocation.getThis()+&quot;,调用的方法名：&quot;+invocation.getMethod().getName()+&quot;,方法的参数个数：&quot;+invocation.getArguments().length+&quot;,返回值：&quot;+result);
-		}catch(Exception e) {
-			//方法体3...
-			//异常通知
-			System.out.println(&quot;用环绕通知实现的[异常通知]...&quot;);
-		}
-		return result;//目标方法的返回值
-	}
+<pre><code class="language-java">public class LogAround  implements MethodInterceptor{
+    @Override
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+        Object result  = null ;
+        //方法体1...
+        try {
+            //方法体2...
+            System.out.println(&quot;用环绕通知实现的[前置通知]...&quot;);
+            
+            // invocation.proceed() 之前的代码：前置通知
+             result  = invocation.proceed() ;//控制着目标方法的执行  ，addStudent()
+            //result 就是目标方法addStudent()方法的返回值
+//           invocation.proceed() 之后的代码：后置通知
+            System.out.println(&quot;用环绕通知实现的[后置通知]...:&quot;);
+            System.out.println(&quot;-----------------目标对象target&quot;+invocation.getThis()+&quot;,调用的方法名：&quot;+invocation.getMethod().getName()+&quot;,方法的参数个数：&quot;+invocation.getArguments().length+&quot;,返回值：&quot;+result);
+        }catch(Exception e) {
+            //方法体3...
+            //异常通知
+            System.out.println(&quot;用环绕通知实现的[异常通知]...&quot;);
+        }
+        return result;//目标方法的返回值
+    }
 }
 
 </code></pre>
 
 <h4 id="配置-2">配置</h4>
 
-<pre><code>&lt;!-- 将环绕通知加入ioc容器
+<pre><code class="language-xml">&lt;!-- 将环绕通知加入ioc容器
 &lt;bean id=&quot;logAround&quot; class=&quot;org.lanqiao.aop.LogAround&quot;&gt;
 &lt;/bean&gt;
 
 &lt;!-- 切入点（连接线的一端：业务类的具体方法）--&gt;
 &lt;aop:config&gt;
-	
+    
     &lt;aop:pointcut expression=&quot;execution(public * org.lanqiao.service.impl.StudentServiceImpl.addStudent(..))&quot;  
-		 id=&quot;poioncut4&quot;/&gt; 
+         id=&quot;poioncut4&quot;/&gt; 
 &lt;!-- （连接线的另一端：通知 类）
     &lt;aop:advisor advice-ref=&quot;logAround&quot;  pointcut-ref=&quot;poioncut4&quot; /&gt;
 &lt;/aop:config&gt; --&gt;
@@ -1337,10 +1372,9 @@ b.public void afterThrowing(ThrowableSubclass)
 
 <p>开启注解对AOP的支持</p>
 
-<pre><code>&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
-
+<pre><code class="language-xml">&lt;!--开启注解对AOP的支持--&gt;
+&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
 &lt;!-- 配置扫描器 --&gt;
-
 &lt;context:component-scan base-package=&quot;org.lanqiao.dao&quot;&gt;
 </code></pre>
 
@@ -1348,63 +1382,62 @@ b.public void afterThrowing(ThrowableSubclass)
 
 <p>通知：</p>
 
-<pre><code>//@Component(&quot;logAnnotation&quot;)   //将LogAspectAnnotation纳入springIOC容器中
+<pre><code class="language-java">//@Component(&quot;logAnnotation&quot;)   //将LogAspectAnnotation纳入springIOC容器中
 @Aspect //此类是一个通知
 public class LogAspectAnnotation  {
-	
-	//前置通知
-	@Before(&quot;execution(public * addStudent(..))&quot;) //属性：定义切点
-	public void myBefore(JoinPoint jp) {
-		System.out.println(&quot;《注解形式-前置通知》：目标对象：&quot;+jp.getTarget()+&quot;,方法名：&quot;+jp.getSignature().getName() +&quot;,参数列表：&quot;+ jp.getArgs().length  );
-	}
-	//后置通知
-	@AfterReturning( pointcut= &quot;execution(public * addStudent(..))&quot; ,returning=&quot;returningValue&quot; ) 
-	public void myAfter(JoinPoint jp,Object returningValue) {//returningValue是返回值，但需要告诉spring
-		System.out.println(&quot;《注解形式-后置通知》：目标对象：&quot;+jp.getTarget()+&quot;,方法名：&quot;+jp.getSignature().getName() +&quot;,参数列表：&quot;+  jp.getArgs().length+&quot;,返回值：&quot;+returningValue );
-	}
-	/*环绕通知 ,参数ProceedingJoinPoint
-	@Around(&quot;execution(public * addStudent(..))&quot;)
-	public void myAround(ProceedingJoinPoint jp  ) {
-		//方法之前：前置通知
-		System.out.println(&quot;《【环绕】方法之前：前置通知&quot;);
-		
-		try {
-			//方法执行时
-			jp.proceed() ;//执行方法
-	
-			//方法之前之后：后置通知
-			System.out.println(&quot;《【环绕】方法之前之后：后置通知&quot;);
-		}catch(Throwable e) {
-			//发生异常时：异常通知
-			System.out.println(&quot;《【环绕】发生异常时：异常通知&quot;);
-		}finally {
-			//最终通知
-			System.out.println(&quot;《【环绕】最终通知&quot;);
-		}
-	}*/
-	//异常通知:如果只捕获特定类型的已存银行，则可以通过第二个参数实现：e
-	@AfterThrowing(pointcut= &quot;execution(public * addStudent(..))&quot;,throwing=&quot;e&quot;)
-	public void myException(JoinPoint pj, NullPointerException e) {//此异常通知 只会捕获NullPointerException类型的异常
-		System.out.println(&quot;&amp;&amp;&amp;&amp;&amp;&amp;《注解形式-异常通知》----e:&quot;+e.getMessage());
-	}
-	//最终通知
-	@After(&quot;execution(public * addStudent(..))&quot;)
-	public void myAfter() {
-		System.out.println(&quot;《[myAfter]注解形式-最终通知-----通知》----&quot;);
-	}
+    
+    //前置通知
+    @Before(&quot;execution(public * addStudent(..))&quot;) //属性：定义切点
+    public void myBefore(JoinPoint jp) {
+        System.out.println(&quot;《注解形式-前置通知》：目标对象：&quot;+jp.getTarget()+&quot;,方法名：&quot;+jp.getSignature().getName() +&quot;,参数列表：&quot;+ jp.getArgs().length  );
+    }
+    //后置通知
+    @AfterReturning( pointcut= &quot;execution(public * addStudent(..))&quot; ,returning=&quot;returningValue&quot; ) 
+    public void myAfter(JoinPoint jp,Object returningValue) {//returningValue是返回值，但需要告诉spring
+        System.out.println(&quot;《注解形式-后置通知》：目标对象：&quot;+jp.getTarget()+&quot;,方法名：&quot;+jp.getSignature().getName() +&quot;,参数列表：&quot;+  jp.getArgs().length+&quot;,返回值：&quot;+returningValue );
+    }
+    /*环绕通知 ,参数ProceedingJoinPoint
+    @Around(&quot;execution(public * addStudent(..))&quot;)
+    public void myAround(ProceedingJoinPoint jp  ) {
+        //方法之前：前置通知
+        System.out.println(&quot;《【环绕】方法之前：前置通知&quot;);
+        try {
+            //方法执行时
+            jp.proceed() ;//执行方法
+    
+            //方法之前之后：后置通知
+            System.out.println(&quot;《【环绕】方法之前之后：后置通知&quot;);
+        }catch(Throwable e) {
+            //发生异常时：异常通知
+            System.out.println(&quot;《【环绕】发生异常时：异常通知&quot;);
+        }finally {
+            //最终通知
+            System.out.println(&quot;《【环绕】最终通知&quot;);
+        }
+    }*/
+    //异常通知:如果只捕获特定类型的已存银行，则可以通过第二个参数实现：e
+    @AfterThrowing(pointcut= &quot;execution(public * addStudent(..))&quot;,throwing=&quot;e&quot;)
+    public void myException(JoinPoint pj, NullPointerException e) {//此异常通知 只会捕获NullPointerException类型的异常
+        System.out.println(&quot;&amp;&amp;&amp;&amp;&amp;&amp;《注解形式-异常通知》----e:&quot;+e.getMessage());
+    }
+    //最终通知
+    @After(&quot;execution(public * addStudent(..))&quot;)
+    public void myAfter() {
+        System.out.println(&quot;《[myAfter]注解形式-最终通知-----通知》----&quot;);
+    }
 }
 </code></pre>
 
 <p>注意：通过注解形式 将对象增加到 ioc容器时，需要设置 扫描器</p>
 
-<pre><code>&lt;context:component-scan base-package=&quot;org.lanqiao.aop&quot;&gt;&lt;/context:component-scan&gt;
+<pre><code class="language-xml">&lt;context:component-scan base-package=&quot;org.lanqiao.aop&quot;&gt;&lt;/context:component-scan&gt;
 </code></pre>
 
 <p>扫描器 会将 指定的包 中的  @Componet @Service  @Respository   @Controller修饰的类产生的对象 增加到IOC容器中</p>
 
 <p>@Aspect不需要 加入扫描器，只需要开启即可：</p>
 
-<pre><code>&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+<pre><code class="language-xml">&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
 </code></pre>
 
 <p>通过注解形式 实现的aop，如果想获取 目标对象的一些参数，则需要使用一个对象：<code>JointPoint</code></p>
@@ -1414,18 +1447,17 @@ public class LogAspectAnnotation  {
 <ul>
 <li><p>声明返回值 的参数名：</p>
 
-<pre><code>@AfterReturning( pointcut= &quot;execution(public * addStudent(..))&quot; ,returning=&quot;returningValue&quot; ) 
+<pre><code class="language-java">@AfterReturning( pointcut= &quot;execution(public * addStudent(..))&quot; ,returning=&quot;returningValue&quot; ) 
 </code></pre></li>
 </ul>
 
 <p>注解形式实现aop时，通知的方法的参数不能多、少</p>
 
-<pre><code>public void myAfter(JoinPoint jp,Object returningValue) {//returningValue是返回值，但需要告诉spring
+<pre><code class="language-java">public void myAfter(JoinPoint jp,Object returningValue) {//returningValue是返回值，但需要告诉spring
     System.out.println(&quot;返回值：&quot;+returningValue );
 </code></pre>
 
-<p>实现接口形式、注解形式 只捕获声明的特定类型的异常，而其他类型异常不捕获。
-cath()</p>
+<p>实现接口形式、注解形式 只捕获声明的特定类型的异常，而其他类型异常不捕获。</p>
 
 <h3 id="通过-配置将-类-通知">通过 配置将 类-&gt;通知</h3>
 
@@ -1435,7 +1467,7 @@ cath()</p>
 
 <p>接口方式通知：</p>
 
-<pre><code>public class LogAfter implements AfterReturningAdvice
+<pre><code class="language-java">public class LogAfter implements AfterReturningAdvice
 </code></pre>
 
 <p>Schema方式通知：</p>
@@ -1447,49 +1479,44 @@ cath()</p>
 
 <h4 id="编写普通类">编写普通类</h4>
 
-<pre><code>public class LogSchema {
-	//后置通知方法  :JoinPoint适用于注解
-	public void afterReturning(JoinPoint jp,Object returnValue) throws Throwable {
-		System.out.println(&quot;》》》》》》》》》》》后置通知：目标对象：&quot;+jp.getThis()+&quot;,调用的方法名：&quot;+jp.getSignature().getName()+&quot;,方法的参数个数：&quot;+jp.getArgs().length+&quot;，方法的返回值：&quot;+returnValue);
-	}
-	public void before() {
-		System.out.println(&quot;》》》》》》》》》》》前置通知...&quot;);
-	}
-	public void whenException(JoinPoint jp,NullPointerException e) {
-		System.out.println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;异常：&quot; +e.getMessage());
-	}
-	//注意：环绕通知 会返回目标方法的返回值，因此返回值为Object
-	public Object around(ProceedingJoinPoint jp)    {
-		System.out.println(&quot;''''''''''''''''''环绕通知：前置通知&quot;);
-		Object result = null ; 
-		try {
-			 result = jp.proceed() ;//执行方法
-			 System.out.println(&quot;'''''''''&quot;+jp.getSignature().getName()+&quot;,&quot;+result);
-			System.out.println(&quot;''''''''''''''''''环绕通知：后置通知&quot;);
-		}catch(Throwable e) {
-			System.out.println(&quot;''''''''''''''''''环绕通知：异常通知&quot;);
-		}
-		return result ;
-	}
+<pre><code class="language-java">public class LogSchema {
+//后置通知方法  :JoinPoint适用于注解
+public void afterReturning(JoinPoint jp,Object returnValue) throws Throwable {
+    System.out.println(&quot;》》》》》》》》》》》后置通知：目标对象：&quot;+jp.getThis()+&quot;,调用的方法名：&quot;+jp.getSignature().getName()+&quot;,方法的参数个数：&quot;+jp.getArgs().length+&quot;，方法的返回值：&quot;+returnValue);
+}
+public void before() {
+    System.out.println(&quot;》》》》》》》》》》》前置通知...&quot;);
+}
+public void whenException(JoinPoint jp,NullPointerException e) {
+    System.out.println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;异常：&quot; +e.getMessage());
+}
+//注意：环绕通知 会返回目标方法的返回值，因此返回值为Object
+public Object around(ProceedingJoinPoint jp)    {
+    System.out.println(&quot;''''''''''''''''''环绕通知：前置通知&quot;);
+    Object result = null ; 
+    try {
+         result = jp.proceed() ;//执行方法
+         System.out.println(&quot;'''''''''&quot;+jp.getSignature().getName()+&quot;,&quot;+result);
+        System.out.println(&quot;''''''''''''''''''环绕通知：后置通知&quot;);
+    }catch(Throwable e) {
+        System.out.println(&quot;''''''''''''''''''环绕通知：异常通知&quot;);
+    }
+    return result ;
+}
 }
 </code></pre></li>
 </ul>
 
 <h4 id="配置-4">配置</h4>
 
-<pre><code>&lt;!-- 将准备转为 通知的类 纳入ioc容器 --&gt;
+<pre><code class="language-xml">&lt;!-- 将准备转为 通知的类 纳入ioc容器 --&gt;
 &lt;bean id=&quot;logSchema&quot; class=&quot;org.lanqiao.aop.LogSchema&quot;&gt;&lt;/bean&gt;
-	
-    
 &lt;aop:config&gt;
     &lt;!-- 切入点（连接线的一端：业务类的具体方法） --&gt;
     &lt;aop:pointcut expression=&quot;execution(public * org.lanqiao.service.impl.StudentServiceImpl.addStudent(..))&quot;   id=&quot;pcShema&quot;/&gt;
-
     &lt;!-- （连接线的另一端：通知 类 --&gt;
     &lt;!-- schema方式 --&gt;
-
     &lt;aop:aspect ref=&quot;logSchema&quot;&gt;
-
     &lt;!-- 连接线：连接 业务 addStudent和通知before --&gt;
     &lt;aop:before method=&quot;before&quot; pointcut-ref=&quot;pcShema&quot;/&gt;
 
@@ -1502,7 +1529,7 @@ cath()</p>
     &lt;aop:around method=&quot;around&quot; pointcut-ref=&quot;pcShema&quot; /&gt;
     &lt;/aop:aspect&gt;
 &lt;/aop:config&gt;
-	
+    
 </code></pre>
 
 <p>如果要获取目标对象信息：</p>
@@ -1529,12 +1556,12 @@ cath()</p>
 
 <p>在普通Java程序中</p>
 
-<pre><code>ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+<pre><code class="language-java">ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
 </code></pre>
 
 <p>时初始化</p>
 
-<p>Java冲虚的入口是统一的main()，因此只需要在main中实例化一次applicationContext.xml就可以实现Ioc容器初始化操作</p>
+<p>Java程序的入口是统一的main()，因此只需要在main中实例化一次applicationContext.xml就可以实现Ioc容器初始化操作</p>
 
 <h3 id="spring开发web项目">Spring开发Web项目</h3>
 
@@ -1550,32 +1577,27 @@ cath()</p>
 
 <p>Web项目启动时，启动实例化Ioc容器：</p>
 
-<pre><code> &lt;!-- 指定 Ioc容器（applicationContext.xml）的位置--&gt;
+<pre><code class="language-xml"> &lt;!-- 指定 Ioc容器（applicationContext.xml）的位置--&gt;
   &lt;context-param&gt;
-  		&lt;!--  监听器的父类ContextLoader中有一个属性contextConfigLocation，该属性值 保存着 容器配置文件applicationContext.xml的位置 --&gt;
-
-  		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-
-  		&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+        &lt;!--  监听器的父类ContextLoader中有一个属性contextConfigLocation，该属性值 保存着 容器配置文件applicationContext.xml的位置 --&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
   &lt;/context-param&gt;  
-  
   &lt;listener&gt;
-  	&lt;!-- 配置spring-web.jar提供的监听器，此监听器 可以在服务器启动时 初始化Ioc容器。
-  		初始化Ioc容器（applicationContext.xml） ，
-  			1.告诉监听器 此容器的位置：context-param
-  			2.默认约定的位置	:WEB-INF/applicationContext.xml
-  	 --&gt;
-
-  	&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+    &lt;!-- 配置spring-web.jar提供的监听器，此监听器 可以在服务器启动时 初始化Ioc容器。
+        初始化Ioc容器（applicationContext.xml） ，
+            1.告诉监听器 此容器的位置：context-param
+            2.默认约定的位置   :WEB-INF/applicationContext.xml
+     --&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
     &lt;/listener&gt;
-
 </code></pre>
 
 <p>初始化Ioc容器（applicationContext.xml）两种方式</p>
 
 <ol>
 <li>告诉监听器 此容器的位置：context-param</li>
-<li>默认约定的位置:WEB-INFapplicationContext.xml</li>
+<li>默认约定的位置:WEB-INF/applicationContext.xml</li>
 </ol>
 
 <h3 id="拆分spring配置文件">拆分Spring配置文件</h3>
@@ -1620,7 +1642,7 @@ Dao:applicationDao.xml
 
 <p>合并：如何将多个配置文件 加载
 * 方式1
-    <code>
+    <code>xml
         &lt;context-param&gt;
         &lt;!--  监听器的父类ContextLoader中有一个属性contextConfigLocation，该属性值 保存着 容器配置文件applicationContext.xml的位置 --&gt;
             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
@@ -1636,7 +1658,7 @@ Dao:applicationDao.xml
 <ul>
 <li><p>方式二（推荐）</p>
 
-<pre><code>&lt;context-param&gt;
+<pre><code class="language-xml">&lt;context-param&gt;
     &lt;!--  监听器的父类ContextLoader中有一个属性contextConfigLocation，该属性值 保存着 容器配置文件applicationContext.xml的位置 --&gt;
     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
     &lt;param-value&gt;
@@ -1650,14 +1672,14 @@ Dao:applicationDao.xml
 
 <p>只在web.xml中加载主配置文件，</p>
 
-<pre><code>&lt;param-value&gt;
+<pre><code class="language-xml">&lt;param-value&gt;
     classpath:applicationContext.xml
 &lt;/param-value&gt;
 </code></pre>
 
 <p>然后在主配置问加中，加载其他配置文件</p>
 
-<pre><code>&lt;import resource=&quot;applicationContext-*.xml&quot;/&gt;
+<pre><code class="language-xml">&lt;import resource=&quot;applicationContext-*.xml&quot;/&gt;
 </code></pre>
 
 <p>bean的实例化、DI是在保存在Spring IOC容器中的</p></li>
@@ -1667,21 +1689,21 @@ Dao:applicationDao.xml
 
 <h3 id="注解形式依赖注入">注解形式依赖注入</h3>
 
-<pre><code>//&lt;bean id=&quot;studentService&quot; class=&quot;org.ycit.service.impl.StudentServiceImpl&quot;&gt;
+<pre><code class="language-java">//&lt;bean id=&quot;studentService&quot; class=&quot;org.ycit.service.impl.StudentServiceImpl&quot;&gt;
 //@Service(&quot;studentService&quot;)
 
-public class StudentServiceImpl implements IsStudnetService{
+public class StudentServiceImpl implements IsStudnetService{}
 </code></pre>
 
 <h4 id="属性赋值">属性赋值</h4>
 
-<pre><code>@Autowired//自动装配，byType
+<pre><code class="language-java">@Autowired//自动装配，byType
 private StudentMapper studentMapper;
 </code></pre>
 
 <p>配置扫描包</p>
 
-<pre><code>    &lt;context:component-scan base-package=&quot;org.ycit.service.impl&quot;&gt;&lt;/context:component-scan&gt;
+<pre><code class="language-xml">    &lt;context:component-scan base-package=&quot;org.ycit.service.impl&quot;&gt;&lt;/context:component-scan&gt;
 </code></pre>
 
 <p>注解形式</p>
@@ -1712,8 +1734,8 @@ private StudentMapper studentMapper;
 
 <p>取bean:</p>
 
-<pre><code>ApplicationContext context= new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-
+<pre><code class="language-java">ApplicationContext context= new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+    
 context.getBean();
 </code></pre></li>
 
@@ -1723,10 +1745,9 @@ context.getBean();
 
 <p>带有@Configuration注解的类（配置类）</p>
 
-<pre><code>//配置类
+<pre><code class="language-java">//配置类
 @Configuration
 public class MyConfig {
-        
     @Bean(value=&quot;stu&quot;)  //id=&quot;stu&quot; class=&quot;...Student&quot;
     public Student myStudent( Address address){
         Student student = new Student(10,&quot;zs10&quot;,23);
@@ -1739,10 +1760,10 @@ public class MyConfig {
 
 <pre><code>ApplicationContext context  = new AnnotationConfigApplicationContext(MyConfig.class) ;
 context.getBean();
-</code></pre></li>
-</ol>
+</code></pre>
 
-<p>注意：两种形式获取的Ioc容器是 独立的</p>
+<p>注意：两种形式获取的Ioc容器是 独立的</p></li>
+</ol>
 
 <p>IOC作用</p>
 
@@ -1771,16 +1792,19 @@ context.getBean();
 <ol>
 <li><p>xml配置文件 :</p>
 
-<pre><code>&lt;context:component-scan base-package=&quot;com.lx.controller&quot;&gt;&lt;/context:component-scan&gt;
-</code></pre>
+<pre><code class="language-xml">&lt;context:component-scan base-package=&quot;com.lx.controller&quot;&gt;&lt;/context:component-scan&gt;
+</code></pre></li>
+</ol>
 
 <p>逻辑： 在三层类上加注解  ，让ioc识别，扫描器</p>
 
-<p>会将配置类也纳入IOC容器中，id值为类名的首字母小写</p></li>
+<pre><code>会将配置类也纳入IOC容器中，id值为类名的首字母小写
+</code></pre>
 
+<ol>
 <li><p>注解扫描器</p>
 
-<pre><code>@Configuration
+<pre><code class="language-java">@Configuration
 @ComponentScan(value=&quot;com.lx&quot;)
 public class MyConfig {
 }
@@ -1807,7 +1831,7 @@ public class MyConfig {
 
 <p>includeFilters：有默认行为，可以通过useDefaultFilters = false禁止，默认就是包含所有，又重复包含了一次，因此包含无效</p>
 
-<pre><code>//排除Service和Dao的扫描
+<pre><code class="language-java">//排除Service和Dao的扫描
 @ComponentScan(value=&quot;com.lx&quot;,excludeFilters = {  @ComponentScan.Filter(type= FilterType.ANNOTATION,classes ={Service.class,Repository.class})})
 
 @ComponentScan(value=&quot;com.lx&quot;,includeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION,classes ={Controller.class})},useDefaultFilters = false)
@@ -1816,8 +1840,7 @@ public class MyConfig {
 
 <h5 id="assignable-type-具体的类">ASSIGNABLE_TYPE：具体的类</h5>
 
-<pre><code>@ComponentScan(value=&quot;com.yanqun&quot;,excludeFilters = {  @ComponentScan.Filter(type= FilterType.ASSIGNABLE_TYPE,classes ={StudentDao.class} )}  )
-
+<pre><code class="language-java">@ComponentScan(value=&quot;com.yanqun&quot;,excludeFilters = {  @ComponentScan.Filter(type= FilterType.ASSIGNABLE_TYPE,classes ={StudentDao.class} )}  )
 </code></pre>
 
 <p>区分:</p>
@@ -1835,7 +1858,7 @@ public class MyConfig {
 
 <p>MyFilter implements TypeFilter 重写其中的match，如果return true则加入IoC容器</p>
 
-<pre><code>//自定义筛选
+<pre><code class="language-java">//自定义筛选
 public class MyFilter  implements TypeFilter {
     @Override
     public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory) throws IOException {
@@ -1868,20 +1891,20 @@ public class MyFilter  implements TypeFilter {
 
 <p><img src="/resources/技术框架/Spring家族/Spring中Bean的作用域.png" alt="Spring中Bean的作用域" title="Spring中Bean的作用域" /></p>
 
-<pre><code>    @Bean(value=&quot;stu&quot;)
+<pre><code class="language-java">    @Bean(value=&quot;stu&quot;)
     @Scope(&quot;singleton&quot;)
     public Student myStudent(){
     }
 </code></pre>
 
-<pre><code>    &lt;bean id=&quot;student&quot; class=&quot;com.lx.entity.Student&quot; scope=&quot;singleton&quot; &gt;
-         &lt;!--value:简单类型--&gt;
-        &lt;property name=&quot;stuNo&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;stuName&quot; value=&quot;张三&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;stuAge&quot; value=&quot;23&quot;&gt;&lt;/property&gt;
-         &lt;!--ref:其他类型--&gt;
-        &lt;!--&lt;property name=&quot;address&quot; ref=&quot;myaddress&quot;&gt;&lt;/property&gt;--&gt;
-    &lt;/bean&gt;
+<pre><code class="language-xml">&lt;bean id=&quot;student&quot; class=&quot;com.lx.entity.Student&quot; scope=&quot;singleton&quot; &gt;
+    &lt;!--value:简单类型--&gt;
+    &lt;property name=&quot;stuNo&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;stuName&quot; value=&quot;张三&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;stuAge&quot; value=&quot;23&quot;&gt;&lt;/property&gt;
+    &lt;!--ref:其他类型--&gt;
+    &lt;!--&lt;property name=&quot;address&quot; ref=&quot;myaddress&quot;&gt;&lt;/property&gt;--&gt;
+&lt;/bean&gt;
 </code></pre>
 
 <pre><code>scope:  singleton(默认)| prototype
@@ -1891,7 +1914,7 @@ public class MyFilter  implements TypeFilter {
 
 <p>singleton（单例）：容器在初始化时，就会创建对象（唯一的一个）；以后再getBean时，不再产生新的bean。singleton也支持延迟加载（懒加载）：在第一次使用时产生。 @Lazy</p>
 
-<pre><code>    @Bean(value=&quot;stu&quot;)
+<pre><code class="language-java">    @Bean(value=&quot;stu&quot;)
     @Scope(&quot;singleton&quot;)
     @Lazy
     public Student myStudent(){
@@ -1902,7 +1925,7 @@ public class MyFilter  implements TypeFilter {
 
 <p>单例和多例</p>
 
-<pre><code>Student stu1 = (Student)context.getBean(Student.class) ;
+<pre><code class="language-java">Student stu1 = (Student)context.getBean(Student.class) ;
 Student stu2 = (Student)context.getBean(Student.class) ;
 </code></pre>
 
@@ -1919,7 +1942,7 @@ Student stu2 = (Student)context.getBean(Student.class) ;
 
 <h4 id="增加条件bean-给每个bean设置条件-必须实现condition接口">增加条件Bean：给每个Bean设置条件 ，必须实现Condition接口</h4>
 
-<pre><code>public class OilCarCondition  implements Condition {
+<pre><code class="language-java">public class OilCarCondition  implements Condition {
     //如果当前环境是 oil，则加入 OilCar
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
@@ -1934,7 +1957,7 @@ Student stu2 = (Student)context.getBean(Student.class) ;
 }
 </code></pre>
 
-<pre><code>public class EnergyCarCondition implements Condition {
+<pre><code class="language-java">public class EnergyCarCondition implements Condition {
     //如果当前环境是 oil，则加入 OilCar
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
@@ -1951,7 +1974,7 @@ Student stu2 = (Student)context.getBean(Student.class) ;
 
 <h4 id="根据条件-加入ioc容器">根据条件，加入IoC容器</h4>
 
-<pre><code>    @Bean
+<pre><code class="language-java">    @Bean
     @Conditional(OilCarCondition.class)
     public Car oilCar()
     {
@@ -1991,7 +2014,7 @@ Student stu2 = (Student)context.getBean(Student.class) ;
 <ol>
 <li><p>直接编写到@Import中，并且id值是全类名</p>
 
-<pre><code>//配置类
+<pre><code class="language-java">//配置类
 @Configuration
 @Import({Apple.class,Banana.class})
 @ComponentScan(value=&quot;com.lx&quot;)
@@ -2002,7 +2025,7 @@ public class MyConfig {
 
 <p>并且 告知程序 自己编写的实现类。<code>@Import({Orange.class,MyImportSelector.class})</code></p>
 
-<pre><code>public class MyImportSelector implements ImportSelector {
+<pre><code class="language-java">public class MyImportSelector implements ImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
 
@@ -2011,7 +2034,7 @@ public class MyConfig {
 }
 </code></pre>
 
-<pre><code>@Configuration
+<pre><code class="language-java">@Configuration
 @Import({Apple.class,MyImportSelector.class})
 @ComponentScan(value=&quot;com.lx&quot;)
 public class MyConfig {
@@ -2019,7 +2042,7 @@ public class MyConfig {
 
 <li><p>编写ImportBeanDefinitionRegistrar接口的实现类，重写方法</p>
 
-<pre><code>public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
+<pre><code class="language-java">public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 //        &quot;com.lx.entity.Orange&quot;
@@ -2032,7 +2055,7 @@ public class MyConfig {
 }
 </code></pre>
 
-<pre><code>@Configuration
+<pre><code class="language-java">@Configuration
 @Import({MyImportBeanDefinitionRegistrar.class})
 @ComponentScan(value=&quot;com.lx&quot;)
 public class MyConfig {
@@ -2048,7 +2071,7 @@ public class MyConfig {
 <ol>
 <li><p>准备bean。实现类和重写方法</p>
 
-<pre><code>public class MyFactoryBean implements FactoryBean {
+<pre><code class="language-java">public class MyFactoryBean implements FactoryBean {
     //放入对象
     @Override
     public Object getObject() throws Exception {
@@ -2069,7 +2092,7 @@ public class MyConfig {
 
 <li><p>注册bean。注册到@Bean中</p>
 
-<pre><code>@Bean
+<pre><code class="language-java">@Bean
 public FactoryBean&lt;Apple&gt; myFactoryBean(){
     return new MyFactoryBean();//到底是什么？MyFactoryBean 、Apple ？
 }
@@ -2083,7 +2106,7 @@ public FactoryBean&lt;Apple&gt; myFactoryBean(){
 
 <p>如果加了&amp;，获取的 是FacotryBean</p>
 
-<pre><code>//Apple
+<pre><code class="language-java">//Apple
 Object obj = context.getBean(&quot;myFactoryBean&quot;);
 System.out.println(obj);
 //FacotryBean
@@ -2104,12 +2127,12 @@ System.out.println(obj2);
 
 <p>xml:</p>
 
-<pre><code>&lt;bean id=&quot;student&quot; class=&quot;com.yanqun.entity.Student&quot; scope=&quot;singleton&quot; init-method=&quot;myInit&quot;  destroy-method=&quot;myDestroy&quot; &gt;
+<pre><code class="language-xml">&lt;bean id=&quot;student&quot; class=&quot;com.yanqun.entity.Student&quot; scope=&quot;singleton&quot; init-method=&quot;myInit&quot;  destroy-method=&quot;myDestroy&quot; &gt;
 </code></pre>
 
 <p>注解：</p>
 
-<pre><code>@Bean(value=&quot;stu&quot;,initMethod = &quot;myInit&quot;,destroyMethod = &quot;myDestroy&quot;)  //id=&quot;stu&quot; class=&quot;...Student&quot;
+<pre><code class="language-java">@Bean(value=&quot;stu&quot;,initMethod = &quot;myInit&quot;,destroyMethod = &quot;myDestroy&quot;)  //id=&quot;stu&quot; class=&quot;...Student&quot;
 @Autowired
 public Student myStudent(){
 }
@@ -2119,7 +2142,7 @@ public Student myStudent(){
 
 <p>销毁方法</p>
 
-<pre><code>((AnnotationConfigApplicationContext) context).close();
+<pre><code class="language-java">((AnnotationConfigApplicationContext) context).close();
 </code></pre>
 
 <h4 id="方式二">方式二：</h4>
@@ -2133,14 +2156,14 @@ public Student myStudent(){
 
 <p>将响应组件 加入 @Component注解、 给初始化方法加</p>
 
-<pre><code>@PostConstruct、给销毁方法加@PreDestroy
+<pre><code class="language-java">@PostConstruct、给销毁方法加@PreDestroy
 @PostConstruct：相当于方法一的init
 @PreDestroy：相当于方法一的destroy
 </code></pre>
 
 <p>如果要获取@Component注解中的bean，那么该Bean的名字就是@Component（value=&ldquo;xxx&rdquo;）的value值</p>
 
-<pre><code>@Component(value=&quot;myConverter&quot;)//@Server  @COntroller @Repository
+<pre><code class="language-java">@Component(value=&quot;myConverter&quot;)//@Server  @COntroller @Repository
 public class MyIntToStringConverter {
 
     @PostConstruct
@@ -2158,9 +2181,8 @@ public class MyIntToStringConverter {
 }
 </code></pre>
 
-<pre><code>MyIntToStringConverter converter=     (MyIntToStringConverter)context.getBean(&quot;myConverter&quot;) ;
+<pre><code class="language-java">MyIntToStringConverter converter=     (MyIntToStringConverter)context.getBean(&quot;myConverter&quot;) ;
 converter.myConverter();
-
 </code></pre>
 
 <h4 id="方法三-两个接口">方法三：两个接口</h4>
@@ -2186,7 +2208,7 @@ DisposableBean 销毁
 
 <p>必须 实现接口中规定的方法</p>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 public class MyFunction implements InitializingBean , DisposableBean {
 public void myMethod(){
 }
@@ -2209,7 +2231,7 @@ public void destroy() throws Exception {
 
 <p>接口BeanPostProcessor：拦截了所有中容器的Bean</p>
 
-<pre><code>@Controller //(4个)
+<pre><code class="language-java">@Controller //(4个)
 public class MyXxx implements BeanPostProcessor {
     //拦截器
     @Override//bean:Student(zs)
@@ -2238,7 +2260,7 @@ public class MyXxx implements BeanPostProcessor {
 
 <h3 id="自动装配-三层组件-4个注册-扫描器">自动装配  : 三层组件(4个注册+扫描器)</h3>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 </code></pre>
 
 <p>Controller-&gt;Service-&gt;Dao</p>
@@ -2249,17 +2271,19 @@ public class MyXxx implements BeanPostProcessor {
 
 <p>通过@Autowired从Ioc容器中 根据类型自动注入（没有调用setXxx()方法）</p>
 
-<p>-如果@Autowired在属性前标注，则不调用setXxx；如果标注在setXxx前面 ，则调用setXxx</p>
+<ul>
+<li><p>如果@Autowired在属性前标注，则不调用setXxx；如果标注在setXxx前面 ，则调用setXxx</p></li>
 
-<p>-不能放在方法的参数前</p>
+<li><p>不能放在方法的参数前</p>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 private StudentDao studentDao ;
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>或</p>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 public void setStudentDao(StudentDao studentDao) {
     this.studentDao = studentDao;
 }
@@ -2273,7 +2297,7 @@ public void setStudentDao(StudentDao studentDao) {
 
 <p>参数前</p>
 
-<pre><code>@Bean(value=&quot;stu&quot;)
+<pre><code class="language-java">@Bean(value=&quot;stu&quot;)
 public Student myStudent(@Autowired Address address){
     Student student = new Student(10,&quot;zs10&quot;,23);
     return student;
@@ -2282,7 +2306,7 @@ public Student myStudent(@Autowired Address address){
 
 <p>方法前</p>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 @Bean(value=&quot;stu&quot;)
 public Student myStudent(Address address){
     Student student = new Student(10,&quot;zs10&quot;,23);
@@ -2292,7 +2316,7 @@ public Student myStudent(Address address){
 
 <p>构造方法前</p>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 public StudentService(StudentDao studentDao){
     this.studentDao= studentDao ;
 }
@@ -2309,19 +2333,19 @@ public StudentService(StudentDao studentDao){
 
 <p>可以指定默认值@primary，就不会报错</p>
 
-<pre><code>@Primary
+<pre><code class="language-java">@Primary
 @Repository(&quot;stuDao1&quot;)
 public class StudentDaoImpl1 implements StudentDao {
 }
 </code></pre>
 
-<pre><code>@Repository(&quot;stuDao2&quot;)
+<pre><code class="language-java">@Repository(&quot;stuDao2&quot;)
 public class StudentDaoImpl2 implements StudentDao {
 }
 
 </code></pre>
 
-<pre><code>@Autowired
+<pre><code class="language-java">@Autowired
 private StudentDao studentDao ;
 </code></pre>
 
@@ -2331,14 +2355,14 @@ private StudentDao studentDao ;
 
 <p>可以，结合 @Qualifier(&ldquo;stuDao2&rdquo;)使用。</p>
 
-<pre><code>@Qualifier(&quot;stuDao2&quot;)
+<pre><code class="language-java">@Qualifier(&quot;stuDao2&quot;)
 @Autowired
 private StudentDao studentDao ;
 </code></pre></li>
 
 <li><p>如果有0个类型相同，默认报错；可以修改成不注入（值为null），</p>
 
-<pre><code>@Autowired(required=false)
+<pre><code class="language-java">@Autowired(required=false)
 private StudentDao studentDao ;
 </code></pre></li>
 </ol>
@@ -2347,7 +2371,7 @@ private StudentDao studentDao ;
 
 <p>自动注入方式二 @Resource（JSR250，来自jdk），默认根据名字 （如果 有名字，根据名字匹配；如果没有名字，先根据名字查找，如果没找到，再根据类型查找）；也可以通过name或type属性 指定根据名字 或类型找。也可以使用@Primary指定默认</p>
 
-<pre><code>@Resource
+<pre><code class="language-java">@Resource
 @Resource(name=&quot;studentDao1&quot;)
 @Resource(type=StudentDao.class)
 </code></pre>
@@ -2365,7 +2389,7 @@ private StudentDao studentDao ;
 
 <li><p>重写其中的方法，都包含了一个对象。只需要将该对象 赋值到属性中即可</p>
 
-<pre><code>@Component(&quot;myComponent&quot;)  //id  name
+<pre><code class="language-java">@Component(&quot;myComponent&quot;)  //id  name
 public class MyComponent implements ApplicationContextAware{
         private ApplicationContext applicationContext;
     @Override
@@ -2383,7 +2407,7 @@ public class MyComponent implements ApplicationContextAware{
 
 <h4 id="beannameaware">BeanNameAware：</h4>
 
-<pre><code>@Component(&quot;myComponent&quot;)  //id  name
+<pre><code class="language-java">@Component(&quot;myComponent&quot;)  //id  name
 public class MyComponent implements BeanNameAware {
         private String beanName ;
     @Override
@@ -2398,7 +2422,7 @@ public class MyComponent implements BeanNameAware {
 
 <p>Spring:切换环境</p>
 
-<pre><code>    @Profile(&quot;myApple&quot;)
+<pre><code class="language-java">    @Profile(&quot;myApple&quot;)
     @Bean(&quot;apple&quot;)
     public Fruit apple(){
        return new Apple() ;
@@ -2422,7 +2446,7 @@ public class MyComponent implements BeanNameAware {
 
 <p>坑：错误写法</p>
 
-<pre><code>ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class) ;
+<pre><code class="language-java">ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class) ;
 
 ConfigurableEnvironment environment = (ConfigurableEnvironment)context.getEnvironment();
 environment.setActiveProfiles(&quot;myBanana&quot;);
@@ -2442,7 +2466,7 @@ IoC容器在使用时必须refresh() ;如果是有参构造，内部已经刷新
 
 <p>正确方式</p>
 
-<pre><code>//注解方式
+<pre><code class="language-java">//注解方式
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext() ;
 ConfigurableEnvironment environment = (ConfigurableEnvironment)context.getEnvironment();
 environment.setActiveProfiles(&quot;myApple&quot;);
@@ -2468,7 +2492,7 @@ BeanDefinitionRegistryPostProcessor：即将被加载之前（解析之前，称
 
 <p>BeanPostProcessor</p>
 
-<pre><code>@Controller //(4个)
+<pre><code class="language-java">@Controller //(4个)
 public class MyXxx implements BeanPostProcessor {
 
     //拦截器
@@ -2498,7 +2522,7 @@ public class MyXxx implements BeanPostProcessor {
 
 <p>BeanFactoryPostProcessor</p>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 public class MyYYY  implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
@@ -2513,7 +2537,7 @@ public class MyYYY  implements BeanFactoryPostProcessor {
 
 <p>BeanDefinitionRegistryPostProcessor</p>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 public class MyZZZ implements BeanDefinitionRegistryPostProcessor {
     //继承自BeanFactoryPostProcessor的方法    （bean的工厂）
     @Override
@@ -2552,7 +2576,7 @@ public class MyZZZ implements BeanDefinitionRegistryPostProcessor {
 
 <p>必须实现ApplicationListener接口，</p>
 
-<pre><code>//监听器
+<pre><code class="language-java">//监听器
 @Component
 public class MyListener implements ApplicationListener {
     //监听对象
@@ -2568,7 +2592,7 @@ public class MyListener implements ApplicationListener {
 <p>(语法上 可以监听任意事件，但建议 ApplicationEvent自身或其子类/子接口)
 Spring：要让SPring识别自己，必须加入IOc容器（Bean+返回值| 注解+扫描器）</p>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 public class MyListener2 {
     //本方法是一个 监听方法
     @EventListener(classes = {ApplicationEvent.class})
@@ -2588,20 +2612,20 @@ public class MyListener2 {
 <pre><code>context.publishEvent(自定义事件);
 </code></pre>
 
-<pre><code>//创建一个事件并发布
+<pre><code class="language-java">//创建一个事件并发布
 context.publishEvent(new ApplicationEven(&quot;my event...&quot;)) ;
 </code></pre>
 
 <p>或</p>
 
-<pre><code>public class MyEvent3 extends ApplicationEvent {
+<pre><code class="language-java">public class MyEvent3 extends ApplicationEvent {
 public MyEvent3(Object source) {
     super(source);
 }
 }
 </code></pre>
 
-<pre><code>MyEvent3 evn =  new MyEvent3(&quot;my Event3...&quot;);
+<pre><code class="language-java">MyEvent3 evn =  new MyEvent3(&quot;my Event3...&quot;);
 context.publishEvent(evn) ;
 </code></pre></li>
 </ol>
@@ -2644,7 +2668,7 @@ context.publishEvent(evn) ;
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/" title="Spring自学笔记-02"><i
+                <a href="https://mumulx.github.io/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/" title="SSM整合自学笔记"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
