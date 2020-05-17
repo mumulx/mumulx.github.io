@@ -411,7 +411,7 @@
 
 <h2 id="1-什么是juc">1 、什么是JUC</h2>
 
-<p><img src="/resources/技术收录/Java/image-20200515104551684.png" alt="image-20200515104551684" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515104551684.png" alt="image-20200515104551684" /></p>
 
 <p>java.util 工具包、包、分类</p>
 
@@ -552,7 +552,7 @@ public enum State {
 
 <p>都需要捕获中断异常，它们都可以被interrupted方法中断。</p>
 
-<p><img src="/resources/技术收录/Java/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMDA5MDE1,size_16,color_FFFFFF,t_70" alt="img" /></p>
+<p><img src="/resources/技术收录/Java/java并发/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwMDA5MDE1,size_16,color_FFFFFF,t_70" alt="img" /></p>
 
 <h2 id="3-lock锁-重点">3 、Lock锁（重点）</h2>
 
@@ -611,11 +611,11 @@ public class SaleTicketDemo01 {
 <p>Lock接口</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515122556889.png" alt="image-20200515122556889" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515122556889.png" alt="image-20200515122556889" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515122626359.png" alt="image-20200515122626359" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515122626359.png" alt="image-20200515122626359" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515122638790.png" alt="image-20200515122638790" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515122638790.png" alt="image-20200515122638790" /></p>
 
 <p>公平锁：十分公平：可以先来后到
 非公平锁：十分不公平：可以插队 （默认）</p>
@@ -772,7 +772,7 @@ class Data{ // 数字 资源类
 <p>问题存在，A B C D 4 个线程！ 虚假唤醒</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515123000517.png" alt="image-20200515123000517" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515123000517.png" alt="image-20200515123000517" /></p>
 
 <p>if  改为 while 判断</p>
 
@@ -870,11 +870,11 @@ class Data{ // 数字 资源类
 
 <p>模板</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515123222296.png" alt="image-20200515123222296" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515123222296.png" alt="image-20200515123222296" /></p>
 
 <p>通过Lock 找到 Condition</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515123233826.png" alt="image-20200515123233826" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515123233826.png" alt="image-20200515123233826" /></p>
 
 <h4 id="代码实现">代码实现：</h4>
 
@@ -990,7 +990,7 @@ class Data2{ // 数字 资源类
 <p>Condition 精准的通知和唤醒线程</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515123357875.png" alt="image-20200515123357875" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515123357875.png" alt="image-20200515123357875" /></p>
 
 <h4 id="代码测试">代码测试：</h4>
 
@@ -1373,7 +1373,7 @@ public class ListTest {
 <p>Set 不安全</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515204253420.png" alt="image-20200515204253420" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515204253420.png" alt="image-20200515204253420" /></p>
 
 <p>blockingQueue：阻塞队列</p>
 
@@ -1428,7 +1428,7 @@ private static final Object PRESENT = new Object(); // 不变得值！
 
 <p>回顾Map基本操作</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515123931862.png" alt="image-20200515123931862" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515123931862.png" alt="image-20200515123931862" /></p>
 
 <pre><code class="language-java">package com.kuang.unsafe;
 
@@ -1464,7 +1464,7 @@ map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(
 
 <h2 id="7-callable-简单">7 、Callable ( 简单 )</h2>
 
-<p><img src="/resources/技术收录/Java/image-20200515124006139.png" alt="image-20200515124006139" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124006139.png" alt="image-20200515124006139" /></p>
 
 <p>1 、可以有返回值</p>
 
@@ -1476,11 +1476,11 @@ map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(
 <p>代码测试</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515124046297.png" alt="image-20200515124046297" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124046297.png" alt="image-20200515124046297" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124056913.png" alt="image-20200515124056913" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124056913.png" alt="image-20200515124056913" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124104859.png" alt="image-20200515124104859" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124104859.png" alt="image-20200515124104859" /></p>
 
 <pre><code class="language-java">package com.kuang.callable;
 
@@ -1541,7 +1541,7 @@ class MyThread1 implements Runnable {
 
 <h3 id="8-1-countdownlatch">8.1、CountDownLatch</h3>
 
-<p><img src="/resources/技术收录/Java/image-20200515124148603.png" alt="image-20200515124148603" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124148603.png" alt="image-20200515124148603" /></p>
 
 <pre><code class="language-java">import java.util.concurrent.CountDownLatch;
 // 计数器
@@ -1571,7 +1571,7 @@ countDownLatch.await(); // 等待计数器归零，然后再向下执行
 
 <h3 id="8-2-cyclicbarrier">8.2、CyclicBarrier</h3>
 
-<p><img src="/resources/技术收录/Java/image-20200515124308086.png" alt="image-20200515124308086" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124308086.png" alt="image-20200515124308086" /></p>
 
 <p>加法计数器</p>
 
@@ -1611,7 +1611,7 @@ public class CyclicBarrierDemo {
 
 <p>Semaphore：信号量</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124341655.png" alt="image-20200515124341655" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124341655.png" alt="image-20200515124341655" /></p>
 
 <p>抢车位！</p>
 
@@ -1663,7 +1663,7 @@ public class SemaphoreDemo {
 
 <p>ReadWriteLock</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124504483.png" alt="image-20200515124504483" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124504483.png" alt="image-20200515124504483" /></p>
 
 <pre><code class="language-java">package com.kuang.rw;
 
@@ -1777,17 +1777,17 @@ class MyCache{
 
 <h2 id="10-阻塞队列">10 、阻塞队列</h2>
 
-<p><img src="/resources/技术收录/Java/image-20200515124626295.png" alt="image-20200515124626295" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124626295.png" alt="image-20200515124626295" /></p>
 
 <p>阻塞队列：</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124639854.png" alt="image-20200515124639854" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124639854.png" alt="image-20200515124639854" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124651273.png" alt="image-20200515124651273" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124651273.png" alt="image-20200515124651273" /></p>
 
 <p>BlockingQueue BlockingQueue 不是新的东西</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515124708261.png" alt="image-20200515124708261" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515124708261.png" alt="image-20200515124708261" /></p>
 
 <p>什么情况下我们会使用 阻塞队列：多线程并发处理，线程池！</p>
 
@@ -2000,7 +2000,7 @@ public class SynchronousQueueDemo {
 <p>线程池：三大方法</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515143929375.png" alt="image-20200515143929375" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515143929375.png" alt="image-20200515143929375" /></p>
 
 <pre><code class="language-java">package com.kuang.pool;
 
@@ -2087,9 +2087,9 @@ public ThreadPoolExecutor(int corePoolSize, // 核心线程池大小
 }
 </code></pre>
 
-<p><img src="/resources/技术收录/Java/image-20200515144038465.png" alt="image-20200515144038465" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144038465.png" alt="image-20200515144038465" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515144048302.png" alt="image-20200515144048302" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144048302.png" alt="image-20200515144048302" /></p>
 
 <blockquote>
 <p>手动创建一个线程池</p>
@@ -2134,7 +2134,7 @@ public class Demo01 {
 <p>4 种拒绝策略</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144207911.png" alt="image-20200515144207911" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144207911.png" alt="image-20200515144207911" /></p>
 
 <pre><code class="language-java">/**
  * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异
@@ -2207,7 +2207,7 @@ public class Demo01 {
 <p>函数式接口： 只有一个方法的接口</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144447796.png" alt="image-20200515144447796" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144447796.png" alt="image-20200515144447796" /></p>
 
 <h4 id="代码测试-1">代码测试：</h4>
 
@@ -2215,7 +2215,7 @@ public class Demo01 {
 <p>Function函数式接口</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144518701.png" alt="image-20200515144518701" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144518701.png" alt="image-20200515144518701" /></p>
 
 <pre><code class="language-java">package com.kuang.function;
 
@@ -2246,7 +2246,7 @@ public class Demo01 {
 <p>断定型接口：有一个输入参数，返回值只能是 布尔值！</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144614911.png" alt="image-20200515144614911" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144614911.png" alt="image-20200515144614911" /></p>
 
 <pre><code class="language-java">package com.kuang.function;
 
@@ -2276,7 +2276,7 @@ public class Demo02 {
 <p>Consumer 消费型接口</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144651288.png" alt="image-20200515144651288" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144651288.png" alt="image-20200515144651288" /></p>
 
 <pre><code class="language-java">package com.kuang.function;
 
@@ -2304,7 +2304,7 @@ public class Demo03 {
 <p>Supplier  供给型接口</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144716523.png" alt="image-20200515144716523" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144716523.png" alt="image-20200515144716523" /></p>
 
 <pre><code class="language-java">package com.kuang.function;
 
@@ -2341,7 +2341,7 @@ public class Demo04 {
 
 <p>计算都应该交给流来操作！</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515144813379.png" alt="image-20200515144813379" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144813379.png" alt="image-20200515144813379" /></p>
 
 <pre><code class="language-java">package com.kuang.stream;
 
@@ -2389,7 +2389,7 @@ public class Test {
 <p>ForkJoin 在 JDK 1.7 ， 并行执行任务！提高效率。大数据量！</p>
 
 <p>大数据：Map Reduce （把大任务拆分为小任务）
-<img src="/resources/技术收录/Java/image-20200515144855133.png" alt="image-20200515144855133" /></p>
+<img src="/resources/技术收录/Java/java并发/image-20200515144855133.png" alt="image-20200515144855133" /></p>
 
 <blockquote>
 <p>ForkJoin 特点：工作窃取</p>
@@ -2397,15 +2397,15 @@ public class Test {
 
 <p>这个里面维护的都是双端队列</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515144930537.png" alt="image-20200515144930537" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144930537.png" alt="image-20200515144930537" /></p>
 
 <blockquote>
 <p>ForkJoin</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515144942932.png" alt="image-20200515144942932" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144942932.png" alt="image-20200515144942932" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515144951327.png" alt="image-20200515144951327" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515144951327.png" alt="image-20200515144951327" /></p>
 
 <pre><code class="language-java">package com.kuang.forkjoin;
 
@@ -2518,7 +2518,7 @@ public class Test {
 <p>Future 设计的初衷： 对将来的某个事件的结果进行建模</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515145111868.png" alt="image-20200515145111868" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145111868.png" alt="image-20200515145111868" /></p>
 
 <pre><code class="language-java">package com.kuang.future;
 
@@ -2615,9 +2615,9 @@ zero
 
 <p>jmm8 种操作：</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145242074.png" alt="image-20200515145242074" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145242074.png" alt="image-20200515145242074" /></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145249079.png" alt="image-20200515145249079" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145249079.png" alt="image-20200515145249079" /></p>
 
 <p>内存交互操作有 8 种，虚拟机实现必须保证每一个操作都是原子的，不可在分的（对于double和long类
 型的变量来说，load、store、read和write操作在某些平台上允许例外）</p>
@@ -2659,7 +2659,7 @@ write</li>
 
 <p>问题： 程序不知道主内存的值已经被修改过了</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145413571.png" alt="image-20200515145413571" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145413571.png" alt="image-20200515145413571" /></p>
 
 <h2 id="17-volatile">17 、Volatile</h2>
 
@@ -2732,11 +2732,11 @@ public class VDemo02 {
 
 <p><strong>如果不加 lock 和 synchronized ，怎么样保证原子性</strong></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145530137.png" alt="image-20200515145530137" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145530137.png" alt="image-20200515145530137" /></p>
 
 <p>使用原子类，解决 原子性问题</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145542168.png" alt="image-20200515145542168" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145542168.png" alt="image-20200515145542168" /></p>
 
 <pre><code class="language-java">package com.kuang.tvolatile;
 
@@ -2856,7 +2856,7 @@ y = x * x; // 4
 
 <p>2 、可以保证某些变量的内存可见性 （利用这些特性volatile实现了可见性）</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515145847914.png" alt="image-20200515145847914" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515145847914.png" alt="image-20200515145847914" /></p>
 
 <p><strong>Volatile 是可以保持 可见性。不能保证原子性，由于内存屏障，可以保证避免指令重排的现象产生！</strong></p>
 
@@ -3290,7 +3290,7 @@ LazyMan.class.getDeclaredConstructor(null);//获取空参构造器
     }
 </code></pre>
 
-<p><img src="/resources/技术收录/Java/image-20200516221415880.png" alt="image-20200516221415880" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200516221415880.png" alt="image-20200516221415880" /></p>
 
 <p>可以发现这里有一个会抛出一个枚举的异常（不能使用反射破坏枚举），所以我们有了一个解决的思路</p>
 
@@ -3318,7 +3318,7 @@ class Test{
 
 <p>通过class文件分析源码时有参构造还是无参构造：发现</p>
 
-<p><img src="/resources/技术收录/Java/image-20200516222046503.png" alt="image-20200516222046503" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200516222046503.png" alt="image-20200516222046503" /></p>
 
 <pre><code class="language-java">import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -3345,7 +3345,7 @@ EnumSingle.class.getDeclaredConstructor(null);
 }
 </code></pre>
 
-<p><img src="/resources/技术收录/Java/image-20200516222300442.png" alt="image-20200516222300442" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200516222300442.png" alt="image-20200516222300442" /></p>
 
 <p>结果发现此时抛出的异常和我们预想的异常不一样（枚举类中没有这样一个空参的构造方法）：idea欺骗了我们</p>
 
@@ -3354,7 +3354,7 @@ EnumSingle.class.getDeclaredConstructor(null);
 <pre><code>javap -p EnumSingle.class
 </code></pre>
 
-<p><img src="/resources/技术收录/Java/image-20200515150118486.png" alt="image-20200515150118486" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150118486.png" alt="image-20200515150118486" /></p>
 
 <p>但是我们发现这个代码中也有一个空参的构造方法，此时的我们就有点蒙，这个源码也欺骗了我们(因为程序执行的结果告诉我们它确实没有无参构造函数，运行的结果时不能欺骗我们的)</p>
 
@@ -3451,7 +3451,7 @@ class Test{
 
 <p>此时确实抛出了反射中异常</p>
 
-<p><img src="/resources/技术收录/Java/image-20200516223259849.png" alt="image-20200516223259849" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200516223259849.png" alt="image-20200516223259849" /></p>
 
 <h2 id="19-深入理解cas">19 、深入理解CAS</h2>
 
@@ -3488,15 +3488,15 @@ public class CASDemo {
 <p>Unsafe 类</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515150218050.png" alt="image-20200515150218050" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150218050.png" alt="image-20200515150218050" /></p>
 
 <p>操作内存</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150227032.png" alt="image-20200515150227032" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150227032.png" alt="image-20200515150227032" /></p>
 
 <p>如果var1对象的内存地址偏移值var2还是我们期望的var5,我们就把var5+偏移量var4(1)</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150235282.png" alt="image-20200515150235282" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150235282.png" alt="image-20200515150235282" /></p>
 
 <blockquote>
 <p>CAS ： 比较当前工作内存中的值和主内存中的值，如果这个值是期望的，那么则执行操作！如果不是就
@@ -3517,7 +3517,7 @@ public class CASDemo {
 
 <p>其中一个线程将A=1改为了A=3,又将A=3改为了A=1</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150315112.png" alt="image-20200515150315112" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150315112.png" alt="image-20200515150315112" /></p>
 
 <pre><code class="language-java">package com.kuang.cas;
 
@@ -3620,7 +3620,7 @@ atomicStampedReference.getStamp() + 1));
 <p><strong>Integer 使用了对象缓存机制，默认范围是 -128 ~ 127 ，推荐使用静态工厂方法 valueOf 获取对象实
 例，而不是 new，因为 valueOf 使用缓存，而 new 一定会创建新的对象分配新的内存空间；</strong></p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150443273.png" alt="image-20200515150443273" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150443273.png" alt="image-20200515150443273" /></p>
 
 <h2 id="21-各种锁的理解">21 、各种锁的理解</h2>
 
@@ -3644,7 +3644,7 @@ public ReentrantLock(boolean fair) {
 
 <p>可重入锁（递归锁）</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150637589.png" alt="image-20200515150637589" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150637589.png" alt="image-20200515150637589" /></p>
 
 <blockquote>
 <p>Synchronized</p>
@@ -3742,7 +3742,7 @@ class Phone2{
 
 <p>spinlock</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150752661.png" alt="image-20200515150752661" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150752661.png" alt="image-20200515150752661" /></p>
 
 <p>我们来自定义一个锁测试</p>
 
@@ -3828,7 +3828,7 @@ public class TestSpinLock {
 }
 </code></pre>
 
-<p><img src="/resources/技术收录/Java/image-20200515150845793.png" alt="image-20200515150845793" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150845793.png" alt="image-20200515150845793" /></p>
 
 <h3 id="4-死锁">4 、死锁</h3>
 
@@ -3836,7 +3836,7 @@ public class TestSpinLock {
 <p>死锁是什么</p>
 </blockquote>
 
-<p><img src="/resources/技术收录/Java/image-20200515150909894.png" alt="image-20200515150909894" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150909894.png" alt="image-20200515150909894" /></p>
 
 <p>死锁测试，怎么排除死锁：</p>
 
@@ -3893,11 +3893,11 @@ class MyThread implements Runnable{
 
 <p>1 、使用 jps -l 定位进程号</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515150957382.png" alt="image-20200515150957382" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515150957382.png" alt="image-20200515150957382" /></p>
 
 <p>2 、使用 jstack 进程号 找到死锁问题</p>
 
-<p><img src="/resources/技术收录/Java/image-20200515151004320.png" alt="image-20200515151004320" /></p>
+<p><img src="/resources/技术收录/Java/java并发/image-20200515151004320.png" alt="image-20200515151004320" /></p>
 
 <p>面试，工作中！ 排查问题：</p>
 
