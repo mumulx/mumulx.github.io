@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-12-12T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7964">
+<meta itemprop="wordCount" content="8029">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">22</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">23</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,7 +180,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">6</span></li>
+                    class="tag-list-count">7</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
@@ -242,6 +242,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/" class="title">Java进阶及JVM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
                     </p>
                     <p class="item-date">
@@ -273,16 +283,6 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/" class="title">Java并发编程应用篇</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/" class="title">Java并发编程模式篇</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
@@ -407,8 +407,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7964字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:16分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8029字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:17分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -485,7 +485,7 @@
 
 <p>spring boot内置了tomcat，并且不需要打成war再执行。</p>
 
-<pre><code>
+<pre><code class="language-java">
 @Controller
 public class HelloWorldController {
     //页面直接打印这些文字
@@ -522,11 +522,11 @@ public class HelloWorldController {
 
 <p>pom.xml中</p>
 
-<pre><code>&lt;parent&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-    &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
-    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+<pre><code class="language-xml">&lt;parent&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+	&lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
+	&lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
 &lt;/parent&gt;
 </code></pre>
 
@@ -553,7 +553,7 @@ public class HelloWorldController {
 
 <li><p>加了@Configuration注解的类，会自动纳入Spring 容器  （@Component）</p>
 
-<pre><code>@Configuration
+<pre><code class="language-java">@Configuration
 public class A//表示A是一个 用于 配置的类
 {
 }
@@ -599,7 +599,7 @@ public class A//表示A是一个 用于 配置的类
 
 <p>研究</p>
 
-<pre><code>org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\
+<pre><code>org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,
 </code></pre>
 
 <p>通过观察该源码 发现：</p>
@@ -722,7 +722,7 @@ public class A//表示A是一个 用于 配置的类
 
 <p>写法一：普通写法</p>
 
-<pre><code>student: 
+<pre><code class="language-yml">student: 
     name: zs
     age: 23
     sex: true
@@ -744,7 +744,7 @@ public class A//表示A是一个 用于 配置的类
 
 <p>写法二：行内写法</p>
 
-<pre><code>student:
+<pre><code class="language-yml">student:
   uname: x   
   name: ${student.user.name2:无名}
   #age: 23
@@ -757,13 +757,13 @@ public class A//表示A是一个 用于 配置的类
   email: 157468995@qq.com
 </code></pre>
 
-<pre><code>ublic class Pet {
+<pre><code class="language-java">public class Pet {
 	private String nickname;
 	private String strain;
 }
 </code></pre>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 @ConfigurationProperties(prefix = &quot;student&quot;)
 public class Student {
 	private String name;
@@ -777,9 +777,9 @@ public class Student {
 }
 </code></pre>
 
-<p>@ConfigurationProperties(prefix=&ldquo;student&rdquo;)下面出现黄色警告时，单击add xxx，会在pom.xml中增加依赖（元数据的提示依赖）</p>
+<p><code>@ConfigurationProperties(prefix=&quot;student&quot;)</code>下面出现黄色警告时，单击add xxx，会在pom.xml中增加依赖（元数据的提示依赖）</p>
 
-<pre><code>&lt;dependency&gt;
+<pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
     &lt;optional&gt;true&lt;/optional&gt;
@@ -788,7 +788,7 @@ public class Student {
 
 <h4 id="通过application-properties对属性进行赋值">通过application.properties对属性进行赋值</h4>
 
-<pre><code>student.name=ls
+<pre><code class="language-properties">student.name=ls
 student.age=23
 </code></pre>
 
@@ -798,7 +798,7 @@ student.age=23
 
 <p>在Student.java中使用@Value注解进行赋值</p>
 
-<pre><code>@Value(&quot;33&quot;)
+<pre><code class="language-java">@Value(&quot;33&quot;)
 private int age ;
 </code></pre>
 
@@ -810,24 +810,55 @@ private int age ;
 @Value(&quot;xx&quot;) 二者可以互补
 </code></pre>
 
-<pre><code>	            @ConfigurationProperties)    @Value
+<p>​</p>
 
-    注值	    	    批量注入				单个
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>@ConfigurationProperties)</th>
+<th>@Value</th>
+</tr>
+</thead>
 
-    松散语法		        支持				不支持
+<tbody>
+<tr>
+<td>注值</td>
+<td>批量注入</td>
+<td>单个</td>
+</tr>
 
-    SpEL	    	    不支持				支持
+<tr>
+<td>松散语法</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
 
-    JSR303数据校验	    支持				不支持
+<tr>
+<td>SpEL</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
 
-    注入复杂类型	        支持				不支持
-</code></pre>
+<tr>
+<td>JSR303数据校验</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+
+<tr>
+<td>注入复杂类型</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table>
 
 <p>松散语法:驼峰命名法与xx-xx命名方式转换<code>stuName--stu-name</code></p>
 
 <p>SpEL:LspringEL:</p>
 
-<pre><code>@Value(&quot;${student.uname}&quot;) 
+<pre><code class="language-java">@Value(&quot;${student.uname}&quot;) 
 private String userName; 
 </code></pre>
 
@@ -835,7 +866,7 @@ private String userName;
 
 <p>JSR303数据校验</p>
 
-<pre><code>@Component //将此Javabean
+<pre><code class="language-java">@Component //将此Javabean
 @ConfigurationProperties(prefix=&quot;student&quot;)
 @Validated//开启jsr303数据校验的注解
 public class Student {
@@ -850,13 +881,17 @@ public class Student {
 
 <p>默认会加载application.properties/application.yml文件中的数据；如果数据不在这两个文件时，需要借助它指定。</p>
 
-<p>例如
-    @Component //将此Javabean
-    @ConfigurationProperties(prefix=&ldquo;student&rdquo;)
-    @PropertySource(value={&ldquo;classpath:conf.yml&rdquo;})
-    public class Student {
-    @Value(&ldquo;safasd&rdquo;)
-    }</p>
+<p>例如</p>
+
+<pre><code class="language-java">@Component //将此Javabean
+@ConfigurationProperties(prefix=&quot;student&quot;)
+@PropertySource(value={&quot;classpath:conf.yml&quot;})
+public class Student {
+    @Value(&quot;safasd&quot;)
+}
+</code></pre>
+
+<p>通过注解<code>@PropertySource(value={&quot;classpath:conf.yml&quot;})</code>加载conf.properties文件中的数据；</p>
 
 <p>通过注解<code>@PropertySource(value={&quot;classpath:conf.yml&quot;})</code>加载conf.properties文件中的数据；</p>
 
@@ -875,9 +910,9 @@ public class Student {
 
 <p>如果需要识别，则需要在spring boot主配置类上 通过<code>@ImportResource</code>指定配置文件的路径</p>
 
-<pre><code>@ImportResource(locations={&quot;classpath:spring.xml&quot;})
+<pre><code class="language-java">@ImportResource(locations={&quot;classpath:spring.xml&quot;})
 @SpringBootApplication
-public class HelloWorldApplication {
+public class HelloWorldApplication {}
 </code></pre>
 
 <p>但是不推荐手写spring配置文件。</p>
@@ -888,14 +923,14 @@ public class HelloWorldApplication {
 
 <p>示例：</p>
 
-<pre><code>//配置类（等价于spring.xml）
+<pre><code class="language-java">//配置类（等价于spring.xml）
 @Configuration
 public class AppConfig {
-    @Bean       
+    @Bean		
     public StudentService stuService(){//&lt;bean  id=&quot;xxxxxxxxxxxxx&quot;&gt;  方法名
         StudentService stuService = new StudentService();
-//      StudentDao stuDao = new StudentDao()  ;
-//      stuService.setStudentDao(stuDao);
+//		StudentDao stuDao = new StudentDao()  ;
+//		stuService.setStudentDao(stuDao);
         return stuService;//返回值 &lt;bean  class=&quot;xxxxxxxxxxxxx&quot;&gt;
     }
 }
@@ -903,9 +938,9 @@ public class AppConfig {
 
 <h3 id="spring-boot全局配置文件中的-占位符表达式">spring boot全局配置文件中的 占位符表达式</h3>
 
-<pre><code>$ {random.uuid}:uuid
-$ {random.value}随机字符串
-$ {random.int} ;随机整型数
+<pre><code class="language-properties">$ {random.uuid}:uuid
+$ {random.value}:随机字符串
+$ {random.int} :随机整型数
 $ {random.long}:随机长整型数
 $ {random.int(10)}:10以内的整型数
 $ {random.int[1024,65536]}:指定随机数范围
@@ -915,7 +950,7 @@ $ {random.int[1024,65536]}:指定随机数范围
 
 <p>.properties文件中</p>
 
-<pre><code>student.user.name=zs
+<pre><code class="language-properties">student.user.name=zs
 </code></pre>
 
 <p>.yml中引用</p>
@@ -929,7 +964,7 @@ ${student.user.name:ls}可以指定默认值
 <p><code>application.properties</code>中没有提示的话
 在pom.xml中添加</p>
 
-<pre><code>&lt;dependency&gt;
+<pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
     &lt;optional&gt;true&lt;/optional&gt;
@@ -960,7 +995,7 @@ application-test.properties
 
 <p>环境与环境之间通过&mdash;隔开</p>
 
-<pre><code># 主环境
+<pre><code class="language-yml"># 主环境
 server:
   port: 8883
 #指定环境
@@ -994,23 +1029,22 @@ spring:
 
 <pre><code>--spring.profiles.active=环境名
 </code></pre></li>
+</ul>
 
-<li><p>命令行方式：</p>
+<p>命令行方式：</p>
 
-<p>项目打jar包：</p>
+<pre><code>项目打jar包：
 
-<p>项目右键&ndash;&gt;run as &ndash;&gt;maven build&hellip;&ndash;&gt;
-Goals:输入</p>
+项目右键--&gt;run as --&gt;maven build...--&gt;
+Goals:输入
 
-<pre><code>package
-</code></pre>
+    package
+--&gt;run--&gt;在src同级目录target下会出现jar包
 
-<p>&ndash;&gt;run&ndash;&gt;在src同级目录target下会出现jar包</p>
+cmd到文件目录，执行
 
-<p>cmd到文件目录，执行</p>
-
-<p>java -jar 项目名.jar &ndash;spring.profiles.active=环境名</p></li>
-</ul></li>
+  java -jar 项目名.jar --spring.profiles.active=环境名
+</code></pre></li>
 
 <li><p>通过jvm参数指定环境</p>
 
@@ -1106,7 +1140,7 @@ Goals:输入</p>
 
 <h4 id="使用">使用</h4>
 
-<pre><code>Logger logger =  LoggerFactory.getLogger(HelloWorldApplicationTests.class  );//获取日志对象
+<pre><code class="language-java">Logger logger =  LoggerFactory.getLogger(HelloWorldApplicationTests.class  );//获取日志对象
 @Test
 public void testLog(){//日志级别
     logger.trace(&quot;trace********&quot;);
@@ -1195,7 +1229,7 @@ logging.level.org.yq.HelloWorld=warn
 
 <p>spring boot将静态资源存入到jar包中，引入:以后需要引入静态资源时只需要像maven那样去官网找到文件然后添加依赖即可</p>
 
-<pre><code>&lt;!--以前引入js等静态资源，是将这些资源下载并且手工放入到webapp目录中；而springboot将这些静态资源 直接以jar文件（maven）的形式引入项目--&gt;
+<pre><code class="language-xml">&lt;!--以前引入js等静态资源，是将这些资源下载并且手工放入到webapp目录中；而springboot将这些静态资源 直接以jar文件（maven）的形式引入项目--&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.webjars&lt;/groupId&gt;
     &lt;artifactId&gt;jquery-ui&lt;/artifactId&gt;
@@ -1224,7 +1258,7 @@ logging.level.org.yq.HelloWorld=warn
 
 <p><code>ResourceProperties</code>类中的<code>CLASSPATH_RESOURCE_LOCATIONS</code>中设置：</p>
 
-<pre><code>{
+<pre><code class="language-java">{
     &quot;classpath:/META-INF/resources/&quot;, &quot;classpath:/resources/&quot;,
     &quot;classpath:/static/&quot;, &quot;classpath:/public/&quot; 
 }
@@ -1295,17 +1329,17 @@ XxProperties
 
 <p>引入命名空间</p>
 
-<pre><code>&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+<pre><code class="language-xml">&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
 </code></pre>
 
 <h4 id="引入标签">引入标签</h4>
 
-<pre><code>&lt;p th:text=&quot;${welcome}&quot;&gt;Welcome to our grocery store!&lt;/p&gt;
+<pre><code class="language-html">&lt;p th:text=&quot;${welcome}&quot;&gt;Welcome to our grocery store!&lt;/p&gt;
 </code></pre>
 
 <h4 id="控制器传值">控制器传值</h4>
 
-<pre><code>@RequestMapping(&quot;/welcome&quot;)
+<pre><code class="language-java">@RequestMapping(&quot;/welcome&quot;)
 public String welcome(Map&lt;String,Object&gt; map) {
     map.put(&quot;welcome&quot;, &quot;welcome--hahahhaha&quot;);
     return &quot;welcome&quot;;
@@ -1318,7 +1352,7 @@ public String welcome(Map&lt;String,Object&gt; map) {
 
 <p><code>th</code>就是替换原有html的值：<code>th:html属性名=值</code> ;</p>
 
-<pre><code>&lt;p id=&quot;pid&quot; class=&quot;pclass&quot;  th:id=&quot;${welcome}&quot; th:class=&quot;${welcome}&quot;  th:text=&quot;${welcome}&quot;&gt;welcome to thymeleaf....&lt;/p&gt;
+<pre><code class="language-html">&lt;p id=&quot;pid&quot; class=&quot;pclass&quot;  th:id=&quot;${welcome}&quot; th:class=&quot;${welcome}&quot;  th:text=&quot;${welcome}&quot;&gt;welcome to thymeleaf....&lt;/p&gt;
 </code></pre>
 
 <pre><code>th:xx  (参见第10章  Attrubite Pre....)
@@ -1333,22 +1367,20 @@ th:utext  获取文本值    显示 将hello 渲染为h1后的效果
 
 <p>除了$以外  其他符号？ 查看第四章  Standard Express&hellip;.</p>
 
-<pre><code>&lt;div th:each=&quot;prod : ${prods}&quot;&gt;
+<pre><code class="language-html">&lt;div th:each=&quot;prod : ${prods}&quot;&gt;
     &lt;h4 th:text=&quot;${prod.name}&quot;&gt;11&lt;/h4&gt;
     &lt;h4 th:text=&quot;${prod.price}&quot;&gt;11&lt;/h4&gt;
     &lt;h4 th:text=&quot;${prod.inStock}&quot;&gt;11&lt;/h4&gt;
 &lt;/div&gt;
 </code></pre>
 
-<pre><code>@RequestMapping(&quot;/welcome1&quot;)
+<pre><code class="language-java">@RequestMapping(&quot;/welcome1&quot;)
 public String welcome1(Map&lt;String,Object&gt; map) {
-    List&lt;Product&gt; prods = new ArrayList&lt;&gt;();
-    
+    List&lt;Product&gt; prods = new ArrayList&lt;&gt;(); 
     prods.add(new Product(&quot;a&quot;,1000,100));
     prods.add(new Product(&quot;b&quot;,1001,101));
     prods.add(new Product(&quot;c&quot;,1002,102));
     prods.add(new Product(&quot;d&quot;,1003,103));
-    
     map.put(&quot;prods&quot;, prods);
     return &quot;welcome&quot;;
 }
@@ -1361,19 +1393,21 @@ public String welcome1(Map&lt;String,Object&gt; map) {
 <h3 id="spring-boot整合jsp开发步骤">Spring boot整合JSP开发步骤：</h3>
 
 <ol>
-<li><p>新建spring boot项目，war</p>
+<li>新建spring boot项目，war<br /></li>
+</ol>
 
 <p>注意：</p>
 
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
-    &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt;
+<pre><code class="language-xml">  &lt;dependency&gt;
+  	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  	&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+  	&lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
 </code></pre>
 
-<p>provided：意思是 将项目打包时，不需要将内置的tomcat一起打包。</p></li>
+<p>provided：意思是 将项目打包时，不需要将内置的tomcat一起打包。</p>
 
+<ol>
 <li><p>建立基本的web项目所需要的目录结构</p>
 
 <pre><code>webapps/WEB-INF(需要)

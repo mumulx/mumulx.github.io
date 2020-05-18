@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/java/</link>
     <description>Recent content in Java on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java进阶及JVM</title>
+      <link>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/</guid>
+      <description>JVM性能调优 组成：类加载子系统；运行时数据区；执行引擎 方法区 永久代 堆 jdk7 元空间 直接内存native memory jdk8 最小20. 75M 最大 无限 方法区与永久代、元</description>
+    </item>
     
     <item>
       <title>Java并发编程JUC</title>
@@ -349,7 +358,7 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>spring spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC、Aop Spring data, spring boot, spring cloud, spring framework ，spr</description>
+      <description>spring spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC(DI)、Aop Spring data, spring boot, spring cloud, spring framework</description>
     </item>
     
     <item>
