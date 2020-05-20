@@ -1,0 +1,3286 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java知识点01 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java知识点01." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java知识点01 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java知识点01" />
+<meta property="og:description" content="Java知识点01." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" />
+<meta property="article:published_time" content="2020-05-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-20T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java知识点01">
+<meta itemprop="description" content="Java知识点01.">
+
+
+<meta itemprop="datePublished" content="2020-05-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="15349">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java知识点01"/>
+<meta name="twitter:description" content="Java知识点01."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">24</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="title">Java知识点01</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/" class="title">Java进阶及JVM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程原理篇</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#jdk8">JDK8</a>
+<ul>
+<li><a href="#lambda-简化代码">lambda :简化代码</a></li>
+<li><a href="#lambda表达式的使用方式">lambda表达式的使用方式</a>
+<ul>
+<li><a href="#方式一">方式一</a></li>
+<li><a href="#方式二">方式二</a></li>
+</ul></li>
+<li><a href="#jdk8其他新特性简介">JDK8其他新特性简介</a>
+<ul>
+<li><a href="#接口-的默认方法与静态方法">接口 的默认方法与静态方法</a></li>
+<li><a href="#方法引用">方法引用</a></li>
+<li><a href="#重复注解">重复注解</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#集合">集合</a>
+<ul>
+<li><a href="#泛型">泛型</a></li>
+<li><a href="#集合工具类">集合工具类</a></li>
+</ul></li>
+<li><a href="#异常">异常</a>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#异常的继承结构图">异常的继承结构图</a></li>
+<li><a href="#异常重点">异常重点</a>
+<ul>
+<li><a href="#try-catch">try  catch</a></li>
+<li><a href="#throws">throws</a></li>
+<li><a href="#finally">finally</a></li>
+<li><a href="#多个catch块">多个catch块</a></li>
+<li><a href="#throw-一般和-自定义异常-一起使用">throw 一般和 自定义异常 一起使用</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#java注解">Java注解</a>
+<ul>
+<li><a href="#内置注解">内置注解</a></li>
+<li><a href="#自定义注解">自定义注解</a>
+<ul>
+<li><a href="#元注解">元注解</a>
+<ul>
+<li><a href="#target-限制注解-可以使用的位置">@Target：限制注解 可以使用的位置</a></li>
+<li><a href="#retention-限制注解的生命周期">@Retention:限制注解的生命周期</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#io">IO</a>
+<ul>
+<li><a href="#流">流</a></li>
+<li><a href="#装饰模式-io设计的核心思想">装饰模式：IO设计的核心思想</a></li>
+</ul></li>
+<li><a href="#网络编程">网络编程</a>
+<ul>
+<li><a href="#对象流">对象流</a></li>
+<li><a href="#多客户端问题">多客户端问题</a></li>
+<li><a href="#udp的实现">UDP的实现</a></li>
+<li><a href="#网络编程中一些工具类">网络编程中一些工具类</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/"
+    >Java知识点01</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="article-date">
+  <time datetime="2020-05-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-20</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15349字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:31分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="jdk8">JDK8</h1>
+
+<h2 id="lambda-简化代码">lambda :简化代码</h2>
+
+<p>lambda   <em>λ</em>   组成  ：</p>
+
+<ul>
+<li>逗号隔开的参数列表      (x,x,x)     ()</li>
+<li>箭头符号   -&gt;<br /></li>
+<li>方法体 （λ代码块）</li>
+</ul>
+
+<p>示例</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583460022040.png" alt="1583460022040" /></p>
+
+<pre><code class="language-java">package lambda;
+/*
+ * Created by 颜群
+ */
+public class Demo01 {
+    public static void test01(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(&quot;run....&quot;);
+            }
+        }).start(); 
+    }
+
+    public static void test02(){
+        new Thread(
+//           ()  -&gt; { System.out.println(&quot;run....&quot;);  }
+             ()  -&gt;  System.out.println(&quot;run....&quot;)
+        ).start(); ;
+    }
+
+    public static void main(String[] args) {
+//        test01() ;
+          test02() ;
+
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">        new Thread(
+                ()  -&gt;  System.out.println(&quot;run....&quot;)
+        ).start(); ;
+</code></pre>
+
+<p>以上述为例， new Thread(  )中是一个接口、抽象类。但是为了避免  不能区分 lambda到底是重写的哪个方法，语法上lambda要求 重写的 接口、抽象类中  有且<strong>只能有一个 抽象方法</strong>。</p>
+
+<p>仔细观察，lambda重写的接口、抽象类中 会标识一个@FunctionalInterface，称为函数式接口。</p>
+
+<p>函数式接口：标注@FunctionalInterface，有且只有一个 抽象方法。</p>
+
+<p><strong>lambda表达式重写的 必须是 函数式接口（或者 只有一个抽象方法的抽象类）</strong></p>
+
+<p>函数式接口要注意以下几点：</p>
+
+<ul>
+<li>即使没有标注@FunctionalInterface，但是只有一个抽象方法，也称之为函数式接口(接口中的方法的默认修饰符为public abstract</li>
+
+<li><p>特殊情况：如果某个接口中有多个抽象方法，但只有1个抽象方法是本接口新定义的，其他抽象方法和Object中已有的方法重复，那么该接口仍然是函数式接口。</p>
+
+<pre><code class="language-java">package lambda;
+
+/*
+* Created by 颜群
+*/
+
+@FunctionalInterface
+public interface MyInterface  {//everything is an Object
+public abstract void a() ;//本接口新定义的抽象
+
+public abstract String toString() ;//和Object中重名(实际会调用Object中的toString())
+public abstract boolean equals(Object obj) ;//和Object中重名
+
+//重点：toString()和equals()看似是抽象方法，实则是 有方法体的具体方法
+}
+
+class MyInterfaceImpl implements  MyInterface{
+@Override
+public void a() {
+    System.out.println(&quot;a...&quot;);
+}
+}
+class TestMyInterface{
+public static void main(String[] args) {
+
+    MyInterfaceImpl impl = new MyInterfaceImpl();
+    impl.a();
+    impl.equals(&quot;&quot;)  ;
+    impl.toString();
+}
+}
+
+</code></pre></li>
+</ul>
+
+<p>MyInterface中的a()方法是 自己定义的，而其他equals()、toString()方法可以理解为 从Object中继承而来，因此 MyInterface虽然显示了3个抽象，但其实只有1个抽象。</p>
+
+<p>()  { return }</p>
+
+<p>函数式接口从哪来？</p>
+
+<ul>
+<li>JDK自带 (很多存在于java.util.function包中)</li>
+</ul>
+
+<p>​ 四大核心函数式接口</p>
+
+<ul>
+<li><p>有参，无返回值  （消费型：传给你一个参数，你把他给弄没了）</p>
+
+<pre><code class="language-java"> @FunctionalInterface
+ public interface Consumer&lt;T&gt; {
+     void accept(T t);
+     ...
+ }
+</code></pre></li>
+
+<li><p>无参，有返回值（供给型：什么都没给你，你却给我了一个东西）</p>
+
+<pre><code class="language-java">@FunctionalInterface
+public interface Supplier&lt;T&gt; {
+T get();
+  }
+</code></pre>
+
+<ul>
+<li><p>有参，有返回值  (函数型：)</p>
+
+<pre><code class="language-java">@FunctionalInterface
+public interface Function&lt;T, R&gt; {
+R apply(T t);
+...
+}
+</code></pre></li>
+
+<li><p>断言式接口</p>
+
+<pre><code class="language-java">@FunctionalInterface
+public interface Predicate&lt;T&gt; {
+boolean test(T t);
+...
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>自定义</p></li>
+</ul>
+
+<h2 id="lambda表达式的使用方式">lambda表达式的使用方式</h2>
+
+<h3 id="方式一">方式一</h3>
+
+<p>​       函数式接口  引用名 =  lambda表达式 ；(先实现在使用)</p>
+
+<p>​       Predicate<Integer> p = num -&gt; num &lt; 10 ;</p>
+
+<pre><code class="language-java">    public static void test01(){
+        //   boolean test(T t);
+        Predicate&lt;Integer&gt; p = (num) -&gt;  {return num &lt; 10;} ;
+        //Predicate&lt;Integer&gt; p = num -&gt;  num &lt; 10  ;
+        System.out.println( p.test( 3  )   );
+    }
+</code></pre>
+
+<pre><code class="language-java">    public static void test02(){
+        //相当于将 MyMath中的add()方法进行了具体的实现
+//        MyMath math =  (int n1,int n2) -&gt; {  return  n1+n2 ;} ;
+        MyMath math =  (n1,n2) -&gt; {  return  n1+n2 ;} ;
+        System.out.println(   math.add(1,100  )       );
+    }
+</code></pre>
+
+<p>示例</p>
+
+<pre><code class="language-java">package lambda;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+/*
+ * Created by 颜群
+ */
+public class Demo02 {
+
+    public static void test01(){
+        //   boolean test(T t);
+//        Predicate&lt;Integer&gt; p = (num) -&gt;  {return num &lt; 10;} ;
+        Predicate&lt;Integer&gt; p = num -&gt;  num &lt; 10  ;
+        System.out.println( p.test( 3  )   );
+    }
+
+    public static void test02(){
+        //相当于将 MyMath中的add()方法进行了具体的实现
+//        MyMath math =  (int n1,int n2) -&gt; {  return  n1+n2 ;} ;
+         //lambda自带类型推断机制，因此参数的类型 可以省略
+        MyMath math =  ( n1,n2) -&gt;     n1+n2  ;
+        System.out.println(   math.add(1,100  )       );
+    }
+
+
+    public static void test03(){
+        // void accept(T t);
+        Consumer&lt;String&gt; c = (x) -&gt;  System.out.println(&quot;吃：&quot;+x) ;
+
+        c.accept(&quot;苹果&quot;);
+    }
+
+    public static void test04(){
+
+        Supplier&lt;Integer&gt; supplier = ()-&gt;  (int)(Math.random()*9000+1000) ;
+        System.out.println(   supplier.get() );
+    }
+
+
+    public static void test05(){
+
+        Function&lt;String,String&gt; f = (s) -&gt; s.toUpperCase() ;
+        System.out.println(  f.apply(&quot;hello world&quot;));
+    }
+
+        public static void main(String[] args) {
+
+        test05();
+    }
+}
+
+</code></pre>
+
+<h3 id="方式二">方式二</h3>
+
+<pre><code class="language-java">new Thread(
+    ()  -&gt;  System.out.println(&quot;run....&quot;)
+).start(); ;
+</code></pre>
+
+<p>将lambda表达式所代表的函数式接口，作为一个方法的参数存在。</p>
+
+<p>理解：方法B( 方法A )：函数式编程。scala  javascript本身就支持函数式编程。</p>
+
+<p>形式：方法( 函数式接口 )</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583469965192.png" alt="1583469965192" /></p>
+
+<pre><code class="language-java">package lambda;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+/*
+ * Created by 颜群
+ */
+public class Demo02 {
+
+    public static void test01(){
+        //   boolean test(T t);
+//        Predicate&lt;Integer&gt; p = (num) -&gt;  {return num &lt; 10;} ;
+        Predicate&lt;Integer&gt; p = num -&gt;  num &lt; 10  ;
+        System.out.println( p.test( 3  )   );
+    }
+
+    public static void test02(){
+        //相当于将 MyMath中的add()方法进行了具体的实现
+//        MyMath math =  (int n1,int n2) -&gt; {  return  n1+n2 ;} ;
+        MyMath math =  (n1,n2) -&gt;     n1+n2  ;
+        System.out.println(   math.add(1,100  )       );
+    }
+
+
+    public static void test03(){
+        // void accept(T t);
+        Consumer&lt;String&gt; c = (x) -&gt;  System.out.println(&quot;吃：&quot;+x) ;
+
+        c.accept(&quot;苹果&quot;);
+    }
+
+    public static void test04(){
+
+        Supplier&lt;Integer&gt; supplier = ()-&gt;  (int)(Math.random()*9000+1000) ;
+        System.out.println(   supplier.get() );
+    }
+
+
+    public static void test05(){
+        Function&lt;String,String&gt; f = (s) -&gt; s.toUpperCase() ;
+        System.out.println(  f.apply(&quot;hello world&quot;));
+    }
+
+    public static void test06(){
+        String result = upper( (x)-&gt; x.toUpperCase()  ,&quot;hello&quot;);
+        System.out.println(result);
+    }
+                                                // fun:函数的逻辑   ,str:hello
+    public static String upper( Function&lt;String,String&gt; fun ,String str ){
+        return  fun.apply( str  ) ;
+    }
+
+    public static void test07(){
+        myPredicate( (x) -&gt; x&gt;18   ,  10);
+
+    }
+    public static void myPredicate(Predicate&lt;Integer&gt; pre,  Integer num   ){
+        System.out.println(   pre.test( num ) );
+    }
+
+
+
+        public static void main(String[] args) {
+
+        test07();
+    }
+}
+
+</code></pre>
+
+<h2 id="jdk8其他新特性简介">JDK8其他新特性简介</h2>
+
+<h3 id="接口-的默认方法与静态方法">接口 的默认方法与静态方法</h3>
+
+<p>在Java 8中，可以使用default关键字在接口中定义默认方法，并提供默认的实现。之后，该接口的所有实现类都会默认地使用该实现方法。当然，实现类也可以对该默认方法进行重写。例如：</p>
+
+<pre><code class="language-java">public interface MyInterface {
+    default String myFunction() {
+        return &quot;hello world&quot;;
+    }
+}
+</code></pre>
+
+<p>此外，还可以在接口中定义静态方法，并提供默认实现。例如：</p>
+
+<pre><code class="language-java">public interface MyInterface {
+     static String myFunction() {
+        return &quot;hello world&quot;;
+     }
+}
+</code></pre>
+
+<h3 id="方法引用">方法引用</h3>
+
+<p>Java 8还允许使用::来引用一个已经存在的方法，其语法如下：</p>
+
+<p>类名::方法名</p>
+
+<p>注意：只写方法名即可，不需要写括号。</p>
+
+<p>具体地讲，共有以下四种类型的引用。</p>
+
+<table>
+<thead>
+<tr>
+<th>类    型</th>
+<th>示    例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>引用静态方法</td>
+<td>ContainingClass::staticMethodName</td>
+</tr>
+
+<tr>
+<td>引用某个对象的实例方法</td>
+<td>ContainingObject::instanceMethodName</td>
+</tr>
+
+<tr>
+<td>引用某个类型的任意对象的实例方法</td>
+<td>ContainingType::methodName</td>
+</tr>
+
+<tr>
+<td>引用构造方法</td>
+<td>ClassName::new</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;() ;
+      //  list.add(...);   参数：String，返回值:boolean
+
+        Predicate&lt;String&gt; pre = list::add ;   // pre.test(  ):参数：String，返回值:boolean
+        pre.test(&quot;a&quot;) ;
+        pre.test(&quot;b&quot;) ;
+
+        System.out.println(list);
+
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583471864090.png" alt="1583471864090" /></p>
+
+<h3 id="重复注解">重复注解</h3>
+
+<p>自从Java 5引入了注解以后，注解就被广泛应用于各个框架之中。但Java 5引入的注解存在一个问题：在同一个地方不能多次使用同一个注解。而Java 8就打破了这个限制，引入了重复注解的概念，允许在同一个地方多次使用同一个注解。</p>
+
+<p>在Java 8中使用@Repeatable注解定义重复注解，代码示例如下：</p>
+
+<pre><code class="language-java">@Repeatable(Authorities.class)
+public @interface Authority {
+     String role();
+}
+
+public @interface Authorities {
+    Authority[] value();
+}
+
+public class RepeatAnnotationUseNewVersion {
+
+    @Authority(role=&quot;Admin&quot;)
+    @Authority(role=&quot;Manager&quot;)
+    public void doSomeThing(){ }
+
+}
+</code></pre>
+
+<p>在创建重复注解Authority时，加上@Repeatable并指向用于存储的注解Authorities。之后，在使用的时候，就可以重复使用Authority注解。</p>
+
+<h3 id="其他">其他</h3>
+
+<p>Java 8 还提供了Nashorn引擎便于在JVM上运行JavaScript代码，提供了新的Date API，提供了对高并发的新支持，类依赖分析器jdeps……</p>
+
+<h1 id="集合">集合</h1>
+
+<p>Collection：存储的数据是 不唯一、无序的对象</p>
+
+<p>List：存储的数据是 不唯一、有序的对象</p>
+
+<p>Set:存储的数据是 唯一、无序的对象</p>
+
+<p>唯一：不能重复</p>
+
+<p>有序：不是排序；是输入顺序 是否与 输出顺序一致的。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/集合.png" alt="" /></p>
+
+<p>HashXxx:底层借助了“哈希表” 的数据结构;默认不支持排序
+TreeXxx:底层借助了“红黑色”的数据结构;默认支持排序</p>
+
+<p>set中的remove（）为什么只能根据 内容删？不能根据下标删？</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+/*
+ * Created by 颜群
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        Collection list = new ArrayList();
+        list.add(&quot;中国&quot;) ;
+        list.add(&quot;美国&quot;) ;
+        list.add(&quot;俄罗斯&quot;) ;
+        System.out.println(list);
+
+
+        LinkedList list2 = new LinkedList();
+        list2.add(&quot;hello&quot;) ;
+        list2.add(&quot;world&quot;) ;
+        //LinkedList独有的方法
+        list2.addLast(&quot;wh&quot;);
+        list2.addFirst(&quot;hw&quot;);
+
+//        list2.remove(1) ;
+        list2.remove(&quot;world&quot;);
+
+        System.out.println(list2);
+
+        HashSet set = new HashSet() ;
+        set.add(&quot;aa&quot;) ;
+        set.add(&quot;bb&quot;) ;
+        set.add(&quot;cc&quot;) ;
+        set.remove(&quot;bb&quot;) ;//因为 set是无序的，因此无法根据“下标”删。只能根据内容删
+        System.out.println(set);
+    }
+}
+
+</code></pre>
+
+<p>map中的key是唯一的；value是不唯一的</p>
+
+<p>删除：</p>
+
+<p>Collection中的类（List、Set），删除的返回值是 boolean；</p>
+
+<p>Map中的类，是根据Key删除，返回值是value.</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+/*
+ * Created by 颜群
+ */
+public class Demo02 {
+    public static void main(String[] args) {
+        HashMap map = new HashMap() ;
+        map.put( &quot;s01&quot;,&quot;张三&quot;)  ;//key:学号 ，value:姓名
+        map.put( &quot;s02&quot;,&quot;李四&quot;)  ;
+        map.put( &quot;s03&quot;,&quot;王五&quot;)  ;
+        map.put( &quot;s04&quot;,&quot;王五&quot;)  ;
+
+        System.out.println(map);
+
+        Object v = map.get(&quot;s01&quot;);//根据key，找到value
+
+        System.out.println( v);
+
+        System.out.println(map.size());
+        //判断是否 包含了指定的Key
+        System.out.println(    map.containsKey(&quot;s01&quot;)              );
+        //判断是否 包含了指定的value
+        System.out.println(    map.containsValue(&quot;王五&quot;)              );
+
+        //将Map转为单值集合
+        //转为只包含了key的单值集合
+
+        Set set = map.keySet();//为什么是set，不是list?因为map中，key是唯一的
+        System.out.println(set);
+
+        //转为只包含了value的单值集合
+        Collection values = map.values();
+        System.out.println(values);
+
+        Object a = map.remove(&quot;s01&quot;);//删除的返回值，就是删除的 value对象
+        System.out.println(map);
+        System.out.println(a);
+
+    }
+}
+
+</code></pre>
+
+<p>如何遍历集合？list  set   map</p>
+
+<p>（1）循环for（普通for[只适用于‘有序’的集合]，增强for[建议]）</p>
+
+<p>（2）迭代器</p>
+
+<pre><code class="language-java">public interface Iterator&lt;E&gt; {...}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583125152686.png" alt="" /></p>
+
+<pre><code class="language-java">package col;
+
+import java.util.*;
+
+/*
+ * Created by 颜群
+ */
+public class Demo03 {
+    public static void main(String[] args) {
+
+        List list = new ArrayList() ;
+        list.add(&quot;aa&quot;) ;
+        list.add(&quot;bb&quot;) ;
+        list.add(&quot;cc&quot;) ;
+        //普通for
+        for(int i=0;i&lt;list.size();i++){
+            System.out.println(   list.get(i));
+        }
+        System.out.println(&quot;增强for&quot;);
+        //增强for
+        for(Object o :list){
+            System.out.println(o);
+
+        }
+
+        Set set = new HashSet() ;
+        set.add(&quot;A&quot;);
+        set.add(&quot;b&quot;);
+        set.add(1);
+        set.add(&quot;D&quot;);
+        //普通for，不适用于 “无序”的集合
+//        for(int i=0;i&lt;set.size();i++){
+//            System.out.println(      set.get );
+//        }
+
+        for(Object e :   set){
+            System.out.println(e);
+        }
+        System.out.println(&quot;迭代器&quot;);
+
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            Object o = iterator.next();
+            System.out.println(o);
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>遍历map：将双值集合 ，转为单值集合。</p>
+
+<p>map -&gt; keySet</p>
+
+<p>map-&gt;values</p>
+
+<pre><code class="language-java">
+        System.out.println(&quot;遍历map。。。&quot;);
+        Map map = new HashMap() ;
+        map.put(&quot;s01&quot;,&quot;Zs&quot;) ;
+        map.put(&quot;s02&quot;,&quot;ls&quot;) ;
+        map.put(&quot;s03&quot;,&quot;ww&quot;) ;
+        Set set1 = map.keySet();//将双值集合 降成单值集合
+        for(Object o :set1){
+            System.out.println(&quot;key:&quot; +o);
+            Object v = map.get(o);//map可以根据key，获取value; map.get(key) -&gt;value
+            System.out.println(&quot;value:&quot;+v);
+
+        }
+
+//        Collection values1 = map.values();
+//        Iterator iterator1 = values1.iterator();
+//        while(iterator1.hasNext()){
+//            System.out.println(&quot;value: &quot;+iterator1.next() );
+//        }
+
+        System.out.println(&quot;通过entry遍历..&quot;);
+        Set entries = map.entrySet();
+
+        for(Object e :entries){
+            Map.Entry et =  (Map.Entry)e ;
+           Object k =  et.getKey();
+            Object v = et.getValue();
+            System.out.println(&quot;k-&quot;+k);
+            System.out.println(&quot;v-&quot;+v);
+        }
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583125944732.png" alt="1583125944732" /></p>
+
+<h2 id="泛型">泛型</h2>
+
+<p>Collection、Map接口中都可以使用</p>
+
+<p>自jdk1.5开始提供。</p>
+
+<p>作用：</p>
+
+<p>（1）数据安全</p>
+
+<p>（2）防止类型转换时出错</p>
+
+<p>list.add(默认是Object)</p>
+
+<p>如果加了Double泛型，则自动变成 list.add(double&hellip;)，返回值类似，会直接返回double类型的数据</p>
+
+<p>简言之，以Double泛型为例。如果不加泛型，则默认操作的是Object类型，如果加了Double泛型，则默认操作的是Double类型。</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.*;
+public class Demo04 {
+    public static void main(String[] args) {
+//        List&lt;String&gt; list = new ArrayList&lt;String&gt;() ;
+        List&lt;String&gt; list = new ArrayList&lt;&gt;() ;//jdk1.7之后提供类型推断
+        list.add(&quot;a&quot;) ;
+//        list.add(1) ;
+        String s = list.get(0);
+        System.out.println(s);
+
+        Set&lt;String&gt; set =new HashSet&lt;&gt;() ;
+        set.add(&quot;aa&quot;) ;
+
+        //Key(学号s01),Value（名次）
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;() ;
+        map.put(&quot;s01&quot;,3);
+        map.put(&quot;s02&quot;,1);
+        map.put(&quot;s03&quot;,2);
+
+        Set&lt;Map.Entry&lt;String,Integer&gt;&gt;  entries = map.entrySet();
+        for(Map.Entry&lt;String,Integer&gt; entry :entries){
+            System.out.println(  entry.getKey());
+            System.out.println(  entry.getValue());
+        }
+
+
+        System.out.println(&quot;迭代器中...&quot;);
+        //取key
+        Set&lt;String&gt; keys = map.keySet();
+        //遍历Key
+        Iterator&lt;String&gt; iterator = keys.iterator();
+        while(iterator.hasNext()){
+            String key = iterator.next();
+            Integer value = map.get(key) ;
+            System.out.println(key+&quot;--&quot;+value);
+        }
+
+
+    }
+}
+
+</code></pre>
+
+<p>示例：根据人的名字，查询这个人的全部信息。</p>
+
+<pre><code class="language-java">package col;
+
+import javax.sound.midi.Soundbank;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+public class Demo05 {
+    public static void main(String[] args) {
+        Map&lt;String,Person&gt; map = new HashMap&lt;&gt;() ;
+        Person p1 = new Person(&quot;zs&quot;,23,&quot;xa&quot;);
+        Person p2 = new Person(&quot;ls&quot;,24,&quot;bj&quot;);
+        Person p3 = new Person(&quot;ww&quot;,25,&quot;sh&quot;);
+        Person p4 = new Person(&quot;zl&quot;,26,&quot;sz&quot;);
+        Person p5 = new Person(&quot;sq&quot;,27,&quot;tj&quot;);
+
+        //key:名字    value:人
+        map.put(&quot;zs&quot;,p1);
+        map.put(&quot;ls&quot;,p2);
+        map.put(&quot;ww&quot;,p3);
+        map.put(&quot;zl&quot;,p4);
+        map.put(&quot;sq&quot;,p5);
+
+        System.out.println(&quot;请输入人的名字：&quot;);
+        Scanner in = new Scanner(System.in) ;
+        String name = in.next();
+
+        Person person = map.get(name);
+        System.out.println(person);//如果不是null,在打印时会调用toString；如果是null，则不调用。
+//        System.out.println(person.toString());
+
+
+//        Set&lt;String&gt; names = map.keySet();
+//        //在names中查找name
+//        for(String n :names){
+//            if(n.equals( name )){
+//                Person person = map.get(n);
+//                System.out.println(person);
+//            }
+//        }
+    }
+}
+
+</code></pre>
+
+<h2 id="集合工具类">集合工具类</h2>
+
+<p>集合工具类Collections：排序、复制、翻转等操作</p>
+
+<p>数组工具类Arrays    排序、复制、翻转等操作  ,Arrays.sort(数组)</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+public class Demo06 {
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;w&quot;) ;
+        list.add(&quot;a&quot;) ;
+        list.add(&quot;b&quot;) ;
+        list.add(&quot;x&quot;) ;
+        list.add(&quot;a&quot;) ;
+        list.add(&quot;i&quot;) ;
+
+        Collections.sort(list);
+        System.out.println(list);
+
+        System.out.println(   Collections.max(list) );
+        System.out.println(   Collections.min(list) );
+
+        //二分查法(使用前，必须保证集合元素是 自然有序的)
+        System.out.println(  Collections.binarySearch( list,&quot;i&quot;)     );
+        //混洗，洗牌：打乱已有顺序
+        Collections.shuffle(list);
+        System.out.println(list);
+        Collections.shuffle(list);
+        System.out.println(list);
+
+        Collections.reverse(  list);
+        System.out.println(list);
+
+        Collections.swap(list,  2,3);
+        System.out.println(list);
+
+        Collections.replaceAll(list, &quot;a&quot;,&quot;A&quot;) ;
+        System.out.println(list);
+
+        Collections.fill(list,&quot;H&quot;);
+        System.out.println(list);
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-java">package col;
+
+import java.util.Arrays;
+
+public class Demo07 {
+    public static void main(String[] args) {
+        int[] arr = new int[]{3,2,14,6,1};
+        Arrays.sort(arr);
+
+        for(int i=0;i&lt;arr.length;i++){
+            System.out.println(arr[i]);
+        }
+//
+//        Arrays.fill(arr,5);
+//        for(int i=0;i&lt;arr.length;i++){
+//            System.out.println(arr[i]);
+//        }
+
+        Arrays.sort(arr);
+        //通过二分法，在arr中查找2的下标（前提是 数组已经排好序）
+        int position = Arrays.binarySearch(arr, 2);
+        System.out.println(position);
+
+
+    }
+}
+
+</code></pre>
+
+<p>比较器</p>
+
+<p>list.add(3) ;  //2 4  3 1  9</p>
+
+<p>list.add(&ldquo;b&rdquo;) ;  //b c  a d  w</p>
+
+<p>Collections.sort(list)  //能够识别一些自然顺序</p>
+
+<p>但是，如果集合中的元素是 用户自定义对象，如何排序？</p>
+
+<p>Person p1 = new Person(3,&ldquo;zs&rdquo;,23,6) ;</p>
+
+<p>Person p2 = new Person(2,&ldquo;ls&rdquo;,24,2) ;</p>
+
+<p>Person p3 = new Person(1,&ldquo;ww&rdquo;,25,8) ;</p>
+
+<p>list.add(p1);</p>
+
+<p>list.add(p2);</p>
+
+<p>list.add(p3);</p>
+
+<p>Collections.sort(list)  //程序 无法知道 ，是根据什么排序？  -&gt;自定义比较器， 自定义“比较时，根据学号排”</p>
+
+<p>自定义比较器：Comparable 、Comparator</p>
+
+<p>Comparable:  内部比较器（侵入性，需要修改原有代码）</p>
+
+<pre><code class="language-java">package col;
+public class Person implements Comparable{
+    private int id ;
+    private String name ;
+    private int age ;
+    private String city;
+    public Person() {
+    }
+    public Person(int id, String name, int age, String city) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+    public Person( String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Person{&quot; +
+                &quot;id=&quot; + id +
+                &quot;, name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                &quot;, city='&quot; + city + '\'' +
+                '}';
+    }
+
+    //重写比较器接口中的方法
+
+    /*
+        {1,3,5,7  }升序
+        {7,5,3,1  }降序
+        //输入源   3     1  7  5
+           {3}
+
+        返回值：
+            1正数：当前对象大，    降序
+            -1负数：传入的对象大 ，升序
+            0：一样大
+         传入一个Person对象和当前对象进行比较
+     */
+    @Override
+    public int compareTo(Object o) {
+        Person inputPerson = (Person)o ;
+        //根据学号，降序
+       int result =  this.id &gt; inputPerson.id ?-1  : (   this.id   ==    inputPerson.id ?0:1 ) ;
+       //如果学号相同，再根据姓名升序.  za  zs
+        if(result  == 0 ){
+            result = this.name .compareTo(      inputPerson.name) ;//调用String已经重写过的compareTo()
+        }
+        return result;
+//        return 1;//当前对象，比传入对象大
+    }
+}
+
+</code></pre>
+
+<p>思路：将比较的对象（Person）实现Comparable接口，重写连的compareTo()方法。在compareTo()中编写比较的逻辑。重点是返回值，-1 ，0,1  ；</p>
+
+<p>Comparator：外部比较器 （无侵入性，不影响原有代码）</p>
+
+<p>1.先定义一个外部比较器</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.Comparator;
+
+/*
+ * Created by 颜群
+ */
+public class MyComparatorWithId implements Comparator {
+    @Override
+    public int compare(Object o1, Object o2) {
+        Student s1 =  (Student)o1 ;
+        Student s2 =  (Student)o2 ;
+        return   s2.getId() -  s1.getId()  ;
+    }
+}
+
+</code></pre>
+
+<p>2.使用外部比较器</p>
+
+<pre><code class="language-java">package col;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/*
+ * Created by 颜群
+ */
+//内部比较器
+public class Demo08 {
+    public static void main(String[] args) {
+        List&lt;Person&gt; persons = new ArrayList&lt;&gt;() ;
+        Person p1= new Person(10,&quot;zs&quot;,23,&quot;xa&quot;) ;
+        Person p2= new Person(2,&quot;ls&quot;,24,&quot;xa&quot;) ;
+        Person p3= new Person(2,&quot;zs&quot;,25,&quot;xa&quot;) ;
+        persons.add(p1) ;
+        persons.add(p2) ;
+        persons.add(p3) ;
+
+        Collections.sort( persons );
+
+        System.out.println(persons);
+        System.out.println(&quot;-------&quot;);
+        Student s1 = new Student(10,&quot;zs&quot;,23,&quot;xa&quot;) ;
+        Student s2 = new Student(2,&quot;zs&quot;,26,&quot;xa&quot;) ;
+        Student s3 = new Student(3,&quot;zs&quot;,24,&quot;xa&quot;) ;
+        List&lt;Student&gt; students = new ArrayList&lt;&gt;() ;
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+
+        Collections.sort(  students,new MyComparatorWithId() );//给students使用了MyComparatorWithId比较器
+        System.out.println(students);
+
+    }
+}
+
+</code></pre>
+
+<p>List<Double> list = new ArrayList&lt;&gt;() ;</p>
+
+<p>包装类（自动装箱、自动拆箱）</p>
+
+<p>evething  is an Object，万物皆对象。 属性、方法</p>
+
+<p>自动装箱：基本类型 -&gt;包装类型 ,int -&gt;Integer</p>
+
+<p>自动拆箱：包装类型-&gt;基本类型,Integer -&gt;int</p>
+
+<p>java中 将8个基本类型，包装成了8个对象类型（引用类型）。这8个对象类型 就成为包装类</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1583138824295.png" alt="1583138824295" /></p>
+
+<pre><code class="language-java">package col;
+public class BZL {
+    public static void main(String[] args) {
+        int i = 10 ;
+        Integer j = new Integer(20) ;
+        i = j ;//Integer-&gt;int  自动拆箱 底层用的是intValue()
+        j = i ;//int -&gt;Integer 自动装箱 底层用的是valueOf() ,该方法中有个缓冲区 [-128,127],如果要装箱的数字 在缓冲区范围以内，则直接从缓冲区中取；否则，new Integer()一个新对象
+        Integer i1 = 100 ;
+        Integer i2 = 100 ;
+        Integer i3 = 1000 ;
+        Integer i4 = 1000 ;
+        System.out.println(i1 == i2);
+        System.out.println(i3 == i4);
+
+    }
+}
+
+</code></pre>
+
+<h1 id="异常">异常</h1>
+
+<h2 id="简介">简介</h2>
+
+<pre><code class="language-java">try
+{
+    //一切正常，执行这里
+}catch(Exception e)
+{
+    //如果不正常，执行这里（异常）
+}
+int[] nums = new int[3] ;
+try
+{
+    //nums[n]一切正常，执行这里
+}catch(Exception e)
+{
+    // nums[n]如果不正常，执行这里（异常）
+}
+</code></pre>
+
+<p>如果代码出现问题时，使用“异常机制”比 选择结构 更加方便。</p>
+
+<h2 id="异常的继承结构图">异常的继承结构图</h2>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20200406184011614.png" alt="image-20200406184011614" /></p>
+
+<p>运行时异常：代码在编辑（编译阶段）时 不报错，运行时才报错。语法上，  可以选择性处理。</p>
+
+<p>检查异常：代码在编辑（编译阶段）时报错。在编辑时，必须处理。（没有使用try  catch包围）</p>
+
+<h2 id="异常重点">异常重点</h2>
+
+<p>try  catch  finally  throws  throw</p>
+
+<p>处理异常：try catch  或者 throws</p>
+
+<p>try: 将可能发生异常的代码 用{}包裹起来</p>
+
+<p>catch : 捕获特定类型的异常；捕获时，先写范围小的类型，后写范围大的类型</p>
+
+<p>如果try中的代码的确发生了异常，则程序 不再执行try中异常之后的代码，而是直接跳到cath中执行</p>
+
+<pre><code class="language-java">public class Demo01 {
+    public static void main(String[] args) {
+        int[] nums = new int[3] ;
+        System.out.println(nums[3]);//运行时异常，选择性处理
+//
+
+//       Class.forName(&quot;ex.Demo01&quot;);//检查异常，强制处理
+    }
+}
+</code></pre>
+
+<h3 id="try-catch">try  catch</h3>
+
+<p>自己（当前方法）能够处理，使用try catch .</p>
+
+<h3 id="throws">throws</h3>
+
+<p>自己（当前方法）不能处理，上交给 上级（方法调用处）处理  ,使用throws .</p>
+
+<pre><code class="language-java">    public static void test04() throws NullPointerException,ClassNotFoundException{//抛出异常，抛出给上级（方法调用处）
+            Object obj = null   ;
+            obj.equals(&quot;&quot;) ;//空指针
+            Class.forName(&quot;xxx&quot;) ;
+    }
+
+    public static void main(String[] args) throws Exception{//继续往上抛出异常(JVM)
+            test04();//异常
+    }
+</code></pre>
+
+<h3 id="finally">finally</h3>
+
+<p>无论正常，还是异常，始终都会执行的代码</p>
+
+<p>不论执行完try，还是执行完catch，最终都会执行finally的代码</p>
+
+<p>1.即使遇到return ,也仍然会执行finally</p>
+
+<p>2.除非虚拟机关闭，才不会执行finally</p>
+
+<pre><code class="language-java">package ex;
+
+/*
+ * Created by 颜群
+ */
+public class Demo02 {
+
+    public static void test01(){
+
+        Object obj = null   ;
+        try {
+//            System.out.println(&quot;111&quot;);
+            obj.equals(&quot;&quot;);//可能产生异常的代码
+//            System.out.println(&quot;222&quot;);
+//            System.out.println(&quot;正常时，关闭资源。。。&quot;);
+        }catch (NullPointerException e){//捕获特定类型的异常
+//            System.out.println(&quot;异常。。。&quot;);
+//            System.out.println(&quot;发生了空指针异常。。&quot;);
+//            System.out.println(&quot;异常时，关闭资源。。。&quot;);
+        }finally{
+            System.out.println(&quot;无论正常，还是异常，始终都会执行的代码。。。&quot;);
+        }
+    }
+
+    public static int test02(){
+        try{
+            Object obj = null   ;
+
+            System.exit(1);//关闭jvm
+            obj.equals(&quot;&quot;) ;
+            return 1 ;
+        }catch (NullPointerException e){
+                return 0 ;
+        }finally{
+            System.out.println(&quot;finally...&quot;);
+        }
+    }
+
+    public static void main(String[] args) {
+        test02() ;
+
+
+
+    }
+}
+
+</code></pre>
+
+<h3 id="多个catch块">多个catch块</h3>
+
+<pre><code class="language-java">   public static void test03(){
+        try{
+            Class.forName(&quot;xxx&quot;) ;
+            Object obj = null   ;
+            obj.equals(&quot;&quot;) ;//空指针
+
+            int[] nums = new int[3] ;
+           nums[3] = 3 ;//数组越界异常
+
+        }catch (NullPointerException e){//捕获空指针
+            System.out.println(&quot;空指针异常..&quot;);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println(&quot;数组越界异常...&quot;);
+        }catch (Exception e) {//还有一些 根本临时想不到的异常
+            System.out.println(&quot;其他异常。。。&quot;);
+        }
+    }
+</code></pre>
+
+<h3 id="throw-一般和-自定义异常-一起使用">throw 一般和 自定义异常 一起使用</h3>
+
+<p>throw: 声明异常</p>
+
+<p>jdk中自带了很多类型的异常，但如果 这些内置的异常 仍然不能满足项目的需求，那么就需要创建 自定义异常。</p>
+
+<p>如何编写自定义异常：</p>
+
+<p>1类，继承Exception，调用super(“异常信息”)</p>
+
+<pre><code class="language-java">package ex;
+
+/*
+ * Created by 颜群
+ */
+//public class MyException  extends  Throwable{
+//public class MyException  extends  NullPointerException{
+public class MyException  extends  Exception{//推荐
+    public MyException(String message){//异常信息
+        super(message);
+    }
+}
+
+
+</code></pre>
+
+<p>2.使用throw 声明一个自定义异常、并且进行try catch或throws</p>
+
+<pre><code class="language-java">package ex;
+
+/*
+ * Created by 颜群
+ */
+public class Demo03 {
+
+    public static void main(String[] args)   {
+        int age = 188 ;
+        //约定，年龄不能大于120
+        if(age&lt;= 0 || age&gt;120){
+            try {
+                //手工声明一个异常
+                throw new MyException(&quot;年龄不能大于120&quot;);
+            }catch ( MyException e ){
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<p>在开发的过程中，要逐步积累异常，有助于提高我们的 排查bug的能力。</p>
+
+<h1 id="java注解">Java注解</h1>
+
+<p>类：要给一个类增强一些功能？ 继承、实现一个接口 ,还可以使用注解</p>
+
+<p>class  A extends B</p>
+
+<p>class A implements C</p>
+
+<p>可以通过使用注解 增强类、方法、属性的功能。</p>
+
+<h2 id="内置注解">内置注解</h2>
+
+<pre><code>@Override ：可以确保 重写的方法  的确存在于父类/接口中，可以有效的避免 单词拼错等情况。
+@Deprecated：给用于提示，该方法由于安全、性能问题等 已经不推荐使用了。此外，在版本升级时，如果要计划删除一些方法，也通常会在前一个版本中 将该方法加上@Deprecated，然后再在后续版本中删除。
+
+@SuppressWarnings(value=&quot;unchecked&quot;)//压制警告 （虽然可以使用SuppressWarnings压制警告，但不建议使用。）//忽略对泛型等的检查操作。value值：unchecked ,deprecation(忽略一些过期的API) ，unused (是否未被使用)  ，fallthrough（swtich 是否一致往下执行，而没有break）;path(忽略 对类路径不存在的检查)  ，serialVersionUID（忽略 一个类可以序列化、但却没有序列化的 警告），all
+
+
+
+</code></pre>
+
+<pre><code class="language-java">package annotaion;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+ * Created by 颜群
+ */
+class Father {
+    public void eat() {
+        System.out.println(&quot;father eat...&quot;);
+    }
+}
+
+class Son extends Father{
+    @Override
+    public void eat() {
+        System.out.println(&quot;son eat...&quot;);
+    }
+
+    @Deprecated
+    public void test(){
+
+    }
+}
+
+
+//压制警告 （虽然可以使用SuppressWarnings压制警告，但不建议使用。）
+@SuppressWarnings(value=&quot;all&quot;)//忽略对泛型等的检查操作
+public class Demo01 {
+    public static void main(String[] args) {
+        int a = 1 ;
+
+        Father f = new Son();
+        f.eat();
+
+        new Thread().stop();
+        new Son().test();
+        List list = new ArrayList();
+    }
+}
+
+</code></pre>
+
+<h2 id="自定义注解">自定义注解</h2>
+
+<pre><code class="language-java">public @interface MyAnnotation {
+}
+</code></pre>
+
+<h3 id="元注解">元注解</h3>
+
+<p>元数据：修饰数据的数据</p>
+
+<p>元注解：修饰注解的注解， @Target、@Retention、@Document、@Inherited</p>
+
+<h4 id="target-限制注解-可以使用的位置">@Target：限制注解 可以使用的位置</h4>
+
+<p>限制注解 能够使用哪些元素上（属性、方法、类）；如果一个注解没有@Target描述，则该注解 可以修饰任何类型的元素； 如果有@Target修饰，该注解就只能用于 被@Target修饰的地方</p>
+
+<p>哪些位置？ ElementType.枚举</p>
+
+<pre><code class="language-java">/*
+ * Copyright (c) 2003, 2013, Oracle and/or its affiliates. All rights reserved.
+ * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+package java.lang.annotation;
+
+/**
+ * The constants of this enumerated type provide a simple classification of the
+ * syntactic locations where annotations may appear in a Java program. These
+ * constants are used in {@link Target java.lang.annotation.Target}
+ * meta-annotations to specify where it is legal to write annotations of a
+ * given type.
+ *
+ * &lt;p&gt;The syntactic locations where annotations may appear are split into
+ * &lt;em&gt;declaration contexts&lt;/em&gt; , where annotations apply to declarations, and
+ * &lt;em&gt;type contexts&lt;/em&gt; , where annotations apply to types used in
+ * declarations and expressions.
+ *
+ * &lt;p&gt;The constants {@link #ANNOTATION_TYPE} , {@link #CONSTRUCTOR} , {@link
+ * #FIELD} , {@link #LOCAL_VARIABLE} , {@link #METHOD} , {@link #PACKAGE} ,
+ * {@link #PARAMETER} , {@link #TYPE} , and {@link #TYPE_PARAMETER} correspond
+ * to the declaration contexts in JLS 9.6.4.1.
+ *
+ * &lt;p&gt;For example, an annotation whose type is meta-annotated with
+ * {@code @Target(ElementType.FIELD)} may only be written as a modifier for a
+ * field declaration.
+ *
+ * &lt;p&gt;The constant {@link #TYPE_USE} corresponds to the 15 type contexts in JLS
+ * 4.11, as well as to two declaration contexts: type declarations (including
+ * annotation type declarations) and type parameter declarations.
+ *
+ * &lt;p&gt;For example, an annotation whose type is meta-annotated with
+ * {@code @Target(ElementType.TYPE_USE)} may be written on the type of a field
+ * (or within the type of the field, if it is a nested, parameterized, or array
+ * type), and may also appear as a modifier for, say, a class declaration.
+ *
+ * &lt;p&gt;The {@code TYPE_USE} constant includes type declarations and type
+ * parameter declarations as a convenience for designers of type checkers which
+ * give semantics to annotation types. For example, if the annotation type
+ * {@code NonNull} is meta-annotated with
+ * {@code @Target(ElementType.TYPE_USE)}, then {@code @NonNull}
+ * {@code class C {...}} could be treated by a type checker as indicating that
+ * all variables of class {@code C} are non-null, while still allowing
+ * variables of other classes to be non-null or not non-null based on whether
+ * {@code @NonNull} appears at the variable's declaration.
+ *
+ * @author  Joshua Bloch
+ * @since 1.5
+ * @jls 9.6.4.1 @Target
+ * @jls 4.1 The Kinds of Types and Values
+ */
+public enum ElementType {
+    /** Class, interface (including annotation type), or enum declaration */
+    TYPE,
+
+    /** Field declaration (includes enum constants) */
+    FIELD,
+
+    /** Method declaration */
+    METHOD,
+
+    /** Formal parameter declaration */
+    PARAMETER,
+
+    /** Constructor declaration */
+    CONSTRUCTOR,
+
+    /** Local variable declaration */
+    LOCAL_VARIABLE,
+
+    /** Annotation type declaration */
+    ANNOTATION_TYPE,
+
+    /** Package declaration */
+    PACKAGE,
+
+    /**
+     * Type parameter declaration
+     *
+     * @since 1.8
+     */
+    TYPE_PARAMETER,
+
+    /**
+     * Use of a type
+     *
+     * @since 1.8
+     */
+    TYPE_USE
+}
+
+</code></pre>
+
+<p>自定义一个注解</p>
+
+<pre><code class="language-java">//修饰该注解 只能在 属性、方法上使用
+@Target(value= {ElementType.FIELD   ,ElementType.METHOD} )
+public @interface MyAnnotation {
+    /*
+        用定义方法的形式，定义一个属性 value
+        方法的名字，就是属性的名字；方法的返回值，就是属性的类型
+     */
+    String value()  default &quot;张三&quot;;//String value = &quot;张三&quot; ；
+    int age() default  22 ;
+}
+
+</code></pre>
+
+<p>使用</p>
+
+<pre><code class="language-java">public class TestMyAnnotation {
+    @MyAnnotation(value=&quot;李四&quot;,age=33)
+    public void test(){
+
+    }
+}
+</code></pre>
+
+<h4 id="retention-限制注解的生命周期">@Retention:限制注解的生命周期</h4>
+
+<pre><code class="language-java">public enum RetentionPolicy {
+    /**
+     * Annotations are to be discarded by the compiler.
+       jvm直接将该注解丢弃 ，写了跟没写一样
+     */
+    SOURCE,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler
+     * but need not be retained by the VM at run time.  This is the default
+     * behavior.
+       .java -&gt; .class
+       程序在编译时 会使用注解，在运行时不会使用
+     */
+    CLASS,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler and
+     * retained by the VM at run time, so they may be read reflectively.
+     *
+     * @see java.lang.reflect.AnnotatedElement
+       程序在编译以及运行时，都会使用注解
+     */
+    RUNTIME
+}
+</code></pre>
+
+<p>自定义注解如何使用？  结合反射使用。</p>
+
+<p>注解+反射 什么时候会真正使用？ 开发框架 ，instanceof判断类型</p>
+
+<p>使用注解案例</p>
+
+<pre><code class="language-java">package annotaion;
+
+import java.lang.annotation.Annotation;
+
+/*
+ * Created by 颜群
+ */
+public class TestMyAnnotation {
+
+
+    @MyAnnotation(value=&quot;李四&quot;,age=33)
+    @Deprecated
+    public static void test() throws  Exception{
+
+        Annotation[] annotations = Class.forName(&quot;annotaion.TestMyAnnotation&quot;).getMethod(&quot;test&quot;).getAnnotations();
+        for(Annotation a :annotations){
+            if(a  instanceof  MyAnnotation ){//@MyAnnotation
+                System.out.println(    ((MyAnnotation)a)  .value()     );
+                System.out.println(    ((MyAnnotation)a)  .age()     );
+            }else{//@Deprecated
+                System.out.println(        &quot;@Deprecated&quot;     );
+            }
+        }
+    }
+
+    @SuppressWarnings(&quot;all&quot;)
+    public static void main(String[] args) throws  Exception {
+        test() ;
+    }
+}
+
+</code></pre>
+
+<p>运行结果</p>
+
+<pre><code>李四
+33
+@Deprecated
+</code></pre>
+
+<p>@Document：</p>
+
+<p>​     javadoc：java帮助文档。  ABC.java   -&gt; 帮助文档</p>
+
+<p>​     默认情况下，javadoc不包含 注解的解释；如果现在javadoc文档中 也包含对注解的说明，则需要使用 @Document标注</p>
+
+<p>例如，一下MyAnnotation注解，会在生成javadoc时，被显示在文档中</p>
+
+<pre><code class="language-java">@Documented
+public @interface MyAnnotation {
+
+}
+</code></pre>
+
+<p>@Inherited：继承</p>
+
+<pre><code class="language-java">@Inherited
+public @interface MyAnnotation {
+}
+
+@MyAnnotation
+public  class A{}
+
+public  class B extends A{}//默认情况下，B不会继承A中的注解；如果要想继承，则需要加@Inherited
+
+</code></pre>
+
+<h1 id="io">IO</h1>
+
+<p>输入流InputStream   输出流OutputStream</p>
+
+<pre><code>java.io.*
+</code></pre>
+
+<p>文件：硬盘上的文件  txt  docx  电影 图片</p>
+
+<p>本章的核心：通过 IO 来操作文件。</p>
+
+<p>File</p>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.IOException;
+
+public class Demo01 {
+    public static void main(String[] args) {
+        //file:文件\目录\不存在的文件或目录
+//        File file = new File(&quot;d:/abc.txt&quot;);
+        File file = new File(&quot;hello.txt&quot;);
+        System.out.println(&quot;相对路径：&quot;+file.getPath() );
+        System.out.println(&quot;绝对路径：&quot;+file.getAbsolutePath());
+        System.out.println(&quot;文件名称：&quot;+file.getName() );
+        System.out.println(&quot;文件大小：&quot;+file.length() );//单位字节
+        
+        System.out.println(      file.isFile()==true? &quot;文件&quot;:&quot;非文件&quot; );
+        System.out.println(      file.isDirectory()==true? &quot;目录&quot;:&quot;非目录&quot; );
+        boolean flag = file.exists();
+        try {
+            if(flag) {
+//                file.delete();
+                //彻底删除（不过回收站）
+                System.out.println(&quot;删除成功&quot;);
+            }
+            else {
+                file.createNewFile();
+                System.out.println(&quot;创建成功&quot;);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+
+<p>相对路径/绝对路径：</p>
+
+<pre><code>- 如果FIle（&quot;绝对路径&quot;）：getPath() 和getAbsolutePath()的结果一致，打印的都是绝对路径
+- 如果FIle（&quot;相对路径&quot;）：getPath() 打印相对路径;getAbsolutePath（）打印绝对路径
+</code></pre>
+
+<h2 id="流">流</h2>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1575598723404.png" alt="1575598723404" /></p>
+
+<p>流：是一种FIFO(先进先出)的数据结构</p>
+
+<p>分类：</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576199955793.png" alt="1576199955793" /></p>
+
+<blockquote>
+<p>说明：1.字节流就是 将内容转为了字节形式进行传输， 1 字节 -&gt;8二进制 ，二进制可以传输任何类型的数据，因此字节流也可以传输任何类型的数据。</p>
+
+<p>2.字节流是8位通用字节流(   1 字节 -&gt;8二进制 ) （字节流可以处理任何类型，处理文本文件以外的其他文件） ;字符流是16位的unicode字符流 （只用于处理字符，处理文本文件）</p>
+
+<p>3.在while循环中 分批次传输时，字节流使用的缓冲区是 byte[],字符流使用的缓冲区是 char[]</p>
+</blockquote>
+
+<ul>
+<li>其他流</li>
+</ul>
+
+<p>文件复制</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1575601580784.png" alt="1575601580784" /></p>
+
+<p>输入</p>
+
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class InputStreamDemo {
+    public static void main(String[] args) {
+        InputStream in = null ;
+        try {
+            in =   new FileInputStream(new File(&quot;d:/abc.txt&quot;));
+//            InputStream in = new FileInputStream(&quot;d://abc.txt&quot;);
+            System.out.println(in.available());//file.length()
+            byte[] buf = new byte[in.available()] ;
+            in.read(buf);//将文件abc.txt内容读取到buf中
+            //buf :byte[] -&gt;String
+            System.out.println(new String(buf));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>输出</p>
+
+<pre><code class="language-java">import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+public class OutputStreamDemo {
+    public static void main(String[] args) {
+        OutputStream out = null ;
+        try {
+             out = new FileOutputStream(&quot;d:/xyz.txt&quot;) ;
+             out.write(&quot;helloworld123&quot;.getBytes()); //内存-&gt;xyz.txt
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>文件复制</p>
+
+<pre><code class="language-java">import java.io.*;
+
+public class FileCopy {
+    //abc.txt-&gt;内存-&gt;xyz.txt
+    public static void main(String[] args) {
+        InputStream in = null ;
+        OutputStream out = null ;
+        try {
+            //abc.txt-&gt;内存
+             in = new FileInputStream(&quot;d:/abc.txt&quot;) ;
+             out = new FileOutputStream(&quot;d:/xyz.txt&quot;) ;
+            //开辟10字节的内存
+            byte []buf = new byte[10] ;
+            int len = -1 ;
+            ;
+        while(   (len= in.read(buf)) != -1){//in -&gt;buf
+            out.write(buf,0,len);//buf-&gt;out
+        }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if(out !=null)out.close();
+                if(in !=null) in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1575602327025.png" alt="1575602327025" /></p>
+
+<p>使用字符流进行文件的复制</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576201905525.png" alt="1576201905525" /></p>
+
+<pre><code class="language-java">import java.io.*;
+
+public class FileCopyCharactor {
+    public static void main(String[] args) {
+        //文件-&gt;内存（Reader）
+        Reader reader = null ;
+        Writer writer = null ;
+        try {
+             reader = new FileReader(&quot;d:/个人介绍.txt&quot;);
+             writer = new FileWriter(&quot;d:/个人完整介绍.txt&quot;) ;
+
+            char[] buf = new char[4];
+            StringBuffer sb = new StringBuffer() ;
+
+            int len = -1 ;
+            while((len =reader.read(  buf)) != -1 ){
+                // str += buf ;
+                sb.append(buf,0,len) ;//将每次读取到的 4个字符 拼接起来
+            }
+            System.out.println(sb);
+            //在内存中 替换占位符
+            String content = sb.toString() ;
+            content= content.replace(&quot;{name}&quot;,&quot;颜群&quot;)
+                    .replace(&quot;{enterprise}&quot;,&quot;蓝桥学院&quot;)
+                    .replace(&quot;{weixin}&quot;,&quot;157468995&quot;);
+
+            //将替换后的内容 输出到文件   ，内存 -&gt;文件（Writer）
+            writer.write(content);
+            System.out.println(&quot;成功...&quot;);
+
+//            writer.flush(); 将管道中的数据 刷出到 文件中
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+               if(writer!=null) writer.close();
+                if(reader!=null) reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
+
+</code></pre>
+
+<p>自带缓冲区的字符流：缓冲区大小，一行</p>
+
+<p>BufferedReader /BufferedWriter</p>
+
+<pre><code class="language-java">import java.io.*;
+
+public class FileCopyCharactorBuffered {
+    public static void main(String[] args) {
+        //文件-&gt;内存（Reader）
+        Reader reader = null ;
+        Writer writer = null ;
+
+        BufferedReader br = null ;
+                BufferedWriter bw = null ;
+
+        try {
+             reader = new FileReader(&quot;d:/个人介绍.txt&quot;);
+             writer = new FileWriter(&quot;d:/个人完整介绍2.txt&quot;) ;
+
+
+             br = new BufferedReader( reader) ;
+             bw = new BufferedWriter( writer);
+
+            StringBuffer sb = new StringBuffer() ;
+
+            String line = null ;
+
+            while( (line= br.readLine()) != null   ){
+                sb.append(line) ;
+            }
+
+            System.out.println(sb);
+
+            //在内存中 替换占位符
+            String content = sb.toString() ;
+            content= content.replace(&quot;{name}&quot;,&quot;颜群&quot;)
+                    .replace(&quot;{enterprise}&quot;,&quot;蓝桥学院&quot;)
+                    .replace(&quot;{weixin}&quot;,&quot;157468995&quot;);
+
+            //将替换后的内容 输出到文件   ，内存 -&gt;文件（Writer）
+
+
+            bw.write(content);
+            System.out.println(&quot;成功...&quot;);
+
+//            writer.flush(); 将管道中的数据 刷出到 文件中
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+
+            /*
+            *    1先关出，再关入
+            *    2从外往内关  br外 = new BufferedReader( reader内) ;
+            * */
+            try {
+               if(bw != null) bw.close();
+              if(br!=null )  br.close();
+               if(writer!=null) writer.close();
+                if(reader!=null) reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+}
+
+</code></pre>
+
+<p>带缓冲区的字符流  对象 = new  带缓冲区的字符流(字符流) ；</p>
+
+<p>二进制流</p>
+
+<p>DataInputStream/DataOutputStream</p>
+
+<p>二进制流  对象 = new 二进制流(字节流) ；</p>
+
+<pre><code class="language-java">import java.io.*;
+//二进制流
+public class FileCopyData {
+    //abc.txt-&gt;内存-&gt;xyz.txt
+    public static void main(String[] args) {
+        InputStream in = null ;
+        OutputStream out = null ;
+        InputStream dataInput = null ;
+        OutputStream dataOutput = null ;
+        try {
+            //abc.txt-&gt;内存
+             in = new FileInputStream(&quot;d://resources/技术收录/Java/Java知识点_6285.JPG&quot;) ;
+
+              dataInput = new DataInputStream(in) ;//字节流-&gt;二进制流
+
+             out = new FileOutputStream(&quot;e:/颜群微信3.jpg&quot;) ;
+              dataOutput = new DataOutputStream(out );//字节流-&gt;二进制流
+
+            //开辟10字节的内存
+            byte []buf = new byte[10] ;
+            int len = -1 ;
+
+        while(   (len= dataInput.read(buf)) != -1){//in -&gt;buf
+            dataOutput.write(buf,0,len);//buf-&gt;out
+        }
+            System.out.println(&quot;成功&quot;);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if(dataOutput !=null) dataOutput.close();
+                if(dataInput !=null) dataInput.close();
+                if(out !=null)out.close();
+                if(in !=null) in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="装饰模式-io设计的核心思想">装饰模式：IO设计的核心思想</h2>
+
+<p>在不影响原有对象的前提下，无侵入的给一个对象增一些额外的功能。（套娃！！）</p>
+
+<p>new InputStreamReader( new FileInputStream(new File(&ldquo;d:/abc.txt&rdquo;)) ) ;</p>
+
+<p>装饰模式</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576461139194.png" alt="1576461139194" /></p>
+
+<p>装饰者：需要持有主题（被装饰者）的一个引用。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576462471474.png" alt="1576462471474" /></p>
+
+<p>装饰主题接口</p>
+
+<pre><code class="language-java">package decorator;
+public interface Phone {
+    void call();//基础功能
+}
+
+</code></pre>
+
+<p>装饰主题的基础功能</p>
+
+<pre><code class="language-java">package decorator;
+public class ConcretePhone implements  Phone {
+    @Override
+    public void call() {
+        System.out.println(&quot;打电话....&quot;);
+    }
+}
+
+</code></pre>
+
+<p>装饰者抽象类</p>
+
+<pre><code class="language-java">package decorator;
+public abstract class SmartPhone  implements  Phone{
+   private  Phone phone  ;//装饰者 持有 主题的一个引用
+
+   public SmartPhone(){
+   }
+
+   public SmartPhone(Phone phone){
+      this.phone = phone ;
+   }
+
+   //装饰者 包含 原主题已有的功能
+   @Override
+   public void call() {
+      phone.call();
+   }
+}
+
+</code></pre>
+
+<p>具体装饰者1</p>
+
+<pre><code class="language-java">package decorator;
+public class ConcreteSmarPhone1  extends  SmartPhone{
+    public ConcreteSmarPhone1(Phone phone){
+        super(phone) ;
+    }
+    public void call(){
+        super.call();
+        //额外的新功能
+        changeColor();
+    }
+    public void changeColor(){
+        System.out.println(&quot;智能变色...&quot;);
+    }
+}
+
+</code></pre>
+
+<p>具体装饰者2</p>
+
+<pre><code class="language-java">package decorator;
+public class ConcreteSmarPhone2 extends  SmartPhone{
+    public ConcreteSmarPhone2(Phone phone){
+        super(phone) ;
+    }
+    public void call(){
+        super.call();
+        //额外的新功能
+        changeSize();
+    }
+    public void changeSize(){
+        System.out.println(&quot;智能改变尺寸...&quot;);
+    }
+}
+</code></pre>
+
+<p>测试类</p>
+
+<pre><code class="language-java">package decorator;
+public class Test {
+    public static void main(String[] args) {
+        ConcretePhone phone = new ConcretePhone();
+        //主题（被装饰者）
+        phone.call();
+        System.out.println(&quot;---&quot;);
+
+ConcreteSmarPhone1 phone1 = new ConcreteSmarPhone1( phone ) ;
+        phone1.call();
+
+        System.out.println(&quot;---&quot;);
+
+        ConcreteSmarPhone2 phone2 = new ConcreteSmarPhone2( phone ) ;
+        phone2.call();
+
+
+        System.out.println(&quot;-------&quot;);
+
+       SmartPhone smart =  new ConcreteSmarPhone2(new ConcreteSmarPhone1( phone )) ;
+        smart.call();
+    }
+}
+
+</code></pre>
+
+<h1 id="网络编程">网络编程</h1>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576568236682.png" alt="1576568236682" /></p>
+
+<p>ip地址：网络上的 唯一标识。</p>
+
+<p>ip的组成：32位，由4个8位二进制组成  （每一位最大值是255，每一位十进制标识  0-255）</p>
+
+<p>‭11000000‬.‭10101000‬.‭00000001‬.‭01100100‬  二进制不容易被记忆，改成十进制：192.168.1.100</p>
+
+<p>192.168.300.101 错 （每一位最大值是255，每一位十进制标识  0-255）</p>
+
+<p>协议： 为了让网络中不同计算机之间能够相互通信而建立的规则、标准、约定。本课程使用的TCP、UDP</p>
+
+<ul>
+<li>TCP协议：面向连接的、可靠的（不丢失、不重复、有序）、基于字节流的传输通信协议。传输速度相对慢。</li>
+<li>UDP协议：无连接的协议。在传输数据之前，客户端和服务端之间不建立和维护连接。提供不可靠的数据传输。传输速度相对快。</li>
+</ul>
+
+<p>socket（套接字）：基于TCP协议的网络通信，可以提供双向安全连接的网络通信。<strong>socket需要借助于数据流（字节流）来完成数据的传递工作</strong></p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576569161833.png" alt="1576569161833" /></p>
+
+<p>可见：发送数据，OutputStream</p>
+
+<p>接受数据，InputStream</p>
+
+<p>本机默认ip：localhost     127.0.0.1</p>
+
+<p>案例：</p>
+
+<p>模板</p>
+
+<p>1.客户端建立连接  ；服务端准备服务（ip[默认本机]:端口）</p>
+
+<p>2.通过socket生成inputstream/outputstream（准备发送数据）</p>
+
+<p>3.使用inputstream/outputstream进行发送、接受数据</p>
+
+<p>4.关闭inputstream/outputstream、socket</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576571307737.png" alt="1576571307737" /></p>
+
+<p>服务端（ServerSocket）</p>
+
+<pre><code class="language-java">package demo01;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+/*
+ * Created by 颜群
+ */
+public class MyServer {
+
+    public static void main(String[] args) {
+//        1.准备服务.ip:默认本机127.0.0.1,端口8888
+        ServerSocket serverSocket = null ;
+        Socket socket = null ;
+        InputStream in = null ;
+        BufferedReader reader = null ;
+        OutputStream out = null ;
+        try {
+             serverSocket = new ServerSocket(8888) ;
+            System.out.println(&quot;服务器启动&quot;);
+            //准备完毕，可以监听客户端请求
+             socket = serverSocket.accept();//一直阻塞，直到有客户端连接
+            System.out.println(&quot;服务端检测到客户端连接成功！&quot;);
+            
+
+            //  2.通过socket生成inputstream/outputstream（准备发送数据）
+             //3.使用inputstream/outputstream进行发送、接受数据
+             in = socket.getInputStream();
+            //带缓冲区的字符流（字节流-转换流-字符流）
+             reader = new BufferedReader(new InputStreamReader(in));
+            String info = null ;
+            while(  (info=reader.readLine()) != null       ){
+                System.out.println(&quot;I am server,接受到客户端信息是：&quot; + info);
+            }
+
+            socket.shutdownInput();
+
+
+
+            //服务端做出反馈
+             out = socket.getOutputStream();
+            out.write(&quot;welcome  client....&quot;.getBytes());
+
+        socket.shutdownOutput();
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                // 4.关闭inputstream/outputstream、socket
+               if(reader !=null) reader.close();
+                if(out !=null) out.close();
+                if(in !=null) in.close();
+                if(socket !=null) socket.close();
+                if(serverSocket !=null) serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>客户端（Socket）</p>
+
+<pre><code class="language-java">package demo01;
+
+import java.io.*;
+import java.net.Socket;
+
+/*
+ * Created by 颜群
+ */
+public class MyClient {
+
+    public static void main(String[] args) {
+        Socket socket = null ;
+        OutputStream out = null ;
+        InputStream in = null ;
+        BufferedReader reader = null ;
+        try {
+             socket = new Socket(&quot;127.0.0.1&quot;,8888);
+            System.out.println(&quot;客户端链接成功！&quot;);
+             out = socket.getOutputStream();
+            out.write( &quot;hello server&quot;.getBytes()  );
+            socket.shutdownOutput();
+
+            //接收服务端的反馈
+             in = socket.getInputStream();
+             reader = new BufferedReader(new InputStreamReader(in));
+            String info = null;
+            while(   (info=reader.readLine()) != null ){
+                System.out.println(&quot;I am client,接收到的服务端消息：&quot;+info);
+            }
+
+            socket.shutdownInput();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+               if(out!=null) out.close();
+                if(in!=null) in.close();
+                if(socket!=null) socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="对象流">对象流</h2>
+
+<p>网络传递一个对象： 1.将要传递的对象序列化  2.使用对象流（ObjectInputStream/ObjectOutputStream）</p>
+
+<p>对象</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576632938710.png" alt="1576632938710" /></p>
+
+<pre><code class="language-java">package demo02;
+
+import java.io.Serializable;
+public class Student implements Serializable {//将要传递的对象序列化
+    private int sid ;
+    private String sname ;
+    private int age ;
+
+    public Student(){
+
+    }
+    public Student(int sid, String sname, int age) {
+        this.sid = sid;
+        this.sname = sname;
+        this.age = age;
+    }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Student{&quot; +
+                &quot;sid=&quot; + sid +
+                &quot;, sname='&quot; + sname + '\'' +
+                &quot;, age=&quot; + age +
+                '}';
+    }
+}
+
+</code></pre>
+
+<p>服务端</p>
+
+<pre><code class="language-java">package demo02;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+public class MyServer {
+    public static void main(String[] args) {
+        ServerSocket serverScoket = null ;
+        Socket socket = null ;
+        InputStream in = null ;
+        ObjectInputStream ois = null ;
+        try {
+             serverScoket = new ServerSocket( 8888) ;
+             socket = serverScoket.accept();
+
+            //接受客户端发来的对象
+             in = socket.getInputStream();
+            //对象流
+             ois = new ObjectInputStream(in);
+            try {
+                Student student = (Student)ois.readObject();//读取对象
+                System.out.println(student);
+                socket.shutdownInput();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+               if(ois!=null) ois.close();
+                if(in!=null)   in.close();
+                if(socket!=null)  socket.close();
+                if(serverScoket!=null)  serverScoket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>客户端</p>
+
+<pre><code class="language-java">package demo02;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+public class MyClient {
+    public static void main(String[] args) {
+        Socket socket = null ;
+        OutputStream out = null ;
+        ObjectOutputStream oos = null ;
+        try {
+             socket = new Socket(&quot;localhost&quot;,8888) ;
+
+            Student student = new Student(1001,&quot;zs&quot;,23);
+
+             out = socket.getOutputStream();
+            //将OutputStream转为对象流
+             oos = new ObjectOutputStream(out) ;
+            oos.writeObject( student );//发送对象
+            socket.shutdownOutput();
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(oos!=null) oos.close();
+                if(out!=null)   out.close();
+                if(socket!=null)  socket.close();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="多客户端问题">多客户端问题</h2>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576637353440.png" alt="1576637353440" /></p>
+
+<p>思路：客户端代码不变；服务端：每当有一个客户端，就开启一个新线程去处理（每个线程专门处理一个客户端对象）。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576638316325.png" alt="1576638316325" /></p>
+
+<p>服务端线程</p>
+
+<pre><code class="language-java">package demo03;
+
+import java.io.*;
+import java.net.Socket;
+public class ServerThread  extends  Thread{
+
+    Socket socket  ;
+    public ServerThread(Socket socket){
+      this.socket = socket;
+    }
+
+    @Override
+    public void run() {
+        InputStream in =null ;
+        ObjectInputStream ois  = null ;
+        OutputStream out = null ;
+        try {
+            //接受客户端数据（客户端—&gt;服务端）
+             in = socket.getInputStream();
+             ois  = new ObjectInputStream(in) ;
+            Student student =  (Student)ois.readObject() ;
+            System.out.println(student);
+            socket.shutdownInput();
+
+            //给客户端反馈(服务端-&gt;客户端)
+             out = socket.getOutputStream();
+            out.write(&quot;已收到....&quot;.getBytes());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                out.close();
+                ois.close();
+                in.close();
+                socket.close(); ;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>服务端</p>
+
+<pre><code class="language-java">package demo03;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MyServer {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(8888) ;
+
+            while(true) {
+                Socket socket = serverSocket.accept();//阻塞，接受客户端请求
+                ServerThread serverThread = new ServerThread(socket) ;
+                serverThread.start();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+</code></pre>
+
+<p>客户端</p>
+
+<pre><code class="language-java">package demo03;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+/*
+ * Created by 颜群
+ */
+public class MyClient {
+    public static void main(String[] args) {
+        Socket socket = null ;
+        OutputStream out = null ;
+        ObjectOutputStream oos = null ;
+        try {
+             socket = new Socket(&quot;localhost&quot;,8888) ;
+
+            Student student = new Student(1001,&quot;zs&quot;,23);
+
+             out = socket.getOutputStream();
+            //将OutputStream转为对象流
+             oos = new ObjectOutputStream(out) ;
+            oos.writeObject( student );//发送对象
+            socket.shutdownOutput();
+
+            //接受服务端的反馈
+            InputStream in = socket.getInputStream();
+            byte[] buf = new byte[100] ;
+            in.read(buf) ;
+            System.out.println(&quot;接收到的服务端反馈:&quot; + new String(buf)      );
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(oos!=null) oos.close();
+                if(out!=null)   out.close();
+                if(socket!=null)  socket.close();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="udp的实现">UDP的实现</h2>
+
+<p>DatagramPacket（数据）：封装了数据报的数据、数据长度、目标地址和目标端口</p>
+
+<p>DatagramScoket（收发器）：接收和发送DatagramPacket中封装好的数据</p>
+
+<p>接收方</p>
+
+<pre><code class="language-java">package demo04;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+/*
+ * Created by 颜群
+ */
+public class Receive {
+
+    public static void main(String[] args) {
+        DatagramSocket ds = null ;
+        byte[] data = new byte[64] ;
+        //准备接收数据的对象
+        DatagramPacket dp = new DatagramPacket(data , data.length) ;
+        //接收数据
+        try {
+             ds = new DatagramSocket(9999  );
+            ds.receive( dp );
+
+            //显示接收到的数据
+            String receiveData  = new String(dp.getData(), 0, data.length);
+            System.out.println(&quot;接收到的数据：&quot;+receiveData);
+            System.out.println(&quot;显示发送方的信息：&quot; +  dp.getAddress().getHostAddress() );
+
+
+
+
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            ds.close();
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>发送方</p>
+
+<pre><code class="language-java">package demo04;
+
+import java.io.IOException;
+import java.net.*;
+
+/*
+ * Created by 颜群
+ */
+public class Send {
+    public static void main(String[] args) {
+        DatagramSocket ds = null ;
+        //创建一个InetAddress对象
+        InetAddress ip = null ;
+        try {
+             ip = InetAddress.getByName(&quot;127.0.0.1&quot;);
+
+
+        String msg = &quot;helloserver..&quot; ;
+        DatagramPacket dp = new DatagramPacket(msg.getBytes(),msg.length(),ip,9999) ;
+         ds = new DatagramSocket() ;
+        ds.send(  dp );
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            ds.close();
+        }
+    }
+}
+
+</code></pre>
+
+<p>总结：发送数据使用的工具</p>
+
+<p>tcp：字节流</p>
+
+<p>udp:DatagramScoket</p>
+
+<h2 id="网络编程中一些工具类">网络编程中一些工具类</h2>
+
+<p>InetAddress</p>
+
+<pre><code class="language-java">   public static void main(String[] args) {
+        InetAddress host = null;
+        try {
+            //本机
+            host = InetAddress.getLocalHost();
+            System.out.println(host);
+            //网络中任意一台
+            InetAddress host163 = InetAddress.getByName(&quot;www.163.com&quot;);
+            System.out.println(host163);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+    }
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576720208036.png" alt="1576720208036" /></p>
+
+<p><strong>URL/URLConnection</strong></p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/1576720826201.png" alt="1576720826201" /></p>
+
+<p>以下示例，注意点：输入流  url-内存； 输出流：内存-本地</p>
+
+<pre><code class="language-java">package demo05;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+/*
+ * Created by 颜群
+ */
+public class URLDemo {
+    public static void main(String[] args) {
+        InputStream in = null ;
+        URLConnection urlConnection = null;
+        OutputStream out = null ;
+        try {
+            URL url = new URL(&quot;https://www.163.com/&quot;) ;
+             urlConnection = url.openConnection();
+             in = urlConnection.getInputStream();
+
+             out = new FileOutputStream(&quot;d:\\163.txt&quot;);
+            byte[] buf = new byte[64] ;
+            int len = -1 ;
+            while(  (len = in.read(buf)) != -1 ){
+                out.write(buf,0,len);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+               if(out!=null) out.close();
+                if(in!=null)  in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>​</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" title="Java知识点01" target="_blank" rel="external">https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/" title="Java进阶及JVM"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

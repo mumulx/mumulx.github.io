@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Java知识点01</title>
+      <link>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</guid>
+      <description>JDK8 lambda :简化代码 lambda λ 组成 ： 逗号隔开的参数列表 (x,x,x) () 箭头符号 -&amp;gt; 方法体 （λ代码块） 示例 package lambda; /* * Created by 颜群 */ public class Demo01 { public static void test01(){ new Thread(new Runnable() { @Override public void run() { System.out.println(&amp;quot;run....&amp;quot;); } }).start(); } public</description>
+    </item>
+    
+    <item>
       <title>Java进阶及JVM</title>
       <link>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
