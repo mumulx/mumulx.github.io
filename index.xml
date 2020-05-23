@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/</link>
     <description>Recent content on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java设计模式</title>
+      <link>https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>学习路线（掌握） JAVA语法 Java基础 JVM 类加载机制 - 字节码执行机制 - JVM内存模型 - GC垃圾回收 - JVM性能监控与故障定位 - JVM调优 多线</description>
+    </item>
     
     <item>
       <title>Java知识点01</title>
@@ -187,7 +196,7 @@
       <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</guid>
-      <description>Java反射 反射机制是在[运行状态]中: 对于任意一个类，都能够知道这个类的所有属性和方法; 对于任意一个对象，都能够调用它的任意一一个方法和属</description>
+      <description>Java反射 RTTI（RunTime Type Information，运行时类型信息） 反射机制是在[运行状态]中: 对于任意一个类，都能够知道这个类的</description>
     </item>
     
     <item>

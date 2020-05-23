@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-01-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-18T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="14414">
+<meta itemprop="wordCount" content="14447">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">24</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">25</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,7 +180,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">8</span></li>
+                    class="tag-list-count">9</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
@@ -242,6 +242,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="title">Java设计模式</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="title">Java知识点01</a>
                     </p>
                     <p class="item-date">
@@ -273,16 +283,6 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/" class="title">Java并发编程原理篇</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
@@ -461,7 +461,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14414字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14447字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:29分 </span>
       </div>
     </div>
@@ -469,6 +469,8 @@
       
 
 <h2 id="java反射">Java反射</h2>
+
+<p>RTTI（RunTime Type Information，运行时类型信息）</p>
 
 <p>反射机制是在[运行状态]中:</p>
 
@@ -500,7 +502,7 @@
 
 <li><p>对象.getClass</p>
 
-<pre><code>//通过反射获取类
+<pre><code class="language-java">//通过反射获取类
 //1. Class.forname()
 try {
 Class&lt;?&gt; forName = Class.forName(&quot;com.lx.myclass.Person&quot;);
@@ -522,7 +524,7 @@ System.out.println(forName3);
 
 <h3 id="获取方法">获取方法</h3>
 
-<pre><code>public static void test2() {
+<pre><code class="language-java">public static void test2() {
     Class&lt;?&gt; forName = null ;
     //class
     try {
@@ -546,7 +548,7 @@ System.out.println(forName3);
 
 <h3 id="获取所有的方法">获取所有的方法</h3>
 
-<pre><code>// 获取当前类所有方法
+<pre><code class="language-java">// 获取当前类所有方法
 //1.只能是当前类
 //2.忽略访问修饰符限制
 public static void test7() {
@@ -567,7 +569,7 @@ public static void test7() {
 
 <h3 id="获取接口">获取接口</h3>
 
-<pre><code>//获取所有接口
+<pre><code class="language-java">//获取所有接口
 public static void test3() {
     Class&lt;?&gt; forName = null ;
     //class
@@ -587,7 +589,7 @@ public static void test3() {
 
 <h3 id="获取父类">获取父类</h3>
 
-<pre><code>//获取所有父类
+<pre><code class="language-java">//获取所有父类
 public static void test4() {
     Class&lt;?&gt; forName = null ;
     //class
@@ -605,7 +607,7 @@ public static void test4() {
 
 <h3 id="获取所有的构造方法">获取所有的构造方法</h3>
 
-<pre><code>//获取所有构造方法
+<pre><code class="language-java">//获取所有构造方法
 public static void test5() {
     Class&lt;?&gt; forName = null ;
     //class
@@ -618,13 +620,13 @@ public static void test5() {
     // 获取所有父类  单继承
     Constructor&lt;?&gt;[] constructors = forName.getConstructors();
     for(Constructor&lt;?&gt; constructor:constructors)
-    System.out.println(constructor);
+    	System.out.println(constructor);
 }	
 </code></pre>
 
 <h3 id="获取所有的公共属性">获取所有的公共属性</h3>
 
-<pre><code>// 获取所有公共属性
+<pre><code class="language-java">// 获取所有公共属性
 public static void test6() {
     Class&lt;?&gt; forName = null;
     // class
@@ -645,7 +647,7 @@ public static void test6() {
 
 <h3 id="获取所有属性">获取所有属性</h3>
 
-<pre><code>// 获取当前类所有属性
+<pre><code class="language-java">// 获取当前类所有属性
 //1.只能是当前类
 //2.忽略访问修饰符限制
 public static void test8() {
@@ -665,7 +667,7 @@ public static void test8() {
 
 <h3 id="获取当前反射所代表类-接口-的对象">获取当前反射所代表类（接口）的对象</h3>
 
-<pre><code>// 获取当前反射所代表类（接口）的对象
+<pre><code class="language-java">// 获取当前反射所代表类（接口）的对象
 public static void test9() throws InstantiationException, IllegalAccessException {
     Class&lt;?&gt; forName = null;
     try {
@@ -681,7 +683,7 @@ public static void test9() throws InstantiationException, IllegalAccessException
 
 <h3 id="获取对象的实例-并操作对象">获取对象的实例，并操作对象</h3>
 
-<pre><code>// 获取对象的实例，并操作对象
+<pre><code class="language-java">// 获取对象的实例，并操作对象
 public static void test1() throws InstantiationException, IllegalAccessException {
     Class&lt;?&gt; forName = null;
     try {
@@ -698,7 +700,7 @@ public static void test1() throws InstantiationException, IllegalAccessException
 
 <h3 id="操作属性">操作属性</h3>
 
-<pre><code>// 操作属性
+<pre><code class="language-java">// 操作属性
 public static void test2() throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException {
     Class&lt;?&gt; forName = null;
     try {
@@ -715,12 +717,11 @@ public static void test2() throws InstantiationException, IllegalAccessException
     idField.set(person, 1);//相当于  person.setId(1);
     System.out.println(person.getId());
 }
-
 </code></pre>
 
 <h3 id="操作方法">操作方法</h3>
 
-<pre><code>// 操作方法
+<pre><code class="language-java">// 操作方法
 public static void test3()
         throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
     Class&lt;?&gt; forName = null;
@@ -735,12 +736,11 @@ public static void test3()
     myPrivateMethod.setAccessible(true);
     myPrivateMethod.invoke(person, null);
 }
-
 </code></pre>
 
 <h3 id="操作方法-带参">操作方法  带参</h3>
 
-<pre><code>// 操作方法  带参
+<pre><code class="language-java">// 操作方法  带参
 public static void test4()
         throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
     Class&lt;?&gt; forName = null;
@@ -760,7 +760,7 @@ public static void test4()
 
 <h3 id="操作构造方法">操作构造方法</h3>
 
-<pre><code>// 操作构造方法
+<pre><code class="language-java">// 操作构造方法
 public static void test5() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
         SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
     Class&lt;?&gt; forName = null;
@@ -778,7 +778,7 @@ public static void test5() throws InstantiationException, IllegalAccessException
 
 <h3 id="获取私有的构造方法">获取私有的构造方法</h3>
 
-<pre><code>// 操作构造方法
+<pre><code class="language-java">// 操作构造方法
 public static void test6() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
         SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
     Class&lt;?&gt; forName = null;
@@ -794,7 +794,7 @@ public static void test6() throws InstantiationException, IllegalAccessException
 
 <h3 id="构造方法new对象">构造方法new对象</h3>
 
-<pre><code>// 操作构造方法 new对象
+<pre><code class="language-java">// 操作构造方法 new对象
 public static void test7() throws InstantiationException, IllegalAccessException, NoSuchFieldException,
         SecurityException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
     Class&lt;?&gt; forName = null;
@@ -820,7 +820,7 @@ public static void test7() throws InstantiationException, IllegalAccessException
 methodName = staticMethod
 </code></pre>
 
-<pre><code>//动态加载类名和方法
+<pre><code class="language-java">//动态加载类名和方法
 public static void test8() throws FileNotFoundException, IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
     Properties properties = new Properties();
     properties.load(new FileReader(&quot;class.txt&quot;));
@@ -834,14 +834,12 @@ public static void test8() throws FileNotFoundException, IOException, NoSuchMeth
     }
     Method method = forName.getMethod(methodName);
     method.invoke(forName.newInstance());
-    
-    
 }
 </code></pre>
 
 <h3 id="反射可以越过-泛型检查">反射可以越过 泛型检查</h3>
 
-<pre><code>//反射可以越过 泛型检查
+<pre><code class="language-java">//反射可以越过 泛型检查
 public static void test9() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
     //此时只能添加Integer类型
     ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
@@ -864,7 +862,7 @@ public static void test9() throws NoSuchMethodException, SecurityException, Ille
 
 <h3 id="万能set">万能set</h3>
 
-<pre><code>import java.lang.reflect.Field;
+<pre><code class="language-java">import java.lang.reflect.Field;
 public class MyProperty {
 	//per.setXxx(value)
 	public static void setProperty(Object obj,String propertyName,Object value) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
@@ -877,7 +875,7 @@ public class MyProperty {
 
 </code></pre>
 
-<pre><code>public static void test10() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+<pre><code class="language-java">public static void test10() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
     Person person = new Person();
     MyProperty.setProperty(person, &quot;name&quot;, &quot;zs&quot;);
     MyProperty.setProperty(person, &quot;age&quot;, 23);
@@ -907,7 +905,7 @@ public class MyProperty {
 
 <p>是可逆的</p>
 
-<pre><code>package utils;
+<pre><code class="language-java">package utils;
 public class SecurityUtil {
 	//通过异或进行加密和解密  传入string(&quot;abc&quot;)---&gt;String(&quot;xyz&quot;)
 	public static String xor(String in) {//&quot;abc&quot;---&gt;{'a','b','c'}字符串变成字符数组
