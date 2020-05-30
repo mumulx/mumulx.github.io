@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-02-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="27957">
+<meta itemprop="wordCount" content="27976">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">25</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
@@ -180,7 +180,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">9</span></li>
+                    class="tag-list-count">11</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
@@ -242,6 +242,26 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/" class="title">网络通信与NIO</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/onjava8/" class="title">OnJava8学习与理解</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-26</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="title">Java设计模式</a>
                     </p>
                     <p class="item-date">
@@ -266,26 +286,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-18</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/05/juc/" class="title">Java并发编程JUC</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-16</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="title">Java并发编程</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-04-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-25</time>
                     </p>
                 </div>
             </li>
@@ -561,7 +561,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/redis%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:27957字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:27976字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:56分 </span>
       </div>
     </div>
@@ -766,7 +766,7 @@ save 60 10000
 </code></pre>
 
 <p>指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断
-电时导致- -段时间内的数据丢失。因为redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间
+电时导致一段时间内的数据丢失。因为redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间
 内只存在于内存中。默认为no</p>
 
 <pre><code>appendonly no
@@ -795,7 +795,8 @@ appendfsync everysec
 
 <p>虚拟内存文件路径，默认值为/tmp/redis . swap，不可多个Redis实例共享</p>
 
-<p>vm-swap-file /tmp/redis . swap</p>
+<pre><code>vm-swap-file /tmp/redis . swap
+</code></pre>
 
 <p>将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小，所有索引数据都是内存存储的
 (Redis的索引数揭就是keys)，也就是说,当vm-max- memory设置为0的时候，其实是所有value都存在于磁盘。默认值
@@ -804,14 +805,14 @@ appendfsync everysec
 <pre><code>vm-max -memory 0
 </code></pre>
 
-<p>Redis swap文件分成了 很多的page ,一个对象可以保存在多个page.上面,但一-个page上不能被多个对象共享,
+<p>Redis swap文件分成了 很多的page ,一个对象可以保存在多个page.上面,但一个page上不能被多个对象共享,
 vm-page-size是要根据存储的数据大小来设定的，作者建议如果存储很多小对象, page大小最好设置为32或者
 64bytes ;如果存储很大大对象，则可以使用更大的page，如果不确定，就使用默认值</p>
 
 <pre><code>vm-page-size 32
 </code></pre>
 
-<p>设置swap文件中的page数量， 由于页表( -种表示页面空闲或使用的bitmap)是在放在内存中的，, 在磁盘上每8
+<p>设置swap文件中的page数量， 由于页表( 一种表示页面空闲或使用的bitmap)是在放在内存中的，, 在磁盘上每8
 个pages将消耗1byt e的内存。</p>
 
 <pre><code>vm-pages 134217728
@@ -865,14 +866,14 @@ setex(String key, int seconds, String value)--字符串独有的方式
 
 <li><p>如果没有设置时间.那缓存就是永不过期</p></li>
 
-<li><p>如果设置了过期时间,之后又想让缓存永不过期,使用persist key</p>
+<li><p>如果设置了过期时间,之后又想让缓存永不过期,使用persist key</p></li>
+</ul>
 
 <h5 id="二采用lru算法动态将不用的数据删除">二采用LRU算法动态将不用的数据删除</h5>
 
 <p>内存管理的一种页面置换算法,对于在内存中但又不用的数据块(内存块)叫做LRU。</p>
 
-<p>操作系统会根据哪些数据属于LRU而将其移出内存而腾出空间来加载另外的数据。</p></li>
-</ul>
+<p>操作系统会根据哪些数据属于LRU而将其移出内存而腾出空间来加载另外的数据。</p>
 
 <ol>
 <li>volatile-lru :设定超时时间的数据中删除最不常使用的数据.</li>
@@ -898,7 +899,7 @@ bind 127.0.01 注释掉 允许除本机外的机器访问Redis服务
 requirepass设置密码设定数据库密码(保证服务安全/有些情况下不设定密码是无法进行远程连接访问的)
 </code></pre>
 
-<p>Redis采用的是单进程多线程的模式。当redis.conf中选项daemonize设置 成yes时,代表开启守护进程模式。在该模式下, redis会在后台运行,并将进程pid号写入至redis.conf选项pidfile设置的文件中,此时redis将一直运行,除非手动ill该进程。但当daemonize选项设置 成no时,当前界面将进入redis的命令行界面, exit强制退出或者关闭连接I具(putty,xshell等)都会导致redis进程退出。服务端开发的大部分应用都是采用后台运行的模式</p>
+<p>Redis采用的是单进程多线程的模式。当redis.conf中选项daemonize设置 成yes时,代表开启守护进程模式。在该模式下, redis会在后台运行,并将进程pid号写入至redis.conf选项pidfile设置的文件中,此时redis将一直运行,除非手动kill该进程。但当daemonize选项设置 成no时,当前界面将进入redis的命令行界面, exit强制退出或者关闭连接I具(putty,xshell等)都会导致redis进程退出。服务端开发的大部分应用都是采用后台运行的模式</p>
 
 <p>requirepass设置密码。因为redis速度相当快,所以一台比较好的服务器下,一个外部用户在一秒内可以进行15W次密码尝试,这意味着你需要设定非常强大的密码来防止暴力破解。可以通过redis的配置文件设置密码参数,这样客户端连接到redis服务就需要密码验证,这样可以让你的redis服务更安全</p>
 
@@ -950,7 +951,7 @@ requirepass设置密码设定数据库密码(有 些情况下不设定密码是�
 
 <p>开放端口</p>
 
-<p>开放8080端口(如下命令只针对Centos7以上)</p>
+<p>开放6379端口(如下命令只针对Centos7以上)</p>
 
 <p>查看已经开放的端口:</p>
 
@@ -1142,7 +1143,7 @@ type key：返回key所存储的值类型
 
 <p>getset 命令用于设置指定key的值，并返回key的旧值，当key不存在时，返回nil</p>
 
-<pre><code>setlen key
+<pre><code>strlen key
 </code></pre>
 
 <p>返回key所存储的字符串值的长度</p>
@@ -1173,7 +1174,7 @@ type key：返回key所存储的值类型
 
 <h5 id="自增-自减">自增/自减:</h5>
 
-<pre><code>INGR KEY-Name:
+<pre><code>INCR KEY-Name:
 </code></pre>
 
 <p>Incr 命令将 key 中存的数字值 1, 如果 key 不存在，那么 key 的值会先被初始化为 0，然后再执行 INCR 操作</p>
@@ -1189,7 +1190,7 @@ type key：返回key所存储的值类型
 
 <pre><code> DECR KEY_NAME 
  或 
- DECYBY KEY_NAME 减值
+ DECRBY KEY_NAME 减值
 </code></pre>
 
 <p>DECR 命令将 key 中储存的数字减 1</p>
@@ -1216,7 +1217,7 @@ type key：返回key所存储的值类型
 <li>3、计数器（常规 key-value 线存应用。常规计数：微博数，粉丝数）</li>
 </ul>
 
-<p>INCR 等指令本身就具有原子操作的特性，所以我们完全可以利用 Redis 的 NCR、INCRBY、DECR、DECRBY 等指令来实现原子计数的效果。假如，在某种场景下有 3 个客户端同时读取了 minum 的值（值为 2），然后对其同时进行了加 1 的操作，那么，最后 bynum 的值一定是 5。不少网站都利用 reds 的这个特性来实现业务上的统计计数需求。</p>
+<p>INCR 等指令本身就具有原子操作的特性，所以我们完全可以利用 Redis 的 INCR、INCRBY、DECR、DECRBY 等指令来实现原子计数的效果。假如，在某种场景下有 3 个客户端同时读取了 minum 的值（值为 2），然后对其同时进行了加 1 的操作，那么，最后 bynum 的值一定是 5。不少网站都利用 reds 的这个特性来实现业务上的统计计数需求。</p>
 
 <h3 id="hash类型">Hash类型</h3>
 
@@ -1231,6 +1232,8 @@ type key：返回key所存储的值类型
 <p>Redis中每个hash可以存储2的32次方-1键值对（40多亿）</p>
 
 <h4 id="hash命令">Hash命令</h4>
+
+<p>field字段</p>
 
 <h5 id="赋值命令">赋值命令</h5>
 
@@ -1277,7 +1280,7 @@ hexists key field ： 查看哈希表 key 中，指定的字段是否存在
 
 <p>用户 D 为查找的 key，存储的 value 用户对象包含姓名，年龄，生日等信息，如果用普通的 key-value结构来存储，主要有以下 2 种存储方式</p>
 
-<p>第一种方式将用户工 D 作为意找 key，把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是, 増加了序列化/反序列化的开销,并且在需要修改其中一项信息时,需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS 等复杂问题（并发安全问题）。</p>
+<p>第一种方式将用户ID 作为查找 key，把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是, 増加了序列化/反序列化的开销,并且在需要修改其中一项信息时,需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS 等复杂问题（并发安全问题）。</p>
 
 <p>比如：</p>
 
@@ -1299,7 +1302,7 @@ set user:1:score 20
 
 <p>总结：</p>
 
-<p>Redist 提供的 Hash 很好的解決了这个问题，Redis 的 Hash 实际是内部存储的 Value 为一个 Hashmap,</p>
+<p>Redis提供的 Hash 很好的解決了这个问题，Redis 的 Hash 实际是内部存储的 Value 为一个 Hashmap,</p>
 
 <p>并提供了直接存取这个 Map 成员的接口</p>
 
@@ -1331,9 +1334,13 @@ sismember key element                       # 判定元素是否在集合中，�
 
 srandmember key [count]                    # 随机从集合返回指定个数元素，count为可选参数，如果不写，默认为1
 
-spop key                                              # 从集合随机弹出元素，![\color{red}{Redis从3.2版本开始，spop
+spop key                                   # 从集合随机弹出元素，![\color{red}{Redis从3.2版本开始，spop
 
 smembers key                                      # 获取所有元素
+</code></pre>
+
+<pre><code>sadd myset 1 2 3 1  结果：&quot;3&quot;
+del myset
 </code></pre>
 
 <h5 id="注意">注意</h5>
@@ -1473,7 +1480,7 @@ ZREVRANGEBYSCORE key max min [WITHSCORES】：返回有序集中指定分数区�
 
 <h4 id="为什么需要-hyperloglog">为什么需要 Hyperloglog</h4>
 
-<p>如果要統计1亿个数据的基数值,大约需要内存100000008/1024/1024 s  12 M，内存減少占用的效果显警。
+<p>如果要統计1亿个数据的基数值,大约需要内存100000008/1024/1024 s  12 M，内存減少占用的效果显著。
  统计一个对象的基数值需要 12 M，如果统计 10000 个对象，就需要将近 1206, 同样不能广泛用于大数据场景。</p>
 
 <h4 id="误差率">误差率</h4>
@@ -1487,19 +1494,15 @@ ZREVRANGEBYSCORE key max min [WITHSCORES】：返回有序集中指定分数区�
 PFCOUNT key [key,,】：返回给定 Hyper Loglog 的基数估算值
 
 PFMERGE deskey sourcekey [sourcekey,】：将多个 Hyper Loglog 合并为一个 Hyperloglog
-
-
 </code></pre>
 
 <h4 id="场景">场景</h4>
 
-<p>HyperLogLog内存占用量非常小，但是存在错误率，开发者在进行数据 229</p>
-
-<p>结构选型时只需要确认如下几条即可:</p>
+<p>HyperLogLog内存占用量非常小，但是存在错误率，开发者在进行数据结构选型时只需要确认如下几条即可:</p>
 
 <ul>
 <li>只为了计算独立总数，不需要获取单条数据。</li>
-<li>可以容忍一定误差率，毕竟HyperLogLog在内存的占用量上有很大的优 势。</li>
+<li>可以容忍一定误差率，毕竟HyperLogLog在内存的占用量上有很大的优势。</li>
 <li>基数不大，数据量不大就用不上，会有点大材小用的浪费空间</li>
 <li>统计注册IP数</li>
 <li>统计每日访问IP数</li>
@@ -1571,11 +1574,11 @@ Lettuce：高级 Redis 客户端，用于线程安全同步，异步和响应使
 
 <h3 id="简介">简介</h3>
 
-<p>我们在使用springboot搭建微服务的时候,在很多时候还是需要redis的高速缓存来缓存一些数据 ,存储-些高频率访问的数据,如果直接使用redis的话又比较麻烦,在这里,我们使用jedis来实现redis缓存来达到高效缓存的目的</p>
+<p>我们在使用springboot搭建微服务的时候,在很多时候还是需要redis的高速缓存来缓存一些数据 ,存储一些高频率访问的数据,如果直接使用redis的话又比较麻烦,在这里,我们使用jedis来实现redis缓存来达到高效缓存的目的</p>
 
 <p>创建module&ndash;&gt;场景选择spring Web、Spring Boot DevTools、Lombok</p>
 
-<p>此时不要选择Redis，yin&rsquo;w</p>
+<p>此时不要选择Redis</p>
 
 <h3 id="1-引入依赖">1）、引入依赖</h3>
 
@@ -1742,7 +1745,7 @@ JdkSerializationRedisSerializer序列化被序列化对象必须实现Serializab
 
 <p>简介</p>
 
-<p>Redis发布订阅(pub/sub)是-种消息通信模式:发送者(pub)发送消息,订阅者(sub)接收消息。Redis客户端可以订阅任意数量的频道。</p>
+<p>Redis发布订阅(pub/sub)是一种消息通信模式:发送者(pub)发送消息,订阅者(sub)接收消息。Redis客户端可以订阅任意数量的频道。</p>
 
 <p>Redis发布订阅(pub/sub)是一种消息通信模式:发送者(pub)发送消息,订阅者(sub)接收消息。</p>
 
@@ -1752,8 +1755,8 @@ JdkSerializationRedisSerializer序列化被序列化对象必须实现Serializab
 
 <p>订阅频道:</p>
 
-<pre><code>SUBSCRIBE channe1 [channe1 ...] :订阅给定的一一个或多个频道的信息
-PSUBSCRIBE pattern [pattern ...] :订阅- 一个或多个符合给定模式的频道。
+<pre><code>SUBSCRIBE channe1 [channe1 ...] :订阅给定的一个或多个频道的信息
+PSUBSCRIBE pattern [pattern ...] :订阅一个或多个符合给定模式的频道。
 </code></pre>
 
 <p>发布频道:</p>
@@ -1879,7 +1882,7 @@ WATCH key  [key..] ：监视一个（或多个）key，如果在事务执行之�
 <ul>
 <li><p>默认的redis持久化机制</p></li>
 
-<li><p>RDB相当于照快照，保存的是一种状态， 几十G数据 -&gt; 几kb快照
+<li><p>RDB相当于快照，保存的是一种状态， 几十G数据 -&gt; 几kb快照
  这种方式就是将内存中数据以快照的方式写入到二进制文件中，默认的文件名为dump.rdb</p></li>
 
 <li><p>优点：</p>
@@ -1908,8 +1911,8 @@ WATCH key  [key..] ：监视一个（或多个）key，如果在事务执行之�
 <p>redis.conf中的save配置</p>
 
 <pre><code>save 900 1   //每 900 秒（15 分钟）至少 1 个 key 发生变化, 产生快照
- save 300 10 //每300秒(5分钟)至少10个key发生变化,产生快照
- save 60   10000  //毎60秒(1分钟)至少10000个key发生变化，产生快照
+save 300 10 //每300秒(5分钟)至少10个key发生变化,产生快照
+save 60   10000  //毎60秒(1分钟)至少10000个key发生变化，产生快照
 </code></pre>
 
 <h5 id="手动触发">手动触发</h5>
@@ -2010,7 +2013,7 @@ appendfsync no //完全依赖os，性能最好，持久化没保证
 <p>应对高并发时的一种解决方法 &mdash;&ndash; 关闭 主节点的aof</p>
 
 <ul>
-<li>关注主节点的aof</li>
+<li>关闭主节点的aof</li>
 <li>只开启从节点的aof</li>
 </ul>
 
@@ -2102,7 +2105,7 @@ slave-read-only yes
 
 <li><p>从节点内部的定时任务发现有主节点的信息，开始使用 socket 连接主节点</p></li>
 
-<li><p>连接建立成功后，发送 ping 命令，希望得到 pong 命令响应，否则会进行重连</p></li>
+<li><p>连接建立成功后，发送 ping 命令，希望得到 ping 命令响应，否则会进行重连</p></li>
 
 <li><p>如果主节点设置了权限，那么就需要从节点必须配置masterauth参数进行权限验证；如果验证失败，复制终止。</p></li>
 

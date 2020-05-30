@@ -5,10 +5,28 @@
     <link>https://mumulx.github.io/series/themes-guide/</link>
     <description>Recent content in Themes Guide on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>网络通信与NIO</title>
+      <link>https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</guid>
+      <description>网络通信基础 Socket入门 什么是Socket? Socket就是为网络服务提供的一种机制。 通讯的两端都有Sokcet. 网络通讯其实就是Sok</description>
+    </item>
+    
+    <item>
+      <title>OnJava8学习与理解</title>
+      <link>https://mumulx.github.io/2020/05/onjava8/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/05/onjava8/</guid>
+      <description>感谢该项目的开源从中学到了很多的知识，对于java也有了更深的了解 已经看了两遍，里面写的很好，从中收获了跟多，也认识到了自己的许多不足。对于</description>
+    </item>
     
     <item>
       <title>Java设计模式</title>
@@ -16,7 +34,7 @@
       <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
-      <description>学习路线（掌握） JAVA语法 Java基础 JVM 类加载机制 - 字节码执行机制 - JVM内存模型 - GC垃圾回收 - JVM性能监控与故障定位 - JVM调优 多线</description>
+      <description>学习路线（掌握） JAVA语法 Java基础 JVM 类加载机制 字节码执行机制 JVM内存模型 GC垃圾回收 JVM性能监控与故障定位 JVM调优 多线程 并发编程</description>
     </item>
     
     <item>
@@ -25,7 +43,7 @@
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</guid>
-      <description>JDK8 lambda :简化代码 lambda λ 组成 ： 逗号隔开的参数列表 (x,x,x) () 箭头符号 -&amp;gt; 方法体 （λ代码块） 示例 package lambda; /* * Created by 颜群 */ public class Demo01 { public static void test01(){ new Thread(new Runnable() { @Override public void run() { System.out.println(&amp;quot;run....&amp;quot;); } }).start(); } public</description>
+      <description>JDK8 lambda :简化代码 lambda λ 组成 ： 逗号隔开的参数列表 (x,x,x) () 箭头符号 -&amp;gt; 方法体 （λ代码块） 示例 package lambda; public class Demo01 { public static void test01(){ new Thread(new Runnable() { @Override public void run() { System.out.println(&amp;quot;run....&amp;quot;); } }).start(); } public static void test02(){ new Thread( // ()</description>
     </item>
     
     <item>
