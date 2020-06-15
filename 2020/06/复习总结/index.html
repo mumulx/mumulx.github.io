@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-06-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-06-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="69589">
+<meta itemprop="wordCount" content="69687">
 
 
 
@@ -340,14 +340,21 @@
 <li><a href="#rpc">RPC</a></li>
 <li><a href="#mybatis">Mybatis</a></li>
 </ul></li>
-<li><a href="#缓存">缓存</a></li>
+<li><a href="#缓存">缓存</a>
+<ul>
+<li><a href="#memcache">Memcache</a></li>
+<li><a href="#redis">Redis</a></li>
+</ul></li>
 <li><a href="#消息队列与数据库">消息队列与数据库</a>
 <ul>
 <li><a href="#kafka">kafka</a></li>
 <li><a href="#数据库事务">数据库事务</a></li>
 <li><a href="#mysql">Mysql</a></li>
 </ul></li>
-<li><a href="#架构的演讲之路与前沿技术">架构的演讲之路与前沿技术</a></li>
+<li><a href="#架构的演讲之路与前沿技术">架构的演讲之路与前沿技术</a>
+<ul>
+<li><a href="#容器化技术">容器化技术</a></li>
+</ul></li>
 <li><a href="#技术人行走职场的建议">技术人行走职场的建议</a></li>
 </ul></li>
 </ul>
@@ -386,14 +393,12 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:69589字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:139分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:69687字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:140分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-
-<p>/resources/杂七杂八/杂七杂八/</p>
 
 <h2 id="操作系统与计算机网络">操作系统与计算机网络</h2>
 
@@ -1148,17 +1153,17 @@
 
 <p>spring boot的目标是简化spring应用和服务的创建开发与部署，简化了配置文件，使用嵌入式web服务，还有诸多开箱即用的微服务功能，可以和spring cloud联合部署，spring boot的核心思想是约定大于配置，应用只需要很少的配置即可，简化了应用开发模式。</p>
 
-<p>Spring data是一个数据访问及操作的工具集，封装了对多种数据源的操作能力。包括JDBC、Redis、等。Springcloud。是一套完整的微服务解决方案，是一系列不同功能的微服务框架的集合。Spring cloud基于spring boot，简化了分布式系统的开发，集成了服务发现，配置管理、消息总线、负载均衡、断路器。数据监控的各种服务治理能力，比如sleuth。提供了全链路追踪能力，net flix套件提供了high streak熔断器做网关等众多的治理组件，configure组件提供了动态配置能力，bus组件支持了rabbit mq、kfaka、Active mq等消息队列，实现分布式服务之间的事件通信，spring security，用于快速构建安全的应用程序和服务。</p>
+<p>Spring data是一个数据访问及操作的工具集，封装了对多种数据源的操作能力。包括JDBC、Redis等。Springcloud是一套完整的微服务解决方案，是一系列不同功能的微服务框架的集合。Spring cloud基于spring boot，简化了分布式系统的开发，集成了服务发现，配置管理、消息总线、负载均衡、断路器、数据监控的各种服务治理能力，比如sleuth。提供了全链路追踪能力，Netflix套件提供了Hystrix熔断器做网关等众多的治理组件，configure组件提供了动态配置能力，bus组件支持了rabbit mq、kfaka、Active mq等消息队列，实现分布式服务之间的事件通信，spring security，用于快速构建安全的应用程序和服务。</p>
 
 <p>在spring boot和spring security OAuth2 的基础上，可以快速实现常见安全模型。比如单点登录、令牌中继、品牌交换。这里可以了解一下 OAuth2的授权机制和的认证方式。OAuth2是一种授权机制，规定了完备的授权认证流程。</p>
 
 <p>Jwt全称是jason web token，是一种把认证信息包含在token中的认证实现。OAuth2的授权机制，就可以运用jwt来作为认证的具体实现方法。</p>
 
-<p>第二个知识点是struts，它是曾经非常火爆的外部组合，ssh中的控制层，我们知道web服务一般都采用分层模型构建。就是 Model层负责内部数据模型。Controller负责请求的分发控制、dao层负责返回给用户展示的视图，struts实现的就是集中控制层的角色，struts采用filter实现，针对类进行拦截，每次请求就会创建一个action，不过使用struts的ssh组合，已经逐渐被使用spring mvc的ssm组合代替，一方面原因是由于struts对几次安全漏洞的处理，让大家对struts的信心受到了影响。另一方面string mvc更加灵活，不需要额外配置，不存在和string整合的问题，使用更加方便。所以建议。以ssm框架的学习为主。</p>
+<p>第二个知识点是struts，它是曾经非常火爆的web组合，ssh中的控制层，我们知道web服务一般都采用分层模型构建。就是 Model层负责内部数据模型。Controller负责请求的分发控制、dao层负责返回给用户展示的视图，struts实现的就是集中控制层的角色，struts采用filter实现，针对类进行拦截，每次请求就会创建一个action，不过使用struts的ssh组合，已经逐渐被使用spring mvc的ssm组合代替，一方面原因是由于struts对几次安全漏洞的处理，让大家对struts的信心受到了影响。另一方面string mvc更加灵活，不需要额外配置，不存在和string整合的问题，使用更加方便。所以建议。以ssm框架的学习为主。</p>
 
-<p>第三个知识点，我们来看看常用的orm框架，orm就是对象关系匹配。是为了解决面向对象与关系数据库存在互相不匹配的问题。简单来说，就是把关系数据库中的数据转化成面向对象程序中的对象，常用的orm框架有hibernate和mybatis，也就是ssh组合和ssm组合中的h与m我们来看一下它们的特点和区别，hibernate对数据库结构提供了完整的封装，实现了对象与数据库表之间的映射，能够自动生成并执行sql语句。只要定义了portal到数据库表的用水关系，就可以通过hibernate提供的方法完成数据库操作，hibernate符合GPA规范，就是 Java持久层API。mybatis是通过映射配置文件，将sql所需的参数和返回的结果映射到指定对象。mybatis是不会自动生成sql,需要自己定义sql语句，不过这样也更方便对sql语句进行优化。</p>
+<p>第三个知识点，我们来看看常用的orm框架，orm就是对象关系匹配。是为了解决面向对象与关系数据库存在互相不匹配的问题。简单来说，就是把关系数据库中的数据转化成面向对象程序中的对象，常用的orm框架有hibernate和mybatis，也就是ssh组合和ssm组合中的h与m我们来看一下它们的特点和区别，hibernate对数据库结构提供了完整的封装，实现了对象与数据库表之间的映射，能够自动生成并执行sql语句。只要定义了portal到数据库表的用水关系，就可以通过hibernate提供的方法完成数据库操作，hibernate符合JPA规范，就是 Java持久层API。mybatis是通过映射配置文件，将sql所需的参数和返回的结果映射到指定对象。mybatis是不会自动生成sql,需要自己定义sql语句，不过这样也更方便对sql语句进行优化。</p>
 
-<p>总结起来。hibernate配置要比mybatis复杂。学习成本也比mybatis高。mybatis是简单高效灵活，但是需要自己维护sql，hibernate功能强大，全自动适配不同数据库。但是非常复杂，灵活性稍差。再来看到图的右面，netty是一个高性能的异步事件驱动的网络通信框架，Netty对jdk原生的nIo进行封装，简化了网络服务的开发，耐的知识点详解，后面我也会说到。</p>
+<p>总结起来,hibernate配置要比mybatis复杂,学习成本也比mybatis高。mybatis是简单、高效、灵活，但是需要自己维护sql，hibernate功能强大，全自动适配不同数据库。但是非常复杂，灵活性稍差。再来看到图的右面，netty是一个高性能的异步事件驱动的网络通信框架，Netty对jdk原生的nio进行封装，简化了网络服务的开发，耐的知识点详解，后面我也会说到。</p>
 
 <p>下一个知识点是RPC服务。Motan、Dubbo、Grpc都是比较常用的高性能RPC框架，可以提供完善的服务治理能力。Java版本的通信层都是基于前面提到的netty实现的，他们的特点也会在详解中进行介绍。最后再简单介绍几个常用的框架，jersey和resteasy都是可以快速开发rest服务的框架，和spring mvc相比，这两个框架都基于jaxrs标准。而spring mvc基于servlet使用自己构建的API是两个不同的标准。shiro框架是一个与spring security类似的开源权限管理框架，用于访问的授权认证加密及会话管理，能够支持单机与分布式的session管理，相比security，shiro更加简单易用。</p>
 
@@ -1180,7 +1185,7 @@
 
 <p>再来看看spring框架，图中列出了string框架主要包含的组件，这张图来自spring四点几的文档，目前最新的5.x版本中，右面的portlet组件已经被废弃掉，同时增加了用于异步响应式处理的webFlux组件。</p>
 
-<p>这里你不需要对所有组件都详细了解，只需要重点了解最常用的几个组件实现，以及知道每个组件用来实现哪一类功能就可以了。图中红框住的是比较重要的组件，core组件是spring所有组件的核心beans组件和context组件，刚才我提到了，是实现IOC和依赖注入的基础。</p>
+<p>这里你不需要对所有组件都详细了解，只需要重点了解最常用的几个组件实现，以及知道每个组件用来实现哪一类功能就可以了。图中橙色框住的是比较重要的组件，core组件是spring所有组件的核心beans组件和context组件，刚才我提到了，是实现IOC和依赖注入的基础。</p>
 
 <p>AOP组件用来实现面向切面编程，web组件包括了stringMVC。是web服务的控制层实现。</p>
 
@@ -1188,36 +1193,34 @@
 
 <p>接下来是spring中机制和实现相关的知识点。我们从左边看起，aop的实现是通过代理模式，在调用对象的某个方法时，执行插入的切面逻辑，实现的方式有动态代理，也叫做运行时增强。比如jdk代理CGLib，还有静态代理，就是在编译时进行植入，或者类加载时进行植入，比如AspectJ 。关于AOP还需要了解一下对应的aspect，print，card，advice等注解和具体的使用方式。Place holder动态替换，主要需要了解替换发生的时间是在Beandefactory创建完成后，bean初始化之前，是通过实现BeanFactoryPostProcessor接口实现的，主要实现的方式。有PropertyPlaceholderConfigurer和PropertySourcesPlacesPlaceholderConfigurer实现。这两个类实现逻辑不一样。Spring boot使用的是PropertySourcesPlacesPlaceholderConfigurer。</p>
 
-<p>第三个知识点是事务。需要了解spring中对事物规定的隔离类型和事物传播类型。这里需要知道事物的隔离级别是由具体的数据库来实现的。事物的传播类型，可以重点了解最常用的requireed和Supports两种类型。再来看右上方需要重点掌握的核心类，applicationcontext，保存了IOC的整个应用上下文，可以通过其中的bean factory获取到任意的bean。beanfactory的主要作用是根据being definition，也就是being的描述。来创建具体的bean，beanWrapper是对bean的包装,一般情况下是在spring lOc的内部使用，提供了访问bean的属性值，属性编辑器注册，类型转换等功能，方便loc容器用统一的方式来访问bean的属性。</p>
+<p>第三个知识点是事务。需要了解spring中对事物规定的隔离类型和事物传播类型。这里需要知道事务的隔离级别是由具体的数据库来实现的。事物的传播类型，可以重点了解最常用的requireed和Supports两种类型。再来看右上方需要重点掌握的核心类，applicationcontext，保存了IOC的整个应用上下文，可以通过其中的bean factory获取到任意的bean。beanfactory的主要作用是根据being definition，也就是bean的描述。来创建具体的bean，beanWrapper是对bean的包装,一般情况下是在spring lOc的内部使用，提供了访问bean的属性值，属性编辑器注册，类型转换等功能，方便loc容器用统一的方式来访问bean的属性。</p>
 
-<p>Factorybean通过getobject方法返回实际的bean对象。例如魔毯框架中，refer对service的动态代理，就是通过factory bean来实现的。bean的scope。是指bean的作用域，默认情况下是单例模式，这也是使用最多的一种方式。多例模式，就是每次从beanFactory中获取bean时都创建一个新的bean。request，session，globalSession是在web服务中使用的scope，request每次请求时都会创建一个实例。session是在一个会话周期内保证只有一个session。</p>
-
-<p>Global session在五点几版本中已经不再使用。同时增加了application和web socket两种scope，分别保证在一个servlet context与一个web socket中只创建一个实例，还可以了解一下spring的事件机制，知道string定义的5种标准事件，了解如何自定义事件和实现对应的application listener来处理自定义事件。</p>
+<p>Factorybean通过getobject方法返回实际的bean对象。例如motan框架中，refer对service的动态代理，就是通过factory bean来实现的。bean的scope是指bean的作用域，默认情况下是单例模式，这也是使用最多的一种方式。多例模式，就是每次从beanFactory中获取bean时都创建一个新的bean。request，session，globalSession是在web服务中使用的scope，request每次请求时都会创建一个实例。session是在一个会话周期内保证只有一个session。 Global session在五点几版本中已经不再使用。同时增加了application和web socket两种scope，分别保证在一个servlet context与一个web socket中只创建一个实例，还可以了解一下spring的事件机制，知道string定义的5种标准事件，了解如何自定义事件和实现对应的application listener来处理自定义事件。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607205423503.png" alt="image-20200607205423503" /></p>
 
-<p>我们来看看string应用相关的知识点，首先要熟练掌握常用的注解的使用，按类型来分，可以分为类型类的注解，包括controller、service等，你可以重点了解一下component和bean这两个注解的区别，component注解在类上使用，表明这个类是个组件类，需要spring为这个类创建bean。bean注解使用在方法上告诉string，这个方法将会返回一个bean对象，需要把返回的对象注册到此类应用的上下文中，设置类的注解，可以重点了解autowired和qualifier。以及By ype byname等不同的自动装配机制。</p>
+<p>我们来看看string应用相关的知识点，首先要熟练掌握常用的注解的使用，按类型来分，可以分为类型类的注解，包括controller、service等，你可以重点了解一下component和bean这两个注解的区别，component注解在类上使用，表明这个类是个组件类，需要spring为这个类创建bean。bean注解使用在方法上告诉string，这个方法将会返回一个bean对象，需要把返回的对象注册到此类应用的上下文中，设置类的注解，可以重点了解autowired和qualifier。以及Bytype byname等不同的自动装配机制。</p>
 
-<p>web类主要以了解为主，关注requestMapping，getMappeing。PostMapping等路径匹配注解。以及Pathvariable、requestparam等参数获取注解。最后是功能类注解。包括。Import resource引用配置，components scan，注解自动扫描。Traditional事务注解等，这里就不一介绍了。再来看右面，我们需要了解配置string的几种方式，XML文件配置、注解配置和使用API进行配置，自动装配机制，需要了解按类型匹配进行自动装配，按变名称进行自动装配，构造器中的自动装配和自动检测等4种主要方式。</p>
+<p>web类主要以了解为主，关注requestMapping，getMappeing。PostMapping等路径匹配注解。以及Pathvariable、requestparam等参数获取注解。最后是功能类注解。包括。ImportResource引用配置，components scan，注解自动扫描。Traditional事务注解等，这里就不一一介绍了。再来看右面，我们需要了解配置string的几种方式，XML文件配置、注解配置和使用API进行配置，自动装配机制，需要了解按类型匹配进行自动装配，按变名称进行自动装配，构造器中的自动装配和自动检测等4种主要方式。</p>
 
 <p>最后还可以了解一下 list、set、map等集合类型的属性，它的配置方式，以及内部bean的使用。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607210051340.png" alt="image-20200607210051340" /></p>
 
-<p>这一页是spring context的初始化流程，左上角是三种类型的content，xml配置方式的content，spring boot 的 context和web服务的context，不论哪种centext的，创建后。都会调用abstract application context类的refresh方法。这个方法是我们要重点分析的。Refresh方法中。</p>
+<p>这部分是spring context的初始化流程，左上角是三种类型的content，xml配置方式的content，spring boot 的 context和web服务的context，不论哪种centext的，创建后。都会调用abstract application context类的refresh方法。这个方法是我们要重点分析的。Refresh方法中。</p>
 
 <ul>
 <li>第一步，首先对刷新进行准备，包括设置开始时间，设置激活状态，初始化contents环境中的占位符。这个动作根据子类的需求，由子类来执行。然后验证是否缺失必要的property。</li>
 <li>第二步，刷新并获取内部的beanfactory。</li>
 <li>第三步，对beanfactory进行准备工作。比如设置类加载器和后置处理器。配置不能自动装配的类型，注册默认的环境bean<br /></li>
 <li>第四步为contact的子类提供后置处理beanfactory的扩展能力。如果子类想在bean定义与加载完成后，开始初始化上下文之前。做一些特殊逻辑，可以复写这个方法。</li>
-<li>第五步，执行contents中注册的并factory后置处理器，这里有两种后置处理器。一种是可以注册bean的后置处理器。另一种是针对beanfactory进行处理的后置处理器。执行的顺序是先按优先级执行。可注册bean的处理器。然后再按优先级执行，针对beanfactory的处理器。对spring boot来说。这一步。会进行注解并definition的解析。流程如右面的小框中所示，由configuration class post processor触发，并注册到并factory。</li>
+<li>第五步，执行contents中注册的beanfactory后置处理器，这里有两种后置处理器。一种是可以注册bean的后置处理器。另一种是针对beanfactory进行处理的后置处理器。执行的顺序是先按优先级执行。可注册bean的处理器。然后再按优先级执行，针对beanfactory的处理器。对spring boot来说。这一步。会进行注解beandefinition的解析。流程如右面的小框中所示，由configuration class post processor触发，并注册到并factory。</li>
 <li>第六步。按优先级顺序。在beanfactory中注册bean后置处理器，bean后置处理器可以在bean的初始化前后执行处理。</li>
 <li>第七步。初始化消息源，消息源用来支持消息的国际化。</li>
 <li>第8步，初始化应用事件广播器，事件广播器。用来向application listener通知各种应用产生的事件。是一个标准的观察者模式。</li>
-<li>第9步。是留给子类的扩展步骤，用来让特定的context子类来初始化其他的bean。</li>
-<li>第10步。把实现了application listener的bean注册到事件广播器，并对广播器中早期没有广播的事件进行通知。</li>
-<li>第11步。冻结所有的bean描述信息的修改，实力化非延迟加载的单例bean。</li>
+<li>第9步,是留给子类的扩展步骤，用来让特定的context子类来初始化其他的bean。</li>
+<li>第10步,把实现了application listener的bean注册到事件广播器，并对广播器中早期没有广播的事件进行通知。</li>
+<li>第11步,冻结所有的bean描述信息的修改，实力化非延迟加载的单例bean。</li>
 <li>第12步，完成上下文的刷新工作。调用life cycle processor的on fresh方法，以及发布context refresh的even事件。</li>
 <li>最后在finally中。执行第13步，重置公共的缓存。比如。Reflection duties中的缓存，annotation units中的缓存等。</li>
 </ul>
@@ -1226,27 +1229,27 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607210657501.png" alt="image-20200607210657501" /></p>
 
-<p>面试中经常会问到比你的生命周期。我们先看绿色的部分，bean的创建过程，</p>
+<p>面试中经常会问到bean的生命周期。我们先看绿色的部分，bean的创建过程，</p>
 
 <ul>
 <li>首先调用bean的构造方法创建bean</li>
 <li>然后通过反射调用set方法进行属性的依赖注入。</li>
-<li>第三步，如果实现了beannameaware接口的话，会设置being的name。</li>
+<li>第三步，如果实现了beannameaware接口的话，会设置bean的name。</li>
 <li>第4步，如果实现了beanfactoryaware接口，会把bean factory设置给bean。</li>
 <li>第5步，如果实现了application context aware接口，会给bean设置application context。</li>
-<li>第6步。如果实现了bean post processor接口。则执行前置的处理方法。</li>
-<li>第7步实现了initializingBean接口的话，会执行 after property side的方法。</li>
+<li>第6步,如果实现了bean post processor接口。则执行前置的处理方法。</li>
+<li>第7步,实现了initializingBean接口的话，会执行 after property side的方法。</li>
 <li>第8步，执行自定义的init方法。</li>
-<li>第9步。执行bean post processor接口的后置处理方法。这时就完成了bean的创建过程。</li>
+<li>第9步,执行bean post processor接口的后置处理方法。这时就完成了bean的创建过程。</li>
 </ul>
 
-<p>那么在cean使用完毕需要销毁的时候。会先执。DisposableBean接口的destroy方法，然后再执行自定义的destroy方法。这部分也建议你阅读原版来加深理解。</p>
+<p>那么在bean使用完毕需要销毁的时候。会先执行DisposableBean接口的destroy方法，然后再执行自定义的destroy方法。这部分也建议你阅读原版来加深理解。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607211044348.png" alt="image-20200607211044348" /></p>
 
 <p>这介绍对spring进行定制化功能扩展时可以选择的一些扩展点。beanFactorytPostprocessor，是beanfactory的后置处理器，支持在beandfactory标准初始化完成后，对beanfactory进行一些额外处理。我们在讲context初始化流程时介绍过，这时所有的bean的描述信息已经加载完毕，但是还没有进行bean的初始化。例如我前面提到的 Property place holder configure。就是在这个扩展点上对bean属性中的占位符进行替换的。</p>
 
-<p>第二个扩展点。是beandefinitionregistrypostprocessor。它扩展自并beanFactoeyPostprocessor，在执行beanpost processor的功能前，提供了可以添加bean定义的能力。允许在初始化一般的bean前注册额外的bean。例如可以在这里根据bean的scope创建一个新的代理bean。第三个困难点是beanPostprocess，提供了在bean初始化的之前和之后插入自定义逻辑的能力，与beanfactory post process的区别，主要是处理对象不同，beanfactory post process是对beanfactory进行处理。beanpostprocessor时对bean进行处理。上面这三个扩展点，可以通过实现 order的或者 priority order的接口来指定执行顺序，实现priority order接口的processor，会先于实行order接口的执行。</p>
+<p>第二个扩展点。是beandefinitionregistrypostprocessor。它扩展自beanFactoeyPostprocessor，在执行beanpost processor的功能前，提供了可以添加bean定义的能力。允许在初始化一般的bean前注册额外的bean。例如可以在这里根据bean的scope创建一个新的代理bean。第三个困难点是beanPostprocess，提供了在bean初始化的之前和之后插入自定义逻辑的能力，与beanfactory post process的区别，主要是处理对象不同，beanfactory post process是对beanfactory进行处理。beanpostprocessor时对bean进行处理。上面这三个扩展点，可以通过实现 order的或者 priority order的接口来指定执行顺序，实现priority order接口的processor，会先于实行order接口的执行。</p>
 
 <p>第4个扩展点，是application contacts aware可以获得application content以及其中的bean，但需要在代码中动态获取bean时，可以通过实现这个接口来实现。</p>
 
@@ -1258,17 +1261,15 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607212354158.png" alt="image-20200607212354158" /></p>
 
-<p>第一个是spring boot启动流程，首先要配置environment。然后准备contact上下文，包括执行application context的后置处理器，初始化initialize，通知listener处理contacts prepared和contacts loaded的事件。最后执行refresh contact。也就是我们前面介绍过的 abstract application context类的fresh方法。然后要知道spring boot中有两种上下文。一种是不bootstrap，另一种是application。</p>
+<p>第一个是spring boot启动流程，首先要配置environment。然后准备contact上下文，包括执行application context的后置处理器，初始化initialize，通知listener处理contacts prepared和contacts loaded的事件。最后执行refresh contact。也就是我们前面介绍过的 abstract application context类的fresh方法。然后要知道spring boot中有两种上下文。一种是bootstrap，另一种是application。</p>
 
 <p>bootstrap是应用程序的副上下文，也就是说bootstrap会先于application加载。bootstrap主要用于从额外的资源来加载配置信息。还可以从本地外部配置文件中紧密属性，bootstrap里面的属性会优先加载，默认也不能被本地相同的配置覆盖。</p>
 
-<p>再来看右面 spring boot的注解，需要知道spring boot application。包含了component scan、Enable auto configuration 、Spring boot configuration三个注解。而spring boot configuration注解里面包含了 configuration注解，也就是spring的自动配置功能。Conditional注解是控制自动配置的生效条件的注解。例如。Bean或class的存在或不存在时进行配置。当满足条件时进行配置等。</p>
+<p>再来看右面 spring boot的注解，需要知道springBootApplication。包含了componentScan、EnableAutoConfiguration 、SpringBootConfiguration三个注解。而sSpringBootConfiguration注解里面包含了 configuration注解，也就是spring的自动配置功能、Conditional注解是控制自动配置的生效条件的注解。例如，Bean或class的存在或不存在时进行配置。当满足条件时进行配置等。</p>
 
-<p>最后。了解一下bootstrap的几个特色模块。Starter是spring提供的无缝集成功能的一种方式，使用某个功能时，开发者不需要关注各种依赖库的处理，不需要具体的配置信息，由bootstrap的自动配置进行bean的创建。</p>
+<p>最后，了解一下bootstrap的几个特色模块，Starter是spring提供的无缝集成功能的一种方式，使用某个功能时，开发者不需要关注各种依赖库的处理，不需要具体的配置信息，由bootstrap的自动配置进行bean的创建。</p>
 
-<p>例如。需要使用web功能时。只需要在依赖中引入spring boot，start web即可。Accurate是用来对应用程序进行监控和管理。通过rest for API请求来监管审计收集应用的运行情况。</p>
-
-<p>devtools提供了一系列开发工具的支持，来提高开发效率。例如支持热部署能力等。cli就是命令行接口是一个命令行工具，支持使用grow way脚本，可以快速搭建spring原型项目。</p>
+<p>例如。需要使用web功能时。只需要在依赖中引入springBoot-start-web即可。Accurate是用来对应用程序进行监控和管理。通过rest for API请求来监管审计收集应用的运行情况。devtools提供了一系列开发工具的支持，来提高开发效率。例如支持热部署能力等。cli就是命令行接口是一个命令行工具，支持使用grow way脚本，可以快速搭建spring原型项目。</p>
 
 <h3 id="netty">Netty</h3>
 
@@ -1278,37 +1279,37 @@
 
 <p>Netty内置了多种encoder的decode的实现，来解决TCP粘包问题。Netty处理消息时，使用了池化的ByteBufs缓冲池，来提高性能。同时结合内存零copy机制，减少了对象的创建，降低了GC的压力。</p>
 
-<p>第二个，要掌握Netty中的一些对象概念。比如。将socket封装成channel对象，在China读写消息时。使用chandler对消息进行处理。一组handle的顺序链接，组成了China pipeline的责任链模式，一个channel产生的所有事件，交给一个单线程的eventLoop事件处理器来进行串行处理，而bootstrap对象的主要作用是配置整个Netty程序，串联起各个组件，是一个Netty应用的起点。</p>
+<p>第二个，要掌握Netty中的一些对象概念。比如,将socket封装成channel对象，在channel读写消息时。使用chandler对消息进行处理。一组handle的顺序链接，组成了channel pipeline的责任链模式，一个channel产生的所有事件，交给一个单线程的eventLoop事件处理器来进行串行处理，而bootstrap对象的主要作用是配置整个Netty程序，串联起各个组件，是一个Netty应用的起点。</p>
 
-<p>第三个，要掌握Netty的线程模型，我会在稍后详解介绍Netty4的现场模型。右面第4点，要了解Netty的内存0copy技术，包括使用堆外内存，避免在socket的读写时，缓冲数据在对堆与对堆内进行频繁的复制，使用compositeByteBuf来减少对多个小的buffer合并时产生的内存复制。</p>
+<p>第三个，要掌握Netty的线程模型，我会在稍后详解介绍Netty4的现场模型。右面第4点，要了解Netty的内存零copy技术，包括使用堆外内存，避免在socket的读写时，缓冲数据在对堆与对堆内进行频繁的复制，使用compositeByteBuf来减少对多个小的buffer合并时产生的内存复制。</p>
 
 <p>使用file region实现文件传输时的零copy等。</p>
 
-<p>第5个，要了解TCP协议下粘包与半包产生的原因。知道Netty提供的多个decoder是，用什么方式解决这个问题的？例如。FixedLengthframe decoder用来解决固定大小数据包的占包问题。Linebased frame decoder适合对文本进行按行分包，delimiterbased frame decoder，适合按特殊字符作为分包标记的场景。</p>
+<p>第5个，要了解TCP协议下粘包与半包产生的原因。知道Netty提供的多个decoder是，用什么方式解决这个问题的？例如。FixedLengthframe decoder用来解决固定大小数据包的占包问题。Linebased frame decoder适合对文本进行按行分包，delimiterbased frame decoder，适合按特殊字符作为分包标记的场景。LengthFieldbasedframedecoder可以支持复杂的自定义协议分包等。</p>
 
-<p>LengthFieldbasedframedecoder可以支持复杂的自定义协议分包等。最后一个要简单了解一下Netty3和Netty4的区别，其中最主要的就是两个版本的线程处理模型完全不同，Netty4的处理模型更加优雅。其他的已Netty4的特点介绍为主即可。</p>
+<p>最后一个要简单了解一下Netty3和Netty4的区别，其中最主要的就是两个版本的线程处理模型完全不同，Netty4的处理模型更加优雅。其他的以Netty4的特点介绍为主即可。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607215321053.png" alt="image-20200607215321053" /></p>
 
-<p>Netty线程模型，采用服务端监听线程和IO线程分离的方式，看图的左面，boss线程负责监听事件，创建socket并绑定到work线程组。work线程组负责Io处理，线程组有eventloop，group实现。其中包含了多个eventloop事件处理器，每个eventloop包含一个处理线程，通常在NIO非阻塞模式下,Netty为每个channel分配一个event loop，并且它的整个生命周期中的事件都由这个eventLoop来处理。</p>
+<p>Netty线程模型，采用服务端监听线程和IO线程分离的方式，看图的左面，boss线程负责监听事件，创建socket并绑定到work线程组。work线程组负责IO处理，线程组有eventloop，group实现。其中包含了多个eventloop事件处理器，每个eventloop包含一个处理线程，通常在NIO非阻塞模式下,Netty为每个channel分配一个event loop，并且它的整个生命周期中的事件都由这个eventLoop来处理。</p>
 
-<p>一个event，loop可以绑定多个channel，我们再看图的右面，evenloop的处理模型。Netty4中，Channel的读写事件都是由work线程来处理的。请求处理中最主要的就是ChannelPipeline。其中包含了一组channel handle，这些handle组成了责任链模式，依次对Channel中的消息进行处理。一般接收消息时由Pipeline处理完成，会把消息提交到业务线程池进行处理。当业务线程处理完成时，会封装成task。提交回channel对应的eventloop写回返回值。</p>
+<p>一个event loop可以绑定多个channel，我们再看图的右面，evenloop的处理模型。Netty4中，Channel的读写事件都是由work线程来处理的。请求处理中最主要的就是ChannelPipeline。其中包含了一组channel handle，这些handle组成了责任链模式，依次对Channel中的消息进行处理。一般接收消息时由Pipeline处理完成，会把消息提交到业务线程池进行处理。当业务线程处理完成时，会封装成task。提交回channel对应的eventloop写回返回值。</p>
 
 <h3 id="rpc">RPC</h3>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607215730160.png" alt="image-20200607215730160" /></p>
 
-<p>RPC是远程过程调用的简写，rPC与HTTP一样，都可以实现远程服务的调用，但是在使用方式上有很大的区别，rPC能够像使用本地方法一样调用远程的方法。我们看看RPC的交互流程，图中绿色的模块是RPC中最主要的三个角色，左面是client就是请求的发起方。也可以叫做consumer。或者rubber，右面的模块是server端，也就是服务的提供方，也叫做Provider，为了保持较高的性能，client端一般都是直接请求远端的server节点，因此 RPC框架需要一个自动的服务注册与发现能力。上方绿色的注册中心就是用来动态维护可用服务节点信息的模块。图中的箭头代表交互流程。当serve提供服务时，向注册中心注册服务信息。告诉注册中心可以提供哪些服务。同时与注册中心保持心跳，或者维持长连接，来维持服务的可能状态。具体的方式与注册中心的时间有关。例如。ZK使用长链接推送方式。而channel使用心跳方式。当client需要使用服务时，会先向注册中心订阅服务，获得可用的server节点，并保存在client的本地。当serve节点发生变更时，会通知client更新本地server节点信息，client按某种负载均衡策略，直接请求server端使用服务。</p>
+<p>RPC是远程过程调用的简写，RPC与HTTP一样，都可以实现远程服务的调用，但是在使用方式上有很大的区别，RPC能够像使用本地方法一样调用远程的方法。我们看看RPC的交互流程，图中绿色的模块是RPC中最主要的三个角色，左面是client就是请求的发起方。也可以叫做consumer或者rubbe。右面的模块是server端，也就是服务的提供方，也叫做Provider，为了保持较高的性能，client端一般都是直接请求远端的server节点，因此 RPC框架需要一个自动的服务注册与发现能力。上方绿色的注册中心就是用来动态维护可用服务节点信息的模块。图中的箭头代表交互流程。当serve提供服务时，向注册中心注册服务信息，告诉注册中心可以提供哪些服务。同时与注册中心保持心跳，或者维持长连接，来维持服务的可能状态。具体的方式与注册中心的时间有关。例如。ZK使用长链接推送方式。而channel使用心跳方式。当client需要使用服务时，会先向注册中心订阅服务，获得可用的server节点，并保存在client的本地。当serve节点发生变更时，会通知client更新本地server节点信息，client按某种负载均衡策略，直接请求server端使用服务。</p>
 
-<p>这里要注意注册中心只参与服务节点的注册与变更通知，并不会参与到具体请求的处理当中。另外一般的rpc框架都提供了完整的服务治理能力。因此会额外的管理模块和信息采集模块来监控管理服务。如图中灰色的模块所示，</p>
+<p>这里要注意注册中心只参与服务节点的注册与变更通知，并不会参与到具体请求的处理当中。另外一般的RPC框架都提供了完整的服务治理能力。因此会额外的管理模块和信息采集模块来监控管理服务。如图中灰色的模块所示。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607220054661.png" alt="image-20200607220054661" /></p>
 
-<p>double是阿里开源的RPC框架，提供完善的服务治理能力，可以快速的为Java服务提供RPC能力，double提供了随机轮巡，最少调用优先等多种负载均衡策略，提供对ZK等多种注册中心的支持，能够自动完成服务的注册与发现，double提供可视化的管理后台，方便对服务状态进行监控和管理。Double的数据通讯默认使用我们前面介绍的Netty框架来实现的，拥有非常不错的性能。</p>
+<p>Dubbo是阿里开源的RPC框架，提供完善的服务治理能力，可以快速的为Java服务提供RPC能力，Dubbo提供了随机轮巡，最少调用优先等多种负载均衡策略，提供对ZK等多种注册中心的支持，能够自动完成服务的注册与发现，double提供可视化的管理后台，方便对服务状态进行监控和管理。Dubbo的数据通讯默认使用我们前面介绍的Netty框架来实现的，拥有非常不错的性能。</p>
 
 <p>第二个是微博开源的轻量级服务治理框架模板，Motan的特点是轻量级，提供强大灵活的扩展能力Motan提供了多语言支持。Motan通过a站的代理方式，实现了跨语言的service match支持，service match被誉为下一代的微服务。</p>
 
-<p>Motan Java版本的通信层也是通过Netty来实现的。基于TCP的私有协议进行通信。第三个是Google勘验的gIPC。G rPC默认使用product buff进行消息序列化。非常适合多语言服务之间进行交互。虽然gIPC本身支持的服务治理能力并不多，但提供了非常灵活的插件扩展能力，可以方便的实现自定义的服务治理功能。GrPC基于HTTP2协议，能够支持链接复用，并且提供了流式调用能力，也支持从服务端进行推送消息的能力。</p>
+<p>Motan Java版本的通信层也是通过Netty来实现的。基于TCP的私有协议进行通信。第三个是Google勘验的GRPC。GRPC默认使用product buff进行消息序列化。非常适合多语言服务之间进行交互。虽然GRPC本身支持的服务治理能力并不多，但提供了非常灵活的插件扩展能力，可以方便的实现自定义的服务治理功能。GRPC基于HTTP2协议，能够支持链接复用，并且提供了流式调用能力，也支持从服务端进行推送消息的能力。</p>
 
 <h3 id="mybatis">Mybatis</h3>
 
@@ -1316,17 +1317,27 @@
 
 <p>下面我们来看orm框架Mybatis，首先要了解它的特点，可以和habinitate来对比进行理解。Mybatis的优点，第一个是原生sql，不像habinitate的hacker，需要额外的学习成本。第二个优点是sql语句与代码进行了解耦合，这个与habinitate是一致的。</p>
 
-<p>第三个优点是功能简单，学习成本比较低，使用的门槛也非常低，可以快速上手。最后一个优点是Mysql调优比较灵活，对比habinitate那个sql语句是自动生成的，当有复杂语句需要进行优化时就比较难处理。Mybatis的缺点就是相比habinitate，这样的全自动orm框架不能自动生成sql语句，编写sql的工作量比较大，尤其是字段多，关联比较多的情况下，另一个缺点就是sql语句依赖于具体的数据库，导致数据库迁移性差。而habinitate则拥有良好的数据库可移植性。</p>
+<p>第三个优点是功能简单，学习成本比较低，使用的门槛也非常低，可以快速上手。最后一个优点是Mysql调优比较灵活，对比habinitated的sql语句是自动生成的，当有复杂语句需要进行优化时就比较难处理。Mybatis的缺点就是相比habinitate，这样的全自动orm框架不能自动生成sql语句，编写sql的工作量比较大，尤其是字段多，关联比较多的情况下，另一个缺点就是sql语句依赖于具体的数据库，导致数据库迁移性差。而habinitate则拥有良好的数据库可移植性。</p>
 
-<p>第二个知识点是缓存相关，Mybatis只提供两级缓存，Mybatis的一级缓存，存储作用域是session。会对同一个session中执行语句的结果进行缓存。来提高再次执行时的效率。Mybatis内部通过HashMap实现存储缓存，一级缓存默认开启的Mybatis的二级缓存的作用域，是一个mapper的namespace。在同一个namespace中查询sql时，可以从缓存中获取数据。二级缓存能够跨sqlSession生效。并且可以自定义存储源，比如ehcache 。 Mybatis是二级缓存，可以设置剔除策略，刷新间隔，缓存数量等参数来进行优化。</p>
+<p>第二个知识点是缓存相关，Mybatis只提供两级缓存，Mybatis的一级缓存，存储作用域是session。会对同一个session中执行语句的结果进行缓存。来提高再次执行时的效率。Mybatis内部通过HashMap实现存储缓存，一级缓存默认开启的。Mybatis的二级缓存的作用域，是一个mapper的namespace，在同一个namespace中查询sql时，可以从缓存中获取数据。二级缓存能够跨sqlSession生效。并且可以自定义存储源，比如ehcache、redis 。 Mybatis是二级缓存，可以设置剔除策略，刷新间隔，缓存数量等参数来进行优化。</p>
 
-<p>第三个是使用相关的知识点，第一个小点，Mybatis提供井号加大括号，这样的变量占位符来支持sql的预编译，防止sql注入。第二个获取自增主键的ID，可以通过使用 key property page和使用select key两种方式来实现。</p>
+<p>第三个是使用相关的知识点，第一个小点，Mybatis提供井号加大括号，这样的变量占位符来支持sql的预编译，防止sql注入。第二个获取自增主键的ID，可以通过使用keyProperty属性和使用selectKey 标签两种方式来实现。</p>
+
+<pre><code class="language-xml">&lt;!--增加一个用户并返回主键id--&gt;
+&lt;insert id=&quot;saveOne&quot; parameterType=&quot;com.buwei.entity.User&quot; &gt;
+    INSERT into user(name, password) value(#{name},#{password})
+    &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;int&quot;&gt;
+        select  last_insert_id()
+    &lt;/selectKey&gt;
+&lt;/insert&gt;
+&lt;insert id=&quot;saveOne&quot; parameterType=&quot;com.buwei.entity.User&quot;  useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+    INSERT into user(name, password) value(#{name},#{password})
+&lt;/insert&gt;
+</code></pre>
 
 <p>第三个小点要记住，动态最后常用的几个标签。例如for each。where、if 等。右边Mybatis的执行流程，咱们稍后再讲。</p>
 
-<p>第5个需要理解Mybatis主要对象有哪些？它们的作用是什么？例如，Sqlsessionfactory是用来创建Sqlsession的工厂类，一个Sqlsessionfactory对应配置文件中的一个环境，也就是一个数据库配置，对数据库的操作必须在Sqlession中进行。</p>
-
-<p>Sqlsession非线程安全，每一次操作完数据库后，做到调用close对其进行关闭。sqlsession通过内部的execute来执行增删改查操作。Statement handler用来处理sql语句的预编译，设置参数等。Primate handler用来设置预编译参数，Resultsethandler用来处理结果集。typehandler进行数据库类型和Java bean类型的互相映射。最后一个知识点需要了解Mybatis的插件机制。</p>
+<p>第5个需要理解Mybatis主要对象有哪些？它们的作用是什么？例如，Sqlsessionfactory是用来创建Sqlsession的工厂类，一个Sqlsessionfactory对应配置文件中的一个环境，也就是一个数据库配置，对数据库的操作必须在Sqlession中进行。Sqlsession非线程安全，每一次操作完数据库后，做到调用close对其进行关闭。sqlsession通过内部的execute来执行增删改查操作。Statement handler用来处理sql语句的预编译，设置参数等。Primate handler用来设置预编译参数，Resultsethandler用来处理结果集。typehandler进行数据库类型和Java bean类型的互相映射。最后一个知识点需要了解Mybatis的插件机制。</p>
 
 <p>要知道插件机制是通过拦截器组成责任链，来对executor、 statementHandler、ParameterHandler、resultSetHandler这4个作用点进行定制化处理。另外可以了解一下，基于插件机制实现的pagehelper分页插件</p>
 
@@ -1371,11 +1382,17 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607224054502.png" alt="image-20200607224054502" /></p>
 
-<p>缓存是高并发场景下提高热点数据访问性能的一个有效手段。在开发项目时经常会使用。到我们先看缓存的类型，分为本地缓存，分布式缓存和多级缓存，本地缓存就是在进程的内存中进行缓存，比如我们的JVM堆中。最简单的我们可以用LRUmap来实现，也可以使用这样的工具来实现。本地缓存是内存访问。没有远程交互的开销，性能最好，但是受限于单机容量，一般缓存较小且无法扩展。分布式缓存可以很好地解决这个问题。分布式缓存一般都提供良好的水平扩展能力。对较大数据量的场景也能应付自如。缺点就是需要进行远程请求，性能不如本地缓存。为了平衡这种状况，实际业务中。一般采用多级缓存。本地缓存只保存访问频率最高的部分热点数据，其他的热点数据。放在分布式缓存中。第二个知识点是淘汰策略。不管是本地缓存还是分布式缓存。为了保证较高的性能，都使用内存来保存数据。由于成本和内存容量的限制，当存储的数据超过缓存容量时，需要对缓存的数据进行剔除。一般的剔除策略有fIfo就是先入先出，淘汰最早的数据，lru最近最少使用的数据和lfu剔除最近使用频率最低的数据几种策略。</p>
+<p>缓存是高并发场景下提高热点数据访问性能的一个有效手段。在开发项目时经常会使用。到我们先看缓存的类型，分为本地缓存，分布式缓存和多级缓存，本地缓存就是在进程的内存中进行缓存，比如我们的JVM堆中。最简单的我们可以用LRUmap来实现，也可以使用这样的工具来实现。本地缓存是内存访问。没有远程交互的开销，性能最好，但是受限于单机容量，一般缓存较小且无法扩展。分布式缓存可以很好地解决这个问题。分布式缓存一般都提供良好的水平扩展能力。对较大数据量的场景也能应付自如。缺点就是需要进行远程请求，性能不如本地缓存。为了平衡这种状况，实际业务中。一般采用多级缓存。本地缓存只保存访问频率最高的部分热点数据，其他的热点数据。放在分布式缓存中。</p>
 
-<p>第三个知识点是使用缓存时常见的一些问题，我在后面详细讲解。剩下两个知识点是最常使用的分布式缓存Memcache和Redis。注意后面我会把Memcache简称为MC。先来看MC有哪些特点，MC处理请求时使用多线程异步IO的方式，可以合理利用CPU多核的优势，性能非常优秀，MC功能简单，使用内存储数据，只支持kv结构，不提供持久化和主从同步功能。Mc的内存结构以及钙化问题，我稍后详细讲解。Mc对缓存的数据可以设置失效期，过期后的数据会被清除，失效的策略采用延迟失效，就是当再次使用数据时检查是否失效，当容量存满时，会对缓存中的数据进行剔除，剔除时除了会对过期k进行清理，还会按LRU策略对数据进行剔除。另外还要记住几个使用MC的限制，k不能超过250个字节，value不能超过一兆字节，key的最大失效周期是30天。</p>
+<p>第二个知识点是淘汰策略。不管是本地缓存还是分布式缓存,为了保证较高的性能，都使用内存来保存数据。由于成本和内存容量的限制，当存储的数据超过缓存容量时，需要对缓存的数据进行剔除。一般的剔除策略有fIfo就是先入先出，淘汰最早的数据，FRU最近最少使用的数据和LFU剔除最近使用频率最低的数据几种策略。</p>
 
-<p>最后一个知识点redis，我会展开详细介绍。这里先简单说一下redis的特点，方便和MC比较，与MC不同的是 redis采用单线程模式处理请求，这样做的原因有两个，一个是因为采用非阻塞的异步事件处理 机制，另一个是缓存数据都是内存操作，IO时间不会太长，单线程可以避免线程上下文切换产生的代价。redis的另一个特点是支持久化。所以redis不仅可以用作缓存。也可以用作NOSQL数据库。相比MC redis还有一个非常大的优势，就是除了KV之外，还支持多种数据格式。最后redis供主从同步机制以及class集群部署能力，能够提供高可用服务。</p>
+<p>第三个知识点是使用缓存时常见的一些问题，我在后面详细讲解。剩下两个知识点是最常使用的分布式缓存Memcache和Redis。注意后面我会把Memcache简称为MC。先来看MC有哪些特点，MC处理请求时使用多线程异步IO的方式，可以合理利用CPU多核的优势，性能非常优秀，MC功能简单，使用内存存储数据，只支持kv结构，不提供持久化和主从同步功能。Mc的内存结构以及钙化问题，我稍后详细讲解。Mc对缓存的数据可以设置失效期，过期后的数据会被清除，失效的策略采用延迟失效，就是当再次使用数据时检查是否失效，当容量存满时，会对缓存中的数据进行剔除，剔除时除了会对过期k进行清理，还会按LRU策略对数据进行剔除。另外还要记住几个使用MC的限制，k不能超过250个字节，value不能超过一兆字节，key的最大失效周期是30天。</p>
+
+<p>最后一个知识点redis，我会展开详细介绍。这里先简单说一下redis的特点，方便和MC比较，与MC不同的是 redis采用单线程模式处理请求，这样做的原因有两个，一个是因为采用非阻塞的异步事件处理 机制，另一个是缓存数据都是内存操作，IO时间不会太长，单线程可以避免线程上下文切换产生的代价。</p>
+
+<p>redis的另一个特点是支持久化。所以redis不仅可以用作缓存。也可以用作NOSQL数据库。相比MC， redis还有一个非常大的优势，就是除了KV之外，还支持多种数据格式。最后redis供主从同步机制以及class集群部署能力，能够提供高可用服务。</p>
+
+<h3 id="memcache">Memcache</h3>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607224923680.png" alt="image-20200607224923680" /></p>
 
@@ -1391,17 +1408,19 @@
 
 <p>另外使用MC时，最好计算一下数据的预期平均长度，调整growth factor，以获得最恰当的设置，避免内存的大量浪费。</p>
 
+<h3 id="redis">Redis</h3>
+
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607230008809.png" alt="image-20200607230008809" /></p>
 
 <p>第二个知识点，我们来看看radis，首先是register支持的多种数据结构，要了解最常用的5种数据结构及相关的命令，稍后我详细介绍一下radis是怎么实现这5种结构的。</p>
 
-<p>第二个点是radis提供的功能，bit map位图是支持按bit位来存储信息，可以用来实现typeloglog，提供不精确的去重统计功能，比较适合用来做大规模数据去重的统计。例如统计uv只有special可以用来保存地理位置，并作位置距离计算，或者根据半径计算位置等，这三个其实也可以算作数据结构。</p>
+<p>第二个点是radis提供的功能，bit map是支持按bit位来存储信息，可以用来实现htperLogLog，提供不精确的去重统计功能，比较适合用来做大规模数据去重的统计。例如统计uv只有special可以用来保存地理位置，并作位置距离计算，或者根据半径计算位置等，这三个其实也可以算作数据结构。</p>
 
-<p>pub/sub是订阅发布功能，可以用作简单的消息队列，pipeline可以批量执行一组指令，一次性返回全部结果，可以减少频繁的请求应答。另一种方式是使用脚本，radis支持提交lua脚本来执行一系列的功能。</p>
+<p>pub/sub是订阅发布功能，可以用作简单的消息队列。pipeline可以批量执行一组指令，一次性返回全部结果，可以减少频繁的请求应答。另一种方式是使用脚本，radis支持提交lua脚本来执行一系列的功能。</p>
 
-<p>最后一个功能是事务，但radis提供的不是严格的事物，radis只保证串行执行命令，并且能保证全部执行，但是执行命令失败时并不会回滚，而是会继续执行下去。第三个知识点是radis的持久化，reddish提供了RDB和aof两种持续化方式，rdb是把内存中的数据集以快照形式写入磁盘，实际操作是通过fox进程执行的，采用二进制压缩存储，SOF是以文本日志的形式记录radis处理的每一个写入或者删除操作。RDB把整个radis的数据保存在单一文件中，比较适合用来做灾备。但缺点是快照保存完成之前，如果宕机这段时间的数据将会丢失。另外保存快照是可能导致服务短时间不可用，AOF对日志文件的写入操作使用追加模式，有灵活的同步策略，支持每秒同步，每次修改同步和不同步，缺点就是相同规模的数据集aof要大于RDB，aof在运行效率上往会慢于RDB。</p>
+<p>最后一个功能是事务，但radis提供的不是严格的事务，radis只保证串行执行命令，并且能保证全部执行，但是执行命令失败时并不会回滚，而是会继续执行下去。第三个知识点是radis的持久化，radis提供了RDB和AOF两种持续化方式，RDB是把内存中的数据集以快照形式写入磁盘，实际操作是通过父进程执行的，采用二进制压缩存储，SOF是以文本日志的形式记录radis处理的每一个写入或者删除操作。RDB把整个radis的数据保存在单一文件中，比较适合用来做灾备。但缺点是快照保存完成之前如果宕机，这段时间的数据将会丢失。另外保存快照是可能导致服务短时间不可用，AOF对日志文件的写入操作使用追加模式，有灵活的同步策略，支持每秒同步，每次修改同步和不同步，缺点就是相同规模的数据集AOF要大于RDB，AOF在运行效率上往会慢于RDB。</p>
 
-<p>再来看图的右面。第4个知识点是radis的高可用，radis支持主从同步提供class的集群部署模式，通过sentinel的哨兵来监控radis主服务器的状态。当主挂掉时，在从节点中根据一定策略选出新主，并调整其他从slave的新主，选主的策略简单的说有三个，slave部的priority设置的越低，优先级就越高。同等情况下，slave复制的数据越多，优先级就越高，相同的条件下，让ID越小就越容易被选中。在redis集群中，sentinel也会进行多实例部署，sentinel之间通过rough的协议来保证自身的高可用，redis class的使用分片机制，在内部分为16,384个slot，也就是2的14次方，分布在所有的master节点上，每个master节点负责一部分的slot，数据操作时，按k做crc16来计算，在哪个slot上，由哪个master进行处理，数据的冗余是通过slave节点来保障的。</p>
+<p>再来看图的右面。第4个知识点是Redis的高可用，Redis支持主从同步提供class的集群部署模式，通过sentinel的哨兵来监控Redis主服务器的状态。当主挂掉时，在从节点中根据一定策略选出新主，并调整其他从slave的新主，选主的策略简单的说有三个，slave部的priority设置的越低，优先级就越高。同等情况下，slave复制的数据越多，优先级就越高，相同的条件下，让ID越小就越容易被选中。在redis集群中，sentinel也会进行多实例部署，sentinel之间通过rough的协议来保证自身的高可用，redis class的使用分片机制，在内部分为16384个slot，也就是2的14次方，分布在所有的master节点上，每个master节点负责一部分的slot，数据操作时，按k做crc16来计算，在哪个slot上，由哪个master进行处理，数据的冗余是通过slave节点来保障的。</p>
 
 <p>第5个redis key可以设置过期时间，过期后redis 采用主动和被动结合的失效机制，一个是和MC一样，在访问时触发被动删除，另一种是定期的主动删除，</p>
 
@@ -1415,7 +1434,7 @@
 
 <p>Linkedlist在插入节点上复杂度很低，但它的内存开销很大，每个节点的地址不连续，容易产生内存碎片。此外这3.2版本后，增加了quick list，quicklist结合了两者的优点，quicklist本身是一个双向无关链表，它的每一个节点都是一个ziplist，哈希类型在redis中有ziplist和hashtable两种实现。</p>
 
-<p>在希表中所有的key和value字符串长度都小于64字节，且键值对的数量小于512个时，使用压缩表来节省空间，超过时转为使用hashtable</p>
+<p>在hash表中所有的key和value字符串长度都小于64字节，且键值对的数量小于512个时，使用压缩表来节省空间，超过时转为使用hashtable</p>
 
 <p>set类型的内部实现，可以是intset或者是hashtable，当集合中元素小于512，且所有的数据都是数值类型时，才会使用intset，否则会使用hashtable。最后sortedset是有序集合，有序集合的实现，可以是zip list，或者是skiplist的跳表，有序集合的编码转换条件与hash和list有些不同，当有序集合中元素数量小于128个时，并且所有元素长度都小于64字节时，会使用ziplist，否则会转换成skip list跳表。提示一下，redis的内存分配是使用ge molecule进行分配的，ge molecule将内存空间划分为小大巨大三个范围，并在范围内划分了许多小的内存块。当存储数据时，选择大小最合适的内存块进行分配，有利于减小内存碎片。</p>
 
@@ -1427,7 +1446,7 @@
 
 <p>第二个问题是数据不一致的问题，可以说只要使用缓存就要考虑如何面对这个问题，缓存不一致产生的原因，一般是主动更新失败。例如更新db后更新redis时，因为网络原因请求超时或者异步更新失败导致。解决的办法，如果服务对耗时不是特别敏感，可以增加重试，如果服务对耗时敏感，可以通过异步补偿任务来处理失败的更新，或者短期的数据不一致，不会影响业务，那么只要下次更新时可以成功就能保证最终一致性就可以了。</p>
 
-<p>第三个问题是缓存击穿，产生这个问题的原因，可能是外部的恶意攻击。例如对用户信息进行了缓存，但恶意攻击者使用不存在的用户ID，频繁请求接口，导致查询缓存不命中，然后穿透db查询依然不命中，这是会有大量的请求，穿透缓存访问到db解决的办法。一是对不存在的用户在缓存中保存一个空对象进行标记，防止相同ID再次访问db。不过有时这个方法并不能很好的解决问题，可能会导致缓存中存储大量的无用数据。另一个方法就是使用布隆过滤器，bloomfilter的特点是存在性检测，如果布bloomfilter中不存在，那么数据一定不存在。如果bloomfilter中存在，实际数据可能存在，也有可能不存在，这非常适合解决这类问题。</p>
+<p>第三个问题是缓存穿透，产生这个问题的原因，可能是外部的恶意攻击。例如对用户信息进行了缓存，但恶意攻击者使用不存在的用户ID，频繁请求接口，导致查询缓存不命中，然后穿透db查询依然不命中，这是会有大量的请求，穿透缓存访问到db解决的办法。一是对不存在的用户在缓存中保存一个空对象进行标记，防止相同ID再次访问db。不过有时这个方法并不能很好的解决问题，可能会导致缓存中存储大量的无用数据。另一个方法就是使用布隆过滤器，bloomfilter的特点是存在性检测，如果布bloomfilter中不存在，那么数据一定不存在。如果bloomfilter中存在，实际数据可能存在，也有可能不存在，这非常适合解决这类问题。</p>
 
 <p>第4个问题是缓存击穿，就是某个热点数据失效时，大量针对这个数据的请求，会穿透到数据源，为了解决这个问题，可以使用互斥锁更新，保证同一个进程中针对同一个数据，不会并发请求db减小db的压力。另一个方法就是使用随机配备方式，失效时随机sleep一段时间。再次查询，如果失败，再执行更新，还有一个方法是针对多个热点可以同时失效的问题，可以在缓存时使用固定时间，加上一个很小的随机数，避免大量的热点k同一时刻失效。</p>
 
@@ -1476,17 +1495,17 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608100254580.png" alt="image-20200608100254580" /></p>
 
-<p>提到的队列就是指消息队列。队列可以对应用进行解耦合，应用之间不用直接调用，可以通过队列来传递消息完成通信，队列也可以用来执行异步任务，任务提交方无需等待结果。队列的另一个作用是削峰填谷，在突发流量时可以通过队列做缓冲，不会对后端服务产生较大的压力。当峰值过去时，可以逐渐消费堆积的数据，来填平流量的低谷。消息队列一般还提供了一写多读的能力，可以用来做消息的广播与多播。关于队列你还需要知道两个主要的消息协议。JMS是Java的消息服务，规定了Java使用消息服务的API，在前面spring的课程中，我提到过 spring提供了支持，JMS组件，amqp是高级消息队列协议，是应用层协议的一个开放标准。</p>
+<p>提到的队列就是指消息队列。队列可以对应用进行解耦合，应用之间不用直接调用，可以通过队列来传递消息完成通信，队列也可以用来执行异步任务，任务提交方无需等待结果。队列的另一个作用是削峰填谷，在突发流量时可以通过队列做缓冲，不会对后端服务产生较大的压力。当峰值过去时，可以逐渐消费堆积的数据，来填平流量的低谷。消息队列一般还提供了一写多读的能力，可以用来做消息的广播与多播。关于队列你还需要知道两个主要的消息协议。JMS是Java的消息服务，规定了Java使用消息服务的API，在前面spring的j介绍中，我提到过 spring提供了支持JMS组件，amqp是高级消息队列协议，是应用层协议的一个开放标准。</p>
 
-<p>Amqp不从API层进行限定，而是直接定义网络交换的数据格式。因此。支持跨语言的能力。例如RabbitMQ就使用了AMQP实现。我们再来对比几个常用的消息队列，首先是rabbitmq使用Erlang浪开发的开源消息队列，中国Erlang的act模型，实现了数据的稳定可靠传输，支持产品amqp、 smtp等多种协议，因此也比较重量级。由于采用break代理架构发送给客户端时，现在中心队列进行排队，rabbitMQ的单机吞吐量在万级不算很高，activemq，可以部署于代理模式和P2P模式。支持多种协议，单机存储量在万级，但activemq不够轻巧，对于队列较多的情况支持不是很好，并且有较低概率丢失消息。</p>
+<p>Amqp不从API层进行限定，而是直接定义网络交换的数据格式。因此，支持跨语言的能力。例如RabbitMQ就使用了AMQP实现。我们再来对比几个常用的消息队列，首先是rabbitmq使用Erlang开发的开源消息队列，中国Erlang的act模型，实现了数据的稳定可靠传输，支持产品amqp、 smtp等多种协议，因此也比较重量级。由于采用break代理架构发送给客户端时，先在中心队列进行排队，rabbitMQ的单机吞吐量在万级不算很高，activemq，可以部署于代理模式和P2P模式。支持多种协议，单机存储量在万级，但activemq不够轻巧，对于队列较多的情况支持不是很好，并且有较低概率丢失消息。</p>
 
 <p>第三个RocketMQ是阿里开源的消息中间件，单机能够支持10万级的存储量，使用Java开发，具有高吞吐量高可用性的特点，适合在大规模分布式系统中应用，最后是kafka，由Scala开发的高性能跨语言分布式消息队列，单机吞吐量可以达到10万级，消息延迟在毫秒级，kafka 是完全的分布式系统。</p>
 
 <p>Broker.Producer、consumer都是原生自动支持分布式，依赖于组zookeeper做分布式协调，kafka支持一写多读，消息可以被多个客户端消费，消息有可能会重复，但是不会丢失。后面的讲解知识点，我会对kafka的架构进行介绍。</p>
 
-<p>左下方第二大知识点是常用的数据库中间件，数据库中间件一般提供了读写分离，数据库水平扩展的能力，首先是sharding-sphere，是一个开源的分布式数据库中间件解决方案，由Sharding-JDBC、Sharding-Proxy和Sharding-Sidecar，这几个独立的产品组成，适用不同的使用场景，这几个产品都提供标准化的数据分片，读写分离，柔性事物和数据治理功能，可适用于Java重构，异构语言、容器、云原生。等多种多样的应用场景。</p>
+<p>左下方第二大知识点是常用的数据库中间件，数据库中间件一般提供了读写分离，数据库水平扩展的能力，首先是sharding-sphere，是一个开源的分布式数据库中间件解决方案，由Sharding-JDBC、Sharding-Proxy和Sharding-Sidecar，这几个独立的产品组成，适用不同的使用场景，这几个产品都提供标准化的数据分片，读写分离，柔性事务和数据治理功能，可适用于Java重构，异构语言、容器、云原生。等多种多样的应用场景。</p>
 
-<p>目前sharding-sphere已经进入apache，发展速度非常的快，可以重点关注。第二个中间件是MyCat，也提供了分库分表能力，买cat基于proxy代理模式，后端可以支持Mysql、oracle、db2等不同的数据库实现。不过代理方式对性能会有一定影响。其他还有些数据库中间件，例如vtc等，这个使用不算广泛了解即可。</p>
+<p>目前sharding-sphere已经进入apache，发展速度非常的快，可以重点关注。第二个中间件是MyCat，也提供了分库分表能力，MyCat基于proxy代理模式，后端可以支持Mysql、oracle、db2等不同的数据库实现。不过代理方式对性能会有一定影响。其他还有些数据库中间件，例如vtc等，这个使用不算广泛了解即可。</p>
 
 <p>我们再来看右面，主要是数据库相关的知识点，首先需要知道不同类型的数据库，常用的关系型数据库主要是oracle和MySql。</p>
 
@@ -1494,11 +1513,11 @@
 
 <p>第二类是NOSQL。就是 Not only sql。一般指非关系型数据库。比如redis，提供了持久化的能力，支持多种数据类型。redis适用于数据变化快，写数据大小可预测的场景，mongoDB是一个基于分布式文件存储的数据库，将数据存储为一个文档，数据结构由键值对组成。</p>
 
-<p>mongoDB比较适合表结构不明确。写数据结构可能不断发生变化的场景，不适合有事物或者复杂查询的场景。hbase是建立在hdfs也就是Hadoop文件系统之上的分布式面向列的数据库，类似于Google的大表设计，hbase可以提供快速随机访问海量结构化数据，在表中它有行排序，一个表有多个列族，以及每个列族都可以有任意数量的列。hbase依赖于hdfs可以实现海量数据的可靠存储，适用于数据量大，写多读少，不需要复杂查询的场景。</p>
+<p>mongoDB比较适合表结构不明确。写数据结构可能不断发生变化的场景，不适合有事务或者复杂查询的场景。hbase是建立在hdfs也就是Hadoop文件系统之上的分布式面向列的数据库，类似于Google的大表设计，hbase可以提供快速随机访问海量结构化数据，在表中它有行排序，一个表有多个列族，以及每个列族都可以有任意数量的列。hbase依赖于hdfs可以实现海量数据的可靠存储，适用于数据量大，写多读少，不需要复杂查询的场景。</p>
 
 <p>cassandra是一个高可靠的大规模分布式存储系统，支持分布式的结构化kv存储，以高可用为主要目标。适合写多的场景，适合做一些简单的查询。不适合用来做数据分析统计。pika是一个可持久化的大容量类redis的存储服务，兼容redis的5种主要数据结构的大部分命令。pika使用磁盘存储，主要解决redis大容量存储的成本问题。</p>
 
-<p>第三类new sql数据库也越来越被大家关注。New sql是指新一代的关系型数据库。比较典型的有TiDB。TiDB是开源分布式关系数据库，几乎完全兼容Mysql，能够支持水平弹性扩展。S i d事务、标准sql，Mysql语法和Mysql协议，具有数据强一致性的高可用性。既适合在线事务处理，也是和在线分析处理。另外一个比较著名的new sql，是蚂蚁金服的OceanBase，OceanBase是可以满足金融级的可靠性和数据一致性要求的数据库系统。当你需要使用事务，并且数据量比较大，就比较适合使用ob。不过目前ob已经商业化，不再开源。</p>
+<p>第三类new sql数据库也越来越被大家关注。New sql是指新一代的关系型数据库。比较典型的有TiDB。TiDB是开源分布式关系数据库，几乎完全兼容Mysql，能够支持水平弹性扩展。S i d事务、标准sql，Mysql语法和Mysql协议，具有数据强一致性的高可用性。既适合在线事务处理，也是和在线分析处理。另外一个比较著名的new sql是蚂蚁金服的OceanBase，OceanBase是可以满足金融级的可靠性和数据一致性要求的数据库系统。当你需要使用事务，并且数据量比较大，就比较适合使用ob。不过目前ob已经商业化，不再开源。</p>
 
 <p>看数据库的范式，目前关系数据库一共有6种范式，第一范式第二范式第三范式、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式），范式级别越高，对数据表的要求越严格，要求最低的第一范式只要求表中的字段不可再拆分。</p>
 
@@ -1508,7 +1527,7 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608103353109.png" alt="image-20200608103353109" /></p>
 
-<p>我们来学习kafka的架构，先结合这张架构图来了解一下kafka中的几个概念。首先kafka消息队列由三个角色组成，左面的是消息生产方producer，中间是kafka集群。kafka集群由多台kafka server组成。每个server称为一个broker，也就是消息代理。右面是消息的消费方，consumer。传感中消息是按照topic进行划分的，一个topic就是一个q。我们在实际应用中，不同业务数据就可以设置为不同的topic。</p>
+<p>我们来学习kafka的架构，先结合这张架构图来了解一下kafka中的几个概念。首先kafka消息队列由三个角色组成，左面的是消息生产方producer，中间是kafka集群。kafka集群由多台kafka server组成。每个server称为一个broker，也就是消息代理。右面是消息的消费方consumer。传感中消息是按照topic进行划分的，一个topic就是一个q。我们在实际应用中，不同业务数据就可以设置为不同的topic。</p>
 
 <p>一个topic可以有多个消费方，当生产方在某个topic发出一条消息后。所有订阅了这个 topic的消费方都可以收到这条消息。为了提高并行能力，kafka为每个topic维护了多个partition分区。每个分区可以看做一份追加类型的日志，每个分区中的消息，保证ID唯一且有序，新消息不断追加在尾部。</p>
 
@@ -1526,45 +1545,39 @@
 
 <p>第二个讲解知识点是数据库事务，数据库的特性是面试时考察频率非常高的题目。我们先看看数据库的acId4大特性</p>
 
-<p>第一个原则性是指事物由原子的操作序列组成。所有的操作要么全部成功，要么全部失败回滚。</p>
+<p>第一个原则性是指事务由原子的操作序列组成。所有的操作要么全部成功，要么全部失败回滚。</p>
 
-<p>第二个事务的一致性是指事物的执行，不能破坏数据库数据的完整性和一致性。一个事物在执行前和执行之后，数据库都必须处于一致性状态。比如在做多表操作时。多个表，要么都是事物后的新值。要么都是事物前的旧值。</p>
+<p>第二个事务的一致性是指事务的执行，不能破坏数据库数据的完整性和一致性。一个事物在执行前和执行之后，数据库都必须处于一致性状态。比如在做多表操作时。多个表，要么都是事务后的新值。要么都是事务前的旧值。</p>
 
-<p>第三个事物的隔离性是指多个用户并发访问数据库时。数据库为每个用户执行的事务，不能被其他事物的操作所干扰，多个并发事物之间要相互隔离，事务的隔离级别我们稍后介绍。</p>
+<p>第三个事务的隔离性是指多个用户并发访问数据库时。数据库为每个用户执行的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离，事务的隔离级别我们稍后介绍。</p>
 
-<p>第4个事物的持久性。是指一个事物一旦提交并执行成功，那么对数据库中数据的改变是永久性的。即便是在数据库系统遇到故障的情况下，也不会丢失提交事务的操作。</p>
+<p>第4个事物的持久性。是指一个事务一旦提交并执行成功，那么对数据库中数据的改变是永久性的。即便是在数据库系统遇到故障的情况下，也不会丢失提交事务的操作。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608104819851.png" alt="image-20200608104819851" /></p>
 
-<p>在介绍数据库的隔离级别之前，我们先看看没有隔离性的情况下，数据库会出现哪些并发问题？看到图的左面，首先可能会出现脏读，脏读是指一个事务处理过程中读取了另一个未提交的事务中的数据。例如账户a转账给b500元，b余额增加后，但事物还没完成提交。此时如果另外的请求中，获取到的是b增加后的余额，这就发生了脏读。因为事务如果失败回滚时，b的余额就不应该增加。</p>
+<p>在介绍数据库的隔离级别之前，我们先看看在没有隔离性的情况下，数据库会出现哪些并发问题？看到图的左面，首先可能会出现脏读，脏读是指一个事务处理过程中读取了另一个未提交的事务中的数据。例如账户a转账给b500元，b余额增加后，但事务还没完成提交。此时如果另外的请求中，获取到的是b增加后的余额，这就发生了脏读。因为事务如果失败回滚时，b的余额就不应该增加。</p>
 
-<p>第二个并发问题是不可重复读，不可重复读是指对于数据库中的某个数据，一个事物范围内多次查询，返回了不同的数据值。这是由于多次查询之间，有其他事物修改的数据。并进行了提交。</p>
+<p>第二个并发问题是不可重复读，不可重复读是指对于数据库中的某个数据，一个事务范围内多次查询，返回了不同的数据值。这是由于多次查询之间，有其他事物修改的数据。并进行了提交。</p>
 
-<p>第三个是幻读，是指一个事物中执行两次完全相同的查询，第二次查询所返回的结果集跟第一次查询的不同，与不可重复读的区别在于不可重复读是对同一条记录两次读取的值不同，而幻读是记录的增加或者删除，导致两次相同条件获取的结果记录数不同。</p>
+<p>第三个是幻读，是指一个事务中执行两次完全相同的查询，第二次查询所返回的结果集跟第一次查询的不同，与不可重复读的区别在于不可重复读是对同一条记录两次读取的值不同，而幻读是记录的增加或者删除，导致两次相同条件获取的结果记录数不同。</p>
 
-<p>事务的4种隔离级别，可以解决这几种并发问题。我们看到这一页的右面由上到下，4种个人级别由低到高，第一个隔离级别是读未提交。也就是可以读取到其他事物未提交的内容。这是最低的隔离级别。在这个隔离级别下，前面提到三种并发问题，都可能会发生。</p>
-
-<p>第二个级别是读已提交。就是只能读取到其他事物已提交的数据。这个隔离级别可以解决脏读问题。</p>
-
-<p>第三个是可重复读，可以保证整个事务过程中对数据的多次读取结果是相同的，这个级别可以解决脏读和不可重复读的问题。MySql默认的隔离级别就是可重复读。</p>
-
-<p>最后一个是串行化，这是最高的隔离级别，所有事务操作都依次顺序执行。这个级别会导致并发度下降，性能最差。不过这个级别可以解决前面提到的所有并发问题。</p>
+<p>事务的4种隔离级别，可以解决这几种并发问题。我们看到这一页的右面由上到下，4种隔离级别由低到高，第一个隔离级别是读未提交。也就是可以读取到其他事务未提交的内容。这是最低的隔离级别。在这个隔离级别下，前面提到三种并发问题，都可能会发生。第二个级别是读已提交。就是只能读取到其他事务已提交的数据，这个隔离级别可以解决脏读问题。第三个是可重复读，可以保证整个事务过程中对数据的多次读取结果是相同的，这个级别可以解决脏读和不可重复读的问题。MySql默认的隔离级别就是可重复读。最后一个是串行化，这是最高的隔离级别，所有事务操作都依次顺序执行。这个级别会导致并发度下降，性能最差。不过这个级别可以解决前面提到的所有并发问题。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608105154996.png" alt="image-20200608105154996" /></p>
 
-<p>接下来我们看一下事务的分类，第一个是扁平化事务，扁平事务中，所有的操作都在同一层次，这也是我们平时使用最多的一种事物。它的主要限制是不能提交或者回滚事务的某一部分，要么都成功，要么都回滚。</p>
+<p>接下来我们看一下事务的分类，第一个是扁平化事务，扁平事务中，所有的操作都在同一层次，这也是我们平时使用最多的一种事务。它的主要限制是不能提交或者回滚事务的某一部分，要么都成功，要么都回滚。</p>
 
-<p>为了解决第一种事务的弊端，就有了第二种带保存点的扁平事务。他允许事物在执行过程中回滚到较早的状态，而不是全部回滚。通过在事物中插入保存点，当操作失败后，可以选择回滚到最近的保存点处。</p>
+<p>为了解决第一种事务的弊端，就有了第二种带保存点的扁平事务。他允许事务在执行过程中回滚到较早的状态，而不是全部回滚。通过在事务中插入保存点，当操作失败后，可以选择回滚到最近的保存点处。</p>
 
-<p>第三个事物是链事物。可以看作第二种事物的变种。他在事务提交时，会将必要的上下文隐式传递给下一个事物，当事物失败时，可以回滚到最近的事物。不过链事物只能回滚到最近的保存点。而在保存点的扁平化事务，是可以回滚到任意一个保存点。</p>
+<p>第三个事务是链事物。可以看作第二种事务的变种。他在事务提交时，会将必要的上下文隐式传递给下一个事务，当事务失败时，可以回滚到最近的事务。不过链事务只能回滚到最近的保存点。而在保存点的扁平化事务，是可以回滚到任意一个保存点。</p>
 
-<p>第4种事物是嵌套事务，由顶层事务和子事务构成，类似于树的结构，一般顶层事务负责逻辑处理，子事务负责具体的工作，此事务可以提交，但真正的提交要等到父事务的提交。如果上层事务回滚，那么所有的子事物都会回滚。</p>
+<p>第4种事务是嵌套事务，由顶层事务和子事务构成，类似于树的结构，一般顶层事务负责逻辑处理，子事务负责具体的工作，此事务可以提交，但真正的提交要等到父事务的提交。如果上层事务回滚，那么所有的子事务都会回滚。</p>
 
-<p>最后一种是分布式事务，是指在分布式环境中的扁平化事务。常用的分布式事物解决方案如图右面所示。第一个解决方案是XA协议，是保证强一致性的刚性事物，实现方式有两段式提交和三段式提交。两段式提交需要一个事物协调者。来保证所有的事物参与者都完成了第一阶段的准备工作。如果协调者收到了所有参与者都准备好的消息。就会通知所有的事务执行第二阶段提交，一般场景下两段式提交，已经能够很好的解决分布式事务了。然而两阶段在即使只有一个进程发生故障时，也会导致整个系统存在较长时间的阻塞。三段式提交，通过增加。Pre commit阶段来减少前面提到的系统阻塞时间。三段式提交很少在实际中使用。简单了解就可以了。</p>
+<p>最后一种是分布式事务，是指在分布式环境中的扁平化事务。常用的分布式事务解决方案如图右面所示。第一个解决方案是XA协议，是保证强一致性的刚性事务，实现方式有两段式提交和三段式提交。两段式提交需要一个事务协调者。来保证所有的事务参与者都完成了第一阶段的准备工作。如果协调者收到了所有参与者都准备好的消息。就会通知所有的事务执行第二阶段提交，一般场景下两段式提交，已经能够很好的解决分布式事务了。然而两阶段在即使只有一个进程发生故障时，也会导致整个系统存在较长时间的阻塞。三段式提交，通过增加。Pre commit阶段来减少前面提到的系统阻塞时间。三段式提交很少在实际中使用，简单了解就可以了。</p>
 
-<p>第二个分布式解决方案是tcc是满足最终一致性的柔性事物方案，tcc采用补偿机制。核心的思想是对每一个操作都要注册对应的确认和补偿操作。它分为三个阶段，try阶段，主要对业务系统进行检测及资源预留，confirm阶段，对业务系统进行确认提交。Cancel阶段是在业务执行错误执行回滚。释放预留的资源。</p>
+<p>第二个分布式解决方案是tcc是满足最终一致性的柔性事务方案，tcc采用补偿机制。核心的思想是对每一个操作都要注册对应的确认和补偿操作。它分为三个阶段，try阶段，主要对业务系统进行检测及资源预留，confirm阶段，对业务系统进行确认提交。Cancel阶段是在业务执行错误执行回滚，释放预留的资源。</p>
 
-<p>第三种方案是消息一致性方案，基本思路是将本地操作和发送消息封装在一个事务中。保证本地的操作和消息发送，要么都成功，要么都失败。下游应用订阅消息，收到消息后执行对应的操作。最后可以了解一下阿里云中的全局事务服务，gts对应的开源版本是fescar，fescar基于两段式提交进行改良，剥离了分布式事务方案，对数据库在协议支持上的要求。使用fescar的前提，是分支事务中涉及的资源，必须是支持acId事物的关系性数据库，分支的提交和回滚机制，都依赖于本地事物来保障。fescar实现目前还存在一些局限，比如事务隔离级别，最高支持到读已提交级别。</p>
+<p>第三种方案是消息一致性方案，基本思路是将本地操作和发送消息封装在一个事务中。保证本地的操作和消息发送，要么都成功，要么都失败。下游应用订阅消息，收到消息后执行对应的操作。最后可以了解一下阿里云中的全局事务服务，gts对应的开源版本是fescar，fescar基于两段式提交进行改良，剥离了分布式事务方案，对数据库在协议支持上的要求。使用fescar的前提，是分支事务中涉及的资源，必须是支持acId事务的关系性数据库，分支的提交和回滚机制，都依赖于本地事务来保障。fescar实现目前还存在一些局限，比如事务隔离级别，最高支持到读已提交级别。</p>
 
 <h3 id="mysql">Mysql</h3>
 
@@ -1574,13 +1587,11 @@
 
 <p>第二个知识点。要知道Mysql都提供哪些基本的数据类型。不同数据类型占用的空间大小，</p>
 
-<p>第三个知识点是Mysql中的主要存储引擎，MyIASM是Mysql官方提供的存储引擎，其特点是支持全文检索，查询效率比较高，缺点是不支持事务，使用表及锁。innodb在5.5版本后成为Mysql中的默认存储引擎。特点是支持aCAD事务，支持外建，支持行级锁提高的并发效率。TokuDB.是第三方开发的开源存储引擎，有非常快的写速度，支持数据的压缩存储。可以在线添加索引，而不影响读写操作。但是因为压缩的原因，TokuDB非常适合访问频率不高的数据，或者历史数据归档，不适合大量读取的场景。</p>
+<p>第三个知识点是Mysql中的主要存储引擎，MyIASM是Mysql官方提供的存储引擎，其特点是支持全文检索，查询效率比较高，缺点是不支持事务，使用表级锁。innodb在5.5版本后成为Mysql中的默认存储引擎。特点是支持aCAD事务，支持外建，支持行级锁提高的并发效率。TokuDB是第三方开发的开源存储引擎，有非常快的写速度，支持数据的压缩存储。可以在线添加索引，而不影响读写操作。但是因为压缩的原因，TokuDB非常适合访问频率不高的数据，或者历史数据归档，不适合大量读取的场景。</p>
 
 <p>第4个知识点是Mysql中的锁。刚才也提到了MyIASM使用表级锁，innoDB使用行级锁。</p>
 
-<p>表锁开销小加锁快，不会出现死锁，但锁的力度比较大，发生锁冲突的概率高，并发访问效率比较低；行级锁开销大，加锁慢有可能会出现死锁，不会因为锁定力度小，发生锁冲突的概率比较低，并发访问效率比较高；共享锁也就是读锁，其他事务可以读，但不能写。Mysql可以通过log in share mode，语句来显示的使用共享锁；排他所就是写锁，其他事物不能读取也不能写。对于update、Delete、insert语句 innoDB会自动给涉及的数据集加排他锁，或者使用select for update。使用显式的排他锁。</p>
-
-<p>第5个知识点索引，我们稍后讲解。</p>
+<p>表锁开销小加锁快，不会出现死锁，但锁的力度比较大，发生锁冲突的概率高，并发访问效率比较低；行级锁开销大，加锁慢有可能会出现死锁，不会因为锁定力度小，发生锁冲突的概率比较低，并发访问效率比较高；共享锁也就是读锁，其他事务可以读，但不能写。Mysql可以通过log in share mode，语句来显示的使用共享锁；排他锁就是写锁，其他事务不能读取也不能写。对于update、Delete、insert语句 innoDB会自动给涉及的数据集加排他锁，或者使用select for update。使用显式的排他锁。第5个知识点索引，我们稍后讲解。</p>
 
 <p>第6个知识点。是Mysql的存储过程与函数，存储过程与函数，都可以避免开发人员重复编写相同的sql语句，并且存储过程和函数都是在Mysql服务器中运行的，可以减少客户端与服务端的数据传输，存储过程实现了更复杂的功能。而函数一般用来实现针对性比较强的功能。比如按特殊策略来求和。存储过程。可以执行，包括修改表等一系列数据库操作，而用户定义函数不能用于执行修改全局数据库状态的操作。</p>
 
@@ -1592,9 +1603,9 @@
 
 <p>先来看索引，索引可以大幅增加数据库的查询性能，在实际业务场景中或多或少都会使用到，但索引也是有代价的。</p>
 
-<p>首先需要额外的磁盘空间来保存索引。其次，对于插入、更新、删除等操作，由于更新索引会增加额外的开销，因此索引比较适合用在读多写少的场景。我们先学习Mysql的索引类型。看得出左面的模块。Mysql的索引按类型有唯一索引。就是索引列中的值必须是唯一的，但是允许出现空值，这种索引一般用来保证数据的唯一性。比如保存账户信息的表。每个账户的ID必须要保证 唯一，如果重复插入相同的账户ID，这个时候Mysql会返回异常。第二种主键索引是一种特殊的唯一索引，但它不允许出现空值。第三种是普通索引，与唯一索引不同，它允许索引列中存在相同的值。例如学生的成绩表。各个学科的分数是允许重复的，就可以使用普通索引。第4种是联合索引，就是由多个列共同组成的索引。一个表中含有多个单列的索引，并不是联合索引，联合索引是对多个列字段按顺序共同组成一个索引。应用联合索引时需要注意最左原则。就是 While查询条件中的字段必须与索引字段从左到右进行匹配。比如一个用户信息表用姓名和年龄组成了联合索引。如果查询条件是姓名等于张三。那么满足最左原则，如果查询条件是年龄大于20。由于索引中最左的字段是姓名，不是年龄。所以就不能使用这个索引。</p>
+<p>首先需要额外的磁盘空间来保存索引。其次，对于插入、更新、删除等操作，由于更新索引会增加额外的开销，因此索引比较适合用在读多写少的场景。我们先学习Mysql的索引类型。看得出左面的模块。Mysql的索引按类型有唯一索引。就是索引列中的值必须是唯一的，但是允许出现空值，这种索引一般用来保证数据的唯一性。比如保存账户信息的表。每个账户的ID必须要保证唯一，如果重复插入相同的账户ID，这个时候Mysql会返回异常。第二种主键索引是一种特殊的唯一索引，但它不允许出现空值。第三种是普通索引，与唯一索引不同，它允许索引列中存在相同的值。例如学生的成绩表。各个学科的分数是允许重复的，就可以使用普通索引。第4种是联合索引，就是由多个列共同组成的索引。一个表中含有多个单列的索引，并不是联合索引，联合索引是对多个列字段按顺序共同组成一个索引。应用联合索引时需要注意最左原则。就是 While查询条件中的字段必须与索引字段从左到右进行匹配。比如一个用户信息表用姓名和年龄组成了联合索引。如果查询条件是姓名等于张三。那么满足最左原则，如果查询条件是年龄大于20。由于索引中最左的字段是姓名，不是年龄。所以就不能使用这个索引。</p>
 
-<p>最后一个类型是全文索引，前面提到了MyIASM引擎中实现了这个索引。在5.6版本后，innodb引擎也支持了全文索引，并且在5.7.6版本后支持了中文索引。全文索引只能在char、varchar、test类型上使用，底层使用的是倒排索引实现。要注意对于大数据量的表生成全文索引会非常消耗时间，也非常消耗磁盘空间。再看到图右面的模块，Mysql的索引，按时间来分，有我们前面学习过的B+树，B+树比较适合用做大于或者小于这样的范围查询，是Mysql中最常使用的一种索引实现。</p>
+<p>最后一个类型是全文索引，前面提到了MyIASM引擎中实现了这个索引。在5.6版本后，innodb引擎也支持了全文索引，并且在5.7.6版本后支持了中文索引。全文索引只能在char、varchar、text 类型上使用，底层使用的是倒排索引实现。要注意对于大数据量的表生成全文索引会非常消耗时间，也非常消耗磁盘空间。再看到图右面的模块，Mysql的索引，按时间来分，有我们前面学习过的B+树，B+树比较适合用做大于或者小于这样的范围查询，是Mysql中最常使用的一种索引实现。</p>
 
 <p>R-Tree是一种用于处理多维数据的数据结构。可以对地理数据进行空间索引，不过实际业务场景中使用的比较少.hash是使用散列表来对数据进行索引，hash是不需要像B-Tree那样需要查询多次才能定位到记录，因此hash索引的效率比b_tree高。但是不支持范围查找和排序等功能，实际使用的也比较少。最后fullText就是我们前面提到的全文索引。是一种记录关键字与对于文档关系的一种倒排索引。</p>
 
@@ -1604,11 +1615,9 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608140836714.png" alt="image-20200608140836714" /></p>
 
-<p>我们重点来看刚才说的前两个维度，先看到左边的模块，关于表结构和索引的优化，应掌握如下原则。第一个要在设计表结构时考虑数据库的水平和垂直扩展能力，提前规划好未来一年的数据量和读写量的增长，规划好分库分表方案。比如设计用户信息表时，预计一年后用户数据10亿条。写qps约5000，读qps 3万。可以设计按uId维度进行散列。分为4个库，每个库32张表。这样可以保证单表数据量控制在千万级别。第二个，要为字段选择合适的数据类型。在保留扩展能力的前提下，优先选用较小的数据结构。 例如保持年龄的字段，要使用talent。而不要使用int。第三个可以将字段多的表分解成多个表。必要时增加中间表进行关联。假如一张表有四五十个字段，显然不是一个好的设计。第4个一般来说，我们设计关系数据库时，需要满足第三范式，但为了满足第三范式，我们可能会拆分出多张表，而在查询时就需要对多张表进行关联查询，有时为了提高查询效率，会降低范式要求，在表中保存一定的冗余信息，也叫做反范式。</p>
+<p>我们重点来看刚才说的前两个维度，先看到左边的模块，关于表结构和索引的优化，应掌握如下原则。第一个要在设计表结构时考虑数据库的水平和垂直扩展能力，提前规划好未来一年的数据量和读写量的增长，规划好分库分表方案。比如设计用户信息表时，预计一年后用户数据10亿条。写QPS(每秒Query量)约5000，读QPS 3万。可以设计按uId维度进行散列。分为4个库，每个库32张表。这样可以保证单表数据量控制在千万级别。第二个，要为字段选择合适的数据类型。在保留扩展能力的前提下，优先选用较小的数据结构。 例如保持年龄的字段，要使用talent。而不要使用int。第三个可以将字段多的表分解成多个表。必要时增加中间表进行关联。假如一张表有四五十个字段，显然不是一个好的设计。第4个一般来说，我们设计关系数据库时，需要满足第三范式，但为了满足第三范式，我们可能会拆分出多张表，而在查询时就需要对多张表进行关联查询，有时为了提高查询效率，会降低范式要求，在表中保存一定的冗余信息，也叫做反范式。但要注意反范式时一定要适度。第5个要善用索引，比如为经常作为查询条件的字段创建索引，创建联合索引时要根据最左原则。考虑所有的复用能力，不要重复创建索引，要为保证数据不能重复的字段创建唯一索引等。不过要注意索引，对插入更新等写操作是有代价的，不要滥用索引。比如像性别这样唯一性很差的字段。就不适合建立索引。第6个，列字段，尽量设置not null，MySQL难以对使用null的列进行查询优化，允许null会使索引，索引统计和值更加复杂，允许null值得列需要更多的存储空间，还需要MySQL内部进行特殊处理。</p>
 
-<p>但要注意反范式时一定要适度。第5个要善用索引，比如为经常作为查询条件的字段创建索引，创建联合索引时要根据最左原则。考虑所有的复用能力，不要重复创建索引，要为保证数据不能重复的字段创建唯一索引等。不过要注意索引，对插入更新等写操作是有代价的，不要滥用索引。比如像性别这样唯一性很差的字段。就不适合建立索引。第6个。列字段，尽量设置not null，MySQL难以对使用null的列进行查询优化，允许null会使索引，索引统计和值更加复杂，允许null值得练，需要更多的存储空间，还需要MySQL内部进行特殊处理。</p>
-
-<p>再看到右面的模块，对sql语句进行优化的原则。第一个。要找到最需要优化的sql一句，要么是使用频率最高的。要么是优化后。提高最明显的语句，可以通过查询MySQL的慢查询日志，来发现需要进行优化的sql语句。第二个要学会利用MySQL提供的分析工具，例如使用explain来分析语句的执行计划。看看是否使用了索引，使用了哪个索引？扫描了多少记录，是否使用了文件排序等，或者使用profile命令，来分析某个语句执行过程中的各分部耗时。第三个，要注意使用查询语句时。要避免使用select *，而应当指定需要获取的字段。原因，一是可以避免查询出不需要使用的字段。二是可以避免查询列字段的原信息。第4个是尽量使用。Preparestatement。一是性能更好，另一个是可以防止sql注入。第5个是尽量使用索引扫描来进行排序。也就是尽量在有索引的字段上进行排序操作。</p>
+<p>再看到右面的模块，对sql语句进行优化的原则。第一个。要找到最需要优化的sql语句，要么是使用频率最高的。要么是优化后。提高最明显的语句，可以通过查询MySQL的慢查询日志，来发现需要进行优化的sql语句。第二个要学会利用MySQL提供的分析工具，例如使用explain来分析语句的执行计划。看看是否使用了索引，使用了哪个索引？扫描了多少记录，是否使用了文件排序等，或者使用profile命令，来分析某个语句执行过程中的各分部耗时。第三个，要注意使用查询语句时。要避免使用select *，而应当指定需要获取的字段。原因，一是可以避免查询出不需要使用的字段。二是可以避免查询列字段的原信息。第4个是尽量使用Preparestatement。一是性能更好，另一个是可以防止sql注入。第5个是尽量使用索引扫描来进行排序。也就是尽量在有索引的字段上进行排序操作。</p>
 
 <p>考察点</p>
 
@@ -1629,7 +1638,7 @@
 <li>消息队列使用经验,不同场景下的取舍</li>
 </ul>
 
-<p>第三点，你最好有过数据库的调优经验。例如。明建立了索引语句，但是查询效率还很慢。后来通过一个explain分析发现表中有多个索引。</p>
+<p>第三，你最好有过数据库的调优经验。例如。明建立了索引语句，但是查询效率还很慢。后来通过一个explain分析发现表中有多个索引。</p>
 
 <p>真题</p>
 
@@ -1652,9 +1661,9 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608144518575.png" alt="image-20200608144518575" /></p>
 
-<p>它的起源是为了解决企业应用问题，随着不断的演进，发展到目前业界普遍采用的微服务架构，微服务架构的思想，就是让服务尽可能做到高内聚低耦合，不同的服务单独开发，单独测试单独部署。服务之间通过rPC或者是HTTP进行远程交互，如图中蓝色加粗箭头所示微服务架构解决了单体架构的耦合问题。但同时也带来了新的问题。因为服务部署在不同的进程或者服务器中。要使用服务前需要先找到服务。这就是所谓的服务发现。一般微服务使用两种发现方式，一种是我们前面课程介绍过的rPC方式，通过注册中心进行服务的注册和订阅。来完成服务发现，比如途中灰色的register模块。这种方式。由服务的调用端，获得全部可用服务节点。由client进行负载均衡调用服务。另外一种是通过HTTP协议，调用服务端提供的rest for接口。这种方 式不需要client侧做服务发现，而是在server端通过nginx这样的反向代理。来提供server侧的负载均衡。</p>
+<p>它的起源是为了解决企业应用问题，随着不断的演进，发展到目前业界普遍采用的微服务架构，微服务架构的思想，就是让服务尽可能做到高内聚低耦合，不同的服务单独开发，单独测试单独部署。服务之间通过RPC或者是HTTP进行远程交互，如图中蓝色加粗箭头所示微服务架构解决了单体架构的耦合问题。但同时也带来了新的问题，因为服务部署在不同的进程或者服务器中，要使用服务前需要先找到服务。这就是所谓的服务发现。一般微服务使用两种发现方式，一种是我们前面课程介绍过的RPC方式，通过注册中心进行服务的注册和订阅。来完成服务发现，比如图中灰色的register模块。这种方式由服务的调用端，获得全部可用服务节点。由client进行负载均衡调用服务。另外一种是通过HTTP协议，调用服务端提供的rest for接口。这种方式不需要client侧做服务发现，而是在server端通过nginx这样的反向代理。来提供server侧的负载均衡。</p>
 
-<p>不论哪种方式，服务的交互，都从进程内通信变成了远程通信，所以性能必然会受到一些影响。此外也会产生很多不确定的因素。例如网络拥塞，server端服务宕机。挖掘机铲断机房光纤等，需要许多额外的功能和措施，才能保证微服务流畅稳定的工作。</p>
+<p>不论哪种方式，服务的交互，都从进程内通信变成了远程通信，所以性能必然会受到一些影响。此外也会产生很多不确定的因素。例如网络拥塞，server端服务宕机、挖掘机铲断机房光纤等，需要许多额外的功能和措施，才能保证微服务流畅稳定的工作。</p>
 
 <p>前面讲spring cloud提到的各种组件，都是用来解决这些问题的微服务组件。在微服务架构中，服务变成了无状态的分布式服务，所以我们有必要了解一下，分布式系统中的cAP原则和base理论。</p>
 
@@ -1664,7 +1673,7 @@
 
 <p>其中一致性是指所有节点在同一时间的数据完全一致，可用性指任何时候对分布式系统总是可以成功读和写。分区容错性是指当某些节点或者网络分析故障的时候，仍然能够提供满足一致性和可用性的服务。既然无法同时满足三个特征，那么就会有三种取舍。</p>
 
-<p>首先是选择ca，就是放弃分区容错，这也就等同于放弃了分布式系统，所以ca只存在于单机系统。第二个选择是cp也就是选择强一致和分区容错。允许在极端情况下出现短时的服务不可用，采用cp原则实现分布式系统，比如zookeeper。zookeep是一个分布式协调系统，强抑制性是zookeeper的目标，允许出现短时的系统不可用，也正是因为这个原因。zk并不适合用来做微服务的注册中心。第三个选择是AP，也就是选择分区融资和高可用，允许数据出现短时间不一致。采用AP原则的分布式系统有eureka。在服务注册的场景，短期的不一致，一般不会对服务交互产生影响。因此采用AP原则的注册中心，才是微服务比较适合的选择。</p>
+<p>首先是选择ca，就是放弃分区容错，这也就等同于放弃了分布式系统，所以ca只存在于单机系统。第二个选择是cp也就是选择强一致和分区容错。允许在极端情况下出现短时的服务不可用，采用cp原则实现分布式系统，比如zookeeper。zookeeper是一个分布式协调系统，强一致性是zookeeper的目标，允许出现短时的系统不可用，也正是因为这个原因。zk并不适合用来做微服务的注册中心。第三个选择是AP，也就是选择分区容错和高可用，允许数据出现短时间不一致。采用AP原则的分布式系统有eureka。在服务注册的场景，短期的不一致，一般不会对服务交互产生影响。因此采用AP原则的注册中心，才是微服务比较适合的选择。</p>
 
 <p>最后介绍一下base理论，就是图下方的几个词汇的缩写，是指basically available基本可用，soft state软状态，eventually consistent最终一致性，它是对cAP中的一致性和可用性权衡的结果。base的核心思想是即使无法做到强一致性，但可以根据系统的特点，采用适当的方式达到最终一致性。</p>
 
@@ -1674,7 +1683,7 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608145625999.png" alt="image-20200608145625999" /></p>
 
-<p>接下来我们看云原生应用开发的最佳实践原则。12要素。它定义了设计SARS应用时需要遵循的一些基本原则。Sars是软件及服务的缩写，通过云原生应用来提供服务。第一个要素是基本代码，是指代码有版本管理工具来管理，一个应用只有一份基准代码，运行时有多个部署实力。第二个要素依赖是指要在应用中显示的生命依赖，方便服务进行构建。第三个要素配置。只要在环境中存储配置，而不是写在代码配置文件中,也就是说配置与代码要分开管理，从代码外部进行加载。例如测试环境的配置，仿真环境的配置以及生产环境的配置，都应该从对应的环境中进行加载。第4个要素后端服务，是只要把依赖的后端服务看作统一资源来对待，不论是db缓存还是HTTP服务，第5个要素是构建发布运行，是指要严格区分应用的构建、发布、运行这三个步骤，并且必须按顺序进行。第6个要素进程，是指应用以一个或多个进程运行。要保证应用的无状态性。第7个要素端口绑定，是指不同的应用，使用不同的端口提供服务，应用与端口是绑定的，这不是指具体的绑定某一个端口，而是指，一旦服务启动。确定了端口，那么这个端口就能够提供对应的服务，一直到应用进程停止。第8个要素并发是指应用进程之间。可以并发处理。因此可以通过多进程方式进行水平扩展。第9个要素易处理是指应用应该容易被管理。可以通过优雅停机和快速启动，构建最健壮的服务。第10个要素。开发生产等价。是指要保证在开发、预览、生产等不同环境下的应用。尽可能一致。第11个要素日志，是指要合理记录应用的运行日志，并且把日志当做一种事件流来对待，方便对日志的收集和处理。第12个要素，管理进程是只要把后台管理任务当做一次性进程来运行，而不是常驻的后台进程的方式。以上12要素是对设计云延伸服务的指导原则。在实际项目中可以结合实际业务场景进行架构设计，不一定完全照搬。</p>
+<p>接下来我们看云原生应用开发的最佳实践原则。12要素。它定义了设计SARS应用时需要遵循的一些基本原则。SARS是软件及服务的缩写，通过云原生应用来提供服务。第一个要素是基本代码，是指代码有版本管理工具来管理，一个应用只有一份基准代码，运行时有多个部署实力。第二个要素依赖是指要在应用中显示的生命依赖，方便服务进行构建。第三个要素配置。只要在环境中存储配置，而不是写在代码配置文件中,也就是说配置与代码要分开管理，从代码外部进行加载。例如测试环境的配置，仿真环境的配置以及生产环境的配置，都应该从对应的环境中进行加载。第4个要素后端服务，是只要把依赖的后端服务看作统一资源来对待，不论是db缓存还是HTTP服务，第5个要素是构建发布运行，是指要严格区分应用的构建、发布、运行这三个步骤，并且必须按顺序进行。第6个要素进程，是指应用以一个或多个进程运行。要保证应用的无状态性。第7个要素端口绑定，是指不同的应用，使用不同的端口提供服务，应用与端口是绑定的，这不是指具体的绑定某一个端口，而是指，一旦服务启动。确定了端口，那么这个端口就能够提供对应的服务，一直到应用进程停止。第8个要素并发是指应用进程之间。可以并发处理。因此可以通过多进程方式进行水平扩展。第9个要素，易处理是指应用应该容易被管理。可以通过优雅停机和快速启动，构建最健壮的服务。第10个要素。开发生产等价。是指要保证在开发、预览、生产等不同环境下的应用。尽可能一致。第11个要素日志，是指要合理记录应用的运行日志，并且把日志当做一种事件流来对待，方便对日志的收集和处理。第12个要素，管理进程是只要把后台管理任务当做一次性进程来运行，而不是常驻的后台进程的方式。以上12要素是对设计云原生服务的指导原则。在实际项目中可以结合实际业务场景进行架构设计，不一定完全照搬。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608150017580.png" alt="image-20200608150017580" /></p>
 
@@ -1682,27 +1691,31 @@
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608150433413.png" alt="image-20200608150433413" /></p>
 
-<p>那么service mesh与微服务的区别是什么？service mesh又可以解决哪些问题？我们看图，微服务的出现是为了解决多个服务之间的耦合问题，如图中绿色的竖线，就是微服务架构要做的事情，他把service是abc进行了解耦。服务单独部署，单独管理。这时每个服务都需要实现，比如服务发现，服务的远程交互，交互过程中的负载均衡，高可用策略、服务熔断等一系列的功能，这些功能与服务自身的业务逻辑没有任何关系。service mesh的思路是把与业务逻辑无关的功能进行解耦。如图中红色的线，对服务进行横切，把与服务交互相关的功能从服务中剥离出来，统一交给sidecar去实现。让服务更聚焦于业务逻辑，提高研发效率。同时由于功能相对独立。sidecar可以更专注于服务的交互与管理，更方便实现极致的功能与性能。所以。service mesh不是一个全新的技术，他对业务与服务的交互管理进行了拆分，提供统一强大的服务管理能力，是在微服务基础上进行的演进。另外,service mesh是由于使用独立的sidecar进程。因此天然适合为不同语言的服务提供统一的服务治理能力。因此跨语言服务治理也是service mesh的一个重要特点。像微博基于motan研发的weibo mesh,初衷就是为了解决内部不同语言之间服务化的问题。</p>
+<p>那么service mesh与微服务的区别是什么？service mesh又可以解决哪些问题？我们看图，微服务的出现是为了解决多个服务之间的耦合问题，如图中绿色的竖线，就是微服务架构要做的事情，他把service a、b、c进行了解耦。服务单独部署，单独管理。这时每个服务都需要实现，比如服务发现，服务的远程交互，交互过程中的负载均衡，高可用策略、服务熔断等一系列的功能，这些功能与服务自身的业务逻辑没有任何关系。service mesh的思路是把与业务逻辑无关的功能进行解耦。如图中红色的线，对服务进行横切，把与服务交互相关的功能从服务中剥离出来，统一交给sidecar去实现。让服务更聚焦于业务逻辑，提高研发效率。同时由于功能相对独立。sidecar可以更专注于服务的交互与管理，更方便实现极致的功能与性能。所以service mesh不是一个全新的技术，他对业务与服务的交互管理进行了拆分，提供统一强大的服务管理能力，是在微服务基础上进行的演进。另外,service mesh是由于使用独立的sidecar进程。因此天然适合为不同语言的服务提供统一的服务治理能力。因此跨语言服务治理也是service mesh的一个重要特点。像微博基于motan研发的weibo mesh,初衷就是为了解决内部不同语言之间服务化的问题。</p>
 
 <p>由于引入了额外的sidecar，service mesh的架构复杂度更高，也会带来额外的可用性和性能问题，这也是service mesh架构需要努力解决的问题。通过了解系统架构的演进，我们发现从单体架构到微服务架构，实现了服务之间的解耦，但带来了额外的服务发现与交互问题。</p>
 
 <p>从微服务到service mesh，实现了业务与服务治理功能的解耦，但是引入了额外的可用性和性能问题，架构复杂度也随之提高。那么这样做的意义在哪里？系统架构的设计从来就是一个权衡的艺术，在很多情况下，我们只是让问题进行了转移，方便对问题进行集中的整治和处理，让服务更聚焦于业务研发。不同的功能就 交给专门的组件来处理。正所谓术业有专攻，通过架构的演进，虽然当下没有消灭复杂度，但可以成功的让问题变得透明化，变得业务无感知，提升服务整体的开发效率扩展能力，拓宽服务能力的上限。</p>
 
+<h3 id="容器化技术">容器化技术</h3>
+
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608151113556.png" alt="image-20200608151113556" /></p>
 
-<p>微服务之所以能够快速发展，很重要的一个原因就是容器化技术的发展和容器管理系统的成熟。第二个知识点，我们来学习微服务架构的基础，容器化技术docker和Kubernetes容器集群管理系统 。docker的作用，主要是快速构建部署运行服务，通过服务镜像能够为服务提供版本理，通过容器化技术，可以屏蔽不同运行环境的差异，让服务在任何docker环境中运行，就像Java的一次编译到处运行，docker是轻量化虚拟技术，可以在一台宿主机上运行多个服务，对运行的服务之间进行了有效的隔离，提高宿主机的资源利用率。再来看docker的特点，第一个是开源，意味着可以免费使用docker容器技术。第二个特点是基于LXC实现轻量虚拟化，docker容器直接运行进程，不需要模拟，运行效率非常高。第三个是能够支持大规模的构建，docker的架构十分灵活，可扩展不同的实现。例如支持不同存储驱动的实现。最后docker可以提供可视化优爱，管理非常简单，还有docker的几个主要概念，第一个是镜像，就是服务代码和运行环境的封装，服务的版本管理就是通过镜像来实现的，镜像是部署的基础。第二个概念是容器，就是tontainer，容器是基于镜像的服务运行状态，可以基于一个镜像运行多个容器。</p>
+<p>微服务之所以能够快速发展，很重要的一个原因就是容器化技术的发展和容器管理系统的成熟。第二个知识点，我们来学习微服务架构的基础，容器化技术docker和Kubernetes容器集群管理系统 。docker的作用，主要是快速构建部署运行服务，通过服务镜像能够为服务提供版本管理理，通过容器化技术，可以屏蔽不同运行环境的差异，让服务在任何docker环境中运行，就像Java的一次编译到处运行，docker是轻量化虚拟技术，可以在一台宿主机上运行多个服务，对运行的服务之间进行了有效的隔离，提高宿主机的资源利用率。再来看docker的特点，第一个是开源，意味着可以免费使用docker容器技术。第二个特点是基于LXC实现轻量虚拟化，docker容器直接运行进程，不需要模拟，运行效率非常高。第三个是能够支持大规模的构建，docker的架构十分灵活，可扩展不同的实现。例如支持不同存储驱动的实现。最后docker可以提供可视化UI，管理非常简单，还有docker的几个主要概念，第一个是镜像，就是服务代码和运行环境的封装，服务的版本管理就是通过镜像来实现的，镜像是部署的基础。第二个概念是容器，就是tontainer，容器是基于镜像的服务运行状态，可以基于一个镜像运行多个容器。</p>
 
-<p>第三个概念是守护进程，是运行在宿主机上的管理进程，用户通过client与守护进程进行交互。第4个客户端是用来和守护进程交互的命令行工具。也可以通过socket或者rest for a p I访问远程的docker守护进程。最后一个概念是镜像仓库，类似我们的git代码仓库。镜像仓库用来保存管理不同服务不同版本的镜像。服务部署时会从镜像仓库拉取对应版本的镜像进行部署。</p>
+<p>第三个概念是守护进程，是运行在宿主机上的管理进程，用户通过client与守护进程进行交互。第4个客户端是用来和守护进程交互的命令行工具。也可以通过socket或者rest for apI访问远程的docker守护进程。最后一个概念是镜像仓库，类似我们的git代码仓库。镜像仓库用来保存管理不同服务不同版本的镜像。服务部署时会从镜像仓库拉取对应版本的镜像进行部署。</p>
 
-<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608151424105.png" alt="image-20200608151424105" />docker的实现我们再来了解一下原理，docker是通过对不同运行进程进行隔离，来实现虚拟化，主要利用三种方式来实现服务的隔离。</p>
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608151424105.png" alt="image-20200608151424105" /></p>
 
-<p>如图所示第一个是利用Linux的namespace命名空间来隔离进程之间的可见性，不同的服务进程，彼此属于不同的namespace，互相之间无法感知对方的存在。docker实现了host、 container、none、bridge 4种网络模式，默认使用bridge桥接模式。每一个容器在创建时都会创建一对虚拟网卡，两个虚拟网卡组成了数据的通道，其中一个会放在容器中，另一个会加入到docker0的网桥中。docker的网桥通过APP tables中的配置，与宿主机的网卡相连，所有符合条件的请求都会通过IP table转发到docker0，并由网桥分发给对应的容器网卡。为了防止容器进程，修改宿主机的文件目录，doctor通过改变进程访问文件目录的根节点，结合namespace来隔离不同容器进程，可以访问的文件目录，通过namespace，docker隔离了进程，网络和文件目录，但是在进程运行中的CPU和内存等还是共享状态，docker通过control groups，也就是c groups来对进城使用的资源进行限制。包括CPU、内存和网络带宽等。</p>
+<p>docker的实现我们再来了解一下原理，docker是通过对不同运行进程进行隔离，来实现虚拟化，主要利用三种方式来实现服务的隔离。</p>
+
+<p>如图所示第一个是利用Linux的namespace命名空间来隔离进程之间的可见性，不同的服务进程，彼此属于不同的namespace，互相之间无法感知对方的存在。docker实现了host、 container、none、bridge 4种网络模式，默认使用bridge桥接模式。每一个容器在创建时都会创建一对虚拟网卡，两个虚拟网卡组成了数据的通道，其中一个会放在容器中，另一个会加入到docker0的网桥中。docker的网桥通过APP tables中的配置，与宿主机的网卡相连，所有符合条件的请求都会通过IP table转发到docker0，并由网桥分发给对应的容器网卡。为了防止容器进程，修改宿主机的文件目录，doctor通过改变进程访问文件目录的根节点，结合namespace来隔离不同容器进程，可以访问的文件目录，通过namespace，docker隔离了进程，网络和文件目录，但是在进程运行中的CPU和内存等还是共享状态，docker通过control groups，也就是c groups来对进程使用的资源进行限制。包括CPU、内存和网络带宽等。</p>
 
 <p>docker是如何把镜像运行起来的呢？docker的镜像是分层结构。例如一个服务镜像，可以由操作系统层、技术环境层、web容器层、服务代码层，层层依赖构成，通过UnionFS就是联合文件系统把Image子中不同的分层作为不同的制度目录，而Container是在只读镜像目录上创建的可读可写的目录。通过这种方式把进项运行起来的。docker提供了aufs 、OverlayFs、DeviceMapper等多种不同的存储驱动实现。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608152329800.png" alt="image-20200608152329800" /></p>
 
-<p>另一个知识点是Kubernetes，Kubernetes也叫k8s，因为k与s之间一共有8个字母，k 8s是一个容器集群管理系统，它不是一个pass平台，pass平台是可以运行在k8s上的，按照刚docker的介绍方式，这里也分为三点，k 8s的作用，就是进行容器集群的管理，它只针对容器管理。不部署源码不编译应用。它能够实现服务容器的自动部署，与按指定条件进行自动扩缩容服务，来实现对应用的管理。支持应用的负载均衡、滚动更新、资源监控等。K8s的特点，一个是可移植性，支持在公有云、私有云、混合云中运行，第二个是可扩展。K 8s采用模块化方式，差价化架构。可挂载可组合。第三个特点是自动化支持服务的自动部署、自动重启、自动复制、自动伸缩。K 8s中的概念非常的多，这里列出了比较重要的几个，我逐个来说明，k 8s是集群容器管理系统，容器首先需要运行在宿主机上，因此 k 8s首先要管理宿主机集群，可以把s分为master节点和Node节点，Node节点也叫work Node，master负责管理节点，管理k8s集群，master协调集群中所有的行为与活动。例如应用的运行、修改更新等，node的节点用来运行容器。Node上可以运行多个Pod。Pod是k8s创建或者部署的基本单位，Pod中可以运行多个container，一个container就是一个运行中的服务镜像，Pod中的container共享网络和存储 service是k8s中的一个逻辑概念，通过对不同的Pod添加标签来划分为不同的service。Deployment。表示用户对k8s机群的一次更新操作，可以是创建一个新的服务，更新一个服务，也可以是滚动升级一个服务。我们来结合k8s的架构理解这些概念。</p>
+<p>另一个知识点是Kubernetes，Kubernetes也叫k8s，因为k与s之间一共有8个字母，k8s是一个容器集群管理系统，它不是一个pass平台，pass平台是可以运行在k8s上的，按照刚docker的介绍方式，这里也分为三点，k8s的作用，就是进行容器集群的管理，它只针对容器管理。不部署源码不编译应用。它能够实现服务容器的自动部署，与按指定条件进行自动扩缩容服务，来实现对应用的管理。支持应用的负载均衡、滚动更新、资源监控等。K8s的特点，一个是可移植性，支持在公有云、私有云、混合云中运行，第二个是可扩展。K8s采用模块化方式，差价化架构。可挂载可组合。第三个特点是自动化支持服务的自动部署、自动重启、自动复制、自动伸缩。K8s中的概念非常的多，这里列出了比较重要的几个，我逐个来说明，K8s是集群容器管理系统，容器首先需要运行在宿主机上，因此K8s首先要管理宿主机集群，可以把s分为master节点和Node节点，Node节点也叫work Node，master负责管理节点，管理k8s集群，master协调集群中所有的行为与活动。例如应用的运行、修改更新等，node的节点用来运行容器。Node上可以运行多个Pod。Pod是k8s创建或者部署的基本单位，Pod中可以运行多个container，一个container就是一个运行中的服务镜像，Pod中的container共享网络和存储 service是k8s中的一个逻辑概念，通过对不同的Pod添加标签来划分为不同的service。Deployment。表示用户对k8s机群的一次更新操作，可以是创建一个新的服务，更新一个服务，也可以是滚动升级一个服务。我们来结合k8s的架构理解这些概念。</p>
 
 <p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608152826691.png" alt="image-20200608152826691" /></p>
 

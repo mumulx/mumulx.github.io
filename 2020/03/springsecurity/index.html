@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-03-06T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-03-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="15807">
+<meta itemprop="wordCount" content="29183">
 
 
 
@@ -353,6 +353,33 @@
 <li><a href="#综合配置">综合配置</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#详述jwt使用场景及结构安全">详述JWT使用场景及结构安全</a>
+<ul>
+<li><a href="#使用spring-security实现jwt原理">使用Spring Security实现JWT原理</a></li>
+<li><a href="#编码实现">编码实现</a></li>
+</ul></li>
+<li><a href="#解决跨域访问的问题">解决跨域访问的问题</a>
+<ul>
+<li><a href="#第一类方案">第一类方案</a></li>
+<li><a href="#第二类方案">第二类方案</a></li>
+<li><a href="#第三类方案">第三类方案</a></li>
+<li><a href="#springboot环境下cors实现方式">springboot环境下CORS实现方式</a>
+<ul>
+<li><a href="#方式一">方式一</a></li>
+<li><a href="#方式二">方式二</a></li>
+<li><a href="#方式三">方式三</a></li>
+<li><a href="#方式四">方式四</a></li>
+</ul></li>
+<li><a href="#spring-security-解决跨域问题">spring security 解决跨域问题</a></li>
+</ul></li>
+<li><a href="#跨站攻击防御">跨站攻击防御</a>
+<ul>
+<li><a href="#前端携带参数的方式">前端携带参数的方式</a>
+<ul>
+<li><a href="#thymeleaf">thymeleaf</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#jwt集群应用方案">JWT集群应用方案</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -390,8 +417,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/springsecurity/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15807字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:32分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:29183字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:59分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -499,7 +526,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
 <p>password：admin</p>
 
-<p>查看相应，可以看到我们的html代码</p>
+<p>查看响应，可以看到我们的html代码</p>
 
 <p>观察headers</p>
 
@@ -2175,7 +2202,7 @@ if(exception instanceof SessionAuthenticationException){
 
 <p>新建controller：SmsController</p>
 
-<pre><code>@Slf4j
+<pre><code class="language-java">@Slf4j
 @RestController
 public class SmsController {
     @Resource
@@ -2509,6 +2536,770 @@ SmsCodeSecurityConfig smsCodeSecurityConfig;
 <p>测试</p>
 
 <p>数据库添加用户yanfa1手机号123456789</p>
+
+<h2 id="详述jwt使用场景及结构安全">详述JWT使用场景及结构安全</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613101803766.png" alt="image-20200613101803766" /></p>
+
+<p>session不适用的场景</p>
+
+<ul>
+<li>比如:非浏览器的客户端、手机移动端等等，因为他们没有浏览器自动维护cookies的功能。</li>
+<li>比如:集群应用，同一个应用部署甲、乙、丙三个主机上，实现负载均衡应用，其中一个挂掉了其他的还能负载工作。要知道session是保存在服务器内存里面的，三个主机一定是不同的内存。那么你登录的时候访问甲，而获取
+接口数据的时候访问乙，就无法保证session的唯一性和共享性。</li>
+</ul>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613103115660.png" alt="image-20200613103115660" /></p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613142031639.png" alt="image-20200613142031639" /></p>
+
+<p>JWT安全加强</p>
+
+<ul>
+<li>避免网络劫持，因为使用HTTP的header传递JWT，所以使用HTTPS传输更加安全。这样在网络层面避免了JWT的泄露。</li>
+<li>secret是存放在服务器端的，所以只要应用服务器不被攻破，理论上JWT是安全的。因此要保证服务器的安全。那么有没有JWT加密算法被攻破的可能?当然有。但是对于JWT常用的算法要想攻破，目前已知的方法只能是暴力破解，白话说就是&rdquo;试密码&rdquo;。所以要定期更换secret并且保正secret的复杂度，等破解结果出来了，你的secret已经换了。</li>
+</ul>
+
+<p>其实使用的方式很简单，就是用户名和密码换JWT令牌，然后，在后续的访问中携带JWT令牌，我们从JWT令牌中解析出来它的这个用户信息，然后进行授权，就是这样。他全程都不需要使用我们的，这个session去做这个状态保持了，那我们。</p>
+
+<h3 id="使用spring-security实现jwt原理">使用Spring Security实现JWT原理</h3>
+
+<p>我们再回顾一下JWT认证流程，那就是客户端发起HTTP请求，然后HTTP请求中携带这个用户名和密码，然后，我们服务端校验的这个用户名和密码，然后如果他的这个校验合格，合格之后，我们就给他生成这个JWT令牌，这个JWT令牌，中间会包含这个用户名这个信息，然后或者是它的用户Id这样一个信息，总之是一些非敏感的这些数据。然后，把这个JWT令牌能返回给我们的客户端。客户端再次发起请求时的时候，他需要把他的JWT放到他的HTTP请求头里面，这个需要它编码自己编码客户端的这个程序自己编码去实现。然后，把这个JWT放到HTTP的请投里面，我们根据这个JWT的令牌，把这个令牌中间的这个用户名解密，进行一个解签，如果解签的结果，和我们的这个验证它是合法的，然后我们就授权他可以访问它需要访问的这个资源。然后，把这个访问的结果响应给我们的客户端。那这个是一个整体上的一个JWT的这样一个流程，那具体到我们的这个，整个的结合spring security去实现，它还更细节一些。</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613143456650.png" alt="image-20200613143456650" />
+我们管这个上面的这个123这三个流程，叫做认证的流程，然后，456这三个流程，叫做健全的流程，所以说，这个整个的JWT的这个使用过程中，，有两个流程，第1个流程是认证的流程，也就是说，是用户名和密码换取JWT令牌的这个过程，然后另外一个流程，是她来访问资源，然后我们鉴别这个JWT的合法性，然后给他一个结果。这个请求资源，响应结果这样的过程，那叫一个健全的流程，那我们分别来看一下这两个流程，结合spring security如何去实现JWT的认证流程？</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613143636930.png" alt="image-20200613143636930" /></p>
+
+<p>我们更细节的给大家来说一下，当客户端发起的这个登录请求，然后携带用户名和密码，当他发起这个请求的时候，我们需要自己去实现一个这个JwtAuthController这个controller的作用就是接收这个请求，然后，他去调用这个authenticationManager，它这个是这个spring security给我们提供了这样一个这个类.。他就是专门做这个认证的，然后我们调用这个认证的这个manager，我们在使用其中的这个userDetailsService方法,这个方法相信大家都很熟了，我们通过这个方法，根据用户名去加载用户信息、角色信息、权限信息，等这样一些信息，把这个信息加载回来之后，然后AuthenticationManager，根据这些信息，然后来校验当前的这个用户名和密码是否是合格的用户名密码，返回认证结果。</p>
+
+<p>如果认证失败，就是用户名和密码的校验失败，就是通知我们客户端反馈校验失败了，如果和用户名和密码认证成功之后，它就调用我们自己需要去写一个这个JWTTokenUtil这样一个util工具类。这个工具类，就是为我们生成令牌，然后ji校验令牌，然后在这样一些工具方法，放到这个工具里面，那我们调用jwtTkoenUtil生成JWT令牌，然后将JWT令牌响应给我们的客户端。这个就是整个认证流程的一个过程。</p>
+
+<p>这个过程我们就把它叫做我们JWT的认证流程，对应的是123这三部分，那我们再来看一下JWT的它这个鉴权流程</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613144236122.png" alt="image-20200613144236122" />当这个客户端它拿到了这个JWT令牌的时候，他就在后续的每一次访问我们系统资源的时候，都要把这个JWT令牌给携带者的，放到他的这个HTTP头请求的这个header里面。通过这个时序图，我们来看一下它的健权的流程，那它客户端发起，假如说他请求的资源是这个hello的这个资源，这个资源的定义在我们的一个controller里面叫HelloController，他访问的这个hello这样一个资源路径。他在请求的时候携带这个JWT，那我们在JwtAuthenticationTokenFilter类，这个filter过滤器也需要我们自己去实现。</p>
+
+<p>然后，我们在这个过滤器里面去检查这个用户是否携带了JWT令牌，如果携带了，我们就提取其中的这个用户信息。因为我们知道我们上一节给大家讲了，这个JWT里面，是可以通过它那个附加信息，也就是第2个解析段中，我们可以拿到它的这个用户，然后用户名我们根据他的这个用户名去掉用userdetailservice。userdetailservice加载这个用户的信息，就是用户角色权限这些东西，然后返回给这个filter，然后这个filter根据userDetail信息去交验令牌的合法性。</p>
+
+<p>他使用什么去校验呢？我们会写一个方法JwtTokenUtil来校验这个令牌的这个合法性，然后判断这个令牌是否进行是否合法，然后最后，如果它不合法的话，证明这个JWT有可能是超时了，或者是他自己伪造的一个这个令牌，然后我们就把这个结果返回给我们的客户端。如果这个JWT认证是合法的，然后，我们就可以通过UserDetails去构建一个UsernamePasswordAuthenticationToken。这个Token就是用来我们填充之后，表示我们认证通过了，这个Token中填写的是这个UserDetail信息，也就是说它的用户信息，角色信息，权限信息，都填充到这个usernamepasswordAuthenticationToken里面。</p>
+
+<p>那就下面就进行第9步，那我们这个filter就执行完了，然后，他继续执行spring security，其他的那个过滤器链中的这个过滤器。比如说，在他后面，会执行这个UserNamePAsswordAuthenticationFilter，他发现这个usernamePasswordAuthenticationToken已经被认证过，在这个位置已经被认证过的话，这个后续的过滤器都不会拦截hello的这个请求。然后，这个请求直接就到达我们的这个hello Controller。到了HelloController之后，他将最后的访问结果返回给我们的客户端，就是这样一个过程，这其中需要我们自己去实现的，有这个JwtAuthenticationTokenFilter过滤器，这个过滤器用来这个检查令牌的合法性，然后进行这个认证授权，也就是说他那个后续他能不能访问这个相关的这个接口，都由他去来去授权决定。那他如果授权通过的话，就可以访问这个hello Controller，如果不通过的话就直接返回。整个这个就是JWT，针对你资源访问鉴权的这样一个过程。</p>
+
+<p>还有一些，实际上还有一些其他的内容，比如JWT令牌如何刷新。这个有一个刷新的一个机制，因为我们的这个JWT令牌，通常有效期不会太长。我们不希望用户，使用APP的时候令牌就突然的过期了，他就必须重新登录，这样是很影响用户体验的。所以说，这个客户端需要在这个合适的时机，去刷新一下这个JWT令牌。但这个JWT令牌刷新的过程就非常简单，它就是我们需要写一个Controller就可以了。所以说，核心的这个过程，就是第1个就是认证，然后第2个就是鉴权，然后还有一个尾巴的东西，就是差一个小东西，就是这个令牌的刷新，我们在整个的后面那个编码过程中都会给大家讲解。</p>
+
+<h3 id="编码实现">编码实现</h3>
+
+<pre><code class="language-java">package com.mumulx.jwtserver.config.auth.jwt;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+@Data
+@ConfigurationProperties(prefix = &quot;jwt&quot;)
+@Component
+public class JwtTokenUtil {
+
+    private String secret;
+    private Long expiration;
+    private String header;
+
+
+    /**
+     * 生成token令牌
+     *
+     * @param userDetails 用户
+     * @return 令token牌
+     */
+    public String generateToken(UserDetails userDetails) {
+        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;(2);
+        claims.put(&quot;sub&quot;, userDetails.getUsername());
+        claims.put(&quot;created&quot;, new Date());
+
+        return generateToken(claims);
+    }
+
+    /**
+     * 从令牌中获取用户名
+     *
+     * @param token 令牌
+     * @return 用户名
+     */
+    public String getUsernameFromToken(String token) {
+        String username;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            username = claims.getSubject();
+        } catch (Exception e) {
+            username = null;
+        }
+        return username;
+    }
+
+    /**
+     * 判断令牌是否过期
+     *
+     * @param token 令牌
+     * @return 是否过期
+     */
+    public Boolean isTokenExpired(String token) {
+        try {
+            Claims claims = getClaimsFromToken(token);
+            Date expiration = claims.getExpiration();
+            return expiration.before(new Date());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 刷新令牌
+     *
+     * @param token 原令牌
+     * @return 新令牌
+     */
+    public String refreshToken(String token) {
+        String refreshedToken;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            claims.put(&quot;created&quot;, new Date());
+            refreshedToken = generateToken(claims);
+        } catch (Exception e) {
+            refreshedToken = null;
+        }
+        return refreshedToken;
+    }
+
+    /**
+     * 验证令牌
+     *
+     * @param token       令牌
+     * @param userDetails 用户
+     * @return 是否有效
+     */
+    public Boolean validateToken(String token, UserDetails userDetails) {
+
+        String username = getUsernameFromToken(token);
+        return (username.equals(userDetails.getUsername()) &amp;&amp; !isTokenExpired(token));
+    }
+
+
+    /**
+     * 从claims生成令牌,如果看不懂就看谁调用它
+     *
+     * @param claims 数据声明
+     * @return 令牌
+     */
+    private String generateToken(Map&lt;String, Object&gt; claims) {
+        Date expirationDate = new Date(System.currentTimeMillis() + expiration);
+        return Jwts.builder().setClaims(claims)
+                .setExpiration(expirationDate)
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
+    }
+
+    /**
+     * 从令牌中获取数据声明,如果看不懂就看谁调用它
+     *
+     * @param token 令牌
+     * @return 数据声明
+     */
+    private Claims getClaimsFromToken(String token) {
+        Claims claims;
+        try {
+            claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        } catch (Exception e) {
+            claims = null;
+        }
+        return claims;
+    }
+
+}
+
+</code></pre>
+
+<pre><code class="language-java">package com.mumulx.jwtserver.config.auth.jwt;
+
+import com.mumulx.jwtserver.config.exception.CustomExceptionType;
+import com.mumulx.jwtserver.config.exception.AjaxResponse;
+import com.mumulx.jwtserver.config.exception.CustomException;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.Map;
+
+@RestController
+public class JwtAuthController {
+
+
+    @Resource
+    JwtAuthService jwtAuthService;
+
+    @RequestMapping(value = &quot;/authentication&quot;)
+    public AjaxResponse login(@RequestBody Map&lt;String,String&gt; map){
+        String username  = map.get(&quot;username&quot;);
+        String password = map.get(&quot;password&quot;);
+
+        if(StringUtils.isEmpty(username)
+                || StringUtils.isEmpty(password)){
+            return AjaxResponse.error(
+                    new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                    &quot;用户名或者密码不能为空&quot;));
+        }
+        try {
+            return AjaxResponse.success(jwtAuthService.login(username, password));
+        }catch (CustomException e){
+            return AjaxResponse.error(e);
+        }
+    }
+
+    @RequestMapping(value = &quot;/refreshtoken&quot;)
+    public  AjaxResponse refresh(@RequestHeader(&quot;${jwt.header}&quot;) String token){
+            return AjaxResponse.success(jwtAuthService.refreshToken(token));
+    }
+
+}
+
+</code></pre>
+
+<pre><code class="language-java">package com.mumulx.jwtserver.config.auth.jwt;
+
+import com.mumulx.jwtserver.config.auth.MyUserDetailsService;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.annotation.Resource;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Component
+public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
+
+    @Resource
+    JwtTokenUtil jwtTokenUtil;
+
+    @Resource
+    MyUserDetailsService myUserDetailsService;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
+
+        String jwtToken = request.getHeader(jwtTokenUtil.getHeader());
+        if(!StringUtils.isEmpty(jwtToken)){
+            String username = jwtTokenUtil.getUsernameFromToken(jwtToken);
+
+            if(username != null &amp;&amp;
+                    SecurityContextHolder.getContext().getAuthentication() == null){
+                UserDetails userDetails = myUserDetailsService.loadUserByUsername(username);
+                if(jwtTokenUtil.validateToken(jwtToken,userDetails)){
+                    //给使用该JWT令牌的用户进行授权
+                    UsernamePasswordAuthenticationToken authenticationToken
+                            = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+
+                    SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                }
+            }
+        }
+        filterChain.doFilter(request,response);
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">package com.mumulx.jwtserver.config.auth.jwt;
+import com.mumulx.jwtserver.config.exception.CustomExceptionType;
+import com.mumulx.jwtserver.config.exception.CustomException;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+@Service
+public class JwtAuthService {
+    @Resource
+    AuthenticationManager authenticationManager;
+    @Resource
+    UserDetailsService userDetailsService;
+    @Resource
+    JwtTokenUtil jwtTokenUtil;
+    /**
+     * 登录认证换取JWT令牌
+     * @return JWT
+     */
+    public String login(String username,String password) throws CustomException{
+        try {
+            UsernamePasswordAuthenticationToken upToken =
+                    new UsernamePasswordAuthenticationToken(username, password);
+            Authentication authentication = authenticationManager.authenticate(upToken);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        }catch (AuthenticationException e){
+            throw new CustomException(CustomExceptionType.USER_INPUT_ERROR
+                            ,&quot;用户名或者密码不正确&quot;);
+        }
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        return jwtTokenUtil.generateToken(userDetails);
+    }
+    public String refreshToken(String oldToken){
+        if(!jwtTokenUtil.isTokenExpired(oldToken)){
+            return jwtTokenUtil.refreshToken(oldToken);
+        }
+        return null;
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">package com.mumulx.jwtserver.config;
+
+import com.mumulx.jwtserver.config.auth.MyLogoutSuccessHandler;
+import com.mumulx.jwtserver.config.auth.MyUserDetailsService;
+import com.zimug.jwtserver.config.auth.*;
+import com.mumulx.jwtserver.config.auth.jwt.JwtAuthenticationTokenFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+import java.util.Arrays;
+
+@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig  extends WebSecurityConfigurerAdapter {
+
+    @Resource
+    MyLogoutSuccessHandler myLogoutSuccessHandler;
+
+    @Resource
+    MyUserDetailsService myUserDetailsService;
+
+    @Resource
+    private DataSource datasource;
+
+    @Resource
+    private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .ignoringAntMatchers(&quot;/authentication&quot;)
+             .and().cors().and()
+             .addFilterBefore(jwtAuthenticationTokenFilter,UsernamePasswordAuthenticationFilter.class)
+             .logout()
+                .logoutUrl(&quot;/signout&quot;)
+                //.logoutSuccessUrl(&quot;/login.html&quot;)
+                .deleteCookies(&quot;JSESSIONID&quot;)
+                .logoutSuccessHandler(myLogoutSuccessHandler)
+             .and().rememberMe()
+                .rememberMeParameter(&quot;remember-me-new&quot;)
+                .rememberMeCookieName(&quot;remember-me-cookie&quot;)
+                .tokenValiditySeconds(2 * 24 * 60 * 60)
+                .tokenRepository(persistentTokenRepository())
+             .and()
+             .authorizeRequests()
+                .antMatchers(&quot;/authentication&quot;,&quot;/refreshtoken&quot;).permitAll()
+                .antMatchers(&quot;/index&quot;).authenticated()
+                .anyRequest().access(&quot;@rabcService.hasPermission(request,authentication)&quot;)
+             .and().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+    }
+
+
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(myUserDetailsService)
+                .passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    public void configure(WebSecurity web) {
+        //将项目中静态资源路径开放出来
+        web.ignoring()
+           .antMatchers( &quot;/css/**&quot;, &quot;/fonts/**&quot;, &quot;/img/**&quot;, &quot;/js/**&quot;);
+    }
+
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository(){
+
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(datasource);
+
+        return tokenRepository;
+    }
+
+    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList(&quot;http://localhost:8888&quot;));
+        configuration.setAllowedMethods(Arrays.asList(&quot;GET&quot;,&quot;POST&quot;));
+        configuration.applyPermitDefaultValues();
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration(&quot;/**&quot;, configuration);
+        return source;
+    }
+
+}
+
+</code></pre>
+
+<h2 id="解决跨域访问的问题">解决跨域访问的问题</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613155829190.png" alt="image-20200613155829190" /></p>
+
+<p>首先我们就得去了解一下这个浏览器的同源策略，所谓的这个同源策略，就是说在向服务端发起这个HTTP请求的时候。在浏览器里面，它这个要求域名、端口和协议必须是一致的，也就是说。你的你当前的这个应用，不能访问别人的这个数据资源，或者说不能访问别人的这个页面资源，否则浏览器就会去限制你。那我们来看一下这张图，假如说现在我们的这个应用是前后端分离的，相当于，我们前端的部署在一个主机上，然后它有一个，这样一个域名，然后什么端口，然后，我们后端部署在另外一个主机上，然后他也有自己的域名，然后有一些端口的信息，那当我们去请求的时候发生，在HTTP请求的时候，实际上是在浏览器上，去请求前端的页面，然后返回回来，浏览器响应这个页面。然后，浏览器在请求后端的这个数据的时候，这个浏览器上的这个他的这个同源策略就会去限制你，因为你最开始访问的是aaa.com，也就是说我们的前端这个应用，然后当你去请求数据的时候，你就发送给这个bbb.com，他认为你，请求别的应用资源，而不是你自己的应用资源，这个浏览器就会限制你，这个就是浏览器的这个同源策略。</p>
+
+<p>但是，这个同源策略，是有一些方案有一些方法去，可以去打破这个同学车里的这个限制的，，那我们来看一下有哪些这个打破同源策略限制这样一些方法。因为的确有这样的需求，就是说我们这个前后端应用是分开部署的，，所以说，它一定是这个不符合同源策略的，那我们还要去访问我们后端的这个服务，我们应该怎么去做？、</p>
+
+<h3 id="第一类方案">第一类方案</h3>
+
+<p>第一类方案:前端解决方案
+虽然浏览器对于不符合同源策略的访问是禁止的，但是仍然存在例外的情况，如以下资源引用的标签不受同源策略的限制:</p>
+
+<ul>
+<li>html的script标签</li>
+<li>html的link标签</li>
+<li>html的img标签</li>
+<li>html的iframe标签:对于使用jsp、freemarker开 发的项目，这是实现跨域访问最常见的方法，</li>
+</ul>
+
+<p>那么第1种方式，就是说浏览器这个在这个HTML里面，有一些标签它是不受同源策略的限制的。</p>
+
+<p>哪些标签不受同源策略的限制？，就是这些标签，比如说html里面的script标签，他可以去加载另外一个域下面的这个家族的脚本，然后link标签，可以加在另外一个域下面的css文件，或者是html的这个img标签，它可以加载另外一个域下面的这个图片，那还有一个比较重要的，就是iframe这个标签，它可以去加载一些页面，去加载一个另外应用的页面。就是内嵌的那种，这种方式，对于jsp和freemarker。这种开发的项目是实现这个跨越访问的比较常见的一种方法就是使用这个iframe，那我们这是第1种方案，这个方案我相信大家都比较熟悉了，就是说用这个html里面的特殊的这几个标签。这几个标签，它不受同源策略的限制。</p>
+
+<h3 id="第二类方案">第二类方案</h3>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613162602273.png" alt="image-20200613162602273" /></p>
+
+<p>那第2种解决方案，就是说我们使用在前端应用和后端应用的前面，再放上一个代理，或者说我们管它叫负载均衡的服务器也可以。这个代理的作用就是什么？在浏览器或者是其他终端访问的前面，我们加上这样一个代理之后，浏览器看到的前端资源和后端服务，就是同一个域下面的。</p>
+
+<p>我们来看一下这个图，当你就是以往的，当你去访问前端资源的时候，然后你再去访问后端资源，因为这两个资源是部署在不同的这个服务器上的，所以说，它是一定是IP、域名、端口不一致。所以说，它受同源策略的限制，你先访问了前端资源，然后端的服务你就访问不了，但是，我们可以怎么去做，我们可以在前端的这个服务和后端资源的前面，加上一个代理。加上代理之后，它自己就有一个IP、端口。所以说，在我们一系列前端的浏览器，或者是一些前端的一些东西来看，它的这个都是一个来源，它都是从代理上来的。相当于，我们把后端的这部分，给他屏蔽掉，所以说，这样也是同源策略，这个也是符合同源策略，符合同源策略。</p>
+
+<p>这个源是哪？这个源就是我们的这个代理，就是我们这个代理，他IP和端口上是一致的，然后把后端屏蔽掉，这种方式也可以让浏览器认不出来后面的前端资源和后端资源。因为他都通过这个代理的IP和端口去访问，所以说，这个也是符合浏览器的同源策略。</p>
+
+<h3 id="第三类方案">第三类方案</h3>
+
+<p>第三类方案: CORS</p>
+
+<ul>
+<li>Access-Control-Allow-Origin::允许哪些ip或域名可以跨域访问</li>
+<li>Access-Control-Max-Age::表示在多少秒之内不需要重复校验该请求的跨域访问权限</li>
+<li>Access-Control-Allow-Methods::表示允许跨域请求的HTTP方法，如:GET,POST,PUT,DELETE</li>
+<li>Access-Control-Allow-Headers::表示访问请求中允许携带哪些Header信息，如: Accept、 Accept-Language、 Content-Language、 Content-Type</li>
+</ul>
+
+<p>第3种解决方案是什么？就是我们本节要给大家重点介绍的，这个叫cors，也就是跨站访问的这样一个配置。这个配置，我们可以在spring boot里面去实现，他的这个原理是什么？</p>
+
+<p>当我们的浏览器去加载前端资源的情况下，他访问的是aaa.com这个域名，前端的这个服务，把它的资源给返回给我们浏览器，然后渲染到浏览器上。他在发起后端请求的时候，他先去服务上做一个叫预检的这样一个步骤，她做预检的目的是什么？就是来判断一下，你这个后端的服务是否是可以提供给不同的域的。比如说aa.com域下面的服务去加载你BB.com域下的数据。如果预检通过的话，他就会返回预检通过了，如果预检通过之后，他就不再受同源策略的限制了，也就是说可以去访问的了。</p>
+
+<p>这个预检的功能就有点像什么？比如说，你到一个朋友家，然后想去朋友家去借书，你先给他打了个电话，然后他同意了。你见到他的父母，然后你就说我给那个谁已经打过电话，他同意我过来取一本书。这种情况下，他的父母会同意你把这本书取走，否则，你不是他家的人，然后，他就不会让你取这个资源，大概就是这样，用这样一个浅显的例子。就是说，你去朋友家借书，然后朋友不在家，你先给朋友打个电话，朋友说同意了，他有可能也会告诉一下他父母，等会我又有一个朋友，来回会来我们家里取书，这个书我可以借给他。那这个借书的这个人，实际上就是我们的浏览器，然后被借书的实际上就是相关技术的家庭。然后对家庭，后端服务，实际上是他的父母。后台服务，实际上是这个，而不是他的父母，是她自己，他进行一个预检，打电话就说是否同意我借这个书，他说同意，然后，等会他就可以去家里，然后去把这本书借回来，所以说，这种情况下，它就不受这个同源策略的限制。这个就是比较有钱比较浅显的这样一个理解吧</p>
+
+<p>那我们来，看一下，具体的话这个协议它实现是靠什么去实现的？也就是说在预检的过程中，它也会向我们的服务端发送请求，但是他发送请求之后，他不是真正去请求资源。他去判断这个资源，是否是可以打破同源策略，那我们通过哪些方式告诉他是否可以打破同源策略？就是在请求响应请求的响应里面加上请求头，然后告诉她哪些IP或者域名可以跨域访问，实际上就是打破同源策略。</p>
+
+<p>当浏览器向后端这个服务端发送这个预检请求的时候，它响应这些请求，将这些请求头响应给的浏览器。浏览器解析到这些请求头之后，它会二次发起请求，然后请求我们后台数据，此时，它携带的这些信息，就告诉浏览器，实际上它就不受同源策略限制了，所以可以跨域访问。那这个浏览器解析到这些请求头之后，就不做这个跨越这个同源策略的限制，允许跨域访问，那就是这样一个效果。</p>
+
+<h3 id="springboot环境下cors实现方式">springboot环境下CORS实现方式</h3>
+
+<h4 id="方式一">方式一</h4>
+
+<p>是全局配置，也就是说他对所有的请求权都生效的这个配置。</p>
+
+<pre><code class="language-java">
+/*
+ *  Created by IntelliJ IDEA.
+ *  User: 木木
+ *  Date: 2020/6/13
+ *  Time: 17:03
+ */
+@Configuration
+public class GlobalCorsConfig {
+
+
+    @Bean
+    public CorsFilter corsFilter(){
+
+        CorsConfiguration config = new CorsConfiguration();
+        //开放哪些ip、端口、域名的访问权限，星号表示开放所有的域
+        config.addAllowedOrigin(&quot;*&quot;);
+
+        //是否允许发送Cookie信息
+        config.setAllowCredentials(true);
+
+        //开放哪些Http方法，允许跨域访问
+        config.addAllowedMethod(HttpMethod.GET);
+        config.addAllowedMethod(HttpMethod.PUT);
+        config.addAllowedMethod(HttpMethod.DELETE);
+        config.addAllowedMethod(HttpMethod.POST);
+        //允许Http请求中携带的哪些Header信息
+        config.addAllowedHeader(&quot;*&quot;);
+        //暴漏哪些头部信息，（因为跨域访问默认是不能获取全部头信息）
+        config.addExposedHeader(&quot;*&quot;);
+
+        //添加映射路径，&quot;/**&quot;表示对所有的路径实行全局跨域访问权限的设置
+        UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();
+        configSource.registerCorsConfiguration(&quot;/**&quot;, config);
+
+        return new CorsFilter(configSource);
+    }
+}
+
+</code></pre>
+
+<h4 id="方式二">方式二</h4>
+
+<pre><code class="language-java">/*
+ *  Created by IntelliJ IDEA.
+ *  User: 木木
+ *  Date: 2020/6/13
+ *  Time: 17:16
+ */
+@Configuration
+public class GlobalCorsConfig02 {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping(&quot;/**&quot;)//添加映射路径，&quot;/**&quot;表示对所有的路径实行全局跨域访问权限的设置
+                        .allowedOrigins(&quot;*&quot;)//开放哪些ip、端口、域名的访问权限，星号表示开放所有的域
+                        .allowCredentials(true)//是否允许发送Cookie信息
+                        .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;)//开放哪些Http方法，允许跨域访问
+                        .allowedHeaders(&quot;*&quot;)//允许Http请求中携带的哪些Header信息
+                        .exposedHeaders(&quot;*&quot;);//暴漏哪些头部信息，（因为跨域访问默认是不能获取全部头信息）
+            }
+        };
+    }
+}
+</code></pre>
+
+<h4 id="方式三">方式三</h4>
+
+<p>使用CrossOrigin注解(局部跨域配置)</p>
+
+<ul>
+<li>将CrossOrigin注解加在Controller层的方法上，该方法定义的RequestMapping端点将支持跨域访问</li>
+
+<li><p>将CrossOrigin注解加在Controller层的类定义处， 整个类所有的方法对应的RequestMapping端点都将支持跨域访问</p>
+
+<pre><code class="language-java">  
+@RequestMapping(&quot;/cors&quot;)
+@ResponseBody
+@CrossOrigin(origins = &quot;http://localhost:8080&quot;,maxAge = 3600)
+public String cors() {
+
+    return &quot;cors&quot;;
+}
+    
+</code></pre></li>
+</ul>
+
+<h4 id="方式四">方式四</h4>
+
+<p>使用httpServletResponse设置响应头，局部跨域配置</p>
+
+<pre><code class="language-java"> @RequestMapping(&quot;/cors&quot;)
+    @ResponseBody
+    public String cors1(HttpServletResponse response) {
+
+        //使用httpServletResponse设置响应头，最原始的方法也是最通用的方法
+        response.addHeader(&quot;Access-Control-Allow-Origin&quot;,&quot;http://localhost:8888&quot;);
+        
+        return &quot;cors&quot;;
+    }
+</code></pre>
+
+<p><strong>很不幸的是:在Spring Security环境 下以上四种方式全部失效</strong></p>
+
+<h3 id="spring-security-解决跨域问题">spring security 解决跨域问题</h3>
+
+<p>在springsecurity配置类中增加</p>
+
+<pre><code class="language-java">http.cors.and().xxxxx
+</code></pre>
+
+<p>前面的四种方式再springsecurity中也可以生效，但是springSecurity更建议我们使用下面的方式（也算是第五种方式吧）：</p>
+
+<p>再增加一个方法</p>
+
+<pre><code class="language-java">    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList(&quot;http://localhost:8888&quot;));
+        configuration.setAllowedMethods(Arrays.asList(&quot;GET&quot;,&quot;POST&quot;));
+        configuration.applyPermitDefaultValues();
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration(&quot;/**&quot;, configuration);
+        return source;
+    }
+</code></pre>
+
+<h2 id="跨站攻击防御">跨站攻击防御</h2>
+
+<ul>
+<li>CORS(跨站资源共享)是局部打破同源策略的限制，使在一定规则下HTTP请求可以突破浏览器限制，实现跨站访问。</li>
+<li>CSRF是一种网络攻击方式，也可以说是一种安全漏洞，这种安全漏洞在web开发中广泛存在。我们要需要堵上这个漏洞。</li>
+</ul>
+
+<p>那第1个它是跨站资源共享是局部打破同源策略的限制，在一定的规则下，HTTP请求可以突破这个浏览器的限制，实现这个跨站的这种访问，这个是c or s跨站资源共享。</p>
+
+<p>CSRF叫做跨站资源跨站请求伪造，他准确的说是一种网络的这种攻击的一种方式，或者说是一种安全的这种漏洞，这种漏洞在我们的这个web开发这个应用中广泛的存在，我看过很多的应用，包括绝大部分的80%以上的开源软件，就是关于web开发的，都没有针对这个攻击方式进行防御，那我们本节来就来给大家讲一下，怎么针对这个攻击方式进行一下防御。。那我们要想知道怎么防御的话，我们得知道它怎么攻击，我们怎么攻击我给大家举了一个例子，就是对方如何利用这种方式去攻击，</p>
+
+<p>典型的跨站攻击</p>
+
+<ul>
+<li>你登录了网站A，攻击者向你的网站A账户发送留言、或者伪造嵌入页面，带有危险操作链接。</li>
+<li>当你在登录状态下点击了攻击者的连接，因此该链接对你网站A的账户进行了操作。</li>
+<li>这个操作是你在网站A中主动发出的，并且也是针对网站A的HTTP链接请求，同源策略无法限制该请求。</li>
+</ul>
+
+<p>当你作为一个用户登录了一个网站，然后攻击者向你的网站的那个账户上，发生了一些留言，或者一些伪造的这些那个嵌入式的这种页面，或者是一些危险的这种链接，你在登录状态下，然后你有意无意的吧，反正你就是点了这个链接，你就把这个链接给点击了。这个链接就是针对你的，当前你登陆了这个账户进行的操作，那这个就没有办法了，这个就是这个操作是你主动发出的，因为他是你点的，而且你已经登陆了，并且这个链接，应该是对这个当前的这个网站进行的操作，。同源策略也没有办法限制他，就是他这个链接就是针对你当前登陆这个网站进行了这个操作，而且是你主动点的，任何的策略都没有办法去限制他做任何的动作。所以说，假如说这个链接，就是一个转账的链接，那你的钱就被转走了，就是这么简单，所以说，你在网站上那个别人发给你的链接，你不要随便点，那这个就是他的一种的攻击方式，他伪造了这个，一个链接，这个链接是针对网站的这样一个链接，因为他可能对这个网站进行过一个分析，把这个链接发给一些用户，这个用户点了这个链接，就针对这个网站，它自己的这个账户进行操作，这也是典型的这种，跨站的请求的伪造的这种攻击方式。</p>
+
+<p>那么这种攻击方式？他有点像什么呢？他有点像那个，比如说你要办婚礼，你要办婚礼，然后有人，就伪造了自己的身份，他自己进去，还在办这个婚礼的时候，他进去混吃混喝。我举这么一个例子吧，，有点像这个。</p>
+
+<p><strong>跨站攻击防御</strong>
+为系统中的每一个连接请求加上一个token,这个token是随机的，服务端对该token进行验证。破坏者在留言或者伪造嵌入页面的时候，无法预先判断CSRF token的值是什么，所以当服务端校验CSRFtoken的时候也就无法通过。</p>
+
+<p>那我们怎么去防御它？那就是说我们这种防御的方式，就是说我们要给每一个来参加我们这个婚礼，或者是访问我们资源的这个用户，给他发上一个这样的一个请柬，你可以这么去认为，，这个请帖，实际上就是一个令牌，然后我们给她发生这样一个令牌，就说这个令牌是随机的。然后，它我们会对这个令牌进行验证，就有点像什么，就是我们随机制作了一批请柬，然后发给我，发给我们参加婚礼的嘉宾，然后我们把这个请柬全都发出去，这些请柬什么样的只有我自己知道，别人谁也不知道。那这个请柬在发送出去之后，完了到那天的时候，他们就会来参加我们的婚礼的宴请，然后当他进来的时候，就会有人，请出示你的请柬，然后如果这个请柬不是我们发送的，不是我们发的请柬，那他就进不来。</p>
+
+<p>所以说，这个跨站攻击防御，我们就，对它进行防御的这种方式，我们就是。给他在他我们给他发送请柬，就发生了一个这个令牌，在这令牌，在他来访问我们资源的时候，你要把这个CSRF这种跨站攻击防御的这个令牌带上，如果你不带的话我就不让你进来，就是这么个意思，那我们这个跨站攻击防御，那我们这个原理，大概就这个原理，</p>
+
+<p>我们知道了这个原理之后，我们来就来做一下怎么来对它进行防御，我们就来用我们的这个编码的方式来实现一下。</p>
+
+<pre><code>.and().csrf().disable()//关闭了csrf
+</code></pre>
+
+<p>这个我们之前是把这个防御功能给它关掉了，我们在之前的代码把它关掉，如果不关掉的话，我们的请求像post、delete、put请求，都是发不进来的，都是发不进来的。这个跨站攻击防御，它不防get请求，他针对get请求是不做防御的。它只防put，post、delete这种修改数据的这种请求，所以说，我们把这个东西给它打开，</p>
+
+<pre><code>http.csrf().and().xxxx//开启csrf
+</code></pre>
+
+<p>把这个功能开启之后，我们要做一些配置。我们既然要发送发送我们这个token，也就是说我们的令牌，我们的请柬。那我们的服务端要把请柬保存起来，我们就要用这样一个csrfTokenRepository</p>
+
+<pre><code class="language-java">http.csrf()
+.csrfTokenRepository(CookieCsrfTokenRespository.withHttpOnlyFalse())
+.ignoringAntMatchers(&quot;/authentication&quot;)
+</code></pre>
+
+<p>我们在认证的时候它通过这个cookie，给我们返回了一个这样的令牌叫XSRF-TOKEN，也就是说这个跨站攻击防御的这样一个令牌，也就是说这个是我们的请柬，这是我们的请柬，发送请求的时候需要在请求头加上我们的token（别忘了加上我们的JWT令牌请求头），key为<strong>X-XSRF-TOKEN</strong></p>
+
+<p>我们做了一个这样的配置叫做withHttpOnlyFalse这个的意思是告诉浏览器，我这个当前的这个cookie是可以被js脚本去读取的。我为什么可以允许去CS脚本去读取，因为我们要把它读取出来，然后放到我们的请求的这个位置上，我们要发送请求的时候，我们肯定要先从这个cokie里面把它给读取出来。所以说，这个withHttpOnlyFalse的意思就是说当前我们这个cookie当前我们的这个cookie，它是允许httpOnly为false（看XSRF-TOKEN的属性的时候）表示当前的这个cookie这条记录，可以被脚本读取，那样我们才能发起请求的时候才放在请求头。这个配置的目的，是为了前端能够正确的读到我们当前的这个令牌，所以说，我们做这样一个配置</p>
+
+<h3 id="前端携带参数的方式">前端携带参数的方式</h3>
+
+<h4 id="thymeleaf">thymeleaf</h4>
+
+<p>再header中携带CSRF token</p>
+
+<pre><code class="language-js">var headers={};
+headers[&quot;X-CSRF-TOKEN&quot;]=&quot;${_csrf.token}&quot;;
+$ajax({
+	headers: headers,
+});
+</code></pre>
+
+<p>直接作为参数提交</p>
+
+<pre><code>$ajax({
+data: {
+	&quot;_csrf&quot;: &quot;${_csrf.token}&quot;;
+}
+});
+</code></pre>
+
+<p>form表单隐藏字段</p>
+
+<pre><code>&lt;input type=&quot;hidden&quot; name=&quot;${_csrf.parameterName}&quot; value=&quot;${_csrf_token}&quot;&gt;
+</code></pre>
+
+<h2 id="jwt集群应用方案">JWT集群应用方案</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613210502701.png" alt="image-20200613210502701" /></p>
+
+<p>我们来先回顾一下，JWT应用的这个授权验证流程。首先，我们浏览器通过用户名和密码，然后进行登录，然后登陆成功的话，我们会在这个Controller里面，生成一个JWT的令牌，然后返回给我们的浏览器。浏览器将这个浏览器端的这个前端程序，将这个JWT的令牌把它保存起来，然后，在以后每一次访问我们后端的任何的接口资源的时候，都要需要把这个zwt令牌带上。然后，我们的整个这个应用中，会有一个这样一个过滤器，然后来验证这个令牌的合法性，如果令牌和法，我们进行授权，他访问我们的这个资源，然后我们这个资源给他一个响应的结果。那这个，就是我们这样一个JWT的这样一个单体应用，它的这样一个请求与响应的过程。</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613210530062.png" alt="image-20200613210530062" /></p>
+
+<p>那假如说，我们想把我们的应用。部署成为一个集群，也就是说上面的那个就是我们的那一套代码的这个JWT的这一套代码，我们给他部署两份，形成一个集群应用，也就是应用a和应用b，代码是同一套的，但是我们部署两份，那我们有没有可能，是有这样的需求，因为我们部署两份的目的，就是让它达到一个负载均衡分流的这样一个效果，然后，一个应用承担一部分的流量，那我们有没有可能实现，浏览器进行授，进行认证的时候他访问的是应用a，然后他需要访问接口资源的时候，它这个请求分流到我们的应用B上。这种情况肯定是有的，那我们思考就是说这种情况，这个应用B鉴权，就是验证这个JWT令牌的时候是是可以通过吗？他能够访问我们的这个a进行这个认证，然后发令牌，然后拿他拿令牌上B去访问接口资源，这样可以吗?</p>
+
+<p>当然是可以的，因为，我们两个应用中都没有使用session去保存任何的状态信息所有的信息，都是我们从数据库去加载的，所以说状态信息这个保存的不是我们的问题，所有的我们都是通过一个用户名，然后去数据库里面去加载。只要这两个应用的使用的是同一个数据库里面的这种授权数据，甚至你使用的不是同一个库，但是数据是一样的，使用同一个签名使用同一个的这个密钥就是我们的那个secret，进行签名和解签。那就可以实现的这个应用a的认证，再应用b中被承认，这样一种效果。</p>
+
+<p>所以说，我们这个JWT的集群是特别容易去扩展的，然后我们只要保证我们的这个授权数据是同一套，然后我们签名和解签的密钥是一样的，然后，我们就可以把同一份代码然后部署多份，实现这样一个集群应用的这样一个效果。然后，我们前端进行一个负载均衡的这样一个分流，那我们这样这个集群应用特别容易扩散。</p>
+
+<p>那我们在思考一个问题还可以思考一个问题，那就是我们的应用，假如说应用a和应用b，它不是一套代码，他部署的是两套代码，然后，他也是使用的是JWT，那可以实现应用a认证，然后应用b然后进行授权访问吗？可以思考一下这个问题。</p>
+
+<p>给大家一个答案，这个仍然是可以的，应用a和应用b，虽然他们两个的业务资源的代码不一样，但是我们可以让他什么一样，我们可以让他Controller的这个代码是一样的，也就是说，你这个认证的代码要统一，就是说这个JWT颁发JWT令牌的这个代码，这两个control，要代码要一致，然后，你进行这个校验的这个future的这个代码要一致，然后，你使用同一套授权数据，然后，你使用同一个签名和签的这个密钥。然后你就可以实现这种，不是同一套的这个代码，然后部署多份，然后他们之间也是可以进行这个认证和授权的认证，然后鉴权接口资源访问，这样也是可以的。</p>
+
+<p>所以说，JWT这一套东西，它核心的HTTP之间交互的都是数据，只要你的这个令牌这个签名和解签，然后授权的这些数据是一套，然后你鉴权颁发，这些代码也都是一套的，那你就可以实现。虽然你的业务接口资源不一样。应用A是以自己的接口资源，应用B也是自己的接口资源。他们两个不一样没有关系，你只要保证其他的部分数据的授权数据，然后授权的conntroller，然后，这个包括我们的验证的这个filter，然后我们的密钥是一份。这两个应用，就可以实现互相承认的这样一种效果。</p>
+
+<p><strong>JWT应用分布式部署的条件</strong></p>
+
+<ul>
+<li>认证Controller代码统一</li>
+<li>鉴权Filter代码统一、校验规则是一样的。</li>
+<li>使用同一套授权数据</li>
+<li>同一个用于签名和解签的secret。</li>
+</ul>
+
+<p><img src="/resources/技术框架/Spring家族/image-20200613211521849.png" alt="image-20200613211521849" /></p>
+
+<p>再来思考一个问题，基于刚才这个前提，我们完全可以把我们认证的这个部分，就是这个Controller就是颁发JWT令牌的这个Controller，单独给它抽出来形成一个应用，，也就是，这个是经常我们会听到大家说的这种叫做认证服务器进行认证服务器，他就是专门用户名和密码，然后发放在JWT令牌的这样一个认证服务器，然后，我们可以把它单独抽取出来，那我们甚至把它单独抽取出来之后，我们甚至还可以进一步把这个filter，他也是要求统一的吗？我们完全可以把这个验证的这个令牌验证的这个过滤器，把他这个代码也单独抽取出来，形成我们的这个服务网关而形成服务网关，当然，这个JWT这个过滤器的这个抽取过程，它不像这个Controller的这个抽取那么简单，因为这个服务网关不光有这个令牌验证的这个功能，它还有这个请求转发的这样一个功能，所以说，大家这个前端的这个，那就是服务网关了，这个需要在服务网关中进行这个过滤器的这样一个最大的信息平台的认证，我们通常管这个，抽取出来的内容，就是这个验证逻辑，加上我们这个请求转发逻辑，形成一个单独的这样一个前端，在这个接口资源的前面，我们管它叫服务网关，这个大家如果学过spring cloud的话，我们完全可以把这个JWT的令牌这个验证逻辑，放到这个服务网管理进行验证。那我们最后就剩下一些这个接口资源了，我们通常管它叫做这个资源服务器。</p>
 
     </div>
     <div class="article-footer">

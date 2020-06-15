@@ -16,7 +16,7 @@
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</guid>
-      <description>/resources/杂七杂八/杂七杂八/ 操作系统与计算机网络 TCP是传输层协议。对应osI网络模型的第4层传输层。 TCP协议的特点是基于链</description>
+      <description>操作系统与计算机网络 TCP是传输层协议。对应osI网络模型的第4层传输层。 TCP协议的特点是基于链接。也就是传输数据前需要先建立好链接，然后</description>
     </item>
     
     <item>
@@ -205,7 +205,7 @@
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</guid>
-      <description>系统使用的Linux Centos6 MySQL版本： 5.x: 5.0-5.1:早期产品的延续，升级维护 5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5） 本</description>
+      <description>系统使用的Linux Centos6 MySQL版本： 基础 5.x: 5.0-5.1:早期产品的延续，升级维护 5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5</description>
     </item>
     
     <item>
