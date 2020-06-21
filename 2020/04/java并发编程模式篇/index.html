@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="8467">
+<meta itemprop="wordCount" content="8487">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
         </ul>
@@ -224,7 +224,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">8</span></li>
+                    class="tag-list-count">9</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -239,6 +239,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -276,16 +286,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-21</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="title">Java知识点01</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-20</time>
                     </p>
                 </div>
             </li>
@@ -420,7 +420,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8467字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8487字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:17分 </span>
       </div>
     </div>
@@ -482,24 +482,24 @@
 
 <pre><code class="language-java">
 public static void main(String[] args) {
- GuardedObject guardedObject = new GuardedObject();
-  new Thread(() -&gt; {
+    GuardedObject guardedObject = new GuardedObject();
+    new Thread(() -&gt; {
         // 等待结果
         log.debug(&quot;等待结果&quot;);
         List&lt;String&gt; list =(List&lt;String&gt;)guardedObject.get();
         log.debug(&quot;结果大小：{}&quot;,list.size());
- },&quot;t1&quot;).start();
- new Thread(() -&gt; {
-      log.debug(&quot;执行下载&quot;);
-    try {
-        // 子线程执行下载
-        List&lt;String&gt; response = Downloader.download();
-        guardedObject.complete(list);
-    } catch (IOException e) {
-    	e.printStackTrace();
-    }
- },&quot;t2&quot;).start();
- log.debug(&quot;waiting...&quot;);
+    },&quot;t1&quot;).start();
+    new Thread(() -&gt; {
+        log.debug(&quot;执行下载&quot;);
+        try {
+            // 子线程执行下载
+            List&lt;String&gt; response = Downloader.download();
+            guardedObject.complete(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    },&quot;t2&quot;).start();
+    log.debug(&quot;waiting...&quot;);
 }
 </code></pre>
 
@@ -1238,6 +1238,8 @@ class ParkUnpark {
 
 <h3 id="1-定义-2">1. 定义</h3>
 
+<p>异步的原因是，生产后可能不会立刻被消费。</p>
+
 <h4 id="要点">要点</h4>
 
 <ul>
@@ -1587,29 +1589,29 @@ task3--put--&gt;main(main)
 
 <p>interrupt 可以打断正在执行的线程，无论这个线程是在 sleep，wait，还是正常运行</p>
 
-<pre><code>class TPTInterrupt {
- private Thread thread;
- public void start(){
- thread = new Thread(() -&gt; {
- while(true) {
- Thread current = Thread.currentThread();
- if(current.isInterrupted()) {
- log.debug(&quot;料理后事&quot;);
- break;
- }
- try {
- Thread.sleep(1000);
- log.debug(&quot;将结果保存&quot;);
- } catch (InterruptedException e) {
- current.interrupt();}
- // 执行监控操作 
- }
- },&quot;监控线程&quot;);
- thread.start();
- }
- public void stop() {
- thread.interrupt();
- }
+<pre><code class="language-java">class TPTInterrupt {
+    private Thread thread;
+    public void start(){
+        thread = new Thread(() -&gt; {
+            while(true) {
+                Thread current = Thread.currentThread();
+                if(current.isInterrupted()) {
+                    log.debug(&quot;料理后事&quot;);
+                    break;
+                }
+                try {
+                    Thread.sleep(1000);
+                    log.debug(&quot;将结果保存&quot;);
+                } catch (InterruptedException e) {
+                    current.interrupt();}
+                // 执行监控操作 
+            }
+        },&quot;监控线程&quot;);
+        thread.start();
+    }
+    public void stop() {
+        thread.interrupt();
+    }
 }
 </code></pre>
 

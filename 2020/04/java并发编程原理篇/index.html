@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="29978">
+<meta itemprop="wordCount" content="31219">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
         </ul>
@@ -224,7 +224,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">8</span></li>
+                    class="tag-list-count">9</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -239,6 +239,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -276,16 +286,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-21</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="title">Java知识点01</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-20</time>
                     </p>
                 </div>
             </li>
@@ -339,15 +339,15 @@
 <li><a href="#1-轻量级锁">1. 轻量级锁</a></li>
 <li><a href="#2-锁膨胀">2. 锁膨胀</a></li>
 <li><a href="#3-自旋优化">3. 自旋优化</a></li>
-<li><a href="#4-偏向锁">4. 偏向锁</a></li>
-<li><a href="#偏向状态"><strong>偏向状态</strong></a>
+<li><a href="#4-偏向锁">4. 偏向锁</a>
 <ul>
+<li><a href="#偏向状态"><strong>偏向状态</strong></a></li>
 <li><a href="#撤销-调用对象-hashcode">撤销 - 调用对象 hashCode</a></li>
 <li><a href="#撤销-其它线程使用对象">撤销 - 其它线程使用对象</a></li>
 <li><a href="#撤销-调用-wait-notify">撤销 - 调用 wait/notify</a></li>
-</ul></li>
 <li><a href="#批量重偏向">批量重偏向</a></li>
 <li><a href="#批量撤销">批量撤销</a></li>
+</ul></li>
 <li><a href="#5-锁消除">5. 锁消除</a></li>
 </ul></li>
 <li><a href="#wait-notify-原理">wait notify 原理</a></li>
@@ -461,8 +461,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:29978字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:60分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:31219字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:63分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -1090,30 +1090,33 @@ class UseFinal2 {
 <p>每个 Java 对象都可以关联一个 Monitor 对象，如果使用 synchronized 给对象上锁（重量级）之后，该对象头的
 Mark Word 中就被设置指向 Monitor 对象的指针</p>
 
+<ul>
+<li>Monitor 是操作系统提供的</li>
+<li>synchronized 锁的对象是java提供</li>
+</ul>
+
+<p>当线程执行到同步代码块的时候，就要对对象进行加锁。对象头中的markWord指向系统分配的Monitor。该线程就成功的拥有了这个monitor。Owner指向该线程（只能有一个主人）。当有其他线程来执行同步代码块的代码时，先判断锁的对象有没有关联monitor锁呢？看看这个monitor有没有主人，我们发现该monitor有主人了，其他线程就获得不了锁了，但是该线程也会与该monitor相关联，monitor中有一个属性entryList（等待队列、阻塞队列）的属性。其他线程就进入到了阻塞队列中进行等待。等待其他线程释放了minitor的锁，也就是释放了对owner的所有权，才能继续执行，进入blocked状态。</p>
+
 <p>Monitor 结构如下</p>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420223937648.png" alt="image-20200420223937648" /></p>
 
 <ul>
-<li><p>刚开始 Monitor 中 Owner 为 null</p></li>
+<li>刚开始 Monitor 中 Owner 为 null</li>
+<li>当 Thread-2 执行 synchronized(obj) 就会将 Monitor 的所有者 Owner 置为 Thread-2，Monitor中只能有一个 Owner</li>
+<li>在 Thread-2 上锁的过程中，如果 Thread-3，Thread-4，Thread-5 也来执行 synchronized(obj)，就会进入EntryList BLOCKED</li>
+<li>Thread-2 执行完同步代码块的内容，然后唤醒 EntryList 中等待的线程来竞争锁，竞争的是非公平的</li>
+<li>图中 WaitSet 中的 Thread-0，Thread-1 是之前获得过锁，但条件不满足进入 WAITING 状态的线程，后面讲
+wait-notify 时会分析</li>
+</ul>
 
-<li><p>当 Thread-2 执行 synchronized(obj) 就会将 Monitor 的所有者 Owner 置为 Thread-2，Monitor中只能有一个 Owner</p></li>
+<p>同一个对象会关联同一个monitor</p>
 
-<li><p>在 Thread-2 上锁的过程中，如果 Thread-3，Thread-4，Thread-5 也来执行 synchronized(obj)，就会进入EntryList BLOCKED</p></li>
-
-<li><p>Thread-2 执行完同步代码块的内容，然后唤醒 EntryList 中等待的线程来竞争锁，竞争的是非公平的</p></li>
-
-<li><p>图中 WaitSet 中的 Thread-0，Thread-1 是之前获得过锁，但条件不满足进入 WAITING 状态的线程，后面讲
-wait-notify 时会分析</p>
-
-<blockquote>
-<p>注意：</p>
+<p><strong>注意：</strong></p>
 
 <ul>
 <li>synchronized 必须是进入同一个对象的 monitor 才有上述的效果</li>
 <li>不加 synchronized 的对象不会关联监视器，不遵从以上规则</li>
-</ul>
-</blockquote></li>
 </ul>
 
 <h2 id="synchronized-原理">synchronized 原理</h2>
@@ -1129,32 +1132,32 @@ public static void main(String[] args) {
 
 <p>对应的字节码为</p>
 
-<pre><code>public static void main(java.lang.String[]);
+<pre><code class="language-java">public static void main(java.lang.String[]);
  descriptor: ([Ljava/lang/String;)V
  flags: ACC_PUBLIC, ACC_STATIC
 Code:
  stack=2, locals=3, args_size=1
- 0: getstatic #2 // &lt;- lock引用 （synchronized开始）
- 3: dup
- 4: astore_1 // lock引用 -&gt; slot 1
- 5: monitorenter // 将 lock对象 MarkWord 置为 Monitor 指针
+ 0: getstatic #2 // &lt;- lock引用 （synchronized开始）--拿到lock对象
+ 3: dup	//--复制一份
+ 4: astore_1 // lock引用 -&gt; slot 1   --存储到slot 1中  为了解锁使用
+ 5: monitorenter // 将 lock对象 MarkWord 置为 Monitor 指针（使用C实现这里看不到具体的步骤）  --synchronized  
  6: getstatic #3 // &lt;- i
- 9: iconst_1 // 准备常数 1
+ 9: iconst_1 // 准备常数 1        -------counter++操作
  10: iadd // +1
  11: putstatic #3 // -&gt; i
- 14: aload_1 // &lt;- lock引用
- 15: monitorexit // 将 lock对象 MarkWord 重置, 唤醒 EntryList
- 16: goto 24
- 19: astore_2 // e -&gt; slot 2 
- 20: aload_1 // &lt;- lock引用
+ 14: aload_1 // &lt;- lock引用   ---拿到4: astore_1 中存储的临时变量
+ 15: monitorexit // 将 lock对象 MarkWord 重置（原先对象投中存储的是Normal那一行的数据，加锁后存储的 Heavyweight Locked哪一行的数据，恢复数据；原先的数据都存储在monitor中了）, 唤醒 EntryList
+ 16: goto 24					//--下面的代码保证即使同步代码块中出现了异常也能进行锁的释放
+ 19: astore_2 // e -&gt; slot 2   --异常变量存储起来
+ 20: aload_1 // &lt;- lock引用    --加载lock引用 ，锁对象的引用地址
  21: monitorexit // 将 lock对象 MarkWord 重置, 唤醒 EntryList
  22: aload_2 // &lt;- slot 2 (e)
  23: athrow // throw e
  24: return
  Exception table:
- from to target type
- 6 16 19 any
- 19 22 19 any
+     from to target type
+     6 16 19 any
+     19 22 19 any
  LineNumberTable:
  line 8: 0
  line 9: 6
@@ -1201,19 +1204,21 @@ public static void method2() {
 }
 </code></pre>
 
-<p>一个对象分为对象头(Mark Word(hash码 age 加锁的状态)和KlassWord（类型指针）)和对象体（对象的成员变量信息）</p>
+<p>一个对象分为对象头(Mark Word(hash码 age 加锁的状态)和classWord（类型指针）)和对象体（对象的成员变量信息）</p>
 
 <p>执行到同步块 A时先在栈帧中产生一个锁记录的对象(jvm层面)[包含了1.对象指针：加锁的对象的地址；2.记录对象的markword],然后将锁记录对象的指针指向该对象，然后将锁记录中的数据(00:轻量级锁)和对象中的数据进行交换（01：没有加锁）（表示加锁），交换成功则表示加锁成功</p>
 
-<p>创建锁记录（Lock Recoyige rd）对象，每个线程都的栈帧都会包含一个锁记录的结构，内部可以存储锁定对象的</p>
+<p>执行到method1方法时会在栈中开辟一个栈帧空间。</p>
+
+<p>创建锁记录（Lock Recoyige rd）对象，每个线程都的栈帧都会包含一个锁记录（不可见的，不是java层面的，是jvm层面的）的结构，内部可以存储锁定对象的。</p>
+
+<p>锁记录包含两部分：对象指针、存储将来我们要加锁对象的mark word（原来的值是一个轻量级锁的信息）</p>
 
 <p>Mark Word</p>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224152017.png" alt="image-20200420224152017" /></p>
 
-<p>让锁记录中 Object reference 指向锁对象，并尝试用 cas 替换 Object 的 Mark Word，将 Mark Word 的值存</p>
-
-<p>入锁记录</p>
+<p>让锁记录中 Object reference 指向锁对象，并尝试用 cas 替换 Object 的 Mark Word（表示对象已加锁），将 Mark Word 的值存入锁记录（为了解锁）</p>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224213394.png" alt="image-20200420224213394" /></p>
 
@@ -1224,16 +1229,15 @@ public static void method2() {
 <p>如果 cas 失败，有两种情况</p>
 
 <ol>
-<li>如果是其它线程已经持有了该 Object 的轻量级锁，这时表明有竞争，进入锁膨胀过程</li>
-<li>如果是自己执行了 synchronized 锁重入，那么再添加一条 Lock Record 作为重入的计数</li>
+<li>如果是其它线程已经持有了该 Object 的轻量级锁（对象头为00），这时表明有竞争，进入锁膨胀过程</li>
+<li>如果是自己执行了 synchronized 锁重入（调用了method2方法；同一个线程又对同一个对象进行了加锁），那么再添加一条 Lock Record 作为重入的计数</li>
 </ol>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224256088.png" alt="image-20200420224256088" /></p>
 
 <p>方法二中又调用了一次synchronized,又要产生一个栈帧，这个栈帧还要对对象进行加锁，然后将锁记录对象的指针指向该对象，然后进行数据的交换（这次交换肯定失败），然后再锁记录中存储null(作用：用于锁重入的计数)</p>
 
-<p>当退出 synchronized 代码块（解锁时）如果有取值为 null 的锁记录，表示有重入，这时重置锁记录，表示重
-入计数减一</p>
+<p>当退出 synchronized 代码块（解锁时）如果有取值为 null 的锁记录，表示有重入，直接清除掉该锁记录，这时重置锁记录，表示重入计数减一</p>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224313286.png" alt="image-20200420224313286" /></p>
 
@@ -1251,9 +1255,9 @@ public static void method2() {
 
 <pre><code class="language-java">static Object obj = new Object();
 public static void method1() {
- synchronized( obj ) {
- // 同步块
- }
+    synchronized( obj ) {
+        // 同步块
+    }
 }
 </code></pre>
 
@@ -1261,23 +1265,26 @@ public static void method1() {
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224403636.png" alt="image-20200420224403636" /></p>
 
+<p>轻量级锁（锁记录）没有阻塞的说法，重量级锁（monitor）才有阻塞的说法</p>
+
 <ul>
 <li><p>这时 Thread-1 加轻量级锁失败，进入锁膨胀流程</p>
 
 <ul>
-<li>即为 Object 对象申请 Monitor 锁，让 Object 指向重量级锁地址</li>
+<li>即为 Object 对象申请 Monitor 锁，让 Object 指向重量级锁地址（改变对象头信息）</li>
 <li>然后自己进入 Monitor 的 EntryList BLOCKED</li>
 </ul>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224442736.png" alt="image-20200420224442736" /></p>
 
-<p>当 Thread-0 退出同步块解锁时，使用 cas 将 Mark Word 的值恢复给对象头，失败。这时会进入重量级解锁
-流程，即按照 Monitor 地址找到 Monitor 对象，设置 Owner 为 null，唤醒 EntryList 中 BLOCKED 线程</p></li>
+<ul>
+<li>当 Thread-0 退出同步块解锁时，使用 cas 将 Mark Word 的值恢复给对象头，失败（持有的是轻量级锁，而对象此时已经变味了重量级锁了）。这时会进入重量级解锁流程，即按照 Monitor 地址找到 Monitor 对象，设置 Owner 为 null，唤醒 EntryList 中 BLOCKED 线程</li>
+</ul></li>
 </ul>
 
 <h3 id="3-自旋优化">3. 自旋优化</h3>
 
-<p>重量级锁竞争的时候，还可以使用自旋来进行优化，如果当前线程自旋成功（即这时候持锁线程已经退出了同步块，释放了锁），这时当前线程就可以避免阻塞。自旋重试成功的情况</p>
+<p>重量级锁竞争的时候，还可以使用自旋来进行优化，如果当前线程自旋（循环几次）成功（即这时候持锁线程已经退出了同步块，释放了锁），这时当前线程就可以避免阻塞。使用自旋（适合在多核cpu下使用）可以避免上下文切换、阻塞的发生。自旋重试成功的情况</p>
 
 <table>
 <thead>
@@ -1440,29 +1447,30 @@ public static void method1() {
 
 <h3 id="4-偏向锁">4. 偏向锁</h3>
 
-<p>轻量级锁在没有竞争时（就自己这个线程），每次重入仍然需要执行 CAS 操作。</p>
+<p>偏向锁和轻量级锁的前提都是多个线程访问同一个对象是错开的。</p>
 
-<p>Java 6 中引入了偏向锁来做进一步优化：只有第一次使用 CAS 将线程 ID 设置到对象的 Mark Word 头，之后发现
-这个线程 ID 是自己的就表示没有竞争，不用重新 CAS。以后只要不发生竞争，这个对象就归该线程所有</p>
+<p>轻量级锁在没有竞争时（就自己这个线程），每次重入（锁重入）仍然需要执行 CAS 操作。</p>
+
+<p>Java 6 中引入了偏向锁来做进一步优化：只有第一次使用 CAS 将线程 ID 设置到对象的 Mark Word 头，之后发现这个线程 ID 是自己的就表示没有竞争，不用重新 CAS。以后只要不发生竞争，这个对象就归该线程所有。</p>
 
 <p>例如：</p>
 
-<pre><code>static final Object obj = new Object();
+<pre><code class="language-java">static final Object obj = new Object();
 public static void m1() {
- synchronized( obj ) {
- // 同步块 A
- m2();
- }
+    synchronized( obj ) {
+        // 同步块 A
+        m2();
+    }
 }
 public static void m2() {
- synchronized( obj ) {
- // 同步块 B
- m3();
- }
+    synchronized( obj ) {
+        // 同步块 B
+        m3();
+    }
 }
 public static void m3() {
- synchronized( obj ) {// 同步块 C
- }
+    synchronized( obj ) {// 同步块 C
+    }
 }
 </code></pre>
 
@@ -1470,16 +1478,16 @@ public static void m3() {
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420224701976.png" alt="image-20200420224701976" /></p>
 
-<h3 id="偏向状态"><strong>偏向状态</strong></h3>
+<h4 id="偏向状态"><strong>偏向状态</strong></h4>
 
 <p>回忆一下对象头格式</p>
 
-<pre><code>|--------------------------------------------------------------------|--------------------|
-| 				Mark Word (64 bits)								 | State 			 |
+<pre><code class="language-shell">|--------------------------------------------------------------------|--------------------|
+| 				Mark Word (64 bits)								 | 		State 		 |
 |--------------------------------------------------------------------|--------------------|
-| unused:25 | hashcode:31 | unused:1 | age:4 | biased_lock:0	| 01 | 			  Normal |
+| unused:25 | hashcode:31 | unused:1 | age:4 | biased_lock:0	| 01 | 		 Normal 	 |
 |--------------------------------------------------------------------|--------------------|
-| thread:54 | epoch:2 | unused:1 | age:4 | biased_lock:1 	    | 01 | Biased 			 |
+| thread:54 | epoch:2 | unused:1 | age:4 | biased_lock:1 	    | 01 |		 Biased 	 |
 |--------------------------------------------------------------------|--------------------|
 | ptr_to_lock_record:62										 | 00 | Lightweight Locked |
 |--------------------------------------------------------------------|--------------------|
@@ -1488,6 +1496,14 @@ public static void m3() {
 | 														   | 11 |  	   Marked for GC |
 |--------------------------------------------------------------------|--------------------|
 </code></pre>
+
+<ul>
+<li><p>Normal：普通对象；biased_lock为0</p></li>
+
+<li><p>Biased:偏向锁；biased_lock为1</p></li>
+</ul>
+
+<p>二者的最后两位都是01</p>
 
 <p>一个对象创建时：</p>
 
@@ -1500,9 +1516,9 @@ XX:BiasedLockingStartupDelay=0 来禁用延迟</li>
 age 都为 0 ，第一次用到 hashcode 时才会赋值</li>
 </ul>
 
-<p>1 ） 测试延迟特性</p>
+<p>1 ） <strong>测试延迟特性</strong></p>
 
-<p>2 ） 测试偏向锁</p>
+<p>2 ） <strong>测试偏向锁</strong></p>
 
 <pre><code>class Dog {}
 </code></pre>
@@ -1511,18 +1527,18 @@ age 都为 0 ，第一次用到 hashcode 时才会赋值</li>
 
 <pre><code class="language-java">// 添加虚拟机参数 -XX:BiasedLockingStartupDelay=0 
 public static void main(String[] args) throws IOException {
- Dog d = new Dog();
- ClassLayout classLayout = ClassLayout.parseInstance(d);
- new Thread(() -&gt; {
- log.debug(&quot;synchronized 前&quot;);
- System.out.println(classLayout.toPrintableSimple(true));
- synchronized (d) {
- log.debug(&quot;synchronized 中&quot;);
- System.out.println(classLayout.toPrintableSimple(true));
- }
- log.debug(&quot;synchronized 后&quot;);
- System.out.println(classLayout.toPrintableSimple(true));
- }, &quot;t1&quot;).start();}
+    Dog d = new Dog();
+    ClassLayout classLayout = ClassLayout.parseInstance(d);
+    new Thread(() -&gt; {
+        log.debug(&quot;synchronized 前&quot;);
+        System.out.println(classLayout.toPrintableSimple(true));
+        synchronized (d) {
+            log.debug(&quot;synchronized 中&quot;);
+            System.out.println(classLayout.toPrintableSimple(true));
+        }
+        log.debug(&quot;synchronized 后&quot;);
+        System.out.println(classLayout.toPrintableSimple(true));
+    }, &quot;t1&quot;).start();}
 </code></pre>
 
 <p>输出</p>
@@ -1535,12 +1551,11 @@ public static void main(String[] args) throws IOException {
 00000000 00000000 00000000 00000000 00011111 11101011 11010000 00000101
 </code></pre>
 
-<p>注意</p>
+<p><strong>注意</strong></p>
 
-<pre><code>处于偏向锁的对象解锁后，线程 id 仍存储于对象头中
-</code></pre>
+<p>处于偏向锁的对象解锁后，线程 id 仍存储于对象头中</p>
 
-<p>3 ）测试禁用</p>
+<p><strong>3 ）测试禁用</strong></p>
 
 <p>在上面测试代码运行时在添加 VM 参数 - XX:-UseBiasedLocking 禁用偏向锁</p>
 
@@ -1554,24 +1569,26 @@ public static void main(String[] args) throws IOException {
 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001
 </code></pre>
 
-<p>测试 hashCode</p>
+<p>4）<strong>测试 hashCode</strong></p>
 
-<pre><code>d.hashCode();//会禁用这个对象的偏向锁
+<pre><code class="language-java">d.hashCode();//会禁用这个对象的偏向锁
 </code></pre>
 
-<pre><code>正常状态对象一开始是没有 hashCode 的，第一次调用才生成
-</code></pre>
+<p>正常状态对象一开始是没有 hashCode 的(默认31位都是0)，第一次调用才生成（将值填充到31位中）</p>
+
+<p>当一个可偏向的对象调用了它的hashcode方法之后，它就会撤销这个对象的偏向状态（对象头从biased&mdash;&gt;Normal）</p>
 
 <h4 id="撤销-调用对象-hashcode">撤销 - 调用对象 hashCode</h4>
 
 <p>调用了对象的 hashCode，但偏向锁的对象 MarkWord 中存储的是线程 id，如果调用 hashCode 会导致偏向锁被
 撤销</p>
 
-<pre><code>轻量级锁会在锁记录中记录 hashCode
-重量级锁会在 Monitor 中记录 hashCode
-</code></pre>
+<ul>
+<li>轻量级锁会在锁记录中记录 hashCode</li>
+<li>重量级锁会在 Monitor 中记录 hashCode</li>
+</ul>
 
-<p>在调用 hashCode 后使用偏向锁，记得去掉 - XX:-UseBiasedLocking</p>
+<p>在调用 hashCode 后使用偏向锁，记得去掉 <code>- XX:-UseBiasedLocking</code>（+是启用；-是禁用）</p>
 
 <p>输出</p>
 
@@ -1589,38 +1606,38 @@ public static void main(String[] args) throws IOException {
 <p>当有其它线程使用偏向锁对象时，会将偏向锁升级为轻量级锁</p>
 
 <pre><code class="language-java">private static void test2() throws InterruptedException {
- Dog d = new Dog();
- Thread t1 = new Thread(() -&gt; {
- synchronized (d) {
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- synchronized (TestBiased.class) {
- TestBiased.class.notify();
- }
- // 如果不用 wait/notify 使用 join 必须打开下面的注释
- // 因为：t1 线程不能结束，否则底层线程可能被 jvm 重用作为 t2 线程，底层线程 id 是一样的
- /*try {
- System.in.read();
- } catch (IOException e) {
- e.printStackTrace();
- }*/
- }, &quot;t1&quot;);
- t1.start();
- Thread t2 = new Thread(() -&gt; {
- synchronized (TestBiased.class) {
- try {
- TestBiased.class.wait();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- }
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- synchronized (d) {
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- }, &quot;t2&quot;);
- t2.start();
+    Dog d = new Dog();
+    Thread t1 = new Thread(() -&gt; {
+        synchronized (d) {
+            log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+        synchronized (TestBiased.class) {
+            TestBiased.class.notify();
+        }
+        // 如果不用 wait/notify 使用 join 必须打开下面的注释
+        // 因为：t1 线程不能结束，否则底层线程可能被 jvm 重用作为 t2 线程，底层线程 id 是一样的
+        /*try {
+     System.in.read();
+     } catch (IOException e) {
+     e.printStackTrace();
+     }*/
+    }, &quot;t1&quot;);
+    t1.start();
+    Thread t2 = new Thread(() -&gt; {
+        synchronized (TestBiased.class) {
+            try {
+                TestBiased.class.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+        synchronized (d) {
+            log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+        log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+    }, &quot;t2&quot;);
+    t2.start();
 }
 </code></pre>
 
@@ -1634,34 +1651,34 @@ public static void main(String[] args) throws IOException {
 
 <h4 id="撤销-调用-wait-notify">撤销 - 调用 wait/notify</h4>
 
-<p>只有重量级锁才有</p>
+<p>wait/notify只有重量级锁才有</p>
 
-<pre><code>public static void main(String[] args) throws InterruptedException {
- Dog d = new Dog();
- Thread t1 = new Thread(() -&gt; {
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- synchronized (d) {
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- try {
- d.wait();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- }, &quot;t1&quot;);
- t1.start();
- new Thread(() -&gt; {
- try {
- Thread.sleep(6000);
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- synchronized (d) {
- log.debug(&quot;notify&quot;);
- d.notify();
- }
- }, &quot;t2&quot;).start();
+<pre><code class="language-java">public static void main(String[] args) throws InterruptedException {
+    Dog d = new Dog();
+    Thread t1 = new Thread(() -&gt; {
+        log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+        synchronized (d) {
+            log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+            try {
+                d.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            log.debug(ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+    }, &quot;t1&quot;);
+    t1.start();
+    new Thread(() -&gt; {
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        synchronized (d) {
+            log.debug(&quot;notify&quot;);
+            d.notify();
+        }
+    }, &quot;t2&quot;).start();
 }
 </code></pre>
 
@@ -1673,45 +1690,47 @@ public static void main(String[] args) throws IOException {
 [t1] - 00000000 00000000 00000000 00000000 00011100 11010100 00001101 11001010
 </code></pre>
 
-<h3 id="批量重偏向">批量重偏向</h3>
+<h4 id="批量重偏向">批量重偏向</h4>
 
-<p>如果对象虽然被多个线程访问，但没有竞争，这时偏向了线程 T1 的对象仍有机会重新偏向 T2，重偏向会重置对的 Thread ID当撤销偏向锁阈值超过 20 次后，jvm 会这样觉得，我是不是偏向错了呢，于是会在给这些对象加锁时重新偏向至加锁线程</p>
+<p>如果对象虽然被多个线程访问，但没有竞争，这时偏向了线程 T1 的对象仍有机会重新偏向 T2，重偏向会重置对的 Thread ID</p>
+
+<p>当撤销偏向锁阈值超过 20 次后，jvm 会这样觉得，我是不是偏向错了呢，于是会在给这些对象加锁时重新偏向至加锁线程</p>
 
 <pre><code class="language-java">private static void test3() throws InterruptedException {
- Vector&lt;Dog&gt; list = new Vector&lt;&gt;();
- Thread t1 = new Thread(() -&gt; {
- for (int i = 0; i &lt; 30; i++) {
- Dog d = new Dog();
- list.add(d);
- synchronized (d) {
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- }
- synchronized (list) {
- list.notify();
- } 
- }, &quot;t1&quot;);
- t1.start();
- 
- Thread t2 = new Thread(() -&gt; {
- synchronized (list) {
- try {
- list.wait();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- }
- log.debug(&quot;===============&gt; &quot;);
- for (int i = 0; i &lt; 30; i++) {
- Dog d = list.get(i);
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- synchronized (d) {
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- }, &quot;t2&quot;);
- t2.start();
+    Vector&lt;Dog&gt; list = new Vector&lt;&gt;();
+    Thread t1 = new Thread(() -&gt; {
+        for (int i = 0; i &lt; 30; i++) {
+            Dog d = new Dog();//这三十个对象开始都是偏向线程t1的
+            list.add(d);
+            synchronized (d) {
+                log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            }
+        }
+        synchronized (list) {
+            list.notify();
+        } 
+    }, &quot;t1&quot;);
+    t1.start();
+
+    Thread t2 = new Thread(() -&gt; {
+        synchronized (list) {
+            try {
+                list.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        log.debug(&quot;===============&gt; &quot;);
+        for (int i = 0; i &lt; 30; i++) {
+            Dog d = list.get(i);
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            synchronized (d) {//会先升级为轻量级锁
+                log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            }
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+    }, &quot;t2&quot;);
+    t2.start();
 }
 </code></pre>
 
@@ -1840,54 +1859,53 @@ public static void main(String[] args) throws IOException {
 [t2] - 29 00000000 00000000 00000000 00000000 00011111 11110011 11110001 00000101
 </code></pre>
 
-<h3 id="批量撤销">批量撤销</h3>
+<h4 id="批量撤销">批量撤销</h4>
 
-<p>当撤销偏向锁阈值超过 40 次后，jvm 会这样觉得，自己确实偏向错了，根本就不该偏向。于是整个类的所有对象
-都会变为不可偏向的，新建的对象也是不可偏向的</p>
+<p>当撤销偏向锁阈值超过 40 次后，jvm 会这样觉得，自己确实偏向错了，根本就不该偏向。于是整个类的所有对象都会变为不可偏向的，新建的对象也是不可偏向的</p>
 
-<pre><code>static Thread t1,t2,t3;
+<pre><code class="language-java">static Thread t1,t2,t3;
 private static void test4() throws InterruptedException {
- Vector&lt;Dog&gt; list = new Vector&lt;&gt;();
- int loopNumber = 39;
- t1 = new Thread(() -&gt; {
- for (int i = 0; i &lt; loopNumber; i++) {
- Dog d = new Dog();
- list.add(d);
- synchronized (d) {
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- }
- LockSupport.unpark(t2);
- }, &quot;t1&quot;);
- t1.start();
- t2 = new Thread(() -&gt; {
- LockSupport.park();
- log.debug(&quot;===============&gt; &quot;);
- for (int i = 0; i &lt; loopNumber; i++) {
- Dog d = list.get(i);
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- synchronized (d) {
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- LockSupport.unpark(t3);
- }, &quot;t2&quot;);t2.start();
- t3 = new Thread(() -&gt; {
- LockSupport.park();
- log.debug(&quot;===============&gt; &quot;);
- for (int i = 0; i &lt; loopNumber; i++) {
- Dog d = list.get(i);
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- synchronized (d) {
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
- }
- }, &quot;t3&quot;);
- t3.start();
- t3.join();
- log.debug(ClassLayout.parseInstance(new Dog()).toPrintableSimple(true));
+    Vector&lt;Dog&gt; list = new Vector&lt;&gt;();
+    int loopNumber = 39;
+    t1 = new Thread(() -&gt; {
+        for (int i = 0; i &lt; loopNumber; i++) {
+            Dog d = new Dog();
+            list.add(d);
+            synchronized (d) {
+                log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            }
+        }
+        LockSupport.unpark(t2);
+    }, &quot;t1&quot;);
+    t1.start();
+    t2 = new Thread(() -&gt; {
+        LockSupport.park();
+        log.debug(&quot;===============&gt; &quot;);
+        for (int i = 0; i &lt; loopNumber; i++) {
+            Dog d = list.get(i);
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            synchronized (d) {
+                log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            }
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+        LockSupport.unpark(t3);
+    }, &quot;t2&quot;);t2.start();
+    t3 = new Thread(() -&gt; {
+        LockSupport.park();
+        log.debug(&quot;===============&gt; &quot;);
+        for (int i = 0; i &lt; loopNumber; i++) {
+            Dog d = list.get(i);
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            synchronized (d) {
+                log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+            }
+            log.debug(i + &quot;\t&quot; + ClassLayout.parseInstance(d).toPrintableSimple(true));
+        }
+    }, &quot;t3&quot;);
+    t3.start();
+    t3.join();
+    log.debug(ClassLayout.parseInstance(new Dog()).toPrintableSimple(true));//第四十次撤销
 }
 </code></pre>
 
@@ -1908,19 +1926,19 @@ https://www.cnblogs.com/LemonFive/p/11248248.html
 @Measurement(iterations=5)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class MyBenchmark {
- static int x = 0;
- @Benchmark
- public void a() throws Exception {
- x++;
- }
- @Benchmark
- public void b() throws Exception {
-     Object o = new Object();
-     //o是一个方法的局部变量，加锁没有意义。那么JIT（java即时编译器，就会优化代码）
-     synchronized (o) {
-     	x++;
-     }
- }
+    static int x = 0;
+    @Benchmark
+    public void a() throws Exception {
+        x++;
+    }
+    @Benchmark
+    public void b() throws Exception {
+        Object o = new Object();
+        //o是一个方法的局部变量，加锁没有意义。那么JIT（java即时编译器，就会优化代码）
+        synchronized (o) {
+            x++;
+        }
+    }
 }
 </code></pre>
 
@@ -1946,14 +1964,43 @@ c.i.MyBenchmark.b avgt 5 16.976 1.572 ns/op
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200420225230856.png" alt="image-20200420225230856" /></p>
 
-<pre><code>Owner 线程发现条件不满足，调用 wait 方法，即可进入 WaitSet 变为 WAITING 状态
-BLOCKED 和 WAITING 的线程都处于阻塞状态，不占用 CPU 时间片
-BLOCKED 线程会在 Owner 线程释放锁时唤醒
-WAITING 线程会在 Owner 线程调用 notify 或 notifyAll 时唤醒，但唤醒后并不意味者立刻获得锁，仍需进入
-EntryList 重新竞争
-</code></pre>
+<ul>
+<li>Owner 线程发现条件不满足，调用 wait 方法，即可进入 WaitSet 变为 WAITING 状态</li>
+<li>BLOCKED 和 WAITING 的线程都处于阻塞状态，不占用 CPU 时间片</li>
+<li>BLOCKED 线程会在 Owner 线程释放锁时唤醒</li>
+<li>WAITING 线程会在 Owner 线程调用 notify 或 notifyAll 时唤醒，但唤醒后并不意味者立刻获得锁，仍需进入EntryList 重新竞争</li>
+</ul>
 
 <h2 id="join-原理">join 原理</h2>
+
+<p>运用了保护性暂停模式的原理</p>
+
+<pre><code class="language-java">//join源码
+public final synchronized void join(long millis)
+    throws InterruptedException {
+        long base = System.currentTimeMillis();
+        long now = 0;
+
+        if (millis &lt; 0) {
+            throw new IllegalArgumentException(&quot;timeout value is negative&quot;);
+        }
+
+        if (millis == 0) {
+            while (isAlive()) {
+                wait(0);
+            }
+        } else {
+            while (isAlive()) {
+                long delay = millis - now;
+                if (delay &lt;= 0) {
+                    break;
+                }
+                wait(delay);
+                now = System.currentTimeMillis() - base;
+            }
+        }
+    }
+</code></pre>
 
 <p>是调用者轮询检查线程 alive 状态</p>
 
@@ -1962,7 +2009,7 @@ EntryList 重新竞争
 
 <p>等价于下面的代码</p>
 
-<pre><code>synchronized (t1) {
+<pre><code class="language-java">synchronized (t1) {
  // 调用者线程进入 t1 的 waitSet 等待, 直到 t1 运行结束
  while (t1.isAlive()) {
  t1.wait(0);

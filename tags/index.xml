@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/</link>
     <description>Recent content in Tags on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Teamcenter定制学习笔记</title>
+      <link>https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>Teamcenter笔记 概述 Teamcenter的标准功能基本可以供用户使用，但是基于每家公司业务问题以及使用习惯，还有一些特殊的应用与数据</description>
+    </item>
     
     <item>
       <title>复习知识点总结</title>
@@ -57,10 +66,10 @@
     
     <item>
       <title>Java进阶及JVM</title>
-      <link>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6jvm%E4%B8%8Ejmm/</link>
+      <link>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6jvm/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6jvm%E4%B8%8Ejmm/</guid>
+      <guid>https://mumulx.github.io/2020/05/java%E8%BF%9B%E9%98%B6jvm/</guid>
       <description>JVM性能调优 组成：类加载子系统；运行时数据区；执行引擎 方法区 永久代 堆 jdk7 元空间 直接内存native memory jdk8 最小20. 75M 最大 无限 方法区与永久代、元</description>
     </item>
     

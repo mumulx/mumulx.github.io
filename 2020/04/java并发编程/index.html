@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="58652">
+<meta itemprop="wordCount" content="60243">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
         </ul>
@@ -224,7 +224,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">8</span></li>
+                    class="tag-list-count">9</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -239,6 +239,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -276,16 +286,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-21</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/" class="title">Java知识点01</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-20</time>
                     </p>
                 </div>
             </li>
@@ -331,7 +331,15 @@
 <li><a href="#方法三-futuretask-配合-thread">方法三，FutureTask 配合 Thread</a></li>
 </ul></li>
 <li><a href="#3-2-观察多个线程同时运行">3.2 观察多个线程同时运行</a></li>
-<li><a href="#3-3-查看进程线程的方法">3.3 查看进程线程的方法</a></li>
+<li><a href="#3-3-查看进程线程的方法">3.3 查看进程线程的方法</a>
+<ul>
+<li>
+<ul>
+<li><a href="#windows">windows</a></li>
+<li><a href="#linux">linux</a></li>
+<li><a href="#java-jdk提供">Java(jdk提供)</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#3-4-原理之线程运行">3.4  *原理之线程运行</a>
 <ul>
 <li><a href="#栈与栈帧">栈与栈帧</a></li>
@@ -345,7 +353,7 @@
 <li><a href="#3-7-sleep-与-yield">3.7 sleep 与 yield</a>
 <ul>
 <li><a href="#线程优先级">线程优先级</a></li>
-<li><a href="#应用之效率-案例-2">* 应用之效率（案例 2 ）</a></li>
+<li><a href="#应用之限制">* 应用之限制</a></li>
 </ul></li>
 <li><a href="#3-8-join-方法详解">3.8 join 方法详解</a>
 <ul>
@@ -410,8 +418,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:58652字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:118分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:60243字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:121分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -611,6 +619,8 @@
 
 <h3 id="应用之异步调用-案例-1">* 应用之异步调用（案例 1 ）</h3>
 
+<p><a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5">应用之异步调用（案例 1 ）</a></p>
+
 <p>以调用方角度来讲，如果</p>
 
 <ul>
@@ -635,6 +645,8 @@
 
 <h3 id="应用之提高效率-案例-1">应用之提高效率（案例 1 ）</h3>
 
+<p><a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/#%E6%95%88%E7%8E%87">应用之提高效率（案例 1 ）</a></p>
+
 <p>充分利用多核 cpu 的优势，提高运行效率。想象下面的场景，执行 3 个计算，最后将计算结果汇总。</p>
 
 <pre><code>计算 1 花费 10 ms
@@ -651,24 +663,17 @@
 
 <p>需要在多核 cpu 才能提高效率，单核仍然时是轮流执行</p>
 
+<p>结论</p>
+
 <ol>
-<li><p>设计</p>
-
-<pre><code>&gt;&gt;&gt;&gt;&gt; 代码见【应用之效率-案例 1 】&lt;&lt;&lt;&lt;&lt;
-</code></pre></li>
-
-<li><p>结论</p></li>
-
-<li><p>单核 cpu 下，多线程不能实际提高程序运行效率，只是为了能够在不同的任务之间切换，不同线程轮流使用
-cpu ，不至于一个线程总占用 cpu，别的线程没法干活</p></li>
-
-<li><p>多核 cpu 可以并行跑多个线程，但能否提高程序运行效率还是要分情况的
+<li>单核 cpu 下，多线程不能实际提高程序运行效率，只是为了能够在不同的任务之间切换，不同线程轮流使用
+cpu ，不至于一个线程总占用 cpu，别的线程没法干活</li>
+<li>多核 cpu 可以并行跑多个线程，但能否提高程序运行效率还是要分情况的
 有些任务，经过精心设计，将任务拆分，并行执行，当然可以提高程序的运行效率。但不是所有计算任
 务都能拆分（参考后文的【阿姆达尔定律】）
-也不是所有任务都需要拆分，任务的目的如果不同，谈拆分和效率没啥意义</p></li>
-
-<li><p>IO 操作不占用 cpu，只是我们一般拷贝文件使用的是【阻塞 IO】，这时相当于线程虽然不用 cpu，但需要一
-直等待 IO 结束，没能充分利用线程。所以才有后面的【非阻塞 IO】和【异步 IO】优化</p></li>
+也不是所有任务都需要拆分，任务的目的如果不同，谈拆分和效率没啥意义</li>
+<li>IO 操作不占用 cpu，只是我们一般拷贝文件使用的是【阻塞 IO】，这时相当于线程虽然不用 cpu，但需要一
+直等待 IO 结束，没能充分利用线程。所以才有后面的【非阻塞 IO】和【异步 IO】优化</li>
 </ol>
 
 <h1 id="3-java-线程">3. Java 线程</h1>
@@ -683,6 +688,8 @@ cpu ，不至于一个线程总占用 cpu，别的线程没法干活</p></li>
 </ul>
 
 <h2 id="3-1-创建和运行线程">3.1 创建和运行线程</h2>
+
+<p>java默认有两个线程（主线程Main线程和GC垃圾回收线程）</p>
 
 <h3 id="方法一-直接使用-thread">方法一，直接使用 Thread</h3>
 
@@ -748,6 +755,30 @@ t2.start();
 
 <p>分析 Thread 的源码，理清它与 Runnable 的关系</p>
 
+<pre><code class="language-java">Thread t = new Thread(()-&gt;{ log.debug(&quot;running&quot;); }, &quot;t2&quot;);
+//会去调用
+public Thread(Runnable target, String name) {
+    init(null, target, name, 0);
+}
+
+private void init(ThreadGroup g, Runnable target, String name,long stackSize) {
+    init(g, target, name, stackSize, null);
+}
+private void init(ThreadGroup g, Runnable target, String name,
+                  long stackSize, AccessControlContext acc) {
+    //......
+    this.target = target;//在这对target进行赋值
+    //.........
+}
+//在run的时候使用了target成员变量
+@Override
+public void run() {
+    if (target != null) {//如果不为空则调用runnable的run方法
+        target.run();
+    }
+}
+</code></pre>
+
 <p>(java中提倡组合优先于继承)</p>
 
 <p>小结</p>
@@ -762,8 +793,8 @@ t2.start();
 
 <pre><code class="language-java">// 创建任务对象
 FutureTask&lt;Integer&gt; task3 = new FutureTask&lt;&gt;(() -&gt; {
- log.debug(&quot;hello&quot;);
- return 100;
+    log.debug(&quot;hello&quot;);
+    return 100;
 });
 // 参数1 是任务对象; 参数2 是线程名字，推荐
 new Thread(task3, &quot;t3&quot;).start();
@@ -774,12 +805,14 @@ log.debug(&quot;结果是:{}&quot;, result)
 
 <p>FutureTask 能够接收 Callable 类型的参数，用来处理有返回结果的情况</p>
 
+<p><a href="https://mumulx.github.io/2020/05/juc/#7-callable-%E7%AE%80%E5%8D%95">Callable</a></p>
+
 <h2 id="3-2-观察多个线程同时运行">3.2 观察多个线程同时运行</h2>
 
 <ul>
 <li><p>主要是理解交替执行</p></li>
 
-<li><p>谁先谁后，不由我们控制</p>
+<li><p>谁先谁后，不由我们控制(由底层的任务调度器进行决定)</p>
 
 <pre><code class="language-java">@Slf4j(topic = &quot;c.TestMultiThread&quot;)
 public class TestMultiThread {
@@ -801,15 +834,20 @@ public static void main(String[] args) {
 
 <h2 id="3-3-查看进程线程的方法">3.3 查看进程线程的方法</h2>
 
-<p>windows</p>
+<h4 id="windows">windows</h4>
 
 <ul>
 <li>任务管理器可以查看进程和线程数，也可以用来杀死进程</li>
 <li>tasklist 查看进程</li>
-<li>taskkill 杀死进程</li>
+
+<li><p>taskkill 杀死进程</p>
+
+<pre><code class="language-shell">tasklist | findstr java
+taskkill /F /PID xxxxx
+</code></pre></li>
 </ul>
 
-<p>linux</p>
+<h4 id="linux">linux</h4>
 
 <blockquote>
 <p>ps -fe 查看所有进程</p>
@@ -822,11 +860,11 @@ top 按大写 H 切换是否显示线程
 top -H -p <PID> 查看某个进程（PID）的所有线程</p>
 </blockquote>
 
-<p>Java(jdk提供)</p>
+<h4 id="java-jdk提供">Java(jdk提供)</h4>
 
 <blockquote>
 <p>jps 命令查看所有 Java 进程
-jstack <PID> 查看某个 Java 进程（PID）的所有线程状态
+jstack <PID> 查看某个 Java 进程（PID）的所有线程状态(某一个时刻的状态)
 jconsole 来查看某个 Java 进程中线程的运行情况（图形界面）</p>
 </blockquote>
 
@@ -911,7 +949,7 @@ private static Object method2() {
 <blockquote>
 <p>类加载，先将TestFrames类的字节码加载到java虚拟机中，加载到方法区中（二进制字节码）</p>
 
-<p>Java虚拟机去启动一个main的主线程，并且分配main线程栈内存，线程交给任务调度器，区调度执行</p>
+<p>Java虚拟机去启动一个main的主线程，并且分配main线程栈内存，线程交给任务调度器，去调度执行</p>
 
 <p>cpu准备运行主线程中的代码，分配主方法main的栈帧内存（由xxx等组成）</p>
 
@@ -921,14 +959,16 @@ private static Object method2() {
 
 <p>局部变量表中存放x,y,m(在栈帧创建时就为变量分配好内存)，返回地址就会指向方法区中的method1方法，执行完毕后执行method1后面的代码</p>
 
-<p>局部变量x赋值为10，执行method1中的每一行代码，读到程序计数器，由cpu进行执行</p>
+<p>局部变量x赋值为10，执行method1中的每一行代码，读到程序计数器，由cpu进行执行（为y赋值）</p>
 
 <p>为method2生成栈帧，在堆中为n分配内存，n指向堆中的内存地址，menthod1中的m的地址就指向堆中的地址</p>
 
 <p>m2内存释放，m1释放内存，main运行结束</p>
 </blockquote>
 
-<p>两个线程时的栈帧内存</p>
+<p><a href="https://www.bilibili.com/video/BV16J411h7Rd?p=21">视频地址</a></p>
+
+<p><strong>两个线程时的栈帧内存</strong></p>
 
 <pre><code class="language-java">public class TestFrames {
     public static void main(String[] args) {
@@ -961,6 +1001,8 @@ private static Object method2() {
 <p>栈帧是以线程为单位，相互是独立的，每个线程都有自己的栈帧空间互不干扰，相互独立</p>
 
 <h3 id="线程上下文切换-thread-context-switch">线程上下文切换（Thread Context Switch）</h3>
+
+<p>当任务调度器把时间片分给每个线程运行的时候，每个线程的时间片总会有用完的时候，用完了你就得把cpu的使用权交给其他的线程，当前线程就会发生一次上下文切换。</p>
 
 <p>因为以下一些原因导致 cpu 不再执行当前的线程，转而执行另一个线程的代码（从使用cpu到不使用cpu）</p>
 
@@ -1137,6 +1179,8 @@ public class Test4 {
 
 <p>程序在 t1 线程运行，FileReader.read() 方法调用是异步的</p>
 
+<p>调用start()方法后线程的状态会变为runnable，再次调用start方法就会报错（线程变为runnable的状态就不能再调用start方法了）。</p>
+
 <h3 id="小结">小结</h3>
 
 <blockquote>
@@ -1151,7 +1195,7 @@ public class Test4 {
 <ol>
 <li>调用 sleep 会让当前线程从 Running 进入 Timed Waiting 状态（阻塞）</li>
 <li>其它线程可以使用 interrupt 方法打断正在睡眠的线程，这时 sleep 方法会抛出 InterruptedException</li>
-<li>睡眠结束后的线程未必会立刻得到执行</li>
+<li>睡眠结束后的线程未必会立刻得到执行(线程结束以后cpu也许正在执行别的代码，需要系统任务调度器分配时间片)</li>
 
 <li><p>建议用 TimeUnit 的 sleep 代替 Thread 的 sleep 来获得更好的可读性</p>
 
@@ -1220,7 +1264,7 @@ public static void main(String[] args) throws InterruptedException {
 
 <ol>
 <li>调用 yield 会让当前线程从 Running 进入 Runnable 就绪状态，然后调度执行其它线程</li>
-<li>具体的实现依赖于操作系统的任务调度器</li>
+<li>具体的实现依赖于操作系统的任务调度器（将cpu使用权让出去之后，可能任务调度器又将时间片分配给了当前线程）</li>
 </ol>
 
 <blockquote>
@@ -1233,8 +1277,45 @@ public static void main(String[] args) throws InterruptedException {
 
 <blockquote>
 <p>线程优先级会提示（hint）调度器优先调度该线程，但它仅仅是一个提示，调度器可以忽略它
-如果 cpu 比较忙，那么优先级高的线程会获得更多的时间片，但 cpu 闲时，优先级几乎没作用</p>
+如果 cpu 比较忙，那么优先级高的线程会获得更多的时间片，但 cpu空闲时，优先级几乎没作用（与yield相似）</p>
 </blockquote>
+
+<p>1-10级看一下源码</p>
+
+<pre><code class="language-java">/* @see        #MAX_PRIORITY
+     * @see        #MIN_PRIORITY
+     * @see        ThreadGroup#getMaxPriority()
+     */
+    public final void setPriority(int newPriority) {
+        ThreadGroup g;
+        checkAccess();
+        if (newPriority &gt; MAX_PRIORITY || newPriority &lt; MIN_PRIORITY) {
+            throw new IllegalArgumentException();
+        }
+        if((g = getThreadGroup()) != null) {
+            if (newPriority &gt; g.getMaxPriority()) {
+                newPriority = g.getMaxPriority();
+            }
+            setPriority0(priority = newPriority);
+        }
+    }
+    /**
+     * The minimum priority that a thread can have.
+     */
+    public final static int MIN_PRIORITY = 1;
+
+   /**
+     * The default priority that is assigned to a thread.
+     */
+    public final static int NORM_PRIORITY = 5;
+
+    /**
+     * The maximum priority that a thread can have.
+     */
+    public final static int MAX_PRIORITY = 10;
+</code></pre>
+
+<p>数字越大优先级越高</p>
 
 <pre><code class="language-java">Runnable task1 = () -&gt; {
  int count = 0;
@@ -1257,7 +1338,7 @@ t1.start();
 t2.start();
 </code></pre>
 
-<p>数字越大优先级越高</p>
+<p>数字越大优先级越高，默认优先级是5</p>
 
 <pre><code class="language-java">@Slf4j(topic = &quot;c.Test9&quot;)
 public class Test9 {
@@ -1286,7 +1367,9 @@ public class Test9 {
 }
 </code></pre>
 
-<h3 id="应用之效率-案例-2">* 应用之效率（案例 2 ）</h3>
+<h3 id="应用之限制">* 应用之限制</h3>
+
+<p><a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/#%E9%99%90%E5%88%B6">应用之限制</a></p>
 
 <h2 id="3-8-join-方法详解">3.8 join 方法详解</h2>
 
@@ -1347,12 +1430,12 @@ test2();
 }
 private static void test2() throws InterruptedException {
 Thread t1 = new Thread(() -&gt; {
-sleep(1);
-r1 = 10;
+    sleep(1);
+    r1 = 10;
 });
 Thread t2 = new Thread(() -&gt; {
-sleep(2);
-r2 = 20;
+    sleep(2);
+    r2 = 20;
 });
 long start = System.currentTimeMillis();
 t1.start();
@@ -1360,7 +1443,7 @@ t2.start();
 t1.join();
 t2.join();
 long end = System.currentTimeMillis();
-log.debug(&quot;r1: {} r2: {} cost: {}&quot;, r1, r2, end - start);
+log.debug(&quot;r1: {} r2: {} cost: {}&quot;, r1, r2, end - start);//结果为2s
 }
 </code></pre></li>
 </ul>
@@ -1372,7 +1455,7 @@ log.debug(&quot;r1: {} r2: {} cost: {}&quot;, r1, r2, end - start);
 第二个 join：1s 后, 执行到此, t2 也运行了 1s, 因此也只需再等待 1s</p>
 </blockquote>
 
-<p>如果颠倒两个 join 呢？</p>
+<p>如果颠倒两个 join 呢？(结果一样)</p>
 
 <p>最终都是输出</p>
 
@@ -1427,11 +1510,11 @@ public static void test3() throws InterruptedException {
 <pre><code>20:52:15.623 [main] c.TestJoin - r1: 0 r2: 0 cost: 1502
 </code></pre>
 
+<p>可以提前结束</p>
+
 <h2 id="3-9-interrupt-方法详解">3.9 interrupt 方法详解</h2>
 
-<p>打断 sleep，wait，join 的线程</p>
-
-<p>这几个方法都会让线程进入阻塞状态</p>
+<p>打断 sleep，wait，join （join底层就是wait）的线程，这几个方法都会让线程进入阻塞状态</p>
 
 <p>打断 sleep 的线程, 会清空打断状态，以 sleep 为例</p>
 
@@ -1455,7 +1538,9 @@ public class Test11 {
 }
 </code></pre>
 
-<p>打断正常运行的线程，打断正常运行的线程, 不会清空打断状态</p>
+<p>打断正常运行的线程</p>
+
+<p>打断正常运行的线程, 不会清空打断状态，也不会停止线程。需要线程判断自己的打断标记是否被打断了，如果被打断了，自己则停止（要做一个乖宝宝）</p>
 
 <pre><code class="language-java">@Slf4j(topic = &quot;c.Test12&quot;)
 public class Test12 {
@@ -1481,6 +1566,8 @@ public class Test12 {
 </code></pre>
 
 <h3 id="模式之两阶段终止">* 模式之两阶段终止</h3>
+
+<p><a href="https://mumulx.github.io/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/#2-%E4%B8%A4%E9%98%B6%E6%AE%B5%E7%BB%88%E6%AD%A2%E6%A8%A1%E5%BC%8F">模式之两阶段终止</a></p>
 
 <p>打断 park 线程</p>
 
@@ -1532,27 +1619,26 @@ public class Test14 {
 <tr>
 <td>stop()</td>
 <td></td>
-<td>停止线程运行</td>
+<td>停止线程运行(两阶段终止模式替代)</td>
 </tr>
 
 <tr>
 <td>suspend()</td>
 <td></td>
-<td>挂起(暂停)线程运行</td>
+<td>挂起(暂停)线程运行（wait方法代替）</td>
 </tr>
 
 <tr>
+<td>resume()</td>
 <td></td>
-<td>恢复线程运行</td>
-<td></td>
+<td>恢复线程运行(notify方法代替)</td>
 </tr>
 </tbody>
 </table>
 
 <h2 id="3-11-主线程与守护线程">3.11 主线程与守护线程</h2>
 
-<p>默认情况下，Java 进程需要等待所有线程都运行结束，才会结束。有一种特殊的线程叫做守护线程，只要其它非守
-护线程运行结束了，即使守护线程的代码没有执行完，也会强制结束。</p>
+<p>默认情况下，Java 进程需要等待所有线程都运行结束，才会结束（即使main线程已经结束了，还有其他的额外的线程在运行，程序也不会停止）。有一种特殊的线程叫做守护线程，只要其它非守护线程运行结束了，即使守护线程的代码没有执行完，也会强制结束。</p>
 
 <p>例：</p>
 
@@ -1562,7 +1648,7 @@ Thread t1 = new Thread(() -&gt; {
      sleep(2);
      log.debug(&quot;运行结束...&quot;);
 }, &quot;daemon&quot;);
-t1.setDaemon(true);// 设置该线程为守护线程
+t1.setDaemon(true);// 设置该线程为守护线程   默认不是守护线程
 t1.start();
 sleep(1);
 log.debug(&quot;运行结束...&quot;);
@@ -1593,7 +1679,7 @@ log.debug(&quot;运行结束...&quot;);
 <ul>
 <li><p>【初始状态】仅是在语言层面创建了线程对象，还未与操作系统线程关联</p></li>
 
-<li><p>【可运行状态】（就绪状态）指该线程已经被创建（与操作系统线程关联），可以由 CPU 调度执行</p></li>
+<li><p>【可运行状态】（就绪状态）指该线程已经被创建（与操作系统线程关联），可以由 CPU 调度执行，暂时还没有分配到时间片</p></li>
 
 <li><p>【运行状态】指获取了 CPU 时间片运行中的状态；</p>
 
@@ -1632,7 +1718,18 @@ log.debug(&quot;运行结束...&quot;);
 
 <li><p>TERMINATED 当线程代码运行结束</p>
 
-<pre><code class="language-java">@Slf4j(topic = &quot;c.TestState&quot;)
+<pre><code class="language-java">public class TestState2 {
+public static void main(String[] args) throws InterruptedException {
+    new Thread(() -&gt; {
+        FileReader.read(Constants.MP4_FULL_PATH);
+        FileReader.read(Constants.MP4_FULL_PATH);
+        FileReader.read(Constants.MP4_FULL_PATH);
+    }, &quot;t1&quot;).start();
+    Thread.sleep(1000);
+    System.out.println(&quot;ok&quot;);
+}
+}
+@Slf4j(topic = &quot;c.TestState&quot;)
 public class TestState {
 public static void main(String[] args) throws IOException {
     Thread t1 = new Thread(&quot;t1&quot;) {
@@ -1646,12 +1743,11 @@ public static void main(String[] args) throws IOException {
         @Override
         public void run() {
             while(true) { // runnable
-
             }
         }
     };
     t2.start();
-
+        
     Thread t3 = new Thread(&quot;t3&quot;) {
         @Override
         public void run() {
@@ -1714,7 +1810,6 @@ public static void main(String[] args) throws IOException {
     System.in.read();
 }
 }
-
 </code></pre></li>
 </ul>
 
@@ -1810,7 +1905,9 @@ public static void main(String[] args) throws IOException {
 &gt;
 &gt; 解决所有问题，但是，我们利用这种方法来考虑问题，也是不无裨益的。
 
+解法
 
+**应用篇-统筹**
 
 ## 本章小结
 
@@ -1890,21 +1987,21 @@ Java 的体现
 <p>java
 static int counter = 0;
 public static void main(String[] args) throws InterruptedException {
- Thread t1 = new Thread(() -&gt; {
- for (int i = 0; i &lt; 5000; i++) {
- counter++;
- }
- }, &ldquo;t1&rdquo;);
- Thread t2 = new Thread(() -&gt; {
- for (int i = 0; i &lt; 5000; i++) {
- counter&ndash;;
- }
- }, &ldquo;t2&rdquo;);
- t1.start();
- t2.start();
- t1.join();
- t2.join();
- log.debug(&ldquo;{}&rdquo;,counter);
+    Thread t1 = new Thread(() -&gt; {
+        for (int i = 0; i &lt; 5000; i++) {
+            counter++;
+        }
+    }, &ldquo;t1&rdquo;);
+    Thread t2 = new Thread(() -&gt; {
+        for (int i = 0; i &lt; 5000; i++) {
+            counter&ndash;;
+        }
+    }, &ldquo;t2&rdquo;);
+    t1.start();
+    t2.start();
+    t1.join();
+    t2.join();
+    log.debug(&ldquo;{}&rdquo;,counter);
 }</p>
 
 <pre><code>
@@ -1933,6 +2030,8 @@ putstatic i // 将修改后的值存入静态变量i</p>
 
 <pre><code>
 而 Java 的内存模型如下，完成静态变量的自增，自减需要在主存和工作内存中进行数据交换：
+
+![image-20200620162309624](/../content/posts/java并发编程.assets/image-20200620162309624.png)
 
 如果是单线程以上 8 行代码是顺序执行（不会交错）没有问题：
 
@@ -2006,7 +2105,7 @@ sequenceDiagram
 
 
 
-临界区 Critical Section
+**临界区 Critical Section**
 
 * 一个程序运行多个线程本身是没有问题的
 * 问题出在多个线程访问共享资源
@@ -2030,7 +2129,7 @@ static void decrement()
  counter&ndash;; }</p>
 
 <pre><code>
-竞态条件 Race Condition
+**竞态条件 Race Condition**
 
 多个线程在临界区内执行，由于代码的执行序列不同而导致结果无法预测，称之为发生了竞态条件
 
@@ -2146,7 +2245,7 @@ synchronized 实际是用对象锁保证了临界区内代码的原子性，临�
 
 * 如果把 synchronized(obj) 放在 for 循环的外面，如何理解？（将synchronized范围内的代码作为一个整体）-- 原子性
 * 如果 t1 synchronized(obj1) 而 t2 synchronized(obj2) 会怎样运作？(失效，因为是不同的对象)-- 锁对象
-* 如果 t1 synchronized(obj) 而 t2 没有加会怎么样？如何理解？-- 锁对象
+* 如果 t1 synchronized(obj) 而 t2 没有加会怎么样？如何理解？-- 锁对象 都要对这个对象进行加锁
 
 ### 面向对象改进
 
@@ -2254,6 +2353,8 @@ class Test{
 }</p>
 
 <pre><code>
+synchronized只能锁对象，加在普通方法上锁的是调用它的对象。加载类的静态方法上锁的是类的Class对象。
+
 不加 synchronized 的方法
 
 * 不加 synchronzied 的方法就好比不遵守规则的人，不去老实排队（好比翻窗户进去的），没办法保证原子性
@@ -2262,7 +2363,7 @@ class Test{
 
 其实就是考察 synchronized 锁住的是哪个对象
 
-情况 1 ： 12 或 21
+情况 1 ： 12 或 21（不容易出现）;锁的都是n1这个对象，哪个线程先被调用，哪个就先打印。
 
 </code></pre>
 
@@ -2283,7 +2384,7 @@ public static void main(String[] args) {
 }</p>
 
 <pre><code>
-情况 2 ：1s后--12 ，或 2-- 1s后 1
+情况 2 ：1s后--2 ，或 2-- 1s后 1；锁的都是n1这个对象，哪个线程先被调用，哪个就先打印。
 
 </code></pre>
 
@@ -2305,7 +2406,7 @@ public static void main(String[] args) {
 }</p>
 
 <pre><code>
-情况 3 ：3 1s 12 或 23 1s 1 或 32 1s 1
+情况 3 ：`3-1s-1-2` 或 `2-3-1s-1` 或 `3-2-1s-1`
 
 </code></pre>
 
@@ -2319,7 +2420,7 @@ class Number{
  public synchronized void b() {
  	log.debug(&ldquo;2&rdquo;);
  }
- public void c() {
+ public void c() {//普通方法没锁
  	log.debug(&ldquo;3&rdquo;);
  }
 }
@@ -2347,7 +2448,7 @@ class Number{
  }
 }
 public static void main(String[] args) {
- Number n1 = new Number();
+ Number n1 = new Number();//两个对象，两把锁
  Number n2 = new Number();
  new Thread(()-&gt;{ n1.a(); }).start();
  new Thread(()-&gt;{ n2.b(); }).start();
@@ -2460,7 +2561,7 @@ public static void main(String[] args) {
 * 局部变量是线程安全的
 * 但局部变量引用的对象则未必
     * 如果该对象没有逃离方法的作用范围，它是线程安全的
-    * 如果该对象逃离方法的作用范围，需要考虑线程安全
+    * 如果该对象逃离方法的作用范围(return)，需要考虑线程安全
 
 **局部变量线程安全分析**
 
@@ -2663,10 +2764,10 @@ public class TestThreadSafe {
 <p>java
 Hashtable table = new Hashtable();
 new Thread(()-&gt;{
- table.put(&ldquo;key&rdquo;, &ldquo;value1&rdquo;);
+    table.put(&ldquo;key&rdquo;, &ldquo;value1&rdquo;);
 }).start();
 new Thread(()-&gt;{
- table.put(&ldquo;key&rdquo;, &ldquo;value2&rdquo;);
+    table.put(&ldquo;key&rdquo;, &ldquo;value2&rdquo;);
 }).start();</p>
 
 <pre><code>
@@ -2683,11 +2784,11 @@ new Thread(()-&gt;{
 Hashtable table = new Hashtable();
 // 线程1，线程2
 if( table.get(&ldquo;key&rdquo;) == null) {
- table.put(&ldquo;key&rdquo;, value);
+    table.put(&ldquo;key&rdquo;, value);
 }</p>
 
 <pre><code>
-
+![image-20200620201831733](/../content/posts/java并发编程.assets/image-20200620201831733.png)
 
 </code></pre>
 
@@ -2713,13 +2814,13 @@ String、Integer 等都是不可变类，因为其内部的状态（属性）不
 
 <p>java
 public class Immutable{
- private int value = 0;
- public Immutable(int value){
- this.value = value;
- }
- public int getValue(){
- return this.value;
- }
+    private int value = 0;
+    public Immutable(int value){
+        this.value = value;
+    }
+    public int getValue(){
+        return this.value;
+    }
 }</p>
 
 <pre><code>
@@ -2729,18 +2830,20 @@ public class Immutable{
 
 <p>java
 public class Immutable{
- private int value = 0;
- public Immutable(int value){
- this.value = value;
- }
- public int getValue(){
- return this.value;
- }</p>
+    private int value = 0;
+    public Immutable(int value){
+        this.value = value;
+    }
+    public int getValue(){
+        return this.value;
+    }</p>
 
-<p>public Immutable add(int v){
- return new Immutable(this.value + v);
- }
-}</p>
+<pre><code>public Immutable add(int v){
+    return new Immutable(this.value + v);
+} 
+</code></pre>
+
+<p>}</p>
 
 <pre><code>
 
@@ -2761,7 +2864,7 @@ public class MyServlet extends HttpServlet {
  final String S2 = &ldquo;&hellip;&rdquo;;
  // 是否安全？不是
  Date D1 = new Date();
- // 是否安全？不是（引用是不可变的，但是日期内部的值是可以变化的）
+ // 是否安全？不是（引用是不可变的，但是日期内部的值(引用的对象改变了)是可以变化的）
  final Date D2 = new Date();
  public void doGet(HttpServletRequest request, HttpServletResponse response) {
  // 使用上述变量
@@ -2775,20 +2878,22 @@ public class MyServlet extends HttpServlet {
 
 <p>java
 public class MyServlet extends HttpServlet {
- // 是否安全？不是
- private UserService userService = new UserServiceImpl();</p>
+    // 是否安全？不是
+    private UserService userService = new UserServiceImpl();</p>
 
-<p>public void doGet(HttpServletRequest request, HttpServletResponse response) {
- userService.update(&hellip;);
- }
+<pre><code>public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    userService.update(...);
 }
+</code></pre>
+
+<p>}
 public class UserServiceImpl implements UserService {
- // 记录调用次数
- private int count = 0;
- public void update() {
- // &hellip;
- count++;
- }
+    // 记录调用次数
+    private int count = 0;
+    public void update() {
+        // &hellip;
+        count++;
+    }
 }</p>
 
 <pre><code>
@@ -2800,19 +2905,21 @@ public class UserServiceImpl implements UserService {
 @Aspect
 @Component
 public class MyAspect {
- // 是否安全？不是；是单例的，意味着该类被共享，那么类中的成员变量也要被共享
- private long start = 0L;</p>
+    // 是否安全？不是；是单例的，意味着该类被共享，那么类中的成员变量也要被共享
+    private long start = 0L;</p>
 
-<p>@Before(&ldquo;execution(* <em>(..))&ldquo;)
- public void before() {
- start = System.nanoTime();
- }
- @After(&ldquo;execution(</em> *(..))&ldquo;)
- public void after() {
- long end = System.nanoTime();
- System.out.println(&ldquo;cost time:&rdquo; + (end-start));
- }
-}</p>
+<pre><code>@Before(&quot;execution(* *(..))&quot;)
+public void before() {
+    start = System.nanoTime();
+}
+@After(&quot;execution(* *(..))&quot;)
+public void after() {
+    long end = System.nanoTime();
+    System.out.println(&quot;cost time:&quot; + (end-start));
+}
+</code></pre>
+
+<p>}</p>
 
 <pre><code>
 例 4 ：
@@ -2821,29 +2928,29 @@ public class MyAspect {
 
 <p>java
 public class MyServlet extends HttpServlet {
- // 是否安全，是：UserService虽然有成员变量，但它是私有的不能修改，也意味着它是不可变的
- private UserService userService = new UserServiceImpl();
- public void doGet(HttpServletRequest request, HttpServletResponse response) {
- 	userService.update(&hellip;);
- }
+    // 是否安全，是：UserService虽然有成员变量，但它是私有的不能修改，也意味着它是不可变的
+    private UserService userService = new UserServiceImpl();
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        userService.update(&hellip;);
+    }
 }
 public class UserServiceImpl implements UserService {
-     // 是否安全:是，虽然它是成员变量，能被共享，但是它中没有可更改的属性（无状态的，无状态的一般都是线程安全的）
-     private UserDao userDao = new UserDaoImpl();
-     public void update() {
-     	userDao.update();
-     }
+    // 是否安全:是，虽然它是成员变量，能被共享，但是它中没有可更改的属性（无状态的，无状态的一般都是线程安全的）
+    private UserDao userDao = new UserDaoImpl();
+    public void update() {
+        userDao.update();
+    }
 }
 public class UserDaoImpl implements UserDao {
- public void update() {
-     String sql = &ldquo;update user set password = ? where username = ?&rdquo;;
-     // 是否安全，是：，没有成员变量的类，一般都是线程安全的
-     try (Connection conn = DriverManager.getConnection(&ldquo;&rdquo;,&ldquo;&rdquo;,&ldquo;&rdquo;)){
-     // &hellip;
-     } catch (Exception e) {
-     // &hellip;
-     }
- }
+    public void update() {
+        String sql = &ldquo;update user set password = ? where username = ?&rdquo;;
+        // 是否安全，是：，没有成员变量的类，一般都是线程安全的
+        try (Connection conn = DriverManager.getConnection(&ldquo;&rdquo;,&ldquo;&rdquo;,&ldquo;&rdquo;)){
+            // &hellip;
+        } catch (Exception e) {
+            // &hellip;
+        }
+    }
 }</p>
 
 <pre><code>
@@ -2853,30 +2960,34 @@ public class UserDaoImpl implements UserDao {
 
 <p>java
 public class MyServlet extends HttpServlet {
- // 是否安全
- private UserService userService = new UserServiceImpl();</p>
+    // 是否安全
+    private UserService userService = new UserServiceImpl();</p>
 
-<p>public void doGet(HttpServletRequest request, HttpServletResponse response) {
- userService.update(&hellip;);
- }
+<pre><code>public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    userService.update(...);
 }
+</code></pre>
+
+<p>}
 public class UserServiceImpl implements UserService {
- // 是否安全
- private UserDao userDao = new UserDaoImpl();</p>
+    // 是否安全
+    private UserDao userDao = new UserDaoImpl();</p>
 
-<p>public void update() {
- userDao.update();
- }
+<pre><code>public void update() {
+    userDao.update();
 }
+</code></pre>
+
+<p>}
 public class UserDaoImpl implements UserDao {
- // 是否安全，否：没有将Connection作为方法内的局部变量，而是作为了类的成员变量
- private Connection conn = null;
- public void update() throws SQLException {
- String sql = &ldquo;update user set password = ? where username = ?&rdquo;;
- conn = DriverManager.getConnection(&ldquo;&rdquo;,&ldquo;&rdquo;,&ldquo;&rdquo;);
- // &hellip;
- conn.close();
- }
+    // 是否安全，否：没有将Connection作为方法内的局部变量，而是作为了类的成员变量
+    private Connection conn = null;
+    public void update() throws SQLException {
+        String sql = &ldquo;update user set password = ? where username = ?&rdquo;;
+        conn = DriverManager.getConnection(&ldquo;&rdquo;,&ldquo;&rdquo;,&ldquo;&rdquo;);
+        // &hellip;
+        conn.close();
+    }
 }</p>
 
 <pre><code>
@@ -2919,19 +3030,21 @@ public class UserDaoImpl implements UserDao {
 <p>java
 public abstract class Test {</p>
 
-<p>public void bar() {
- // 是否安全，否：虽然是局部变量，但是它还可能暴漏给其他线程
-     SimpleDateFormat sdf = new SimpleDateFormat(&ldquo;yyyy-MM-dd HH:mm:ss&rdquo;);
-     foo(sdf);
- }
- public abstract foo(SimpleDateFormat sdf);
- public static void main(String[] args) {
- 	new Test().bar();
- }
-}</p>
+<pre><code>public void bar() {
+    // 是否安全，否：虽然是局部变量，但是它还可能暴漏给其他线程
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+    foo(sdf);
+}
+public abstract foo(SimpleDateFormat sdf);
+public static void main(String[] args) {
+    new Test().bar();
+}
+</code></pre>
+
+<p>}</p>
 
 <pre><code>
-其中 foo 的行为是不确定的，可能导致不安全的发生，被称之为外星方法
+其中 foo 的行为是不确定的，可能导致不安全的发生，被称之为**外星方法**
 
 </code></pre>
 
@@ -2966,26 +3079,26 @@ public void foo(SimpleDateFormat sdf) {
 <p>java
 private static Integer i = 0;
 public static void main(String[] args) throws InterruptedException {
- List<Thread> list = new ArrayList&lt;&gt;();
- for (int j = 0; j &lt; 2; j++) {
- Thread thread = new Thread(() -&gt; {
- for (int k = 0; k &lt; 5000; k++) {
- synchronized (i) {
- i++;
- }
- }
- }, &ldquo;&rdquo; + j);
- list.add(thread);
- }
- list.stream().forEach(t -&gt; t.start());
- list.stream().forEach(t -&gt; {
- try {
- t.join();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- });
- log.debug(&ldquo;{}&rdquo;, i);
+    List<Thread> list = new ArrayList&lt;&gt;();
+    for (int j = 0; j &lt; 2; j++) {
+        Thread thread = new Thread(() -&gt; {
+            for (int k = 0; k &lt; 5000; k++) {
+                synchronized (i) {
+                    i++;
+                }
+            }
+        }, &ldquo;&rdquo; + j);
+        list.add(thread);
+    }
+    list.stream().forEach(t -&gt; t.start());
+    list.stream().forEach(t -&gt; {
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    });
+    log.debug(&ldquo;{}&rdquo;, i);
 }</p>
 
 <pre><code>
@@ -3001,75 +3114,75 @@ public static void main(String[] args) throws InterruptedException {
 
 <p>java
 public class ExerciseSell {
-     public static void main(String[] args) {
-         //模拟多人买票
-         TicketWindow ticketWindow = new TicketWindow(2000);
-         //使用的是ArrayList而不是线程安全的Vector是因为：list只会在主线程中使用，并没有被多个线程所共享
-         List<Thread> list = new ArrayList&lt;&gt;();
-         // 用来存储买出去多少张票
-         List<Integer> sellCount = new Vector&lt;&gt;();
-         for (int i = 0; i &lt; 2000; i++) {
-             Thread t = new Thread(() -&gt; {
+    public static void main(String[] args) {
+        //模拟多人买票
+        TicketWindow ticketWindow = new TicketWindow(2000);
+        //使用的是ArrayList而不是线程安全的Vector是因为：list只会在主线程中使用，并没有被多个线程所共享
+        List<Thread> list = new ArrayList&lt;&gt;();
+        // 用来存储买出去多少张票
+        List<Integer> sellCount = new Vector&lt;&gt;();
+        for (int i = 0; i &lt; 2000; i++) {
+            Thread t = new Thread(() -&gt; {
                 // 分析这里的竞态条件
-                 //非线程安全
-                 int count = ticketWindow.sell(randomAmount());</p>
+                //非线程安全
+                int count = ticketWindow.sell(randomAmount());</p>
 
-<pre><code>             //线程安全的
+<pre><code>            //线程安全的
             sellCount.add(count);
-             //不需要考虑二者的方法组合的线程安全问题：因为二者是两个不同的共享变量，他俩二者没有关系
-         });
-         //不影响
-         list.add(t);
-         t.start();
-     }
-     list.forEach((t) -&gt; {
-         try {
-             //等待每一个线程都结束
-             t.join();
-         } catch (InterruptedException e) {
+            //不需要考虑二者的方法组合的线程安全问题：因为二者是两个不同的共享变量，他俩二者没有关系
+        });
+        //不影响
+        list.add(t);
+        t.start();
+    }
+    list.forEach((t) -&gt; {
+        try {
+            //等待每一个线程都结束
+            t.join();
+        } catch (InterruptedException e) {
             e.printStackTrace();
-         }
-     });
-     // 卖出去的票求和
-     log.debug(&quot;selled count:{}&quot;,sellCount.stream().mapToInt(c -&gt; c).sum());
-     // 剩余票数
-     log.debug(&quot;remainder count:{}&quot;, ticketWindow.getCount());
- }
+        }
+    });
+    // 卖出去的票求和
+    log.debug(&quot;selled count:{}&quot;,sellCount.stream().mapToInt(c -&gt; c).sum());
+    // 剩余票数
+    log.debug(&quot;remainder count:{}&quot;, ticketWindow.getCount());
+}
 // Random 为线程安全
 static Random random = new Random();
 // 随机 1~5
 public static int randomAmount() {
-     return random.nextInt(5) + 1;
- }
+    return random.nextInt(5) + 1;
+}
 </code></pre>
 
 <p>}
 class TicketWindow {
-     private int count;
-     public TicketWindow(int count) {
-    	 this.count = count;
-     }
-     public int getCount() {
-     	return count;
-     }
+    private int count;
+    public TicketWindow(int count) {
+        this.count = count;
+    }
+    public int getCount() {
+        return count;
+    }
     //属于临界区需要保护
-     /<em>public int sell(int amount) {
-         if (this.count &gt;= amount) {
-         	this.count -= amount;
-         	return amount;
-         } else {
-         	return 0;
-         }
-     }</em>/
+    /<em>public int sell(int amount) {
+             if (this.count &gt;= amount) {
+                this.count -= amount;
+                return amount;
+             } else {
+                return 0;
+             }
+         }</em>/
     //对this对象进行加锁，保证线程安全
     public synchronized int sell(int amount) {
-         if (this.count &gt;= amount) {
-         	this.count -= amount;
-         	return amount;
-         } else {
-         	return 0;
-         }
-     }
+        if (this.count &gt;= amount) {
+            this.count -= amount;
+            return amount;
+        } else {
+            return 0;
+        }
+    }
 }</p>
 
 <pre><code>
@@ -3084,7 +3197,8 @@ class TicketWindow {
 
 </code></pre>
 
-<p>for /L %n in (1,1,10) do java -cp &ldquo;.;C:\Users\manyh.m2\repository\ch\qos\logback\logbackclassic\1.2.3\logback-classic-1.2.3.jar;C:\Users\manyh.m2\repository\ch\qos\logback\logbackcore\1.2.3\logback-core-1.2.3.jar;C:\Users\manyh.m2\repository\org\slf4j\slf4japi\1.7.25\slf4j-api-1.7.25.jar&rdquo; cn.itcast.n4.exercise.ExerciseSell</p>
+<p>shell
+for /L %n in (1,1,10) do java -cp &ldquo;.;C:\Users\manyh.m2\repository\ch\qos\logback\logbackclassic\1.2.3\logback-classic-1.2.3.jar;C:\Users\manyh.m2\repository\ch\qos\logback\logbackcore\1.2.3\logback-core-1.2.3.jar;C:\Users\manyh.m2\repository\org\slf4j\slf4japi\1.7.25\slf4j-api-1.7.25.jar&rdquo; cn.itcast.n4.exercise.ExerciseSell</p>
 
 <pre><code>
 
@@ -3157,10 +3271,10 @@ class Account {
 
 <p>java
 public synchronized void transfer(Account target, int amount) {
- if (this.money &gt; amount) {
- this.setMoney(this.getMoney() - amount);
- target.setMoney(target.getMoney() + amount);
- }
+    if (this.money &gt; amount) {
+        this.setMoney(this.getMoney() - amount);
+        target.setMoney(target.getMoney() + amount);
+    }
 }</p>
 
 <pre><code>
@@ -3174,11 +3288,16 @@ public synchronized void transfer(Account target, int amount) {
 
 以 32 位虚拟机为例
 
+Integer:8（对象头）+4（值）
+
+int:4
+
 普通对象
 
 </code></pre>
 
-<p>|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+<p>java
+|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
 | 				Object Header (64 bits) 					|
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|
 | 			Mark Word (32 bits) 	| Klass Word (32 bits)	  |
@@ -3187,11 +3306,14 @@ public synchronized void transfer(Account target, int amount) {
 <pre><code>
 Klass Word：指针，指向了该对象的class（该对象是什么类型的）
 
+Mark Word:见下面解析
+
 数组对象
 
 </code></pre>
 
-<p>|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;|
+<p>java
+|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;|
 | 								Object Header (96 bits)  					 |
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;|
 | 	Mark Word(32bits)		    | Klass Word(32bits)    | array length(32bits)   |
@@ -3202,7 +3324,8 @@ Klass Word：指针，指向了该对象的class（该对象是什么类型的�
 
 </code></pre>
 
-<p>|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+<p>java
+|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
 | 			  Mark Word (32 bits) 					 | State 	  		 |
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
 | hashcode:25 		| age:4 	| biased_lock:0 | 01   | Normal			   |
@@ -3217,11 +3340,18 @@ Klass Word：指针，指向了该对象的class（该对象是什么类型的�
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|</p>
 
 <pre><code>
+普通对象是Normal；hashcode为hash值、age为垃圾回收的分代年龄、biased_lock对象是否启用偏向锁标记
+
+当对象与系统的monitor关联后变为Heavyweight Locked；其中ptr_to_heavyweight_monitor存储的是指向monitor的指针
+
+
+
 64 位虚拟机 Mark Word
 
 </code></pre>
 
-<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+<p>java
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
 | Mark Word (64 bits) | State |
 |&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
 | unused:25 | hashcode:31 | unused:1 | age:4 | biased_lock:0 | 01 | Normal |
@@ -3284,18 +3414,15 @@ Klass Word：指针，指向了该对象的class（该对象是什么类型的�
 
 **原理之 wait / notify**
 
-
-
 ### API 介绍
 
-</code></pre>
+* obj.wait() 让进入 object 监视器的线程到 waitSet 等待
+* obj.notify() 在 object 上正在 waitSet 等待的线程中挑一个唤醒（随机挑选）
+* obj.notifyAll() 让 object 上正在 waitSet 等待的线程全部唤醒
 
-<p>obj.wait() 让进入 object 监视器的线程到 waitSet 等待
-obj.notify() 在 object 上正在 waitSet 等待的线程中挑一个唤醒
-obj.notifyAll() 让 object 上正在 waitSet 等待的线程全部唤醒</p>
-
-<pre><code>
 它们都是线程之间进行协作的手段，都属于 Object 对象的方法。必须获得此对象的锁，才能调用这几个方法
+
+直接调用obj.wait()方法会报错的，这是因为obj对象还没有上锁，还没有和monitor进行关联。因此wait方法一定是要在同步代码块中执行的。
 
 </code></pre>
 
@@ -3355,22 +3482,51 @@ notifyAll 的结果
 19:58:17.456 [Thread-0] c.TestWaitNotify - 其它代码&hellip;.</p>
 
 <pre><code>
-wait() 方法会释放对象的锁，进入 WaitSet 等待区，从而让其他线程就机会获取对象的锁。无限制等待，直到
-notify 为止wait(long n) 有时限的等待, 到 n 毫秒后结束等待，或是被 notify
+wait() 方法会释放对象的锁，进入 WaitSet 等待区，从而让其他线程就机会获取对象的锁。无限制等待，直到notify 为止
+
+* wait(long n) 有时限的等待, 到 n 毫秒后结束等待，或是被 notify（wait无参或0都是无限等待下去）
 
 ## 4.8 wait notify 的正确姿势
 
 开始之前先看看
 
-</code></pre>
+### sleep(long n) 和 wait(long n) 的区别
 
-<p>sleep(long n) 和 wait(long n) 的区别</p>
-
-<pre><code>
-* 1）sleep 是 Thread 方法，而 wait 是 Object 的方法 
+* 1）sleep 是 Thread 的静态方法，而 wait 是 Object 的方法 
 * 2) sleep 不需要强制和 synchronized 配合使用，但 wait 需要和 synchronized 一起用 
 * 3) sleep 在睡眠的同时，不会释放对象锁的，但 wait 在等待的时候会释放对象锁 4) 它们状态 TIMED_WAITING
 * 4） 他们的状态都是TIMED_WATING
+
+</code></pre>
+
+<p>java
+@Slf4j(topic = &ldquo;c.Test19&rdquo;)
+public class Test19 {
+    static final Object lock = new Object();
+    public static void main(String[] args) {
+        new Thread(() -&gt; {
+            synchronized (lock) {
+                log.debug(&ldquo;获得锁&rdquo;);
+                try {
+//                    Thread.sleep(20000);
+                    lock.wait(20000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, &ldquo;t1&rdquo;).start();</p>
+
+<pre><code>    Sleeper.sleep(1);
+    synchronized (lock) {
+        log.debug(&quot;获得锁&quot;);
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+
 
 step 1
 
@@ -3570,7 +3726,8 @@ step 4
 
 </code></pre>
 
-<p>new Thread(() -&gt; {
+<p>java
+new Thread(() -&gt; {
      synchronized (room) {
          hasTakeout = true;
          log.debug(&ldquo;外卖到了噢！&rdquo;);
@@ -3607,12 +3764,12 @@ step 5
 
 <p>java
 if (!hasCigarette) {
- log.debug(&ldquo;没烟，先歇会！&rdquo;);
- try {
- room.wait();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
+    log.debug(&ldquo;没烟，先歇会！&rdquo;);
+    try {
+        room.wait();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 }</p>
 
 <pre><code>
@@ -3622,12 +3779,12 @@ if (!hasCigarette) {
 
 <p>java
 while (!hasCigarette) {
- log.debug(&ldquo;没烟，先歇会！&rdquo;);
- try {
- room.wait();
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
+    log.debug(&ldquo;没烟，先歇会！&rdquo;);
+    try {
+        room.wait();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 }</p>
 
 <pre><code>
@@ -3675,7 +3832,7 @@ synchronized(lock) {
 <p>java
 // 暂停当前线程
 LockSupport.park();
-// 恢复某个线程的运行
+// 恢复某个线程的运行  可以在暂停之前调用，也可以在线程之后调用
 LockSupport.unpark(暂停线程对象)</p>
 
 <pre><code>
@@ -3713,11 +3870,11 @@ LockSupport.unpark(t1);</p>
 
 <p>java
 Thread t1 = new Thread(() -&gt; {
- log.debug(&ldquo;start&hellip;&rdquo;);
- sleep(2);
- log.debug(&ldquo;park&hellip;&rdquo;);
- LockSupport.park();
- log.debug(&ldquo;resume&hellip;&rdquo;);
+    log.debug(&ldquo;start&hellip;&rdquo;);
+    sleep(2);
+    log.debug(&ldquo;park&hellip;&rdquo;);
+    LockSupport.park();
+    log.debug(&ldquo;resume&hellip;&rdquo;);
 }, &ldquo;t1&rdquo;);
 t1.start();
 sleep(1);
@@ -3739,8 +3896,8 @@ LockSupport.unpark(t1);</p>
 
 与 Object 的 wait &amp; notify 相比
 
-* wait，notify 和 notifyAll 必须配合 Object Monitor 一起使用，而 park，unpark 不必
-* park &amp; unpark是以线程为单位来【阻塞】和【唤醒】线程，而 notify All只能随机唤醒一个等待线程，notifyAll是唤醒所有等待线程，就不那么【精确】
+* wait，notify 和 notifyAll 必须配合 Object Monitor 一起使用（在同步代码块中使用），而 park，unpark 不必
+* park &amp; unpark是以线程为单位来【阻塞】和【唤醒】线程，而 notify只能随机唤醒一个等待线程，notifyAll是唤醒所有等待线程，就不那么【精确】
 * park &amp; unpark 可以先 unpark，而 wait &amp; notify 不能先 notify
 
 *** 原理之 park &amp; unpark**
