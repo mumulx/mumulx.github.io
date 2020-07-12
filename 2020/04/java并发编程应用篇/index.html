@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7025">
+<meta itemprop="wordCount" content="6877">
 
 
 
@@ -329,6 +329,37 @@
 <li><a href="#1-join-实现-同步">1.join 实现（同步）</a></li>
 </ul></li>
 <li><a href="#2-future-实现-同步">2.Future 实现（同步）</a></li>
+<li><a href="#3-自定义实现-同步">3. 自定义实现（同步）</a>
+<ul>
+<li><a href="#completablefuture-实现-异步">CompletableFuture 实现（异步）</a></li>
+</ul></li>
+<li><a href="#2-不需等待结果">2. 不需等待结果</a></li>
+<li><a href="#1-普通线程实现">1. 普通线程实现</a></li>
+<li><a href="#2-线程池实现">2. 线程池实现</a></li>
+</ul></li>
+<li><a href="#缓存">缓存</a>
+<ul>
+<li><a href="#1-缓存更新策略">1. 缓存更新策略</a></li>
+<li><a href="#2-读写锁实现一致性缓存">2. 读写锁实现一致性缓存</a></li>
+</ul></li>
+<li><a href="#分治">分治</a>
+<ul>
+<li><a href="#1-案例-单词计数">1. 案例 - 单词计数</a></li>
+<li><a href="#2-案例-求和">2. 案例 - 求和</a></li>
+</ul></li>
+<li><a href="#统筹">统筹</a>
+<ul>
+<li><a href="#案例-烧水泡茶">案例 - 烧水泡茶</a>
+<ul>
+<li><a href="#解法-1-join">解法 1 ：join</a></li>
+<li><a href="#解法-1-的缺陷">解法 1 的缺陷：</a></li>
+</ul></li>
+<li><a href="#解法-2-wait-notify">解法 2 ：wait/notify</a></li>
+<li><a href="#解法-3-第三者协调">解法 3 ：第三者协调</a></li>
+</ul></li>
+<li><a href="#定时">定时</a>
+<ul>
+<li><a href="#1-定期执行">1. 定期执行</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -368,8 +399,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7025字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:15分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:6877字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:14分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -955,91 +986,85 @@ private static void test1() throws InterruptedException {
 <p>评价</p>
 
 <blockquote>
-<pre><code>&gt; 规避了使用 join 之前的缺点
-&gt; 可以方便配合线程池使用
-&gt; ```
-&gt;
+<ul>
+<li>规避了使用 join 之前的缺点</li>
+<li>可以方便配合线程池使用</li>
+</ul>
+</blockquote>
 
-</code></pre>
-
-<p>java
-private static void test3() throws InterruptedException, ExecutionException {
+<pre><code class="language-java">private static void test3() throws InterruptedException, ExecutionException {
     ExecutorService service = Executors.newFixedThreadPool(1);
-    log.debug(&ldquo;开始&rdquo;);
-    Future<Integer> result = service.submit(() -&gt; {
-        log.debug(&ldquo;开始&rdquo;);
+    log.debug(&quot;开始&quot;);
+    Future&lt;Integer&gt; result = service.submit(() -&gt; {
+        log.debug(&quot;开始&quot;);
         sleep(1);
-        log.debug(&ldquo;结束&rdquo;);
+        log.debug(&quot;结束&quot;);
         return 10;
     });
-    log.debug(&ldquo;结果为:{}, result 的类型:{}&ldquo;, result.get(), result.getClass());
+    log.debug(&quot;结果为:{}, result 的类型:{}&quot;, result.get(), result.getClass());
     service.shutdown();
-}</p>
-
-<pre><code>
-评价
-
-* 仍然是 main 线程接收结果
-* get 方法是让调用线程同步等
-
-### 3. 自定义实现（同步）
-
-见模式篇：保护性暂停模式
-
-#### CompletableFuture 实现（异步）
-
+}
 </code></pre>
 
-<p>java
-private static void test4() {
+<p>评价</p>
+
+<ul>
+<li>仍然是 main 线程接收结果</li>
+<li>get 方法是让调用线程同步等</li>
+</ul>
+
+<h3 id="3-自定义实现-同步">3. 自定义实现（同步）</h3>
+
+<p>见模式篇：保护性暂停模式</p>
+
+<h4 id="completablefuture-实现-异步">CompletableFuture 实现（异步）</h4>
+
+<pre><code class="language-java">private static void test4() {
     // 进行计算的线程池
     ExecutorService computeService = Executors.newFixedThreadPool(1);
     // 接收结果的线程池
     ExecutorService resultService = Executors.newFixedThreadPool(1);
-    log.debug(&ldquo;开始&rdquo;);
+    log.debug(&quot;开始&quot;);
     CompletableFuture.supplyAsync(() -&gt; {
-        log.debug(&ldquo;开始&rdquo;);
+        log.debug(&quot;开始&quot;);
         sleep(1);
-        log.debug(&ldquo;结束&rdquo;);
+        log.debug(&quot;结束&quot;);
         return 10;
     }, computeService).thenAcceptAsync((result) -&gt; {
-        log.debug(&ldquo;结果为:{}&ldquo;, result);
+        log.debug(&quot;结果为:{}&quot;, result);
     }, resultService);
-}</p>
-
-<pre><code>
-输出
-
+}
 </code></pre>
 
-<p>10:36:28.114 c.TestSync [main] - 开始
+<p>输出</p>
+
+<pre><code>10:36:28.114 c.TestSync [main] - 开始
 10:36:28.164 c.TestSync [pool-1-thread-1] - 开始
 10:36:29.165 c.TestSync [pool-1-thread-1] - 结束
-10:36:29.165 c.TestSync [pool-2-thread-1] - 结果为:10</p>
-
-<pre><code>
-评价
-
-* 可以让调用线程异步处理结果，实际是其他线程去同步等待
-
-* 可以方便地分离不同职责的线程池
-
-* 以任务为中心，而不是以线程为中心
-
-**BlockingQueue 实现（异步）**
-
+10:36:29.165 c.TestSync [pool-2-thread-1] - 结果为:10
 </code></pre>
 
-<p>java
-private static void test6() {
+<p>评价</p>
+
+<ul>
+<li><p>可以让调用线程异步处理结果，实际是其他线程去同步等待</p></li>
+
+<li><p>可以方便地分离不同职责的线程池</p></li>
+
+<li><p>以任务为中心，而不是以线程为中心</p></li>
+</ul>
+
+<p><strong>BlockingQueue 实现（异步）</strong></p>
+
+<pre><code class="language-java">private static void test6() {
     ExecutorService consumer = Executors.newFixedThreadPool(1);
     ExecutorService producer = Executors.newFixedThreadPool(1);
-    BlockingQueue<Integer> queue = new SynchronousQueue&lt;&gt;();
-    log.debug(&ldquo;开始&rdquo;);
+    BlockingQueue&lt;Integer&gt; queue = new SynchronousQueue&lt;&gt;();
+    log.debug(&quot;开始&quot;);
     producer.submit(() -&gt; {
-        log.debug(&ldquo;开始&rdquo;);
+        log.debug(&quot;开始&quot;);
         sleep(1);
-        log.debug(&ldquo;结束&rdquo;);
+        log.debug(&quot;结束&quot;);
         try {
             queue.put(10);
         } catch (InterruptedException e) {
@@ -1049,136 +1074,111 @@ private static void test6() {
     consumer.submit(() -&gt; {
         try {
             Integer result = queue.take();
-            log.debug(&ldquo;结果为:{}&ldquo;, result);
+            log.debug(&quot;结果为:{}&quot;, result);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     });
-}</p>
-
-<pre><code>
-### 2. 不需等待结果
-
-这时最好是使用异步来处理
-
-### 1. 普通线程实现
-
+}
 </code></pre>
 
-<p>java
-@Slf4j(topic = &ldquo;c.FileReader&rdquo;)
+<h3 id="2-不需等待结果">2. 不需等待结果</h3>
+
+<p>这时最好是使用异步来处理</p>
+
+<h3 id="1-普通线程实现">1. 普通线程实现</h3>
+
+<pre><code class="language-java">@Slf4j(topic = &quot;c.FileReader&quot;)
 public class FileReader {
     public static void read(String filename) {
         int idx = filename.lastIndexOf(File.separator);
         String shortName = filename.substring(idx + 1);
         try (FileInputStream in = new FileInputStream(filename)) {
             long start = System.currentTimeMillis();
-            log.debug(&ldquo;read [{}] start &hellip;&ldquo;, shortName);
+            log.debug(&quot;read [{}] start ...&quot;, shortName);
             byte[] buf = new byte[1024];
             int n = -1;
             do {
                 n = in.read(buf);
             } while (n != -1);
             long end = System.currentTimeMillis();
-            log.debug(&ldquo;read [{}] end &hellip; cost: {} ms&rdquo;, shortName, end - start);
+            log.debug(&quot;read [{}] end ... cost: {} ms&quot;, shortName, end - start);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-}</p>
-
-<pre><code>
-
-
-没有用线程时，方法的调用是同步的：
-
+}
 </code></pre>
 
-<p>java
-@Slf4j(topic = &ldquo;c.Sync&rdquo;)
+<p>没有用线程时，方法的调用是同步的：</p>
+
+<pre><code class="language-java">@Slf4j(topic = &quot;c.Sync&quot;)
 public class Sync {
     public static void main(String[] args) {
-        String fullPath = &ldquo;E:\1.mp4&rdquo;;
+        String fullPath = &quot;E:\\1.mp4&quot;;
         FileReader.read(fullPath);
-        log.debug(&ldquo;do other things &hellip;&rdquo;);
+        log.debug(&quot;do other things ...&quot;);
     }
-}</p>
-
-<pre><code>
-输出
-
+}
 </code></pre>
 
-<p>18:39:15 [main] c.FileReader - read [1.mp4] start &hellip;
-18:39:19 [main] c.FileReader - read [1.mp4] end &hellip; cost: 4090 ms
-18:39:19 [main] c.Sync - do other things &hellip;</p>
+<p>输出</p>
 
-<pre><code>
-使用了线程后，方法的调用时异步的：
-
-输出
-
+<pre><code>18:39:15 [main] c.FileReader - read [1.mp4] start ...
+18:39:19 [main] c.FileReader - read [1.mp4] end ... cost: 4090 ms
+18:39:19 [main] c.Sync - do other things ...
 </code></pre>
 
-<p>18:39:15 [main] c.FileReader - read [1.mp4] start &hellip;
-18:39:19 [main] c.FileReader - read [1.mp4] end &hellip; cost: 4090 ms
-18:39:19 [main] c.Sync - do other things &hellip;</p>
+<p>使用了线程后，方法的调用时异步的：</p>
 
-<pre><code>
-使用了线程后，方法的调用时异步的：
+<p>输出</p>
 
+<pre><code>18:39:15 [main] c.FileReader - read [1.mp4] start ...
+18:39:19 [main] c.FileReader - read [1.mp4] end ... cost: 4090 ms
+18:39:19 [main] c.Sync - do other things ...
 </code></pre>
 
-<p>java
-private static void test1() {
+<p>使用了线程后，方法的调用时异步的：</p>
+
+<pre><code class="language-java">private static void test1() {
     new Thread(() -&gt; FileReader.read(Constants.MP4_FULL_PATH)).start();
-    log.debug(&ldquo;do other things &hellip;&rdquo;);
-}</p>
-
-<pre><code>
-输出
-
+    log.debug(&quot;do other things ...&quot;);
+}
 </code></pre>
 
-<p>18:41:53 [main] c.Async - do other things &hellip;
-18:41:53 [Thread-0] c.FileReader - read [1.mp4] start &hellip;
-18:41:57 [Thread-0] c.FileReader - read [1.mp4] end &hellip; cost: 4197 ms</p>
+<p>输出</p>
 
-<pre><code>
-### 2. 线程池实现
-
+<pre><code>18:41:53 [main] c.Async - do other things ...
+18:41:53 [Thread-0] c.FileReader - read [1.mp4] start ...
+18:41:57 [Thread-0] c.FileReader - read [1.mp4] end ... cost: 4197 ms
 </code></pre>
 
-<p>java
-private static void test2() {
+<h3 id="2-线程池实现">2. 线程池实现</h3>
+
+<pre><code class="language-java">private static void test2() {
     ExecutorService service = Executors.newFixedThreadPool(1);
     service.execute(() -&gt; FileReader.read(Constants.MP4_FULL_PATH));
-    log.debug(&ldquo;do other things &hellip;&rdquo;);
+    log.debug(&quot;do other things ...&quot;);
     service.shutdown();
-}</p>
-
-<pre><code>
-输出
-
+}
 </code></pre>
 
-<p>11:03:31.245 c.TestAsyc [main] - do other things &hellip;
-11:03:31.245 c.FileReader [pool-1-thread-1] - read [1.mp4] start &hellip;
-11:03:33.479 c.FileReader [pool-1-thread-1] - read [1.mp4] end &hellip; cost: 2235 ms</p>
+<p>输出</p>
 
-<pre><code>
-## 缓存
-
-### 1. 缓存更新策略
-
-更新时，是先清缓存还是先更新数据库
-
-先清缓存
-
+<pre><code>11:03:31.245 c.TestAsyc [main] - do other things ... 
+11:03:31.245 c.FileReader [pool-1-thread-1] - read [1.mp4] start ... 
+11:03:33.479 c.FileReader [pool-1-thread-1] - read [1.mp4] end ... cost: 2235 ms
 </code></pre>
 
-<p>mermaid
-sequenceDiagram
+<h2 id="缓存">缓存</h2>
+
+<h3 id="1-缓存更新策略">1. 缓存更新策略</h3>
+
+<p>更新时，是先清缓存还是先更新数据库</p>
+
+<p>先清缓存</p>
+
+<pre><code class="language-mermaid">sequenceDiagram
   participant B
 　participant A
 　participant 缓存
@@ -1187,15 +1187,12 @@ sequenceDiagram
 　A-&gt;&gt;数据库:2)查询数据库(x=1)
 　A-&gt;&gt;缓存:3)将查询结果放入缓存(x=1)
 　B-&gt;&gt;数据库:4)将新数据存入库(x=2)
-　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!</p>
-
-<pre><code>
-先更新数据库
-
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!
 </code></pre>
 
-<p>mermaid
-sequenceDiagram
+<p>先更新数据库</p>
+
+<pre><code class="language-mermaid">sequenceDiagram
   participant B
 　participant A
 　participant 缓存
@@ -1204,27 +1201,19 @@ sequenceDiagram
 　A-&gt;&gt;缓存:2)查询缓存(x=1)！！
 　B-&gt;&gt;缓存:3)清空缓存(x=1)
 　A-&gt;&gt;数据库:4)查询数据库(x=2)
-　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=2)</p>
-
-<pre><code>
-
-
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=2)
 </code></pre>
 
-<p>java
-private static void test3() throws IOException {
+<pre><code class="language-java">private static void test3() throws IOException {
     CompletableFuture.runAsync(() -&gt; FileReader.read(Constants.MP4_FULL_PATH));
-    log.debug(&ldquo;do other things &hellip;&rdquo;);
+    log.debug(&quot;do other things ...&quot;);
     System.in.read();
-}</p>
-
-<pre><code>
-补充一种情况，假设查询线程 A 查询数据时恰好缓存数据由于时间到期失效，或是第一次查询
-
+}
 </code></pre>
 
-<p>mermaid
-sequenceDiagram
+<p>补充一种情况，假设查询线程 A 查询数据时恰好缓存数据由于时间到期失效，或是第一次查询</p>
+
+<pre><code class="language-mermaid">sequenceDiagram
   participant B
 　participant A
 　participant 缓存
@@ -1233,24 +1222,21 @@ sequenceDiagram
 　B-&gt;&gt;数据库:2)将新数据村入库(x=2)
 　B-&gt;&gt;缓存:3)清空缓存
 　A-&gt;&gt;缓存:4)将查询结果放入缓存(x=1)
-　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!!</p>
-
-<pre><code>
-这种情况的出现几率非常小，见 facebook 论文
-
-### 2. 读写锁实现一致性缓存
-
-使用读写锁实现一个简单的按需加载缓存
-
+　A-&gt;&gt;缓存:5)后续查询将一直是旧值(x=1)!!
 </code></pre>
 
-<p>java
-class GenericCachedDao<T> {
+<p>这种情况的出现几率非常小，见 facebook 论文</p>
+
+<h3 id="2-读写锁实现一致性缓存">2. 读写锁实现一致性缓存</h3>
+
+<p>使用读写锁实现一个简单的按需加载缓存</p>
+
+<pre><code class="language-java">class GenericCachedDao&lt;T&gt; {
     // HashMap 作为缓存非线程安全, 需要保护
-    HashMap<SqlPair, T> map = new HashMap&lt;&gt;();
-    ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    HashMap&lt;SqlPair, T&gt; map = new HashMap&lt;&gt;();
+    ReentrantReadWriteLock lock = new ReentrantReadWriteLock(); 
     GenericDao genericDao = new GenericDao();
-    public int update(String sql, Object&hellip; params) {
+    public int update(String sql, Object... params) {
         SqlPair key = new SqlPair(sql, params);
         // 加写锁, 防止其它线程对缓存读取和更改
         lock.writeLock().lock();
@@ -1262,7 +1248,7 @@ class GenericCachedDao<T> {
             lock.writeLock().unlock();
         }
     }
-    public T queryOne(Class<T> beanClass, String sql, Object&hellip; params) {
+    public T queryOne(Class&lt;T&gt; beanClass, String sql, Object... params) {
         SqlPair key = new SqlPair(sql, params);
         // 加读锁, 防止其它线程对缓存更改
         lock.readLock().lock();
@@ -1316,34 +1302,36 @@ class GenericCachedDao<T> {
             return result;
         }
     }
-}</p>
-
-<pre><code>
-注意
-
-* 以上实现体现的是读写锁的应用，保证缓存和数据库的一致性，但有下面的问题没有考虑适合读多写少，如果写操作比较频繁，以上实现性能低
-    * 没有考虑缓存容量
-    * 没有考虑缓存过期
-    * 只适合单机
-    * 并发性还是低，目前只会用一把锁
-    * 更新方法太过简单粗暴，清空了所有 key（考虑按类型分区或重新设计 key）
-* 乐观锁实现：用 CAS 去更新
-
-## 分治
-
-### 1. 案例 - 单词计数
-
+}
 </code></pre>
 
-<p>java
-private static <V> void demo(Supplier<Map<String, V>&gt; supplier, BiConsumer<Map<String, V>,
-                             List<String>&gt; consumer) {
-    Map<String, V> counterMap = supplier.get();
-    List<Thread> ts = new ArrayList&lt;&gt;();
+<p>注意</p>
+
+<ul>
+<li>以上实现体现的是读写锁的应用，保证缓存和数据库的一致性，但有下面的问题没有考虑适合读多写少，如果写操作比较频繁，以上实现性能低
+
+<ul>
+<li>没有考虑缓存容量</li>
+<li>没有考虑缓存过期</li>
+<li>只适合单机</li>
+<li>并发性还是低，目前只会用一把锁</li>
+<li>更新方法太过简单粗暴，清空了所有 key（考虑按类型分区或重新设计 key）</li>
+</ul></li>
+<li>乐观锁实现：用 CAS 去更新</li>
+</ul>
+
+<h2 id="分治">分治</h2>
+
+<h3 id="1-案例-单词计数">1. 案例 - 单词计数</h3>
+
+<pre><code class="language-java">private static &lt;V&gt; void demo(Supplier&lt;Map&lt;String, V&gt;&gt; supplier, BiConsumer&lt;Map&lt;String, V&gt;, 
+                             List&lt;String&gt;&gt; consumer) {
+    Map&lt;String, V&gt; counterMap = supplier.get();
+    List&lt;Thread&gt; ts = new ArrayList&lt;&gt;();
     for (int i = 1; i &lt;= 26; i++) {
         int idx = i;
         Thread thread = new Thread(() -&gt; {
-            List<String> words = readFromFile(idx);
+            List&lt;String&gt; words = readFromFile(idx);
             consumer.accept(counterMap, words);
         });
         ts.add(thread);
@@ -1357,10 +1345,10 @@ private static <V> void demo(Supplier<Map<String, V>&gt; supplier, BiConsumer<Ma
     });
     System.out.println(counterMap);
 }
-public static List<String> readFromFile(int i) {
-    ArrayList<String> words = new ArrayList&lt;&gt;();
-    try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(&ldquo;tmp/&rdquo;
-                                                                                          + i + &ldquo;.txt&rdquo;)))) {
+public static List&lt;String&gt; readFromFile(int i) {
+    ArrayList&lt;String&gt; words = new ArrayList&lt;&gt;();
+    try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(&quot;tmp/&quot;
+                                                                                          + i + &quot;.txt&quot;)))) {
         while (true) {
             String word = in.readLine();
             if (word == null) {
@@ -1372,176 +1360,153 @@ public static List<String> readFromFile(int i) {
     } catch (IOException e) {
         throw new RuntimeException(e);
     }
-}</p>
-
-<pre><code>
-解法 1 ：
-
+}
 </code></pre>
 
-<p>java
-demo(
-    () -&gt; new ConcurrentHashMap<String, LongAdder>(),
+<p>解法 1 ：</p>
+
+<pre><code class="language-java">demo(
+    () -&gt; new ConcurrentHashMap&lt;String, LongAdder&gt;(),
     (map, words) -&gt; {
         for (String word : words) {
             map.computeIfAbsent(word, (key) -&gt; new LongAdder()).increment();
         }
     }
-);</p>
-
-<pre><code>
-解法 2 ：
-
+);
 </code></pre>
 
-<p>java
-Map<String, Integer> collect = IntStream.range(1, 27).parallel()
+<p>解法 2 ：</p>
+
+<pre><code class="language-java">Map&lt;String, Integer&gt; collect = IntStream.range(1, 27).parallel()
     .mapToObj(idx -&gt; readFromFile(idx))
     .flatMap(list -&gt; list.stream())
-    .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(w -&gt; 1)));</p>
-
-<pre><code>
-### 2. 案例 - 求和
-
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(w -&gt; 1)));
 </code></pre>
 
-<p>java
-class AddTask3 extends RecursiveTask<Integer> {</p>
-</blockquote>
+<h3 id="2-案例-求和">2. 案例 - 求和</h3>
 
-<pre><code>int begin;
-int end;
-public AddTask3(int begin, int end) {
-    this.begin = begin;
-    this.end = end;
-}
-@Override
-public String toString() {
-    return &quot;{&quot; + begin + &quot;,&quot; + end + '}';
-}
-@Override
-protected Integer compute() {
-    // 5, 5
-    if (begin == end) {
-        log.debug(&quot;join() {}&quot;, begin);
-        return begin;
+<pre><code class="language-java">class AddTask3 extends RecursiveTask&lt;Integer&gt; {
+
+    int begin;
+    int end;
+    public AddTask3(int begin, int end) {
+        this.begin = begin;
+        this.end = end;
     }
-    // 4, 5
-    if (end - begin == 1) {
-        log.debug(&quot;join() {} + {} = {}&quot;, begin, end, end + begin);
-        return end + begin;
+    @Override
+    public String toString() {
+        return &quot;{&quot; + begin + &quot;,&quot; + end + '}';
     }
+    @Override
+    protected Integer compute() {
+        // 5, 5
+        if (begin == end) {
+            log.debug(&quot;join() {}&quot;, begin);
+            return begin;
+        }
+        // 4, 5
+        if (end - begin == 1) {
+            log.debug(&quot;join() {} + {} = {}&quot;, begin, end, end + begin);
+            return end + begin;
+        }
 
-    // 1 5
-    int mid = (end + begin) / 2; // 3
-    AddTask3 t1 = new AddTask3(begin, mid); // 1,3
-    t1.fork();
-    AddTask3 t2 = new AddTask3(mid + 1, end); // 4,5
-    t2.fork();
-    log.debug(&quot;fork() {} + {} = ?&quot;, t1, t2);
-    int result = t1.join() + t2.join();
-    log.debug(&quot;join() {} + {} = {}&quot;, t1, t2, result);
-    return result;
+        // 1 5
+        int mid = (end + begin) / 2; // 3
+        AddTask3 t1 = new AddTask3(begin, mid); // 1,3
+        t1.fork();
+        AddTask3 t2 = new AddTask3(mid + 1, end); // 4,5
+        t2.fork();
+        log.debug(&quot;fork() {} + {} = ?&quot;, t1, t2);
+        int result = t1.join() + t2.join();
+        log.debug(&quot;join() {} + {} = {}&quot;, t1, t2, result);
+        return result;
+    }
 }
 </code></pre>
 
-<p>}</p>
+<p>然后提交给 ForkJoinPool 来执行</p>
 
-<pre><code>
-然后提交给 ForkJoinPool 来执行
-
-</code></pre>
-
-<p>java
-public static void main(String[] args) {
+<pre><code class="language-java">public static void main(String[] args) {
  ForkJoinPool pool = new ForkJoinPool(4);
  System.out.println(pool.invoke(new AddTask3(1, 10)));
-}</p>
-
-<pre><code>
-结果
-
+}
 </code></pre>
 
-<p>[ForkJoinPool-1-worker-0] - join() 1 + 2 = 3
-[ForkJoinPool-1-worker-3] - join() 4 + 5 = 9
-[ForkJoinPool-1-worker-0] - join() 3
-[ForkJoinPool-1-worker-1] - fork() {1,3} + {4,5} = ?
-[ForkJoinPool-1-worker-2] - fork() {1,2} + {3,3} = ?
-[ForkJoinPool-1-worker-2] - join() {1,2} + {3,3} = 6
-[ForkJoinPool-1-worker-1] - join() {1,3} + {4,5} = 15
-15</p>
+<p>结果</p>
 
-<pre><code>
-## 统筹
-
-### 案例 - 烧水泡茶
-
-#### 解法 1 ：join
-
+<pre><code>[ForkJoinPool-1-worker-0] - join() 1 + 2 = 3 
+[ForkJoinPool-1-worker-3] - join() 4 + 5 = 9 
+[ForkJoinPool-1-worker-0] - join() 3 
+[ForkJoinPool-1-worker-1] - fork() {1,3} + {4,5} = ? 
+[ForkJoinPool-1-worker-2] - fork() {1,2} + {3,3} = ? 
+[ForkJoinPool-1-worker-2] - join() {1,2} + {3,3} = 6 
+[ForkJoinPool-1-worker-1] - join() {1,3} + {4,5} = 15 
+15
 </code></pre>
 
-<p>java
-Thread t1 = new Thread(() -&gt; {
-    log.debug(&ldquo;洗水壶&rdquo;);
+<h2 id="统筹">统筹</h2>
+
+<h3 id="案例-烧水泡茶">案例 - 烧水泡茶</h3>
+
+<h4 id="解法-1-join">解法 1 ：join</h4>
+
+<pre><code class="language-java">Thread t1 = new Thread(() -&gt; {
+    log.debug(&quot;洗水壶&quot;);
     sleep(1);
-    log.debug(&ldquo;烧开水&rdquo;);
+    log.debug(&quot;烧开水&quot;);
     sleep(15);
-}, &ldquo;老王&rdquo;);
+}, &quot;老王&quot;);
 Thread t2 = new Thread(() -&gt; {
-    log.debug(&ldquo;洗茶壶&rdquo;);
+    log.debug(&quot;洗茶壶&quot;);
     sleep(1);
-    log.debug(&ldquo;洗茶杯&rdquo;);
+    log.debug(&quot;洗茶杯&quot;);
     sleep(2);
-    log.debug(&ldquo;拿茶叶&rdquo;);
+    log.debug(&quot;拿茶叶&quot;);
     sleep(1);
     try {
         t1.join();
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
-    log.debug(&ldquo;泡茶&rdquo;);
-}, &ldquo;小王&rdquo;);
+    log.debug(&quot;泡茶&quot;);
+}, &quot;小王&quot;);
 t1.start();
-t2.start();</p>
-
-<pre><code>
-输出
-
+t2.start();
 </code></pre>
 
-<p>19:19:37.547 [小王] c.TestMakeTea - 洗茶壶
+<p>输出</p>
+
+<pre><code>19:19:37.547 [小王] c.TestMakeTea - 洗茶壶
 19:19:37.547 [老王] c.TestMakeTea - 洗水壶
 19:19:38.552 [小王] c.TestMakeTea - 洗茶杯
 19:19:38.552 [老王] c.TestMakeTea - 烧开水
 19:19:40.553 [小王] c.TestMakeTea - 拿茶叶
-19:19:53.553 [小王] c.TestMakeTea - 泡茶</p>
-
-<pre><code>
-#### 解法 1 的缺陷：
-
-* 上面模拟的是小王等老王的水烧开了，小王泡茶，如果反过来要实现老王等小王的茶叶拿来了，老王泡茶呢？代码最好能适应两种情况
-
-* 上面的两个线程其实是各执行各的，如果要模拟老王把水壶交给小王泡茶，或模拟小王把茶叶交给老王泡茶呢
-
-### 解法 2 ：wait/notify
-
+19:19:53.553 [小王] c.TestMakeTea - 泡茶
 </code></pre>
 
-<p>java
-class S2 {
-    static String kettle = &ldquo;冷水&rdquo;;
+<h4 id="解法-1-的缺陷">解法 1 的缺陷：</h4>
+
+<ul>
+<li><p>上面模拟的是小王等老王的水烧开了，小王泡茶，如果反过来要实现老王等小王的茶叶拿来了，老王泡茶呢？代码最好能适应两种情况</p></li>
+
+<li><p>上面的两个线程其实是各执行各的，如果要模拟老王把水壶交给小王泡茶，或模拟小王把茶叶交给老王泡茶呢</p></li>
+</ul>
+
+<h3 id="解法-2-wait-notify">解法 2 ：wait/notify</h3>
+
+<pre><code class="language-java">class S2 {
+    static String kettle = &quot;冷水&quot;;
     static String tea = null;
     static final Object lock = new Object();
     static boolean maked = false;
     public static void makeTea() {
         new Thread(() -&gt; {
-            log.debug(&ldquo;洗水壶&rdquo;);
+            log.debug(&quot;洗水壶&quot;);
             sleep(1);
-            log.debug(&ldquo;烧开水&rdquo;);
+            log.debug(&quot;烧开水&quot;);
             sleep(5);
             synchronized (lock) {
-                kettle = &ldquo;开水&rdquo;;
+                kettle = &quot;开水&quot;;
                 lock.notifyAll();
                 while (tea == null) {
                     try {
@@ -1551,22 +1516,22 @@ class S2 {
                     }
                 }
                 if (!maked) {
-                    log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+                    log.debug(&quot;拿({})泡({})&quot;, kettle, tea);
                     maked = true;
                 }
             }
-        }, &ldquo;老王&rdquo;).start();
+        }, &quot;老王&quot;).start();
         new Thread(() -&gt; {
-            log.debug(&ldquo;洗茶壶&rdquo;);
+            log.debug(&quot;洗茶壶&quot;);
             sleep(1);
-            log.debug(&ldquo;洗茶杯&rdquo;);
+            log.debug(&quot;洗茶杯&quot;);
             sleep(2);
-            log.debug(&ldquo;拿茶叶&rdquo;);
+            log.debug(&quot;拿茶叶&quot;);
             sleep(1);
             synchronized (lock) {
-                tea = &ldquo;花茶&rdquo;;
+                tea = &quot;花茶&quot;;
                 lock.notifyAll();
-                while (kettle.equals(&ldquo;冷水&rdquo;)) {
+                while (kettle.equals(&quot;冷水&quot;)) {
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
@@ -1574,105 +1539,93 @@ class S2 {
                     }
                 }
                 if (!maked) {
-                    log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+                    log.debug(&quot;拿({})泡({})&quot;, kettle, tea);
                     maked = true;
                 }
             }
-        }, &ldquo;小王&rdquo;).start();
+        }, &quot;小王&quot;).start();
     }
-}</p>
-
-<pre><code>
-输出
-
+}
 </code></pre>
 
-<p>20:04:48.179 c.S2 [小王] - 洗茶壶
+<p>输出</p>
+
+<pre><code>20:04:48.179 c.S2 [小王] - 洗茶壶
 20:04:48.179 c.S2 [老王] - 洗水壶
 20:04:49.185 c.S2 [老王] - 烧开水
 20:04:49.185 c.S2 [小王] - 洗茶杯
 20:04:51.185 c.S2 [小王] - 拿茶叶
-20:04:54.185 c.S2 [老王] - 拿(开水)泡(花茶)</p>
-
-<pre><code>
-解法 2 解决了解法 1 的问题，不过老王和小王需要相互等待，不如他们只负责各自的任务，泡茶交给第三人来做
-
-### 解法 3 ：第三者协调
-
-
-
+20:04:54.185 c.S2 [老王] - 拿(开水)泡(花茶)
 </code></pre>
 
-<p>java
-class S3 {
-    static String kettle = &ldquo;冷水&rdquo;;
+<p>解法 2 解决了解法 1 的问题，不过老王和小王需要相互等待，不如他们只负责各自的任务，泡茶交给第三人来做</p>
+
+<h3 id="解法-3-第三者协调">解法 3 ：第三者协调</h3>
+
+<pre><code class="language-java">class S3 {
+    static String kettle = &quot;冷水&quot;;
     static String tea = null;
     static final Object lock = new Object();
     public static void makeTea() {
         new Thread(() -&gt; {
-            log.debug(&ldquo;洗水壶&rdquo;);
+            log.debug(&quot;洗水壶&quot;);
             sleep(1);
-            log.debug(&ldquo;烧开水&rdquo;);
+            log.debug(&quot;烧开水&quot;);
             sleep(5);
             synchronized (lock) {
-                kettle = &ldquo;开水&rdquo;;
+                kettle = &quot;开水&quot;;
                 lock.notifyAll();
             }
-        }, &ldquo;老王&rdquo;).start();
+        }, &quot;老王&quot;).start();
         new Thread(() -&gt; {
-            log.debug(&ldquo;洗茶壶&rdquo;);
+            log.debug(&quot;洗茶壶&quot;);
             sleep(1);
-            log.debug(&ldquo;洗茶杯&rdquo;);
+            log.debug(&quot;洗茶杯&quot;);
             sleep(2);
-            log.debug(&ldquo;拿茶叶&rdquo;);
+            log.debug(&quot;拿茶叶&quot;);
             sleep(1);
             synchronized (lock) {
-                tea = &ldquo;花茶&rdquo;;
+                tea = &quot;花茶&quot;;
                 lock.notifyAll();
             }
-        }, &ldquo;小王&rdquo;).start();
+        }, &quot;小王&quot;).start();
         new Thread(() -&gt; {
             synchronized (lock) {
-                while (kettle.equals(&ldquo;冷水&rdquo;) || tea == null) {
+                while (kettle.equals(&quot;冷水&quot;) || tea == null) {
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                log.debug(&ldquo;拿({})泡({})&rdquo;, kettle, tea);
+                log.debug(&quot;拿({})泡({})&quot;, kettle, tea);
             }
-        }, &ldquo;王夫人&rdquo;).start();
+        }, &quot;王夫人&quot;).start();
     }
-}</p>
-
-<pre><code>
-输出
-
+}
 </code></pre>
 
-<p>20:13:18.202 c.S3 [小王] - 洗茶壶
+<p>输出</p>
+
+<pre><code>20:13:18.202 c.S3 [小王] - 洗茶壶
 20:13:18.202 c.S3 [老王] - 洗水壶
 20:13:19.206 c.S3 [小王] - 洗茶杯
 20:13:19.206 c.S3 [老王] - 烧开水
 20:13:21.206 c.S3 [小王] - 拿茶叶
-20:13:24.207 c.S3 [王夫人] - 拿(开水)泡(花茶)</p>
-
-<pre><code>
-## 定时
-
-### 1. 定期执行
-
-如何让每周四 18:00:00 定时执行任务？
-
+20:13:24.207 c.S3 [王夫人] - 拿(开水)泡(花茶)
 </code></pre>
 
-<p>java
-// 获得当前时间
+<h2 id="定时">定时</h2>
+
+<h3 id="1-定期执行">1. 定期执行</h3>
+
+<p>如何让每周四 18:00:00 定时执行任务？</p>
+
+<pre><code class="language-java">// 获得当前时间
 LocalDateTime now = LocalDateTime.now();
 // 获取本周四 18:00:00.000
 //LocalDateTime jdk1.8新增的线程安全类
-LocalDateTime thursday =
+LocalDateTime thursday = 
     now.with(DayOfWeek.THURSDAY).withHour(18).withMinute(0).withSecond(0).withNano(0);
 // 如果当前时间已经超过 本周四 18:00:00.000， 那么找下周四 18:00:00.000
 if(now.compareTo(thursday) &gt;= 0) {
@@ -1683,11 +1636,11 @@ long initialDelay = Duration.between(now, thursday).toMillis();
 // 计算间隔时间，即 1 周的毫秒值
 long oneWeek = 7 * 24 * 3600 * 1000;
 ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-System.out.println(&ldquo;开始时间：&rdquo; + new Date());
+System.out.println(&quot;开始时间：&quot; + new Date());
 executor.scheduleAtFixedRate(() -&gt; {
-    System.out.println(&ldquo;执行时间：&rdquo; + new Date());
+    System.out.println(&quot;执行时间：&quot; + new Date());
 }, initialDelay, oneWeek, TimeUnit.MILLISECONDS);
-```</p>
+</code></pre>
 
     </div>
     <div class="article-footer">
