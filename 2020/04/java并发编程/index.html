@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="60243">
+<meta itemprop="wordCount" content="61757">
 
 
 
@@ -418,8 +418,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:60243字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:121分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:61757字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:124分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -1940,6 +1940,12 @@ public static void main(String[] args) throws IOException {
 * 线程状态转换
 * 活跃性
 * Lock
+
+Monitor两大作用：互斥、同步
+
+synchronized：在JVM(c++)的层面上实现关联Monitor
+
+rentryLock:在Java层面上实现关联monitor
 
 ## 4.1 共享带来的问题
 
@@ -4537,11 +4543,13 @@ class Chopstick {
 相对于 synchronized 它具备如下特点
 
 * 可中断
-* 可以设置超时时间
+* 可以设置超时时间（获取锁时获取不到直接进入entryList中等待，死等）
 * 可以设置为公平锁（防止线程饥饿，先进先出）
 * 支持多个条件变量（有多个休息室，waitSet）
 
 与 synchronized 一样，都支持可重入(对一个对象进行重复加锁)
+
+synchronized 在关键字的级别保护临界区ReentrantLock在对象的级别保护临界区
 
 基本语法
 
@@ -4711,6 +4719,8 @@ try {
 <pre><code>
 ### 锁超时
 
+在获取锁的过程中，如果其他线程持有该对象的锁一直没有释放。尝试获得锁的线程也不会死等，只会等待一段时间，如果一段时间超过了，其他线程还没有释放锁，我们就放弃等待，表示此次获取锁失败
+
 立刻失败
 
 </code></pre>
@@ -4718,24 +4728,24 @@ try {
 <p>java
 ReentrantLock lock = new ReentrantLock();
 Thread t1 = new Thread(() -&gt; {
-     log.debug(&ldquo;启动&hellip;&rdquo;);
-     if (!lock.tryLock()) {
-     	log.debug(&ldquo;获取立刻失败，返回&rdquo;);
-     	return;
-     }
-     try {
-     	log.debug(&ldquo;获得了锁&rdquo;);
-     } finally {
-     	lock.unlock();
-     }
+    log.debug(&ldquo;启动&hellip;&rdquo;);
+    if (!lock.tryLock()) {
+        log.debug(&ldquo;获取立刻失败，返回&rdquo;);
+        return;
+    }
+    try {
+        log.debug(&ldquo;获得了锁&rdquo;);
+    } finally {
+        lock.unlock();
+    }
 }, &ldquo;t1&rdquo;);
 lock.lock();
 log.debug(&ldquo;获得了锁&rdquo;);
 t1.start();
 try {
- 	sleep(2);
+    sleep(2);
 } finally {
- 	lock.unlock();
+    lock.unlock();
 }</p>
 
 <pre><code>
@@ -4875,6 +4885,8 @@ class Chopstick extends ReentrantLock {
 
 
 ### 公平锁
+
+synchronized是一种不公平锁，当一个线程获得锁，其他线程就得进入等待队列中去等待，当锁的持有者释放锁的时候，这些线程就会一拥而上，谁先抢到锁谁就先执行。不会按照进入阻塞队列中的顺序先来先得。
 
 再等待地时候是按照先到先得地顺序进行排队等候地，而非公平锁是随机选择在等待地锁
 
@@ -5106,8 +5118,7 @@ public class Test24 {
 
 ## 5.1 Java 内存模型
 
-JMM 即 Java Memory Model，它定义了主存（所有线程都共享的数据：静态成员变量，成员变量等）、工作内存（每个线程私有的数据：局部变量等）抽象概念，底层对应着 CPU 寄存器、缓存、硬件内存、
-CPU 指令优化等。
+JMM 即 Java Memory Model，它定义了主存（所有线程都共享的数据：静态成员变量，成员变量等）、工作内存（每个线程私有的数据：局部变量等）抽象概念，底层对应着 CPU 寄存器、缓存、硬件内存、CPU 指令优化等。（为了简化Java程序员不要直接面对底层这些复杂的内存管理）
 
 JMM 体现在以下几个方面
 
@@ -5142,14 +5153,13 @@ public static void main(String[] args) throws InterruptedException {
 <pre><code>
 为什么呢？分析一下：
 
-1. 初始状态， t 线程刚开始从主内存读取了 run 的值到工作内存。
+1. 初始状态， t 线程刚开始从主内存（所有共享信息存储的位置）读取了 run 的值到工作内存（每个线程的私有 信息存储的位置）。
 
     ![image-20200420145244825](/resources/技术收录/Java/java并发/image-20200420145244825.png)
 
 
 
-因为 t 线程要频繁从主内存中读取 run 的值，JIT 编译器会将 run 的值缓存至自己工作内存中的高速缓存中，
-减少对主存中 run 的访问，提高效率
+因为 t 线程要频繁从主内存中读取 run 的值，JIT 编译器会将 run 的值缓存至自己工作内存中的高速缓存中，减少对主存中 run 的访问，提高效率
 
 ![image-20200420145309010](/resources/技术收录/Java/java并发/image-20200420145309010.png)
 
@@ -5160,7 +5170,7 @@ public static void main(String[] args) throws InterruptedException {
 
 ### 解决方法
 
-volatile（易变关键字）
+volatile（易变关键字：不能从缓存中进行读取了，每次都要从主内存中读取变量的最新值）
 
 </code></pre>
 
@@ -5189,8 +5199,7 @@ public class Test32 {
 <p>}</p>
 
 <pre><code>
-它可以用来修饰成员变量和静态成员变量，他可以避免线程从自己的工作缓存中查找变量的值，必须到主存中获取
-它的值，线程操作 volatile 变量都是直接操作主存
+它可以用来修饰成员变量和静态成员变量，他可以避免线程从自己的工作缓存中查找变量的值，必须到主存中获取它的值，线程操作 volatile 变量都是直接操作主存
 
 还可以使用synchronized保证 
 
@@ -5240,7 +5249,7 @@ putstatic run // 线程 main 修改 run 为 false， 仅此一次
 getstatic run // 线程 t 获取 run false</p>
 
 <pre><code>
-比较一下之前我们将线程安全时举的例子：两个线程一个 i++ 一个 i-- ，只能保证看到最新值，不能解决指令交错
+比较一下之前我们将线程安全时举的例子：两个线程一个 i++ 一个 i-- ，volatile只能保证看到最新值，不能解决指令交错
 
 </code></pre>
 
@@ -5684,7 +5693,7 @@ static final Object lock = new Object();
 <p>java
 // 问题1：为什么加 final
 /<em>怕将来它有子类，字类不适当的覆盖了父类中的方法，破坏了他的单例</em>/
-// 问题2：如果实现了序列化接口, 还要做什么来防止反序列化破坏单例
+// 问题2：如果实现了序列化接口, 还要做什么来防止反序列化破坏单例 增加readResolve方法
 public final class Singleton implements Serializable {
  // 问题3：为什么设置为私有? 是否能防止反射创建新的实例?
  /*要设置为其他的，那么别的类就可以无限的创建它的对象；就不能是单例了
@@ -5723,7 +5732,7 @@ public final class Singleton implements Serializable {
 // 问题3：枚举单例能否被反射破坏单例
 /<em>不能：</em>/
 // 问题4：枚举单例能否被反序列化破坏单例
-/<em>枚举类默认都是实现了序列化接口的，可以被序列化和反序列化的；但是枚举类在设计的时候就考虑到了序列化破坏单例的情况，所以它可以避免反序列化时出现问题，无需自己做额外的情况</em>/
+/<em>枚举类默认都是实现了序列化接口的，可以被序列化和反序列化的；但是枚举类在设计的时候就考虑到了序列化破坏单例的情况，所以它可以避免反序列化时出现问题，无需自己做额外的操作</em>/
 // 问题5：枚举单例属于懒汉式还是饿汉式
 /*<em>饿汉式的：类的静态成员对象在类加载的时候就进行创建了，也是饿汉式的</em>/
 // 问题6：枚举单例如果希望加入一些单例创建时的初始化逻辑该如何做
@@ -6077,7 +6086,7 @@ class AccountSafe implements Account {
 
 <p>java
 public static void main(String[] args) {
- Account.demo(new AccountSafe(10000));
+    Account.demo(new AccountSafe(10000));
 }</p>
 
 <pre><code>
@@ -6113,9 +6122,8 @@ public void withdraw(Integer amount) {
         if (balance.compareAndSet(prev, next)) {
             break;
         }
-    }</p>
-
-<p>}</p>
+    }
+}</p>
 
 <pre><code>
 其中的关键是 compareAndSet，它的简称就是 CAS （也有 Compare And Swap 的说法），它必须是原子操作。
@@ -6159,34 +6167,34 @@ sequenceDiagram
 <p>java
 @Slf4j
 public class SlowMotion {
- public static void main(String[] args) {
- AtomicInteger balance = new AtomicInteger(10000);
- int mainPrev = balance.get();
- log.debug(&ldquo;try get {}&rdquo;, mainPrev);
- new Thread(() -&gt; {
- sleep(1000);
- int prev = balance.get();
- balance.compareAndSet(prev, 9000);
- log.debug(balance.toString());
- }, &ldquo;t1&rdquo;).start();
- sleep(2000);
- log.debug(&ldquo;try set 8000&hellip;&rdquo;);
- boolean isSuccess = balance.compareAndSet(mainPrev, 8000);
- log.debug(&ldquo;is success ? {}&rdquo;, isSuccess);
- if(!isSuccess){
- mainPrev = balance.get();
- log.debug(&ldquo;try set 8000&hellip;&rdquo;);
- isSuccess = balance.compareAndSet(mainPrev, 8000);
- log.debug(&ldquo;is success ? {}&rdquo;, isSuccess);
- }
- }
- private static void sleep(int millis) {
- try {
- Thread.sleep(millis);
- } catch (InterruptedException e) {
- e.printStackTrace();
- }
- }
+    public static void main(String[] args) {
+        AtomicInteger balance = new AtomicInteger(10000);
+        int mainPrev = balance.get();
+        log.debug(&ldquo;try get {}&rdquo;, mainPrev);
+        new Thread(() -&gt; {
+            sleep(1000);
+            int prev = balance.get();
+            balance.compareAndSet(prev, 9000);
+            log.debug(balance.toString());
+        }, &ldquo;t1&rdquo;).start();
+        sleep(2000);
+        log.debug(&ldquo;try set 8000&hellip;&rdquo;);
+        boolean isSuccess = balance.compareAndSet(mainPrev, 8000);
+        log.debug(&ldquo;is success ? {}&rdquo;, isSuccess);
+        if(!isSuccess){
+            mainPrev = balance.get();
+            log.debug(&ldquo;try set 8000&hellip;&rdquo;);
+            isSuccess = balance.compareAndSet(mainPrev, 8000);
+            log.debug(&ldquo;is success ? {}&rdquo;, isSuccess);
+        }
+    }
+    private static void sleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }</p>
 
 <pre><code>
@@ -6202,8 +6210,15 @@ public class SlowMotion {
 2019-10-13 11:28:39.154 [main] is success ? true</p>
 
 <pre><code>
-volatile
+**volatile**
 
+</code></pre>
+
+<p>java
+//AtomicInteger类中的value是使用volatile关键字修饰的
+private volatile int value;</p>
+
+<pre><code>
 获取共享变量时，为了保证该变量的可见性，需要使用 volatile 修饰。
 
 它可以用来修饰成员变量和静态成员变量，他可以避免线程从自己的工作缓存中查找变量的值，必须到主存中获取
@@ -6213,7 +6228,7 @@ volatile
 &gt; volatile 仅仅保证了共享变量的可见性，让其它线程能够看到最新值，但不能解决指令交错问题（不能保证原
 &gt; 子性）
 
-CAS 必须借助 volatile 才能读取到共享变量的最新值来实现【比较并交换】的效果
+**CAS 必须借助 volatile 才能读取到共享变量的最新值来实现【比较并交换】的效果**
 
 ### 为什么无锁效率高
 
@@ -6297,34 +6312,36 @@ System.out.println(i.accumulateAndGet(-10, (p, x) -&gt; p + x));</p>
 
 <p>java
 public interface DecimalAccount {
- // 获取余额
- BigDecimal getBalance();
- // 取款
- void withdraw(BigDecimal amount);
- /**
- * 方法内会启动 1000 个线程，每个线程做 -10 元 的操作
- * 如果初始余额为 10000 那么正确的结果应当是 0
- */
- static void demo(DecimalAccount account) {
-     List<Thread> ts = new ArrayList&lt;&gt;();
-     for (int i = 0; i &lt; 1000; i++) {
-         ts.add(new Thread(() -&gt; {
-         	account.withdraw(BigDecimal.TEN);
-         }));
-     }
-     ts.forEach(Thread::start);
-     ts.forEach(t -&gt; {
-         try {
-            t.join();
-         } catch (InterruptedException e) {
-            e.printStackTrace();
-         }
-     });
-     System.out.println(account.getBalance());
- }
+    // 获取余额
+    BigDecimal getBalance();
+    // 取款
+    void withdraw(BigDecimal amount);
+    /**
+     * 方法内会启动 1000 个线程，每个线程做 -10 元 的操作
+     * 如果初始余额为 10000 那么正确的结果应当是 0
+     */
+    static void demo(DecimalAccount account) {
+        List<Thread> ts = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 1000; i++) {
+            ts.add(new Thread(() -&gt; {
+                account.withdraw(BigDecimal.TEN);
+            }));
+        }
+        ts.forEach(Thread::start);
+        ts.forEach(t -&gt; {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        System.out.println(account.getBalance());
+    }
 }</p>
 
 <pre><code>
+Cas不适合于大量线程的场景，它适用的场景为最大线程数不超过CPU核心数
+
 试着提供不同的 DecimalAccount 实现，实现安全的取款操作
 
 ### 不安全实现
@@ -6333,19 +6350,19 @@ public interface DecimalAccount {
 
 <p>java
 class DecimalAccountUnsafe implements DecimalAccount {
- BigDecimal balance;
- public DecimalAccountUnsafe(BigDecimal balance) {
- 	this.balance = balance;
- }
- @Override
- public BigDecimal getBalance() {
- 	return balance;
- }
- @Override
- public void withdraw(BigDecimal amount) {
- 	BigDecimal balance = this.getBalance();
- 	this.balance = balance.subtract(amount);
- }
+    BigDecimal balance;
+    public DecimalAccountUnsafe(BigDecimal balance) {
+        this.balance = balance;
+    }
+    @Override
+    public BigDecimal getBalance() {
+        return balance;
+    }
+    @Override
+    public void withdraw(BigDecimal amount) {
+        BigDecimal balance = this.getBalance();
+        this.balance = balance.subtract(amount);
+    }
 }</p>
 
 <pre><code>
@@ -6355,22 +6372,22 @@ class DecimalAccountUnsafe implements DecimalAccount {
 
 <p>java
 class DecimalAccountSafeLock implements DecimalAccount {
- private final Object lock = new Object();
- BigDecimal balance;
- public DecimalAccountSafeLock(BigDecimal balance) {
- 	this.balance = balance;
- }
- @Override
- public BigDecimal getBalance() {
- 	return balance;
- }
- @Override
- public void withdraw(BigDecimal amount) {
-     synchronized (lock) {
-        BigDecimal balance = this.getBalance();
-     this.balance = balance.subtract(amount);
-     }
- }
+    private final Object lock = new Object();
+    BigDecimal balance;
+    public DecimalAccountSafeLock(BigDecimal balance) {
+        this.balance = balance;
+    }
+    @Override
+    public BigDecimal getBalance() {
+        return balance;
+    }
+    @Override
+    public void withdraw(BigDecimal amount) {
+        synchronized (lock) {
+            BigDecimal balance = this.getBalance();
+            this.balance = balance.subtract(amount);
+        }
+    }
 }</p>
 
 <pre><code>
@@ -6431,23 +6448,23 @@ ABA 问题
 <p>java
 static AtomicReference<String> ref = new AtomicReference&lt;&gt;(&ldquo;A&rdquo;);
 public static void main(String[] args) throws InterruptedException {
- log.debug(&ldquo;main start&hellip;&rdquo;);
- // 获取值 A
- // 这个共享变量被它线程修改过？
- String prev = ref.get();
- other();
- sleep(1);
- // 尝试改为 C
- log.debug(&ldquo;change A-&gt;C {}&rdquo;, ref.compareAndSet(prev, &ldquo;C&rdquo;));
+    log.debug(&ldquo;main start&hellip;&rdquo;);
+    // 获取值 A
+    // 这个共享变量被它线程修改过？
+    String prev = ref.get();
+    other();
+    sleep(1);
+    // 尝试改为 C
+    log.debug(&ldquo;change A-&gt;C {}&rdquo;, ref.compareAndSet(prev, &ldquo;C&rdquo;));
 }
 private static void other() {
- new Thread(() -&gt; {
- 	log.debug(&ldquo;change A-&gt;B {}&rdquo;, ref.compareAndSet(ref.get(), &ldquo;B&rdquo;));
- }, &ldquo;t1&rdquo;).start();
- sleep(0.5);
- new Thread(() -&gt; {
- 	log.debug(&ldquo;change B-&gt;A {}&rdquo;, ref.compareAndSet(ref.get(), &ldquo;A&rdquo;));
- }, &ldquo;t2&rdquo;).start();
+    new Thread(() -&gt; {
+        log.debug(&ldquo;change A-&gt;B {}&rdquo;, ref.compareAndSet(ref.get(), &ldquo;B&rdquo;));
+    }, &ldquo;t1&rdquo;).start();
+    sleep(0.5);
+    new Thread(() -&gt; {
+        log.debug(&ldquo;change B-&gt;A {}&rdquo;, ref.compareAndSet(ref.get(), &ldquo;A&rdquo;));
+    }, &ldquo;t2&rdquo;).start();
 }</p>
 
 <pre><code>
@@ -6465,7 +6482,7 @@ private static void other() {
 
 希望：
 
-只要有其它线程【动过了】共享变量，那么自己的 cas 就算失败，这时，仅比较值是不够的，需要再加一个版本号
+只要有其它线程【动过了】共享变量，那么自己的 cas 就算失败，这时，仅比较值是不够的，需要再加一个版本号使用AtomicStampedReference原子引用
 
 ### AtomicStampedReference
 
@@ -6474,30 +6491,30 @@ private static void other() {
 <p>java
 static AtomicStampedReference<String> ref = new AtomicStampedReference&lt;&gt;(&ldquo;A&rdquo;, 0);
 public static void main(String[] args) throws InterruptedException {
- log.debug(&ldquo;main start&hellip;&rdquo;);
- // 获取值 A
- String prev = ref.getReference();
- // 获取版本号
- int stamp = ref.getStamp();
- log.debug(&ldquo;版本 {}&rdquo;, stamp);
- // 如果中间有其它线程干扰，发生了 ABA 现象
- other();
- sleep(1);
- // 尝试改为 C
- log.debug(&ldquo;change A-&gt;C {}&rdquo;, ref.compareAndSet(prev, &ldquo;C&rdquo;, stamp, stamp + 1));
+    log.debug(&ldquo;main start&hellip;&rdquo;);
+    // 获取值 A
+    String prev = ref.getReference();
+    // 获取版本号
+    int stamp = ref.getStamp();
+    log.debug(&ldquo;版本 {}&rdquo;, stamp);
+    // 如果中间有其它线程干扰，发生了 ABA 现象
+    other();
+    sleep(1);
+    // 尝试改为 C
+    log.debug(&ldquo;change A-&gt;C {}&rdquo;, ref.compareAndSet(prev, &ldquo;C&rdquo;, stamp, stamp + 1));
 }
 private static void other() {
- new Thread(() -&gt; {
- 	log.debug(&ldquo;change A-&gt;B {}&rdquo;, ref.compareAndSet(ref.getReference(), &ldquo;B&rdquo;,
- 	ref.getStamp(), ref.getStamp() + 1));
- log.debug(&ldquo;更新版本为 {}&rdquo;, ref.getStamp());
- }, &ldquo;t1&rdquo;).start();
- sleep(0.5);
- new Thread(() -&gt; {
- 	log.debug(&ldquo;change B-&gt;A {}&rdquo;, ref.compareAndSet(ref.getReference(), &ldquo;A&rdquo;,
- 	ref.getStamp(), ref.getStamp() + 1));
- log.debug(&ldquo;更新版本为 {}&rdquo;, ref.getStamp());
- }, &ldquo;t2&rdquo;).start();
+    new Thread(() -&gt; {
+        log.debug(&ldquo;change A-&gt;B {}&rdquo;, ref.compareAndSet(ref.getReference(), &ldquo;B&rdquo;,
+                                                      ref.getStamp(), ref.getStamp() + 1));
+        log.debug(&ldquo;更新版本为 {}&rdquo;, ref.getStamp());
+    }, &ldquo;t1&rdquo;).start();
+    sleep(0.5);
+    new Thread(() -&gt; {
+        log.debug(&ldquo;change B-&gt;A {}&rdquo;, ref.compareAndSet(ref.getReference(), &ldquo;A&rdquo;,
+                                                      ref.getStamp(), ref.getStamp() + 1));
+        log.debug(&ldquo;更新版本为 {}&rdquo;, ref.getStamp());
+    }, &ldquo;t2&rdquo;).start();
 }</p>
 
 <pre><code>
@@ -6514,19 +6531,15 @@ private static void other() {
 15:41:36.457 c.Test36 [main] - change A-&gt;C false</p>
 
 <pre><code>
-AtomicStampedReference 可以给原子引用加上版本号，追踪原子引用整个的变化过程，如： A -&gt; B -&gt; A -&gt; 
+AtomicStampedReference 可以给原子引用加上版本号，追踪原子引用整个的变化过程，如： A -&gt; B -&gt; A -&gt; C ，通过AtomicStampedReference，我们可以知道，引用变量中途被更改了几次。
 
-C ，通过AtomicStampedReference，我们可以知道，引用变量中途被更改了几次。
-
-但是有时候，并不关心引用变量更改了几次，只是单纯的关心**是否更改过**，所以就有了
-
-AtomicMarkableReference
+但是有时候，并不关心引用变量更改了几次，只是单纯的关心**是否更改过**，所以就有了AtomicMarkableReference
 
 </code></pre>
 
 <p>mermaid
-graph TB
-a(&ldquo;保洁阿姨&rdquo;)-.倒空.-&gt;b(&ldquo;垃圾袋&rdquo;)
+graph TD
+a(&ldquo;保洁阿姨&rdquo;)-. 倒空 .-&gt;b(&ldquo;垃圾袋&rdquo;)
 c(&ldquo;主人&rdquo;)&ndash;检查&ndash;&gt;b(&ldquo;垃圾袋&rdquo;)
 b(&ldquo;垃圾袋&rdquo;)&ndash;还空&ndash;&gt;b(&ldquo;垃圾袋&rdquo;)
 b(&ldquo;垃圾袋&rdquo;)&ndash;已满&ndash;&gt;d(&ldquo;新垃圾袋&rdquo;)</p>
@@ -6649,9 +6662,9 @@ private static <T> void demo(
 
 <p>java
 demo( ()-&gt;new int[10],
- (array)-&gt;array.length,
- (array, index) -&gt; array[index]++,
- array-&gt; System.out.println(Arrays.toString(array))
+     (array)-&gt;array.length,
+     (array, index) -&gt; array[index]++,
+     array-&gt; System.out.println(Arrays.toString(array))
 );</p>
 
 <pre><code>
@@ -6662,8 +6675,6 @@ demo( ()-&gt;new int[10],
 <p>[9870, 9862, 9774, 9697, 9683, 9678, 9679, 9668, 9680, 9698]</p>
 
 <pre><code>
-
-
 ### 安全的数组
 
 </code></pre>
@@ -6831,9 +6842,7 @@ for (int i = 0; i &lt; 5; i++) {
 1000000 cost:22</p>
 
 <pre><code>
-性能提升的原因很简单，就是在有竞争时，设置多个累加单元，Therad-0 累加 Cell[0]，而 Thread-1 累加
-Cell[1]... 最后将结果汇总。这样它们在累加时操作的不同的 Cell 变量，因此减少了 CAS 重试失败，从而提高性
-能。(累加单元不会超过CPU的核心数)
+性能提升的原因很简单，就是在有竞争时，设置多个累加单元，Therad-0 累加 Cell[0]，而 Thread-1 累加Cell[1]... 最后将结果汇总。这样它们在累加时操作的不同的 Cell 变量，因此减少了 CAS 重试失败，从而提高性能。(累加单元不会超过CPU的核心数)
 
 - **源码之 LongAdder**
 
@@ -6848,11 +6857,11 @@ LongAdder 类有几个关键域
 transient volatile Cell[] cells;
 // 基础值, 如果没有竞争, 则用 cas 累加这个域
 transient volatile long base;
-// 在 cells 创建或扩容时, 置为 1, 表示加锁
+// 在 cells 创建或扩容时, 置为 1, 表示加锁（cas锁的加锁标记，来保护对某些资源访问时的线程安全）
 transient volatile int cellsBusy;</p>
 
 <pre><code>
-
+transient关键字：在序列化时不会把这些信息进行序列化
 
 **cas锁**
 
@@ -6861,18 +6870,18 @@ transient volatile int cellsBusy;</p>
 <p>java
 // 不要用于实践！！！
 public class LockCas {
- private AtomicInteger state = new AtomicInteger(0);
- public void lock() {
-     while (true) {
-         if (state.compareAndSet(0, 1)) {
-            break;
-         }
-     }
- }
- public void unlock() {
- 	log.debug(&ldquo;unlock&hellip;&rdquo;);
- state.set(0);
- }
+    private AtomicInteger state = new AtomicInteger(0);
+    public void lock() {
+        while (true) {
+            if (state.compareAndSet(0, 1)) {
+                break;
+            }
+        }
+    }
+    public void unlock() {
+        log.debug(&ldquo;unlock&hellip;&rdquo;);
+        state.set(0);
+    }
 }</p>
 
 <pre><code>
@@ -6883,23 +6892,23 @@ public class LockCas {
 <p>java
 LockCas lock = new LockCas();
 new Thread(() -&gt; {
-     log.debug(&ldquo;begin&hellip;&rdquo;);
-     lock.lock();
-     try {
+    log.debug(&ldquo;begin&hellip;&rdquo;);
+    lock.lock();
+    try {
         log.debug(&ldquo;lock&hellip;&rdquo;);
         sleep(1);
-     } finally {
+    } finally {
         lock.unlock();
-     }
+    }
 }).start();
 new Thread(() -&gt; {
-     log.debug(&ldquo;begin&hellip;&rdquo;);
-     	lock.lock();
-     try {
-     	log.debug(&ldquo;lock&hellip;&rdquo;);
-     } finally {
-     	lock.unlock();
-     }
+    log.debug(&ldquo;begin&hellip;&rdquo;);
+    lock.lock();
+    try {
+        log.debug(&ldquo;lock&hellip;&rdquo;);
+    } finally {
+        lock.unlock();
+    }
 }).start();</p>
 
 <pre><code>
@@ -6922,19 +6931,20 @@ new Thread(() -&gt; {
 </code></pre>
 
 <p>java
-// 防止缓存行伪共享
+//Contended注解：防止缓存行伪共享
 //由于一个缓存行加入了多个cell对象称为伪共享
 @sun.misc.Contended
-static final class Cell {
- volatile long value;
- Cell(long x) { value = x; }</p>
+    static final class Cell {
+        volatile long value;
+        Cell(long x) { value = x; }</p>
 
-<p>// 最重要的方法, 用来 cas 方式进行累加, prev 表示旧值, next 表示新值
- final boolean cas(long prev, long next) {
- 	return UNSAFE.compareAndSwapLong(this, valueOffset, prev, next);
- }
- // 省略不重要代码
-}</p>
+<pre><code>    // 最重要的方法, 用来 cas 方式进行累加, prev 表示旧值, next 表示新值
+    final boolean cas(long prev, long next) {
+        return UNSAFE.compareAndSwapLong(this, valueOffset, prev, next);
+    }
+    // 省略不重要代码
+}
+</code></pre>
 
 <pre><code>
 得从缓存说起
@@ -7036,112 +7046,109 @@ g&ndash;失败&ndash;&gt;f</p>
 
 <p>java
 final void longAccumulate(long x, LongBinaryOperator fn, boolean wasUncontended) {
-     int h;
-     // 当前线程还没有对应的 cell, 需要随机生成一个 h 值用来将当前线程绑定到 cell
-     if ((h = getProbe()) == 0) {
-         // 初始化 probe
-         ThreadLocalRandom.current();
-         // h 对应新的 probe 值, 用来对应 cell
-         h = getProbe();
-         wasUncontended = true;
-     }
-     // collide 为 true 表示需要扩容
-     boolean collide = false;
-     for (;;) {
-         Cell[] as; Cell a; int n; long v;
-         // 已经有了 cells
-         if ((as = cells) != null &amp;&amp; (n = as.length) &gt; 0) {
-             // 还没有 cell
-             if ((a = as[(n - 1) &amp; h]) == null) {
-             	// 为 cellsBusy 加锁, 创建 cell, cell 的初始累加值为 x
-             	// 成功则 break, 否则继续 continue 循环
-                 //cells存在&amp;cell没创建
-                 if (cellsBusy == 0) {       // Try to attach new Cell
-                        Cell r = new Cell(x);   // Optimistically create
-                        if (cellsBusy == 0 &amp;&amp; casCellsBusy()) {
-                            boolean created = false;
-                            try {               // Recheck under lock
-                                Cell[] rs; int m, j;
-                                if ((rs = cells) != null &amp;&amp;
-                                    (m = rs.length) &gt; 0 &amp;&amp;
-                                    rs[j = (m - 1) &amp; h] == null) {
-                                    rs[j] = r;
-                                    created = true;
-                                }
-                            } finally {
-                                cellsBusy = 0;
+    int h;
+    // 当前线程还没有对应的 cell, 需要随机生成一个 h 值用来将当前线程绑定到 cell
+    if ((h = getProbe()) == 0) {
+        // 初始化 probe
+        ThreadLocalRandom.current();
+        // h 对应新的 probe 值, 用来对应 cell
+        h = getProbe();
+        wasUncontended = true;
+    }
+    // collide 为 true 表示需要扩容
+    boolean collide = false;
+    for (;;) {
+        Cell[] as; Cell a; int n; long v;
+        // 已经有了 cells
+        if ((as = cells) != null &amp;&amp; (n = as.length) &gt; 0) {
+            // 还没有 cell
+            if ((a = as[(n - 1) &amp; h]) == null) {
+                // 为 cellsBusy 加锁, 创建 cell, cell 的初始累加值为 x
+                // 成功则 break, 否则继续 continue 循环
+                //cells存在&amp;cell没创建
+                if (cellsBusy == 0) {       // Try to attach new Cell
+                    Cell r = new Cell(x);   // Optimistically create
+                    if (cellsBusy == 0 &amp;&amp; casCellsBusy()) {
+                        boolean created = false;
+                        try {               // Recheck under lock
+                            Cell[] rs; int m, j;
+                            if ((rs = cells) != null &amp;&amp;
+                                (m = rs.length) &gt; 0 &amp;&amp;
+                                rs[j = (m - 1) &amp; h] == null) {
+                                rs[j] = r;
+                                created = true;
                             }
-                            if (created)
-                                break;
-                            continue;           // Slot is now non-empty
+                        } finally {
+                            cellsBusy = 0;
                         }
+                        if (created)
+                            break;
+                        continue;           // Slot is now non-empty
                     }
-                    collide = false;
-             }
-             // 有竞争, 改变线程对应的 cell 来重试 cas
-             else if (!wasUncontended)
-             	wasUncontended = true;
-             // cas 尝试累加, fn 配合 LongAccumulator 不为 null, 配合 LongAdder 为 null
-             //cells存在&amp;cells已创建
-             else if (a.cas(v = a.value, ((fn == null) ? v + x : fn.applyAsLong(v, x))))
-                 break;
-             // 如果 cells 长度已经超过了最大长度, 或者已经扩容, 改变线程对应的 cell 来重试 cas
-             else if (n &gt;= NCPU || cells != as)
-                 collide = false;
-             // 确保 collide 为 false 进入此分支, 就不会进入下面的 else if 进行扩容了
-             else if (!collide)
-             	collide = true;
-             // 加锁
-             else if (cellsBusy == 0 &amp;&amp; casCellsBusy()) {
-                 try {
-                        if (cells == as) {      // Expand table unless stale
-                            Cell[] rs = new Cell[n &lt;&lt; 1];
-                            for (int i = 0; i &lt; n; ++i)
-                                rs[i] = as[i];
-                            cells = rs;
-                        }
-                    } finally {
-                        cellsBusy = 0;
+                }
+                collide = false;
+            }
+            // 有竞争, 改变线程对应的 cell 来重试 cas
+            else if (!wasUncontended)
+                wasUncontended = true;
+            // cas 尝试累加, fn 配合 LongAccumulator 不为 null, 配合 LongAdder 为 null
+            //cells存在&amp;cells已创建
+            else if (a.cas(v = a.value, ((fn == null) ? v + x : fn.applyAsLong(v, x))))
+                break;
+            // 如果 cells 长度已经超过了最大长度, 或者已经扩容, 改变线程对应的 cell 来重试 cas
+            else if (n &gt;= NCPU || cells != as)
+                collide = false;
+            // 确保 collide 为 false 进入此分支, 就不会进入下面的 else if 进行扩容了
+            else if (!collide)
+                collide = true;
+            // 加锁
+            else if (cellsBusy == 0 &amp;&amp; casCellsBusy()) {
+                try {
+                    if (cells == as) {      // Expand table unless stale
+                        Cell[] rs = new Cell[n &lt;&lt; 1];
+                        for (int i = 0; i &lt; n; ++i)
+                            rs[i] = as[i];
+                        cells = rs;
                     }
-                    collide = false;
-                 // 加锁成功, 扩容
-                 continue;
-             }
-             // 改变线程对应的 cell
-             h = advanceProbe(h);
- 		}
-         // 还没有 cells, 尝试给 cellsBusy 加锁
-         //cellsBusy 0:未加锁；1：加锁
-         //cells == as 还没有其他线程改变cells数组
-         //casCellsBusy():尝试加锁
-         else if (cellsBusy == 0 &amp;&amp; cells == as &amp;&amp; casCellsBusy()) {
+                } finally {
+                    cellsBusy = 0;
+                }
+                collide = false;
+                // 加锁成功, 扩容
+                continue;
+            }
+            // 改变线程对应的 cell
+            h = advanceProbe(h);
+        }
+        // 还没有 cells, 尝试给 cellsBusy 加锁
+        //cellsBusy 0:未加锁；1：加锁
+        //cells == as 还没有其他线程改变cells数组
+        //casCellsBusy():尝试加锁
+        else if (cellsBusy == 0 &amp;&amp; cells == as &amp;&amp; casCellsBusy()) {
             // 加锁成功, 初始化 cells, 最开始长度为 2, 并填充一个 cell
             // 成功则 break;
-             boolean init = false;
-             try {
-                 // 没有别人把cells创建好，那我们就创建
-                 if (cells == as) {
-                     Cell[] rs = new Cell[2];
-                     rs[h &amp; 1] = new Cell(x);
-                     cells = rs;
-                     init = true;
-                 }
-             } finally {
-                 cellsBusy = 0;//解锁
-             }
-             if (init)
-                 break;
-         }
-         // 上两种情况失败, 尝试给 base 累加
-         //
-         else if (casBase(v = base, ((fn == null) ? v + x : fn.applyAsLong(v, x)))){
-              break;
-         }</p>
-
-<pre><code> }
-</code></pre>
-
-<p>}</p>
+            boolean init = false;
+            try {
+                // 没有别人把cells创建好，那我们就创建
+                if (cells == as) {
+                    Cell[] rs = new Cell[2];
+                    rs[h &amp; 1] = new Cell(x);
+                    cells = rs;
+                    init = true;
+                }
+            } finally {
+                cellsBusy = 0;//解锁
+            }
+            if (init)
+                break;
+        }
+        // 上两种情况失败, 尝试给 base 累加
+        //
+        else if (casBase(v = base, ((fn == null) ? v + x : fn.applyAsLong(v, x)))){
+            break;
+        }
+    }
+}</p>
 
 <pre><code>
 longAccumulate 流程图
@@ -7339,6 +7346,8 @@ class MyAtomicInteger implements Account {
 
 ## 本章内容
 
+可变类都不是线程安全的
+
 * 不可变类的使用
 * 不可变类设计
 * 无状态类设计
@@ -7425,9 +7434,7 @@ for (int i = 0; i &lt; 50; i++) {
 <pre><code>
 ### 思路 - 不可变
 
-如果一个对象在不能够修改其内部状态（属性），那么它就是线程安全的，因为不存在并发修改啊！这样的对象在
-
-Java 中有很多，例如在 Java 8 后，提供了一个新的日期格式化类：
+如果一个对象在不能够修改其内部状态（属性），那么它就是线程安全的，因为不存在并发修改啊！这样的对象在Java 中有很多，例如在 Java 8 后，提供了一个新的日期格式化类：
 
 </code></pre>
 
@@ -7452,6 +7459,60 @@ This class is immutable and thread-safe.</p>
 <pre><code>
 不可变对象，实际是另一种避免竞争的方式。
 
+</code></pre>
+
+<p>java</p>
+
+<p>@Slf4j(topic = &ldquo;c.TestDateParse&rdquo;)
+public class TestDateParse {
+    public static void main(String[] args) {
+        test3();
+    }</p>
+
+<pre><code>private static void test1() {
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+    for (int i = 0; i &lt; 10; i++) {
+        new Thread(() -&gt; {
+            try {
+                log.debug(&quot;{}&quot;, sdf.parse(&quot;1951-04-21&quot;));
+            } catch (Exception e) {
+                log.error(&quot;{}&quot;, e);
+            }
+        }).start();
+    }
+}
+
+private static void test2() {
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+    for (int i = 0; i &lt; 10; i++) {
+        new Thread(() -&gt; {
+            synchronized (sdf) {
+                try {
+                    log.debug(&quot;{}&quot;, sdf.parse(&quot;1951-04-21&quot;));
+                } catch (Exception e) {
+                    log.error(&quot;{}&quot;, e);
+                }
+            }
+        }).start();
+    }
+}
+
+private static void test3() {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;);
+    for (int i = 0; i &lt; 10; i++) {
+        new Thread(() -&gt; {
+            LocalDate date = dtf.parse(&quot;2018-10-01&quot;, LocalDate::from);
+            log.debug(&quot;{}&quot;, date);
+        }).start();
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+
+
 ## 7.2 不可变设计
 
 另一个大家更为熟悉的 String 类也是不可变的，以它为例，说明一下不可变设计的要素
@@ -7460,18 +7521,19 @@ This class is immutable and thread-safe.</p>
 
 <p>java
 public final class String
- implements java.io.Serializable, Comparable<String>, CharSequence {
- /** The value is used for character storage. */
- private final char value[];
- /** Cache the hash code for the string */
- private int hash; // Default to 0</p>
+    implements java.io.Serializable, Comparable<String>, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+    /** Cache the hash code for the string */
+    private int hash; // Default to 0</p>
 
-<p>// &hellip;</p>
+<pre><code>// ...
+</code></pre>
 
 <p>}</p>
 
 <pre><code>
-final 的使用
+final 的使用(final只能保证对象的引用时不能够改变的，但是它的内容是可以改变的)
 
 发现该类、类中所有属性都是 final 的
 
@@ -7527,6 +7589,8 @@ public String(char value[], int offset, int count) {
 结果发现也没有，构造新字符串对象时，会生成新的 char[] value，对内容进行复制 。这种通过创建副本对象来避
 免共享的手段称之为【**保护性拷贝（defensive copy）**】
 
+为了保证对象的不可变性，需要使用一种保护性拷贝的机制。在对象有修改发生的情况下会创建一个新的对象。这样虽然能避免共享保证这些方法的线程安全，但是也带来了一个严重的问题，就是对象创建的太频繁，对象的个数较多。因此对于这种不可变类的设计会关联一种设计模式：享元模式
+
 ### * 模式之享元
 
 ### * 原理之 final
@@ -7554,6 +7618,8 @@ public String(char value[], int offset, int count) {
 # 8. 共享模型之工具
 
 ## 8.1 线程池
+
+类似享元模式的思想
 
 ### 1. 自定义线程池
 
@@ -7970,6 +8036,43 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 &gt; 评价 适用于任务量已知，相对耗时的任务
 
+创建的都是核心线程，因此即使线程池中没有任务执行了，程序也不会主动停止（非守护线程）
+
+</code></pre>
+
+<p>java
+private static void test2() throws InterruptedException {
+        AtomicInteger num = new AtomicInteger(0);
+        ExecutorService service = Executors.newFixedThreadPool(10, &reg; -&gt; {
+            return new Thread(r, &ldquo;t&rdquo; + num.getAndIncrement());
+        });
+        CountDownLatch latch = new CountDownLatch(10);
+        String[] all = new String[10];
+        Random r = new Random();
+        for (int j = 0; j &lt; 10; j++) {
+            int x = j;
+            service.submit(() -&gt; {
+                for (int i = 0; i &lt;= 100; i++) {
+                    try {
+                        Thread.sleep(r.nextInt(100));
+                    } catch (InterruptedException e) {
+                    }
+                    all[x] = Thread.currentThread().getName() + &ldquo;(&rdquo; + (i + &ldquo;%&rdquo;) + &ldquo;)&rdquo;;
+                    System.out.print(&rdquo;\r&rdquo; + Arrays.toString(all));
+                }
+                latch.countDown();
+            });
+        }
+        latch.await();
+        System.out.println(&rdquo;\n游戏开始&hellip;&ldquo;);
+        service.shutdown();
+    }</p>
+
+<pre><code>
+
+
+
+
 ### 4)newCachedThreadPool
 
 </code></pre>
@@ -8047,16 +8150,16 @@ public static ExecutorService newCachedThreadPool() {
 </code></pre>
 
 <p>java
-public static ExecutorService newSingleThreadExecutor() {
- return new FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1,
- 0L, TimeUnit.MILLISECONDS,
- new LinkedBlockingQueue<Runnable>()));
+public static ExecutorService newSingleThreadExecutor() {//使用了装饰器模式
+    return new FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1,
+                                                                          0L, TimeUnit.MILLISECONDS,
+                                                                          new LinkedBlockingQueue<Runnable>()));
 }</p>
 
 <pre><code>
 使用场景：
 
-希望多个任务排队执行。线程数固定为 1 ，任务数多于 1 时，会放入无界队列排队。任务执行完毕，这唯一的线程也不会被释放。
+希望多个任务排队执行。线程数固定为 1 (即使某一次执行任务时出现一些异常或意想不到的错误，导致线程池中的线程崩溃，线程池也会重新创建一个线程来执行剩下的任务)，任务数多于 1 时，会放入无界队列排队。任务执行完毕，这唯一的线程也不会被释放。
 
 区别：
 
@@ -8339,9 +8442,9 @@ public class TestShutDown {</p>
     log.debug(&quot;shutdown&quot;);
 </code></pre>
 
-<p>//        pool.shutdown();//并不会等待其他线程结束
-//        pool.awaitTermination(3, TimeUnit.SECONDS);//如果需要等待 使用awaitTermination
-        List<Runnable> runnables = pool.shutdownNow();
+<p>//        pool.shutdown();//并不会等待其他线程结束（也就是不会等其他线程结束了之后再执行下面的代码，而会立即执行下面的代码）
+//        pool.awaitTermination(3, TimeUnit.SECONDS);//如果需要等待 使用awaitTermination（这样的话不知道要等多久） 也可以使用feature的get方法阻塞住（不需要知道等多久，会一直等待结束）
+        List<Runnable> runnables = pool.shutdownNow();//正在运行中的线程都会被打断   会返回还没有执行的线程
         log.debug(&ldquo;other&hellip;. {}&rdquo; , runnables);
     }
 }</p>
@@ -8353,33 +8456,31 @@ public class TestShutDown {</p>
 
 ### 8) 任务调度线程池
 
-在『任务调度线程池』功能加入之前，可以使用 java.util.Timer 来实现定时功能，Timer 的优点在于简单易用，但
-由于所有任务都是由同一个线程来调度，因此所有任务都是串行执行的，同一时间只能有一个任务在执行，前一个
-任务的延迟或异常都将会影响到之后的任务。
+在『任务调度线程池』功能加入之前，可以使用 java.util.Timer 来实现定时功能，Timer 的优点在于简单易用，但由于所有任务都是由同一个线程来调度，因此所有任务都是串行执行的，同一时间只能有一个任务在执行，前一个任务的延迟或异常都将会影响到之后的任务。
 
 </code></pre>
 
 <p>java
 public static void main(String[] args) {
- Timer timer = new Timer();
- TimerTask task1 = new TimerTask() {
-     @Override
-     public void run() {
-         log.debug(&ldquo;task 1&rdquo;);
-         sleep(2);
-         //任务一中出现了异常那么任务而也就没法接着执行下去
-     }
- };
- TimerTask task2 = new TimerTask() {
-     @Override
-     public void run() {
-     	log.debug(&ldquo;task 2&rdquo;);
-     }
- };
- // 使用 timer 添加两个任务，希望它们都在 1s 后执行
- // 但由于 timer 内只有一个线程来顺序执行队列中的任务，因此『任务1』的延时，影响了『任务2』的执行
- timer.schedule(task1, 1000);
- timer.schedule(task2, 1000);
+    Timer timer = new Timer();
+    TimerTask task1 = new TimerTask() {
+        @Override
+        public void run() {
+            log.debug(&ldquo;task 1&rdquo;);
+            sleep(2);
+            //任务一中出现了异常那么任务而也就没法接着执行下去
+        }
+    };
+    TimerTask task2 = new TimerTask() {
+        @Override
+        public void run() {
+            log.debug(&ldquo;task 2&rdquo;);
+        }
+    };
+    // 使用 timer 添加两个任务，希望它们都在 1s 后执行
+    // 但由于 timer 内只有一个线程来顺序执行队列中的任务，因此『任务1』的延时，影响了『任务2』的执行
+    timer.schedule(task1, 1000);
+    timer.schedule(task2, 1000);
 }</p>
 
 <pre><code>
@@ -8401,15 +8502,15 @@ public static void main(String[] args) {
 ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
 // 添加两个任务，希望它们都在 1s 后执行
 executor.schedule(() -&gt; {
-     System.out.println(&ldquo;任务1，执行时间：&rdquo; + new Date());
-     try {
-         Thread.sleep(2000);
-         //即使线程池设为1，任务一中即使出现异常也不会中断
-     }catch (InterruptedException e) {
-     }
+    System.out.println(&ldquo;任务1，执行时间：&rdquo; + new Date());
+    try {
+        Thread.sleep(2000);
+        //即使线程池设为1，任务一中即使出现异常也不会中断
+    }catch (InterruptedException e) {
+    }
 }, 1000, TimeUnit.MILLISECONDS);
 executor.schedule(() -&gt; {
- 	System.out.println(&ldquo;任务2，执行时间：&rdquo; + new Date());
+    System.out.println(&ldquo;任务2，执行时间：&rdquo; + new Date());
 }, 1000, TimeUnit.MILLISECONDS);</p>
 
 <pre><code>
@@ -8432,7 +8533,7 @@ ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
 log.debug(&ldquo;start&hellip;&rdquo;);
 pool.scheduleAtFixedRate(() -&gt; {
     //任务执行时间过长的话会等待任务执行完在执行(不会在延迟)
- 	log.debug(&ldquo;running&hellip;&rdquo;);
+    log.debug(&ldquo;running&hellip;&rdquo;);
 }, 1, 1, TimeUnit.SECONDS);</p>
 
 <pre><code>
@@ -8455,9 +8556,9 @@ scheduleAtFixedRate 例子（任务执行时间超过了间隔时间）：
 ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
 log.debug(&ldquo;start&hellip;&rdquo;);
 pool.scheduleAtFixedRate(() -&gt; {
- log.debug(&ldquo;running&hellip;&rdquo;);
- sleep(2);
- //任务执行时间过长的话会等待任务执行完在执行(会在执行完的基础上再延迟)
+    log.debug(&ldquo;running&hellip;&rdquo;);
+    sleep(2);
+    //任务执行时间过长的话会等待任务执行完在执行(会在执行完的基础上再延迟)
 }, 1, 1, TimeUnit.SECONDS);</p>
 
 <pre><code>
@@ -8476,16 +8577,16 @@ scheduleWithFixedDelay 例子：
 
 </code></pre>
 
-<p>ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
+<p>java
+ScheduledExecutorService pool = Executors.newScheduledThreadPool(1);
 log.debug(&ldquo;start&hellip;&rdquo;);
 pool.scheduleWithFixedDelay(()-&gt; {
- log.debug(&ldquo;running&hellip;&rdquo;);
- sleep(2);
+    log.debug(&ldquo;running&hellip;&rdquo;);
+    sleep(2);
 }, 1, 1, TimeUnit.SECONDS);</p>
 
 <pre><code>
-输出分析：一开始，延时 1s，scheduleWithFixedDelay 的间隔是 上一个任务结束 &lt;-&gt; 延时 &lt;-&gt; 下一个任务开始 所
-以间隔都是 3s
+输出分析：一开始，延时 1s，scheduleWithFixedDelay 的间隔是 上一个任务结束 &lt;-&gt; 延时 &lt;-&gt; 下一个任务开始 所 以间隔都是 3s
 
 </code></pre>
 
@@ -8500,7 +8601,7 @@ pool.scheduleWithFixedDelay(()-&gt; {
 
 ### 9) 正确处理执行任务异常
 
-方法 1 ：主动捉异常
+#### 方法 1 ：主动捉异常
 
 </code></pre>
 
@@ -8531,7 +8632,7 @@ java.lang.ArithmeticException: / by zero
  at java.lang.Thread.run(Thread.java:748)</p>
 
 <pre><code>
-方法 2 ：使用 Future
+#### 方法 2 ：使用 Future
 
 在任务执行时出现的异常信息会封装再Future对象中，调用get方法拿到的就不是返回值了，是异常信息
 
@@ -8605,6 +8706,8 @@ Tomcat 线程池扩展了 ThreadPoolExecutor，行为稍有不同
 * 如果总线程数达到 maximumPoolSize
     * 这时不会立刻抛 RejectedExecutionException 异常
     * 而是再次尝试将任务放入队列，如果还失败，才抛出 RejectedExecutionException 异常
+
+合理分工是实现高并发的基础
 
 源码 tomcat-7.0.42
 
@@ -8681,7 +8784,9 @@ d&ndash;否&ndash;&gt;c
 d&ndash;是&ndash;&gt;e(创建急救线程)</p>
 
 <pre><code>
+tomcat中的线程是守护线程这就意味着一但tomcat的主线程停止，那么这些守护线程也都会停止。普通的线程池都是非守护线程。
 
+tomcat会先给最大线程进行比较然后创建救急线程，然后再加入队列。
 
 ### Fork/Join
 
@@ -8696,7 +8801,7 @@ Fork/Join 是 JDK 1.7 加入的新的线程池实现，它体现的是一种分�
 Fork/Join 在分治的基础上加入了多线程，可以把每个任务的分解和合并交给不同的线程来完成，进一步提升了运
 算效率
 
-Fork/Join 默认会创建与 cpu 核心数大小相同的线程池
+**Fork/Join 默认会创建与 cpu 核心数大小相同的线程池**
 
 **使用**
 
@@ -9505,8 +9610,7 @@ rest 远程调用
 <pre><code>
 ### 6.CyclicBarrier
 
-循环栅栏，用来进行线程协作，等待线程满足某个计数。构造时设置『计数个数』，每个线程执
-行到某个需要“同步”的时刻调用 await() 方法进行等待，当等待的线程数满足『计数个数』时，继续执行
+循环栅栏，用来进行线程协作，等待线程满足某个计数。构造时设置『计数个数』，每个线程执行到某个需要“同步”的时刻调用 await() 方法进行等待，当等待的线程数满足『计数个数』时，继续执行
 
 </code></pre>
 
@@ -9638,16 +9742,14 @@ a3&ndash;&gt;d3(Concurrent类)</p>
 
 
 
-
-
 重点介绍java.util.concurrent.* 下的线程安全集合类，可以发现它们有规律，里面包含三类关键词：
 Blocking、CopyOnWrite、Concurrent
 
 * Blocking 大部分实现基于锁，并提供用来阻塞的方法
 
-* CopyOnWrite 之类容器修改开销相对较重
+* CopyOnWrite 之类容器修改开销相对较重（适用于读多写少的场景）
 
-* Concurrent 类型的容器
+* Concurrent 类型的容器（推荐使用）
 
     * 内部很多操作使用 cas 优化，一般可以提供较高吞吐量
     * 弱一致性

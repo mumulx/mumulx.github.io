@@ -1669,26 +1669,22 @@ class S3 {
 
 <p>java
 // 获得当前时间
-LocalDateTime now = LocalDateTime.now();</p>
-
-<p>// 获取本周四 18:00:00.000
+LocalDateTime now = LocalDateTime.now();
+// 获取本周四 18:00:00.000
 //LocalDateTime jdk1.8新增的线程安全类
 LocalDateTime thursday =
     now.with(DayOfWeek.THURSDAY).withHour(18).withMinute(0).withSecond(0).withNano(0);
 // 如果当前时间已经超过 本周四 18:00:00.000， 那么找下周四 18:00:00.000
 if(now.compareTo(thursday) &gt;= 0) {
     thursday = thursday.plusWeeks(1);
-}</p>
-
-<p>// 计算时间差，即延时执行时间
+}
+// 计算时间差，即延时执行时间
 long initialDelay = Duration.between(now, thursday).toMillis();
 // 计算间隔时间，即 1 周的毫秒值
-long oneWeek = 7 * 24 * 3600 * 1000;</p>
-
-<p>ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-System.out.println(&ldquo;开始时间：&rdquo; + new Date());</p>
-
-<p>executor.scheduleAtFixedRate(() -&gt; {
+long oneWeek = 7 * 24 * 3600 * 1000;
+ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+System.out.println(&ldquo;开始时间：&rdquo; + new Date());
+executor.scheduleAtFixedRate(() -&gt; {
     System.out.println(&ldquo;执行时间：&rdquo; + new Date());
 }, initialDelay, oneWeek, TimeUnit.MILLISECONDS);
 ```</p>

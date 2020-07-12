@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="31219">
+<meta itemprop="wordCount" content="31871">
 
 
 
@@ -461,8 +461,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:31219字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:63分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:31871字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:64分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -737,9 +737,9 @@ NUMA node0 CPU(s): 0
 <li><p>写屏障（sfence）保证在该屏障<strong>之前</strong>的，对共享变量的改动，都同步到主存当中</p>
 
 <pre><code class="language-java">public void actor2(I_Result r) {
- num = 2;
- ready = true; // ready 是 volatile 赋值带写屏障
- // 写屏障  
+    num = 2;
+    ready = true; // ready 是 volatile 赋值带写屏障
+    // 写屏障  
 }
 </code></pre>
 
@@ -747,13 +747,13 @@ NUMA node0 CPU(s): 0
 <li><p>而读屏障（lfence）保证在该屏障之后，对共享变量的读取，加载的是主存中最新数据</p>
 
 <pre><code class="language-java">public void actor1(I_Result r) {
- // 读屏障
- // ready 是 volatile 读取值带读屏障
- if(ready) {
-    r.r1 = num + num;
- } else {
-    r.r1 = 1;
- }
+    // 读屏障
+    // ready 是 volatile 读取值带读屏障
+    if(ready) {
+        r.r1 = num + num;
+    } else {
+        r.r1 = 1;
+    }
 }
 </code></pre>
 
@@ -779,9 +779,9 @@ NUMA node0 CPU(s): 0
 <li><p>写屏障会确保指令重排序时，不会将写屏障之前的代码排在写屏障之后</p>
 
 <pre><code class="language-java">public void actor2(I_Result r) {
- num = 2;
- ready = true; // ready 是 volatile 赋值带写屏障
- // 写屏障
+    num = 2;
+    ready = true; // ready 是 volatile 赋值带写屏障
+    // 写屏障
 }
 </code></pre></li>
 
@@ -791,9 +791,9 @@ NUMA node0 CPU(s): 0
 // 读屏障
 // ready 是 volatile 读取值带读屏障
 if(ready) {
-r.r1 = num + num;
+    r.r1 = num + num;
 } else {
-r.r1 = 1;
+    r.r1 = 1;
 }
 }
 </code></pre>
@@ -837,20 +837,20 @@ t2 线程--&gt;&gt;volatile i=0:写入i=-1
 <p>以著名的 double-checked locking 单例模式为例</p>
 
 <pre><code class="language-java">public final class Singleton {
- private Singleton() { }
- private static Singleton INSTANCE = null;
- public static Singleton getInstance() { 
-     //这个是有问题的
- if(INSTANCE == null) { // t2  没有完全将INSTANCE交给synchronized管理
- 	// 首次访问会同步，而之后的使用没有 synchronized
-     synchronized(Singleton.class) {
-         if (INSTANCE == null) { // t1
-            INSTANCE = new Singleton();
-         } 
-     }
- }
- return INSTANCE;
- }
+    private Singleton() { }
+    private static Singleton INSTANCE = null;
+    public static Singleton getInstance() { 
+        //这个是有问题的
+        if(INSTANCE == null) { // t2  没有完全将INSTANCE交给synchronized管理
+            // 首次访问会同步，而之后的使用没有 synchronized
+            synchronized(Singleton.class) {
+                if (INSTANCE == null) { // t1
+                    INSTANCE = new Singleton();
+                } 
+            }
+        }
+        return INSTANCE;
+    }
 }
 </code></pre>
 
@@ -1032,6 +1032,10 @@ t2-&gt;&gt;t2:使用对象
 10: return
 </code></pre>
 
+<p>写屏障能够解决两个问题：1.写屏障之前的指令不会被重排序到写屏障之后；2.写屏障能够保证写屏障之前的修改操作（赋值操作）在写屏障之后会被同步到主存中去，就是对其他线程可见。</p>
+
+<p>当没有使用final时，成员变量会先被赋予初始值（0,null等）然后才会将用户定义的值赋给变量。这样就产生了二异性，使用final就不会产生这样的冲突，会直接赋值为用户定义的值</p>
+
 <p>发现 final 变量的赋值也会通过 putfield 指令来完成，同样在这条指令之后也会加入写屏障，保证在其它线程读到
 它的值时不会出现为 0 的情况</p>
 
@@ -1082,6 +1086,8 @@ class UseFinal2 {
 </code></pre>
 
 <p>将final修饰的变量的值复制一份，复制到其它类中</p>
+
+<p>加上final会将较小的数值复制一份到方法栈中（性能较高），如果数值较大，会复制到类的常量池中（性能也能得到提升）。如果不加final在堆中访问较慢</p>
 
 <h2 id="monitor-原理">Monitor 原理</h2>
 
@@ -2116,7 +2122,7 @@ throws InterruptedException {
 <ul>
 <li>getState - 获取 state 状态</li>
 <li>setState - 设置 state 状态</li>
-<li>compareAndSetState - cas 机制设置 state 状态</li>
+<li>compareAndSetState - cas 机制设置 state 状态（防止多个线程同时来修改该值，但它仍然是阻塞式的）</li>
 <li>独占模式是只有一个线程能够访问资源，而共享模式可以允许多个线程访问资源</li>
 </ul></li>
 <li>提供了基于 FIFO 的等待队列，类似于 Monitor 的 EntryList</li>
@@ -2186,13 +2192,14 @@ if (tryRelease(arg)) {
 
 <p>有了自定义同步器，很容易复用 AQS ，实现一个功能完备的自定义锁</p>
 
-<pre><code class="language-java">// 自定义锁（不可重入锁）
+<pre><code class="language-java">// 自定义锁（不可重入锁  自己加的锁也能挡住自己）
 class MyLock implements Lock {
 
     // 独占锁  同步器类
     class MySync extends AbstractQueuedSynchronizer {
-        @Override
+        @Override//尝试获取锁  state 0：未加锁   1: 加锁
         protected boolean tryAcquire(int arg) {
+            //使用cas保证  修改值是原子性的
             if(compareAndSetState(0, 1)) {
                 // 加上了锁，并设置 owner 为当前线程
                 setExclusiveOwnerThread(Thread.currentThread());
@@ -2201,10 +2208,10 @@ class MyLock implements Lock {
             return false;
         }
 
-        @Override
+        @Override//尝试释放锁
         protected boolean tryRelease(int arg) {
             setExclusiveOwnerThread(null);
-            setState(0);
+            setState(0);//这是对一个volatile 成员变量的赋值操作 把它放在后面是为了 volatile后面会加上写屏障
             return true;
         }
 
@@ -2212,7 +2219,7 @@ class MyLock implements Lock {
         protected boolean isHeldExclusively() {
             return getState() == 1;
         }
-
+        //返回条件变量
         public Condition newCondition() {
             return new ConditionObject();
         }
@@ -2448,7 +2455,7 @@ head = node;
 <p>先从构造器开始看，默认为非公平锁实现</p>
 
 <pre><code class="language-java">public ReentrantLock() {
- sync = new NonfairSync();
+    sync = new NonfairSync();
 }
 </code></pre>
 
@@ -2466,11 +2473,17 @@ head = node;
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200421085630649.png" alt="image-20200421085630649" /></p>
 
+<p>当没有竞争的时候compareAndSetState直接成功，然后直接将setExclusiveOwnerThread设置为当前线程</p>
+
 <p>第一个竞争出现时</p>
+
+<p>compareAndSetState不能成功，进入else，调用acquire方法</p>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200421085644820.png" alt="image-20200421085644820" /></p>
 
-<pre><code class="language-java">public final void acquire(int arg) {
+<pre><code class="language-java">public final void acquire(int arg) {、
+    //tryAcquire方法尝试加锁
+    //acquireQueued方法尝试创建一个节点对象，加入到等待队列中去
     if (!tryAcquire(arg) &amp;&amp;
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
         selfInterrupt();
@@ -2487,7 +2500,7 @@ head = node;
 <ul>
 <li>图中黄色三角表示该 Node 的 waitStatus 状态，其中 0 为默认正常状态</li>
 <li>Node 的创建是懒惰的</li>
-<li>其中第一个 Node 称为 Dummy（哑元）或哨兵，用来占位，并不关联线程</li>
+<li>其中第一个 Node 称为 Dummy（哑元）或哨兵，用来占位，并不关联线程，第二个才是关联线程的，双向链表连接到队列的尾部</li>
 </ul></li>
 </ol>
 
@@ -2507,7 +2520,7 @@ head = node;
                     failed = false;
                     return interrupted;
                 }
-                //尝试获得锁失败后，是否应该阻塞住呢
+                //尝试获得锁失败后，是否应该阻塞住呢？ 
                 //parkAndCheckInterrupt阻塞
                 if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
                     parkAndCheckInterrupt())
@@ -2547,17 +2560,17 @@ true</p></li>
 <p>Thread-0 释放锁，进入 tryRelease 流程，如果成功</p>
 
 <pre><code class="language-java">protected final boolean tryRelease(int releases) {
-            int c = getState() - releases;
-            if (Thread.currentThread() != getExclusiveOwnerThread())
-                throw new IllegalMonitorStateException();
-            boolean free = false;
-            if (c == 0) {
-                free = true;
-                setExclusiveOwnerThread(null);
-            }
-            setState(c);
-            return free;
-        }
+    int c = getState() - releases;
+    if (Thread.currentThread() != getExclusiveOwnerThread())
+        throw new IllegalMonitorStateException();
+    boolean free = false;
+    if (c == 0) {
+        free = true;
+        setExclusiveOwnerThread(null);
+    }
+    setState(c);
+    return free;
+}
 </code></pre>
 
 <ul>
@@ -2567,29 +2580,38 @@ true</p></li>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200421085845988.png" alt="image-20200421085845988" /></p>
 
+<pre><code class="language-java">public final boolean release(int arg) {
+    if (tryRelease(arg)) {
+        Node h = head;
+        if (h != null &amp;&amp; h.waitStatus != 0)
+            unparkSuccessor(h);
+        return true;
+    }
+    return false;
+}
+private void unparkSuccessor(Node node) {
+    int ws = node.waitStatus;
+    if (ws &lt; 0)
+        compareAndSetWaitStatus(node, ws, 0);
+    Node s = node.next;
+    if (s == null || s.waitStatus &gt; 0) {
+        s = null;
+        for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)
+            if (t.waitStatus &lt;= 0)
+                s = t;
+    }
+    if (s != null)
+        LockSupport.unpark(s.thread);
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/java并发/image-20200421085858423.png" alt="image-20200421085858423" /></p>
+
 <p>当前队列不为 null，并且 head 的 waitStatus = -1，进入 unparkSuccessor 流程</p>
 
 <p>找到队列中离 head 最近的一个 Node（没取消的），unpark 恢复其运行，本例中即为 Thread-1</p>
 
 <p>回到 Thread-1 的 acquireQueued 流程</p>
-
-<pre><code class="language-java"> private void unparkSuccessor(Node node) {
-        int ws = node.waitStatus;
-        if (ws &lt; 0)
-            compareAndSetWaitStatus(node, ws, 0);
-        Node s = node.next;
-        if (s == null || s.waitStatus &gt; 0) {
-            s = null;
-            for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)
-                if (t.waitStatus &lt;= 0)
-                    s = t;
-        }
-        if (s != null)
-            LockSupport.unpark(s.thread);
-    }
-</code></pre>
-
-<p><img src="/resources/技术收录/Java/java并发/image-20200421085858423.png" alt="image-20200421085858423" /></p>
 
 <pre><code class="language-java">final boolean acquireQueued(final Node node, int arg) {
         boolean failed = true;
@@ -2625,9 +2647,6 @@ true</p></li>
 </ul>
 
 <p>如果这时候有其它线程来竞争（非公平的体现），例如这时有 Thread-4 来了</p>
-
-<pre><code>
-</code></pre>
 
 <p><img src="/resources/技术收录/Java/java并发/image-20200421085925937.png" alt="image-20200421085925937" /></p>
 
@@ -2803,79 +2822,81 @@ waitStatus 决定
 
 <p>解锁源码</p>
 
-<pre><code>// Sync 继承自 AQS
+<pre><code class="language-java">// Sync 继承自 AQS
 static final class NonfairSync extends Sync {
- // 解锁实现
- public void unlock() {
- sync.release(1);
- }
- 
- // AQS 继承过来的方法, 方便阅读, 放在此处
- public final boolean release(int arg) {
- // 尝试释放锁, 进入 ㈠
- if (tryRelease(arg)) {
- // 队列头节点 unpark
- Node h = head; 
- if (
- // 队列不为 null
- h != null &amp;&amp;
- // waitStatus == Node.SIGNAL 才需要 unpark
- h.waitStatus != 0
- ) {
- // unpark AQS 中等待的线程, 进入 ㈡
- unparkSuccessor(h);
- }
- return true;
- }
- return false;
- }
- 
- // ㈠ Sync 继承过来的方法, 方便阅读, 放在此处
- protected final boolean tryRelease(int releases) {
- // state--
- int c = getState() - releases;
- if (Thread.currentThread() != getExclusiveOwnerThread())
- throw new IllegalMonitorStateException();
- boolean free = false;
- // 支持锁重入, 只有 state 减为 0, 才释放成功
- if (c == 0) {
- free = true;
- setExclusiveOwnerThread(null);
- }
- setState(c);
- return free;
- }
- 
- // ㈡ AQS 继承过来的方法, 方便阅读, 放在此处
- private void unparkSuccessor(Node node) {
- // 如果状态为 Node.SIGNAL 尝试重置状态为 0
- // 不成功也可以
- int ws = node.waitStatus;
- if (ws &lt; 0) {
- compareAndSetWaitStatus(node, ws, 0);
- }
- // 找到需要 unpark 的节点, 但本节点从 AQS 队列中脱离, 是由唤醒节点完成的Node s = node.next;
- // 不考虑已取消的节点, 从 AQS 队列从后至前找到队列最前面需要 unpark 的节点
- if (s == null || s.waitStatus &gt; 0) {
- s = null;
- for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)
- if (t.waitStatus &lt;= 0)
- s = t;
- }
- if (s != null)
- LockSupport.unpark(s.thread);
- }
+    // 解锁实现
+    public void unlock() {
+        sync.release(1);
+    }
+
+    // AQS 继承过来的方法, 方便阅读, 放在此处
+    public final boolean release(int arg) {
+        // 尝试释放锁, 进入 ㈠
+        if (tryRelease(arg)) {
+            // 队列头节点 unpark
+            Node h = head; 
+            if (
+                // 队列不为 null
+                h != null &amp;&amp;
+                // waitStatus == Node.SIGNAL 才需要 unpark
+                h.waitStatus != 0
+            ) {
+                // unpark AQS 中等待的线程, 进入 ㈡
+                unparkSuccessor(h);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // ㈠ Sync 继承过来的方法, 方便阅读, 放在此处
+    protected final boolean tryRelease(int releases) {
+        // state--
+        int c = getState() - releases;
+        if (Thread.currentThread() != getExclusiveOwnerThread())
+            throw new IllegalMonitorStateException();
+        boolean free = false;
+        // 支持锁重入, 只有 state 减为 0, 才释放成功
+        if (c == 0) {
+            free = true;
+            setExclusiveOwnerThread(null);
+        }
+        setState(c);
+        return free;
+    }
+
+    // ㈡ AQS 继承过来的方法, 方便阅读, 放在此处
+    private void unparkSuccessor(Node node) {
+        // 如果状态为 Node.SIGNAL 尝试重置状态为 0
+        // 不成功也可以
+        int ws = node.waitStatus;
+        if (ws &lt; 0) {
+            compareAndSetWaitStatus(node, ws, 0);
+        }
+        // 找到需要 unpark 的节点, 但本节点从 AQS 队列中脱离, 是由唤醒节点完成的Node s = node.next;
+        // 不考虑已取消的节点, 从 AQS 队列从后至前找到队列最前面需要 unpark 的节点
+        if (s == null || s.waitStatus &gt; 0) {
+            s = null;
+            for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)
+                if (t.waitStatus &lt;= 0)
+                    s = t;
+        }
+        if (s != null)
+            LockSupport.unpark(s.thread);
+    }
 }
 </code></pre>
 
 <h3 id="2-可重入原理">2. 可重入原理</h3>
+
+<p>非公平锁的可重入源码</p>
 
 <pre><code class="language-java">static final class NonfairSync extends Sync {
  // ...
      // Sync 继承过来的方法, 方便阅读, 放在此处
  final boolean nonfairTryAcquire(int acquires) {
             final Thread current = Thread.currentThread();
-            int c = getState();
+            int c = getState();//先获取状态
             if (c == 0) {//首次获得锁
                 if (compareAndSetState(0, acquires)) {
                     setExclusiveOwnerThread(current);

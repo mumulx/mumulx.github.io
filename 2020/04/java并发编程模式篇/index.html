@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="8487">
+<meta itemprop="wordCount" content="8631">
 
 
 
@@ -420,8 +420,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8487字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:17分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8631字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:18分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -801,6 +801,8 @@ class TwoPhaseTermination {
     }
 }
 </code></pre>
+
+<p>尽量让sychronized同步代码块中的代码尽可能的少，只保护需要保护的资源</p>
 
 <p>例二</p>
 
@@ -1497,14 +1499,11 @@ public class TestStarvation {
 
 <h4 id="3-1-cpu-密集型运算">3.1 CPU 密集型运算</h4>
 
-<p>通常采用 cpu 核数 + 1 能够实现最优的 CPU 利用率，+1 是保证当线程由于页缺失故障（操作系统）或其它原因
-导致暂停时，额外的这个线程就能顶上去，保证 CPU 时钟周期不被浪费</p>
+<p>通常采用 cpu 核数 + 1 能够实现最优的 CPU 利用率，+1 是保证当线程由于页缺失故障（操作系统）或其它原因导致暂停时，额外的这个线程就能顶上去，保证 CPU 时钟周期不被浪费（进行数据分析）</p>
 
 <h4 id="3-2-i-o-密集型运算">3.2 I/O 密集型运算</h4>
 
-<p>CPU 不总是处于繁忙状态，例如，当你执行业务计算时，这时候会使用 CPU 资源，但当你执行 I/O 操作时、远程</p>
-
-<p>RPC 调用时，包括进行数据库操作时，这时候 CPU 就闲下来了，你可以利用多线程提高它的利用率。</p>
+<p>CPU 不总是处于繁忙状态，例如，当你执行业务计算时，这时候会使用 CPU 资源，但当你执行 I/O 操作时、远程RPC 调用时，包括进行数据库操作时，这时候 CPU 就闲下来了，你可以利用多线程提高它的利用率。</p>
 
 <p>经验公式如下</p>
 
@@ -1794,8 +1793,7 @@ A flyweight is an object that minimizes memory usage by sharing as much data as 
 
 <h4 id="2-1-包装类">2.1 包装类</h4>
 
-<p>在JDK中 Boolean，Byte，Short，Integer，Long，Character 等包装类提供了 valueOf 方法，例如 Long 的
-valueOf 会缓存 -128~127 之间的 Long 对象，在这个范围之间会重用对象，大于这个范围，才会新建 Long 对
+<p>在JDK中 Boolean，Byte，Short，Integer，Long，Character 等包装类提供了 valueOf 方法，例如 Long 的valueOf 会缓存 -128~127 之间的 Long 对象，在这个范围之间会重用对象，大于这个范围，才会新建 Long 对
 象：</p>
 
 <pre><code class="language-java">public static Long valueOf(long l) {
@@ -1827,6 +1825,8 @@ valueOf 会缓存 -128~127 之间的 Long 对象，在这个范围之间会重�
 <h4 id="2-2-string-串池">2.2 String 串池</h4>
 
 <h4 id="2-3-bigdecimal-biginteger">2.3 BigDecimal BigInteger</h4>
+
+<p>这些类都是线程安全的，他们其中的每一个方法都是线程安全的，因此单独使用的时候不会有线程安全的问题，但是当它们在一起使用的时候（组合多个方法进行使用）就不能保证他们是线程安全的了。</p>
 
 <h3 id="3-diy">3. DIY</h3>
 
