@@ -1,0 +1,4361 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java算法笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java算法笔记." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java算法笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java算法笔记" />
+<meta property="og:description" content="Java算法笔记." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-08-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-13T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java算法笔记">
+<meta itemprop="description" content="Java算法笔记.">
+
+
+<meta itemprop="datePublished" content="2020-08-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="19000">
+
+
+
+<meta itemprop="keywords" content="杂七杂八," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java算法笔记"/>
+<meta name="twitter:description" content="Java算法笔记."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" class="title">Java面试准备一</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" class="title">复习知识点总结</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/" class="title">网络通信与NIO</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-30</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#栈和队列">栈和队列</a>
+<ul>
+<li><a href="#栈">栈</a></li>
+<li><a href="#队列">队列</a></li>
+</ul></li>
+<li><a href="#链表">链表</a>
+<ul>
+<li><a href="#单链表">单链表</a></li>
+<li><a href="#循环列表">循环列表</a>
+<ul>
+<li><a href="#双链表">双链表</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#递归">递归</a></li>
+<li><a href="#排序">排序</a>
+<ul>
+<li><a href="#交换排序">交换排序</a>
+<ul>
+<li><a href="#冒泡排序">冒泡排序</a></li>
+<li><a href="#快速排序">快速排序</a>
+<ul>
+<li><a href="#java实现">java实现</a></li>
+</ul></li>
+<li><a href="#改进快速排序">改进快速排序</a></li>
+</ul></li>
+<li><a href="#插入排序">插入排序</a>
+<ul>
+<li><a href="#直接插入排序">直接插入排序</a>
+<ul>
+<li><a href="#c-实现">C++实现</a></li>
+<li><a href="#java实现-1">java实现</a></li>
+</ul></li>
+<li><a href="#折半插入排序">折半插入排序</a>
+<ul>
+<li><a href="#c-实现-1">C++实现</a></li>
+<li><a href="#java实现-2">Java实现</a></li>
+</ul></li>
+<li><a href="#希尔排序">希尔排序</a>
+<ul>
+<li><a href="#c-实现-2">C++实现</a></li>
+<li><a href="#java实现-3">Java实现</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#选择排序">选择排序</a>
+<ul>
+<li><a href="#简单选择排序">简单选择排序</a>
+<ul>
+<li><a href="#c-实现-3">C++实现</a></li>
+<li><a href="#java实现-4">Java实现</a></li>
+</ul></li>
+<li><a href="#堆排序">堆排序</a>
+<ul>
+<li><a href="#c-实现-4">C++实现</a></li>
+<li><a href="#java实现-5">Java实现</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#归并排序">归并排序</a>
+<ul>
+<li><a href="#二路归并排序">二路归并排序</a>
+<ul>
+<li><a href="#c-实现-5">C++实现</a></li>
+<li><a href="#java实现-6">Java实现</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#基数排序">基数排序</a>
+<ul>
+<li><a href="#msd">MSD</a>
+<ul>
+<li><a href="#c-实现-6">C++实现</a></li>
+</ul></li>
+<li><a href="#lsd">LSD</a>
+<ul>
+<li><a href="#c-实现-7">C++实现</a></li>
+</ul></li>
+<li><a href="#基数排序java实现">基数排序Java实现</a>
+<ul>
+<li><a href="#队列实现">队列实现</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#树">树</a>
+<ul>
+<li><a href="#二叉树">二叉树</a>
+<ul>
+<li><a href="#二叉树的链式存储">二叉树的链式存储</a></li>
+<li><a href="#二叉树的顺序存储">二叉树的顺序存储</a></li>
+</ul></li>
+<li><a href="#线索二叉树">线索二叉树</a>
+<ul>
+<li><a href="#中序线索二叉树">中序线索二叉树</a></li>
+</ul></li>
+<li><a href="#创建赫夫曼树">创建赫夫曼树</a></li>
+<li><a href="#赫夫曼编码代码实现">赫夫曼编码代码实现</a></li>
+<li><a href="#二叉排序树">二叉排序树</a></li>
+<li><a href="#avl树">AVL树</a>
+<ul>
+<li><a href="#单旋转">单旋转</a></li>
+<li><a href="#双旋转">双旋转</a></li>
+<li><a href="#实现">实现</a></li>
+</ul></li>
+<li><a href="#计算机数据存储的方式">计算机数据存储的方式</a></li>
+<li><a href="#2-3树和2-3-4树">2-3树和2-3-4树</a></li>
+<li><a href="#b树">B树</a></li>
+</ul></li>
+<li><a href="#哈希表">哈希表</a>
+<ul>
+<li><a href="#散列函数">散列函数</a>
+<ul>
+<li><a href="#直接定址法">直接定址法</a></li>
+<li><a href="#数字分析法">数字分析法</a></li>
+<li><a href="#平方取中法">平方取中法</a></li>
+<li><a href="#取余法">取余法</a></li>
+<li><a href="#随机数法">随机数法</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#图">图</a></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"
+    >Java算法笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19000字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:38分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p>数组</p>
+
+<p>基本概念</p>
+
+<pre><code class="language-java">public class TestOpArray {
+	
+	public static void main(String[] args) {
+		//解决数组的长度不可变的问题
+		int[] arr = new int[] {9,8,7};
+		//快速查看数组中的元素
+		System.out.println(Arrays.toString(arr));
+		//要加入数组的目标元素
+		int dst=6;
+		
+		//创建一个新的数组，长度是原数组长度+1
+		int[] newArr = new int[arr.length+1];
+		//把原数组中的数据全部复制到新数组中
+		for(int i=0;i&lt;arr.length;i++) {
+			newArr[i]=arr[i];
+		}
+		//把目标元素放入新数组的最后
+		newArr[arr.length]=dst;
+		//新数组替换原数组
+		arr=newArr;
+		System.out.println(Arrays.toString(arr));
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">
+public class TestOpArray2 {
+	//如何删除数组中的元素
+	public static void main(String[] args) {
+		//目标数组
+		int[] arr = new int[] {9,8,7,6,5,4};
+		//要删除的元素的下标
+		int dst = 3;
+		System.out.println(Arrays.toString(arr));
+		
+		//创建一个新的数组，长度是原数组的长度-1
+		int[] newArr = new int[arr.length-1];
+		//复制原数组中除了要删除的那个元素以外其它的元素
+		for(int i=0;i&lt;newArr.length;i++) {
+			//要删除的元素之前的元素
+			if(i&lt;dst) {
+				newArr[i]=arr[i];
+			//要删除的元素之后的元素
+			}else {
+				newArr[i]=arr[i+1];
+			}
+		}
+		//新数组替换旧数组
+		arr=newArr;
+		System.out.println(Arrays.toString(arr));
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">
+public class MyArray {
+
+	// 用于存储数据的数组
+	private int[] elements;
+
+	public MyArray() {
+		elements = new int[0];
+	}
+
+	// 获取数组长度的方法
+	public int size() {
+		return elements.length;
+	}
+
+	// 往数组的末尾添加一个元素
+	public void add(int element) {
+		// 创建一个新的数组
+		int[] newArr = new int[elements.length + 1];
+		// 把原数组中的元素复制到新数组中
+		for (int i = 0; i &lt; elements.length; i++) {
+			newArr[i] = elements[i];
+		}
+		// 把添加的元素放入新数组中
+		newArr[elements.length] = element;
+		// 使用新数组替换旧数组
+		elements = newArr;
+	}
+
+	// 打印所有元素到控制台
+	public void show() {
+		System.out.println(Arrays.toString(elements));
+	}
+
+	// 删除数组中的元素
+	public void delete(int index) {
+		// 判断下标是否越界
+		if (index &lt; 0 || index &gt; elements.length - 1) {
+			throw new RuntimeException(&quot;下标越界&quot;);
+		}
+		// 创建一个新的数组，长度为原数组的长度-1
+		int[] newArr = new int[elements.length - 1];
+		// 复制原有数据到新数组
+		for (int i = 0; i &lt; newArr.length; i++) {
+			// 想要删除的元素前面的元素
+			if (i &lt; index) {
+				newArr[i] = elements[i];
+				// 想要删除的元素后面的元素
+			} else {
+				newArr[i] = elements[i + 1];
+			}
+		}
+		// 新数组替换旧数组
+		elements = newArr;
+	}
+
+	// 取出指定位置的元素
+	public int get(int index) {
+		// 判断下标是否越界
+		if (index &lt; 0 || index &gt; elements.length - 1) {
+			throw new RuntimeException(&quot;下标越界&quot;);
+		}
+		return elements[index];
+	}
+
+	// 插入一个元素到指定位置
+	public void insert(int index, int element) {
+		// 创建一个新的数组
+		int[] newArr = new int[elements.length + 1];
+		// 将原数组中的元素放入新数组中。
+		for (int i = 0; i &lt; elements.length; i++) {
+			// 目标位置之前的元素
+			if (i &lt; index) {
+				newArr[i] = elements[i];
+				// 目标位置之后的元素
+			} else {
+				newArr[i + 1] = elements[i];
+			}
+		}
+		// 插入新的元素
+		newArr[index] = element;
+		// 新数组替换旧数组
+		elements = newArr;
+	}
+
+	// 替换指定位置的元素
+	public void set(int index, int element) {
+		// 判断下标是否越界
+		if (index &lt; 0 || index &gt; elements.length - 1) {
+			throw new RuntimeException(&quot;下标越界&quot;);
+		}
+		elements[index] = element;
+	}
+	
+	//线性查找
+	public int search(int target) {
+		//遍历数组
+		for(int i=0;i&lt;elements.length;i++) {
+			if(elements[i]==target) {
+				return i;
+			}
+		}
+		//没有找到对应的元素
+		return -1;
+	}
+	
+	//二分法查找
+	public int binarySearch(int target) {
+		//记录开始位置
+		int begin = 0;
+		//记录结束位置
+		int end = elements.length-1;
+		//记录中间的位置
+		int mid = (begin+end)/2;
+		//循环查找
+		while(true) {
+			//什么情况下没有这个元素？
+			//开始在结束位置之后或重合,没有这个元素
+			if(begin&gt;=end) {
+				return -1;
+			}
+			//判断中间的这个元素是不是要查找的元素
+			if(elements[mid]==target) {
+				return mid;
+				//中间这个元素不是要查的元素
+			}else{
+				//判断中间这个元素是不是比目标元素大
+				if(elements[mid]&gt;target) {
+					//把结束位置调整到中间位置前一个位置
+					end=mid-1;
+				//中间这个元素比目标元素小
+				}else {
+					//把开始位置调整到中间位置的后一个位置
+					begin = mid+1;
+				}
+				//取出新的中间位置
+				mid=(begin+end)/2;
+			}
+		}
+	}
+
+}
+
+</code></pre>
+
+<p>测试查找算法</p>
+
+<pre><code class="language-java">public class TestMyArraySearch {
+
+	public static void main(String[] args) {
+		MyArray ma = new MyArray();
+		ma.add(1);
+		ma.add(2);
+		ma.add(3);
+		ma.add(4);
+		ma.add(5);
+		//调用线性查找方法
+//		int index = ma.search(0);
+//		System.out.println(&quot;index:&quot;+index);
+		//调用二分法查找
+		int index2 = ma.binarySearch(6);
+		System.out.println(&quot;index2:&quot;+index2);
+	}
+}
+</code></pre>
+
+<p>测试二分查找</p>
+
+<pre><code class="language-java">
+public class TestBinarySearch {
+	
+	public static void main(String[] args) {
+		//目标数组
+		int[] arr = new int[]{1,2,3,4,5,6,7,8,9};
+		//目标元素
+		int target = 3;
+		//记录开始位置
+		int begin = 0;
+		//记录结束位置
+		int end = arr.length-1;
+		//记录中间的位置
+		int mid = (begin+end)/2;
+		//记录目标位置
+		int index=-1;
+		//循环查找
+		while(true) {
+			//判断中间的这个元素是不是要查找的元素
+			if(arr[mid]==target) {
+				index=mid;
+				break;
+			//中间这个元素不是要查的元素
+			}else {
+				//判断中间这个元素是不是比目标元素大
+				if(arr[mid]&gt;target) {
+					//把结束位置调整到中间位置前一个位置
+					end=mid-1;
+				//中间这个元素比目标元素小
+				}else {
+					//把开始位置调整到中间位置的后一个位置
+					begin = mid+1;
+				}
+				//取出新的中间位置
+				mid=(begin+end)/2;
+			}
+		}
+		System.out.println(&quot;index:&quot;+index);
+	}
+	
+}
+</code></pre>
+
+<h1 id="栈和队列">栈和队列</h1>
+
+<h2 id="栈">栈</h2>
+
+<pre><code class="language-java">public class MyStack {
+	
+	//栈的底层我们使用数组来存储数据
+	int[] elements;
+
+	//数组初始化
+	public MyStack() {
+		elements = new int[0];
+	}
+	
+	//压入元素
+	public void push(int element) {
+		// 创建一个新的数组
+		int[] newArr = new int[elements.length + 1];
+		// 把原数组中的元素复制到新数组中
+		for (int i = 0; i &lt; elements.length; i++) {
+			newArr[i] = elements[i];
+		}
+		// 把添加的元素放入新数组中
+		newArr[elements.length] = element;
+		// 使用新数组替换旧数组
+		elements = newArr;
+	}
+	
+	//取出栈顶元素
+	public int pop() {
+		//栈中没有元素
+		if(elements.length==0) {
+			throw new RuntimeException(&quot;stack is empty&quot;);
+		}
+		//取出数组的最后一个元素
+		int element = elements[elements.length-1];
+		//创建一个新的数组
+		int[] newArr = new int[elements.length-1];
+		//原数组中除了最后一个元素的其它元素都放入新的数组中
+		for(int i=0;i&lt;elements.length-1;i++) {
+			newArr[i]=elements[i];
+		}
+		//替换数组
+		elements=newArr;
+		//返回栈顶元素
+		return element;
+	}
+	//查看栈顶元素
+	public int peek() {
+		//栈中没有元素
+		if(elements.length==0) {
+			throw new RuntimeException(&quot;stack is empty&quot;);
+		}
+		return elements[elements.length-1];
+	}
+	//判断栈是否为空
+	public boolean isEmpty() {
+		return elements.length==0;
+	}
+}
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class TestMyStack {
+
+   public static void main(String[] args) {
+      //创建一个栈
+      MyStack ms = new MyStack();
+      //压入数组
+      ms.push(9);
+      ms.push(8);
+      ms.push(7);
+      //最出栈顶元素
+      System.out.println(ms.pop());
+      System.out.println(ms.pop());
+      System.out.println(ms.pop());
+      //查看栈顶元素
+//    System.out.println(ms.peek());
+      System.out.println(ms.isEmpty());
+   }
+
+}
+</code></pre>
+
+<h2 id="队列">队列</h2>
+
+<pre><code class="language-java">/*队列是一种先进先出的结构*/
+public class MyQueue {
+	
+	int[] elements;
+	/*数组初始化*/
+	public MyQueue() {
+		elements=new int[0];
+	}
+	
+	//入队
+	public void add(int element) {
+		// 创建一个新的数组
+		int[] newArr = new int[elements.length + 1];
+		// 把原数组中的元素复制到新数组中
+		for (int i = 0; i &lt; elements.length; i++) {
+			newArr[i] = elements[i];
+		}
+		// 把添加的元素放入新数组中
+		newArr[elements.length] = element;
+		// 使用新数组替换旧数组
+		elements = newArr;
+	}
+	
+	//出队
+	public int poll() {
+		if (elements.length==0){
+			throw new RuntimeException(&quot;queue is empty&quot;);
+		}
+		//把数组中的第0个元素取出来
+		int element = elements[0];
+		//创建一个新的数组
+		int[] newArr = new int[elements.length-1];
+		//复制原数组中的元素到新数组中
+		for(int i=0;i&lt;newArr.length;i++) {
+			newArr[i]=elements[i+1];
+		}
+		//替换数组
+		elements=newArr;
+		return element;
+	}
+	//判断队列是否为空
+	public boolean isEmpty() {
+		return elements.length==0;
+	}
+}
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class TestMyQueue {
+
+   public static void main(String[] args) {
+      //创建一个队列
+      MyQueue mq = new MyQueue();
+      //入队
+      mq.add(9);
+      mq.add(8);
+      mq.add(7);
+      //出队
+      System.out.println(mq.poll());
+      mq.add(6);
+      System.out.println(mq.poll());
+      System.out.println(mq.poll());
+      System.out.println(mq.isEmpty());
+      System.out.println(mq.poll());
+   }
+   
+}
+</code></pre>
+
+<h1 id="链表">链表</h1>
+
+<h2 id="单链表">单链表</h2>
+
+<pre><code class="language-java">
+//一个节点
+public class Node {
+
+	//节点内容
+	int data;
+	//下一个节点
+	Node next;
+	
+	public Node(int data) {
+		this.data=data;
+	}
+	
+	//为节点追回节点
+	public Node append(Node node) {
+		//当前节点
+		Node currentNode = this;
+		//循环向后找
+		while(true) {
+			//取出下一个节点
+			Node nextNode = currentNode.next;
+			//如果下一个节点为null,当前节点已经是最后一个节点
+			if(nextNode==null) {
+				break;
+			}
+			//赋给当前节点
+			currentNode = nextNode;
+		}
+		//把需要追回的节点追加为找到的当前节点的下一个节点
+		currentNode.next=node;
+		return this;
+	}
+	
+	//插入一个节点做为当前节点的下一个节点
+	public void after(Node node) {
+		//取出下一个节点，作为下下一个节点
+		Node nextNext = next;
+		//把新节点作为当前节点的下一个节点
+		this.next=node;
+		//把下下一个节点设置为新节点的下一个节点
+		node.next=nextNext;
+	}
+	
+	//显示所有节点信息
+	public void show() {
+		Node currentNode = this;
+		while(true) {
+			System.out.print(currentNode.data+&quot; &quot;);
+			//取出下一个节点
+			currentNode=currentNode.next;
+			//如果是最后一个节点
+			if(currentNode==null) {
+				break;
+			}
+		}
+		System.out.println();
+	}
+	
+	//删除下一个节点
+	public void removeNext() {
+		//取出下下一个节点
+		Node newNext = this.next.next;
+		//把下下一个节点设置为当前节点的下一个节点。
+		this.next=newNext;
+	}
+	
+	//获取下一个节点
+	public Node next() {
+		return this.next;
+	}
+	
+	//获取节点中的数据
+	public int getData() {
+		return this.data;
+	}
+	
+	//当前节点是否是最后一个节点
+	public boolean isLast() {
+		return next==null;
+	}
+	
+}
+
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class TestNode {
+   
+   public static void main(String[] args) {
+      //创建节点
+      Node n1 = new Node(1);
+      Node n2 = new Node(2);
+      Node n3 = new Node(3);
+      //追加节点
+      n1.append(n2).append(n3).append(new Node(4));
+      //取出下一个节点的数据
+//    System.out.println(n1.next().next().next().getData());
+      //判断节点是否为最后一个节点
+//    System.out.println(n1.isLast());
+//    System.out.println(n1.next().next().next().isLast());
+      
+      //显示所有节点内容
+      n1.show();
+      //删除一个节点
+//    n1.next().removeNext();
+      //显示所有节点内容
+//    n1.show();
+      //插入一个新节点
+      Node node = new Node(5);
+      n1.next().after(node);
+      n1.show();
+   }
+
+}
+</code></pre>
+
+<h2 id="循环列表">循环列表</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200526153122125.png" alt="image-20200526153122125" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200526153135851.png" alt="image-20200526153135851" /></p>
+
+<pre><code class="language-java">//一个节点
+public class LoopNode {
+
+   //节点内容
+   int data;
+   //下一个节点（默认值是自己）
+   LoopNode next=this;//与自己相连
+   
+   public LoopNode(int data) {
+      this.data=data;
+   }
+   
+   //插入一个节点做为当前节点的下一个节点
+   public void after(LoopNode node) {
+      //取出下一个节点，作为下下一个节点
+      LoopNode nextNext = next;
+      //把新节点作为当前节点的下一个节点
+      this.next=node;
+      //把下下一个节点设置为新节点的下一个节点
+      node.next=nextNext;
+   }
+   
+   //删除下一个节点
+   public void removeNext() {
+      //取出下下一个节点
+      LoopNode newNext = next.next;
+      //把下下一个节点设置为当前节点的下一个节点。
+      this.next=newNext;
+   }
+   
+   //获取下一个节点
+   public LoopNode next() {
+      return this.next;
+   }
+   
+   //获取节点中的数据
+   public int getData() {
+      return this.data;
+   }
+   
+}
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class TestLoopNode {
+   public static void main(String[] args) {
+      /*每个链表都与自己相连*/
+      LoopNode n1 = new LoopNode(1);
+      LoopNode n2 = new LoopNode(2);
+      LoopNode n3 = new LoopNode(3);
+      LoopNode n4 = new LoopNode(4);
+      //增加节点
+      n1.after(n2);//1-2-1
+      n2.after(n3);//1-2-3-1
+      n3.after(n4);//1-2-3-4-1
+      System.out.println(n1.next().getData());
+      System.out.println(n2.next().getData());
+      System.out.println(n3.next().getData());
+      System.out.println(n4.next().getData());
+   }
+}
+</code></pre>
+
+<h3 id="双链表">双链表</h3>
+
+<pre><code class="language-java">
+public class DoubleNode {
+	//上一个节点
+	DoubleNode pre=this;
+	//下一个节点
+	DoubleNode next=this;
+	//节点数据
+	int data;
+	
+	public DoubleNode(int data) {
+		this.data=data;
+	}
+	
+	//增节点
+	public void after(DoubleNode node) {
+		//原来的下一个节点
+		DoubleNode nextNext = next;
+		//把新节点做为当前节点的下一个节点
+		this.next=node;
+		//把当前节点做新节点的前一个节点
+		node.pre=this;
+		//让原来的下一个节点作新节点的下一个节点
+		node.next=nextNext;
+		//让原来的下一个节点的上一个节点为新节点
+		nextNext.pre=node;
+	}
+	//下一个节点
+	public DoubleNode next() {
+		return this.next;
+	}
+	//上一个节点
+	public DoubleNode pre() {
+		return this.pre;
+	}
+	//获取数据
+	public int getData() {
+		return this.data;
+	}
+}
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">public class TestDoubleNode {
+
+   public static void main(String[] args) {
+      //创建节点
+      DoubleNode n1 = new DoubleNode(1);
+      DoubleNode n2 = new DoubleNode(2);
+      DoubleNode n3 = new DoubleNode(3);
+      //追加节点
+      n1.after(n2);
+      n2.after(n3);
+      //查看上一个，自己，下一个节点的内容
+      System.out.println(n2.pre().getData());
+      System.out.println(n2.getData());
+      System.out.println(n2.next().getData());
+      System.out.println(n3.next().getData());
+      System.out.println(n1.pre().getData()); 
+   } 
+}
+</code></pre>
+
+<h1 id="递归">递归</h1>
+
+<p>递归：在一个方法（函数）的内部调用该方法（函数）本身的编程方式</p>
+
+<pre><code class="language-java">public class TestRecursive {
+
+   public static void main(String[] args) {
+      print(3);
+   }
+   
+   //递归
+   public static void print(int i) {
+      if(i&gt;0) {
+         System.out.println(i);
+         print(i-1);
+      }
+   }
+
+}
+</code></pre>
+
+<p>斐波那契数列</p>
+
+<pre><code class="language-java">public class TestFebonacci {
+
+   public static void main(String[] args) {
+      //斐波那契数列：1 1 2 3 5 8 13
+      int i = febonacci(7);
+      System.out.println(i);
+   }
+   
+   //打印第n项斐波那契数列
+   public static int febonacci(int i) {
+      if(i==1 || i==2) {
+         return 1;
+      }else {
+         return febonacci(i-1)+febonacci(i-2);
+      }
+   }
+
+}
+</code></pre>
+
+<p>汉诺塔问题</p>
+
+<pre><code class="language-java">public class TestHanoi {
+
+	public static void main(String[] args) {
+		hanoi(5,'A','B','C');
+	}
+	
+	/**
+	 * @param n 	共有N个盘子
+	 * @param from	开始的柱子
+	 * @param in		中间的柱子
+	 * @param to		目标柱子
+	 * 无论有多少个盘子，都认为只有两个。上面的所有盘子和最下面一个盘子。
+	 */
+	public static void hanoi(int n,char from,char in,char to) {
+		//只有一个盘子。
+		if(n==1) {
+			System.out.println(&quot;第1个盘子从&quot;+from+&quot;移到&quot;+to);
+		//无论有多少个盘子，都认为只有两个。上面的所有盘子和最下面一个盘子。
+		}else {
+			//移动上面所有的盘子到中间位置
+			hanoi(n-1,from,to,in);
+			//移动下面的盘子
+			System.out.println(&quot;第&quot;+n+&quot;个盘子从&quot;+from+&quot;移到&quot;+to);
+			//把上面的所有盘子从中间位置移到目标位置
+			hanoi(n-1,in,from,to);
+		}
+	}
+
+}
+</code></pre>
+
+<h1 id="排序">排序</h1>
+
+<p><a href="http://sorting.at/">演示网站</a></p>
+
+<h2 id="交换排序">交换排序</h2>
+
+<h3 id="冒泡排序">冒泡排序</h3>
+
+<p>1.原理：比较两个相邻的元素，将值大的元素交换到右边</p>
+
+<p>2.思路：依次比较相邻的两个数，将比较小的数放在前面，比较大的数放在后面。</p>
+
+<p>　　　　(1)第一次比较：首先比较第一和第二个数，将小数放在前面，将大数放在后面。</p>
+
+<p>　　　　(2)比较第2和第3个数，将小数 放在前面，大数放在后面。</p>
+
+<p>　　　　&hellip;&hellip;</p>
+
+<p>　　　　(3)如此继续，知道比较到最后的两个数，将小数放在前面，大数放在后面，重复步骤，直至全部排序完成</p>
+
+<p>　　　　(4)在上面一趟比较完成后，最后一个数一定是数组中最大的一个数，所以在比较第二趟的时候，最后一个数是不参加比较的。</p>
+
+<p>　　　　(5)在第二趟比较完成后，倒数第二个数也一定是数组中倒数第二大数，所以在第三趟的比较中，最后两个数是不参与比较的。</p>
+
+<p>　　　　(6)依次类推，每一趟比较次数减少依次</p>
+
+<p>C++实现</p>
+
+<pre><code class="language-C++">//冒泡排序
+/*
+设计思路：两两比较，进行交换，将较大的放在后面， 
+*/
+void f2(){
+	int n;
+	int nums[201];
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);	
+	}
+	//冒泡排序 
+	for(int i=0;i&lt;n;i++){
+		//前一个和后一个比较，k要和k+1进行比较所以范围应该是n-1-i 
+		for(int k =0;k&lt;n-1-i;k++){
+			//把大的放在后面 
+			if(nums[k]&gt;nums[k+1]){
+				int num =nums[k];
+				nums[k]=nums[k+1];
+				nums[k+1]=num;
+			}
+		}
+	}
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+} 
+</code></pre>
+
+<p>java实现</p>
+
+<pre><code class="language-java">
+public class BubbleSort {
+	public static void main(String[] args) {
+		int[] arr=new int[] {5,7,2,9,4,1,0,5,7};
+		System.out.println(Arrays.toString(arr));
+		bubbleSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	//冒泡排序 每一轮选择一个最大的
+	/**
+	 * 5,7,2,9,4,1,0,5,7		共需要比较length-1轮
+	 * 5,7,2,9,4,1,0,5,7	
+	 * 5,2,7,9,4,1,0,5,7
+	 * 5,2,7,4,1,0,5,7,9
+	 */
+	public static void bubbleSort(int[]  arr) {
+		//控制共比较多少轮 length-1：最后一个不需要比较
+		for(int i=0;i&lt;arr.length-1;i++) {
+			//控制比较的次数
+			for(int j=0;j&lt;arr.length-1-i;j++) {
+				if(arr[j]&gt;arr[j+1]) {
+					int temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		
+	}
+}
+</code></pre>
+
+<h3 id="快速排序">快速排序</h3>
+
+<p>快速排序算法是一种基于交换的高效的排序算法，它采用了分治法的思想：</p>
+
+<p>1、从数列中取出一个数作为基准数（枢轴，pivot）。</p>
+
+<p>2、将数组进行划分(partition)，将比基准数大的元素都移至枢轴右边，将小于等于基准数的元素都移至枢轴左边。</p>
+
+<p>3、再对左右的子区间重复第二步的划分操作，直至每个子区间只有一个元素。</p>
+
+<p>快排最重要的一步就是划分了。划分的过程用通俗的语言讲就是“挖坑”和“填坑”。</p>
+
+<p>C++实现</p>
+
+<pre><code class="language-c++">//交换 
+void swap (int&amp; a, int&amp; b);
+////找基准数 划分 
+int partition(int arr[], int left, int right) ;
+//快速排序的递归算法 
+void quickSort(int arr[], int left, int right);
+//快速排序(分区排序)
+void f8 (){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+	quickSort(nums,0,n-1);//[0,n-1]的元素进行排序 
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+}
+//快速排序的递归算法 
+void quickSort(int arr[], int left, int right){
+     if (left &lt;right){//序列长度小于或等于1不处理 
+	   	 int j = partition(arr, left, right);//一趟划分 
+	     quickSort(arr, left, j - 1);//递归左边子序列 
+	     quickSort(arr, j + 1, right);//递归右边 子序列 
+	 }
+}
+//自左向右一趟，每遇到比基准小的交换到左边，函数返回基准移动到的位置 ；
+//找到一个元素左边的都比它小，右边的都比它大 
+int partition(int arr[], int left, int right) { 
+	//k:基准元素的位置 
+	int i,k=left;
+	int pivot = arr[left];//取出基准元素 （刨坑） 
+	for(i=left+1;i&lt;=right;i++){//一趟扫描整个序列进行划分 [left+1--right] 
+		if(arr[i]&lt;pivot){//检测到排序码小于基准的元素 
+			k++;//（k指向的元素一定比基准元素小）  
+			if(k!=i){
+				swap(arr[i], arr[k]);//把小的元素交换到左边去 
+			}
+		}
+	}
+	arr[left]=arr[k];// 填坑 
+	arr[k]=pivot;//将基准元素归位 
+	return k;//返回基准元素的位置 
+}
+void swap (int&amp; a, int&amp; b){
+    int c = a;
+    a = b;
+    b = c;
+}
+</code></pre>
+
+<h4 id="java实现">java实现</h4>
+
+<pre><code class="language-java">public class QuickSort {
+	public static void main(String[] args) {
+		int[] arr = new int[] {3,4,6,7,2,7,2,8,0,9,1};
+		quickSort(arr,0,arr.length-1);
+		System.out.println(Arrays.toString(arr));
+	}
+	public static void quickSort(int[] arr,int start,int end) {
+		if(start&lt;end) {
+			//把数组中的第0个数字做为标准数
+			int stard=arr[start];
+			//记录需要排序的下标
+			int low=start;
+			int high=end;
+			//循环找比标准数大的数和比标准数小的数
+			while(low&lt;high) {
+				//右边的数字比标准数大
+				while(low&lt;high&amp;&amp;arr[high]&gt;=stard) {
+					high--;//右指针往左移
+				}
+				//右指针指向了一个数字比目标数小（该数字要放到左边），使用右边的数字替换左边的数
+				arr[low]=arr[high];
+				//如果左边的数字比标准数小
+				while(low&lt;high&amp;&amp;arr[low]&lt;=stard) {
+					low++;//左指针往右移
+				}
+				//左指针指向的数字大于目标数，该数字要放到右边
+				arr[high]=arr[low];
+			}
+			//把标准数赋给低所在的位置的元素（高位也行，二者重合了）
+			arr[low]=stard;
+			//处理所有的小的数字
+			quickSort(arr, start, low-1);
+			//处理所有的大的数字
+			quickSort(arr, low+1, end);
+		}
+	}
+    public static void quickSort1(int[] arr, int start, int end) {
+		if (start &lt; end) {
+			int i, k = start;
+			int pivot = arr[start];
+			for (i = start+1; i &lt;= end; i++) {
+				if (arr[i] &lt; pivot) {
+					k++;
+					if (k != i) {
+						int temp = arr[i];
+						arr[i] = arr[k];
+						arr[k] = temp;
+					}
+				}
+			}
+			arr[start] = arr[k];
+			arr[k] = pivot;
+			//处理所有的小的数字
+			quickSort(arr, start, k - 1);
+			//处理所有的大的数字
+			quickSort(arr, k + 1, end);
+		}
+	}
+}
+</code></pre>
+
+<h3 id="改进快速排序">改进快速排序</h3>
+
+<p>快速排序是一种 效率很高的排序算法，对于n较大的平均情况而言，快速排序是快速的，但当n很小时，这种排序方法往往比其它简单排序方法还要慢，研究表明序列长度M取值为5~25时使用直接插入排序要比快速排序至少快10%因此对快速排序算法进行改进的一个简单的方法就是：在递归调用过程中，当排序的子序列规模小于预先定义的M时，程序直接调用直接插入排序算法对子序列进行排序。</p>
+
+<pre><code class="language-c++">//快速排序的改进算法
+//快速--直接插入排序
+void quickSortInsert(int arr[],int len,int M) {
+	
+	if(len&lt;=M){
+		//调用直接插入排序
+	}else{
+		//快速排序 
+	} 	
+}
+</code></pre>
+
+<h2 id="插入排序">插入排序</h2>
+
+<h3 id="直接插入排序">直接插入排序</h3>
+
+<p>直接插入插排的基本思想是：当插入第i(i &gt;= 1)时，前面的V[0]，V[1]，……，V[i-1]已经排好序。这时，用V[I]的排序码与V[i-1]，V[i-2]，…的排序码顺序进行比较，找到插入位置即将V[i]插入，原来位置上的元素向后顺移。</p>
+
+<h4 id="c-实现">C++实现</h4>
+
+<pre><code class="language-c++">//插入排序 
+//把数据放在它应该在的地方，之后的数据依次后移 
+void f1(){
+	int n;
+	int nums[201];
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);	
+	}
+	//插入排序 ，第一个数据一定是有序的，因此是从1——n-1 
+	for(int i=1;i&lt;n;i++){
+		//将第i个元素取出，放入应当放入的位置（从i-1到0） 
+		int temp = nums[i]; 
+		for(int k =i-1;k&gt;=0;k--){
+			//遇见大的数把这个数向后挪 ，并填坑 
+			if(nums[k]&gt;temp){
+				nums[k+1]=nums[k];
+				nums[k]=temp;
+			}else{//遇见比这个数小的就停止 
+				break;
+			}
+		}
+	}
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+}
+</code></pre>
+
+<h4 id="java实现-1">java实现</h4>
+
+<pre><code class="language-java">package basic.b04sort;
+
+import java.util.Arrays;
+
+public class InsertSort {
+	
+	public static void main(String[] args) {
+		int[] arr = new int[] {5,3,2,8,5,9,1,0};
+		//insertSort(arr);
+		insertSort1(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+
+	//插入排序
+	public static void insertSort(int[] arr) {
+		//遍历所有的数字:第一个元素一定是有序的
+		for(int i=1;i&lt;arr.length;i++) {
+			//如果当前数字比前一个数字小
+			if(arr[i]&lt;arr[i-1]) {
+				//把当前遍历数字存起来
+				int temp=arr[i];
+				int j;
+				//遍历当前数字前面所有的数字
+				for(j=i-1;j&gt;=0&amp;&amp;temp&lt;arr[j];j--) {
+					//把前一个数字赋给后一个数字
+					arr[j+1]=arr[j];
+				}
+				//把临时变量（外层for循环的当前元素）赋给不满足条件的后一个元素
+				arr[j+1]=temp;
+			}
+		}
+	}
+	public static void insertSort1(int[] arr) {
+		for (int i  =1;i&lt;arr.length;i++){
+			int temp = arr[i];//
+			for (int k = i - 1; k &gt;= 0; k--) {
+				if (arr[k] &gt; temp) {
+					arr[k + 1] = arr[k];
+					arr[k] = temp;
+				} else {
+					break;
+				}
+			}
+		}
+	}
+	}
+</code></pre>
+
+<h3 id="折半插入排序">折半插入排序</h3>
+
+<p>二分法排序的思想，在插入第i个元素时，对前面的0～i-1元素进行折半，先跟他们中间的那个元素比，如果小，则对前半再进行折半，否则对后半进行折半，直到left&gt;right，然后再把第i个元素前1位与目标位置之间的所有元素后移，再把第i个元素放在目标位置上</p>
+
+<h4 id="c-实现-1">C++实现</h4>
+
+<pre><code class="language-c++">//折半插入排序(二分排序)
+void f6(){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+	//第一个一定时有序的（从1——n-1） 
+	for(int i =1;i&lt;n;i++){//逐步扩大有序数组 
+		int temp = nums[i];//取出待排序元素 
+		int low =0,height=i-1,mid;//定义区间 
+		while(low&lt;=height){//利用折半查找寻找插入位置 
+			mid = (low+height)/2;//取中点 
+			if(temp&lt;nums[mid]){//左区间 
+				height = mid-1;
+			}else{//否则右区间 
+				low = mid+1;
+			}
+		}
+		for(int j=i-1;j&gt;=low;j--){//将i-1到low(height,mid)向后挪一格(i-1移到i) 
+			nums[j+1]=nums[j];
+		}
+		nums[low]=temp;//插入 		
+	} 
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+} 
+
+
+</code></pre>
+
+<h4 id="java实现-2">Java实现</h4>
+
+<pre><code class="language-java">public class BinaryInsertSort {
+    public static void main(String[] args) {
+        int[] arr=new int[] {5,7,2,9,4,1,0,5,7};
+        System.out.println(Arrays.toString(arr));
+        binaryInsertSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    public static void binaryInsertSort(int[]arr) {
+        for (int i = 1; i &lt; arr.length; i++) {
+            int temp = arr[i];
+            int mid ,low = 0, height = i - 1;
+            while (low &lt;= height) {
+                mid = (low + height) / 2;//取中点
+                if (temp &lt; arr[mid]) {
+                    height = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            for (int j = i - 1; j &gt;= low; j--) {
+                arr[j+1] = arr[j];
+            }
+            arr[low] = temp;
+
+        }
+    }
+}
+</code></pre>
+
+<h3 id="希尔排序">希尔排序</h3>
+
+<h4 id="c-实现-2">C++实现</h4>
+
+<pre><code class="language-C++">//希尔排序(缩小增量排序)
+/*
+区块内有序 ，每隔gap个元素去一个值，组成一组，组成gap组
+
+将这gap组排好序，然后缩小间隔，在进行排序，直至间隔为1 
+*/
+void f7(){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+//	int incregap = 3;//步进方式 
+//	
+//	unsigned gap = n/incregap+1;//步长初始化,注意如果当n&lt;incregap时，gap为0，所以为了保证进入循环，gap至少为1！！！ 
+
+	//步长初始化一般为gap=n/incregap;缩小方式一般为gap=gap/incregap 
+	int incregap = 2;//步进方式 
+	unsigned gap = n/incregap;//步长初始化(每隔gap个元素选中一个，组成一组)
+	int insertNum = 0;//
+	while(gap){//while gap&gt;=1 
+		//分组，在每个子序列中进行插入排序（插入排序是将元素与之前的数据进行比较，
+		//插入适当的位置，第一个元素一定是有序的， 需要排序是应该是gap--n-1）
+        for (unsigned i = gap; i &lt; n; i++){  
+            insertNum = nums[i];//将当前的元素值先存起来方便后面插入
+            unsigned j = i;//j是插入位置 
+            while (j &gt;= gap &amp;&amp; insertNum &lt; nums[j-gap]){//寻找插入位置 nums[j-gap]（该元素比前一个元素小，该元素就要前移，前一个元素就要后移） 
+                nums[j] = nums[j - gap];//前一个元素后移 
+                j -= gap;//j要大于等于0，所以j&gt;=gap， 
+            }
+            nums[j] = insertNum;//找到位置，插入该元素 
+        }
+        gap = gap/incregap;	//缩小步长 
+	}
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}		
+} 
+</code></pre>
+
+<h4 id="java实现-3">Java实现</h4>
+
+<pre><code class="language-java">
+/*希尔排序*/
+public class ShellSort {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] { 3, 5, 2, 7, 8, 1, 2, 0, 4, 7, 4, 3, 8 };
+		System.out.println(Arrays.toString(arr));
+		shellSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	public static void shellSort(int[] arr) {
+		int k = 1;
+		// 遍历所有的步长
+		for (int d = arr.length / 2; d &gt; 0; d /= 2) {
+			// 遍历所有有元素
+			for (int i = d; i &lt; arr.length; i++) {
+				// 遍历本组中所有的元素
+				for (int j = i - d; j &gt;= 0; j -= d) {
+					// 如果当前元素大于加上步长后的那个元素
+					if (arr[j] &gt; arr[j + d]) {
+						int temp = arr[j];
+						arr[j] = arr[j + d];
+						arr[j + d] = temp;
+					}
+				}
+			}
+			System.out.println(&quot;第&quot; + k + &quot;次排序结果：&quot; + Arrays.toString(arr));
+			k++;
+		}
+	}
+
+}
+</code></pre>
+
+<h2 id="选择排序">选择排序</h2>
+
+<h3 id="简单选择排序">简单选择排序</h3>
+
+<p>基本思想：假设排序表为 L[1&hellip;.n] ，第i趟排序即从L[i,,,,n] 中选择关键字最小的元素与 L(i) 交换，每一趟排序可以确定一个元素的最终位置，这样经过 n-1 趟排序就可以使整个排序表有序。</p>
+
+<h4 id="c-实现-3">C++实现</h4>
+
+<pre><code class="language-c++">//选择排序 ：每次从数组中选择一个最小的数的下标，然后与待排序的进行交换 
+void f4(){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);	
+	}
+	//选择排序 ，最后一个数不需要考虑，因为到最后这个数字必然是最大的 
+	for(int i=0;i&lt;n-1;i++){
+		int min = i;
+		for(int k =i+1;k&lt;n;k++){
+			if(nums[k]&lt;nums[min]){
+				min = k;
+			}
+		}
+		if(i!=min){
+			int temp = nums[i];
+			nums[i]=nums[min];
+			nums[min]=temp;
+		}
+	}
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}
+}
+</code></pre>
+
+<h4 id="java实现-4">Java实现</h4>
+
+<pre><code class="language-java">/*简单选择排序*/
+public class SelectSort {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] {3,4,5,7,1,2,0,3,6,8};
+		selectSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	//选择排序
+	public static void selectSort(int[] arr) {
+		//遍历所有的数
+		for(int i=0;i&lt;arr.length;i++) {
+			int minIndex=i;
+			//把当前遍历的数和后面所有的数依次进行比较，并记录下最小的数的下标
+			for(int j=i+1;j&lt;arr.length;j++) {
+				//如果后面比较的数比记录的最小的数小。
+				if(arr[minIndex]&gt;arr[j]) {
+					//记录下最小的那个数的下标
+					minIndex=j;
+				}
+			}
+			//如果最小的数和当前遍历数的下标不一致,说明下标为minIndex的数比当前遍历的数更小。
+			if(i!=minIndex) {
+				int temp=arr[i];
+				arr[i]=arr[minIndex];
+				arr[minIndex]=temp;
+			}
+		}
+	}
+}
+</code></pre>
+
+<h3 id="堆排序">堆排序</h3>
+
+<p>1、算法思想</p>
+
+<p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，
+并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+
+<p>2、实现原理
+要实现从小到大的排序，就要建立大顶堆，即父节点比子节点都要大。</p>
+
+<p>2.1、初始化数组，创建大顶堆。</p>
+
+<p>大顶堆的创建从下往上比较，不能直接用无序数组从根节点比较，否则有的不符合大顶堆的定义。</p>
+
+<p>2.2、交换根节点和倒数第一个数据，现在倒数第一个数据就是最大的。</p>
+
+<p>2.3、重新建立大顶堆。</p>
+
+<p>因为只有 array[0] 改变，其它都符合大顶堆的定义，所以可以根节点 array[0] 重新建立。</p>
+
+<p>2.4、重复2.2、2.3的步骤，直到只剩根节点 array[0]，即 i=1。</p>
+
+<h4 id="c-实现-4">C++实现</h4>
+
+<pre><code class="language-C++">//从大到小排序 
+//void Down(int array[],int i,int n){
+//	int child=2*i+1;
+//	int key=array[i];
+//	while (child&lt;n){
+//		if (array[child]&gt;array[child+1] &amp;&amp; child+1&lt;n) {
+//			child++;
+//		}
+//		if (key&gt;array[child]){
+//			swap(array, i, child);
+//			i=child;
+//		}
+//		else{
+//			break;
+//		}
+//		child=child*2+1;
+//	}
+//}
+//从小到大排序
+//生成大顶堆函数
+//*****注意变量的取值范围； 
+void Down(int array[],int i,int n){						//最后结果就是大顶堆 
+	int parent=i;										//父节点下标
+	int child=2*i+1;									//左子节点下标 ，指向子节点数值较大的那个 
+	while (child&lt;n){									//处理子节点的二叉树的大小 
+		if (array[child]&lt;array[child+1] &amp;&amp; child+1&lt;n) {	//判断子节点那个大，大的与父节点比较 
+			child++;
+		}
+		if (array[parent]&lt;array[child]){				//判断父节点是否小于子节点 
+			swap(array[parent], array[child]);			//交换父节点和子节点 
+			parent=child;								//子节点下标 赋给 父节点下标 （子节点变父节点，继续比较） 
+		}
+
+		child=child*2+1;								//比较子节点的子节点 
+	}
+}
+//初始化大顶堆函数
+void BuildHeap(int array[],int size)
+{
+   //构建大根堆从最后一个节点的父节点（size/2-1）开始向上（0）构建 [size/2-1,0] 
+   //size/2-1:编号最大的分支节点
+   //数组以0开始，最后一个元素为size-1,他的父节点为 (size-1+1)/2-1 
+   for( int i=size/2-1;i&gt;=0;i--){		//从最后一个元素的父节点一直到根节点 
+      Down(array,i,size);	//轮流以i,i-1,i-2···0为根，将他们控制的字数调整为大根堆							 
+	}
+}
+//排序函数
+void heapSort(int array[],int size){
+    BuildHeap(array,size);//初始化堆 ,建立大顶堆 
+	//交换大顶堆的第一个元素（这个元素是最大的）和最后一个元素的位置，因此它是倒序的[size-1,0)第一个元素一定是有序的					
+    for(int i=size-1;i&gt;0;i--)
+    {	
+    	swap(array[0],array[i]);		//交换顶点和第 i 个数据 
+    	//因为只有array[0]改变，其它都符合大顶堆的定义，所以可以从上往下重新建立 
+    	Down(array,0,i);								//重新建立大顶堆 
+	}
+}
+void f9(){
+	
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+	heapSort(nums,n);//[0,n-1]的元素进行排序 
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+	
+}
+</code></pre>
+
+<h4 id="java实现-5">Java实现</h4>
+
+<pre><code class="language-java">/*堆排序*/
+public class HeapSort {
+	
+	public static void main(String[] args) {
+		int[] arr = new int[] {9,6,8,7,0,1,10,4,2};
+		heapSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	public static void heapSort(int[] arr) {
+		//开始位置是最后一个非叶子节点，即最后一个节点的父节点
+		int start = (arr.length-1)/2;
+		//调整为大顶堆
+		for(int i=start;i&gt;=0;i--) {
+			maxHeap(arr, arr.length, i);
+		}
+		//先把数组中的第0个和堆中的最后一个数交换位置，再把前面的处理为大顶堆
+		for(int i=arr.length-1;i&gt;0;i--) {
+			int temp = arr[0];
+			arr[0]=arr[i];
+			arr[i]=temp;
+			maxHeap(arr, i, 0);
+		}
+	}
+	
+	public static void maxHeap(int[] arr,int size,int index) {
+		//左子节点
+		int leftNode = 2*index+1;
+		//右子节点
+		int rightNode = 2*index+2;
+		int max = index;
+		//和两个子节点分别对比，找出最大的节点
+		if(leftNode&lt;size&amp;&amp;arr[leftNode]&gt;arr[max]) {
+			max=leftNode;
+		}
+		if(rightNode&lt;size&amp;&amp;arr[rightNode]&gt;arr[max]) {
+			max=rightNode;
+		}
+		//交换位置
+		if(max!=index) {
+			int temp=arr[index];
+			arr[index]=arr[max];
+			arr[max]=temp;
+			//交换位置以后，可能会破坏之前排好的堆，所以，之前的排好的堆需要重新调整
+			maxHeap(arr, size, max);
+		}
+	}
+}
+</code></pre>
+
+<h2 id="归并排序">归并排序</h2>
+
+<h3 id="二路归并排序">二路归并排序</h3>
+
+<p>归并排序是一种概念上最为简单的排序算法，他与快速排序算法一样，归并排序算法也是基于分治法。归并排序将待排序的元素序列分为两个长度相等的子序列，为每个子序列排序，然后再将他们合并为一个序列。合并两个子序列的过程被称为二路归并(合并)</p>
+
+<p>算法分析:</p>
+
+<ul>
+<li><p>time-complexity: 总共需要进行log2n趟排序,每次排序执行n次基本操作,整个二路归并排序执行次数为nlog2n，时间复杂度为O(nlog2n)</p>
+
+<ul>
+<li>space-complexity: 整个二路归并排序需要转存整个序列temp[len]，因此空间复杂度为O(1)
+算法稳定.</li>
+</ul></li>
+</ul>
+
+<h4 id="c-实现-5">C++实现</h4>
+
+<pre><code class="language-c++">//将两个非降序序列low--mid,mid+1--high合并为一个新的非降序序列
+void Merge(int a[],int low,int mid,int high)
+{
+    int len = high-low+1;//长度 
+    int *temp = new int[len];//新结果数组 
+    int i = low,j = mid+1;    //i，j分别为两个子序列的游标
+    int k = 0;     //为新合并序列的游标
+    while(i&lt;=mid &amp;&amp; j&lt;=high){
+        if(a[i]&lt;=a[j]){
+            temp[k] = a[i];
+            k++;
+            i++;
+        }else{
+            temp[k] = a[j];
+            k++;
+            j++;
+        }
+    }
+    while(i&lt;=mid){    //若第一个子序列有剩余，则直接接到尾部
+        temp[k] = a[i];
+        k++;
+        i++;
+    }
+    while(j&lt;=high){    //若第二个子序列有剩余，则直接接到尾部
+        temp[k] = a[j];
+        k++;
+        j++;
+    }
+    //copy到a[]
+    for(k=0;k&lt;len;k++){
+		a[low+k] = temp[k];
+	} 
+	delete []temp;
+}
+
+//low high为待排序列左右边界
+void MergeSort(int a[],int low,int high)
+{
+    if(low&lt;high){
+        int mid = (low+high)/2;//从中间划分为两个子序列 
+        MergeSort(a,low,mid);//对左边的子序列左递归归并排序 
+        MergeSort(a,mid+1,high);//对右边的子序列左递归归并排序
+        Merge(a,low,mid,high); //合并
+    }
+}
+void f10(){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+	MergeSort(nums,0,n-1);//[0,n-1]的元素进行排序 
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+} 
+</code></pre>
+
+<h4 id="java实现-6">Java实现</h4>
+
+<pre><code class="language-java">
+/*归并排序*/
+public class MergeSort {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] {1,3,5,2,4,6,8,10};
+		System.out.println(Arrays.toString(arr));
+		mergeSort(arr, 0, arr.length-1);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	//归并排序
+	public static void mergeSort(int[] arr,int low,int high) {
+		int middle=(high+low)/2;
+		if(low&lt;high) {
+			//处理左边
+			mergeSort(arr, low, middle);
+			//处理右边
+			mergeSort(arr, middle+1, high);
+			//归并
+			merge(arr,low,middle,high);
+		}
+	}
+	
+	public static void merge(int[] arr,int low,int middle, int high) {
+		//用于存储归并后的临时数组
+		int[] temp = new int[high-low+1];
+		//记录第一个数组中需要遍历的下标
+		int i=low;
+		//记录第二个数组中需要遍历的下标
+		int j=middle+1;
+		//用于记录在临时数组中存放的下标
+		int index=0;
+		//遍历两个数组取出小的数字，放入临时数组中
+		while(i&lt;=middle&amp;&amp;j&lt;=high) {
+			//第一个数组的数据更小
+			if(arr[i]&lt;=arr[j]) {
+				//把小的数据放入临时数组中
+				temp[index]=arr[i];
+				//让下标向后移一位；
+				i++;
+			}else {
+				temp[index]=arr[j];
+				j++;
+			}
+			index++;
+		}
+		//处理多余的数据
+		while(j&lt;=high) {
+			temp[index]=arr[j];
+			j++;
+			index++;
+		}
+		while(i&lt;=middle) {
+			temp[index]=arr[i];
+			i++;
+			index++;
+		}
+		//把临时数组中的数据重新存入原数组
+		for(int k=0;k&lt;temp.length;k++) {
+			arr[k+low]=temp[k];
+		}
+	}
+
+}
+</code></pre>
+
+<h2 id="基数排序">基数排序</h2>
+
+<h3 id="msd">MSD</h3>
+
+<h4 id="c-实现-6">C++实现</h4>
+
+<pre><code class="language-java">/**********************************MSD基数排序********************************/
+/**
+比如说都是三位数（不足补零78--&gt;078）先按照百位进行排序再按十位进行排序，最后按照个位进行排序
+0-9视为一个个桶 
+*/
+
+#define d 3 //排序码位数(59--&gt;059,)
+#define radix 10 //基数（桶数）；十进制整数 0-9 
+//从整数位x中提取第k位数字，最高位算1，次高位算2···最低位算k 
+int getDigit(int x,int k){
+    if(k&lt;1||k&gt;d){//整数位不能超过d （排数数字不能大于d位） 
+    	return -1;
+	}
+    for(int i =1;i&lt;=d-k;i++){
+    	x = x/10;
+	} 
+    return x%10;//提取x的第k位数字 
+}
+/* MSD桶排序算法是从高位到低位对序列进行分配，实现排序。k：第几位，n是待排序的元素的个书，
+因为是递归排序，left和right是待排序元素子序列的首尾位置 
+count[]辅助数组，用count[k]记录当处理第i各元素时各个元素的第i位取值为k的有多少个。k是属于基数radix的范围
+0 1 2 3 4 5 6 7 8 9 i 
+1 1 0 2 4 1 3 0 1 0 k
+i位的数字有k个
+auxArray辅助数组用来存放按桶分配的结果，根据count[]预先算定各桶元素的位置（在posit中），
+每一趟向各桶分配结束后，元素都会被复制回原表中
+*/
+void radixSortMSD(int A[],int left, int right, int k){
+    if(left&gt;=right||k&gt;d){
+    	return ;
+	}
+	int i,j,v,p1,p2,count[radix],posit[radix];
+	int *auxArray=(int*)malloc((right-left+1)*sizeof(int));//暂存数组，分配木桶 
+	for(j=0;j&lt;radix;j++){//数组初始化 
+		count[j]=0;
+	}
+	for(i=left;i&lt;=right;i++){
+		v = getDigit(A[i],k);
+		count[v]++;//统计各桶元素个数		
+	}
+	//posit中定义的是待排序元素排序存放在 auxArray中的位置 
+	posit[0]=0;//第一个0的位置一定是0，第一个1的位置应该是0的数量(count[0]加上第一个0的位置(posit[0])，第一个2的位置应该是1的数量(count[1])加上第一个1的位置 (posit[1])
+	/*	安排各桶元素位置 ，元素按位值分配到各桶 末位置 
+		知道了每个元素第i位的数字的个数，就可以分配该元素的位置 （count[0]=1,count[1]=3;count[2]=2）
+		元素存放的位置应该是0      1 2 3   	4 5 6 
+						  0        1        2
+		posit中的值指向了该位数字为1 的数字应当存放位置的起始位置，第一个1存放在 auxArray[1],第二个1存放在auxArray[2],第二个2应当存放在auxArray[5] 
+	*/
+	//定义每个数字存放的起始位置 
+	for(j=1;j&lt;radix;j++){
+		posit[j]=count[j-1]+posit[j-1];
+	}
+	for(i=left;i&lt;=right;i++){
+		v = getDigit(A[i],k);//取元素A[i]第k位的值 
+		auxArray[posit[v]++]=A[i];//按预先计算位置存放 ,posit[v]++（先使用后加一）并且将位置后移 
+		
+	}
+	for(i=left,j=0;i&lt;=right;i++,j++){
+		
+		A[i]=auxArray[j];	//从辅助数组写入原数组	
+	}
+	free(auxArray);
+	p1=left;
+	for(j=0;j&lt;radix;j++){//按桶递归对k-1位处理 
+		p2=p1+count[j]-1;//取子桶的首末位置 
+		radixSortMSD(A,p1,p2,k+1);//对子桶内元素进行排序 
+		p1=p2+1;// 	
+	}
+}
+void f11(){
+	int nums[201],n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i =0;i&lt;n;i++){
+		scanf(&quot;%d&quot;,&amp;nums[i]);		
+	}
+	//有局限性第三个参数指明了能排序的数字的最大值的位数-1，2：从百位进行排序，1：从十位进行排序，（不会排序比它大的数） 
+	radixSortMSD(nums, 0, n-1,2);	
+	for(int i=0;i&lt;n;i++){
+		printf(&quot;%d &quot;,nums[i]);
+	}	
+} 
+</code></pre>
+
+<h3 id="lsd">LSD</h3>
+
+<h4 id="c-实现-7">C++实现</h4>
+
+<p>待实现</p>
+
+<pre><code class="language-c++">/*
+*求数据的最大位数,决定排序次数
+*/
+int maxbit(int data[], int n) 
+{
+    int d = 1; //保存最大的位数
+    int p = 10;
+    for(int i = 0; i &lt; n; ++i)
+    {
+        while(data[i] &gt;= p)
+        {
+            p *= 10;
+            ++d;
+        }
+    }
+    return d;
+}
+void radixsort(int data[], int n) //基数排序
+{
+    int d = maxbit(data, n);
+    int tmp[n];
+    int count[10]; //计数器
+    int i, j, k;
+    int radix = 1;
+    for(i = 1; i &lt;= d; i++) //进行d次排序
+    {
+        for(j = 0; j &lt; 10; j++)
+            count[j] = 0; //每次分配前清空计数器
+        for(j = 0; j &lt; n; j++)
+        {
+            k = (data[j] / radix) % 10; //统计每个桶中的记录数
+            count[k]++;
+        }
+        for(j = 1; j &lt; 10; j++)
+            count[j] = count[j - 1] + count[j]; //将tmp中的位置依次分配给每个桶
+        for(j = n - 1; j &gt;= 0; j--) //将所有桶中记录依次收集到tmp中
+        {
+            k = (data[j] / radix) % 10;
+            tmp[count[k] - 1] = data[j];
+            count[k]--;
+        }
+        for(j = 0; j &lt; n; j++) //将临时数组的内容复制到data中
+            data[j] = tmp[j];
+        radix = radix * 10;
+    }
+</code></pre>
+
+<h3 id="基数排序java实现">基数排序Java实现</h3>
+
+<pre><code class="language-java">
+public class RadixSort {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] {23,6,189,45,9,287,56,1,798,34,65,652,5};
+		radixSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	public static void  radixSort(int[] arr) {
+		//存最数组中最大的数字
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i&lt;arr.length;i++) {
+			if(arr[i]&gt;max) {
+				max=arr[i];
+			}
+		}
+		//计算最大数字是几位数
+		int maxLength = (max+&quot;&quot;).length();
+		//用于临时存储数据的数组
+		int[][] temp = new int[10][arr.length];
+		//用于记录在temp中相应的数组中存放的数字的数量
+		int[] counts = new int[10];
+		//根据最大长度的数决定比较的次数
+		for(int i=0,n=1;i&lt;maxLength;i++,n*=10) {
+			//把每一个数字分别计算余数
+			for(int j=0;j&lt;arr.length;j++) {
+				//计算余数
+				int ys = arr[j]/n%10;
+				//把当前遍历的数据放入指定的数组中
+				temp[ys][counts[ys]] = arr[j];
+				//记录数量
+				counts[ys]++;
+			}
+			//记录取的元素需要放的位置
+			int index=0;
+			//把数字取出来
+			for(int k=0;k&lt;counts.length;k++) {
+				//记录数量的数组中当前余数记录的数量不为0
+				if(counts[k]!=0) {
+					//循环取出元素
+					for(int l=0;l&lt;counts[k];l++) {
+						//取出元素
+						arr[index] = temp[k][l];
+						//记录下一个位置
+						index++;
+					}
+					//把数量置为0
+					counts[k]=0;
+				}
+			}
+		}
+	}
+	
+}
+</code></pre>
+
+<h4 id="队列实现">队列实现</h4>
+
+<pre><code class="language-java">public class RadixQueueSort {
+
+   public static void main(String[] args) {
+      int[] arr = new int[] {23,6,189,45,9,287,56,1,798,34,65,652,5};
+      radixSort(arr);
+      System.out.println(Arrays.toString(arr));
+   }
+   
+   public static void  radixSort(int[] arr) {
+      //存最数组中最大的数字
+      int max=Integer.MIN_VALUE;
+      for(int i=0;i&lt;arr.length;i++) {
+         if(arr[i]&gt;max) {
+            max=arr[i];
+         }
+      }
+      //计算最大数字是几位数
+      int maxLength = (max+&quot;&quot;).length();
+      //用于临时存储数据的队列的数组
+      MyQueue[] temp = new MyQueue[10];
+      //为队列数组赋值
+      for(int i=0;i&lt;temp.length;i++) {
+         temp[i]=new MyQueue();
+      }
+      //根据最大长度的数决定比较的次数
+      for(int i=0,n=1;i&lt;maxLength;i++,n*=10) {
+         //把每一个数字分别计算余数
+         for(int j=0;j&lt;arr.length;j++) {
+            //计算余数
+            int ys = arr[j]/n%10;
+            //把当前遍历的数据放入指定的队列中
+            temp[ys].add(arr[j]);
+         }
+         //记录取的元素需要放的位置
+         int index=0;
+         //把所有队列中的数字取出来
+         for(int k=0;k&lt;temp.length;k++) {
+            //循环取出元素
+            while(!temp[k].isEmpty()) {
+               //取出元素
+               arr[index] = temp[k].poll();
+               //记录下一个位置
+               index++;
+            }
+         }
+      }
+   }  
+}
+</code></pre>
+
+<h1 id="树">树</h1>
+
+<h2 id="二叉树">二叉树</h2>
+
+<h3 id="二叉树的链式存储">二叉树的链式存储</h3>
+
+<pre><code class="language-java">package basic.b05tree;
+
+/*链式二叉树的结点*/
+public class Node {
+	//节点的权
+	int value;
+	//左儿子
+	Node leftNode;
+	//右儿子
+	Node rightNode;
+	
+	public Node(int value) {
+		this.value=value;
+	}
+	
+	//设置左儿子
+	public void setLeftNode(Node leftNode) {
+		this.leftNode = leftNode;
+	}
+	//设置右儿子
+	public void setRightNode(Node rightNode) {
+		this.rightNode = rightNode;
+	}
+	
+	//前序遍历
+	public void frontShow() {
+		//先遍历当前节点的内容
+		System.out.println(value);
+		//左节点
+		if(leftNode!=null) {
+			leftNode.frontShow();
+		}
+		//右节点
+		if(rightNode!=null) {
+			rightNode.frontShow();
+		}
+	}
+
+	//中序遍历
+	public void midShow() {
+		//左子节点
+		if(leftNode!=null) {
+			leftNode.midShow();
+		}
+		//当前节点
+		System.out.println(value);
+		//右子节点
+		if(rightNode!=null) {
+			rightNode.midShow();
+		}
+	}
+
+	//后序遍历
+	public void afterShow() {
+		//左子节点
+		if(leftNode!=null) {
+			leftNode.afterShow();
+		}
+		//右子节点
+		if(rightNode!=null) {
+			rightNode.afterShow();
+		}
+		//当前节点
+		System.out.println(value);
+	}
+
+	//前序查找
+	public Node frontSearch(int i) {
+		Node target=null;
+		//对比当前节点的值
+		if(this.value==i) {
+			return this;
+		//当前节点的值不是要查找的节点
+		}else {
+			//查找左儿子
+			if(leftNode!=null) {
+				//有可能可以查到，也可以查不到，查不到的话，target还是一个null
+				target = leftNode.frontSearch(i);
+			}
+			//如果不为空，说明在左儿子中已经找到
+			if(target!=null) {
+				return target;
+			}
+			//查找右儿子
+			if(rightNode!=null) {
+				target=rightNode.frontSearch(i);
+			}
+		}
+		return target;
+	}
+	
+	//删除一个子树
+	public void delete(int i) {
+		Node parent = this;
+		//判断左儿子
+		if(parent.leftNode!=null&amp;&amp;parent.leftNode.value==i) {
+			parent.leftNode=null;
+			return;
+		}
+		//判断右儿子
+		if(parent.rightNode!=null&amp;&amp;parent.rightNode.value==i) {
+			parent.rightNode=null;
+			return;
+		}
+		
+		//递归检查并删除左儿子
+		parent=leftNode;
+		if(parent!=null) {
+			parent.delete(i);
+		}
+		
+		//递归检查并删除右儿子
+		parent=rightNode;
+		if(parent!=null) {
+			parent.delete(i);
+		}
+	}
+
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.b05tree;
+
+/*链式二叉树*/
+public class BinaryTree {
+
+	Node root;
+	
+	//设置根节点
+	public void setRoot(Node root) {
+		this.root = root;
+	}
+	
+	//获取根节点
+	public Node getRoot() {
+		return root;
+	}
+
+	public void frontShow() {
+		if(root!=null) {
+			root.frontShow();
+		}
+	}
+
+	public void midShow() {
+		if(root!=null) {
+			root.midShow();
+		}
+	}
+
+	public void afterShow() {
+		if(root!=null) {
+			root.afterShow();
+		}
+	}
+
+	public Node frontSearch(int i) {
+		return root.frontSearch(i);
+	}
+
+	public void delete(int i) {
+		if(root.value==i) {
+			root=null;
+		}else {
+			root.delete(i);
+		}
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.b05tree;
+
+/*链式存储的二叉树*/
+public class TestBinaryTree {
+
+	public static void main(String[] args) {
+		//创建一颗树
+		BinaryTree binTree = new BinaryTree();
+		//创建一个根节点
+		Node root = new Node(1);
+		//把根节点赋给树
+		binTree.setRoot(root);
+		//创建一个左节点
+		Node rootL = new Node(2);
+		//把新创建的节点设置为根节点的子节点
+		root.setLeftNode(rootL);
+		//创建一个右节点
+		Node rootR = new Node(3);
+		//把新创建的节点设置为根节点的子节点
+		root.setRightNode(rootR);
+		//为第二层的左节点创建两个子节点
+		rootL.setLeftNode(new Node(4));
+		rootL.setRightNode(new Node(5));
+		//为第二层的右节点创建两个子节点
+		rootR.setLeftNode(new Node(6));
+		rootR.setRightNode(new Node(7));
+		//前序遍历树
+		binTree.frontShow();
+		System.out.println(&quot;===============&quot;);
+		//中序遍历
+		binTree.midShow();
+		System.out.println(&quot;===============&quot;);
+		//后序遍历
+		binTree.afterShow();
+		System.out.println(&quot;===============&quot;);
+		//前序查找
+		Node result = binTree.frontSearch(5);
+		System.out.println(result);
+		
+		System.out.println(&quot;===============&quot;);
+		//删除一个子树
+		binTree.delete(4);
+		binTree.frontShow();
+	}
+}
+</code></pre>
+
+<h3 id="二叉树的顺序存储">二叉树的顺序存储</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200526222739868.png" alt="image-20200526222739868" /></p>
+
+<pre><code class="language-java">package basic.b06binarytree;
+
+public class ArrayBinaryTree {
+
+	int[] data;
+	
+	public ArrayBinaryTree(int[] data) {
+		this.data=data;
+	}
+	
+	public void frontShow() {
+		frontShow(0);
+	}
+	
+	//前序遍历
+	public void frontShow(int index) {
+		if(data==null||data.length==0) {
+			return;
+		}
+		//先遍历当前节点的内容
+		System.out.println(data[index]);
+		//2*index+1:处理左子树
+		if(2*index+1&lt;data.length) {
+			frontShow(2*index+1);
+		}
+		//2*index+2:处理右子树
+		if(2*index+2&lt;data.length) {
+			frontShow(2*index+2);
+		}
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.b06binarytree;
+
+/*顺序存储的二叉树（完全二叉树）*/
+public class TestArrayBinaryTree {
+
+	public static void main(String[] args) {
+		int[] data = new int[] {1,2,3,4,5,6,7};
+		ArrayBinaryTree tree = new ArrayBinaryTree(data);
+		//前序遍历
+		tree.frontShow();
+	}
+}
+</code></pre>
+
+<h2 id="线索二叉树">线索二叉树</h2>
+
+<h3 id="中序线索二叉树">中序线索二叉树</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200526223931975.png" alt="image-20200526223931975" /></p>
+
+<p>线索化二叉树时，一个节点的前一个节点，叫前驱节点</p>
+
+<p>线索化二叉树时，一个节点的后一个节点，叫后继节点</p>
+
+<pre><code class="language-java">package basic.demo7;
+
+public class ThreadedNode {
+	//节点的权
+	int value;
+	//左儿子
+	ThreadedNode leftNode;
+	//右儿子
+	ThreadedNode rightNode;
+	//标识指针类型
+	int leftType;
+	int rightType;
+	
+
+	public ThreadedNode(int value) {
+		this.value=value;
+	}
+	
+	//设置左儿子
+	public void setLeftNode(ThreadedNode leftNode) {
+		this.leftNode = leftNode;
+	}
+	//设置右儿子
+	public void setRightNode(ThreadedNode rightNode) {
+		this.rightNode = rightNode;
+	}
+	
+	//前序遍历
+	public void frontShow() {
+		//先遍历当前节点的内容
+		System.out.println(value);
+		//左节点
+		if(leftNode!=null) {
+			leftNode.frontShow();
+		}
+		//右节点
+		if(rightNode!=null) {
+			rightNode.frontShow();
+		}
+	}
+
+	//中序遍历
+	public void midShow() {
+		//左子节点
+		if(leftNode!=null) {
+			leftNode.midShow();
+		}
+		//当前节点
+		System.out.println(value);
+		//右子节点
+		if(rightNode!=null) {
+			rightNode.midShow();
+		}
+	}
+
+	//后序遍历
+	public void afterShow() {
+		//左子节点
+		if(leftNode!=null) {
+			leftNode.afterShow();
+		}
+		//右子节点
+		if(rightNode!=null) {
+			rightNode.afterShow();
+		}
+		//当前节点
+		System.out.println(value);
+	}
+
+	//前序查找
+	public ThreadedNode frontSearch(int i) {
+		ThreadedNode target=null;
+		//对比当前节点的值
+		if(this.value==i) {
+			return this;
+		//当前节点的值不是要查找的节点
+		}else {
+			//查找左儿子
+			if(leftNode!=null) {
+				//有可能可以查到，也可以查不到，查不到的话，target还是一个null
+				target = leftNode.frontSearch(i);
+			}
+			//如果不为空，说明在左儿子中已经找到
+			if(target!=null) {
+				return target;
+			}
+			//查找右儿子
+			if(rightNode!=null) {
+				target=rightNode.frontSearch(i);
+			}
+		}
+		return target;
+	}
+	
+	//删除一个子树
+	public void delete(int i) {
+		ThreadedNode parent = this;
+		//判断左儿子
+		if(parent.leftNode!=null&amp;&amp;parent.leftNode.value==i) {
+			parent.leftNode=null;
+			return;
+		}
+		//判断右儿子
+		if(parent.rightNode!=null&amp;&amp;parent.rightNode.value==i) {
+			parent.rightNode=null;
+			return;
+		}
+		
+		//递归检查并删除左儿子
+		parent=leftNode;
+		if(parent!=null) {
+			parent.delete(i);
+		}
+		
+		//递归检查并删除右儿子
+		parent=rightNode;
+		if(parent!=null) {
+			parent.delete(i);
+		}
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">package basic.demo7;
+/*线索二叉树*/
+public class ThreadedBinaryTree {
+
+	ThreadedNode root;
+	//用于临时存储前驱节点
+	ThreadedNode pre=null;
+	
+	//遍历线索二叉树
+	public void threadIterate() {
+		//用于临时存储当前遍历节点
+		ThreadedNode node = root;
+		while(node!=null) {
+			//循环找到最开始的节点
+			while(node.leftType==0) {
+				node=node.leftNode;
+			}
+			//打印当前节点的值
+			System.out.println(node.value);
+			//如果当前节点的右指针指向的是后继节点，可能后继节点还有后继节点、
+			while(node.rightType==1) {
+				node=node.rightNode;
+				System.out.println(node.value);
+			}
+			//替换遍历的节点
+			node=node.rightNode;
+		}
+	}
+	
+	//设置根节点
+	public void setRoot(ThreadedNode root) {
+		this.root = root;
+	}
+	
+	//中序线索化二叉树
+	public void threadNodes() {
+		threadNodes(root);
+	}
+	
+	public void threadNodes(ThreadedNode node) {
+		//当前节点如果为null，直接返回
+		if(node==null) {
+			return;
+		}
+		//处理左子树
+		threadNodes(node.leftNode);
+		//处理前驱节点
+		if(node.leftNode==null){
+			//让当前节点的左指针指向前驱节点
+			node.leftNode=pre;
+			//改变当前节点左指针的类型
+			node.leftType=1;
+		}
+		//处理前驱的右指针，如果前驱节点的右指针是null(没有指下右子树)
+		if(pre!=null&amp;&amp;pre.rightNode==null) {
+			//让前驱节点的右指针指向当前节点
+			pre.rightNode=node;
+			//改变前驱节点的右指针类型
+			pre.rightType=1;
+		}
+		//每处理一个节点，当前节点是下一个节点的前驱节点
+		pre=node;
+		//处理右子树
+		threadNodes(node.rightNode);
+	}
+	
+	//获取根节点
+	public ThreadedNode getRoot() {
+		return root;
+	}
+
+	//前序遍历
+	public void frontShow() {
+		if(root!=null) {
+			root.frontShow();
+		}
+	}
+
+	//中序遍历
+	public void midShow() {
+		if(root!=null) {
+			root.midShow();
+		}
+	}
+
+	//后序遍历
+	public void afterShow() {
+		if(root!=null) {
+			root.afterShow();
+		}
+	}
+
+	//前序查找
+	public ThreadedNode frontSearch(int i) {
+		return root.frontSearch(i);
+	}
+
+	//删除子树
+	public void delete(int i) {
+		if(root.value==i) {
+			root=null;
+		}else {
+			root.delete(i);
+		}
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo7;
+
+public class TestThreadedBinaryTree {
+
+	public static void main(String[] args) {
+		//创建一颗树
+		ThreadedBinaryTree binTree = new ThreadedBinaryTree();
+		//创建一个根节点
+		ThreadedNode root = new ThreadedNode(1);
+		//把根节点赋给树
+		binTree.setRoot(root);
+		//创建一个左节点
+		ThreadedNode rootL = new ThreadedNode(2);
+		//把新创建的节点设置为根节点的子节点
+		root.setLeftNode(rootL);
+		//创建一个右节点
+		ThreadedNode rootR = new ThreadedNode(3);
+		//把新创建的节点设置为根节点的子节点
+		root.setRightNode(rootR);
+		//为第二层的左节点创建两个子节点
+		rootL.setLeftNode(new ThreadedNode(4));
+		ThreadedNode fiveNode = new ThreadedNode(5);
+		rootL.setRightNode(fiveNode);
+		//为第二层的右节点创建两个子节点
+		rootR.setLeftNode(new ThreadedNode(6));
+		rootR.setRightNode(new ThreadedNode(7));
+		//中序遍历树
+		binTree.midShow();
+		System.out.println(&quot;===============&quot;);
+		//中前线索化二叉树
+		binTree.threadNodes();
+		binTree.threadIterate();
+	}
+
+}
+</code></pre>
+
+<p>取出根节点权值最小的两颗二叉树</p>
+
+<p>组成一颗新的二叉树，前面取出来的两颗二叉树是新二叉的两个子树</p>
+
+<p>根节点的权值是前两取出来的两颗二叉树的根节点的权值之和</p>
+
+<h2 id="创建赫夫曼树">创建赫夫曼树</h2>
+
+<pre><code class="language-java">package basic.demo9;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class TestHuffmanTree {
+	public static void main(String[] args) {
+		int[] arr = {3,7,8,29,5,11,23,14};
+		Node node = createHuffmanTree(arr);//获得一棵树的根结点就相当于获取了整棵树
+		System.out.println(node);
+	}
+	
+	//创建赫夫曼树
+	public static Node createHuffmanTree(int[] arr) {
+		//先使用数组中所有的元素创建若干个二叉树，（只有一个节点）
+		List&lt;Node&gt; nodes = new ArrayList&lt;&gt;();
+		for(int value:arr) {
+			nodes.add(new Node(value));
+		}
+		//循环处理，
+		while(nodes.size()&gt;1) {
+			//排序
+			Collections.sort(nodes);
+			//取出来权值最小的两个二叉树
+			//取出最权值最小的二叉树
+			Node left = nodes.get(nodes.size()-1);
+			//取出最权值次小的二叉树
+			Node right = nodes.get(nodes.size()-2);
+			//创建一颗新的二叉树
+			Node parent = new Node(left.value+right.value);
+			//把取出来的两个二叉树移除
+			nodes.remove(left);
+			nodes.remove(right);
+			//放入原来的二叉树集合中
+			nodes.add(parent);
+		}
+		return nodes.get(0);
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo9;
+
+public class Node implements Comparable&lt;Node&gt; {
+	int value;
+	Node left;
+	Node right;
+
+	public Node(int value) {
+		this.value = value;
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		return -(this.value - o.value);
+	}
+
+	@Override
+	public String toString() {
+		return &quot;Node [value=&quot; + value + &quot;]&quot;;
+	}
+}
+
+</code></pre>
+
+<h2 id="赫夫曼编码代码实现">赫夫曼编码代码实现</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164731233.png" alt="image-20200527164731233" /></p>
+
+<ol>
+<li>统计字符数并排序</li>
+<li>创建赫夫晏树</li>
+<li>创建赫夫旻编码表</li>
+
+<li><p>编码</p>
+
+<pre><code class="language-java">public class Node implements Comparable&lt;Node&gt; {
+	Byte data;
+	int weight;
+	Node left;
+	Node right;
+	public Node(Byte data,int weight) {
+		this.data=data;
+		this.weight=weight;
+	}
+	
+	@Override
+	public String toString() {
+		return &quot;Node [data=&quot; + data + &quot;, weight=&quot; + weight + &quot;]&quot;;
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		return o.weight-this.weight;
+	}
+}
+</code></pre>
+
+<pre><code class="language-java">package basic.demo10;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+public class TestHuffmanCode {
+
+	public static void main(String[] args) {
+//		String msg=&quot;can you can a can as a can canner can a can.&quot;;
+//		byte[] bytes = msg.getBytes();
+//		//进行赫夫曼编码压缩
+//		byte[] b = huffmanZip(bytes);
+//		//使用赫夫曼编码进行解码
+//		byte[] newBytes = decode(huffCodes,b);
+//		System.out.println(new String(newBytes));
+		String src=&quot;1.bmp&quot;;
+		String dst=&quot;2.zip&quot;;
+//		try {
+//			zipFile(src, dst);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		try {
+			unZip(&quot;2.zip&quot;, &quot;3.bmp&quot;);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 文件的解压
+	 * @param src
+	 * @param dst
+	 * @throws Exception 
+	 */
+	public static void unZip(String src,String dst) throws Exception {
+		//创建一个输入流
+		InputStream is  = new FileInputStream(&quot;2.zip&quot;);
+		ObjectInputStream ois = new ObjectInputStream(is);
+		//读取byte数组
+		byte[] b = (byte[]) ois.readObject();
+		//读取赫夫曼编码表
+		Map&lt;Byte, String&gt; codes = (Map&lt;Byte, String&gt;) ois.readObject();
+		ois.close();
+		is.close();
+		//解码
+		byte[] bytes = decode(codes, b);
+		//创建一个输出流
+		OutputStream os  = new FileOutputStream(dst);
+		//写出数据
+		os.write(bytes);
+		os.close();
+	}
+	
+	/**
+	 * 压缩文件
+	 * @param src
+	 * @param dst
+	 * @throws IOException
+	 */
+	public static void zipFile(String src,String dst) throws IOException {
+		//创建一个输入流
+		InputStream is = new FileInputStream(src);
+		//创建一个和输入流指向的文件大小一样的byte数组
+		byte[] b = new byte[is.available()];
+		//读取文件内容
+		is.read(b);
+		is.close();
+		//使用赫夫曼编码进行编码
+		byte[] byteZip = huffmanZip(b);
+		//输出流
+		OutputStream os = new FileOutputStream(dst);
+		ObjectOutputStream oos = new ObjectOutputStream(os);
+		//把压缩后的byte数组写入文件
+		oos.writeObject(byteZip);
+		//把赫夫曼编码表写入文件
+		oos.writeObject(huffCodes);
+		oos.close();
+		os.close();
+	}
+	
+	/**
+	 * 使用指定的赫夫曼编码表进行解码
+	 * @param huffCodes2
+	 * @param b
+	 * @return
+	 */
+	private static byte[] decode(Map&lt;Byte, String&gt; huffCodes, byte[] bytes) {
+		StringBuilder sb = new StringBuilder();
+		//把byte数组转为一个二进制的字符串
+		for(int i=0;i&lt;bytes.length;i++) {
+			byte b = bytes[i];
+			//是否是最后一个。
+			boolean flag = (i==bytes.length-1);
+			sb.append(byteToBitStr(!flag,b));
+		}
+		//把字符串按照指定的赫夫曼编码进行解码
+		//把赫夫曼编码的键值对进行调换
+		Map&lt;String, Byte&gt; map = new HashMap&lt;&gt;();
+		for(Entry&lt;Byte, String&gt; entry:huffCodes.entrySet()) {
+			map.put(entry.getValue(), entry.getKey());
+		}
+		//创建一个集合，用于存byte
+		List&lt;Byte&gt; list = new ArrayList&lt;&gt;();
+		//处理字符串
+		for(int i=0;i&lt;sb.length();) {
+			int count=1;
+			boolean flag = true;
+			Byte b=null;
+			//截取出一个byte
+			while(flag) {
+				String key = sb.substring(i, i+count);
+				b = map.get(key);
+				if(b==null) {
+					count++;
+				}else {
+					flag=false;
+				}
+			}
+			list.add(b);
+			i+=count;
+		}
+		//把集合转为数组
+		byte[] b = new byte[list.size()];
+		for(int i=0;i&lt;b.length;i++) {
+			b[i]=list.get(i);
+		}
+		return b;
+	}
+	
+	private static String byteToBitStr(boolean flag,byte b) {
+		int temp=b;
+		if(flag) {
+			temp|=256;
+		}
+		String str = Integer.toBinaryString(temp);
+		if(flag) {
+			return str.substring(str.length()-8);
+		}else {
+			return str;
+		}
+	}
+
+	/**
+	 * 进行赫夫曼编码压缩的方法
+	 * @param bytes
+	 * @return
+	 */
+	private static byte[] huffmanZip(byte[] bytes) {
+		//先统计每一个byte出现的次数，并放入一个集合中
+		List&lt;Node&gt; nodes = getNodes(bytes);
+		//创建一颗赫夫曼树
+		Node tree = createHuffmanTree(nodes);
+		//创建一个赫夫曼编码表
+		Map&lt;Byte, String&gt; huffCodes = getCodes(tree);
+		//编码
+		byte[] b = zip(bytes,huffCodes);
+		return b;
+	}
+	
+	/**
+	 * 进行赫夫曼编码
+	 * @param bytes
+	 * @param huffCodes2
+	 * @return
+	 */
+	private static byte[] zip(byte[] bytes, Map&lt;Byte, String&gt; huffCodes) {
+		StringBuilder sb = new StringBuilder();
+		//把需要压缩的byte数组处理成一个二进制的字符串
+		for(byte b:bytes) {
+			sb.append(huffCodes.get(b));
+		}
+		//定义长度
+		int len;
+		if(sb.length()%8==0) {
+			len=sb.length()/8;
+		}else {
+			len=sb.length()/8+1;
+		}
+		//用于存储压缩后的byte
+		byte[] by = new byte[len];
+		//记录新byte的位置
+		int index = 0;
+		for(int i=0;i&lt;sb.length();i+=8) {
+			String strByte;
+			if(i+8&gt;sb.length()) {
+				strByte = sb.substring(i);
+			}else {
+				strByte = sb.substring(i, i+8);
+			}
+			byte byt = (byte)Integer.parseInt(strByte, 2);
+			by[index]=byt;
+			index++;
+		}
+		return by;
+	}
+
+	//用于临时存储路径
+	static StringBuilder sb = new StringBuilder();
+	//用于存储赫夫曼编码
+	static Map&lt;Byte, String&gt; huffCodes = new HashMap&lt;&gt;();
+	/**
+	 * 根据赫夫曼树获取赫夫曼编码
+	 * @param tree
+	 * @return
+	 */
+	private static Map&lt;Byte, String&gt; getCodes(Node tree) {
+		if(tree==null) {
+			return null;
+		}
+		getCodes(tree.left,&quot;0&quot;,sb);
+		getCodes(tree.right,&quot;1&quot;,sb);
+		return huffCodes;
+	}
+
+	private static void getCodes(Node node, String code, StringBuilder sb) {
+		StringBuilder sb2 = new StringBuilder(sb);
+		sb2.append(code);
+		if(node.data==null) {
+			getCodes(node.left, &quot;0&quot;, sb2);
+			getCodes(node.right, &quot;1&quot;, sb2);
+		}else {
+			huffCodes.put(node.data, sb2.toString());
+		}
+	}
+
+	/**
+	 * 创建赫夫曼树
+	 * @param nodes
+	 * @return
+	 */
+	private static Node createHuffmanTree(List&lt;Node&gt; nodes) {
+		while(nodes.size()&gt;1) {
+			//排序
+			Collections.sort(nodes);
+			//取出两个权值最低的二叉树
+			Node left = nodes.get(nodes.size()-1);
+			Node right = nodes.get(nodes.size()-2);
+			//创建一颗新的二叉树
+			Node parent = new Node(null, left.weight+right.weight);
+			//把之前取出来的两颗二叉树设置为新创建的二叉树的子树
+			parent.left=left;
+			parent.right=right;
+			//把前面取出来的两颗二叉树删除
+			nodes.remove(left);
+			nodes.remove(right);
+			//把新创建的二叉树放入集合中
+			nodes.add(parent);
+		}
+		return nodes.get(0);
+	}
+
+	/**
+	 * 把byte数组转为node集合
+	 * @param bytes
+	 * @return
+	 */
+	private static List&lt;Node&gt; getNodes(byte[] bytes) {
+		List&lt;Node&gt; nodes = new ArrayList&lt;&gt;();
+		//存储每一个byte出现了多少次。
+		Map&lt;Byte, Integer&gt; counts = new HashMap&lt;&gt;();
+		//统计每一个byte出现的次数
+		for(byte b:bytes) {
+			Integer count = counts.get(b);
+			if(count==null) {
+				counts.put(b, 1);
+			}else {
+				counts.put(b, count+1);
+			}
+		}
+		//把每一个键值对转为一个node对象
+		for(Entry&lt;Byte, Integer&gt; entry:counts.entrySet()) {
+			nodes.add(new Node(entry.getKey(), entry.getValue()));
+		}
+		return nodes;
+	}
+
+}
+</code></pre></li>
+</ol>
+
+<h2 id="二叉排序树">二叉排序树</h2>
+
+<p>线性结构</p>
+
+<p>顺序存储，不排序:查找困难
+顺序存储，排序:删除插入困难</p>
+
+<p>链式存储:无论是否排序  查找困难</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164646134.png" alt="image-20200527164646134" /></p>
+
+<p>什么是二叉排序树,也叫二叉查找树，二叉搜索树: BST对于二叉树中的任何-个非叶子节点，要求左子节点比当前节点值小，右子节点比当前节点值大。（空树也是一棵二叉排序树）</p>
+
+<pre><code class="language-java">package basic.demo11;
+
+public class Node {
+	int value;
+	Node left;
+	Node right;
+	
+	public Node(int value) {
+		this.value=value;
+	}
+
+	/**
+	 * 向子树中添加节点
+	 * @param node
+	 */
+	public void add(Node node) {
+		if(node==null) {
+			return;
+		}
+		//判断传入的节点的值比当前子树的根节点的值大还是小
+		//添加的节点比当前节点的值更小
+		if(node.value&lt;this.value) {
+			//如果左节点为空
+			if(this.left==null) {
+				this.left=node;
+			//如果不为空
+			}else {
+				this.left.add(node);
+			}
+		}else {
+			if(this.right==null) {
+				this.right=node;
+			}else {
+				this.right.add(node);
+			}
+		}
+	}
+
+	/**
+	 * 中序遍历
+	 * @param node
+	 */
+	public void midShow(Node node) {
+		if(node==null) {
+			return;
+		}
+		midShow(node.left);
+		System.out.println(node.value);
+		midShow(node.right);
+	}
+
+	/**
+	 * 查找节点
+	 * @param value2
+	 */
+	public Node search(int value) {
+		if(this.value==value) {
+			return this;
+		}else if(value&lt;this.value) {
+			if(left==null) {
+				return null;
+			}
+			return left.search(value);
+		}else{
+			if(right==null) {
+				return null;
+			}
+			return right.search(value);
+		}
+	}
+
+	/**
+	 * 搜索父节点
+	 * @param value
+	 * @return
+	 */
+	public Node searchParent(int value) {
+		if((this.left!=null&amp;&amp;this.left.value==value)||(this.right!=null&amp;&amp;this.right.value==value)) {
+			return this;
+		}else {
+			if(this.value&gt;value&amp;&amp;this.left!=null) {
+				return this.left.searchParent(value);
+			}else if(this.value&lt;value&amp;&amp;this.right!=null){
+				return this.right.searchParent(value);
+			}
+			return null;
+		}
+	}
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo11;
+
+public class BinarySortTree {
+	Node root;
+	
+	/**
+	 * 向二叉排序树中添加节点
+	 * @param node
+	 */
+	public void add(Node node){
+		//如果是一颗空树
+		if(root==null) {
+			root=node;
+		}else {
+			root.add(node);
+		}
+	}
+	
+	/**
+	 * 中序遍历二叉排序树，从小到大的顺序
+	 */
+	public void midShow() {
+		if(root!=null) {
+			root.midShow(root);
+		}
+	}
+	
+	/**
+	 * 节点的查找
+	 * @param value
+	 * @return
+	 */
+	public Node search(int value) {
+		if(root==null) {
+			return null;
+		}else {
+			return root.search(value);
+		}
+	}
+	
+	/**
+	 * 删除节点
+	 * @param value
+	 */
+	public void delete(int value) {
+		if(root==null) {
+			return;
+		}else {
+			//找到这个节点
+			Node target = search(value);
+			//如果没有这个节点
+			if(target==null) {
+				return;
+			}
+			//找到他的父节点
+			Node parent = searchParent(value);
+			//要删除的节点是叶子节点
+			if(target.left==null&amp;&amp;target.right==null) {
+				//要删除的节点是父节点的左子节点
+				if(parent.left.value==value) {
+					parent.left=null;
+					//要删除的节点是父节点的右子节点
+				}else {
+					parent.right=null;
+				}
+			//要删除的节点有两个子节点的情况
+			}else if(target.left!=null&amp;&amp;target.right!=null) {
+				//删除右子树中值最小的节点，取获取到该节点的值
+				int min = deleteMin(target.right);
+				//替换目标节点中的值
+				target.value=min;
+			//要删除的节点有一个左子节点或右子节点
+			}else {
+				//有左子节点
+				if(target.left!=null) {
+					//要删除的节点是父节点的左子节点
+					if(parent.left.value==value) {
+						parent.left=target.left;
+						//要删除的节点是父节点的右子节点
+					}else {
+						parent.right=target.left;
+					}
+				//有右子节点
+				}else {
+					//要删除的节点是父节点的左子节点
+					if(parent.left.value==value) {
+						parent.left=target.right;
+						//要删除的节点是父节点的右子节点
+					}else {
+						parent.right=target.right;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * 删除一颗树中最小的节点
+	 * @param right
+	 * @return
+	 */
+	private int deleteMin(Node node) {
+		Node target = node;
+		//递归向左找
+		while(target.left!=null) {
+			target=target.left;
+		}
+		//删除最小的这个节点
+		delete(target.value);
+		return target.value;
+	}
+
+	/**
+	 * 搜索父节点
+	 * @param value
+	 * @return
+	 */
+	public Node searchParent(int value) {
+		if(root==null) {
+			return null;
+		}else {
+			return root.searchParent(value);
+		}
+	}
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo11;
+
+public class TestBinarySortTree {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] {7,3,10,12,5,1,9};
+		//创建一颗二叉排序树
+		BinarySortTree bst = new BinarySortTree();
+		//循环添加
+		for(int i:arr) {
+			bst.add(new Node(i));
+		}
+		//查看树中的值
+		bst.midShow();
+		System.out.println(&quot;-----&quot;);
+		//查找
+//		Node node = bst.search(10);
+//		System.out.println(node.value);
+		//
+//		Node node2 = bst.search(20);
+//		System.out.println(node2);
+//		//测试查找父节点
+//		Node p1 = bst.searchParent(12);
+//		System.out.println(p1.value);
+//		System.out.println(&quot;-----&quot;);
+		//删除叶子节点
+//		bst.delete(5);
+//		bst.midShow();
+//		System.out.println(&quot;===&quot;);
+		//删除只有一个子节点的节点
+//		bst.delete(3);
+//		bst.midShow();
+		//删除有两个子节点的节点
+		bst.delete(3);
+		System.out.println(&quot;----&quot;);
+		bst.midShow();
+		
+		
+	}
+
+}
+
+</code></pre>
+
+<p>缺点：数据为1、2、3、4、5、6、7、8、9时结构就很差</p>
+
+<h2 id="avl树">AVL树</h2>
+
+<p>对于任何左子树和右子树——的高度差的绝对值不超过1.</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527150637920.png" alt="image-20200527150637920" /></p>
+
+<h3 id="单旋转">单旋转</h3>
+
+<p>左左：右旋</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527152839684.png" alt="image-20200527152839684" /></p>
+
+<p>右右与左左类似需要左旋</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527153622495.png" alt="image-20200527153622495" /></p>
+
+<h3 id="双旋转">双旋转</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527154917215.png" alt="image-20200527154917215" /></p>
+
+<h3 id="实现">实现</h3>
+
+<pre><code class="language-java">package basic.demo12;
+
+public class Node {
+	int value;
+	Node left;
+	Node right;
+	
+	public Node(int value) {
+		this.value=value;
+	}
+
+	/**
+	 * 返回当前节点的高度
+	 * @return
+	 */
+	public int height() {
+		return Math.max(left==null?0:left.height(), right==null?0:right.height())+1;
+	}
+	
+	/**
+	 * 获取左子树的高度
+	 * @return
+	 */
+	public int leftHeight() {
+		if(left==null) {
+			return 0;
+		}
+		return left.height();
+	}
+	
+	/**
+	 * 获取右子树的高度
+	 * @return
+	 */
+	public int rightHeight() {
+		if(right==null) {
+			return 0;
+		}
+		return right.height();
+	}
+
+	/**
+	 * 向子树中添加节点
+	 * @param node
+	 */
+	public void add(Node node) {
+		if(node==null) {
+			return;
+		}
+		//判断传入的节点的值比当前子树的根节点的值大还是小
+		//添加的节点比当前节点的值更小
+		if(node.value&lt;this.value) {
+			//如果左节点为空
+			if(this.left==null) {
+				this.left=node;
+			//如果不为空
+			}else {
+				this.left.add(node);
+			}
+		}else {
+			if(this.right==null) {
+				this.right=node;
+			}else {
+				this.right.add(node);
+			}
+		}
+		//查询是否平衡
+		//进行右旋转
+		if(leftHeight()-rightHeight()&gt;=2) {
+			//双旋转
+			if(left!=null&amp;&amp;left.leftHeight()&lt;left.rightHeight()) {
+				//先左旋转
+				left.leftRotate();
+				//再右旋转
+				rightRotate();
+			//单旋转
+			}else {
+				rightRotate();
+			}
+		}
+		//左旋转
+		if(leftHeight()-rightHeight()&lt;=-2) {
+			//双旋转
+			if(right!=null&amp;&amp;right.rightHeight()&lt;right.leftHeight()) {
+				right.rightRotate();
+				leftRotate();
+			//单旋转
+			}else {
+				leftRotate();
+			}
+		}
+	}
+	
+	/**
+	 * 左旋转
+	 */
+	private void leftRotate() {
+		Node newLeft = new Node(value);
+		newLeft.left=left;
+		newLeft.right=right.left;
+		value=right.value;
+		right=right.right;
+		left=newLeft;
+	}
+
+	/**
+	 * 右旋转
+	 */
+	private void rightRotate() {
+		//创建一个新的节点，值等于当前节点的值
+		Node newRight = new Node(value);
+		//把新节点的右子树设置了当前节点的右子树
+		newRight.right=right;
+		//把新节点的左子树设置为当前节点的左子树的右子树
+		newRight.left=left.right;
+		//把当前节点的值换为左子节点的值
+		value=left.value;
+		//把当前节点的左子树设置了左子树的左子树
+		left=left.left;
+		//把当前节点的右子树设置为新节点
+		right=newRight;
+	}
+
+	/**
+	 * 中序遍历
+	 * @param node
+	 */
+	public void midShow(Node node) {
+		if(node==null) {
+			return;
+		}
+		midShow(node.left);
+		System.out.println(node.value);
+		midShow(node.right);
+	}
+
+	/**
+	 * 查找节点
+	 * @param value2
+	 */
+	public Node search(int value) {
+		if(this.value==value) {
+			return this;
+		}else if(value&lt;this.value) {
+			if(left==null) {
+				return null;
+			}
+			return left.search(value);
+		}else{
+			if(right==null) {
+				return null;
+			}
+			return right.search(value);
+		}
+	}
+
+	/**
+	 * 搜索父节点
+	 * @param value
+	 * @return
+	 */
+	public Node searchParent(int value) {
+		if((this.left!=null&amp;&amp;this.left.value==value)||(this.right!=null&amp;&amp;this.right.value==value)) {
+			return this;
+		}else {
+			if(this.value&gt;value&amp;&amp;this.left!=null) {
+				return this.left.searchParent(value);
+			}else if(this.value&lt;value&amp;&amp;this.right!=null){
+				return this.right.searchParent(value);
+			}
+			return null;
+		}
+	}
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo12;
+
+public class BinarySortTree {
+	Node root;
+	
+	/**
+	 * 向二叉排序树中添加节点
+	 * @param node
+	 */
+	public void add(Node node){
+		//如果是一颗空树
+		if(root==null) {
+			root=node;
+		}else {
+			root.add(node);
+		}
+	}
+	
+	/**
+	 * 中序遍历二叉排序树，从小到大的顺序
+	 */
+	public void midShow() {
+		if(root!=null) {
+			root.midShow(root);
+		}
+	}
+	
+	/**
+	 * 节点的查找
+	 * @param value
+	 * @return
+	 */
+	public Node search(int value) {
+		if(root==null) {
+			return null;
+		}else {
+			return root.search(value);
+		}
+	}
+	
+	/**
+	 * 删除节点
+	 * @param value
+	 */
+	public void delete(int value) {
+		if(root==null) {
+			return;
+		}else {
+			//找到这个节点
+			Node target = search(value);
+			//如果没有这个节点
+			if(target==null) {
+				return;
+			}
+			//找到他的父节点
+			Node parent = searchParent(value);
+			//要删除的节点是叶子节点
+			if(target.left==null&amp;&amp;target.right==null) {
+				//要删除的节点是父节点的左子节点
+				if(parent.left.value==value) {
+					parent.left=null;
+					//要删除的节点是父节点的右子节点
+				}else {
+					parent.right=null;
+				}
+			//要删除的节点有两个子节点的情况
+			}else if(target.left!=null&amp;&amp;target.right!=null) {
+				//删除右子树中值最小的节点，取获取到该节点的值
+				int min = deleteMin(target.right);
+				//替换目标节点中的值
+				target.value=min;
+			//要删除的节点有一个左子节点或右子节点
+			}else {
+				//有左子节点
+				if(target.left!=null) {
+					//要删除的节点是父节点的左子节点
+					if(parent.left.value==value) {
+						parent.left=target.left;
+						//要删除的节点是父节点的右子节点
+					}else {
+						parent.right=target.left;
+					}
+				//有右子节点
+				}else {
+					//要删除的节点是父节点的左子节点
+					if(parent.left.value==value) {
+						parent.left=target.right;
+						//要删除的节点是父节点的右子节点
+					}else {
+						parent.right=target.right;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * 删除一颗树中最小的节点
+	 * @param right
+	 * @return
+	 */
+	private int deleteMin(Node node) {
+		Node target = node;
+		//递归向左找
+		while(target.left!=null) {
+			target=target.left;
+		}
+		//删除最小的这个节点
+		delete(target.value);
+		return target.value;
+	}
+
+	/**
+	 * 搜索父节点
+	 * @param value
+	 * @return
+	 */
+	public Node searchParent(int value) {
+		if(root==null) {
+			return null;
+		}else {
+			return root.searchParent(value);
+		}
+	}
+}
+
+</code></pre>
+
+<p>测试</p>
+
+<pre><code class="language-java">package basic.demo12;
+
+public class TestBinarySortTree {
+	public static void main(String[] args) {
+//		int[] arr = new int[] {8,9,6,7,5,4};
+		int[] arr = new int[] {8,9,5,4,6,7};
+		//创建一颗二叉排序树
+		BinarySortTree bst = new BinarySortTree();
+		//循环添加
+		for(int i:arr) {
+			bst.add(new Node(i));
+		}
+		//查看高度
+		System.out.println(bst.root.height());
+		//
+		System.out.println(bst.root.value);
+	}
+}
+</code></pre>
+
+<h2 id="计算机数据存储的方式">计算机数据存储的方式</h2>
+
+<p>数据的存储方式</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/wps1.jpg" alt="img" /></p>
+
+<p>内存</p>
+
+<p>​   优点：使用电信号来保存信息的，不存在机器操作，所以访问速度非常快</p>
+
+<p>​   缺点：造价高，断电后数据丢失。一般作为CPU的高速缓存</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/wps2.jpg" alt="img" /></p>
+
+<p>spindle:主轴</p>
+
+<p>surface:盘面</p>
+
+<p>track:磁道</p>
+
+<p>sector:扇区</p>
+
+<p>gap: 间隔</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/wps3.jpg" alt="img" /></p>
+
+<p>arm:传动臂</p>
+
+<p>read/write head:磁头</p>
+
+<p>磁盘：</p>
+
+<p>​   优点：造价低，容量大，断电数据不丢失</p>
+
+<p>​   缺点：由于存储介质的特性，再加上机械运动耗费时间，所以磁盘的速度较慢。</p>
+
+<p>磁盘的预读：</p>
+
+<p>​   由于磁盘的读写速度问题，要尽量减少磁盘I/O操作。所以磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存。这样做的理论依据是计算机科学中著名的局部性原理：</p>
+
+<p>​   当一个数据被用到时，其附近的数据也通常会马上被使用。</p>
+
+<p><strong><em>*预读的长度一般为页（page）的整倍数。*</em></strong></p>
+
+<p>页：</p>
+
+<p>​   页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。</p>
+
+<p>​   文件系统及数据库系统的设计者利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。</p>
+
+<p>二叉树与B树：</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/wps4.png" alt="wps4" /></p>
+
+<p>将树的度M设置为1024，在600亿个元素中最多只需要4次I/O操作就可以读取到想要的元素。</p>
+
+<h2 id="2-3树和2-3-4树">2-3树和2-3-4树</h2>
+
+<p>是一种特殊的B树</p>
+
+<p>B树中所有的叶节点都在同一层
+有两个子节点的节点叫二节点 ：二节点要么有两个子节点， 要么没有子节点
+有三个子节点的节点三节点 ：三节点要么有三个子节点，要么没有子节点</p>
+
+<p>6、10、4、14、5、11、15、3、2、12、1、7、8、8、6</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527163951260.png" alt="image-20200527163951260" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164034627.png" alt="image-20200527164034627" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164046056.png" alt="image-20200527164046056" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164054853.png" alt="image-20200527164054853" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164112724.png" alt="image-20200527164112724" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164120758.png" alt="image-20200527164120758" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164126941.png" alt="image-20200527164126941" /></p>
+
+<h2 id="b树">B树</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527164618863.png" alt="image-20200527164618863" /></p>
+
+<h1 id="哈希表">哈希表</h1>
+
+<p>也叫散列表</p>
+
+<h2 id="散列函数">散列函数</h2>
+
+<h3 id="直接定址法">直接定址法</h3>
+
+<h3 id="数字分析法">数字分析法</h3>
+
+<h3 id="平方取中法">平方取中法</h3>
+
+<h3 id="取余法">取余法</h3>
+
+<h3 id="随机数法">随机数法</h3>
+
+<h1 id="图">图</h1>
+
+<p><img src="/resources/杂七杂八/杂七杂八/Java算法/image-20200527201048720.png" alt="image-20200527201048720" /></p>
+
+<pre><code class="language-java">package basic.demo14;
+
+/**
+ * 顶点类
+ * @author Richard
+ */
+public class Vertex {
+
+	private String value;
+	public boolean visited;
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public Vertex(String value) {
+		super();
+		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return value;
+	}
+
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo14;
+
+
+import basic.b02.MyStack;
+
+/**
+ * 图
+ * @author Richard
+ *
+ */
+public class Graph {
+
+	private Vertex[] vertex;
+	private int currentSize;
+	public int[][] adjMat;
+	private MyStack stack = new MyStack();
+	//当前遍历的下标
+	private int currentIndex;
+	
+	public Graph(int size) {
+		vertex=new Vertex[size];
+		adjMat=new int[size][size];
+	}
+	
+	/**
+	 * 向图中加入一个顶点
+	 * @param v
+	 */
+	public void addVertex(Vertex v) {
+		vertex[currentSize++]=v;
+	}
+	
+	public void addEdge(String v1,String v2) {
+		//找出两个顶点的下标
+		int index1=0;
+		for(int i=0;i&lt;vertex.length;i++) {
+			if(vertex[i].getValue().equals(v1)) {
+				index1=i;
+				break;
+			}
+		}
+		int index2=0;
+		for(int i=0;i&lt;vertex.length;i++) {
+			if(vertex[i].getValue().equals(v2)) {
+				index2=i;
+				break;
+			}
+		}
+		adjMat[index1][index2]=1;
+		adjMat[index2][index1]=1;
+	}
+	
+	/**
+	 * 深度优先搜索算法遍历图
+	 */
+	public void dfs() {
+		//把第0个顶点标记为已访问状态
+		vertex[0].visited=true;
+		//把第0个顶点的下标。
+		stack.push(0);
+		//打印顶点的值
+		System.out.println(vertex[0].getValue());
+		//遍历
+		out:while(!stack.isEmpty()) {
+			for(int i=currentIndex+1;i&lt;vertex.length;i++) {
+				//如果和下一个遍历的元素是通的
+				if(adjMat[currentIndex][i]==1&amp;&amp;vertex[i].visited==false) {
+					//把下一个元素压入栈中
+					stack.push(i);
+					vertex[i].visited=true;
+					System.out.println(vertex[i].getValue());
+					continue out;
+				}
+			}
+			//弹出栈顶元素
+			stack.pop();
+			//修改当前位置为栈顶元素的位置
+			if(!stack.isEmpty()) {
+				currentIndex=stack.peek();
+			}
+		}
+	}
+	
+}
+
+</code></pre>
+
+<pre><code class="language-java">package basic.demo14;
+
+import java.util.Arrays;
+
+public class TestGraph {
+
+	public static void main(String[] args) {
+		Vertex v1 = new Vertex(&quot;A&quot;);
+		Vertex v2 = new Vertex(&quot;B&quot;);
+		Vertex v3 = new Vertex(&quot;C&quot;);
+		Vertex v4 = new Vertex(&quot;D&quot;);
+		Vertex v5 = new Vertex(&quot;E&quot;);
+		Graph g = new Graph(5);
+		g.addVertex(v1);
+		g.addVertex(v2);
+		g.addVertex(v3);
+		g.addVertex(v4);
+		g.addVertex(v5);
+		
+		//增加边
+		g.addEdge(&quot;A&quot;, &quot;C&quot;);
+		g.addEdge(&quot;B&quot;, &quot;C&quot;);
+		g.addEdge(&quot;A&quot;, &quot;B&quot;);
+		g.addEdge(&quot;B&quot;, &quot;D&quot;);
+		g.addEdge(&quot;B&quot;, &quot;E&quot;);
+		
+		for(int[] a:g.adjMat) {
+			System.out.println(Arrays.toString(a));
+		}
+		//深度优先遍历
+		g.dfs();
+	}
+	
+}
+
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="Java算法笔记" target="_blank" rel="external">https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" title="Java面试准备一"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

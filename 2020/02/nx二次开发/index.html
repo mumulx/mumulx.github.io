@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        NX二次开发 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="NX二次开发" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>NX二次开发 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="NX二次开发" />
+<meta property="og:description" content="NX二次开发" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/" />
+<meta property="article:published_time" content="2020-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-24T00:00:00+00:00" />
+<meta itemprop="name" content="NX二次开发">
+<meta itemprop="description" content="NX二次开发">
+
+
+<meta itemprop="datePublished" content="2020-02-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="17171">
+
+
+
+<meta itemprop="keywords" content="杂七杂八," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NX二次开发"/>
+<meta name="twitter:description" content="NX二次开发"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">27</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" class="title">Java面试准备一</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" class="title">复习知识点总结</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/" class="title">网络通信与NIO</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-30</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#入门">入门</a>
+<ul>
+<li>
+<ul>
+<li><a href="#环境准备">环境准备</a></li>
+<li><a href="#第一个二次开发程序">第一个二次开发程序</a></li>
+<li><a href="#nx运行脚本">nx运行脚本</a></li>
+<li><a href="#入口函数">入口函数</a>
+<ul>
+<li><a href="#ufusr">ufusr</a></li>
+<li><a href="#ufget">ufget</a></li>
+<li><a href="#ufsta">ufsta</a></li>
+</ul></li>
+<li><a href="#手册">手册</a></li>
+</ul></li>
+<li><a href="#uf-part-h">uf_part.h</a>
+<ul>
+<li>
+<ul>
+<li><a href="#tag-t">tag_t</a></li>
+<li><a href="#数据类型">数据类型</a></li>
+<li><a href="#对象分类">对象分类</a></li>
+</ul></li>
+<li><a href="#创建实体对象">创建实体对象</a>
+<ul>
+<li><a href="#创建实线对象">创建实线对象</a></li>
+<li><a href="#创建一个圆柱-打印-圆心坐标">创建一个圆柱，打印，圆心坐标</a></li>
+<li><a href="#获取所有工作部件的类型">获取所有工作部件的类型</a></li>
+<li><a href="#创建表达式">创建表达式</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#uf-csys坐标系">UF_CSYS坐标系</a></li>
+<li><a href="#uf-vec向量">UF_VEC向量</a></li>
+<li><a href="#uf-mtx矩阵">UF_MTX矩阵</a></li>
+<li><a href="#uf-curve曲线">UF_CURVE曲线</a></li>
+<li><a href="#uf-ui">UF_UI</a>
+<ul>
+<li><a href="#uf-ui-select-with-single-dialog">UF_UI_select_with_single_dialog</a>
+<ul>
+<li><a href="#c">c</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#uf-styler">UF_STYLER</a>
+<ul>
+<li><a href="#uf-styler-ask-value">UF_STYLER_ask_value</a></li>
+</ul></li>
+<li><a href="#uf-xs">UF_XS</a></li>
+<li><a href="#第四章用户界面开发">第四章用户界面开发</a></li>
+<li><a href="#第-五章-外部数据访问">第 五章 外部数据访问</a></li>
+<li><a href="#kf">KF</a></li>
+<li><a href="#作业">作业</a>
+<ul>
+<li><a href="#作业一">作业一</a></li>
+<li><a href="#作业二">作业二</a></li>
+<li><a href="#作业三">作业三</a></li>
+<li><a href="#作业四">作业四</a></li>
+<li><a href="#作业五">作业五</a></li>
+<li><a href="#作业六">作业六</a></li>
+<li><a href="#作业七">作业七</a></li>
+<li><a href="#作业八">作业八</a></li>
+<li><a href="#作业九">作业九</a></li>
+<li><a href="#作业十">作业十</a></li>
+<li><a href="#作业十一">作业十一</a></li>
+<li><a href="#作业十二">作业十二</a></li>
+<li><a href="#作业十三">作业十三</a></li>
+<li><a href="#作业十四">作业十四：</a></li>
+<li><a href="#作业十五">作业十五</a></li>
+<li><a href="#作业十六">作业十六</a></li>
+<li><a href="#作业十七">作业十七</a></li>
+<li><a href="#作业十八">作业十八</a></li>
+<li><a href="#作业十九">作业十九</a></li>
+<li><a href="#作业二十">作业二十</a></li>
+<li><a href="#作业二十一">作业二十一</a></li>
+<li><a href="#作业二十二">作业二十二</a></li>
+<li><a href="#作业二十三">作业二十三</a></li>
+<li><a href="#作业二十四">作业二十四</a></li>
+<li><a href="#作业二十五">作业二十五</a></li>
+<li><a href="#作业二十六">作业二十六</a></li>
+<li><a href="#作业二十七">作业二十七</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/"
+    >NX二次开发</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/" class="article-date">
+  <time datetime="2020-02-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-24</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:17171字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:35分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="入门">入门</h1>
+
+<h3 id="环境准备">环境准备</h3>
+
+<ol>
+<li><p>NX12.0</p></li>
+
+<li><p>visual studio 2015</p></li>
+</ol>
+
+<p>1）、将，<code>安装路径\NX 12.0\UGOPEN\vs_files\VC\vcprojects</code>下的文件全部拷贝到<code>vs2015安装路径\VC\vcprojects</code>下（如果vs2015没有 vcprojects文件夹，说明vs没有安装指定的c++模块的功能，可以在控制面板&ndash;》卸载程序，找到指vs2015 右键修改&ndash;》选择修改，将C++的功能模块全部选上就行了）</p>
+
+<p>2）、将，<code>安装路径\NX 12.0\UGOPEN\vs_files\VC\VCWizards</code>下的两个文件夹(NX12_NXOpenCPP、NX12_Open)全部拷贝到<code>vs2015安装路径\VC\VCWizards</code>下</p>
+
+<p>启动vs2015，文件&ndash;》新建项目&ndash;》模板&ndash;》visual C++里面选择NX12（两个中任选一个）。选择编程语言(默认是C、)C++</p>
+
+<h3 id="第一个二次开发程序">第一个二次开发程序</h3>
+
+<p>1)</p>
+
+<pre><code class="language-c++">/*****************************************************************************
+**
+** example_01.cpp
+**
+** Description:
+**     Contains Unigraphics entry points for the application.
+**
+*****************************************************************************/
+
+/* Include files */
+#include &lt;stdarg.h&gt;
+#include &lt;strstream&gt;
+#include &lt;iostream&gt;
+using std::ostrstream;
+using std::endl;    
+using std::ends;
+using std::cerr;
+#include &lt;uf.h&gt;
+#include &lt;uf_ui_types.h&gt;
+#include &lt;uf_ui.h&gt;
+#include &lt;uf_exit.h&gt;  //NXOpen for C  UFun
+
+static void ECHO(char *format, ...)//允许变参数
+{
+    char msg[UF_UI_MAX_STRING_BUFSIZE];//F12快速转到定义处
+    va_list args;//变量的列表
+    va_start(args, format);//获取所有参数
+    vsnprintf_s(msg, sizeof(msg), _TRUNCATE, format, args);
+    va_end(args);
+    UF_UI_open_listing_window();
+    UF_UI_write_listing_window(msg);//打开窗口
+    UF_print_syslog(msg, FALSE);//日志文件
+}
+
+#define UF_CALL(X) (report_error( __FILE__, __LINE__, #X, (X)))//带参数的宏
+/*
+__FILE__：当前正在运行的代码的名称（xx.cpp的xx）
+__LINE__：程序正在执行的哪一行
+#X：正在运行的函数的名称
+
+(X))：函数的返回值
+
+*/
+static int report_error( char *file, int line, char *call, int irc)
+{
+    if (irc)
+    {
+        char err[133];
+		/*大部分的UF函数的返回值：如果在手册中没有特别的说明。返回值若为0,表示函数执行成功；
+		若返回值不为0，通过UF_get_fail_message函数获取函数执行失败的相关信息
+
+
+		NX日志文件帮助--&gt;日志文件
+		*/
+        UF_get_fail_message(irc, err);
+        ECHO(&quot;*** ERROR code %d at line %d in %s:\n&quot;,
+            irc, line, file);
+        ECHO(&quot;+++ %s\n&quot;, err);
+        ECHO(&quot;%s;\n&quot;, call);
+    }
+
+    return(irc);
+}
+/*****************************************************************************
+**  Activation Methods
+*****************************************************************************/
+/*  Explicit Activation
+**      This entry point is used to activate the application explicitly, as in
+**      &quot;File-&gt;Execute UG/Open-&gt;User Function...&quot; */
+
+/*
+在nx中当用户选择加载.dll文件的时候，动态库会寻找ufusr函数，并执行该函数ufusr，类似main函数，程序的入口
+*/
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    /* Initialize the API environment */
+	/*
+	UF_CALL调用uf函数，如果uf函数在调用的过程中出现了一些错误
+	UF_CALL自动捕捉函数的返回的错误代码，根据错误代码获取相应的信息，记录在日志文件和信息窗口中
+	*/
+	/*
+	UF_initialize()，初始化函数。向nx获取运行二次开发程序运行的权限，初始化程序运行的环境
+
+	在调用UG/Open API的函数前， 应先调用 UF_initialize()来获得执行许可权限。一般来说，第一个调用 的 UG/open API 函数就是 UF_initialize()。
+	当不再调用 API 函数的时候， 必须调用 UF_terminate()来释放执行许可权限。
+	*/
+    if( UF_CALL(UF_initialize()) ) //初始化
+    {
+        /* Failed to initialize */
+        return;
+    }
+	//还可以写成
+	//if (UF_initialize() != 0) {
+		//return
+	//}
+
+    /* TODO: Add your application code here */
+	UF_UI_open_listing_window();
+	UF_UI_write_listing_window(&quot;hello NX&quot;);
+    /* Terminate the API environment */
+    UF_CALL(UF_terminate());//终止
+}
+
+/*****************************************************************************
+**  Utilities
+*****************************************************************************/
+
+/* Unload Handler
+**     This function specifies when to unload your application from Unigraphics.
+**     If your application registers a callback (from a MenuScript item or a
+**     User Defined Object for example), this function MUST return
+**     &quot;UF_UNLOAD_UG_TERMINATE&quot;. */
+/*
+确保什么时候将程序从nx中卸载
+
+#define  UF_UNLOAD_IMMEDIATELY         1	//二次开发程序在运行完毕之后立即从nx释放  
+#define  UF_UNLOAD_SEL_DIALOG          2	//由用户从对话框中进行选择,什么时候释放
+#define  UF_UNLOAD_UG_TERMINATE        3	//直到nx关闭才释放二次开发程序
+
+2 的话要用户在nx中打开file--&gt;utilities unload shared image
+*/
+extern int ufusr_ask_unload( void )
+{
+    return( UF_UNLOAD_IMMEDIATELY );
+}
+
+</code></pre>
+
+<p>生成&ndash;》生成解决方案</p>
+
+<p>解决方案在项目根目录/x64Debug下生成</p>
+
+<h3 id="nx运行脚本">nx运行脚本</h3>
+
+<p>打开nx12.0，<code>ctrl+u</code>选择解决方案xxx.dll,运行即可</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/NX二次开发/01.png" alt="01.png" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/NX二次开发/02.png" alt="02.png" /></p>
+
+<h3 id="入口函数">入口函数</h3>
+
+<h4 id="ufusr">ufusr</h4>
+
+<pre><code class="language-c++">
+/*
+在nx中当用户选择加载.dll文件的时候，动态库会寻找ufusr函数，并执行该函数ufusr，类似main函数，程序的入口
+采用了直接激活( Explicit Activation )的user Exit,其入口函数为ufusr()。
+直接激活的操作.方式如下:
+选择菜单命令File→Exeeute UG/OPEN-→User Function (或按快捷键Ctrl +U),在弹出的Execute User Function对话框中选择DLL
+文件，即可执行应用开发程序中的ufusr()函数。这种User Exit只是一
+个面向过程的程序处理任务，它有唯一的运行起 止点，程序码在起止点间
+顺序进行。ufusr ()的函数体如下所示:
+
+*/
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    /* Initialize the API environment */
+	/*
+	UF_CALL调用uf函数，如果uf函数在调用的过程中出现了一些错误
+	UF_CALL自动捕捉函数的返回的错误代码，根据错误代码获取相应的信息，记录在日志文件和信息窗口中
+	*/
+	/*
+	UF_initialize()，初始化函数。向nx获取运行二次开发程序运行的权限，初始化程序运行的环境
+
+	在调用UG/Open API的函数前， 应先调用 UF_initialize()来获得执行许可权限。一般来说，第一个调用 的 UG/open API 函数就是 UF_initialize()。
+	当不再调用 API 函数的时候， 必须调用 UF_terminate()来释放执行许可权限。
+	*/
+    if( UF_CALL(UF_initialize()) ) //初始化，很重要。缺失的话会导致错误
+    {
+        /* Failed to initialize */
+        return;
+    }
+	//还可以写成
+	//if (UF_initialize() != 0) {
+		//return
+	//}
+
+    /* TODO: Add your application code here */
+	UF_UI_open_listing_window();
+	UF_UI_write_listing_window(&quot;hello NX&quot;);
+    /* Terminate the API environment */
+    UF_CALL(UF_terminate());//终止
+}
+</code></pre>
+
+<h4 id="ufget">ufget</h4>
+
+<pre><code class="language-c++">//打开文件时
+/*
+*returnCode 默认值是0
+
+我们可以更改默认值变为1，这样的话表示激活用户应用后，系统将不启动UG原有File--&gt;Open File功能
+*/
+extern DllExport void ufget(char *parm, int *returnCode, int rlen)
+{
+	/* Initialize the API environment */
+	/*
+	UF_CALL调用uf函数，如果uf函数在调用的过程中出现了一些错误
+	UF_CALL自动捕捉函数的返回的错误代码，根据错误代码获取相应的信息，记录在日志文件和信息窗口中
+	*/
+	/*
+	UF_initialize()，初始化函数。向nx获取运行二次开发程序运行的权限，初始化程序运行的环境
+
+	在调用UG/Open API的函数前， 应先调用 UF_initialize()来获得执行许可权限。一般来说，第一个调用 的 UG/open API 函数就是 UF_initialize()。
+	当不再调用 API 函数的时候， 必须调用 UF_terminate()来释放执行许可权限。
+	*/
+	if (UF_CALL(UF_initialize())) //初始化，很重要。缺失的话会导致错误
+	{
+		/* Failed to initialize */
+		return;
+	}
+	//还可以写成
+	//if (UF_initialize() != 0) {
+	//return
+	//}
+
+	/* TODO: Add your application code here */
+	UF_UI_open_listing_window();
+	UF_UI_write_listing_window(&quot;hello NX&quot;);
+	//*returnCode = 1;//不进行UG系统的操作
+	//*returnCode = 0;//进行UG系统的操作，默认值
+
+	/* Terminate the API environment */
+	UF_CALL(UF_terminate());//终止
+
+	/*需要设置环境变量
+	
+	点击生成--&gt;生成解决方案；
+	
+	生成动态库的地址
+	C:\workplace\NX\NXDEV2.0\example_01\x64\Debug\example_01.dll
+
+	设置环境变量
+	USER_RETRIEVE
+	C:\workplace\NX\NXDEV2.0\example_01\x64\Debug\example_01.dll
+
+	重启nx
+
+	我们发现执行了我们编写的代码，并且会继续执行nx原先的操作
+	
+	*/
+	/*
+	在vs2015新建项目时 到  Entry Points窗口时，可以选择From a User Exit  
+
+	下面有选项 Open Part
+
+	点击完成
+
+	我们会发现代码中会含有ufget这个函数
+	
+	*/
+}
+</code></pre>
+
+<h4 id="ufsta">ufsta</h4>
+
+<h3 id="手册">手册</h3>
+
+<pre><code>UF:常用的函数
+UF_ASSEM:装配
+UF_ATTR:属性
+UF_CFI:文件
+UF_CSYS:坐标系(Coordinate System)
+UF_CURVE：曲线操作
+UF_DEAW:工程图
+UF_DRF:标注、基准
+UF_MODL:特征、表达式
+UF_MTX:曲面
+UF_OBJ:对象
+UF_PART:部件文件
+UF_STYLER:用户界面
+UF_VEC:向量
+</code></pre>
+
+<pre><code class="language-c++">/*
+返回值为多个参数
+*/
+void f1(int a, int b, int* c, int* d, double* e) {
+	*c = a + b;
+	*d = a - b;
+	*e = (double)a / b;
+}
+void f2(int a, int b, int&amp; c, int&amp; d, double&amp; e) {
+	c = a + b;
+	d = a - b;
+	e = (double)a / b;
+
+}
+int* f3(int a, int b) {
+	int*p = new int[3];
+	p[0] = a + b;
+	p[1] = a - b;
+	p[2] = (double)a / b;
+	return p;
+}
+
+</code></pre>
+
+<p>调用</p>
+
+<pre><code class="language-c++">int* f3(int, int);
+	int* s = f3(4, 5);
+	delete[] s;
+	s = nullptr;
+
+</code></pre>
+
+<h2 id="uf-part-h">uf_part.h</h2>
+
+<p>添加头文件</p>
+
+<pre><code>#include&lt;uf_part.h&gt;
+</code></pre>
+
+<h4 id="tag-t">tag_t</h4>
+
+<p>对每一个可标识的对象都使用一个tag_t，也就是一个编号进行表示，进行区分</p>
+
+<p>当部件被打开时赋予一个临时的编号，并不保存到部件中去</p>
+
+<p>在nx中查看部件的编号：在菜单栏右键打开，开发人员，进入开发人员菜单</p>
+
+<p>设置环境变量ugii_display_debug：1</p>
+
+<p>重启nx</p>
+
+<p>在内部菜单栏选择：移刀</p>
+
+<p>过滤器选择：面</p>
+
+<p>选择部件的表面</p>
+
+<p>查看信息：属性tag</p>
+
+<p>当我们再次，选择这个面的时候，发现tag属性的值改变了</p>
+
+<pre><code>tag_t part1 = 0;
+</code></pre>
+
+<h4 id="数据类型">数据类型</h4>
+
+<p>除了 C 语言标准的数据类型外，UG/Open API 还提供了一些自定义的 数据类型，如 tag_t 类型、结构类型（structure type）、枚举类型（ enum type）、联合类型（union type）与指针类型（pointer type）等，它们 统一用后缀“_t”表示，且这些数据类型的指针用反缀“_p_t”命名表示。</p>
+
+<table>
+<thead>
+<tr>
+<th>后缀</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>_t</td>
+<td>数据类型(data type)</td>
+</tr>
+
+<tr>
+<td>_p_t</td>
+<td>数据类型的指针(pointer to data type)</td>
+</tr>
+
+<tr>
+<td>_s</td>
+<td>结构标识(structure tag)</td>
+</tr>
+
+<tr>
+<td>_u_t</td>
+<td>联合类型(union type)</td>
+</tr>
+
+<tr>
+<td>_u_p_t</td>
+<td>联合类型的指针(pointer to a union type)</td>
+</tr>
+
+<tr>
+<td>_f_t</td>
+<td>函数指针(pointer to a function)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="对象分类">对象分类</h4>
+
+<p>打开手册UF_OBJECT_TYPES</p>
+
+<p>可以借助，内部，移刀查看属性：entity_type,entity_subtype，查看类型的编号</p>
+
+<h3 id="创建实体对象">创建实体对象</h3>
+
+<p>UF_MODL_create_block</p>
+
+<p>添加头文件</p>
+
+<pre><code>#include &lt;uf_modl.h&gt;
+</code></pre>
+
+<pre><code class="language-c++">/*UF_FEATURE_SIGN枚举类型,列举了布尔操作
+		UF_NULLSIGN = 0,   没有布尔操作
+		UF_POSITIVE = 1,   
+		UF_NEGATIVE = 2,    
+		UF_UNSIGNED = 3,    
+		UF_NO_BOOLEAN = 4,  
+		UF_TOP_TARGET = 5,  
+		UF_UNITE = 6,       
+		UF_SUBTRACT = 7,   
+		UF_INTERSECT = 8,   
+		UF_DEFORM_POSITIVE = 9, 
+		UF_DEFORM_NEGATIVE = 10 
+		null_tag:tag_t为空，没有目标体
+	*/
+	UF_FEATURE_SIGN sign= UF_NULLSIGN;//没有布尔操作
+	double origin[] = { 0,0,0 };//原点位置0，0，0
+	char* lengths[] = { &quot;100&quot;,&quot;100&quot;,&quot;100&quot; };//长宽高
+	tag_t blk_feat = NULL_TAG;
+	UF_MODL_create_block(sign,null_tag, origin, lengths, &amp;blk_feat);//创建实体
+	tag_t blk_body = NULL_TAG;
+	UF_MODL_ask_feat_body(blk_feat,&amp;blk_body);
+	UF_UI_open_listing_window();
+	char s1[200];
+	sprintf_s(s1, &quot;%d\t%d&quot;, blk_feat, blk_body);
+	UF_UI_write_listing_window(s1);//输出实体信息
+
+</code></pre>
+
+<h4 id="创建实线对象">创建实线对象</h4>
+
+<pre><code class="language-C++">#include &lt;uf_curve.h&gt;
+#include &lt;string.h&gt;
+
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//定义起始位置
+	double start_point[] = {0.0,0.0,0.0};
+	//定义结束位置
+	double end_point[] = {100.0,200.0,0.0 };
+	// 声明结构体
+	UF_CURVE_line_p_t line_coords=new UF_CURVE_line_s;
+	// 结构体赋值
+	memcpy(line_coords-&gt;start_point, start_point, sizeof(start_point));
+	memcpy(line_coords-&gt;end_point, end_point,sizeof(end_point));
+	//line_coords-&gt;start_point[0] = 0.0;
+	//line_coords-&gt;start_point[1] = 0.0;
+	//line_coords-&gt;start_point[2] = 0.0;
+	//line_coords-&gt;end_point[0] = 100.0;
+	//line_coords-&gt;end_point[1] = 100.0;
+	//line_coords-&gt;end_point[2] = 100.0;
+	// 创建部件对象
+	tag_t line = NULL_TAG;
+	//创建实线对象
+	UF_CURVE_create_line(line_coords,&amp;line);
+	//释放内存
+	delete line_coords;
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<p>创建一个Cylinder特征，输出其所在图层和颜色</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//布尔操作
+	UF_FEATURE_SIGN sign = UF_NULLSIGN;
+	//原点位置0，0，0
+	double origin[] = { 0,0,0 };
+	//高
+	char * height = &quot;100&quot;;
+	//直径
+	char * diam = &quot;10&quot;;
+	//方位
+	double direction[] = { 0,0,1 };
+	//圆柱对象
+	tag_t cyl_tag = NULL_TAG;
+	//创建一个圆柱特征
+	UF_MODL_create_cylinder(sign, null_tag, origin, height, diam, direction, &amp;cyl_tag);
+	//实体对象
+	tag_t blk_body = NULL_TAG;
+	//输出实体对象
+	UF_MODL_ask_feat_body(cyl_tag, &amp;blk_body);
+	//圆柱对象的显示属性
+	UF_OBJ_disp_props_t dispProps;
+	//查询属性
+	UF_OBJ_ask_display_properties(blk_body, &amp;dispProps);
+	UF_UI_open_listing_window();
+	//编辑结果
+	char s1[200];
+	sprintf_s(s1, &quot;颜色为：%d\n图层为：%d&quot;,dispProps.color, dispProps.layer);
+	//窗体输出结果
+	UF_UI_write_listing_window(s1);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<p>sprintf_s函数可以对结果进行样式控制、</p>
+
+<pre><code class="language-c++">char s1[200];
+sprintf_s(s1, &quot;颜色为：%d\n图层为：%d&quot;,dispProps.color, dispProps.layer);
+UF_UI_write_listing_window(s1);
+</code></pre>
+
+<p>结构体定义</p>
+
+<pre><code class="language-c++">struct UF_OBJ_disp_props_s {
+        int     layer; 
+        int     color;            
+        int     blank_status;         
+        int     line_width;        
+        int     font;                 
+        logical highlight_status;     
+}; 
+typedef struct UF_OBJ_disp_props_s UF_OBJ_disp_props_t, 
+                                  *UF_OBJ_disp_props_p_t;
+</code></pre>
+
+<ul>
+<li><p>UF_OBJ_disp_props_s</p>
+
+<p>使用<code>.</code>的方式进行赋值取值</p></li>
+
+<li><p>*UF_OBJ_disp_props_p_t</p>
+
+<p>使用-&gt;的方式进行取值赋值</p></li>
+</ul>
+
+<p>创建完特征后</p>
+
+<pre><code class="language-c++">//实体对象
+tag_t blk_body = NULL_TAG;
+//输出实体对象
+UF_MODL_ask_feat_body(cyl_tag, &amp;blk_body);
+</code></pre>
+
+<p>使用这个函数将它变成实体</p>
+
+<p>&amp;:地址</p>
+
+<p>*：内容</p>
+
+<p>在c++中，当申明变量<code>int *p</code> 的时，表示p是一个储存地址的变量；比如<code>int *p=0</code>，表示p指向地址为00000000的地址单元。当申明指针p之后，再用<code>*p</code>表示p指向的储存空间的内容；&amp;表示取变量的地址；</p>
+
+<p>创建一个蒸发提并高亮他的上面</p>
+
+<pre><code class="language-C++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	UF_FEATURE_SIGN sign= UF_NULLSIGN;//没有布尔操作
+	double origin[] = { 0,0,0 };//原点位置0，0，0
+	char* lengths[] = { &quot;100&quot;,&quot;100&quot;,&quot;100&quot; };//长宽高
+	tag_t blk_feat = NULL_TAG;
+	UF_MODL_create_block(sign,null_tag, origin, lengths, &amp;blk_feat);//创建实体
+	tag_t blk_body = NULL_TAG;
+	UF_MODL_ask_feat_body(blk_feat,&amp;blk_body);
+	//UF_UI_open_listing_window();
+	//char s1[200];
+	//sprintf_s(s1, &quot;%d\t%d&quot;, blk_feat, blk_body);
+	//UF_UI_write_listing_window(s1);//输出实体信息
+	uf_list_p_t blkFaces = nullptr;
+	//返回一个实体的所有面的集合
+	UF_MODL_ask_body_faces(blk_body,&amp;blkFaces);
+	int facesCount = 0;
+	//UF_MODL_ask_list_count(blkFaces,&amp;facesCount);
+	tag_t obj = NULL_TAG;
+	int type = 0;
+	double point[3];
+	double dir[3];
+	double box[6];
+	double radius = 0;
+	double rad_data = 0;
+	int norm_dir = 0;
+	/*for (int i = 0; i &lt; facesCount; i++) 
+	{
+		UF_MODL_ask_list_item(blkFaces,i,&amp;obj);
+		UF_MODL_ask_face_data(obj, &amp;type, point, dir, box, &amp;radius, &amp;rad_data, &amp;norm_dir);
+		if (fabs(dir[0])&lt;tolerancy &amp;&amp; fabs(dir[1])&lt;tolerancy &amp;&amp; fabs(dir[2]-1)&lt;tolerancy) {
+			break;
+		}
+	}*/
+	//方法二
+	uf_list_p_t p = blkFaces;
+	while (p!=NULL) {
+		UF_MODL_ask_face_data(p-&gt;eid, &amp;type, point, dir, box, &amp;radius, &amp;rad_data, &amp;norm_dir);
+		if (fabs(dir[0])&lt;tolerancy &amp;&amp; fabs(dir[1])&lt;tolerancy &amp;&amp; fabs(dir[2] - 1)&lt;tolerancy) {
+			break;
+		}
+	}
+	if (p-&gt;eid != NULL)
+	{
+		UF_DISP_set_highlight(p-&gt;eid, 1);
+	}
+	//UF_DISP_set_highlight(obj, 1);
+	UF_MODL_delete_list(&amp;blkFaces);
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h4 id="创建一个圆柱-打印-圆心坐标">创建一个圆柱，打印，圆心坐标</h4>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//布尔操作
+	UF_FEATURE_SIGN sign = UF_NULLSIGN;
+	//原点位置0，0，0
+	double origin[] = { 0,0,0 };
+	//高
+	char * height = &quot;100&quot;;
+	//直径
+	char * diam = &quot;10&quot;;
+	//方位
+	double direction[] = { 0,0,1 };
+	//圆柱对象
+	tag_t cyl_tag = NULL_TAG;
+	//创建一个圆柱特征
+	UF_MODL_create_cylinder(sign, null_tag, origin, height, diam, direction, &amp;cyl_tag);
+	uf_list_p_t blkEdges = nullptr;
+	//获取edges集合
+	UF_MODL_ask_feat_edges(cyl_tag,&amp;blkEdges);
+	UF_UI_open_listing_window();
+	//遍历集合
+	while (blkEdges!=NULL)
+	{
+		UF_EVAL_p_t point = NULL;
+		//获取圆点对象
+		UF_EVAL_initialize(blkEdges-&gt;eid, &amp;point);
+		UF_EVAL_arc_t  arc;
+		//获取圆心信息
+		UF_EVAL_ask_arc(point, &amp;arc);
+		char s1[100];
+		//输出
+		sprintf_s(s1, &quot;圆心坐标为：(%lf,%lf,%f)\n&quot;, arc.center[0], arc.center[1], arc.center[2]);
+		UF_UI_write_listing_window(s1);
+		//释放内存
+		UF_EVAL_free(point);
+		//下一个
+		blkEdges = blkEdges-&gt;next;
+	}
+	//释放内存
+	UF_MODL_delete_list(&amp;blkEdges);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h4 id="获取所有工作部件的类型">获取所有工作部件的类型</h4>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	tag_t obj = NULL_TAG;
+	//获得workPart
+	tag_t workPart = UF_ASSEM_ask_work_part();
+	//类型为特征
+	int type = UF_feature_type;
+	UF_UI_open_listing_window();
+	//根据特征遍历对象
+	UF_OBJ_cycle_objs_in_part(workPart, type, &amp;obj);
+	while (obj != NULL_TAG) {
+
+		/*
+		UF_MODL_ask_feat_name函数已经有返回值了，我们想要他再返回一个值，
+		就需要使用变参，char ** feature_type就是变参，用以返回一个指针
+		UF_MODL_ask_feat_name()的第二个参数类型为指针的指针char ** feature_name，用以返回一个指针
+		在函数内部，首先创建一个临时变量来保存该指针的指针，
+		之后对该临时变量的值进行赋值，即修改了指针的指针的指向，
+		赋的值就是一个新的内存地址，这个新的内存地址存储了结果，也就是将结果传了出去
+		
+		feature_name 为指针变量，指向null（存储的是内存地址）
+		想要改变feature_name的指向，即改变feature_name的值，就需要将它的地址传过去
+		&amp;feature_name：获取指针变量feature_name的地址
+		*/
+		char * feature_name=NULL;
+		//查询特征属性
+		UF_MODL_ask_feat_name(obj,&amp;feature_name);
+		//输出
+		UF_UI_write_listing_window(feature_name);
+		UF_UI_write_listing_window(&quot;\n&quot;);
+		//释放内存
+		UF_free(feature_name);
+		//查询下一个
+		UF_OBJ_cycle_objs_in_part(workPart, type, &amp;obj);
+	}
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h4 id="创建表达式">创建表达式</h4>
+
+<pre><code class="language-C++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    /* Initialize the API environment */
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//定义表达式
+	char str[] = &quot;Length=25&quot;;
+	//创建表达式
+	UF_MODL_create_exp(str);
+	//更新
+	UF_MODL_update();
+	//定义表达式值
+	double rs;
+	//查询表达式值
+	UF_MODL_eval_exp(&quot;Length&quot;, &amp;rs);
+	char showValue[30];
+	sprintf_s(showValue,&quot;Length的值为：%lf&quot;,rs);
+	//显示表达式值
+	uc1601(showValue,1);
+	//定义修改表达式
+	char newValue[] = &quot;Length=100&quot;;
+	//修改表达式的值
+	UF_MODL_edit_exp(newValue);
+	//更新
+	UF_MODL_update();
+	//查询值
+	UF_MODL_eval_exp(&quot;Length&quot;, &amp;rs);
+	char showValue1[50];
+	sprintf_s(showValue1, &quot;Length修改后的值为：%lf&quot;, rs);
+	//输出表达式值
+	uc1601(showValue1, 1);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h1 id="uf-csys坐标系">UF_CSYS坐标系</h1>
+
+<p>uf_csys</p>
+
+<blockquote>
+<p>UF_CSYS_ask_csys_info     查看坐标系信息</p>
+
+<p>UF_CSYS_ask_matrix_values     查看xyz轴的方向矢量</p>
+
+<p>UF_CSYS_ask_wcs           查看工作坐标系</p>
+
+<p>UF_CSYS_create_csys       新建工作坐标系</p>
+
+<p>UF_CSYS_create_matrix     创建xyz方向矢量</p>
+
+<p>UF_CSYS_set_wcs           设置工作坐标系</p>
+</blockquote>
+
+<h1 id="uf-vec向量">UF_VEC向量</h1>
+
+<blockquote>
+<p>UF_VEC3_cross             向量叉乘</p>
+
+<p>UF_VEC3_dot               向量点乘</p>
+
+<p>UF_VEC3_is_equal          判断两个向量是否等价</p>
+
+<p>UF_VEC3_is_parallel       两个方向矢量是否平行</p>
+
+<p>UF_VEC3_is_perpendicular  判断两个向量是否相互垂直</p>
+
+<p>UF_VEC3_negate        向量取反</p>
+
+<p>UF_VEC3_unitize           向量的单位化</p>
+</blockquote>
+
+<h1 id="uf-mtx矩阵">UF_MTX矩阵</h1>
+
+<blockquote>
+<p>UF_MTX3_initialize                    输入x，y轴向量，进行叉乘计算出z轴方向向量，输出xyz三轴方向向量</p>
+
+<p>UF_MTX3_initialize_x              输入x轴方向矢量，自动构建y和z轴；方向不确定，但是保证两两垂直</p>
+
+<p>UF_MTX3_initialize_z              输入z轴方向矢量，自动构建y和x轴；方向不确定，但是保证两两垂直</p>
+
+<p>UF_MTX3_multiply                  两个3X3矩阵相乘</p>
+
+<p>UF_MTX3_rotate_about_axis 给定旋转轴，旋转角度，输出一个3X3矩阵</p>
+
+<p>UF_MTX3_vec_multiply          方向矢量和3X3矩阵相乘的结果</p>
+
+<p>UF_MTX3_x_vec                     取出x轴向量</p>
+
+<p>UF_MTX3_y_vec                 取出y轴向量</p>
+
+<p>UF_MTX3_z_vec                 取出z轴向量</p>
+</blockquote>
+
+<h1 id="uf-curve曲线">UF_CURVE曲线</h1>
+
+<blockquote>
+<p>UF_CURVE_create_line          创建直线</p>
+
+<p>UF_CURVE_create_line_arc  创建圆弧</p>
+
+<p>UF_CURVE_create_arc_3point 根据三个点创建圆弧</p>
+
+<p>UF_CURVE_create_arc_3tangent 给定三个圆弧创建一个与三个圆弧相切的圆弧</p>
+
+<p>UF_CURVE_create_arc_center_radius     根据圆心半径创建圆</p>
+</blockquote>
+
+<h1 id="uf-ui">UF_UI</h1>
+
+<h2 id="uf-ui-select-with-single-dialog">UF_UI_select_with_single_dialog</h2>
+
+<pre><code class="language-c++">int UF_UI_select_with_single_dialog
+(
+char * message,
+char * title,
+int scope, 
+UF_UI_sel_init_fn_t init_proc, 
+void* user_data, 
+int * response, 
+tag_t * object, 
+double cursor [ 3 ] , 
+tag_t * view 
+
+)
+message // 提示窗口提示信息
+title 窗口标题 
+scope对象选择的范围：四个选项 （nx菜单右边两个下拉菜单中的右边的那个） 
+		UF_UI_SEL_SCOPE_NO_CHANGE  选择范围不变 ，用户选择的是啥就是啥 
+		UF_UI_SEL_SCOPE_ANY_IN_ASSEMBLY 装配部件中的所有部件 
+		UF_UI_SEL_SCOPE_WORK_PART 装配中工作部件的指定部件被选定 
+		UF_UI_SEL_SCOPE_WORK_PART_AND_OCC// 工作部件（这个部件配多次装入：如螺钉，这一类零件被选中 
+init_proc ：过滤器	（nx菜单右边两个下拉菜单中的左边的那个） 		
+user_data： 
+response： 输出参数 ，对话框的用户的选择 
+	UF_UI_BACK 回退 
+	UF_UI_CANCEL 取消 
+	UF_UI_OK 确定 
+	UF_UI_OBJECT_SELECTED 用户通过鼠标进行选择 
+	UF_UI_OBJECT_SELECTED_BY_NAME 通过输入对象的名字 
+object： 输出对象，用户选中的对象 ，没选中对象就返回NULL_TAG 
+cursor： 鼠标单击的坐标系 
+view：视图 
+-------------------------------------------------------------------- 
+init_proc：过滤器 （函数名可以变化，但是函数原型是不能改变的（返回值，参数列表）） 
+int UF_UI_sel_init_fn_t
+(
+UF_UI_selection_p_t select_, 
+void * user_data 
+
+)
+实例
+static int init_proc(
+    UF_UI_selection_p_t select,
+    void* user_data)
+{
+    int num_triples = 2;
+    UF_UI_mask_t mask_triples[] = {
+         UF_line_type, 0, 0,
+         UF_solid_type, 0, UF_UI_SEL_FEATURE_ANY_EDGE};
+         
+    //UF_UI_set_sel_mask设置选择的过滤器 
+    if((UF_CALL(UF_UI_set_sel_mask(select,
+            UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC,
+            num_triples, mask_triples))) == 0)
+    {
+        return (UF_UI_SEL_SUCCESS);
+    }
+    else
+    {
+        return (UF_UI_SEL_FAILURE);
+    }
+}
+UF_UI_set_sel_mask:常用类型 
+		UF_point_type 
+		UF_line_type 
+		UF_circle_type 
+		UF_conic_type 
+		UF_spline_type 
+		UF_pattern_type 
+		UF_kanji_type 
+		UF_group_type 
+		UF_drafting_entity_type 
+		UF_dimension_type 
+		UF_tabular_note_type 
+		UF_margin_type 
+		UF_coordinate_system_type 
+		UF_plane_type 
+		UF_component_type 
+		UF_datum_axis_type 
+		UF_datum_plane_type 
+		UF_facet_topology_type 
+		UF_view_type 
+		UF_view_set_type 
+		UF_route_control_point_type 
+		UF_route_port_type 
+		UF_route_segment_type 
+		UF_route_part_anchor_type 
+		UF_route_stock_type 
+		UF_analysis_type 
+		UF_traceline_type 
+		UF_constraint_type 
+		UF_solid_type 
+int UF_UI_set_sel_mask
+(
+	UF_UI_selection_p_t select_, 
+	UF_UI_sel_mask_action_t action, 
+	int num, 
+	UF_UI_mask_t * mask_triples 
+)
+action
+	UF_UI_SEL_MASK_ENABLE_ALL 所有的都允许 数组不起作用 
+	UF_UI_SEL_MASK_ENABLE_SPECIFIC 
+	UF_UI_SEL_MASK_DISABLE_SPECIFIC 数组中指明的对象不允许使用 
+	UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC 把其他的都请除，只允许使用指定的 
+	UF_UI_SEL_MASK_ALL_AND_DISABLE_SPECIFIC
+num：表明数组的长度 
+mask_triples：输入参数：表明是一个结构体数组 ：指定对象类型对象的子类型 
+	object_type对象类型 
+	object_subtype对象子类型 
+	solid_type  更详细的划分 （uf_ui下面UF_UI Enumerations的UF_UI #Defines中的宏定义） 
+</code></pre>
+
+<h3 id="c">c</h3>
+
+<pre><code class="language-c#">public static int init_proc(IntPtr select, IntPtr user_data) {
+        int num = 1;
+        NXOpen.UF.UFUi.Mask[] mask_triples=new UFUi.Mask[1];
+        mask_triples[0].object_type = UFConstants.UF_solid_type;
+        mask_triples[0].object_subtype =0;
+        mask_triples[0].solid_type = UFConstants.UF_UI_SEL_FEATURE_PLANAR_FACE;
+        theUfSession.Ui.SetSelMask(select, NXOpen.UF.UFUi.SelMaskAction.SelMaskClearAndEnableSpecific, num, mask_triples);
+        return 1;
+    }
+</code></pre>
+
+<pre><code class="language-c#">
+int selRes;    
+Tag selObj;
+double[] selCursor=new double[3]; 
+Tag selView;
+IntPtr user_data =new IntPtr();
+NXOpen.UF.UFUi.SelInitFnT init = new NXOpen.UF.UFUi.SelInitFnT(init_proc);
+theUfSession.Ui.SelectWithSingleDialog(&quot;请选择planar faces！&quot;, &quot;请选择planar faces&quot;,
+UFConstants.UF_UI_SEL_SCOPE_NO_CHANGE,init,user_data, 
+out selRes, out selObj, selCursor, out selView);
+
+</code></pre>
+
+<h1 id="uf-styler">UF_STYLER</h1>
+
+<h2 id="uf-styler-ask-value">UF_STYLER_ask_value</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/NX二次开发/image-20200331215318948.png" alt="image-20200331215318948" /></p>
+
+<h1 id="uf-xs">UF_XS</h1>
+
+<p>堆excel的操作</p>
+
+<p>UF_XS_extract_spreadsheet
+UF_XS_store_spreadsheet</p>
+
+<h1 id="第四章用户界面开发">第四章用户界面开发</h1>
+
+<p>在用户设定的工程路径下需要建立 UG 系统规定的工程目录结构。</p>
+
+<p>UG 启动时会在规定目录中寻找并加载相应的程序和资源。UG 规定的目录</p>
+
+<p>有 startup、application 和Udo。UG对它们存放的文件做了如下的规定：</p>
+
+<p>( 1 ) Startup 目 录 存 放 UG 启 动 时 需 加 载 的 动 态 链 接 库 文 件</p>
+
+<p>（*.dll）、菜单脚本文件( <em>.men）和用户工具栏脚本文件（</em>.tbr）。</p>
+
+<p>( 2 ) Apphcation 目录存放具体的功能扩展程序文件，如 UIstyler</p>
+
+<p>对话框文件（<em>.dlg）、工具图标文件（</em>.bmp ）和位图调色板文件</p>
+
+<p>（*.ubm ）。</p>
+
+<p>( 3 ) Udo 目录存放用户定义的数据和链接等。考虑到项目开发的需要</p>
+
+<p>和文档的完整性，除了 UG 系统规定的目录外，还需要建立一些自定义目</p>
+
+<p>录（仅供参考）。这些目录有 Code、Configure 和 Document。这些目录</p>
+
+<p>中存放的文件类型有如下规定：</p>
+
+<p>( 1 ) Code 目录存放具体的程序代码，该目录在新建工程时创建。</p>
+
+<p>( 2 ) Configure 目录存放开发中所必需的配置文件，如文本文件</p>
+
+<p>（ *.txt） 、 自 定 义 配 置 文 件 （ *.cfg） 和 电 子 表 格 Excel 文 件</p>
+
+<p>（*.xls ）等。Configure 目录的名称可以根据具体的编程需要由开发者</p>
+
+<p>选定，例如 Excel、Temp 等。</p>
+
+<p>( 3 ) Document 目 录 存 放 用 户 的 文 档 文 件 ， 如 视 频 演 示 文 件</p>
+
+<p>（<em>.avi）、安装使用说明书（</em>.doc）和软件开发说明书（*.doc）等。</p>
+
+<p>图 2-25 所示给出了一个应用开发程序的目录结构，开发者可以根据</p>
+
+<p>实际情况做适当调整。</p>
+
+<p>创建第一个用户界面程序</p>
+
+<ol>
+<li>nx&ndash;&gt;文件&ndash;&gt;所有应用模块&ndash;&gt;开发人员&ndash;&gt;NX6中定制用户界面的样式</li>
+<li>保存文件到workdir(推荐的文件夹名：其中包含application和startup两个文件夹)，保存时选择编程语言为c，存放到application文件夹中。</li>
+<li>vs2015创建新nx项目，删除原有的源文件，右键项目&ndash;&gt;添加&ndash;&gt;添加现有项，找到application文件夹中的头文件(.h)和源文件(.c)确定</li>
+<li>修改源文件后缀.c&ndash;&gt;.cpp(使用c++作为开发语言)</li>
+<li>取消源文件的注释（MENUBAR HOOKUP HELP Example注释下的ufsta，DIALOG CREATION FROM A USER EXIT HELP Example下的 修改函数名为ufusr）</li>
+<li>设置环境变量UGII_VENDOR_DIR:C:\workplace\NX\NXDEV2.0\workdir(值为application的上一级)</li>
+<li>生成解决方案</li>
+<li>重启nx</li>
+<li>ctrl+u加载脚本文件</li>
+</ol>
+
+<p>生成的源文件结构：因为在设计用户界面时选择的从以下场合启动对话框选择的是all</p>
+
+<p>所以会创建三个函数对应三种启动方式</p>
+
+<blockquote>
+<p>MENUBAR HOOKUP HELP Example从菜单工具条中启动</p>
+
+<p>DIALOG CREATION FROM A CALLBACK HELP Example：/<em>从另一个控件</em>/运行</p>
+
+<p>DIALOG CREATION FROM A USER EXIT HELP Example 注释下函数，需要自己选择入口函数名（ufusr：表示ctrl+u时运行）</p>
+</blockquote>
+
+<p>事件</p>
+
+<blockquote>
+<p>int CHANGE_apply_cb 点击apply时触发的事件</p>
+</blockquote>
+
+<h1 id="第-五章-外部数据访问">第 五章 外部数据访问</h1>
+
+<h1 id="kf">KF</h1>
+
+<p>KnowledgeFusion知识熔接 知识融合KF</p>
+
+<p>KBE知识工程</p>
+
+<h1 id="作业">作业</h1>
+
+<h2 id="作业一">作业一</h2>
+
+<p>在ufusr中调用uc1601函数</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    /* Initialize the API environment */
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        /* Failed to initialize */
+        return;
+    }
+	/*
+	0:将文本输出到状态行
+	1:将文本放在消息框中
+	*/
+	//uc1601(&quot;helloworld1&quot;, 0);
+
+	//uc1601(&quot;helloworld&quot;,1);
+    /* TODO: Add your application code here */
+
+    /* Terminate the API environment */
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h2 id="作业二">作业二</h2>
+
+<p>针对New Part创建User Exit函数并运行</p>
+
+<pre><code class="language-c++">extern DllExport void ufcre( char *param, int *returnCode, int rlen )
+{
+	//初始化函数
+	if (UF_CALL(UF_initialize()))
+	{
+		return;
+	}
+	//弹出消息框
+	uc1601(&quot;正在创建part&quot;, 1);
+	*returnCode = 1;//阻止nx的默认行为，不进行文件创建
+	//终止
+	UF_CALL(UF_terminate());
+	//动态库地址 C:\workplace\NX\NXDEV2.0\TEST\test01\x64\Debug\test01.dll
+	//设置环境变量USER_CREATE
+	//重启NX
+}
+</code></pre>
+
+<h2 id="作业三">作业三</h2>
+
+<blockquote>
+<p>UF_PART_ask_num_parts函数的作用是查询NX当前有多少个文件被打开；
+UF_PART_ask_nth_part函数的作用是查询其中的第n个part，返回其tag；
+UF_PART_ask_part_name函数的作用是查询其name</p>
+</blockquote>
+
+<p>使用上述函数，将NX中所有打开的部件的名称输出到listing window</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//打开窗口
+	UF_UI_open_listing_window();
+	//获取part文件数量
+	int partNum = UF_PART_ask_num_parts();
+	for (int i = 0; i &lt; partNum; i++) {
+		//获取当前part文件
+		tag_t part = UF_PART_ask_nth_part(i);
+		//获取文件名
+		char part_fspec[MAX_FSPEC_BUFSIZE];
+		UF_PART_ask_part_name(part, part_fspec);
+		//输出
+		UF_UI_write_listing_window(part_fspec);
+		UF_UI_write_listing_window(&quot;\n&quot;);
+	}
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h2 id="作业四">作业四</h2>
+
+<p>使用UF_CURVE_create_line创建一条直线</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//定义起始位置
+	double start_point[] = {0.0,0.0,0.0};
+	//定义结束位置
+	double end_point[] = {100.0,200.0,0.0 };
+	// 声明结构体
+	UF_CURVE_line_p_t line_coords=new UF_CURVE_line_s;
+	// 结构体赋值
+	memcpy(line_coords-&gt;start_point, start_point, sizeof(start_point));
+	memcpy(line_coords-&gt;end_point, end_point,sizeof(end_point));
+	//line_coords-&gt;start_point[0] = 0.0;
+	//line_coords-&gt;start_point[1] = 0.0;
+	//line_coords-&gt;start_point[2] = 0.0;
+	//line_coords-&gt;end_point[0] = 100.0;
+	//line_coords-&gt;end_point[1] = 100.0;
+	//line_coords-&gt;end_point[2] = 100.0;
+	// 创建部件对象
+	tag_t line = NULL_TAG;
+	//创建实线对象
+	UF_CURVE_create_line(line_coords,&amp;line);
+	//释放内存
+	delete line_coords;
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业五">作业五</h2>
+
+<p>创建一个Cylinder特征，输出其所在图层和颜色</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//布尔操作
+	UF_FEATURE_SIGN sign = UF_NULLSIGN;
+	//原点位置0，0，0
+	double origin[] = { 0,0,0 };
+	//高
+	char * height = &quot;100&quot;;
+	//直径
+	char * diam = &quot;10&quot;;
+	//方位
+	double direction[] = { 0,0,1 };
+	//圆柱对象
+	tag_t cyl_tag = NULL_TAG;
+	//创建一个圆柱特征
+	UF_MODL_create_cylinder(sign, null_tag, origin, height, diam, direction, &amp;cyl_tag);
+	//实体对象
+	tag_t blk_body = NULL_TAG;
+	//输出实体对象
+	UF_MODL_ask_feat_body(cyl_tag, &amp;blk_body);
+	//圆柱对象的显示属性
+	UF_OBJ_disp_props_t dispProps;
+	//查询属性
+	UF_OBJ_ask_display_properties(blk_body, &amp;dispProps);
+	UF_UI_open_listing_window();
+	//编辑结果
+	char s1[200];
+	sprintf_s(s1, &quot;颜色为：%d\n图层为：%d&quot;,dispProps.color, dispProps.layer);
+	//窗体输出结果
+	UF_UI_write_listing_window(s1);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业六">作业六</h2>
+
+<p>创建一个Cylinder特征，再输出其两个edge的中心坐标。
+需要使用到下列函数：</p>
+
+<blockquote>
+<p>​ UF_MODL_create_cylinder
+​ UF_MODL_ask_feat_edges
+​    UF_EVAL_initialize
+​ UF_EVAL_ask_arc</p>
+</blockquote>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//布尔操作
+	UF_FEATURE_SIGN sign = UF_NULLSIGN;
+	//原点位置0，0，0
+	double origin[] = { 0,0,0 };
+	//高
+	char * height = &quot;100&quot;;
+	//直径
+	char * diam = &quot;10&quot;;
+	//方位
+	double direction[] = { 0,0,1 };
+	//圆柱对象
+	tag_t cyl_tag = NULL_TAG;
+	//创建一个圆柱特征
+	UF_MODL_create_cylinder(sign, null_tag, origin, height, diam, direction, &amp;cyl_tag);
+	uf_list_p_t blkEdges = nullptr;
+	//获取edges集合
+	UF_MODL_ask_feat_edges(cyl_tag,&amp;blkEdges);
+	UF_UI_open_listing_window();
+	//遍历集合
+	while (blkEdges!=NULL)
+	{
+		UF_EVAL_p_t point = NULL;
+		//获取圆点对象
+		UF_EVAL_initialize(blkEdges-&gt;eid, &amp;point);
+		UF_EVAL_arc_t  arc;
+		//获取圆心信息
+		UF_EVAL_ask_arc(point, &amp;arc);
+		char s1[100];
+		//输出
+		sprintf_s(s1, &quot;圆心坐标为：(%lf,%lf,%f)\n&quot;, arc.center[0], arc.center[1], arc.center[2]);
+		UF_UI_write_listing_window(s1);
+		//释放内存
+		UF_EVAL_free(point);
+		//下一个
+		blkEdges = blkEdges-&gt;next;
+	}
+	//释放内存
+	UF_MODL_delete_list(&amp;blkEdges);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业七">作业七</h2>
+
+<p>遍历当前工作部件中所有的特征，将其类型输出到信息窗口中
+查询特征类型可以使用UF_MODL_ask_feat_name 或者 UF_MODL_ask_feat_sysname</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	tag_t obj = NULL_TAG;
+	//获得workPart
+	tag_t workPart = UF_ASSEM_ask_work_part();
+	//类型为特征
+	int type = UF_feature_type;
+	UF_UI_open_listing_window();
+	//根据特征遍历对象
+	UF_OBJ_cycle_objs_in_part(workPart, type, &amp;obj);
+	while (obj != NULL_TAG) {
+
+		/*
+		UF_MODL_ask_feat_name函数已经有返回值了，我们想要他再返回一个值，
+		就需要使用变参，char ** feature_type就是变参，用以返回一个指针
+		UF_MODL_ask_feat_name()的第二个参数类型为指针的指针char ** feature_name，用以返回一个指针
+		在函数内部，首先创建一个临时变量来保存该指针的指针，
+		之后对该临时变量的值进行赋值，即修改了指针的指针的指向，
+		赋的值就是一个新的内存地址，这个新的内存地址存储了结果，也就是将结果传了出去
+		
+		feature_name 为指针变量，指向null（存储的是内存地址）
+		想要改变feature_name的指向，即改变feature_name的值，就需要将它的地址传过去
+		&amp;feature_name：获取指针变量feature_name的地址
+		*/
+		char * feature_name=NULL;
+		//查询特征属性
+		UF_MODL_ask_feat_name(obj,&amp;feature_name);
+		//输出
+		UF_UI_write_listing_window(feature_name);
+		UF_UI_write_listing_window(&quot;\n&quot;);
+		//释放内存
+		UF_free(feature_name);
+		//查询下一个
+		UF_OBJ_cycle_objs_in_part(workPart, type, &amp;obj);
+	}
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业八">作业八</h2>
+
+<p>将名为&rdquo;model.prt&rdquo;的部件设为当前的显示部件(假设其已经在NX中被打开)，在其中创建名为&rdquo;Length&rdquo;、值为25的表达式；
+再将此表达式的值修改为100</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    /* Initialize the API environment */
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//定义表达式
+	char str[] = &quot;Length=25&quot;;
+	//创建表达式
+	UF_MODL_create_exp(str);
+	//更新
+	UF_MODL_update();
+	//定义表达式值
+	double rs;
+	//查询表达式值
+	UF_MODL_eval_exp(&quot;Length&quot;, &amp;rs);
+	char showValue[30];
+	sprintf_s(showValue,&quot;Length的值为：%lf&quot;,rs);
+	//显示表达式值
+	uc1601(showValue,1);
+	//定义修改表达式
+	char newValue[] = &quot;Length=100&quot;;
+	//修改表达式的值
+	UF_MODL_edit_exp(newValue);
+	//更新
+	UF_MODL_update();
+	//查询值
+	UF_MODL_eval_exp(&quot;Length&quot;, &amp;rs);
+	char showValue1[50];
+	sprintf_s(showValue1, &quot;Length修改后的值为：%lf&quot;, rs);
+	//输出表达式值
+	uc1601(showValue1, 1);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业九">作业九</h2>
+
+<p>UF_UI_select_with_single_dialog，设置对象过滤器，使之只能选择直的边Linar edge，再使用UF_GEXP_create_length查询并输出此edge的长度</p>
+
+<pre><code class="language-c++">/*	使用UF_UI_select_with_single_dialog，设置对象过滤器，使之只能选择直的边Linar edge，
+再使用UF_GEXP_create_length查询并输出此edge的长度
+*/
+
+//定义过滤器
+static int init_proc(UF_UI_selection_p_t select, void* user_data) {
+	//数组长度
+	int num_triples = 1;
+	//定义选择类型Linar edge
+	UF_UI_mask_t mask_triples[1];
+	mask_triples[0].object_type = UF_line_type;
+	mask_triples[0].object_subtype = 0;
+	mask_triples[0].solid_type = UF_UI_SEL_FEATURE_LINEAR_EDGE;
+	/*
+	UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC：把其他的都请除，只允许使用指定的
+	*/
+	if ((UF_CALL(UF_UI_set_sel_mask(select,UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC,
+		num_triples, mask_triples))) == 0)
+	{
+		return (UF_UI_SEL_SUCCESS);
+	}
+	else
+	{
+		return (UF_UI_SEL_FAILURE);
+	}
+}
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//状态栏提示文字
+	char cue[] = &quot;请选择Linar edge！&quot;;
+	//弹窗标题
+	char title[] = &quot;选择Linar edge&quot;;
+	//对话框的用户的操作
+	int response;
+	tag_t object=NULL_TAG, view;
+	double cursor[3];
+	if (!UF_CALL(UF_UI_select_with_single_dialog(cue, title,
+		UF_UI_SEL_SCOPE_NO_CHANGE, init_proc, NULL,
+		&amp;response, &amp;object, cursor, &amp;view)))
+	{
+		tag_t feature_tag = NULL_TAG;
+		//表达式对象
+		tag_t exp_tag = NULL_TAG;
+		if (object != NULL_TAG){
+			//创建长度表达式特征
+			UF_GEXP_create_length(object, NULL_TAG, &amp;feature_tag,&amp;exp_tag);
+			//长度
+			double rs;
+			//通过表达式标识获得表达式值
+			UF_MODL_ask_exp_tag_value(exp_tag, &amp;rs);
+			//结果输出
+			char buf[UF_UI_MAX_STRING_LEN+1];
+			sprintf(buf, &quot;已选择的Linar edge的长度为%lf\n&quot;, rs);
+			//显示结果
+			uc1601(buf, 1);
+		}
+		//高亮
+		UF_DISP_set_highlight(object, 0);
+	}
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h2 id="作业十">作业十</h2>
+
+<p>UF_UI_select_point_collection，构建多个点，在信息窗口输出所有点的坐标值</p>
+
+<pre><code class="language-c++">
+//作业十：调用函数UF_UI_select_point_collection，构建多个点，在信息窗口输出所有点的坐标值
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//提示信息
+	char message[]=&quot;请选择所有的点&quot;;
+	//点集合
+	UF_UI_chained_points_p_t points;
+	//点的个书
+	int count;
+	//操作
+	int response;
+	//选择点
+	UF_UI_select_point_collection(message,true, &amp;points, &amp;count, &amp;response);
+	UF_UI_open_listing_window();
+	char buf[UF_UI_MAX_STRING_LEN + 1];
+	sprintf(buf, &quot;共选择了%d个点\n&quot;, count);
+	UF_UI_write_listing_window(buf);
+	//遍历点的集合输出点的信息
+	for (int i = 0; i &lt; count; i++) {	
+		char buf[UF_UI_MAX_STRING_LEN + 1];
+		sprintf(buf, &quot;第%d个点的坐标为:(%lf,%lf,%lf)\n&quot;, i, points[i].pt[0], points[i].pt[1], points[i].pt[2]);
+		UF_UI_write_listing_window(buf);
+	}
+	//释放空间
+	UF_free(points);
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业十一">作业十一</h2>
+
+<p>UF_UI_select_with_single_dialog()在当前部件中选择一个实体对象，再使用UF_TRNS中的函数将此实体对象沿Z轴正方向平移100.</p>
+
+<pre><code class="language-c++">
+//作业十一：使用UF_UI_select_with_single_dialog()在当前部件中选择一个实体对象，
+//再使用UF_TRNS中的函数将此实体对象沿Z轴正方向平移100.
+//定义过滤器
+static int init_proc(UF_UI_selection_p_t select,void* user_data){
+	int num_triples = 1;
+	UF_UI_mask_t mask_triples[] = { UF_solid_type,0,0 };
+	if ((UF_CALL(UF_UI_set_sel_mask(select,
+		UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC,
+		num_triples, mask_triples))) == 0)
+	{
+		return (UF_UI_SEL_SUCCESS);
+	}
+	else
+	{
+		return (UF_UI_SEL_FAILURE);
+	}
+}
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	char cue[] = &quot;请选择要移动的实体!&quot;;
+	char title[] = &quot;选择要移动的实体&quot;;
+	int response;
+	tag_t object, view;
+	double cursor[3];
+	if (!UF_CALL(UF_UI_select_with_single_dialog(cue, title,
+		UF_UI_SEL_SCOPE_NO_CHANGE, init_proc, NULL,
+		&amp;response, &amp;object, cursor, &amp;view)))
+	{
+		if (object != NULL_TAG) {
+			double translation[3] = { 0.0,0.0,100.0 };//位移距离(x,y,z)
+			double matrix_value[12] = { 0.0 };//转换矩阵
+			uf5943(translation, matrix_value);//返回矩阵以执行线性变换，沿着绝对坐标系的X轴Y轴和Z轴。
+			tag_t objects_array[] = {object};//对象数组
+			int count = 1;//数组长度
+			int move_or_copy = 1;//1 -移动  2 - 复制
+			int dest_layer = 0;//图层
+			int trace_curves = 2;//轨迹曲线状态1 means on, 2 means off.
+			tag_t *copies = NULL;//这是当move_or_copy等于1（移动）时不使用。当move_or_copy为2（副本）时，应设置一个为空tag_t
+			tag_t trace_curve_group = NULL;//当trace_curves=2时，此处设置为null
+			int status_value = 0;
+			uf5947(matrix_value, objects_array, &amp;count, &amp;move_or_copy, &amp;dest_layer, &amp;trace_curves, copies, &amp;trace_curve_group, &amp;status_value);
+		}
+		UF_DISP_set_highlight(object, 0);
+	}
+    UF_CALL(UF_terminate());
+}
+
+
+</code></pre>
+
+<h2 id="作业十二">作业十二</h2>
+
+<p>UF_UI_select_with_single_dialog在当前的显示部件中选择片体(sheet body)，再为其设置名为s1、实数类型的属性，此属性中包含5个值，分别为1、2 、3、4、5.</p>
+
+<pre><code class="language-c++">//作业十三：使用UF_UI_select_with_single_dialog在当前的显示部件中选择片体(sheet body)，
+//再为其设置名为s1、实数类型的属性，此属性中包含5个值，分别为1、2 、3、4、5.
+//定义过滤器
+static int init_proc(UF_UI_selection_p_t select, void* user_data) {
+	//数组长度
+	int num_triples = 1;
+	//定义选择类型sheet body
+	UF_UI_mask_t mask_triples[1];
+	mask_triples[0].object_type = UF_solid_type;
+	mask_triples[0].object_subtype = 0;
+	mask_triples[0].solid_type = UF_UI_SEL_FEATURE_SHEET_BODY;
+	/*
+	UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC：把其他的都请除，只允许使用指定的
+	*/
+	if ((UF_CALL(UF_UI_set_sel_mask(select, UF_UI_SEL_MASK_CLEAR_AND_ENABLE_SPECIFIC,num_triples, mask_triples))) == 0)
+	{
+		return (UF_UI_SEL_SUCCESS);
+	}
+	else
+	{
+		return (UF_UI_SEL_FAILURE);
+	}
+}
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	//状态栏提示文字
+	char cue[] = &quot;请选择片体！&quot;;
+	//弹窗标题
+	char title[] = &quot;选择片体&quot;;
+	//对话框的用户的操作
+	int response;
+	tag_t object = NULL_TAG, view;
+	double cursor[3];
+	if (!UF_CALL(UF_UI_select_with_single_dialog(cue, title,UF_UI_SEL_SCOPE_NO_CHANGE, init_proc, NULL,
+		&amp;response, &amp;object, cursor, &amp;view))){
+		if (object != NULL_TAG) {
+            //设置一个值
+			//UF_ATTR_value_s value;
+			//value.type = UF_ATTR_integer;
+			//value.value.integer = 1;
+			//UF_ATTR_assign(object, &quot;s1&quot;, value);
+
+			//UF_ATTR_value_t v1;
+			//UF_ATTR_read_value(object,&quot;s1&quot;, UF_ATTR_integer, &amp;v1);
+			//char buf[UF_UI_MAX_STRING_LEN + 1];
+			//sprintf(buf, &quot;%d\n&quot;, v1.value.integer);
+			//UF_UI_write_listing_window(buf);
+			//uc1601(buf, 1);
+
+			//属性标题
+			char title[] = &quot;s1&quot;;
+			//定义索引数组
+			int attr[] = { 1,2,3,4,5 };
+			//赋值
+			for (int i = 0; i &lt; 5; i++) {
+				UF_ATTR_set_integer_user_attribute(object, title, i, attr[i], false);
+			}
+			UF_MODL_update();
+			int value;
+			bool isfound;
+			UF_UI_open_listing_window();
+			for (int i = 0; i &lt; 5; i++) {
+				//获取s1指定索引的值
+				UF_ATTR_get_integer_user_attribute(object, title, i, &amp;value, &amp;isfound);
+				if (isfound) {
+					char buf[UF_UI_MAX_STRING_LEN + 1];
+					sprintf(buf, &quot;标题为%s的索引%d的值为%d\n&quot;, title,i, value);
+					UF_UI_write_listing_window(buf);
+				}
+			}
+		}
+		//高亮
+		UF_DISP_set_highlight(object, 0);
+	}
+    UF_CALL(UF_terminate());
+}
+</code></pre>
+
+<h2 id="作业十三">作业十三</h2>
+
+<p>新建一个文本文件；再创建一个包含多行文本控件的用户界面，在界面的构造函数中读取文件中每行的内容并填充多行文本 输入框；</p>
+
+<pre><code class="language-c++">int CHANGE_action_0_act_cb ( int dialog_id, void * client_data,
+             UF_STYLER_item_value_type_p_t callback_data)
+{
+     if ( UF_initialize() != 0) 
+          return ( UF_UI_CB_CONTINUE_DIALOG );
+
+	 //1.从文件中获取值
+	 //加载文件
+	 ifstream myfile(&quot;C:\\workplace\\NX\\NXDEV2.0\\TEST\\test13_12\\test13_12\\value.txt&quot;);
+	 string line;
+	 int intvalue;
+	 double realvalue;
+	 string strvalue;
+	 string values[10];//将文件中的数值存放到该数组中
+	 int index = 0;
+	 if (myfile) { // 有该文件
+		 while (getline(myfile, line)) { // line中不包括每行的换行符
+			 values[index++] = line;
+		 }
+	 }
+	 //类型转换
+	 intvalue = atoi(values[0].c_str());
+	 realvalue = atof(values[1].c_str());
+	 strvalue = values[2];
+	 UF_STYLER_item_value_type_t value;
+	 //int类型
+	 value.item_id = &quot;INT&quot;;
+	 value.item_attr = UF_STYLER_VALUE;
+	 value.value.integer = intvalue;
+	 UF_STYLER_set_value(dialog_id,&amp;value);
+	 //real类型
+	 value.item_id = &quot;REAL&quot;;
+	 value.item_attr = UF_STYLER_VALUE;
+	 value.value.real = realvalue;
+	 UF_STYLER_set_value(dialog_id, &amp;value);
+	 //str类型
+	 value.item_id = &quot;STR&quot;;
+	 value.item_attr = UF_STYLER_VALUE;
+	 value.value.string = (char*)strvalue.c_str();
+	 UF_STYLER_set_value(dialog_id, &amp;value);
+	 //释放
+	 UF_STYLER_free_value(&amp;value);
+     UF_terminate ();
+    return (UF_UI_CB_CONTINUE_DIALOG); 
+}
+
+</code></pre>
+
+<pre><code>12
+10.03214
+isStr
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;sstream&gt; 
+std::stringstream stream1;
+stream1 &lt;&lt;&quot;The Selected Option id :&quot;&lt;&lt; value.value.integer;
+
+UF_UI_open_listing_window();
+UF_UI_write_listing_window((stream1.str().c_str()));
+</code></pre>
+
+<h2 id="作业十四">作业十四：</h2>
+
+<p>创建用户界面，其中包含一个单选列表(Option)和两个实数输入框(Radius和Diameter),，其中单选列表用于选择输入cylinder之直径或者半径，设置回调函数响应界面的变化</p>
+
+<pre><code class="language-c++">int CHANGE_value_change ( int dialog_id, void * client_data,
+             UF_STYLER_item_value_type_p_t callback_data){
+     if ( UF_initialize() != 0) 
+          return ( UF_UI_CB_CONTINUE_DIALOG );
+	 /*
+	 1.当单选按钮选择的是半径的时候，半径输入框能用，直径输入框禁用
+	 2.当单选按钮选择的是直径的时候，直径输入框能用，半径输入框禁用
+	 */
+	 //获取单选按钮的值OPTION
+	 UF_STYLER_item_value_type_t value;
+	 value.item_id = &quot;OPTION&quot;;
+	 value.item_attr = UF_STYLER_VALUE;
+	 UF_STYLER_ask_value(dialog_id, &amp;value);
+	 UF_UI_option_toggle_t userOption;
+	 userOption = value.value.option_toggle;
+	 //单选选项
+	 int op = userOption.choice;
+	 //选择半径，隐藏直径
+	 if (op == 0) {
+		 value.item_id = &quot;RADIUS&quot;;
+		 value.item_attr = UF_STYLER_SENSITIVITY;
+		 value.value.integer = 1;
+		 UF_STYLER_set_value(dialog_id, &amp;value);
+		 value.item_id = &quot;DIAMETER&quot;;
+		 value.item_attr = UF_STYLER_SENSITIVITY;
+		 value.value.integer = 0;
+		 UF_STYLER_set_value(dialog_id, &amp;value);
+	 }
+	 else {//选择直径,隐藏半径
+		 value.item_id = &quot;RADIUS&quot;;
+		 value.item_attr = UF_STYLER_SENSITIVITY;
+		 value.value.integer = 0;
+		 UF_STYLER_set_value(dialog_id, &amp;value);
+		 value.item_id = &quot;DIAMETER&quot;;
+		 value.item_attr = UF_STYLER_SENSITIVITY;
+		 value.value.integer = 1;
+		 UF_STYLER_set_value(dialog_id, &amp;value);
+	 }
+     UF_terminate ();
+    return (UF_UI_CB_CONTINUE_DIALOG); 
+}
+
+</code></pre>
+
+<h2 id="作业十五">作业十五</h2>
+
+<p>作业十五：创建如下所示的Excel文件用于存储Blocks的长宽高尺寸；在创建仅包含下拉列表框Option Menu的UI Styler界面，在界面的初始化函数中读取Blocks的型号，即Excel第一列，并以此填充Option Menu；在界面的apply函数中，根据所选的Block型号，创建与其尺寸对应的Block特征</p>
+
+<pre><code class="language-c++">//excel中的四列
+string sizeCol[4];
+double lengthCol[4];
+double widthCol[4];
+double heightCol[4];
+//wchar_t to string
+extern void Wchar_tToString(std::string&amp; szDst, wchar_t *wchar)
+{
+	wchar_t * wText = wchar;
+	// WideCharToMultiByte的运用
+	DWORD dwNum = WideCharToMultiByte(CP_OEMCP, NULL, wText, -1, NULL, 0, NULL, FALSE);
+	char *psText; // psText为char*的临时数组，作为赋值给std::string的中间变量
+	psText = new char[dwNum];
+	// WideCharToMultiByte的再次运用
+	WideCharToMultiByte(CP_OEMCP, NULL, wText, -1, psText, dwNum, NULL, FALSE);
+	szDst = psText;// std::string赋值
+	delete[]psText;// psText的清除
+}
+
+//读取excel，将结果赋值给sizeCol、lengthCol、widthCol、heightCol
+void init() {
+	Book *book = xlCreateBook();
+	if (book-&gt;load(L&quot;C:\\Users\\26069\\Desktop\\学习\\nx二次开发\\资源\\Blocks.xls&quot;))
+	{
+		Sheet* sheet = book-&gt;getSheet(0);
+		if (sheet) {
+			int row, col;
+			//读取size内容
+			row = 1;
+			col = 0;
+			while (sheet-&gt;cellType(row, col) != libxl::CellType::CELLTYPE_EMPTY) {
+				const wchar_t *sizeValue = sheet-&gt;readStr(row, col);
+				string v1;
+				Wchar_tToString(v1, (wchar_t *)sizeValue);
+				sizeCol[row - 1] = v1;
+				row++;
+			}
+			//读取length内容
+			row = 1;
+			col = 1;
+			while (sheet-&gt;cellType(row, col) != libxl::CellType::CELLTYPE_EMPTY) {
+				lengthCol[row - 1] = sheet-&gt;readNum(row, col);
+				row++;
+			}
+			//读取width内容
+			row = 1;
+			col = 2;
+			while (sheet-&gt;cellType(row, col) != libxl::CellType::CELLTYPE_EMPTY) {
+				widthCol[row - 1] = sheet-&gt;readNum(row, col);
+				row++;
+			}
+			//读取height内容
+			row = 1;
+			col = 3;
+			while (sheet-&gt;cellType(row, col) != libxl::CellType::CELLTYPE_EMPTY) {
+				heightCol[row - 1] = sheet-&gt;readNum(row, col);
+				row++;
+			}
+		}
+		book-&gt;release();
+	}
+	else {
+		uc1601(&quot;Error&quot;,1);
+	}
+}
+//为option赋初值
+int CHANGE_init_option_menu ( int dialog_id, void * client_data,
+             UF_STYLER_item_value_type_p_t callback_data){
+     if ( UF_initialize() != 0) 
+          return ( UF_UI_CB_CONTINUE_DIALOG );
+	 //读取excel
+	 init();
+	 //给OPTION_0赋值
+	 UF_STYLER_item_value_type_t value;
+	 value.item_id = &quot;OPTION_0&quot;;
+	 value.item_attr = UF_STYLER_SUBITEM_VALUES;
+	 char* stringsValue[5];
+	 for (int i = 0; i &lt; 4; i++)
+	 {
+		 //要使用new，重新分配内存地址
+		 char *v=new char(100);
+		 strcpy(v, sizeCol[i].c_str());
+		 stringsValue[i] = v;
+	 }
+	 value.value.strings = stringsValue;
+	 value.count = 4;
+	 UF_STYLER_set_value(dialog_id, &amp;value);
+	 UF_STYLER_free_value(&amp;value);
+     UF_terminate ();
+    return (UF_UI_CB_CONTINUE_DIALOG); 
+}
+//根据选项创建指定的block
+int CHANGE_apply_cb ( int dialog_id, void * client_data,
+             UF_STYLER_item_value_type_p_t callback_data){
+     if ( UF_initialize() != 0) 
+          return ( UF_UI_CB_CONTINUE_DIALOG );
+	 //获取option的选项
+	 UF_STYLER_item_value_type_t value;
+	 value.item_id = &quot;OPTION_0&quot;;
+	 value.item_attr = UF_STYLER_VALUE;
+	 UF_STYLER_ask_value(dialog_id, &amp;value);
+	 //用户选项
+	 int iItemSelected = value.value.integer;
+	 UF_STYLER_free_value(&amp;value);
+	 //创建实体
+	 UF_FEATURE_SIGN sign = UF_NULLSIGN;//没有布尔操作
+	 double origin[] = { 0,0,0 };//原点位置0，0，0
+	 char length[20];//长表达式
+	 char width[20];//宽表达式
+	 char height[20];//高表达式
+	 //为长宽高表达式赋值
+	 sprintf_s(length, &quot;length=%lf&quot;, lengthCol[iItemSelected]);
+	 sprintf_s(width, &quot;width=%lf&quot;, widthCol[iItemSelected]);
+	 sprintf_s(height, &quot;height=%lf&quot;, heightCol[iItemSelected]);
+	 char* lengths[] = { length,width,height };//长宽高
+	 //创建实体
+	 tag_t blk_feat = NULL_TAG;
+	 UF_MODL_create_block(sign, null_tag, origin, lengths, &amp;blk_feat);//创建实体
+     UF_terminate ();
+    return (UF_UI_CB_CONTINUE_DIALOG); 
+}
+</code></pre>
+
+<p>使用了libxl这个读取excel的类库，使用的资源是这三个文件夹中的</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/NX二次开发/image-20200407202351787.png" alt="image-20200407202351787" /></p>
+
+<p>设置vs环境，引入libxl类库</p>
+
+<p>在项目&ndash;&gt;属性中要设置三个地方</p>
+
+<blockquote>
+<p>C/C++&ndash;&gt;常规&ndash;&gt;附加包含目录：include_cpp</p>
+
+<p>链接器&ndash;&gt;常规&ndash;&gt;附加库目录:lib4</p>
+
+<p>​         &ndash;&gt;输入&ndash;&gt;附加依赖项增加:libxl.lib值此外还要将bin64中的libxl.dll放到生成的dll的目录下，保持与dll同级</p>
+</blockquote>
+
+<h2 id="作业十六">作业十六</h2>
+
+<p>作业十六：创建一个直径为20、高为100、原点位于(0,0,0)、方向为Z轴正方向的的Cylinder，在其顶部表面上创建坐标为(0,0,100)、深为40，直径为5的简单孔(UF_MODL_create_simple_hole)</p>
+
+<p>代码不完美，有瑕疵，功能未实现</p>
+
+<pre><code class="language-c++">extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()) ) 
+    {
+        return;
+    }
+	/*
+	作业十六：创建一个直径为20、高为100、原点位于(0,0,0)、方向为Z轴正方向的的Cylinder，
+	在其顶部表面上创建坐标为(0,0,100)、深为40，直径为5的简单孔(UF_MODL_create_simple_hole)
+	*/
+	UF_FEATURE_SIGN sign = UF_NULLSIGN;
+	double origin[] = { 0,0,0 };
+	char * height = &quot;100&quot;;
+	char * diam = &quot;20&quot;;
+	double direction[] = { 0,0,1 };
+	tag_t cyl_obj_id = NULL_TAG;
+	//创建一个圆柱特征
+	UF_MODL_create_cylinder(sign, null_tag, origin, height, diam, direction, &amp;cyl_obj_id);
+	uf_list_p_t face_list;
+	tag_t face_tag;
+	int count, i;
+	UF_MODL_ask_feat_faces(cyl_obj_id, &amp;face_list);//获取所有面
+	UF_MODL_ask_list_count(face_list, &amp;count);//面的总数
+	int faceTypes;
+	for (i = 0; i&lt;count; i++)
+	{
+		UF_MODL_ask_list_item(face_list, i, &amp;face_tag);
+		UF_MODL_ask_face_type(face_tag, &amp;faceTypes);
+		if (faceTypes != UF_MODL_PLANAR_FACE) {
+			UF_MODL_delete_list_item(&amp;face_list, face_tag);
+		}
+	}
+	tag_t placement_face = NULL_TAG, thru_face = NULL_TAG;
+	UF_MODL_ask_list_item(face_list, 1, &amp;placement_face);
+	UF_MODL_ask_list_item(face_list,0, &amp;thru_face);
+	UF_MODL_delete_list(&amp;face_list);
+	double location_hole[3] = { 0, 0, 100 };
+	double direction_hole[3] = { 0, 0, -1 };
+	char *diame_hole = &quot;dia =5&quot;;
+	char *depth_hole = &quot;dep=40&quot;;
+	char *angle_hole = &quot;ang=0&quot;;
+	tag_t hole_tag_hole;
+	UF_MODL_create_simple_hole(location_hole, direction_hole, diame_hole, depth_hole, angle_hole, placement_face, thru_face, &amp;hole_tag_hole);
+    UF_CALL(UF_terminate());
+}
+
+</code></pre>
+
+<h2 id="作业十七">作业十七</h2>
+
+<p>调用UF_UI_open_part函数以选择部件，将打开的部件作为子部件加入到当前显示部件的根节点下，方位任定。</p>
+
+<pre><code class="language-c++">static logical my_error_handler
+(
+	UF_UI_err_data_p_t     error_fn_data,
+	char                  *file_name,
+	int                    error,
+	UF_PART_load_status_t *error_status,
+	logical               *skip_error_disp
+);
+extern DllExport void ufusr( char *parm, int *returnCode, int rlen )
+{
+    if( UF_CALL(UF_initialize()))  {
+        return;
+    }
+	//作业十七：调用UF_UI_open_part函数以选择部件，将打开的部件作为子部件加入到当前显示部件的根节点下，
+	//方位任定。
+
+	//获取显示部件
+	tag_t displayPart = UF_PART_ask_display_part();
+	//UF_UI_open_part选择部件
+	const char *message = &quot;part open error&quot;;
+	UF_UI_err_t error_handler;
+	//打开prt
+	error_handler.type = UF_UI_open_part_fun;
+	error_handler.fun.open = my_error_handler;
+	error_handler.fun_data.size = strlen(message) + 1;
+	error_handler.fun_data.data = message;
+	char file_name[MAX_FSPEC_SIZE + 1] = &quot;&quot;;
+	tag_t part=NULL_TAG;
+	int response;
+	UF_PART_load_status_t part_status;
+	logical use_display_file = FALSE;
+	UF_UI_open_part(&amp;error_handler, file_name,&amp;use_display_file,&amp;part,&amp;response,&amp;part_status);
+	//选择文件
+	if (response == UF_UI_OK) {
+		//添加装配
+		double origin[] = { 0,0,0 };
+		double matrix[] = { 1,0,0,0,1,0 };
+		tag_t instanceTag = NULL_TAG;
+		UF_PART_load_status_s partStatus;
+		UF_ASSEM_add_part_to_assembly(displayPart, file_name, &quot;Entire Part&quot;, &quot;&quot;, origin, matrix, 0, &amp;instanceTag, &amp;partStatus);//获取instanceTag
+	}
+	else{
+		uc1601(&quot;未选择部件文件&quot;, 1);
+	}
+	
+	if (part_status.statuses != NULL) {
+		UF_free(part_status.statuses);
+	}
+	if (part_status.file_names != NULL) {
+		UF_free_string_array(part_status.n_parts,
+			part_status.file_names);
+	}
+    UF_CALL(UF_terminate());
+}
+
+static logical my_error_handler
+(
+	UF_UI_err_data_p_t     error_fn_data,
+	char                  *file_name,
+	int                    error,
+	UF_PART_load_status_t *error_status,
+	logical               *skip_error_disp
+)
+{
+	fprintf(stderr, &quot;my_error_handler called with:\n&quot;
+		&quot;    error_fn_data-&gt;size = %d\n&quot;
+		&quot;    error_fn_data-&gt;data = %s\n&quot;
+		&quot;    file_name           = %s\n&quot;
+		&quot;    error               = %d\n&quot;,
+		error_fn_data-&gt;size,
+		(const char *)error_fn_data-&gt;data,
+		file_name,
+		error
+	);
+	*skip_error_disp = TRUE;
+	return TRUE;
+}
+
+</code></pre>
+
+<h2 id="作业十八">作业十八</h2>
+
+<p>：在NXOpen中存在Selection类，调用其中的SelectTaggedObjects方法选择当前work part中的对象，要求设置过滤器使只有planar faces课被选中；将所有被选 中的faces的tag输出到信息窗口(编程语言不限)。</p>
+
+<pre><code class="language-c#"> public static int Main(string[] args) {
+        int retValue = 0;
+        try {
+            theProgram = new Program();
+            /*
+             作业十八：在NXOpen中存在Selection类，调用其中的SelectTaggedObjects方法选择当前work part中的对象，
+             要求设置过滤器使只有planar faces课被选中；将所有被选 中的faces的tag输出到信息窗口(编程语言不限)。
+             */
+            theUfSession.Ui.OpenListingWindow();
+            
+            string message = &quot;请选择planar faces！&quot;;
+            string title = &quot;请选择planar faces&quot;;
+            //工作部件
+            NXOpen.Selection.SelectionScope scope = NXOpen.Selection.SelectionScope.WorkPart;
+            NXOpen.Selection.Response res;
+            bool includeFeatures = false;
+            bool keepHighlighted = false;
+            TaggedObject[] objectArray;
+            NXOpen.Selection.SelectionAction action = NXOpen.Selection.SelectionAction.ClearAndEnableSpecific;
+            NXOpen.Selection.MaskTriple mtp = new NXOpen.Selection.MaskTriple();
+            //设置过滤器UF_UI_SEL_FEATURE_PLANAR_FACE
+            mtp.SolidBodySubtype = UFConstants.UF_UI_SEL_FEATURE_PLANAR_FACE;
+            NXOpen.Selection.MaskTriple[] maskArray = new Selection.MaskTriple[1] { mtp };
+            //选择对象
+            res = theUI.SelectionManager.SelectTaggedObjects(message, title, scope, action, includeFeatures, keepHighlighted, maskArray, out objectArray);
+            //点击确定
+            if (res == NXOpen.Selection.Response.Ok) {
+                theUfSession.Ui.WriteListingWindow(&quot;总共选择了&quot; + objectArray.Length+ &quot;个planar faces&quot;);
+                theUfSession.Ui.WriteListingWindow(&quot;\n&quot;);
+                int i = 0;
+                foreach (TaggedObject o in objectArray) {
+
+                    Face face = o as Face;
+                    theUfSession.Ui.WriteListingWindow(&quot;第&quot;+(++i)+ &quot;个planar faces信息为：&quot;);
+                    theUfSession.Ui.WriteListingWindow(face.Tag.ToString());
+                    theUfSession.Ui.WriteListingWindow(&quot;\n&quot;);
+                }
+            } else if (res == NXOpen.Selection.Response.Cancel) {
+
+                theUI.NXMessageBox.Show(&quot;警告信息&quot;,NXOpen.NXMessageBox.DialogType.Warning,&quot;没有选择对象&quot;);
+            }
+            theProgram.Dispose();
+        } catch (NXOpen.NXException ex) {
+            // ---- Enter your exception handling code here -----
+            theUI.NXMessageBox.Show(&quot;异常信息&quot;, NXOpen.NXMessageBox.DialogType.Warning, ex.ToString());
+        }
+        return retValue;
+    }
+
+</code></pre>
+
+<h2 id="作业十九">作业十九</h2>
+
+<p>构建一个包含&rdquo;Body Collector&rdquo;和&rdquo;Select Part from List&rdquo;控件的用户界面，将选中的实体关联拷贝到指定的部件中，实体拷贝使用UF_WAVE_create_linked_body函数。编程语言不限。</p>
+
+<pre><code class="language-C#">/*作业十九：构建一个包含&quot;Body Collector&quot;和&quot;Select Part from List&quot;控件的用户界面，
+    * 将选中的实体关联拷贝到指定的部件中，实体拷贝使用UF_WAVE_create_linked_body函数。编程语言不限。*/
+    public TaggedObject[] bss;
+    TaggedObject[] bps;
+    public int update_cb( NXOpen.BlockStyler.UIBlock block){
+        try {
+            if(block == bodySelect0){
+                bss =  bodySelect0.GetSelectedObjects();
+            }else if(block == selectPart0){
+                bps = selectPart0.GetSelectedObjects();
+            }
+        } catch (Exception ex){
+            theUI.NXMessageBox.Show(&quot;Block Styler&quot;, NXMessageBox.DialogType.Error, ex.ToString());
+        }
+        return 0;
+    }
+    public int ok_cb(){
+        int errorCode = 0;
+        try{
+            errorCode = apply_cb();
+            for (int i = 0; i &lt; bps.Length; i++) {
+                Part part = bps[i] as Part;
+                for (int j = 0; j &lt; bss.Length; j++) {
+                    Body body = bss[j] as Body;
+                    Tag object_in_part = new Tag();
+                    Tag linked_feature;
+                    theUfSession.Wave.CreateLinkedBody(body.Tag, object_in_part,part.Tag, false, out linked_feature);
+                    //提示
+                    theUI.NXMessageBox.Show(&quot;提示信息&quot;, NXMessageBox.DialogType.Information, &quot;操作成功!&quot;);
+                }
+            }
+        }
+        catch (Exception ex){
+            errorCode = 1;
+            theUI.NXMessageBox.Show(&quot;Block Styler&quot;, NXMessageBox.DialogType.Error, ex.ToString());
+        }
+        return errorCode;
+    }
+   
+</code></pre>
+
+<h2 id="作业二十">作业二十</h2>
+
+<p>使用KF创建Block、Cylinder特征，再添加布尔加操作</p>
+
+<pre><code>#! NX/KF 4.0
+DefClass: %a2.prt (ug_base_part);
+# 部件的根级别动态规则
+# 添加或移除该附注下面的子规则和属性
+
+(Child) block1: {
+  Class, nx_block,
+  Length, 10,
+  width, 10,
+  height, 10
+};
+
+(Child) cylinder1: {
+  Class, nx_cylinder,
+  diameter, 20.0,
+  height, 30.0,
+  direction, Vector(0,0,1),
+  Boolean_Option_Type, unite,
+  Boolean_Option_Target_Bodies, {body1:}
+};
+
+(Child) body1: {
+  Class, ug_body,
+  Feature, {block1:}
+};
+</code></pre>
+
+<h2 id="作业二十一">作业二十一</h2>
+
+<p>使用KF创建Block，再将其顶面四使用条边进行倒圆角</p>
+
+<pre><code>#! NX/KF 4.0
+DefClass: %a2.prt (ug_base_part);
+# Root level dynamic rules of the Part
+# Add or remove child rules and attributes below this commment
+
+(Child) b1: {
+  Class, nx_block,
+  Length, 10,
+  Width, 10,
+  Height, 10
+};
+
+(List Modifiable) face1: ug_feature_askFaceClosestToPoint( b1:, point(5,5,10), &quot;use_more_accuracy?&quot;, false ); 
+(List Modifiable) edges1: ug_face_askEdges(first( face1:) ); 
+(Number Parameter) Radius: 1.0;
+
+(Child) Blend: {
+	Class;			ug_edge_blend;
+	Edge_Blend_References;	edges1:;
+	Radius;			Radius:;
+};
+
+</code></pre>
+
+<h2 id="作业二十二">作业二十二</h2>
+
+<p>使用KF画首尾相连的三条线，构成一个三角形，再将此三角形进行拉伸</p>
+
+<pre><code>#! NX/KF 4.0
+DefClass: %a2.prt (ug_base_part);
+# Root level dynamic rules of the Part
+# Add or remove child rules and attributes below this commment
+
+(Point Modifiable) Point1: point(0,0,0); 
+(Point Modifiable) Point2: point(0,100,0); 
+(Point Modifiable) Point3: point(100,0,0); 
+(Child) line1: {
+  Class, nx_line,
+  Start_Point, point1:,
+  End_Point, point2:
+};
+
+(Child) line2: {
+  Class, nx_line,
+  Start_Point, point2:,
+  End_Point, point3:
+};
+
+(Child) line3: {
+  Class, nx_line,
+  Start_Point, point1:,
+  End_Point, point3:
+};
+(Child) Direction: {
+	Class;		nx_direction;
+	Vector;		vector(0,0,1);
+};
+(Child) Section2: {
+	Class;		ug_section;
+	Chain_Rules;	{Single_Curves,line1:,line2:,line3:};
+};
+(Child) Extrude2: {
+	Class;				nx_extrude;
+	Section;			Section2:;
+	Direction;			Direction:;
+	Draft_Enabled;			true;
+	Draft_Draft_Type;		simple_from_profile;
+	Draft_Draft_Angle;		-10;
+	Limits_Limit_Opt;		nonsymmetric_offset;
+	Limits_Start_Extend_Value;	0;
+	Limits_End_Extend_Value;	 100;
+};
+
+</code></pre>
+
+<h2 id="作业二十三">作业二十三</h2>
+
+<p>使用KF在绝对坐标系的XZ平面内画圆弧，其直径为10，坐标为(50,0,50),再将此圆弧绕Z轴旋转360度</p>
+
+<pre><code>#! NX/KF 4.0
+DefClass: %a2.prt (ug_base_part);
+# Root level dynamic rules of the Part
+# Add or remove child rules and attributes below this commment
+
+(Child) arc: {
+  Class, nx_arc,
+  radius, 10,
+  orientation, {center, point(50,0,50), x_direction, vector(1,0,0), y_direction, vector(0,0,1)}
+};
+
+(Child) section: {
+  Class, ug_section,
+  Chain_Rules, {Single_Curves, arc:}
+};
+
+(Child) direction: {
+  Class, nx_direction,
+  Vector, vector(0,0,1)
+};
+
+(Child) Point: {
+  Class, nx_point,
+  Coordinates, point(0,0,50)
+};
+
+(Child) axis: {
+  Class, nx_axis,
+  Point, point:,
+  direction, direction:
+};
+
+(Number Parameter) angle_start: 0; 
+(Number Parameter) angle_end: 360; 
+
+
+(Child) revolve: {
+  Class, nx_revolve,
+  section, section:,
+  axis, axis:,
+  Limits_Start_Extend_Value, angle_start:,
+  Limits_End_Extend_Value, angle_end:
+};
+
+
+</code></pre>
+
+<h2 id="作业二十四">作业二十四</h2>
+
+<p>使用child list创建矩形阵列，行数、列数及行间距、列间距均由外部输入；</p>
+
+<pre><code>#! NX/KF 4.0
+
+DefClass: test24 (ug_base_part);
+(integer parameter modifiable)row: 5;
+(integer parameter modifiable)col: 3;
+(integer parameter modifiable)row_spac: 10;
+(integer parameter modifiable)col_spac: 10;
+(child list)rs:
+{
+ class, ug_block;
+ quantity, row:*col:;
+ origin, Point((mod((child:index: - 1),col:)*col_spac:),round((child:index: - 2)/col:)*row_spac:,0);
+};
+
+
+</code></pre>
+
+<h2 id="作业二十五">作业二十五</h2>
+
+<p>使用ug_cycleObjectsByType函数遍历当前工作部件中的Edges，并将其Tag输出到信息窗口中。</p>
+
+<pre><code>#! NX/KF 4.0
+# 使用ug_cycleObjectsByType函数遍历当前工作部件中的Edges，并将其Tag输出到信息窗口中。
+DefClass: test25 (ug_base_part);
+# 项目初始化时自动求值
+(list) demandvalue: {rs:};
+(any)edges1: @{
+$partName &lt;&lt; ug_askCurrentWorkPart();
+$edges&lt;&lt;ug_cycleObjectsByType({ug_edge},$partName);
+};
+(any)rs: loop
+{
+	for $edge in edges1:;
+  for $aa is ug_cam_askObjectTag($edge);
+	do ug_printvalue($aa);
+};
+
+</code></pre>
+
+<h2 id="作业二十六">作业二十六</h2>
+
+<p>使用UIStyler创建用户界面，其中包括一个按键用于选择实体中的边(Edge),要求可选任意类型的边；再向信息窗口输出所选的边的长度。(使用ug_edge类中的total_arc_length属性)</p>
+
+<pre><code>#! NX/KF 4.0
+#使用UIStyler创建用户界面，其中包括一个按键用于选择实体中的边(Edge),
+#要求可选任意类型的边；再向信息窗口输出所选的边的长度。
+#(使用ug_edge类中的total_arc_length属性)
+#
+DefClass: test26 (ug_base_part);
+(list) demandvalue: {rs:};
+(list parameter modifiable) select: {};
+(list) select_mask: {edge};
+(any)rs: loop
+{
+	for $edge in select:;
+	do ug_printvalue(nth(5,ug_curve_askProperties($edge)));
+};
+
+</code></pre>
+
+<h2 id="作业二十七">作业二十七</h2>
+
+<p>使用%ui_comp及其派生类创建用户界面，选择实体中的边(Edges)和输入直径并创建边倒圆(Blend)。</p>
+
+<pre><code>#! NX/KF 4.0
+#使用%ui_comp及其派生类创建用户界面，选择实体中的边(Edges)和
+#输入直径并创建边倒圆(Blend)。
+DefClass: test27 (ug_base_part %ui_comp);
+(list)dialogitems: {selection:,diameter:};
+(Child) selection: {
+  Class, %ui_comp_selection;
+  Many, true;
+  SnapPointOverlay, false;
+  SoUpdateOption, 3;
+  Label, &quot;Select Objects&quot;;
+  ToolTip, &quot;Select Objects&quot;;
+  Scope, 1;
+  FilterTriple, {{70,3,1}};
+  SelectedObjects, {};
+  SelectedObject, SelectedObjects: ;
+};
+
+(Child) diameter: {
+  Class, %ui_comp_double;
+  value, 5;
+  unit, &quot;&quot;;
+  MaximumValue, 1.0e19;
+  MinimumValue, -1.0e19;
+  Width, 0;
+  VisibleDecimals, 2;
+};
+
+(Child) new_ug_edge_blend: {
+  Class, ug_edge_blend;
+  Edge_Blend_References, selection:SelectedObjects:;
+  radius, diameter:value:/2;
+  Smooth_Overflow?, TRUE;
+  Cliff_Overflow?, TRUE;
+  Notch_Overflow?, TRUE;
+  Twist_Patches?, TRUE;
+  Soften_Vertices?, FALSE;
+  Blend_Instances?, FALSE;
+  Overlap_Resolution, Overlap_maintain_and_intersect;
+  Blend_Order, Order_of_blending_convex_first;
+  Corner_Setback, Setback_include_with_corner;
+};
+
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/" title="NX二次开发" target="_blank" rel="external">https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/02/springdata/" title="SpringData JPA自学笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/"
+                    title="Redis笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

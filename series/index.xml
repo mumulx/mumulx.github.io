@@ -5,10 +5,28 @@
     <link>https://mumulx.github.io/series/</link>
     <description>Recent content in Series on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java算法笔记</title>
+      <link>https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>数组 基本概念 public class TestOpArray { public static void main(String[] args) { //解决数组的长度不可变的问题 int[] arr = new int[] {9,8,7}; //快速查看数组中的元素 System.out.println(Arrays.toString(arr)); //要加入数组的目标元素 int dst=6; //创建一个</description>
+    </item>
+    
+    <item>
+      <title>Java面试准备一</title>
+      <link>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
+      <description>技术面试指导 本文从“必备项”和“加分项”两个角度分析。 一、必备项 0.自我介绍 表达流畅，不要太差即可 1.基础 坑：【答案很标准】面试时的回答，一</description>
+    </item>
     
     <item>
       <title>Teamcenter定制学习笔记</title>
@@ -152,6 +170,15 @@
       
       <guid>https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/</guid>
       <description>Redis Redis 是完全开源免费的，遵守BSD协议，是一个高性能的（noSQL）key-value数据库 Redis 与其他 key - value 缓存产品有以下三个特点： Redis支</description>
+    </item>
+    
+    <item>
+      <title>NX二次开发</title>
+      <link>https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</guid>
+      <description>入门 环境准备 NX12.0 visual studio 2015 1）、将，安装路径\NX 12.0\UGOPEN\vs_files\VC\vcprojects下的文件全部拷贝到vs201</description>
     </item>
     
     <item>
