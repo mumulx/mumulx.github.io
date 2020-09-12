@@ -24,6 +24,13 @@
   </url>
   
   <url>
+    <loc>https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</loc>
+    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -74,6 +81,13 @@
   
   <url>
     <loc>https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
+    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -21,6 +21,15 @@
     
     <item>
       <title>Java面试准备一</title>
+      <link>https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
+      <description>背包九讲 P01: 01背包问题 题目 有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费</description>
+    </item>
+    
+    <item>
+      <title>Java面试准备一</title>
       <link>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
