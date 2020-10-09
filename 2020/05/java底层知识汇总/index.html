@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java底层知识汇总 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java底层知识汇总." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java底层知识汇总 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java底层知识汇总" />
+<meta property="og:description" content="Java底层知识汇总." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" />
+<meta property="article:published_time" content="2020-05-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-21T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java底层知识汇总">
+<meta itemprop="description" content="Java底层知识汇总.">
+
+
+<meta itemprop="datePublished" content="2020-05-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="21405">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java底层知识汇总"/>
+<meta name="twitter:description" content="Java底层知识汇总."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">28</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" class="title">Java面试准备一</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" class="title">背包九讲问题汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Teamcenter定制学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" class="title">复习知识点总结</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-09</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#spring中的问题">Spring中的问题</a>
+<ul>
+<li><a href="#spring中的循环依赖">Spring中的循环依赖</a>
+<ul>
+<li><a href="#什么是循环依赖">什么是循环依赖？</a></li>
+<li><a href="#bean的生命周期">Bean的生命周期</a></li>
+<li><a href="#三级缓存">三级缓存</a></li>
+<li><a href="#解决循环依赖思路分析">解决循环依赖思路分析</a></li>
+<li><a href="#spring到底解决了哪种情况下的循环依赖">Spring到底解决了哪种情况下的循环依赖</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+<li><a href="#spring中一些概念的总结">Spring中一些概念的总结</a>
+<ul>
+<li><a href="#对象和bean的区别">对象和Bean的区别？</a></li>
+<li><a href="#如何理解beandefinition">如何理解BeanDefinition？</a></li>
+<li><a href="#beanfactory和factorybean的区别">BeanFactory和FactoryBean的区别</a></li>
+<li><a href="#beanfactory">BeanFactory</a></li>
+<li><a href="#factorybean">FactoryBean</a></li>
+<li><a href="#如何理解beanfactorypostprocessor">如何理解BeanFactoryPostProcessor？</a></li>
+<li><a href="#如何理解beandefinitionregistrypostprocessor">如何理解BeanDefinitionRegistryPostProcessor？</a></li>
+<li><a href="#如何理解-import与importbeandefinitionregistrar">如何理解@Import与ImportBeanDefinitionRegistrar？</a></li>
+<li><a href="#import注解">Import注解</a></li>
+<li><a href="#importbeandefinitionregistrar">ImportBeanDefinitionRegistrar</a></li>
+<li><a href="#如何理解beandefinitionregistry和beanfactory">如何理解BeanDefinitionRegistry和BeanFactory?</a></li>
+</ul></li>
+<li><a href="#spring依赖注入原理分析-未完成">Spring依赖注入原理分析(未完成)</a>
+<ul>
+<li><a href="#什么是依赖注入">什么是依赖注入</a></li>
+<li><a href="#byname">byName</a></li>
+<li><a href="#bytype">byType</a></li>
+</ul></li>
+<li><a href="#spring整合mybatis原理">Spring整合Mybatis原理</a>
+<ul>
+<li><a href="#mybatis的基本工作原理">Mybatis的基本工作原理</a></li>
+<li><a href="#分析需要解决的问题">分析需要解决的问题</a></li>
+</ul></li>
+<li><a href="#spring中bean的产生过程">Spring中Bean的产生过程</a>
+<ul>
+<li><a href="#解决问题">解决问题</a></li>
+<li><a href="#终极解决方案">终极解决方案</a></li>
+<li><a href="#factorybean-1">FactoryBean</a></li>
+<li><a href="#import">Import</a></li>
+<li><a href="#总结-1">总结</a></li>
+<li><a href="#优化">优化</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#jvm底层">JVM底层</a>
+<ul>
+<li><a href="#java的跨平台是如何实现的">Java的跨平台是如何实现的</a></li>
+<li><a href="#方法区">方法区</a></li>
+<li><a href="#本地方法栈">本地方法栈</a></li>
+<li><a href="#虚拟机栈">虚拟机栈</a></li>
+<li><a href="#程序计数器">程序计数器</a></li>
+<li><a href="#调优">调优</a>
+<ul>
+<li><a href="#计算对象大小">计算对象大小</a></li>
+<li><a href="#指针压缩">指针压缩</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#gc">GC</a>
+<ul>
+<li><a href="#内存池的结构">内存池的结构</a></li>
+<li><a href="#volatile">Volatile</a>
+<ul>
+<li><a href="#指令重排">指令重排</a></li>
+</ul></li>
+<li><a href="#synchronized">Synchronized</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"
+    >Java底层知识汇总</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="article-date">
+  <time datetime="2020-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-21</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:21405字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:43分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="spring中的问题">Spring中的问题</h1>
+
+<h2 id="spring中的循环依赖">Spring中的循环依赖</h2>
+
+<h3 id="什么是循环依赖">什么是循环依赖？</h3>
+
+<p>很简单，就是A对象依赖了B对象，B对象依赖了A对象。</p>
+
+<p>比如：</p>
+
+<pre><code class="language-java">// A依赖了B
+class A{
+    public B b;
+}
+
+// B依赖了A
+class B{
+    public A a;
+}
+</code></pre>
+
+<p>那么循环依赖是个问题吗？</p>
+
+<p>如果不考虑Spring，循环依赖并不是问题，因为对象之间相互依赖是很正常的事情。</p>
+
+<p>比如</p>
+
+<pre><code class="language-java">A a = new A();
+B b = new B();
+
+a.b = b;
+b.a = a;
+</code></pre>
+
+<p>这样，A,B就依赖上了。</p>
+
+<p>但是，在Spring中循环依赖就是一个问题了，为什么？</p>
+
+<p>因为，在Spring中，一个对象并不是简单new出来了，而是会经过一系列的Bean的生命周期，就是因为Bean的生命周期所以才会出现循环依赖问题。当然，在Spring中，出现循环依赖的场景很多，有的场景Spring自动帮我们解决了，而有的场景则需要程序员来解决，下文详细来说。</p>
+
+<p>要明白Spring中的循环依赖，得先明白Spring中Bean的生命周期。</p>
+
+<h3 id="bean的生命周期">Bean的生命周期</h3>
+
+<p>这里不会对Bean的生命周期进行详细的描述，只描述一下大概的过程。</p>
+
+<p>Bean的生命周期指的就是：在Spring中，Bean是如何生成的？</p>
+
+<p>被Spring管理的对象叫做Bean。Bean的生成步骤如下：</p>
+
+<ol>
+<li>Spring扫描class得到BeanDefinition</li>
+<li>根据得到的BeanDefinition去生成bean</li>
+<li>首先根据class推断构造方法</li>
+<li>根据推断出来的构造方法，反射，得到一个对象（暂时叫做原始对象）</li>
+<li>填充原始对象中的属性（依赖注入）</li>
+<li>如果原始对象中的某个方法被AOP了，那么则需要根据原始对象生成一个代理对象</li>
+<li>把最终生成的代理对象放入单例池（源码中叫做singletonObjects）中，下次getBean时就直接从单例池拿即可</li>
+</ol>
+
+<p>可以看到，对于Spring中的Bean的生成过程，步骤还是很多的，并且不仅仅只有上面的7步，还有很多很多，比如Aware回调、初始化等等，这里不详细讨论。</p>
+
+<p>可以发现，在Spring中，构造一个Bean，包括了new这个步骤（第4步构造方法反射）。</p>
+
+<p>得到一个原始对象后，Spring需要给对象中的属性进行依赖注入，那么这个注入过程是怎样的？</p>
+
+<p>比如上文说的A类，A类中存在一个B类的b属性，所以，当A类生成了一个原始对象之后，就会去给b属性去赋值，此时就会根据b属性的类型和属性名去BeanFactory中去获取B类所对应的单例bean。如果此时BeanFactory中存在B对应的Bean，那么直接拿来赋值给b属性；如果此时BeanFactory中不存在B对应的Bean，则需要生成一个B对应的Bean，然后赋值给b属性。</p>
+
+<p>问题就出现在第二种情况，如果此时B类在BeanFactory中还没有生成对应的Bean，那么就需要去生成，就会经过B的Bean的生命周期。</p>
+
+<p>那么在创建B的Bean的过程中，如果B类中存在一个A类的a属性，那么在创建B的Bean的过程中就需要A类对应的Bean，但是，触发B类Bean的创建的条件是A类Bean在创建过程中的依赖注入，所以这里就出现了循环依赖：</p>
+
+<p>ABean创建&ndash;&gt;依赖了B属性&ndash;&gt;触发BBean创建&mdash;&gt;B依赖了A属性&mdash;&gt;需要ABean（但ABean还在创建过程中）</p>
+
+<p>从而导致ABean创建不出来，BBean也创建不出来。</p>
+
+<p>这是循环依赖的场景，但是上文说了，在Spring中，通过某些机制帮开发者解决了部分循环依赖的问题，这个机制就是<strong>三级缓存</strong>。</p>
+
+<h3 id="三级缓存">三级缓存</h3>
+
+<p>三级缓存是通用的叫法。</p>
+
+<p>一级缓存为：<strong>singletonObjects</strong></p>
+
+<p>二级缓存为：<strong>earlySingletonObjects</strong></p>
+
+<p>三级缓存为<strong>：</strong><strong>singletonFactories</strong></p>
+
+<p><strong>先稍微解释一下这三个缓存的作用，后面详细分析：</strong></p>
+
+<ul>
+<li><strong>singletonObjects</strong>中缓存的是已经经历了完整生命周期的bean对象。</li>
+<li><strong>earlySingletonObjects</strong>比singletonObjects多了一个early，表示缓存的是早期的bean对象。早期是什么意思？表示Bean的生命周期还没走完就把这个Bean放入了earlySingletonObjects。</li>
+<li><strong>singletonFactories</strong>中缓存的是ObjectFactory，表示对象工厂，用来创建某个对象的。</li>
+</ul>
+
+<h3 id="解决循环依赖思路分析">解决循环依赖思路分析</h3>
+
+<p>先来分析为什么缓存能解决循环依赖。</p>
+
+<p>上文分析得到，之所以产生循环依赖的问题，主要是：</p>
+
+<p>A创建时&mdash;&gt;需要B&mdash;-&gt;B去创建&mdash;&gt;需要A，从而产生了循环</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/1592471211638-86636131-146d-46c3-8775-421ef3322cc3.png" alt="image.png" /></p>
+
+<p>那么如何打破这个循环，加个中间人（缓存）</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/1592471597769-3e23cc26-2b1d-4742-8c74-cea46327ada7.png" alt="image.png" /></p>
+
+<p>A的Bean在创建过程中，在进行依赖注入之前，先把A的原始Bean放入缓存（提早暴露，只要放到缓存了，其他Bean需要时就可以从缓存中拿了），放入缓存后，再进行依赖注入，此时A的Bean依赖了B的Bean，如果B的Bean不存在，则需要创建B的Bean，而创建B的Bean的过程和A一样，也是先创建一个B的原始对象，然后把B的原始对象提早暴露出来放入缓存中，然后在对B的原始对象进行依赖注入A，此时能从缓存中拿到A的原始对象（虽然是A的原始对象，还不是最终的Bean），B的原始对象依赖注入完了之后，B的生命周期结束，那么A的生命周期也能结束。</p>
+
+<p>因为整个过程中，都只有一个A原始对象，所以对于B而言，就算在属性注入时，注入的是A原始对象，也没有关系，因为A原始对象在后续的生命周期中在堆中没有发生变化。</p>
+
+<p>从上面这个分析过程中可以得出，只需要一个缓存就能解决循环依赖了，那么为什么Spring中还需要<strong>singletonFactories</strong>呢？</p>
+
+<p>这是难点，基于上面的场景想一个问题：如果A的原始对象注入给B的属性之后，A的原始对象进行了AOP产生了一个代理对象，此时就会出现，对于A而言，它的Bean对象其实应该是AOP之后的代理对象，而B的a属性对应的并不是AOP之后的代理对象，这就产生了冲突。</p>
+
+<p><strong>B依赖的A和最终的A不是同一个对象</strong>。</p>
+
+<p>那么如何解决这个问题？这个问题可以说没有办法解决。</p>
+
+<p>因为在一个Bean的生命周期最后，Spring提供了BeanPostProcessor可以去对Bean进行加工，这个加工不仅仅只是能修改Bean的属性值，也可以替换掉当前Bean。</p>
+
+<p>举个例子：</p>
+
+<pre><code class="language-java">@Component
+public class User {
+}
+</code></pre>
+
+<pre><code class="language-java">@Component
+public class LubanBeanPostProcessor implements BeanPostProcessor {
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+
+        // 注意这里，生成了一个新的User对象
+        if (beanName.equals(&quot;user&quot;)) {
+            System.out.println(bean);
+            User user = new User();
+            return user;
+        }
+
+        return bean;
+    }
+}
+</code></pre>
+
+<p>**
+**</p>
+
+<pre><code class="language-java">public class Test {
+    public static void main(String[] args) {
+
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        User user = context.getBean(&quot;user&quot;, User.class);
+        System.out.println(user);
+
+    }
+}
+</code></pre>
+
+<p>运行main方法，得到的打印如下：</p>
+
+<pre><code>com.luban.service.User@5e025e70
+com.luban.service.User@1b0375b3
+</code></pre>
+
+<p>所以在BeanPostProcessor中可以完全替换掉某个beanName对应的bean对象。</p>
+
+<p>而BeanPostProcessor的执行在Bean的生命周期中是处于属性注入之后的，循环依赖是发生在属性注入过程中的，所以很有可能导致，<strong>注入给B对象的A对象和经历过完整生命周期之后的A对象，不是一个对象</strong>。这就是有问题的。</p>
+
+<p><strong>所以在这种情况下的循环依赖，Spring是解决不了的，因为在属性注入时，Spring也不知道A对象后续会经过哪些</strong><strong>BeanPostProcessor以及会对A对象做什么处理</strong>。</p>
+
+<h3 id="spring到底解决了哪种情况下的循环依赖">Spring到底解决了哪种情况下的循环依赖</h3>
+
+<p>虽然上面的情况可能发生，但是肯定发生得很少，我们通常在开发过程中，不会这样去做，但是，某个beanName对应的最终对象和原始对象不是一个对象却会经常出现，这就是AOP。</p>
+
+<p>AOP就是通过一个BeanPostProcessor来实现的，这个BeanPostProcessor就是AnnotationAwareAspectJAutoProxyCreator，它的父类是AbstractAutoProxyCreator，而在Spring中AOP利用的要么是JDK动态代理，要么CGLib的动态代理，所以如果给一个类中的某个方法设置了切面，那么这个类最终就需要生成一个代理对象。</p>
+
+<p>一般过程就是：A类&mdash;&gt;生成一个普通对象&ndash;&gt;属性注入&ndash;&gt;基于切面生成一个代理对象&ndash;&gt;把代理对象放入singletonObjects单例池中。</p>
+
+<p>而AOP可以说是Spring中除开IOC的另外一大功能，而循环依赖又是属于IOC范畴的，所以这两大功能想要并存，Spring需要特殊处理。</p>
+
+<p>如何处理的，就是利用了第三级缓存<strong>singletonFactories</strong>。</p>
+
+<p>首先，singletonFactories中存的是某个beanName对应的ObjectFactory，在bean的生命周期中，生成完原始对象之后，就会构造一个ObjectFactory存入singletonFactories中。这个ObjectFactory是一个函数式接口，所以支持Lambda表达式：<strong>() -&gt; getEarlyBeanReference(</strong><strong>beanName</strong><strong>,</strong> <strong>mbd</strong><strong>,</strong> <strong>bean</strong><strong>)</strong></p>
+
+<p>上面的Lambda表达式就是一个ObjectFactory，执行该Lambda表达式就会去执行getEarlyBeanReference方法，而该方法如下：</p>
+
+<pre><code class="language-java">protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
+    Object exposedObject = bean;
+    if (!mbd.isSynthetic() &amp;&amp; hasInstantiationAwareBeanPostProcessors()) {
+        for (BeanPostProcessor bp : getBeanPostProcessors()) {
+            if (bp instanceof SmartInstantiationAwareBeanPostProcessor) {
+                SmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;
+                exposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);
+            }
+        }
+    }
+    return exposedObject;
+}
+</code></pre>
+
+<p>该方法会去执行SmartInstantiationAwareBeanPostProcessor中的getEarlyBeanReference方法，而这个接口下的实现类中只有两个类实现了这个方法，一个是AbstractAutoProxyCreator，一个是InstantiationAwareBeanPostProcessorAdapter，它的实现如下：</p>
+
+<pre><code class="language-java">// InstantiationAwareBeanPostProcessorAdapter
+@Override
+public Object getEarlyBeanReference(Object bean, String beanName) throws BeansException {
+    return bean;
+}
+</code></pre>
+
+<pre><code class="language-java">// AbstractAutoProxyCreator
+@Override
+public Object getEarlyBeanReference(Object bean, String beanName) {
+    Object cacheKey = getCacheKey(bean.getClass(), beanName);
+    this.earlyProxyReferences.put(cacheKey, bean);
+    return wrapIfNecessary(bean, beanName, cacheKey);
+}
+</code></pre>
+
+<p>所以很明显，在整个Spring中，默认就只有AbstractAutoProxyCreator真正意义上实现了getEarlyBeanReference方法，而该类就是用来进行AOP的。上文提到的AnnotationAwareAspectJAutoProxyCreator的父类就是AbstractAutoProxyCreator。</p>
+
+<p>那么getEarlyBeanReference方法到底在干什么？</p>
+
+<p>首先得到一个cachekey，cachekey就是beanName。</p>
+
+<p>然后把beanName和bean（这是原始对象）存入earlyProxyReferences中</p>
+
+<p>调用wrapIfNecessary进行AOP，得到一个代理对象。</p>
+
+<p>那么，什么时候会调用getEarlyBeanReference方法呢？回到循环依赖的场景中</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/1592539097062-7912a20c-f209-47bd-bdc0-d6d4485ab395.png" alt="image.png" /></p>
+
+<p><strong>左边文字</strong>：</p>
+
+<p>这个ObjectFactory就是上文说的labmda表达式，中间有getEarlyBeanReference方法，注意存入singletonFactories时并不会执行lambda表达式，也就是不会执行getEarlyBeanReference方法</p>
+
+<p><strong>右边文字</strong>：</p>
+
+<p>从singletonFactories根据beanName得到一个ObjectFactory，然后执行ObjectFactory，也就是执行getEarlyBeanReference方法，此时会得到一个A原始对象经过AOP之后的代理对象，然后把该代理对象放入earlySingletonObjects中，注意此时并没有把代理对象放入singletonObjects中，那什么时候放入到singletonObjects中呢？</p>
+
+<p>我们这个时候得来理解一下earlySingletonObjects的作用，此时，我们只得到了A原始对象的代理对象，这个对象还不完整，因为A原始对象还没有进行属性填充，所以此时不能直接把A的代理对象放入singletonObjects中，所以只能把代理对象放入earlySingletonObjects，假设现在有其他对象依赖了A，那么则可以从earlySingletonObjects中得到A原始对象的代理对象了，并且是A的同一个代理对象。</p>
+
+<p>当B创建完了之后，A继续进行生命周期，而A在完成属性注入后，会按照它本身的逻辑去进行AOP，而此时我们知道A原始对象已经经历过了AOP，所以对于A本身而言，不会再去进行AOP了，那么怎么判断一个对象是否经历过了AOP呢？会利用上文提到的earlyProxyReferences，在AbstractAutoProxyCreator的postProcessAfterInitialization方法中，会去判断当前beanName是否在earlyProxyReferences，如果在则表示已经提前进行过AOP了，无需再次进行AOP。</p>
+
+<p>对于A而言，进行了AOP的判断后，以及BeanPostProcessor的执行之后，就需要把A对应的对象放入singletonObjects中了，但是我们知道，应该是要A的代理对象放入singletonObjects中，所以此时需要从earlySingletonObjects中得到代理对象，然后入singletonObjects中。</p>
+
+<p><strong>整个循环依赖解决完毕。</strong></p>
+
+<h3 id="总结">总结</h3>
+
+<p>至此，总结一下三级缓存：</p>
+
+<ol>
+<li><strong>singletonObjects</strong>：缓存某个beanName对应的经过了完整生命周期的bean</li>
+<li><strong>earlySingletonObjects</strong>：缓存提前拿原始对象进行了AOP之后得到的代理对象，原始对象还没有进行属性注入和后续的BeanPostProcessor等生命周期</li>
+<li><strong>singletonFactories</strong>：缓存的是一个ObjectFactory，主要用来去生成原始对象进行了AOP之后得到的代理对象，在每个Bean的生成过程中，都会提前暴露一个工厂，这个<strong>工厂可能用到，也可能用不到</strong>，如果没有出现循环依赖依赖本bean，那么这个工厂无用，本bean按照自己的生命周期执行，执行完后直接把本bean放入singletonObjects中即可，如果出现了循环依赖依赖了本bean，则另外那个bean执行ObjectFactory提交得到一个AOP之后的代理对象(如果有AOP的话，如果无需AOP，则直接得到一个原始对象)。</li>
+<li>其实还要一个缓存，就是<strong>earlyProxyReferences</strong>，它用来记录某个原始对象是否进行过AOP了。</li>
+</ol>
+
+<h2 id="spring中一些概念的总结">Spring中一些概念的总结</h2>
+
+<h3 id="对象和bean的区别">对象和Bean的区别？</h3>
+
+<p>个人观点：所谓的bean也是一个java对象，只不过这个对象是通过spring定义的，而一开始就是通过<bean>标签定义的，所以叫做bean。</p>
+
+<p>普通对象和Bean对象还有其他区别，因为Bean对象是由Spring生成的，Spring在生成Bean对象的过程中，会历经很多其他步骤，比如属性注入，aop，new实例，调用初始化方法。</p>
+
+<h3 id="如何理解beandefinition">如何理解BeanDefinition？</h3>
+
+<p>顾名思义，BeanDefinition是用来描述一个Bean的，Spring会根据BeanDefinition来生成一个Bean。</p>
+
+<h3 id="beanfactory和factorybean的区别">BeanFactory和FactoryBean的区别</h3>
+
+<h3 id="beanfactory">BeanFactory</h3>
+
+<p>BeanFactory是Spring IOC容器的顶级接口，其实现类有XMLBeanFactory，DefaultListableBeanFactory以及AnnotationConfigApplicationContext等。BeanFactory为Spring管理Bean提供了一套通用的规范。接口中提供的一些方法如下：</p>
+
+<pre><code>boolean containsBean(String beanName)
+
+Object getBean(String)
+
+Object getBean(String, Class)
+
+Class getType(String name)
+
+boolean isSingleton(String)
+
+String[] getAliases(String name)
+</code></pre>
+
+<p>可以通过BeanFactory获得Bean。</p>
+
+<h3 id="factorybean">FactoryBean</h3>
+
+<p>FactoryBean首先也是一个Bean，但不是简单的Bean，而是一个能生产对象的工厂Bean，可以通过定义FactoryBean中的getObject()方法来创建生成过程比较复杂的Bean。</p>
+
+<h3 id="如何理解beanfactorypostprocessor">如何理解BeanFactoryPostProcessor？</h3>
+
+<p>BeanFactoryPostProcessor也叫做BeanFactory后置处理器。这里包括两个概念，一个是BeanFactory，一个是后置处理器。</p>
+
+<p>BeanFactory表示Bean工厂，可以基于BeanDefinition来生成Bean对象，所以在BeanFactory中存在所有的BeanDefinition。</p>
+
+<p>后置处理器可以理解为：当某物品生产好了以后，可以进一步通过后置处理器来对此物品进行处理。</p>
+
+<p>所以BeanFactoryPostProcessor可以理解为，可以得到BeanFactory对象并对它进行处理，比如修改它其中的某个BeanDefinition，或者直接向BeanFactory中添加某个对象作为bean。</p>
+
+<h3 id="如何理解beandefinitionregistrypostprocessor">如何理解BeanDefinitionRegistryPostProcessor？</h3>
+
+<p>BeanDefinitionRegistryPostProcessor是一个接口，继承了BeanFactoryPostProcessor，所以它也是一个BeanFactory后置处理器，所以它可以操作BeanFactory。</p>
+
+<p>它特殊的地方在于，它拥有的功能比BeanFactoryPostProcessor多，比如BeanFactoryPostProcessor是不能向BeanFactory中添加BeanDefinition的（只能添加Bean对象），但是BeanDefinitionRegistryPostProcessor是可以向BeanFactory中添加BeanDefinition的。</p>
+
+<h3 id="如何理解-import与importbeandefinitionregistrar">如何理解@Import与ImportBeanDefinitionRegistrar？</h3>
+
+<h3 id="import注解">Import注解</h3>
+
+<p>@Import首先是一个注解，在Spring中是用来向Spring容器中导入Bean的。换个角度理解，就是我们一般都是通过在某个类上加上@Component注解来标志一个bean的，但如果我们希望以一种更灵活的方式去定义bean的话，就可以利用@Import注解。</p>
+
+<p>@Import注解所指定的类，在Spring启动过程中会对指定的类进行判断，判断当前类是不是实现了比较特殊的接口，比如ImportBeanDefinitionRegistrar，如果存在特殊的接口就执行特殊的逻辑，如果没有则生成该类对应的BeanDefinition并放入BeanFactory中。</p>
+
+<h3 id="importbeandefinitionregistrar">ImportBeanDefinitionRegistrar</h3>
+
+<p>通过Import注解可以注册bean，虽然它也支持同时注册多个bean，但是不方便，特别是当我们想通过实现一些复杂逻辑来注册bean的话，仅仅通过Import注解是不方便的，这时就可以使用ImportBeanDefinitionRegistrar这个接口来动态的注册bean了，我这里说的注册bean指的是：通过生成BeanDefinition，并且把BeanDefinition放入BeanFactory中。</p>
+
+<h3 id="如何理解beandefinitionregistry和beanfactory">如何理解BeanDefinitionRegistry和BeanFactory?</h3>
+
+<p>BeanFactory表示Bean工厂，可以利用BeanFactory来生成bean。</p>
+
+<p>BeanDefinitionRegistry表示BeanDefinition的注册表，可以用来添加或移除BeanDefinition。</p>
+
+<h2 id="spring依赖注入原理分析-未完成">Spring依赖注入原理分析(未完成)</h2>
+
+<p><strong>Spring中有几种依赖注入的方式？</strong></p>
+
+<p>**
+**</p>
+
+<p>这是一个面试高频题，但是我在面程序员的时候，听过很多种答案。那么标准答案是什么？我们先不说，一步步来分析。</p>
+
+<h3 id="什么是依赖注入">什么是依赖注入</h3>
+
+<p>首先，我们得知道什么是依赖注入？就是填充属性。</p>
+
+<p>一个对象通常都会有属性，比如：</p>
+
+<pre><code>public class OrderService {
+    private UserService userService;
+    
+    public UserService getUserService() {
+        return userService;
+    }
+}
+</code></pre>
+
+<p>OrderService中有一个属性UserService， UserService就是OrderService的依赖。</p>
+
+<p>那么Spring的依赖注入，就是Spring框架去进行属性的填充。那么我们就要站在Spring的角度去思考：<strong>如果你是Spring的开发者，如果实现对一个对象的属性进行填充?</strong></p>
+
+<p>**
+**</p>
+
+<p>在进行属性填充之前，我们得先知道：<strong>在一个对象中，哪些属性可以进行填充？</strong></p>
+
+<p>肯定是需要业务开发者去告诉程序员的，比如在属性上加一个特定的注解，比如Spring中的@Autowired。当Spring遇到该属性时，发现该属性存在这个注解，Spring就会对当前这个属性进行填充。那么怎么填充呢？</p>
+
+<p>填充其实就是对属性进行赋值，那么Spring能怎么对这个属性进行赋值呢？赋的什么值呢？</p>
+
+<p>假设赋的值是xx。我们先考虑如果把这个xx赋值给OrderService对象。</p>
+
+<p>可能我们立马能想到的就是：</p>
+
+<pre><code>orderService.userService = xx;
+</code></pre>
+
+<p>这个思路没错，但是不能满足所有情况，因为orderService这个对象是在Spring中实例化的，userService这个属性的权限修饰符是private，所以在Spring中不能直接进行赋值，但是可以通过反射，比如：</p>
+
+<pre><code>// 随便new一个表示xx，Spring中寻找要注入的值是一个比较复杂的过程
+UserService xx = new UserService();
+
+Class c= Class.forName(&quot;com.luban.service.OrderService&quot;);
+Object cInstance = c.newInstance();
+Field[] fields = c.getDeclaredFields();
+fields[0].setAccessible(true);  // fields[0]表示的就是userServce属性
+fields[0].set(cInstance, xx);
+System.out.println(((OrderService)cInstance).getUserService());
+</code></pre>
+
+<p>这样，通过反射就能对属性进行赋值了。那么怎么寻找到准确的应该赋值给该属性的值呢？</p>
+
+<p>上文中的xx肯定也是一个对象，也就是说是Spring中的一个bean，那么Spring该如何根据当前属性去找到对应的bean呢？只有两种方式:</p>
+
+<ol>
+<li>根据属性的名字</li>
+<li>根据属性的类型</li>
+</ol>
+
+<p>根据属性的名字去Spring容器中去找bean，要么找不到，要么就能找到一个bean，因为Spring中的beanName是唯一的。</p>
+
+<p>格局属性的类型去Spring容器中去找bean，要么找不到，要么可能找到一个或多个bena，因为Spring容器中的bean实际就是一个对象，而一个类型是可以有多个对象的，在Spring容器中也是如此。</p>
+
+<p>那么Spring针对这两种方式会如何选择呢？二选一，还是二合一。</p>
+
+<p>答案很明显，肯定是二合一，一种方式找不到就利用另外一个方式去找。那么两种方式中会优先利用哪种方式去找？</p>
+
+<p>答案很明显，肯定是先利用属性的名字，因为利用名字去找更精确。</p>
+
+<h3 id="byname">byName</h3>
+
+<p>根据属性名，去</p>
+
+<h3 id="bytype">byType</h3>
+
+<h2 id="spring整合mybatis原理">Spring整合Mybatis原理</h2>
+
+<p>在介绍Spring整合Mybatis原理之前，我们得先来稍微介绍Mybatis的工作原理。</p>
+
+<h3 id="mybatis的基本工作原理">Mybatis的基本工作原理</h3>
+
+<p>在Mybatis中，我们可以使用一个接口去定义要执行sql，简化代码如下：</p>
+
+<p>定义一个接口，@Select表示要执行查询sql语句。</p>
+
+<pre><code>public interface UserMapper {
+  @Select(&quot;select * from user where id = #{id}&quot;)
+  User selectById(Integer id);
+}
+</code></pre>
+
+<p>以下为执行sql代码：</p>
+
+<pre><code>InputStream inputStream = Resources.getResourceAsStream(&quot;mybatis.xml&quot;);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+SqlSession sqlSession = sqlSessionFactory.openSession();
+
+// 以下使我们需要关注的重点
+UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+Integer id = 1;
+User user = mapper.selectById(id);
+</code></pre>
+
+<p>Mybatis的目的是：<strong>使得程序员能够以</strong><strong>调用方法</strong><strong>的方式</strong><strong>执行某个指定的sql，将执行sql的底层逻辑进行了封装。</strong></p>
+
+<p>**
+**</p>
+
+<p>这里重点思考以下mapper这个对象，当调用SqlSession的getMapper方法时，会对传入的接口生成一个<strong>代理对象</strong>，而程序要真正用到的就是这个代理对象，在调用代理对象的方法时，Mybatis会取出该方法所对应的sql语句，然后利用JDBC去执行sql语句，最终得到结果。</p>
+
+<h3 id="分析需要解决的问题">分析需要解决的问题</h3>
+
+<p>Spring和Mybatis时，我们重点要关注的就是这个代理对象。因为整合的目的就是：<strong>把某个Mapper的</strong><strong>代理对象</strong><strong>作为一个</strong><strong>bean</strong><strong>放入Spring容器中，使得能够像使用一个普通bean一样去使用这个代理对象，比如能被@Autowire自动注入。</strong></p>
+
+<p>**
+**</p>
+
+<p>比如当Spring和Mybatis整合之后，我们就可以使用如下的代码来使用Mybatis中的代理对象了：</p>
+
+<pre><code>@Component
+public class UserService {
+    @Autowired
+    private UserMapper userMapper;
+
+    public User getUserById(Integer id) {
+        return userMapper.selectById(id);
+    }
+}
+</code></pre>
+
+<p>**
+**</p>
+
+<p>UserService中的userMapper属性就会被自动注入为Mybatis中的代理对象。如果你基于一个已经完成整合的项目去调试即可发现，userMapper的类型为：org.apache.ibatis.binding.MapperProxy@41a0aa7d。证明确实是Mybatis中的代理对象。</p>
+
+<p>好，那么现在我们要解决的问题的就是：<strong>如何</strong><strong>能够把Mybatis的代理对象作为一个bean放入Spring容器中？</strong></p>
+
+<p>要解决这个，我们需要对Spring的bean生成过程有一个了解。</p>
+
+<h2 id="spring中bean的产生过程">Spring中Bean的产生过程</h2>
+
+<p>Spring启动过程中，大致会经过如下步骤去生成bean</p>
+
+<ol>
+<li>扫描指定的包路径下的class文件</li>
+<li>根据class信息生成对应的BeanDefinition</li>
+<li>在此处，程序员可以利用某些机制去修改BeanDefinition</li>
+<li>根据BeanDefinition生成bean实例</li>
+<li>把生成的bean实例放入Spring容器中</li>
+</ol>
+
+<p>假设有一个A类，假设有如下代码：</p>
+
+<p>一个A类：</p>
+
+<pre><code>@Component
+public class A {
+}
+</code></pre>
+
+<p>一个B类，不存在@Component注解</p>
+
+<pre><code>public class B {
+}
+</code></pre>
+
+<p>执行如下代码：</p>
+
+<pre><code>AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+System.out.println(context.getBean(&quot;a&quot;));
+</code></pre>
+
+<p>输出结果为：com.luban.util.A@6acdbdf5</p>
+
+<p>A类对应的bean对象类型仍然为A类。但是这个结论是不确定的，我们可以利用BeanFactory后置处理器来修改BeanDefinition，我们添加一个BeanFactory后置处理器：</p>
+
+<pre><code>@Component
+public class LubanBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        BeanDefinition beanDefinition = beanFactory.getBeanDefinition(&quot;a&quot;);
+        beanDefinition.setBeanClassName(B.class.getName());
+    }
+}
+</code></pre>
+
+<p>这样就会导致，原本的A类对应的BeanDefiniton被修改了，被修改成了B类，那么后续正常生成的bean对象的类型就是B类。此时，调用如下代码会报错：</p>
+
+<pre><code>context.getBean(A.class);
+</code></pre>
+
+<p>但是调用如下代码不会报错，尽管B类上没有@Component注解：</p>
+
+<pre><code>context.getBean(B.class);
+</code></pre>
+
+<p>并且，下面代码返回的结果是：com.luban.util.B@4b1c1ea0</p>
+
+<pre><code>AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+System.out.println(context.getBean(&quot;a&quot;));
+</code></pre>
+
+<p>之所以讲这个问题，是想说明一个问题：<strong>在Spring中，bean对象跟class没有直接关系，跟BeanDefinition才有直接关系。</strong></p>
+
+<p>那么回到我们要解决的问题：<strong>如何</strong><strong>能够把Mybatis的代理对象作为一个bean放入Spring容器中？</strong></p>
+
+<p>**
+**</p>
+
+<p>在Spring中，<strong>如果你想生成一个bean，那么得先生成一个BeanDefinition</strong>，就像你想new一个对象实例，得先有一个class。</p>
+
+<p>**
+**</p>
+
+<h3 id="解决问题">解决问题</h3>
+
+<p>继续回到我们的问题，我们现在想自己生成一个bean，那么得先生成一个BeanDefinition，只要有了BeanDefinition，通过在BeanDefinition中设置<strong>bean对象的类型</strong>，然后把BeanDefinition添加给Spring，Spring就会根据BeanDefinition自动帮我们生成一个类型对应的bean对象。</p>
+
+<p>所以，现在我们要解决两个问题：</p>
+
+<ol>
+<li><strong>Mybatis的代理对象的类型是什么？因为我们要设置给BeanDefinition</strong></li>
+<li><strong>我们怎么把BeanDefinition添加给Spring容器？</strong></li>
+</ol>
+
+<p>**
+**</p>
+
+<p>注意：上文中我们使用的BeanFactory后置处理器，他只能修改BeanDefinition，并不能新增一个BeanDefinition。我们应该使用Import技术来添加一个BeanDefinition。后文再详细介绍如果使用Import技术来添加一个BeanDefinition，可以先看一下伪代码实现思路。</p>
+
+<p>假设：我们有一个UserMapper接口，他的代理对象的类型为UserMapperProxy。</p>
+
+<p>那么我们的思路就是这样的，伪代码如下：</p>
+
+<pre><code>BeanDefinitoin bd = new BeanDefinitoin();
+bd.setBeanClassName(UserMapperProxy.class.getName());
+SpringContainer.addBd(bd);
+</code></pre>
+
+<p>但是，这里有一个严重的问题，就是上文中的UserMapperProxy是我们假设的，他表示一个代理类的类型，然而Mybatis中的代理对象是利用的JDK的动态代理技术实现的，也就是代理对象的代理类是动态生成的，我们根本无法确定代理对象的代理类到底是什么。</p>
+
+<p>所以回到我们的问题：<strong>Mybatis的代理对象的类型是什么？</strong></p>
+
+<p>**
+**</p>
+
+<p>本来可以有两个答案：</p>
+
+<ol>
+<li>代理对象对应的代理类</li>
+<li>代理对象对应的接口</li>
+</ol>
+
+<p>**
+**</p>
+
+<p>那么答案1就相当于没有了，因为是代理类是动态生成的，那么我们来看答案2：<strong>代理对象对应的接口</strong></p>
+
+<p>如果我们采用答案2，那么我们的思路就是：</p>
+
+<pre><code>BeanDefinition bd = new BeanDefinitoin();
+// 注意这里，设置的是UserMapper
+bd.setBeanClassName(UserMapper.class.getName());
+SpringContainer.addBd(bd);
+</code></pre>
+
+<p>但是，实际上给BeanDefinition对应的类型设置为一个接口是<strong>行不通</strong>的，因为Spring没有办法根据这个BeanDefinition去new出对应类型的实例，接口是没法直接new出实例的。</p>
+
+<p>那么现在问题来了，我要解决的问题：<strong>Mybatis的代理对象的类型是什么？</strong></p>
+
+<p>两个答案都被我们否定了，所以这个问题是无解的，所以我们不能再沿着这个思路去思考了，只能回到最开始的问题：<strong>如何</strong><strong>能够把Mybatis的代理对象作为一个bean放入Spring容器中？</strong></p>
+
+<p>总结上面的推理：<strong>我们想通过设置BeanDefinition的class类型，然后由Spring自动的帮助我们去生成对应的bean，但是这条路是行不通的。</strong></p>
+
+<h3 id="终极解决方案">终极解决方案</h3>
+
+<p>那么我们还有没有其他办法，可以去生成bean呢？并且<strong>生成bean的逻辑不能由Spring来帮我们做</strong>了，得由我们自己来做。</p>
+
+<h3 id="factorybean-1">FactoryBean</h3>
+
+<p>有，那就是Spring中的FactoryBean。我们可以利用FactoryBean去自定义我们要生成的bean对象，比如：</p>
+
+<pre><code>@Component
+public class LubanFactoryBean implements FactoryBean {
+    @Override
+    public Object getObject() throws Exception {
+        Object proxyInstance = Proxy.newProxyInstance(LubanFactoryBean.class.getClassLoader(), new Class[]{UserMapper.class}, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                if (Object.class.equals(method.getDeclaringClass())) {
+                    return method.invoke(this, args);
+                } else {
+                    // 执行代理逻辑
+                    return null;
+                }
+            }
+        });
+
+        return proxyInstance;
+    }
+
+    @Override
+    public Class&lt;?&gt; getObjectType() {
+        return UserMapper.class;
+    }
+}
+</code></pre>
+
+<p>**
+**</p>
+
+<p>我们定义了一个LubanFactoryBean，它实现了FactoryBean，getObject方法就是用来自定义生成bean对象逻辑的。</p>
+
+<p>执行如下代码：</p>
+
+<pre><code>public class Test {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        System.out.println(&quot;lubanFactoryBean: &quot; + context.getBean(&quot;lubanFactoryBean&quot;));
+        System.out.println(&quot;&amp;lubanFactoryBean: &quot; + context.getBean(&quot;&amp;lubanFactoryBean&quot;));
+        System.out.println(&quot;lubanFactoryBean-class: &quot; + context.getBean(&quot;lubanFactoryBean&quot;).getClass());
+    }
+}
+</code></pre>
+
+<p>将打印：</p>
+
+<p>lubanFactoryBean: com.luban.util.LubanFactoryBean$1@4d41cee</p>
+
+<p>&amp;lubanFactoryBean: com.luban.util.LubanFactoryBean@3712b94</p>
+
+<p>lubanFactoryBean-class: class com.sun.proxy.$Proxy20</p>
+
+<p>从结果我们可以看到，从Spring容器中拿名字为&rdquo;lubanFactoryBean&rdquo;的bean对象，就是我们所自定义的jdk动态代理所生成的代理对象。</p>
+
+<p>所以，我们可以通过FactoryBean来向Spring容器中添加一个自定义的bean对象。上文中所定义的LubanFactoryBean对应的就是UserMapper，表示我们定义了一个LubanFactoryBean，相当于把UserMapper对应的代理对象作为一个bean放入到了容器中。</p>
+
+<p>但是作为程序员，我们不可能每定义了一个Mapper，还得去定义一个LubanFactoryBean，这是很麻烦的事情，我们改造一下LubanFactoryBean，让他变得更通用，比如：</p>
+
+<pre><code>@Component
+public class LubanFactoryBean implements FactoryBean {
+
+    // 注意这里
+    private Class mapperInterface;
+    public LubanFactoryBean(Class mapperInterface) {
+        this.mapperInterface = mapperInterface;
+    }
+
+    @Override
+    public Object getObject() throws Exception {
+        Object proxyInstance = Proxy.newProxyInstance(LubanFactoryBean.class.getClassLoader(), new Class[]{mapperInterface}, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+                if (Object.class.equals(method.getDeclaringClass())) {
+                    return method.invoke(this, args);
+                } else {
+                    // 执行代理逻辑
+                    return null;
+                }
+            }
+        });
+
+        return proxyInstance;
+    }
+
+    @Override
+    public Class&lt;?&gt; getObjectType() {
+        return mapperInterface;
+    }
+}
+</code></pre>
+
+<p>改造LubanFactoryBean之后，LubanFactoryBean变得灵活了，可以在构造LubanFactoryBean时，通过构造传入不同的Mapper接口。</p>
+
+<p>实际上LubanFactoryBean也是一个Bean，我们也可以通过生成一个BeanDefinition来生成一个LubanFactoryBean，并给构造方法的参数设置不同的值，比如伪代码如下：</p>
+
+<pre><code>BeanDefinition bd = new BeanDefinitoin();
+// 注意一：设置的是LubanFactoryBean
+bd.setBeanClassName(LubanFactoryBean.class.getName());
+// 注意二：表示当前BeanDefinition在生成bean对象时，会通过调用LubanFactoryBean的构造方法来生成，并传入UserMapper
+bd.getConstructorArgumentValues().addGenericArgumentValue(UserMapper.class.getName())
+SpringContainer.addBd(bd);
+</code></pre>
+
+<p>特别说一下注意二，表示表示当前BeanDefinition在生成bean对象时，会通过调用LubanFactoryBean的构造方法来生成，并传入UserMapper的Class对象。那么在生成LubanFactoryBean时就会生成一个UserMapper接口对应的代理对象作为bean了。</p>
+
+<p>到此为止，其实就完成了我们要解决的问题：<strong>把Mybatis中的代理对象作为一个bean放入Spring容器中</strong>。只是我们这里是用简单的JDK代理对象模拟的Mybatis中的代理对象，如果有时间，我们完全可以调用Mybatis中提供的方法区生成一个代理对象。这里就不花时间去介绍了。</p>
+
+<h3 id="import">Import</h3>
+
+<p>到这里，我们还有一个事情没有做，就是怎么真正的定义一个BeanDefinition，并把它<strong>添加</strong>到Spring中，上文说到我们要利用Import技术，比如可以这么实现：</p>
+
+<p>定义如下类：</p>
+
+<pre><code>public class LubanImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
+
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+        BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition();
+        AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
+        beanDefinition.setBeanClass(LubanFactoryBean.class);
+        beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(UserMapper.class);
+        // 添加beanDefinition
+        registry.registerBeanDefinition(&quot;luban&quot;+UserMapper.class.getSimpleName(), beanDefinition);
+    }
+}
+</code></pre>
+
+<p>并且在AppConfig上添加@Import注解：</p>
+
+<pre><code>@Import(LubanImportBeanDefinitionRegistrar.class)
+public class AppConfig {
+</code></pre>
+
+<p>这样在启动Spring时就会新增一个BeanDefinition，该BeanDefinition会生成一个LubanFactoryBean对象，并且在生成LubanFactoryBean对象时会传入UserMapper.class对象，通过LubanFactoryBean内部的逻辑，相当于会自动生产一个UserMapper接口的代理对象作为一个bean。</p>
+
+<h3 id="总结-1">总结</h3>
+
+<p>总结一下，通过我们的分析，我们要整合Spring和Mybatis，需要我们做的事情如下：</p>
+
+<ol>
+<li>定义一个LubanFactoryBean</li>
+<li>定义一个LubanImportBeanDefinitionRegistrar</li>
+<li>在AppConfig上添加一个注解@Import(LubanImportBeanDefinitionRegistrar.class)</li>
+</ol>
+
+<h3 id="优化">优化</h3>
+
+<p>这样就可以基本完成整合的需求了，当然还有两个点是可以优化的</p>
+
+<p>第一，单独再定义一个@LubanScan的注解，如下：</p>
+
+<pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Import(LubanImportBeanDefinitionRegistrar.class)
+public @interface LubanScan {
+}
+</code></pre>
+
+<p>这样在AppConfig上直接使用@LubanScan即可</p>
+
+<p>第二，在LubanImportBeanDefinitionRegistrar中，我们可以去扫描Mapper，在LubanImportBeanDefinitionRegistrar我们可以通过AnnotationMetadata获取到对应的@LubanScan注解，所以我们可以在@LubanScan上设置一个value，用来指定待扫描的包路径。然后在LubanImportBeanDefinitionRegistrar中获取所设置的包路径，然后扫描该路径下的所有Mapper，生成BeanDefinition，放入Spring容器中。</p>
+
+<p>所以，到此为止，Spring整合Mybatis的核心原理就结束了，再次总结一下：</p>
+
+<ol>
+<li>定义一个LubanFactoryBean，用来将Mybatis的代理对象生成一个bean对象</li>
+<li>定义一个LubanImportBeanDefinitionRegistrar，用来生成不同Mapper对象的LubanFactoryBean</li>
+<li>定义一个@LubanScan，用来在启动Spring时执行LubanImportBeanDefinitionRegistrar的逻辑，并指定包路径</li>
+</ol>
+
+<p>以上这个三个要素分别对象org.mybatis.spring中的：</p>
+
+<ol>
+<li>MapperFactoryBean</li>
+<li>MapperScannerRegistrar</li>
+<li>@MapperScan</li>
+</ol>
+
+<h1 id="jvm底层">JVM底层</h1>
+
+<h2 id="java的跨平台是如何实现的">Java的跨平台是如何实现的</h2>
+
+<p>Java是基于虚拟机栈运行的，</p>
+
+<p>new不是原子性操作</p>
+
+<p><strong>JVM的四大模块</strong></p>
+
+<ul>
+<li>类加载子系统</li>
+<li>内存模型
+
+<ul>
+<li>本地方法栈</li>
+<li>虚拟机栈</li>
+<li>程序计数器</li>
+<li>堆</li>
+<li>方法区</li>
+</ul></li>
+<li>执行引擎</li>
+
+<li><p>垃圾回收期</p></li>
+
+<li><p>CPU位数︰32位、g64位</p></li>
+
+<li><p>操作系统派系:Windows派系、Unix派系</p>
+
+<ul>
+<li>Unix派系:Mac、Centos、Ubuntu、Android</li>
+<li>汇编指令:Intel汇编、AT&amp;T汇编、ARM汇编</li>
+<li>内存模型</li>
+</ul></li>
+</ul>
+
+<p>Java文件首先要编译成class文件，那么在32位机和64位机器上编译的结果肯定是不一样</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923213649372.png" alt="image-20200923213649372" /></p>
+
+<p>跨平台的本质就是汇编语言的不同</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923213736220.png" alt="image-20200923213736220" /></p>
+
+<p>两种汇编风格（还有ARM汇编：主要用在移动设备上，手提电脑，手机，平板，叫做嵌入式系统）</p>
+
+<p>Java底层的char是基于short的</p>
+
+<p>Java的执行引擎是如何实现的：</p>
+
+<ul>
+<li><p>字节码解析器：java代码&mdash;&gt;C++代码&mdash;&gt;汇编：效率太低，不如C++</p></li>
+
+<li><p>模板解析器：java字节码&ndash;&gt;汇编语言（效率提高了）</p></li>
+</ul>
+
+<p>Java程序包括了</p>
+
+<ul>
+<li>硬编码</li>
+<li>java字节码</li>
+<li>java程序</li>
+</ul>
+
+<p>我们运行java程序run的时候发生了什么</p>
+
+<ul>
+<li>调用javac编译整个java程序</li>
+<li>调用java命令</li>
+</ul>
+
+<p>jvm的初始化</p>
+
+<ul>
+<li>class文件
+
+<ul>
+<li>硬盘上的.class文件</li>
+</ul></li>
+<li>class content
+
+<ul>
+<li>内存中的一块区域，将.class读到内存中。放在直接内存中</li>
+</ul></li>
+<li>class对象
+
+<ul>
+<li>类加载子系统基于《Java虚拟机规范》进行解析</li>
+<li>class对象放在哪？
+
+<ul>
+<li>方法区：InstanceKlass存的是元信息：字符串，常量池，方法信息等</li>
+<li>堆区：InstanceMirrorKlass：镜像类，是一个C++对象</li>
+</ul></li>
+</ul></li>
+<li>对象
+
+<ul>
+<li>new生成的对象（或反射等等方法）</li>
+</ul></li>
+</ul>
+
+<h2 id="方法区">方法区</h2>
+
+<p>经常会跟永久代，元空间放在一起，他们之间的关系是</p>
+
+<ul>
+<li>方法区是规范，永久代、元空间是具体实现</li>
+<li>方法区是接口，永久代、元空间是实现类</li>
+</ul>
+
+<p>永久代、元空间是否同时存在同一个JVM中？否</p>
+
+<p><strong>永久代</strong></p>
+
+<ul>
+<li>jdk8以前方法区的实现</li>
+<li>堆中的</li>
+</ul>
+
+<p><strong>元空间</strong></p>
+
+<ul>
+<li>jdk8以后方法区的实现</li>
+<li>直接内存中的</li>
+</ul>
+
+<p>为什么以元空间取代永久代?</p>
+
+<ol>
+<li>oom：元空间存放的是Klass文件信息，不可避免的会占用一些空间</li>
+<li>gc：既有对象，又有源信息。垃圾回收判断你很困难</li>
+<li>受硬件限
+
+<ol>
+<li>32位机4G
+
+<ul>
+<li>内核2G</li>
+<li>应用层2G</li>
+</ul></li>
+<li>64位机= 16 +48（16位作为保留位，48位作为实际使用的位数）
+
+<ul>
+<li>2的64次方</li>
+<li>2的48次方256T</li>
+</ul></li>
+</ol></li>
+</ol>
+
+<p>元空间有什么缺点?</p>
+
+<ul>
+<li>动态生成</li>
+</ul>
+
+<p>元空间的调优</p>
+
+<pre><code>java -XX:+PrintFlagsFinal -version | grep ThreadStack
+</code></pre>
+
+<p>最小20.75M</p>
+
+<p>最大 256T</p>
+
+<p>元空间的调优</p>
+
+<ol>
+<li>最大、最小设置成一样，防止内存抖动</li>
+<li>大小设置成物理机器的1/32
+
+<ul>
+<li>arthas、visualyM..</li>
+</ul></li>
+<li>保存20% -30%的空间空余</li>
+</ol>
+
+<h2 id="本地方法栈">本地方法栈</h2>
+
+<p>运行JNI程序需要的栈</p>
+
+<h2 id="虚拟机栈">虚拟机栈</h2>
+
+<p>数据结构栈有什么区别</p>
+
+<p>一个是规范，一个是实现</p>
+
+<p>JVM<strong>中有几个虚拟机栈</strong>?</p>
+
+<ul>
+<li>一个线程一个，随线程的创建而创建，随线程的结束而销毁</li>
+<li>线程独享</li>
+<li>线程安全</li>
+</ul>
+
+<p><strong>一个虚拟机栈中有几个栈帧</strong>?</p>
+
+<ul>
+<li>函数调用次数</li>
+</ul>
+
+<p>栈中也会出现OOM</p>
+
+<p>stackoverflow:所以也需要进行调优</p>
+
+<p>栈中的几个区域</p>
+
+<ul>
+<li>局部变量表：</li>
+<li>操作数栈</li>
+<li>动态链接 直接地址：该方法在方法区中地址，方法的对象的指针</li>
+<li>返回地址  恢复现场：（java中没有指针的概念，不像C和C++那样能直接指向硬件地址）</li>
+<li>附加信息</li>
+</ul>
+
+<p>轻量级锁（sync），也是基于栈</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923221926370.png" alt="image-20200923221926370" /></p>
+
+<h2 id="程序计数器">程序计数器</h2>
+
+<p>软件：OD</p>
+
+<p>Java虚拟机时通过软件模拟出来的，C和C++是直接在硬件上运行的（基于寄存器）</p>
+
+<p>寄存器中有一块区域叫EIP指的就是程序计数器，而java是通过程序模拟出来的我们没有程序计数器，在java中程序计数器就是java字节码前面的索引</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923222350087.png" alt="image-20200923222350087" /></p>
+
+<p>程序计数器是由执行引擎进行改动的</p>
+
+<p>main方法调用add方法栈帧发生了变化</p>
+
+<ol>
+<li>创建add方法的栈帧</li>
+<li>main方法的程序计数器压入栈</li>
+<li>局部表开始指针指向add方法栈帧中的局部变量表开始位置</li>
+<li>操作数栈指针，指向add方法站怎中的操作数栈开始位置</li>
+</ol>
+
+<p>逆向操作</p>
+
+<p>add方法执行完后，发生了什么:</p>
+
+<ol>
+<li>重置操作数栈指针</li>
+<li>重置局部表指针</li>
+<li>程序计数器赋值</li>
+<li>返回值压入main方法的操作数栈中</li>
+<li>销毁栈帧</li>
+</ol>
+
+<p><strong>new一个对象的流程</strong></p>
+
+<pre><code class="language-java">//slot  插槽_模拟机栈里面每个格子
+public class Test4 {
+    public static Test4 test4 = newTest4();
+    //形参、形式参数
+    //实参、实际参数
+    public static void main(String[] args) {
+        Test4 demo = new Test4();
+        //调用默认构造函数
+        class&lt;Test4&gt; clazz = Test4.class;
+        System.out.println(demo.add());
+    }
+    public int add() {
+        int a = 10;
+        int b = 20;
+        return a + b;
+    }
+}
+
+</code></pre>
+
+<p>百度搜:字节码手册</p>
+
+<pre><code>0 new #2 &lt;com/qimingnan/jvm/Test4&gt;
+	创建空对象
+3 dup
+	1、赋值栈顶元素
+	2、重新压入栈(为什么呢?后面的方法当this指针用）
+4 invokespecial #3&lt;com/qimingnan/jvm/Test4.&lt;init&gt;&gt;
+	执行默认构造方法
+	
+	完整对象
+7 astore_1
+	1、将完整对象的指针pop出来
+	2、赋值给局部变量表中index=1的位置
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923230152885.png" alt="image-20200923230152885" /></p>
+
+<p>执行完构造方法后，对象在堆中创建</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923230306939.png" alt="image-20200923230306939" /></p>
+
+<p>最后一步，pop出来赋值给index为1的位置</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923230443761.png" alt="image-20200923230443761" /></p>
+
+<p>而局部变量表index为1的位置变量为demo,既<code>Test4 demo = new Test4();</code>执行完</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923230552655.png" alt="image-20200923230552655" /></p>
+
+<p>这就可以解释为什么new 不是线程安全的，在字节码中它是由四步组成的</p>
+
+<p><strong>运行时数据区中的关系</strong></p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923231036535.png" alt="image-20200923231036535" /></p>
+
+<p>虚拟机栈指向方法区，该怎么理解？动态连接</p>
+
+<p>虚拟机栈指向堆区，该怎么理解？对象引用</p>
+
+<p>堆区指向方法区，该怎么理解？对象的内存布局</p>
+
+<p>new出来的一个对象存储在堆中保存的样子是什么样子的？</p>
+
+<p>其中的类型指针(Klass Pointer)堆区所有对象头中都有一个kp，这个kp指向方法区</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200923231425386.png" alt="image-20200923231425386" /></p>
+
+<p>方法区指向堆区，该如何理解？静态变量</p>
+
+<p>常量池</p>
+
+<ul>
+<li>class文件中的常量池</li>
+<li>运行时常量池</li>
+<li>全局字符串引用</li>
+</ul>
+
+<p><strong>堆区最主要的就是调优</strong></p>
+
+<ul>
+<li>计算对象大小</li>
+<li>指针压缩</li>
+<li>调优实战</li>
+<li>空间担保机制</li>
+<li>动态年龄判断</li>
+</ul>
+
+<p>java的根加载器其实不纯是c++实现的（C++  + Java来实现的）</p>
+
+<h2 id="调优">调优</h2>
+
+<p>对象的内存布局</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924205727182.png" alt="image-20200924205727182" /></p>
+
+<p>对象头（锁就与它有关）</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924205756580.png" alt="image-20200924205756580" /></p>
+
+<p>64位机为例</p>
+
+<ul>
+<li>mark word:8字节  64bit</li>
+<li>类型指针： 8字节（会变成4字节，在开启指针压缩的时候）</li>
+<li>数组长度：4个字节（不是数组对象就为0）</li>
+<li>实例数据：类的普通属性（不包括静态变量）</li>
+<li>对齐填充：</li>
+</ul>
+
+<p>java中所有的对象都是8字节对齐的</p>
+
+<p>类型指针：对象所属类的class对象的内存地址</p>
+
+<p>对其填充其实有两个部分组成</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924210446373.png" alt="image-20200924210446373" /></p>
+
+<h3 id="计算对象大小">计算对象大小</h3>
+
+<p>指针压缩</p>
+
+<p>jdk6默认是开启的</p>
+
+<pre><code>-XX:+/-UseCompressedOops
+</code></pre>
+
+<p><strong>空对象占多少字节</strong>？</p>
+
+<p>没有数据的对象叫空对象（没有普通属性）</p>
+
+<ul>
+<li>开启指针压缩：16&mdash;&ndash;8（mark word）+4（类型指针）+4（填充空间）</li>
+<li>未开启指针压缩：16</li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924211341669.png" alt="image-20200924211341669" /></p>
+
+<p><strong>普通对象</strong></p>
+
+<pre><code class="language-java">public class Test{
+	int a=20;
+	int b=20;
+}
+</code></pre>
+
+<ul>
+<li>开启：24（8+4+（4+4）+4）=24</li>
+<li>关闭：24（8+8+（4+4））=24</li>
+</ul>
+
+<p>指针压缩：将内存地址的8字节&ndash;&gt;4字节，节省了空间，提升了寻址效率</p>
+
+<pre><code class="language-java">public class Test{
+	int a=20;
+	int b=20;
+	static int[] arr={0,1,2};
+}
+</code></pre>
+
+<ul>
+<li>开启：32</li>
+<li>关闭：40</li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924211948989.png" alt="image-20200924211948989" /></p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924212157878.png" alt="image-20200924212157878" /></p>
+
+<h3 id="指针压缩">指针压缩</h3>
+
+<p>64bit机下，内存地址占8字节</p>
+
+<p>8&mdash;&gt;4到底是怎么存储的？使用过程中做了什么？</p>
+
+<p><strong>实现原理</strong></p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200924212859919.png" alt="image-20200924212859919" /></p>
+
+<p>test1=00 000</p>
+
+<p>test2=10 000</p>
+
+<p>test3=110 000</p>
+
+<p>8字节对齐后三位永远是0</p>
+
+<p>在存储的时候，去除3为，高位补0</p>
+
+<p>test1=00</p>
+
+<p>test2=10</p>
+
+<p>test3=110</p>
+
+<p>再用的时候增加三位，低位补0</p>
+
+<p>test1=00 000</p>
+
+<p>test2=10 000</p>
+
+<p>test3=110 000</p>
+
+<p>那么只是移动的3位，还少一位呢？</p>
+
+<p>8字节&ndash;&gt;4字节之后与32位机器又有什么差别呢？</p>
+
+<p>我们使用了这样的技术</p>
+
+<ol>
+<li>我们的性能一定要高于32位机器</li>
+<li>留有一定的扩容的退路</li>
+</ol>
+
+<p>对象实际上是占35位，按32位存储</p>
+
+<p>oop不是面向对象的意思是对象指针的意思（ordinary object pointer）</p>
+
+<p>oops：</p>
+
+<p>开启指针压缩内存地址占4字节 32位，在使用的时候增加三位32+3</p>
+
+<p>一个oop能支持的最大堆空间是多少？2^35</p>
+
+<p>如何扩容？16字节对齐，</p>
+
+<p>这个扩容是修改操作系统代码还是openjdk代码？openjdk</p>
+
+<p>调优阶段</p>
+
+<ul>
+<li>上线前</li>
+<li>项目运行阶段</li>
+<li>线上出现OOM
+<br /></li>
+</ul>
+
+<p>亿级流量秒杀系统JVM调优</p>
+
+<p>一亿次访问</p>
+
+<p>一个uv-&gt;20pv</p>
+
+<p>访客=1亿/ 20约=500w</p>
+
+<p>访客数/下单数</p>
+
+<p>转化率是在10%</p>
+
+<p>500w * 10% = 50w</p>
+
+<p>40%的订单是在前两分钟完成下单的</p>
+
+<p>50*30%= 15w订单</p>
+
+<p>15w / 120s= 1200笔</p>
+
+<p>从下单到支付完成，生成的对象占用多少内存</p>
+
+<p>商品信息、订单信息、物流信息、积分信息、优惠券信息&hellip;.</p>
+
+<p>20KB</p>
+
+<p>每秒系统生成的对象·200M = 1200 *20K</p>
+
+<p>下单到支付对象要存在2s</p>
+
+<p>32G内存机器
+堆最大=8G（1/4）</p>
+
+<p>新生代:2.7G</p>
+
+<p>Eden:2.2G</p>
+
+<p>from:270M</p>
+
+<p>to:270M</p>
+
+<p>老年代:5.3G</p>
+
+<p>1G = 1000M</p>
+
+<p>2700M</p>
+
+<p>14s就会出发young gc</p>
+
+<p>400M内存无法回收，from，to区只有200多M无法放下，会空间担保放到老年代中</p>
+
+<p>400M进入老年代</p>
+
+<p>一分钟左右老年代就会充满，出发full gc&mdash;</p>
+
+<p><strong>如何做调优？</strong></p>
+
+<p>不触发空间担保</p>
+
+<h1 id="gc">GC</h1>
+
+<p>计算机在设计的时候分为了四层，但是在实际的使用的时候（win、linux）实际使用的是第0和第3层即(R0内核态,R3用户态)。那么在分配内存的时候为什么要从用户态切换到内核态呢？</p>
+
+<p>内存中的 数据是存在内存条上面的，内存条是操作系统借助驱动去操作的，而我们应用层程序是没有能力去操作硬件的，所以只要你分配内存读写数据，都需要内核来起到一些作用，那么就必然需要从用户态切换到内核态。当你分配完内存，读写完数据的时候就要返回一些数据，那么就必然需要从内核态转为用户态</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200926203920454.png" alt="image-20200926203920454" /></p>
+
+<p>物理地址：一套算法将内存条映射成一套物理地址</p>
+
+<p>线性地址：我们现在无论是进行分配内存还是引用传值传到内存啊，其实都是线性地址</p>
+
+<p>线性地址又与物理地址之间有一层映射</p>
+
+<h2 id="内存池的结构">内存池的结构</h2>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200926204836424.png" alt="image-20200926204836424" /></p>
+
+<p>在分配内存的时候是在操作系统的堆上面来分配内存的，</p>
+
+<p>memory pool：内存之，一个概念上的池子</p>
+
+<p>memory chunk：操作系统块，一个内存池可以管理无数个内存块</p>
+
+<p>内存池</p>
+
+<pre><code class="language-C++">class MemoryPool i
+/**
+*所有需要释放内存的成员
+*/
+pvate:
+	list&lt;MemoryChunk*&gt; m_chunks;//这个池子中所有的内存块
+public:
+	~MemoryPool();
+public:
+/**
+        *创建新的Chunk
+        *@param mem_size
+        *@return
+        */
+MemoryChunk *new_chunk(uint mem_size);
+public:
+/**
+*打印所有中Chunk
+*/
+	void print_chunks();
+/**
+*释放所有Chunk占用的内存
+*/
+	void free_chunks();
+}
+</code></pre>
+
+<p>memory_chunk,真正操作系统分配的块</p>
+
+<pre><code class="language-C++">
+class MemoryChunk {
+private:
+    /**
+        *创建Chunk的文件名，这个块是在哪一个文件中生成的
+        */
+    char *m_filename;
+    /*
+        *创建Chunk的文件位置，块是在哪里被申请的
+        */
+    uint m_line;
+    /**
+        *该Chunk的内存大小，内存块总体的大小
+        */
+    uint m_size;
+    /**
+	*以多少字节对齐  一般是8字节对齐
+	*/
+        uint m_align_size;
+    /**
+	*该Chunk包含多少Cell
+	*/
+    uint m_cell_num;
+    /**
+	*被用了的Chunk数量
+	*/
+    uint m_used_cell_num;
+/**
+*需要释放内存的数据
+*/
+private:
+	/**
+	*存储数据的地方
+	*/
+    pvoid m_data;
+    list&lt;Memorycell *&gt; m_available_table;//记录还有多少内存可用
+    list&lt;Memorycell *&gt; m_used_table;//有多少被使用了
+}
+
+</code></pre>
+
+<p>memory cell</p>
+
+<pre><code class="language-C++">class Memorycell {
+private:
+    uint m_start;//cell从内存的哪里开始使用
+    uint m_end;//到哪里结束
+    ╱**
+    *cell的数量，每个Cell占8字节
+    */
+    uint m_size;
+}
+</code></pre>
+
+<p>内存池快被用完了或者已经被用完了该怎么办？两种策略</p>
+
+<ol>
+<li>进行内存的自动扩容</li>
+<li>进行垃圾回收</li>
+</ol>
+
+<p><strong>GC算法</strong></p>
+
+<ul>
+<li>标记-清除算法：内存碎片化严重</li>
+<li>标记-整理算法：会有stw（stop the world）问题</li>
+<li>分代收集理论</li>
+<li>标记-复制算法</li>
+<li>基于Region的GC算法</li>
+</ul>
+
+<p>内存池、GC算法、Java之间的关系</p>
+
+<ul>
+<li>JVM的内存结构是由它需要支持的GC算法决定的</li>
+<li>根据GC算法理论，JVM的内存结构需要这样设计</li>
+</ul>
+
+<p>GCroot对象，可达性分析</p>
+
+<ul>
+<li>方法区中静态变量引用的对象</li>
+<li>方法区中常量引用的对象</li>
+
+<li><p>虚拟机栈中的局部变量表中引用的对象：把当前还在用的对象及对象引用的对象给扫出来</p></li>
+
+<li><p>本地方法JNI引用的对象</p></li>
+</ul>
+
+<h2 id="volatile">Volatile</h2>
+
+<p>JVM三大执行引擎</p>
+
+<ul>
+<li>字节码解释器</li>
+<li>模板解释器</li>
+<li>JIT优化技术</li>
+</ul>
+
+<p>证明可见性</p>
+
+<pre><code class="language-java">public class Test3 i
+    //编译成java字节码
+    public static volatile int found = 0;
+	public static void main(String[] args){
+        new Thread(()-&gt; {
+            System.out.println(&quot;筹基友送笔来...&quot;);
+            while (e == found){}
+
+            System.out.println(&quot;笔来了，开始写字...&quot;);
+        },&quot;我线程&quot;).start();
+
+        new Thread(()-&gt;{
+            try {
+                Thread.sleep(2000);
+            }catch (InterruptedException e){
+                e.printstackTrace();
+            }
+            System.out.println(&quot;基友找到笔了，送过去...&quot;);
+            change();
+        },&quot;基友线程&quot;).start();
+    }
+	public static void change(
+    	found = 1;
+    }
+}
+</code></pre>
+
+<p>volatile是如何保证线程的可见性的? 加volatile，会写主内存</p>
+
+<p>执行引擎的一般的结构</p>
+
+<pre><code>while() {
+    switch(） {
+    	case getstatic:
+   		break;
+   		
+    	case putstatic:
+    	break;
+    }
+}
+
+</code></pre>
+
+<p><strong>读volatile修饰的变量getstatic</strong></p>
+
+<pre><code>CASE(_getstatic):
+    if (cache-&gt;is_volatile(){
+    .....
+    if (tos_type =- atos） {
+    ....
+    }else if (tos_type == itos）{
+    SET_STACK_INT(obj-&gt;int_field_acquire(field_offset)， -12;
+}
+
+</code></pre>
+
+<p>每次读volatile修饰的共享变量都会从主内存中读取，然后在工作内存中生成一个副本</p>
+
+<p>错误认知:读取volatile修饰的共享变量时会去判断工作内存中是否有这个变量，没有就拷贝生成副本，有就直接用</p>
+
+<pre><code>#define SET_STACK_INT(value，offset)
+	（*((jint*)&amp;topOfStack[-(offset)]) = (value))
+	
+
+inline jint oopDesc::int_field_acquire(int offset) const {
+	return OrderAccess::load_acquire(int_field_addr(offset));
+}
+
+inline jbyte OrderAccess ::load_acquire(volatile jbyte* p){
+	return*p;
+}
+</code></pre>
+
+<p><strong>这种认知是错误的</strong>：</p>
+
+<p>第一次读的时候，从主存中读取，然后在工作内存中生成副本以后读，会先判断工作内存中是否有该数值。栈只有入栈和出线，那么该如何去判断栈中有没有这个数值？</p>
+
+<p><strong>写volatile修饰的变量putstatic</strong></p>
+
+<p>内存间交互操作</p>
+
+<ul>
+<li>lock(主内存，将一个变量标识为线程独占)</li>
+<li>unlock(主内存，释放一个处于锁定状态的变量)</li>
+<li>read(主内存，将变量从主内存传输到工作内存）</li>
+<li>load(工作内存，将read读到的值在工作内存中生成一个副本)</li>
+<li>use(工作内存，将工作内存中的变量传递给执行引擎)</li>
+<li>assign(工作内存，将执行引擎返回的值赋值给工作内存中的变量)</li>
+<li>store (工作内存，将工作内存中变量的值传输给主内存)</li>
+<li>·write(主内存，将store操作从工作内存中传输的值写入主内存的变量中)</li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200926224803563.png" alt="image-20200926224803563" /></p>
+
+<p>openjdk源码</p>
+
+<pre><code>CASE(_putfield):
+CASE(_putstatic):
+{
+//Now store the result
+......
+int field_offset = cache-&gt;f2_as_index();
+if (cache-&gt;is_volatile(){//判断是不是volatile
+    if (tos_type == itos）{//是不是int类型的
+        obj-&gt;release_int_field_put(field_offset，STACK_INT(-1));
+    }
+    .....
+OrderAccess::storeload();内存屏障
+</code></pre>
+
+<p>1、这边写的是哪个区域:1CPU缓存?2主内存?3工作内存?
+2、解释概念︰主内存、工作内存</p>
+
+<pre><code>inline void OrderAccess::release_store(volatile juint* p，juint v){
+*p = v;
+ }
+ 
+inline void OrderAccess: :storeload{
+	fence();
+}
+
+inline void OrderAccess:: fence(){
+if (os: :is_MP()){
+	//always use locked addl since mfence is sometimes expensive
+ #ifdef AMD64
+	__asm__ volatile (&quot;lock; addl $0,0(%%rsp)&quot;: : : &quot;cc&quot; ，&quot;memory&quot;);
+ #else
+	__asm__ volatile (&quot;lock; addl $0,0(%%esp)&quot;: : : &quot;cc&quot;,&quot;memory&quot;);
+ #endif
+	}
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200926225831924.png" alt="image-20200926225831924" /></p>
+
+<pre><code>inline void oopDesc::release_int_field_put(int offset，jint contents){
+	OrderAccess::release_store(int_field_addr(offset), contents);
+}
+</code></pre>
+
+<p>cas是原子性操作，会交换8字节  是一个底层的指令，所以会保证原子性</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200926225940849.png" alt="image-20200926225940849" /></p>
+
+<p>读</p>
+
+<ul>
+<li><p>每次都会从主内存中取数据</p></li>
+
+<li><p>理解volatile，核心是理解volatile的写</p></li>
+</ul>
+
+<p>写</p>
+
+<p>关于内存的几个名词</p>
+
+<ul>
+<li>操作系统层面:操作系统内存、本地内存、native memory、OS内存</li>
+<li>JVM内存模型层面:堆、方法区、虚拟机栈、本地方法栈、程序计数器</li>
+<li>Java内存模型层面:主内存、工作内存</li>
+</ul>
+
+<p>指的都是操作系统内存，只不过在不同的场景下面它的名词不一样而已</p>
+
+<p>操作系统层面：内存条，物理内存</p>
+
+<p>JVM内存模型，事实上就是操作系统的一个内存池，而jvm有将这个内存池划分成了各个区域，赋予了新的名词</p>
+
+<p>主内存=堆区+方法区</p>
+
+<p>工作内存=虚拟机栈</p>
+
+<p>JVM内存模型：工作内存、主内存</p>
+
+<p>JMM：java内存模型，在多线程方面。书===JSP-133规范，JMM是基于它的实现</p>
+
+<p>volatile是如何保证有序性的</p>
+
+<p>禁止指令重排</p>
+
+<p>你能不能给我看看进制指令重排长啥样子?</p>
+
+<p>加、不加volatile，你们觉得字节码是不是一样的?一样的</p>
+
+<p>加volatile</p>
+
+<pre><code>0 iconst_1
+1 putstatic #11 &lt;com/qimingnan/concurrent/Test3.found&gt;
+4 return
+</code></pre>
+
+<p>不加volatile</p>
+
+<pre><code>0 iconst_1
+1 putstatic #11 &lt;com/qimingnan/concurrent/Test3.found&gt;
+4 return
+</code></pre>
+
+<p>那JVM是如何知道我写的是volatile修饰的变量?</p>
+
+<p>内联汇编</p>
+
+<pre><code>asm__volatile (&quot;lock; addl $0,0(%%rsp)&quot; : : : &quot;cc&quot;,&quot;memory&quot;);
+即是编译屏障
+</code></pre>
+
+<p>既是编译屏障</p>
+
+<p>也是内存屏障</p>
+
+<p><strong>class字节码文件</strong></p>
+
+<pre><code>access flag  这个属性
+cache-&gt;is_volatile()  //会先判断这个变量是不是被volatile所修饰
+</code></pre>
+
+<p>没加volatile</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200927222335471.png" alt="image-20200927222335471" /></p>
+
+<p>加了volatile的变量</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200927222420377.png" alt="image-20200927222420377" /></p>
+
+<h3 id="指令重排">指令重排</h3>
+
+<ul>
+<li><p>编译期指令重排：</p>
+
+<ol>
+<li>Java字节码层面（没有做）</li>
+<li>openJDK源码层面（做了gcc  -02这个优化）有些代码我不希望编译器做优化，需要编译器给我提供策略&mdash;&gt;编译屏障</li>
+</ol></li>
+
+<li><p>运行期指令重排</p>
+
+<p>​   1. CPU乱序执行带来的（DCL+volatile来举例）</p></li>
+</ul>
+
+<p>DCL为什么要加volatile？</p>
+
+<p>为什么new不是原子操作？</p>
+
+<p>new的四步操作（正常流程，没有被乱序执行）</p>
+
+<pre><code>33 new #4 &lt;com/qimingnan/concurrent/DCLTest&gt;
+	在堆区（或TLAB）分配内存，生成一个不完全对象（空壳子）
+	将不完全对象的引用压入栈顶
+36 dup	
+	复制栈顶元素
+	将复制的数值压入栈顶（作为this指针来使用）
+37 invokespecial #10 &lt;com/qimingnan/concurrent/DCLTest.&lt;init&gt;&gt;
+	执行构造方法，this指针
+	堆区（TLAB）中的对象就是一个完整的对象（执行了构造方法）
+40 putstatic #3 &lt;com/qimingnan/concurrent/DCLTest.instance&gt;
+	将完整对象的引用赋值给方法区的共享变量instance
+</code></pre>
+
+<p>因为40跟37之间没有任何的联系，所以有一定的概率会发生指令重排。</p>
+
+<p>有的线程拿到的对象引用其实是不完全对象的引用</p>
+
+<p>这就是DCL+volatile的原因</p>
+
+<p>CPU乱序执行，带来运行期的指令重排现象</p>
+
+<ul>
+<li>有的代码可以乱序执行</li>
+<li>有的代码不能乱序执行</li>
+</ul>
+
+<p>有一个保证:as-if-serial语义</p>
+
+<p>跟在单线程环境下的运行结果是一样的</p>
+
+<pre><code>int a = 0;
+int b = 10;
+a = 20;
+int sum = a + b;
+
+不能是这样的
+int a = 0;
+int b = 10;
+int sum = a + b;
+a = 20;
+</code></pre>
+
+<p>happens-before原则</p>
+
+<p>JVM在设计的时候，有些逻辑的先后顺序是可以执行的，那在JVM实现的那刻，就内置在JVM中了。</p>
+
+<p>比如：new的执行要先于finalize方法前执行完成</p>
+
+<p>有些逻辑是无法提前知晓的</p>
+
+<p>需要JVM提供机制，由程序猿根据业务去控制</p>
+
+<p>这就引出了：内存屏障（jvm是借助cpu提供的机制封装实现出来的）</p>
+
+<ul>
+<li>编译屏障（编译期的指令重排）</li>
+<li>内存屏障(运行期的指令重排)</li>
+</ul>
+
+<p>cpu的指令有：</p>
+
+<ul>
+<li>fence族:sfence、lfence、mfence(串行化读写，队列化读写)</li>
+<li>lock指令(JVM采用的)
+
+<ol>
+<li>领定地址总线</li>
+<li>保证读写有序性</li>
+</ol></li>
+</ul>
+
+<p>内存屏障锁的就是地址总线</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200927224701703.png" alt="image-20200927224701703" /></p>
+
+<p>内存屏障作用于CPU内部</p>
+
+<p>为什么要设计内存屏障?</p>
+
+<ul>
+<li>因为CPU写内存的机制（会有一定的延迟）
+
+<ol>
+<li>write through异步写（cpu的主流做法）
+
+<ol>
+<li>CPU讲写请求写入store buffer中</li>
+<li>CPU空闲的时候将写的数据输入内存</li>
+</ol></li>
+<li>write back 同步写
+
+<ol>
+<li>CPU将写请求写入store buffer，然后再刷回内存</li>
+</ol></li>
+</ol></li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200927224922225.png" alt="image-20200927224922225" /></p>
+
+<p>加了内存屏障，保证了读写的有序性，异步写，达到了同步写的效果，这就是为什么需要内存屏障？内存屏障作用于CPU内部,内存屏障的两个功能</p>
+
+<h2 id="synchronized">Synchronized</h2>
+
+<p>Synchronized锁的一定是对象，而不是代码块。锁加在了对象（对象头，实例数据、对齐填充组成）的对象头</p>
+
+<p>使用jol工具包可以打印一个对象的信息</p>
+
+<pre><code>System.out.println(ClassLayout.parseInstance(obj).toPrintable());
+</code></pre>
+
+<p>对象头中有什么？（由12个固定长度的字节组成）</p>
+
+<ul>
+<li>Markword（64b）</li>
+<li>Klass pointer(32b)</li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200928212621752.png" alt="image-20200928212621752" /></p>
+
+<p>32位的结构</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200928212650291.png" alt="image-20200928212650291" /></p>
+
+<p>对象有一些什么状态</p>
+
+<ol>
+<li>偏向锁</li>
+<li>轻量锁</li>
+<li>重量锁</li>
+<li>无锁</li>
+<li>GC标记</li>
+</ol>
+
+<p>由源码得知</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200928215136411.png" alt="image-20200928215136411" /></p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200928215229698.png" alt="image-20200928215229698" /></p>
+
+<p>java虚拟机默认开启了指针压缩</p>
+
+<ul>
+<li>垃圾回收开销变小</li>
+<li>cpu执行效率提高</li>
+</ul>
+
+<p>cpu存储又分为大端（高地址高字节）和小端（intel存处理器使用 高地址低字节（字节码是反着来的））</p>
+
+<p><img src="/resources/技术收录/Java/Java底层知识汇总/image-20200928220130573.png" alt="image-20200928220130573" /></p>
+
+<p>hashcode真的存在吗？（用于确定对象的地址）</p>
+
+<p>为什么分代年龄一但超过15就会被放入老年区（分代年龄占4位，最大表示到15）</p>
+
+<p>锁膨胀是可逆的（批量撤销）</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Java底层知识汇总" target="_blank" rel="external">https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="Java设计模式"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/05/onjava8/"
+                    title="OnJava8学习与理解"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
