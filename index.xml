@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/</link>
     <description>Recent content on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java底层知识汇总</title>
+      <link>https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</guid>
+      <description>Spring中的问题 Spring中的循环依赖 什么是循环依赖？ 很简单，就是A对象依赖了B对象，B对象依赖了A对象。 比如： // A依赖了B class A{ public B b;</description>
+    </item>
     
     <item>
       <title>Java算法笔记</title>
@@ -71,15 +80,6 @@
       
       <guid>https://mumulx.github.io/2020/05/onjava8/</guid>
       <description>感谢该项目的开源从中学到了很多的知识，对于java也有了更深的了解 已经看了两遍，里面写的很好，从中收获了跟多，也认识到了自己的许多不足。对于</description>
-    </item>
-    
-    <item>
-      <title>Java底层知识汇总</title>
-      <link>https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</link>
-      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/05/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</guid>
-      <description>Spring中的问题 Spring中的循环依赖 什么是循环依赖？ 很简单，就是A对象依赖了B对象，B对象依赖了A对象。 比如： // A依赖了B class A{ public B b;</description>
     </item>
     
     <item>
