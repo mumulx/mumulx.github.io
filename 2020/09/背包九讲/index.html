@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        背包九讲问题汇总 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="背包九讲问题汇总." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>背包九讲问题汇总 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="背包九讲问题汇总" />
+<meta property="og:description" content="背包九讲问题汇总." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" />
+<meta property="article:published_time" content="2020-09-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="背包九讲问题汇总">
+<meta itemprop="description" content="背包九讲问题汇总.">
+
+
+<meta itemprop="datePublished" content="2020-09-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-09-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="16400">
+
+
+
+<meta itemprop="keywords" content="算法," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="背包九讲问题汇总"/>
+<meta name="twitter:description" content="背包九讲问题汇总."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">29</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Maven学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-11</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDfs学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" class="title">背包九讲问题汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#背包九讲">背包九讲</a>
+<ul>
+<li><a href="#p01-01背包问题">P01: 01背包问题</a>
+<ul>
+<li><a href="#真题">真题</a></li>
+<li><a href="#题解">题解</a>
+<ul>
+<li><a href="#二维数组版">二维数组版</a></li>
+<li><a href="#一维数组压缩版">一维数组压缩版</a></li>
+<li><a href="#一维数组化简版">一维数组化简版</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#p02-完全背包问题">P02: 完全背包问题</a>
+<ul>
+<li><a href="#真题-1">真题</a></li>
+<li><a href="#题解-1">题解</a></li>
+</ul></li>
+<li><a href="#p03-多重背包问题">P03: 多重背包问题</a>
+<ul>
+<li><a href="#真题-2">真题</a></li>
+<li><a href="#题解-2">题解</a>
+<ul>
+<li><a href="#三重循环">三重循环</a></li>
+<li><a href="#二进制题解">二进制题解</a></li>
+<li><a href="#终极版本">终极版本</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#p04-混合三种背包问题">P04: 混合三种背包问题</a>
+<ul>
+<li><a href="#真题-3">真题</a></li>
+<li><a href="#题解-3">题解</a></li>
+</ul></li>
+<li><a href="#p05-二维费用的背包问题">P05: 二维费用的背包问题</a>
+<ul>
+<li><a href="#真题-4">真题</a></li>
+<li><a href="#题解-4">题解</a></li>
+</ul></li>
+<li><a href="#p06-分组的背包问题">P06: 分组的背包问题</a>
+<ul>
+<li><a href="#真题-5">真题</a></li>
+<li><a href="#题解-5">题解</a></li>
+</ul></li>
+<li><a href="#p07-有依赖的背包问题">P07: 有依赖的背包问题</a>
+<ul>
+<li><a href="#真题-6">真题</a></li>
+<li><a href="#题解-6">题解</a></li>
+</ul></li>
+<li><a href="#p08-泛化物品">P08: 泛化物品</a></li>
+<li><a href="#p09-背包问题问法的变化">P09: 背包问题问法的变化</a></li>
+<li><a href="#p10背包问题求方案数">P10背包问题求方案数</a>
+<ul>
+<li><a href="#真题-7">真题</a></li>
+<li><a href="#题解-7">题解</a></li>
+</ul></li>
+<li><a href="#p11背包问题求具体方案">P11背包问题求具体方案</a>
+<ul>
+<li><a href="#真题-8">真题</a></li>
+<li><a href="#题解-8">题解</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#其他算法">其他算法</a>
+<ul>
+<li><a href="#位运算">位运算</a></li>
+</ul></li>
+<li><a href="#全排列问题">全排列问题</a>
+<ul>
+<li><a href="#p01-不含重复元素">P01 不含重复元素</a></li>
+<li><a href="#p02-含重复元素">P02 含重复元素</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/"
+    >背包九讲问题汇总</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" class="article-date">
+  <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E7%AE%97%E6%B3%95/"> 算法 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:16400字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:33分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="背包九讲">背包九讲</h1>
+
+<h2 id="p01-01背包问题">P01: 01背包问题</h2>
+
+<p>题目
+        有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量， 且价值总和最大。</p>
+
+<p><strong>基本思路</strong></p>
+
+<p>这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。</p>
+
+<p>用子问题定义状态：即<code>f[i][v]</code>表示前i件物品恰放入一个容量为v的背包可以获得的最大价值。则其状态转移方程便是：</p>
+
+<pre><code> f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
+</code></pre>
+
+<p>对于第i将物品我们只有两种选择</p>
+
+<blockquote>
+<ol>
+<li>不选：那么最大的价值就是<code>f[i-1][v]</code>(第i件物品不选的话，最终结果选择的物品就是前i-1件，前i-1件物品放入容量为v的背包中)</li>
+<li>选：<code>f[i-1][v-c[i]]+w[i]</code>:<code>w[i]</code>为第i件物品的价值，<code>f[i-1][v-c[i]]</code>为前i-1件物品放入剩下的容量为v-c[i]的背包中的最优解</li>
+</ol>
+</blockquote>
+
+<p>这个方程非常重要，基本上所有跟背包相关的问题的方程都是由它衍生出来的。所以有必要将它详细解释一下：“将前i件物品放入容量为v的背包中”这个子问题，若只考虑第i件物品的策略（放或不放），那么就可以转化为一个只牵扯前i-1件物品的问题。如果不放第i件物品，那么问题就转化为“前i-1件物品放入容量为v的背包中”；如果放第i件物品，那么问题就转化为“前i-1件物品放入剩下的容量为v-c[i]的背包中”，此时能获得的最大价值就是f [i-1][v-c[i]]再加上通过放入第i件物品获得的价值w[i]。</p>
+
+<p>注意<code>f[i][v]</code>有意义当且仅当存在一个前i件物品的子集，其费用总和为v。所以按照这个方程递推完毕后，最终的答案并不一定是f[N] [V]，而是<code>f[N][0..V]</code>的最大值。如果将状态的定义中的“恰”字去掉，在转移方程中就要再加入一项f[i][v-1]，这样就可以保证f[N] [V]就是最后的答案。至于为什么这样就可以，由你自己来体会了。</p>
+
+<p>优化空间复杂度
+以上方法的时间和空间复杂度均为O(N*V)，其中时间复杂度基本已经不能再优化了，但空间复杂度却可以优化到O(V)。</p>
+
+<p>先考虑上面讲的基本思路如何实现，肯定是有一个主循环i=1..N，每次算出来二维数组f[i][0..V]的所有值。那么，如果只用一个数组f [0..V]，能不能保证第i次循环结束后f[v]中表示的就是我们定义的状态f[i][v]呢？f[i][v]是由f[i-1][v]和f[i-1] [v-c[i]]两个子问题递推而来，能否保证在推f[i][v]时（也即在第i次主循环中推f[v]时）能够得到f[i-1][v]和f[i-1][v -c[i]]的值呢？事实上，这要求在每次主循环中我们以v=V..0的顺序推f[v]，这样才能保证推f[v]时f[v-c[i]]保存的是状态f[i -1][v-c[i]]的值。伪代码如下：</p>
+
+<pre><code>for i=1..N
+	for v=V..0
+		f[v]=max{f[v],f[v-c[i]]+w[i]};
+</code></pre>
+
+<p>其中的<code>f[v]=max{f[v],f[v-c[i]]+w[i]};</code>一句恰就相当于我们的转移方程<code>f[i][v]=max{f[i-1][v],f[i- 1][v-c[i]]}</code>，因为现在的~就相当于原来的<code>f[i-1][v-c[i]]</code>。如果将v的循环顺序从上面的逆序改成顺序的话，那么则成了<code>f[i][v]</code>由<code>f[i][v-c[i]]</code>推知，与本题意不符，但它却是另一个重要的背包问题P02最简捷的解决方案，故学习只用一维数组解01背包问题是十分必要的。</p>
+
+<p>总结
+01背包问题是最基本的背包问题，它包含了背包问题中设计状态、方程的最基本思想，另外，别的类型的背包问题往往也可以转换成01背包问题求解。故一定要仔细体会上面基本思路的得出方法，状态转移方程的意义，以及最后怎样优化的空间复杂度。</p>
+
+<h3 id="真题">真题</h3>
+
+<p>有 NN 件物品和一个容量是 W 的背包。每件物品只能使用一次。</p>
+
+<p>第 ii 件物品的体积是 vivi，价值是 wiwi。</p>
+
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
+输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，W，用空格隔开，分别表示物品数量和背包容积。</p>
+
+<p>接下来有 NN 行，每行两个整数 vi,wivi,wi，用空格隔开，分别表示第 ii 件物品的体积和价值。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解">题解</h3>
+
+<h4 id="二维数组版">二维数组版</h4>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/2/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+const int N=1010;
+int m,n;
+int f[N][N];
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=n;i++){
+        int v,w;
+        cin&gt;&gt;v&gt;&gt;w;
+        for(int j=0;j&lt;=m;j++){
+            f[i][j]=f[i-1][j];
+            if(j&gt;=v){
+                f[i][j]=max(f[i][j],f[i-1][j-v]+w);
+            }
+        }
+    }
+    int res = 0;
+    for(int i=0;i&lt;=m;i++){
+        res= max(res,f[n][i]); 
+    }
+    cout&lt;&lt;res&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="一维数组压缩版">一维数组压缩版</h4>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/2/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=1010;
+int m,n;
+int f[N];
+int v[N],w[N];
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i =1;i&lt;=n;i++){
+        cin&gt;&gt;v[i]&gt;&gt;w[i];
+    }
+    for(int i=1;i&lt;=n;i++){
+        for(int j=m;j&gt;=v[i];j--){
+            f[j]=max(f[j],f[j-v[i]]+w[i]);
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="一维数组化简版">一维数组化简版</h4>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/2/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=1010;
+int n,m;//n表示物品数量  m表示背包体积
+int f[N];//f[i] 表示背包容量为i的最优解
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        int v,w;
+        cin&gt;&gt;v&gt;&gt;w;
+        for(int j=m;j&gt;=v;j--){//背包容量从大到小进行枚举   v....m
+            f[j]=max(f[j],f[j-v]+w);
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+/**
+初始值f[0....n]=0
+
+*/
+</code></pre>
+
+<p>从大到小进行枚举的意义就是避免重复m,这是因为要保证第i次循环中的状态<code>f[i][v]</code>是由状态<code>f[i-1][v-c[i]]</code>递推而来。</p>
+
+<p>换句话说，这正是为了保证每件物品只选一次，保证在考虑“选入第i件物品”这件策略时，依据的是一个绝无已经选入第i件物品的子结果<code>f[i-1][v-c[i]]</code>。</p>
+
+<h2 id="p02-完全背包问题">P02: 完全背包问题</h2>
+
+<p>题目
+有N种物品和一个容量为V的背包，每种物品都有无限件可用。第i种物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。</p>
+
+<p>基本思路
+这个问题非常类似于01背包问题，所不同的是每种物品有无限件。也就是从每种物品的角度考虑，与它相关的策略已并非取或不取两种，而是有取0件、取1件、取2件……等很多种。如果仍然按照解01背包时的思路，令<code>f[i][v]</code>表示前 i 种物品恰放入一个容量为v的背包的最大权值。仍然可以按照每种物品不同的策略写出状态转移方程，像这样：<code>f[i][v]=max{f[i-1][v-k*c[i]]+k*w[i]|0&lt;=k*c[i]&lt;= v}</code>。这跟01背包问题一样有O(N*V)个状态需要求解，但求解每个状态的时间则不是常数了，求解状态f[i][v]的时间是O(v/c[i])，总的复杂度是超过O(VN)的。</p>
+
+<p>将01背包问题的基本思路加以改进，得到了这样一个清晰的方法。这说明01背包问题的方程的确是很重要，可以推及其它类型的背包问题。但我们还是试图改进这个复杂度。</p>
+
+<p><strong>一个简单有效的优化</strong></p>
+
+<p>完全背包问题有一个很简单有效的优化，是这样的：若两件物品i、j满足c[i]&lt;=c[j]且w[i]&gt;=w[j]，则将物品j去掉，不用考虑。这个优化的正确性显然：任何情况下都可将价值小费用高得j换成物美价廉的i，得到至少不会更差的方案。对于随机生成的数据，这个方法往往会大大减少物品的件数，从而加快速度。然而这个并不能改善最坏情况的复杂度，因为有可能特别设计的数据可以一件物品也去不掉。</p>
+
+<p>转化为01背包问题求解
+既然01背包问题是最基本的背包问题，那么我们可以考虑把完全背包问题转化为01背包问题来解。最简单的想法是，考虑到第i种物品最多选V/c [i]件，于是可以把第i种物品转化为V/c[i]件费用及价值均不变的物品，然后求解这个01背包问题。这样完全没有改进基本思路的时间复杂度，但这毕竟给了我们将完全背包问题转化为01背包问题的思路：将一种物品拆成多件物品。</p>
+
+<p>更高效的转化方法是：把第i种物品拆成费用为<code>c[i]*2^k</code>、价值为<code>w[i]*2^k</code>的若干件物品，其中k满足<code>c[i]*2^k&lt;V</code>。这是二进制的思想，因为不管最优策略选几件第i种物品，总可以表示成若干个2^k件物品的和。这样把每种物品拆成O(log(V/c[i]))件物品，是一个很大的改进。但我们有更优的O(VN)的算法。 * O(VN)的算法这个算法使用一维数组，先看伪代码：</p>
+
+<pre><code>for i=1..N 
+	for v=0..V 
+		f[v]=max{f[v],f[v-c[i]]+w[i]};
+</code></pre>
+
+<p>你会发现，这个伪代码与P01的伪代码只有v的循环次序不同而已。为什么这样一改就可行呢？首先想想为什么P01中要按照v=V..0的逆序来循环。这是因为要保证第i次循环中的状态<code>f[i][v]</code>是由状态<code>f[i-1][v-c[i]]</code>递推而来。换句话说，这正是为了保证每件物品只选一次，保证在考虑“选入第i件物品”这件策略时，依据的是一个绝无已经选入第i件物品的子结果<code>f[i-1][v-c[i]]</code>。而现在完全背包的特点恰是每种物品可选无限件，所以在考虑“加选一件第i种物品”这种策略时，却正需要一个可能已选入第i种物品的子结果<code>f[i][v-c[i]]</code>，所以就可以并且必须采用v= 0..V的顺序循环。这就是这个简单的程序为何成立的道理。</p>
+
+<p>这个算法也可以以另外的思路得出。例如，基本思路中的状态转移方程可以等价地变形成这种形式：<code>f[i][v]=max{f[i-1][v],f[i][v-c[i]]+w[i]}</code>，将这个方程用一维数组实现，便得到了上面的伪代码。</p>
+
+<p><strong>总结</strong></p>
+
+<p>完全背包问题也是一个相当基础的背包问题，它有两个状态转移方程，分别在“基本思路”以及“O(VN)的算法“的小节中给出。希望你能够对这两个状态转移方程都仔细地体会，不仅记住，也要弄明白它们是怎么得出来的，最好能够自己想一种得到这些方程的方法。事实上，对每一道动态规划题目都思考其方程的意义以及如何得来，是加深对动态规划的理解、提高动态规划功力的好方法。</p>
+
+<h3 id="真题-1">真题</h3>
+
+<p>有 NN 种物品和一个容量是 VV 的背包，每种物品都有无限件可用。</p>
+
+<p>第 ii 种物品的体积是 vivi，价值是 wiwi。</p>
+
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
+输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，VN，V，用空格隔开，分别表示物品种数和背包容积。</p>
+
+<p>接下来有 NN 行，每行两个整数 vi,wivi,wi，用空格隔开，分别表示第 ii 种物品的体积和价值。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-1">题解</h3>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/3/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=1010;
+int m,n;
+int f[N];
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        int v,w;
+        cin&gt;&gt;v&gt;&gt;w;
+        for(int j=v;j&lt;=m;j++){
+            f[j]=max(f[j],f[j-v]+w);
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<p>我们发现本题仅仅与01背包问题的不同之处在于循环的顺序不同。而现在完全背包的特点恰是每种物品可选无限件，所以在考虑“加选一件第i种物品”这种策略时，却正需要一个可能已选入第i种物品的子结果<code>f[i][v-c[i]]</code>，所以就可以并且必须采用v= 0..V的顺序循环。这就是这个简单的程序为何成立的道理。</p>
+
+<h2 id="p03-多重背包问题">P03: 多重背包问题</h2>
+
+<p>题目
+有N种物品和一个容量为V的背包。第i种物品最多有n[i]件可用，每件费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。</p>
+
+<p>基本算法
+这题目和完全背包问题很类似。基本的方程只需将完全背包问题的方程略微一改即可，因为对于第i种物品有n[i]+1种策略：取0件，取1件……取 n[i]件。令<code>f[i][v]</code>表示前i种物品恰放入一个容量为v的背包的最大权值，则：<code>f[i][v]=max{f[i-1][v-k*c[i]]+ k*w[i]|0&lt;=k&lt;=n[i]}</code>。复杂度是O(V*∑n[i])。</p>
+
+<p>转化为01背包问题
+另一种好想好写的基本方法是转化为01背包求解：把第i种物品换成n[i]件01背包中的物品，则得到了物品数为∑n[i]的01背包问题，直接求解，复杂度仍然是O(V*∑n[i])。</p>
+
+<p>但是我们期望将它转化为01背包问题之后能够像完全背包一样降低复杂度。仍然考虑二进制的思想，我们考虑把第i种物品换成若干件物品，使得原问题中第i种物品可取的每种策略——取0..n[i]件——均能等价于取若干件代换以后的物品。另外，取超过n[i]件的策略必不能出现。</p>
+
+<p>方法是：将第i种物品分成若干件物品，其中每件物品有一个系数，这件物品的费用和价值均是原来的费用和价值乘以这个系数。使这些系数分别为 1,2,4,&hellip;,2^(k-1),n[i]-2^k+1，且k是满足n[i]-2^k+1&gt;0的最大整数。例如，如果n[i]为13，就将这种物品分成系数分别为1,2,4,6的四件物品。</p>
+
+<p>分成的这几件物品的系数和为n[i]，表明不可能取多于n[i]件的第i种物品。另外这种方法也能保证对于0..n[i]间的每一个整数，均可以用若干个系数的和表示，这个证明可以分0..2^k-1和2^k..n[i]两段来分别讨论得出，并不难，希望你自己思考尝试一下。</p>
+
+<p>这样就将第i种物品分成了O(log n[i])种物品，将原问题转化为了复杂度为O(V*∑log n[i])的01背包问题，是很大的改进。</p>
+
+<p>O(VN)的算法
+多重背包问题同样有O(VN)的算法。这个算法基于基本算法的状态转移方程，但应用单调队列的方法使每个状态的值可以以均摊O(1)的时间求解。由于用单调队列优化的DP已超出了NOIP的范围，故本文不再展开讲解。我最初了解到这个方法是在楼天成的“男人八题”幻灯片上。</p>
+
+<p>小结
+这里我们看到了将一个算法的复杂度由<code>O(V*∑n[i])</code>改进到<code>O(V*∑log n[i])</code>的过程，还知道了存在应用超出NOIP范围的知识的O(VN)算法。希望你特别注意“拆分物品”的思想和方法，自己证明一下它的正确性，并用尽量简洁的程序来实现。</p>
+
+<h3 id="真题-2">真题</h3>
+
+<p>有 N 种物品和一个容量是 M的背包。</p>
+
+<p>第 i 种物品最多有 si 件，每件体积是 vi，价值是 wi。</p>
+
+<p>求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。
+输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，M用空格隔开，分别表示物品种数和背包容积。</p>
+
+<p>接下来有 N，每行三个整数 vi,wi,si用空格隔开，分别表示第 i种物品的体积、价值和数量。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-2">题解</h3>
+
+<h4 id="三重循环">三重循环</h4>
+
+<pre><code class="language-C++">/*
+https://www.acwing.com/problem/content/4/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=110;
+int m,n;//n件物品   容量是m
+int f[N];//f[i]:总体积是i的情况下最大价值是多少
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        int v,w,s;
+        cin&gt;&gt;v&gt;&gt;w&gt;&gt;s;//体积、价值、数量
+        for(int j=m;j&gt;=v;j--){
+            for(int k=1;k&lt;=s&amp;&amp;k*v&lt;=j;k++){
+                f[j]=max(f[j],f[j-k*v]+k*w);
+            }
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+/**
+最终结果是f[m]
+
+1. f[i]=0     res = f[m];
+2. f[0]=0;f[i]=-INF,i！=0
+res = max(f[0...m])
+
+
+k的范围是1....s   0的话就是不选  结果还是f[j]  没有实际的意义  就决定了j的范围是可以到v  而没有必要到0
+j的范围是m....v   就决定了k一定是要选择一个 
+
+如果K是从0开始的，那么j的范围就要包括0  那么j  m......0     k 0.....s
+
+*/
+</code></pre>
+
+<ul>
+<li>使用数组的时候一定要注意数组的边界问题</li>
+</ul>
+
+<p>与01背包的相似之处</p>
+
+<ul>
+<li>01背包问题是这个物品只有选或不选两种状态</li>
+<li>多重背包问题是这个物品可以选0个  1个  2 3 &hellip;&hellip;&hellip;.一直到s，总共s+1个状态</li>
+</ul>
+
+<p>因此多重背包就多了一重循环，时间复杂度就变成了O(n^3)，就需要进一步进行优化</p>
+
+<p>优化方法有</p>
+
+<ol>
+<li>二进制优化</li>
+</ol>
+
+<p>换一种思路：不如把所有的物品都看作是一种独立的物品，重复的物品也看作是独立的，那么对于这种展开的物品来看又转换为了01背包问题。每一件物品只有选或不选两种状态。</p>
+
+<p>给定一个数S，最少可以选择几个数，使得能够组成和为0&hellip;.S</p>
+
+<p>比如  7  答案是3  {1、 2、 4}</p>
+
+<pre><code>0 0
+1 1
+2 2
+3 1+2
+4 4
+5 1+4
+6 2+4
+7 1+2+4
+</code></pre>
+
+<p>比如10   答案是4  {1、2、4、3}</p>
+
+<p>最后一个数不能是8如果是8的话，就可以表示0-15内的所有的数字：我们可以用10-1-2-4=3</p>
+
+<p>结论是 ：<strong>log2(s)向下取整</strong></p>
+
+<p>那么对于重复的物品（比如有S份），我们就不需要把他拆分成S份了   可以拆分组成log2(S)份</p>
+
+<h4 id="二进制题解">二进制题解</h4>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/5/
+**/
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+const int N=2010;
+int f[N];
+int n,m;
+struct Good{
+  int v,w;  
+};
+int main(){
+    vector&lt;Good&gt; goods;
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        int v,w,s;
+        cin&gt;&gt;v&gt;&gt;w&gt;&gt;s;
+        for(int k=1;k&lt;=s;k*=2){
+            s-=k;
+            goods.push_back({v*k,w*k});
+        }
+        if(s&gt;0)goods.push_back({v*s,w*s});
+    }
+    //转化成01背包问题
+    for(auto good:goods){
+        for(int j=m;j&gt;=good.v;j--){
+            f[j]=max(f[j],f[j-good.v]+good.w);
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="终极版本">终极版本</h4>
+
+<p>使用的单调队列的思想  leetcode 289题</p>
+
+<pre><code class="language-c++">
+/**
+&lt;&lt;男人八题&gt;&gt;
+单调队列问题
+
+**/
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+const int N=20010;
+int f[N],g[N],q[N];
+int n,m;
+
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        int c,w,s;
+        cin&gt;&gt;c&gt;&gt;w&gt;&gt;s;
+        memcpy(g,f,sizeof f);
+        for(int j=0;j&lt;c;j++){
+            int hh=0,tt=-1;
+            for(int k=j;k&lt;=m;k+=c){
+                f[k]=g[k];
+                if(hh&lt;=tt&amp;&amp;k-s*c&gt;q[hh])hh++;
+                if(hh&lt;=tt)f[k]=max(f[k],g[q[hh]]+(k-q[hh])/c*w);
+                while(hh&lt;=tt&amp;&amp;g[q[tt]]-(q[tt]-j)/c*w&lt;=g[k]-(k-j)/c*w)tt--;
+                q[++tt]=k;
+            }
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h2 id="p04-混合三种背包问题">P04: 混合三种背包问题</h2>
+
+<p>问题
+如果将P01、P02、P03混合起来。也就是说，有的物品只可以取一次（01背包），有的物品可以取无限次（完全背包），有的物品可以取的次数有一个上限（多重背包）。应该怎么求解呢？</p>
+
+<p>01背包与完全背包的混合
+考虑到在P01和P02中最后给出的伪代码只有一处不同，故如果只有两类物品：一类物品只能取一次，另一类物品可以取无限次，那么只需在对每个物品应用转移方程时，根据物品的类别选用顺序或逆序的循环即可，复杂度是O(VN)。伪代码如下：</p>
+
+<pre><code>for i=1..N
+    if 第i件物品是01背包
+        for v=V..0
+        	f[v]=max{f[v],f[v-c[i]]+w[i]};
+    else if 第i件物品是完全背包
+    	for v=0..V
+   			f[v]=max{f[v],f[v-c[i]]+w[i]};
+</code></pre>
+
+<p>再加上多重背包
+如果再加上有的物品最多可以取有限次，那么原则上也可以给出O(VN)的解法：遇到多重背包类型的物品用单调队列解即可。但如果不考虑超过NOIP范围的算法的话，用P03中将每个这类物品分成O(log n[i])个01背包的物品的方法也已经很优了。</p>
+
+<p>小结
+有人说，困难的题目都是由简单的题目叠加而来的。这句话是否公理暂且存之不论，但它在本讲中已经得到了充分的体现。本来01背包、完全背包、多重背包都不是什么难题，但将它们简单地组合起来以后就得到了这样一道一定能吓倒不少人的题目。但只要基础扎实，领会三种基本背包问题的思想，就可以做到把困难的题目拆分成简单的题目来解决。</p>
+
+<h3 id="真题-3">真题</h3>
+
+<p>有 NN 种物品和一个容量是 VV 的背包。</p>
+
+<p>物品一共有三类：</p>
+
+<ul>
+<li>第一类物品只能用1次（01背包）；</li>
+<li>第二类物品可以用无限次（完全背包）；</li>
+<li>第三类物品最多只能用 sisi 次（多重背包）；</li>
+</ul>
+
+<p>每种体积是 vivi，价值是 wiwi。</p>
+
+<p>求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。
+输出最大价值。</p>
+
+<p>输入格式</p>
+
+<p>第一行两个整数，N，VN，V，用空格隔开，分别表示物品种数和背包容积。</p>
+
+<p>接下来有 NN 行，每行三个整数 vi,wi,sivi,wi,si，用空格隔开，分别表示第 ii 种物品的体积、价值和数量。</p>
+
+<ul>
+<li>si=−1si=−1 表示第 ii 种物品只能用1次；</li>
+<li>si=0si=0 表示第 ii 种物品可以用无限次；</li>
+<li>si&gt;0si&gt;0 表示第 ii 种物品可以使用 sisi 次；</li>
+</ul>
+
+<p>输出格式</p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-3">题解</h3>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/description/7/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int N=1010;
+int m,n;//n件物品   容量是m
+int f[N];//f[i]:总体积是i的情况下最大价值是多少
+
+struct Thing{
+  int kind;
+  int v,w;
+};
+vector&lt;Thing&gt; things;
+
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    /**将问题分成两类 01 背包问题   完全背包问题*/
+    for(int i=0;i&lt;n;i++){
+        int v,w,s;
+        cin&gt;&gt;v&gt;&gt;w&gt;&gt;s;//体积、价值、数量
+        if(s&lt;0)things.push_back({-1,v,w});
+        else if(s==0)things.push_back({0,v,w});
+        else{
+            
+            for(int k=1;k&lt;=s;k*=2){
+                s-=k;
+                things.push_back({-1,v*k,w*k});
+            }
+            if(s&gt;0)things.push_back({-1,v*s,w*s});
+        }
+
+    }
+    for(auto thing:things){
+        if(thing.kind&lt;0){
+            for(int j=m;j&gt;=thing.v;j--)f[j]=max(f[j],f[j-thing.v]+thing.w);
+            
+        }else{
+            for(int j=thing.v;j&lt;=m;j++)f[j]=max(f[j],f[j-thing.v]+thing.w);
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+
+</code></pre>
+
+<h2 id="p05-二维费用的背包问题">P05: 二维费用的背包问题</h2>
+
+<p>问题
+二维费用的背包问题是指：对于每件物品，具有两种不同的费用；选择这件物品必须同时付出这两种代价；对于每种代价都有一个可付出的最大值（背包容量）。问怎样选择物品可以得到最大的价值。设这两种代价分别为代价1和代价2，第i件物品所需的两种代价分别为a[i]和b[i]。两种代价可付出的最大值（两种背包容量）分别为V和U。物品的价值为w[i]。</p>
+
+<p>算法
+费用加了一维，只需状态也加一维即可。设f[i][v][u]表示前i件物品付出两种代价分别为v和u时可获得的最大价值。状态转移方程就是：<code>f [i][v][u]=max{f[i-1][v][u],f[i-1][v-a[i]][u-b[i]]+w[i]}</code>。如前述方法，可以只使用二维的数组：当每件物品只可以取一次时变量v和u采用顺序的循环，当物品有如完全背包问题时采用逆序的循环。当物品有如多重背包问题时拆分物品。</p>
+
+<p>物品总个数的限制
+有时，“二维费用”的条件是以这样一种隐含的方式给出的：最多只能取M件物品。这事实上相当于每件物品多了一种“件数”的费用，每个物品的件数费用均为1，可以付出的最大件数费用为M。换句话说，设<code>f[v][m]</code>表示付出费用v、最多选m件时可得到的最大价值，则根据物品的类型（01、完全、多重）用不同的方法循环更新，最后在f[0..V][0..M]范围内寻找答案。</p>
+
+<p>另外，如果要求“恰取M件物品”，则在<code>f[0..V][M]</code>范围内寻找答案。</p>
+
+<p>小结
+事实上，当发现由熟悉的动态规划题目变形得来的题目时，在原来的状态中加一维以满足新的限制是一种比较通用的方法。希望你能从本讲中初步体会到这种方法。</p>
+
+<h3 id="真题-4">真题</h3>
+
+<p>有 NN 件物品和一个容量是 V 的背包，背包能承受的最大重量是 M。</p>
+
+<p>每件物品只能用一次。体积是 vi，重量是 mi，价值是 wi。</p>
+
+<p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，总重量不超过背包可承受的最大重量，且价值总和最大。
+输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，M，用空格隔开，分别表示物品件数、背包容积和背包可承受的最大重量。</p>
+
+<p>接下来有 NN 行，每行三个整数 vi,mi,wi，用空格隔开，分别表示第 i 件物品的体积、重量和价值。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-4">题解</h3>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/8/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int N=110;
+int n,v,m;//n件物品   容量是m
+int f[N][N];//f[i]:总体积是i的情况下最大价值是多少
+
+int main(){
+    cin&gt;&gt;n&gt;&gt;v&gt;&gt;m;
+    
+    for(int i=0;i&lt;n;i++){
+        int a,b,c;
+        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;//体积、价值、数量
+        for(int j=v;j&gt;=a;j--){
+            for(int k=m;k&gt;=b;k--){
+                f[j][k]=max(f[j][k],f[j-a][k-b]+c);
+            }
+        }
+    }
+    cout&lt;&lt;f[v][m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h2 id="p06-分组的背包问题">P06: 分组的背包问题</h2>
+
+<p>问题
+有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。这些物品被划分为若干组，每组中的物品互相冲突，最多选一件。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。</p>
+
+<p>算法
+这个问题变成了每组物品有若干种策略：是选择本组的某一件，还是一件都不选。也就是说设<code>f[k][v]</code>表示前k组物品花费费用v能取得的最大权值，则有<code>f[k][v]=max{f[k-1][v],f[k-1][v-c[i]]+w[i]|</code>物品i属于第k组}。</p>
+
+<p>使用一维数组的伪代码如下：</p>
+
+<pre><code>for 所有的组k
+	for 所有的i属于组k
+		for v=V..0
+			f[v]=max{f[v],f[v-c[i]]+w[i]}
+</code></pre>
+
+<p>另外，显然可以对每组中的物品应用P02中“一个简单有效的优化”。</p>
+
+<p>小结
+分组的背包问题将彼此互斥的若干物品称为一个组，这建立了一个很好的模型。不少背包问题的变形都可以转化为分组的背包问题（例如P07），由分组的背包问题进一步可定义“泛化物品”的概念，十分有利于解题。</p>
+
+<h3 id="真题-5">真题</h3>
+
+<p>有 N组物品和一个容量是 VV 的背包。</p>
+
+<p>每组物品有若干个，同一组内的物品最多只能选一个。
+每件物品的体积是 vij，价值是 wij，其中 i是组号，j 是组内编号。</p>
+
+<p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
+
+<p>输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行有两个整数 N，M，V，用空格隔开，分别表示物品组数和背包容量。</p>
+
+<p>接下来有 NN 组数据：</p>
+
+<ul>
+<li>每组数据第一行有一个整数 Si，表示第 i个物品组的物品数量；</li>
+<li>每组数据接下来有 Si 行，每行有两个整数 vij,wij，用空格隔开，分别表示第 i 个物品组的第 j 个物品的体积和价值；</li>
+</ul>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-5">题解</h3>
+
+<p>多重背包问题实际上是分组背包问题的一种特殊情况</p>
+
+<pre><code class="language-c++">/*
+https://www.acwing.com/problem/content/9/
+**/
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=110;
+int n,m;//n件物品   容量是m
+int f[N],v[N],w[N];//f[i]:总体积是i的情况下最大价值是多少
+
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    
+    for(int i=0;i&lt;n;i++){
+        int s;
+        cin&gt;&gt;s;
+        
+        for(int j=0;j&lt;s;j++)cin&gt;&gt;v[j]&gt;&gt;w[j];
+        
+        for(int j=m;j&gt;=0;j--){
+            for(int k=0;k&lt;s;k++){
+                if(j&gt;=v[k])f[j]=max(f[j],f[j-v[k]]+w[k]);
+            }
+        }
+    }
+    cout&lt;&lt;f[m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h2 id="p07-有依赖的背包问题">P07: 有依赖的背包问题</h2>
+
+<p>简化的问题
+这种背包问题的物品间存在某种“依赖”的关系。也就是说，i依赖于j，表示若选物品i，则必须选物品j。为了简化起见，我们先设没有某个物品既依赖于别的物品，又被别的物品所依赖；另外，没有某件物品同时依赖多件物品。</p>
+
+<p>算法
+这个问题由NOIP2006金明的预算方案一题扩展而来。遵从该题的提法，将不依赖于别的物品的物品称为“主件”，依赖于某主件的物品称为“附件”。由这个问题的简化条件可知所有的物品由若干主件和依赖于每个主件的一个附件集合组成。</p>
+
+<p>按照背包问题的一般思路，仅考虑一个主件和它的附件集合。可是，可用的策略非常多，包括：一个也不选，仅选择主件，选择主件后再选择一个附件，选择主件后再选择两个附件……无法用状态转移方程来表示如此多的策略。（事实上，设有n个附件，则策略有2^n+1个，为指数级。）</p>
+
+<p>考虑到所有这些策略都是互斥的（也就是说，你只能选择一种策略），所以一个主件和它的附件集合实际上对应于P06中的一个物品组，每个选择了主件又选择了若干个附件的策略对应于这个物品组中的一个物品，其费用和价值都是这个策略中的物品的值的和。但仅仅是这一步转化并不能给出一个好的算法，因为物品组中的物品还是像原问题的策略一样多。</p>
+
+<p>再考虑P06中的一句话：可以对每组中的物品应用P02中“一个简单有效的优化”。这提示我们，对于一个物品组中的物品，所有费用相同的物品只留一个价值最大的，不影响结果。所以，我们可以对主件i的“附件集合”先进行一次01背包，得到费用依次为0..V-c[i]所有这些值时相应的最大价值f&rsquo;[0..V-c[i]]。那么这个主件及它的附件集合相当于V-c[i]+1个物品的物品组，其中费用为c[i]+k的物品的价值为f&rsquo;[k]+w[i]。也就是说原来指数级的策略中有很多策略都是冗余的，通过一次01背包后，将主件i转化为 V-c[i]+1个物品的物品组，就可以直接应用P06的算法解决问题了。</p>
+
+<p>更一般的问题
+更一般的问题是：依赖关系以图论中“森林”的形式给出（森林即多叉树的集合），也就是说，主件的附件仍然可以具有自己的附件集合，限制只是每个物品最多只依赖于一个物品（只有一个主件）且不出现循环依赖。</p>
+
+<p>解决这个问题仍然可以用将每个主件及其附件集合转化为物品组的方式。唯一不同的是，由于附件可能还有附件，就不能将每个附件都看作一个一般的01 背包中的物品了。若这个附件也有附件集合，则它必定要被先转化为物品组，然后用分组的背包问题解出主件及其附件集合所对应的附件组中各个费用的附件所对应的价值。</p>
+
+<p>事实上，这是一种树形DP，其特点是每个父节点都需要对它的各个儿子的属性进行一次DP以求得自己的相关属性。这已经触及到了“泛化物品”的思想。看完P08后，你会发现这个“依赖关系树”每一个子树都等价于一件泛化物品，求某节点为根的子树对应的泛化物品相当于求其所有儿子的对应的泛化物品之和。</p>
+
+<p>小结
+NOIP2006的那道背包问题我做得很失败，写了上百行的代码，却一分未得。后来我通过思考发现通过引入“物品组”和“依赖”的概念可以加深对这题的理解，还可以解决它的推广问题。用物品组的思想考虑那题中极其特殊的依赖关系：物品不能既作主件又作附件，每个主件最多有两个附件，可以发现一个主件和它的两个附件等价于一个由四个物品组成的物品组，这便揭示了问题的某种本质。</p>
+
+<p>我想说：失败不是什么丢人的事情，从失败中全无收获才是。</p>
+
+<h3 id="真题-6">真题</h3>
+
+<p>有 N个物品和一个容量是 M 的背包。</p>
+
+<p>物品之间具有依赖关系，且依赖关系组成一棵树的形状。如果选择一个物品，则必须选择它的父节点。</p>
+
+<p>如下图所示：
+<img src="https://www.acwing.com/media/article/image/2018/10/18/1_bb51ecbcd2-QQ%E5%9B%BE%E7%89%8720181018170337.png" alt="QQ图片20181018170337.png" /></p>
+
+<p>如果选择物品5，则必须选择物品1和2。这是因为2是5的父节点，1是2的父节点。</p>
+
+<p>每件物品的编号是 i，体积是 vi，价值是 wi，依赖的父节点编号是 pi。物品的下标范围是 1…N1…N。</p>
+
+<p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
+
+<p>输出最大价值。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行有两个整数 N,M，用空格隔开，分别表示物品个数和背包容量。</p>
+
+<p>接下来有 NN 行数据，每行数据表示一个物品。
+第 ii 行有三个整数 vi,wi,pi，用空格隔开，分别表示物品的体积、价值和依赖的物品编号。
+如果 pi=−1，表示根节点。 <strong>数据保证所有物品构成一棵树。</strong></p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示最大价值。</p>
+
+<h3 id="题解-6">题解</h3>
+
+<p>背包问题 和 树形dp</p>
+
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=110;
+int n,m;
+int h[N],e[N],ne[N],idx;
+int v[N],w[N],f[N][N];
+void add(int a,int b){
+    e[idx]=b,ne[idx]=h[a],h[a]=idx++;
+}
+/**背包问题都是
+1. 循环物品
+2. 循环体积
+3. 循环决策
+*/
+void dfs(int u){
+    for(int i=h[u];i!=-1;i=ne[i]){//循环物品组
+        int son = e[i];
+        dfs(son);//先去遍历子节点
+        for(int j=m-v[u];j&gt;=0;j--){//循环体积  从大到小进行遍历  01 背包问题
+            for(int k=0;k&lt;=j;k++){//循环物品组种选择哪一件物品
+                f[u][j]=max(f[u][j],f[u][j-k]+f[son][k]);
+            }
+        }
+    }
+    for(int i=m;i&gt;=v[u];i--)f[u][i]=f[u][i-v[u]]+w[u];
+    for(int i=0;i&lt;v[u];i++)f[u][i]=0;
+}
+int main(){
+    memset(h,-1,sizeof h);
+    cin&gt;&gt;n&gt;&gt;m;
+    int root;
+    for(int i=1;i&lt;=n;i++){
+        int p;
+        cin&gt;&gt;v[i]&gt;&gt;w[i]&gt;&gt;p;
+        if(p==-1){
+            root=i;
+        }else{
+            add(p,i);
+        } 
+    }
+    dfs(root);
+    cout&lt;&lt;f[root][m]&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h2 id="p08-泛化物品">P08: 泛化物品</h2>
+
+<p>定义
+考虑这样一种物品，它并没有固定的费用和价值，而是它的价值随着你分配给它的费用而变化。这就是泛化物品的概念。</p>
+
+<p>更严格的定义之。在背包容量为V的背包问题中，泛化物品是一个定义域为0..V中的整数的函数h，当分配给它的费用为v时，能得到的价值就是h(v)。</p>
+
+<p>这个定义有一点点抽象，另一种理解是一个泛化物品就是一个数组h[0..V]，给它费用v，可得到价值h[V]。</p>
+
+<p>一个费用为c价值为w的物品，如果它是01背包中的物品，那么把它看成泛化物品，它就是除了h&copy;=w其它函数值都为0的一个函数。如果它是完全背包中的物品，那么它可以看成这样一个函数，仅当v被c整除时有<code>h(v)=v/c*w</code>，其它函数值均为0。如果它是多重背包中重复次数最多为n的物品，那么它对应的泛化物品的函数有<code>h(v)=v/c*w</code>仅当v被c整除且<code>v/c&lt;=n</code>，其它情况函数值均为0。</p>
+
+<p>一个物品组可以看作一个泛化物品h。对于一个0..V中的v，若物品组中不存在费用为v的的物品，则h(v)=0，否则h(v)为所有费用为v的物品的最大价值。P07中每个主件及其附件集合等价于一个物品组，自然也可看作一个泛化物品。</p>
+
+<p>泛化物品的和
+如果面对两个泛化物品h和l，要用给定的费用从这两个泛化物品中得到最大的价值，怎么求呢？事实上，对于一个给定的费用v，只需枚举将这个费用如何分配给两个泛化物品就可以了。同样的，对于0..V的每一个整数v，可以求得费用v分配到h和l中的最大价值f(v)。也即<code>f(v)=max{h(k) +l(v-k)|0&lt;=k&lt;=v}</code>。可以看到，f也是一个由泛化物品h和l决定的定义域为0..V的函数，也就是说，f是一个由泛化物品h和 l决定的泛化物品。</p>
+
+<p>由此可以定义泛化物品的和：h、l都是泛化物品，若泛化物品f满足<code>f(v)=max{h(k)+l(v-k)|0&lt;=k&lt;=v}</code>，则称f是h与l的和，即f=h+l。这个运算的时间复杂度是O(V^2)。</p>
+
+<p>泛化物品的定义表明：在一个背包问题中，若将两个泛化物品代以它们的和，不影响问题的答案。事实上，对于其中的物品都是泛化物品的背包问题，求它的答案的过程也就是求所有这些泛化物品之和的过程。设此和为s，则答案就是s[0..V]中的最大值。</p>
+
+<p>背包问题的泛化物品
+一个背包问题中，可能会给出很多条件，包括每种物品的费用、价值等属性，物品之间的分组、依赖等关系等。但肯定能将问题对应于某个泛化物品。也就是说，给定了所有条件以后，就可以对每个非负整数v求得：若背包容量为v，将物品装入背包可得到的最大价值是多少，这可以认为是定义在非负整数集上的一件泛化物品。这个泛化物品——或者说问题所对应的一个定义域为非负整数的函数——包含了关于问题本身的高度浓缩的信息。一般而言，求得这个泛化物品的一个子域（例如0..V）的值之后，就可以根据这个函数的取值得到背包问题的最终答案。</p>
+
+<p>综上所述，一般而言，求解背包问题，即求解这个问题所对应的一个函数，即该问题的泛化物品。而求解某个泛化物品的一种方法就是将它表示为若干泛化物品的和然后求之。</p>
+
+<p>小结
+本讲可以说都是我自己的原创思想。具体来说，是我在学习函数式编程的 Scheme 语言时，用函数编程的眼光审视各类背包问题得出的理论。这一讲真的很抽象，也许在“模型的抽象程度”这一方面已经超出了NOIP的要求，所以暂且看不懂也没关系。相信随着你的OI之路逐渐延伸，有一天你会理解的。</p>
+
+<p>我想说：“思考”是一个OIer最重要的品质。简单的问题，深入思考以后，也能发现更多。</p>
+
+<h2 id="p09-背包问题问法的变化">P09: 背包问题问法的变化</h2>
+
+<p>以上涉及的各种背包问题都是要求在背包容量（费用）的限制下求可以取到的最大价值，但背包问题还有很多种灵活的问法，在这里值得提一下。但是我认为，只要深入理解了求背包问题最大价值的方法，即使问法变化了，也是不难想出算法的。</p>
+
+<p>例如，求解最多可以放多少件物品或者最多可以装满多少背包的空间。这都可以根据具体问题利用前面的方程求出所有状态的值（f数组）之后得到。</p>
+
+<p>还有，如果要求的是“总价值最小”“总件数最小”，只需简单的将上面的状态转移方程中的max改成min即可。</p>
+
+<p>下面说一些变化更大的问法。</p>
+
+<p>输出方案
+一般而言，背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由状态转移方程的哪一项推出来的，换句话说，记录下它是由哪一个策略推出来的。便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。</p>
+
+<p>还是以01背包为例，方程为f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}。再用一个数组g[i] [v]，设g[i][v]=0表示推出f[i][v]的值时是采用了方程的前一项（也即f[i][v]=f[i-1][v]），g[i][v]表示采用了方程的后一项。注意这两项分别表示了两种策略：未选第i个物品及选了第i个物品。那么输出方案的伪代码可以这样写（设最终状态为f[N][V]）：</p>
+
+<pre><code>i=N
+v=V
+while(i&gt;0)
+    if(g[i][v]==0)
+    	print &quot;未选第i项物品&quot;
+    else if(g[i][v]==1)
+    	print &quot;选了第i项物品&quot;
+    	v=v-c[i]
+</code></pre>
+
+<p>另外，采用方程的前一项或后一项也可以在输出方案的过程中根据f[i][v]的值实时地求出来，也即不须纪录g数组，将上述代码中的<code>g[i] [v]==0</code>改成<code>f[i][v]==f[i-1][v]</code>，<code>g[i][v]==1</code>改成<code>f[i][v]==f[i-1][v-c[i]]+w[i]</code>也可。</p>
+
+<p>输出字典序最小的最优方案
+这里“字典序最小”的意思是1..N号物品的选择方案排列出来以后字典序最小。以输出01背包最小字典序的方案为例。</p>
+
+<p>一般而言，求一个字典序最小的最优方案，只需要在转移时注意策略。首先，子问题的定义要略改一些。我们注意到，如果存在一个选了物品1的最优方案，那么答案一定包含物品1，原问题转化为一个背包容量为v-c[1]，物品为2..N的子问题。反之，如果答案不包含物品1，则转化成背包容量仍为V，物品为2..N的子问题。不管答案怎样，子问题的物品都是以i..N而非前所述的1..i的形式来定义的，所以状态的定义和转移方程都需要改一下。但也许更简易的方法是先把物品逆序排列一下，以下按物品已被逆序排列来叙述。</p>
+
+<p>在这种情况下，可以按照前面经典的状态转移方程来求值，只是输出方案的时候要注意：从N到1输入时，如果<code>f[i][v]==f[i-v]及f[i][v]==f[i-1][f-c[i]]+w[i]</code>同时成立，应该按照后者（即选择了物品i）来输出方案。</p>
+
+<p>求方案总数
+对于一个给定了背包容量、物品费用、物品间相互关系（分组、依赖等）的背包问题，除了再给定每个物品的价值后求可得到的最大价值外，还可以得到装满背包或将背包装至某一指定容量的方案总数。</p>
+
+<p>对于这类改变问法的问题，一般只需将状态转移方程中的max改成sum即可。例如若每件物品均是01背包中的物品，转移方程即为<code>f[i][v]=sum{f[i-1][v],f[i-1][v-c[i]]+w[i]}</code>，初始条件<code>f[0][0]=1</code>。</p>
+
+<p>事实上，这样做可行的原因在于状态转移方程已经考察了所有可能的背包组成方案。</p>
+
+<p>最优方案的总数
+这里的最优方案是指物品总价值最大的方案。还是以01背包为例。</p>
+
+<p>结合求最大总价值和方案总数两个问题的思路，最优方案的总数可以这样求：f[i][v]意义同前述，g[i][v]表示这个子问题的最优方案的总数，则在求f[i][v]的同时求g[i][v]的伪代码如下：</p>
+
+<pre><code>for i=1..N
+	for v=0..V
+        f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
+        g[i][v]=0
+        if(f[i][v]==f[i-1][v])
+        	inc(g[i][v],g[i-1][v]
+        if(f[i][v]==f[i-1][v-c[i]]+w[i])
+        	inc(g[i][v],g[i-1][v-c[i]])
+</code></pre>
+
+<p>如果你是第一次看到这样的问题，请仔细体会上面的伪代码。</p>
+
+<p>小结
+显然，这里不可能穷尽背包类动态规划问题所有的问法。甚至还存在一类将背包类动态规划问题与其它领域（例如数论、图论）结合起来的问题，在这篇论背包问题的专文中也不会论及。但只要深刻领会前述所有类别的背包问题的思路和状态转移方程，遇到其它的变形问法，只要题目难度还属于NOIP，应该也不难想出算法。</p>
+
+<p>触类旁通、举一反三，应该也是一个OIer应有的品质吧。</p>
+
+<h2 id="p10背包问题求方案数">P10背包问题求方案数</h2>
+
+<h3 id="真题-7">真题</h3>
+
+<p>有 N 件物品和一个容量是 M 的背包。每件物品只能使用一次。</p>
+
+<p>第 i 件物品的体积是 vi，价值是 wi。</p>
+
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
+
+<p>输出 <strong>最优选法的方案数</strong>。注意答案可能很大，请输出答案模 10^9+7 的结果。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，M，用空格隔开，分别表示物品数量和背包容积。</p>
+
+<p>接下来有 N 行，每行两个整数 vi,wi用空格隔开，分别表示第 i 件物品的体积和价值。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一个整数，表示 <strong>方案数</strong> 模 10^9+7 的结果。</p>
+
+<h3 id="题解-7">题解</h3>
+
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N=1010,mod=1000000007,INF=1000000;
+int n,m;
+int f[N],g[N];//f[j]:体积恰好是j的情况下的最大价值是多少   g[j]:体积恰好是j的情况下，方案数是多少
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    g[0]=1;
+    for(int i=1;i&lt;=m;i++)f[i]=-INF;//数据初始化  保证：所有的数据都是从0开始计数
+    for(int i=0;i&lt;n;i++){//循环物品
+        int v,w;
+        cin&gt;&gt;v&gt;&gt;w;
+        for(int j=m;j&gt;=v;j--){//从大到小循环体积
+            int t=max(f[j],f[j-v]+w);//选或不选最大价值是多少
+            int s=0;
+            if(t==f[j])s+=g[j];
+            if(t==f[j-v]+w)s+=g[j-v];
+            if(s&gt;=mod)s-=mod;
+            f[j]=t;
+            g[j]=s;
+        }
+    }
+    int maxw =0;
+    for(int i=0;i&lt;=m;i++)maxw=max(maxw,f[i]);
+    int res =0;
+    for(int i=0;i&lt;=m;i++){
+        if(maxw==f[i]){
+            res+=g[i];
+            if(res&gt;=mod)res-=mod;
+        }
+    }
+    cout&lt;&lt;res&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<h2 id="p11背包问题求具体方案">P11背包问题求具体方案</h2>
+
+<h3 id="真题-8">真题</h3>
+
+<p>有 N 件物品和一个容量是 M的背包。每件物品只能使用一次。</p>
+
+<p>第 i件物品的体积是 vi，价值是 wi。</p>
+
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
+
+<p>输出 <strong>字典序最小的方案</strong>。这里的字典序是指：所选物品的编号所构成的序列。物品的编号范围是 1…N1…N。</p>
+
+<p><strong>输入格式</strong></p>
+
+<p>第一行两个整数，N，M，用空格隔开，分别表示物品数量和背包容积。</p>
+
+<p>接下来有 NN 行，每行两个整数 vi,wi，用空格隔开，分别表示第 i 件物品的体积和价值。</p>
+
+<p><strong>输出格式</strong></p>
+
+<p>输出一行，包含若干个用空格隔开的整数，表示最优解中所选物品的编号序列，且该编号序列的字典序最小。</p>
+
+<p>物品编号范围是 1…N1…N。</p>
+
+<h3 id="题解-8">题解</h3>
+
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+const int N=1010;
+int n,m;
+int v[N],w[N],f[N][N];
+
+int main(){
+    
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=n;i++)cin&gt;&gt;v[i]&gt;&gt;w[i];
+    for(int i=n;i&gt;=1;i--){
+        for(int j=0;j&lt;=m;j++){
+            f[i][j]=f[i+1][j];
+            if(j&gt;=v[i])f[i][j]=max(f[i][j],f[i+1][j-v[i]]+w[i]);
+        }
+    }
+    int vol = m;
+    for(int i=1;i&lt;=n;i++){
+        if(f[i][vol]==f[i+1][vol-v[i]]+w[i]){
+            cout&lt;&lt;i&lt;&lt;' ';
+            vol-=v[i];
+        }
+    }
+ return 0;
+}
+</code></pre>
+
+<p>&rdquo;==&ldquo;&rdquo;||&rdquo;</p>
+
+<h1 id="其他算法">其他算法</h1>
+
+<h2 id="位运算">位运算</h2>
+
+<table>
+<thead>
+<tr>
+<th>不用加号的加法</th>
+<th>不用乘号的乘法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>对于Java来说，还有原子类这种包装类型的数据，也不失为一种好的办法<br />对于其他的语言来说，就只能借助位运算来进行加法的操作，对于加法来说不进位的加法是一种很特殊的加法，与亦或操作是一样的，</td>
+<td>乘法的底层使用的就是加法，a*b  可以看作b个a相加   <br/>使用递归的思想：每次返回的结果都是一个常量即  f(a,b)==a+f(a,b-1)<br /></td>
+</tr>
+</tbody>
+</table>
+
+<p>首先看十进制是如何做的： 5+7=12，三步走</p>
+
+<p>第一步：相加各位的值，不算进位，得到2。
+第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。
+第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。
+同样我们可以用三步走的方式计算二进制值相加： 5&mdash;101，7&mdash;111</p>
+
+<p>第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。
+第二步：计算进位值，得到1010，相当于各位进行与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。
+第三步重复上述两步，各位相加 010^1010=1000，进位值为100=(010 &amp; 1010)&lt;&lt;1。
+继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。
+结束条件：进位为0，即a为最终的求和结果。</p>
+
+<h1 id="全排列问题">全排列问题</h1>
+
+<h2 id="p01-不含重复元素">P01 不含重复元素</h2>
+
+<p>给定一个 <strong>没有重复</strong> 数字的序列，返回其所有可能的全排列。</p>
+
+<pre><code class="language-c#">public IList&lt;IList&lt;int&gt;&gt; Permute(int[] nums)
+{
+    IList&lt;IList&lt;int&gt;&gt; ans = new List&lt;IList&lt;int&gt;&gt;(); //存放所有解
+    if (nums == null || nums.Length &lt;= 0)return ans;
+    /*   方式一 采用空间换时间的方法进行  标记
+                bool[] marked = new bool[nums.Length];//进行状态标记
+                backtrack_state(nums, marked, new List&lt;int&gt;(), ans);
+                */
+
+
+    /*
+                 2. 采用交换的方式进行全排列    要使用回溯的思想
+                 */
+    DFS(nums, 0, ans);
+    return ans;
+
+
+}
+static public void backtrack_state(int[] nums, bool[] marked, List&lt;int&gt; path, IList&lt;IList&lt;int&gt;&gt; ans)
+{
+    // 有效路径
+    if (path.Count == nums.Length)
+    {
+        ans.Add(new List&lt;int&gt;(path)); // 拷贝操作，因为path再回溯上层会做修改
+        return;
+    }
+
+    for (int i = 0; i &lt; nums.Length; i++)
+    {
+        // 其实可以用状态来标记的，但是会占用空间复杂度
+        if (marked[i]) continue;
+
+        marked[i] = true;
+        // 做选择
+        path.Add(nums[i]);
+
+        // 进入下一层决策树
+        backtrack_state(nums, marked, path, ans);
+
+        // 取消选择,
+        marked[i] = false; // 状态重置
+        path.RemoveAt(path.Count - 1);
+    }
+}
+private void DFS(int[] nums, int pos, IList&lt;IList&lt;int&gt;&gt; result)
+{
+    if (pos &gt;= nums.Length)
+    {
+        result.Add(new List&lt;int&gt;(nums));
+    }
+
+    for (int i = pos; i &lt; nums.Length; ++i)
+    {
+        Swap(nums, i, pos);//交换
+        DFS(nums, pos + 1, result);//下一层
+        Swap(nums, i, pos);//回溯
+    }
+}
+
+private void Swap(int[] nums, int i, int j)
+{
+    if (i != j)
+    {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+</code></pre>
+
+<h2 id="p02-含重复元素">P02 含重复元素</h2>
+
+<pre><code class="language-c#">public IList&lt;IList&lt;int&gt;&gt; PermuteUnique(int[] nums)
+{
+    IList&lt;IList&lt;int&gt;&gt; res = new List&lt;IList&lt;int&gt;&gt;();
+    int len = nums.Length;
+    if (nums == null || len &lt;= 0) return res;
+    /*方法一
+    * List&lt;int&gt; item = new List&lt;int&gt;();
+    bool[] used = new bool[len];
+    Array.Sort(nums);// 排序（升序或者降序都可以），排序是剪枝的前提
+    Dfs(nums, len, 0, used, item, res);
+    */
+    /**方式二*/
+    bool flag = false;
+    Perm(nums, 0, res,flag);
+    return res;
+}
+private void Perm(int[] nums, int pos, IList&lt;IList&lt;int&gt;&gt; result,bool flag)
+{
+    if (pos == nums.Length)
+    {
+        result.Add(new List&lt;int&gt;(nums));
+    }
+    for (int i = pos; i &lt; nums.Length; ++i)
+    {
+        for(int k = pos; k &lt; i; k++)//通过判断之前的元素是否包含当前元素，包含则不交换
+        {
+            if (nums[k] == nums[i])
+            {
+                flag = true;
+                break;
+            }
+        }
+        if (flag)
+        {
+            flag = false;
+            continue;
+        }
+        Swap(nums, i, pos);//交换
+        Perm(nums, pos + 1, result,flag);//下一层
+        Swap(nums, i, pos);//回溯
+    }
+}
+
+private void Swap(int[] nums, int i, int j)
+{
+    if (i != j)
+    {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+
+public void Dfs(int[] nums, int len, int depth, bool[] used, List&lt;int&gt; item, List&lt;IList&lt;int&gt;&gt; res)
+{
+    if (depth == len)
+    {
+        res.Add(new List&lt;int&gt;(item));
+        return;
+    }
+    for (int i = 0; i &lt; len; i++)
+    {
+        if (used[i])
+            continue;
+        // 剪枝条件：i &gt; 0 是为了保证 nums[i - 1] 有意义
+        // 写 !used[i - 1] 是因为 nums[i - 1] 在深度优先遍历的过程中刚刚被撤销选择
+        if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1] &amp;&amp; used[i - 1] == false)
+        {
+            continue;
+        }
+        item.Add(nums[i]);
+        depth++;
+        used[i] = true;
+        Dfs(nums, len, depth, used, item, res);
+        // 回溯部分的代码，和 dfs 之前的代码是对称的
+        item.RemoveAt(item.Count - 1);
+        depth--;
+        used[i] = false;
+    }
+}
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" title="背包九讲问题汇总" target="_blank" rel="external">https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="Java算法笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"
+                    title="Java底层知识汇总"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

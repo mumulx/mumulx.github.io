@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Maven学习笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Maven学习笔记" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Maven学习笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Maven学习笔记" />
+<meta property="og:description" content="Maven学习笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="Maven学习笔记">
+<meta itemprop="description" content="Maven学习笔记">
+
+
+<meta itemprop="datePublished" content="2020-11-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-11-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3279">
+
+
+
+<meta itemprop="keywords" content="杂七杂八," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Maven学习笔记"/>
+<meta name="twitter:description" content="Maven学习笔记"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">29</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">Maven学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-11</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDfs学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" class="title">背包九讲问题汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#maven的作用">maven的作用</a></li>
+<li><a href="#maven概念">Maven概念:</a></li>
+<li><a href="#部署maven">部署maven</a></li>
+<li><a href="#maven常见命令">maven常见命令：</a>
+<ul>
+<li><a href="#依赖的传递性">依赖的传递性</a></li>
+<li><a href="#依赖原则">依赖原则</a></li>
+</ul></li>
+<li><a href="#在eclipse创建maven项目">在eclipse创建maven项目</a>
+<ul>
+<li><a href="#配置本地仓库">配置本地仓库</a></li>
+</ul></li>
+<li><a href="#maven生命周期">maven生命周期</a>
+<ul>
+<li><a href="#统一项目的jdk">统一项目的jdk:</a></li>
+</ul></li>
+<li><a href="#继承">继承：</a>
+<ul>
+<li><a href="#子类">子类</a></li>
+<li><a href="#在子类中需要声明-使用哪些父类的依赖">在子类中需要声明：使用哪些父类的依赖</a></li>
+<li><a href="#聚合">聚合</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Maven学习笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3279字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:7分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p><a href="https://mvnrepository.com/">maven官网</a></p>
+
+<h3 id="maven的作用">maven的作用</h3>
+
+<ol>
+<li><p>管理Jar</p>
+
+<ul>
+<li>增加第三方Jar (commons-fileupload. jarcommons- io. jar)</li>
+<li>jar包之间的依赖关系(commons-fileupload. jar自动关联下载所有依赖的Jar,并且不会冲突)</li>
+</ul></li>
+
+<li><p>将项目拆分成若干个模块</p>
+
+<h3 id="maven概念">Maven概念:</h3></li>
+</ol>
+
+<p>是一个基于Java平台的自动化构建工具
+    make- ant- -maven- gradle</p>
+
+<p>清理:删除编译的结果，为重新编译做准备。</p>
+
+<p>编译: java-&gt;class</p>
+
+<p>测试: 针对于项目中的关键点进行测试，亦可用项目中的测试代码去测试开发代码;</p>
+
+<p>报告:将测试的结果进行显示</p>
+
+<p>打包: 将项目中包含的多个文件压缩成一个文件， 用于安装或部署。（Java项目&ndash;jar  web项目&ndash;war）</p>
+
+<p>安装:将打成的包放到本地仓库。</p>
+
+<p>部署:将打成的包放到服务器上准备运行。  将java js  jsp等文件进行筛选，变成直接进行的项目</p>
+
+<p>-Eclipse中部署的web项目可以运行</p>
+
+<p>-将Eclipse中的项目，复制到tomcat/webapps中则不能运行</p>
+
+<p>-项目可以在webappas中直接运行</p>
+
+<p>Eclipse中的项目，在部署时会生成一个对应的部署项目(在wtpwebapps中)，</p>
+
+<p>区别在于:部署项目没有源码文件src（java文件），只有编译后的class文件和jsp文件</p>
+
+<p>因为二者目录结构不一致因此tomcat无法直接运行eclipse中赋值过来的项目（因为要在tomcat中运行一个项目必须严格遵循tomcat的目录）</p>
+
+<p>要将eclipse项目部署到tomcat中只需要右键项目导出war包放到webapps中   tomcat会直接进行解压不需要自己解压</p>
+
+<p><code>startup.bat</code>   和<code>shutdown.bat</code>是运行tomca和结束tomcat的快捷键</p>
+
+<p>自动化构建工具maven:将原材料(java、 js、css、html、图片) -&gt;产品(可发布项目)</p>
+
+<pre><code>编译-打包-部署-测试--&gt;自动构建
+</code></pre>
+
+<h3 id="部署maven">部署maven</h3>
+
+<ol>
+<li><p>检查配置JAVA-HOME</p></li>
+
+<li><p>配置</p>
+
+<pre><code>MAVEN_HOME:D:\RJ\tomcat\jar\apache-maven-3.6.2-bin\apache-maven-3.6.2
+</code></pre></li>
+
+<li><p>配置path</p>
+
+<pre><code>%MAVEN_HOME%\bin
+</code></pre></li>
+
+<li><p>验证</p>
+
+<pre><code>cmd mvn -v
+</code></pre></li>
+
+<li><p>本地仓库</p>
+
+<p>maven目录/conf/settings.xml</p>
+
+<p>默认本地仓库：</p>
+
+<pre><code>    &lt;!-- localRepository
+| The path to the local repository maven will use to store artifacts.
+|
+| Default: ${user.home}/.m2/repository
+&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
+--&gt;
+
+user.home：C:\Users  
+</code></pre>
+
+<p>修改本地仓库</p>
+
+<pre><code>&lt;localRepository&gt;D:/RJ/tomcat/mvnrep&lt;/localRepository&gt;        
+</code></pre></li>
+
+<li><p>使用maven</p>
+
+<p>约定  优于配置</p>
+
+<p>硬编码方式: <code>job. setPath(&quot; d: \\abc&quot;) ;</code></p>
+
+<p>配置方式:</p>
+
+<pre><code>    job
+    conf. xml
+    &lt;path&gt;d:\\abc&lt;/path&gt;
+
+约定:使用默认值d:\\abc
+    job
+</code></pre>
+
+<p>maven约定的目录结构</p>
+
+<p>main主函数执行项目</p>
+
+<p>test测试项目</p>
+
+<pre><code>项目
+    -src
+        -main       :程序代码
+            -java   ：java代码
+            -resource   ：资源代码、配置代码
+        -test           ：测试代码
+            --java
+            -resource
+        target:
+    pom.xml             :项目对象模型  与src同级
+
+&lt;groupId&gt;域名翻转.大项目名&lt;/ groupId&gt;
+&lt;groupId&gt;org.lanqiao.maven&lt;/ groupId&gt;
+
+&lt;artifactId&gt;子模块名&lt;/artifactId&gt;
+&lt;artifactId&gt;HelloWorld&lt;/artifactId&gt;
+
+&lt;version&gt;版本号&lt;/version&gt;
+&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+</code></pre>
+
+<p>依赖:</p>
+
+<pre><code>commons- fileupload. jar --&gt; commons-io. jar
+</code></pre>
+
+<p>A中的某些类需要使用B中的某些类，则称为A依赖于B</p>
+
+<p>在maven项目中，如果要使用一个当时存在的Jar或模块，则可以通过依赖实现(去本地仓库、中央仓库去寻找)</p>
+
+<p>执行mvn: 必须在pom. xml所在目录中执行</p>
+
+<p>利用cmd进入目录或者直接在地址框打cmd</p></li>
+</ol>
+
+<h3 id="maven常见命令">maven常见命令：</h3>
+
+<p>第一次时因为需要下载执行该命令的基础环境，因此会从中央仓库中下载该环境到本地仓库   所以会比较慢</p>
+
+<pre><code>mvn compile:只编译main目录下的文件
+
+mvn test：执行test目录下的文件
+
+mvn package    打包命令 jar/war
+
+mvn install  将开发的模块放入本地仓库供其他项目使用（放入的位置通过gav决定）
+
+mvn clean       删除target目录（删除编译后的文件目录）
+
+运行mvn命令必须在pom.xml目录下
+</code></pre>
+
+<p>仓库：    依次向下寻找资源</p>
+
+<pre><code>本地仓库
+私服nexus
+中央仓库
+中央仓库镜像
+远程仓库
+</code></pre>
+
+<p>依赖:</p>
+
+<p>A jar-&gt;Bjar</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt; groupId&gt; junit&lt;/ groupId&gt;
+    &lt;artifactId&gt; junit&lt;/artifactId&gt;
+    &lt;version&gt;4.0&lt;/version&gt;
+    &lt; scope&gt; test&lt;/ scope&gt;  依赖的范围
+&lt;/dependency&gt;
+</code></pre>
+
+<p>依赖的范围、依赖的有效性：</p>
+
+<pre><code>compile(默认)   test  provided
+</code></pre>
+
+<p>依赖排除
+在依赖里面添加</p>
+
+<pre><code>&lt;exclusions&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+&lt;/exclusions&gt;
+</code></pre>
+
+<h4 id="依赖的传递性">依赖的传递性</h4>
+
+<p>A. jar-B. jar-&gt;C. jar</p>
+
+<p>要使A. jar -&gt;C. jar:当且仅当B. jar依赖于C. jar的范围是compile</p>
+
+<h4 id="依赖原则">依赖原则</h4>
+
+<ol>
+<li><p>最短路径优先</p>
+
+<pre><code>a-&gt;b-&gt;c.2
+
+a-&gt;c.1
+</code></pre>
+
+<p>那么a会引入c.1</p></li>
+
+<li><p>路径长度相同</p>
+
+<ul>
+<li><p>在同一个pom.xml文件中有2个相同的依赖:后面声明的依赖会覆盖前面声明的依赖（严禁在同一个pom声明两个版本不同的依赖）</p></li>
+
+<li><p>如果是不同的pom. xml中有2个相同的依赖:则先声明的依赖，会覆盖后声明的依赖（引入的依赖的顺序决定）</p></li>
+</ul>
+
+<p>( JDK只能够识别source folder中的源码)  普通的folder需要右键bilid path</p>
+
+<pre><code>			compile			  test			     provided
+编译			V				x					V
+测试			V				v					v
+部署(运行)	    V				x					x
+</code></pre></li>
+</ol>
+
+<p>Maven在编译、测试、运行项目时，各自使用-套 classpath</p>
+
+<h3 id="在eclipse创建maven项目">在eclipse创建maven项目</h3>
+
+<h4 id="配置本地仓库">配置本地仓库</h4>
+
+<p>window    preferences   搜索maven</p>
+
+<pre><code>installation配置maven版本
+usersetting配置本地仓库  打开pom.xml文件
+</code></pre>
+
+<p>在eclipse中配置完pom.xml后需要</p>
+
+<p>右键maven项目   <code>maven   update project</code></p>
+
+<p>执行   右键pom.xml   <code>run as    maven build...</code></p>
+
+<p><code>maven build</code>执行上一次</p>
+
+<p>package:打包命令会执行以下</p>
+
+<pre><code>resources
+compile
+test
+package
+</code></pre>
+
+<h3 id="maven生命周期">maven生命周期</h3>
+
+<p>生命周期和构建的关系</p>
+
+<pre><code>a   b   c   d   e
+</code></pre>
+
+<p>执行c命令会将之前的命令全部执行一遍</p>
+
+<p>生命周期包含的三个阶段：</p>
+
+<pre><code>clean lifecycle :清理
+            pre-clean    clean      post-clearn
+
+default lifecycle :默认   最常用
+
+site lifecycle: 站点  
+            pre-site    site    post-site site-deploy
+</code></pre>
+
+<p>下载jar包直接  搜&hellip;mvn   复制下面的maven里面的dependency</p>
+
+<p>测试</p>
+
+<pre><code> package org.lanqiao . maven;
+ import org. junit. Test;
+ public class HelloWorldTest{
+	@Test//导包
+	public void testHello( ){
+		HelloWorld hello = new HelloWorld( );
+		String result = hello. sayHello(&quot;zs&quot;);
+		assertEquals(&quot;Hello zs&quot; ,result); //断言
+	}
+ }
+依赖
+&lt; dependency&gt;
+	&lt;groupId&gt;junit&lt;/ groupId&gt;
+	&lt;artifactId&gt; junit&lt;/ artifactId&gt;
+	&lt;version&gt;4.0&lt; /version&gt;
+	&lt;scope&gt;test&lt;/ scope&gt;
+&lt;/ dependency&gt;
+
+</code></pre>
+
+<h4 id="统一项目的jdk">统一项目的jdk:</h4>
+
+<p>build path:删除旧版本，增加新版本</p>
+
+<p>右键项目-属性-Project Factors -java version 改版本 (之前存在要改的版本)</p>
+
+<p>通过maven统一jdk版本:</p>
+
+<pre><code>&lt;profiles&gt;
+	&lt;profile&gt;
+		&lt;id&gt;jdk-18&lt;/id&gt;
+		&lt;activation&gt;
+			&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+			&lt;jdk&gt;1.8&lt;/jdk&gt;
+		&lt;/activation&gt;
+		&lt;properties&gt;
+			&lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+			&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+			&lt;maven.compiler. compilerVersion&gt;1.8&lt;/maven. compiler.compilerVersion&gt;
+		&lt;/ properties&gt;
+	&lt;/profile&gt;
+&lt;/profiles&gt;|
+
+</code></pre>
+
+<p>统一jar的版本</p>
+
+<pre><code>//统一jar的版本
+&lt;properties&gt;
+	&lt;project.build.sourceEncoding&gt;UTF-8&lt;/ project.build.sourceEncoding&gt;
+	&lt;!--统一版本--&gt;
+	&lt;lanqiao.World.Jjunit.version&gt;4.0k/lanqiao.World.junit.version&gt;变量值
+&lt;/ properties&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;junit&lt;/groupId&gt;
+	&lt;artifactId&gt;junit&lt;/artifactId&gt;
+	&lt;version&gt;$ {lanqiao.World.junit. version}&lt;/version&gt;    引用变量
+	&lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="继承">继承：</h3>
+
+<p>a继承b   则a继承b的所有依赖</p>
+
+<ol>
+<li>建立父工程：父工程用pom</li>
+
+<li><p>在父工程的pom.xml中编写依赖</p>
+
+<pre><code>&lt;!--父工程，父工程的依赖需要写在--&gt;
+&lt;dependencyManagement&gt; 
+
+	&lt;dependencies&gt;
+		&lt;dependency&gt;&lt;/ dependency&gt;
+	&lt;/ dependencies&gt;
+
+&lt;/dependencyManagement&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="子类">子类</h4>
+
+<pre><code>&lt;!-- 给当前工程继承一个父工程 
+
+1加入父工程坐标gav 
+
+2当前工程的Pom.xml到父工程的Pom.xml之间的相对路径--&gt;
+
+&lt;parent&gt;
+&lt;!-- 1加入父工程坐标gav --&gt;
+	&lt; groupId&gt;org.lanqiao . maven&lt;/ groupId&gt;
+	&lt;artifactId&gt;B&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1- SNAPSHOT&lt;/version&gt;
+&lt;!-- 2当前工程的Pom. xml到父工程的Pom. xml之间的相对路径--&gt;
+&lt;relativePath&gt;. . /B/ pom. xml&lt;/relativePath&gt;
+&lt;/parent&gt;
+		子类的g和v如果与父类的gv相同的话可以省略
+</code></pre>
+
+<h4 id="在子类中需要声明-使用哪些父类的依赖">在子类中需要声明：使用哪些父类的依赖</h4>
+
+<pre><code>&lt;dependency&gt;
+&lt;! --声明:需要使用到父类的junit (只需要ga)--&gt;
+	&lt;groupId&gt;junit&lt;/ groupId&gt;
+	&lt;artifactId&gt;junit&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+
+<h4 id="聚合">聚合</h4>
+
+<p>Maven项目能够识别的:</p>
+
+<p>自身包含、本地仓库中的</p>
+
+<p>Maven2依赖于Maven1, 则在执行时:必须先将Maven1加入到本地仓库(install), 之后才能执行Maven2
+以上前置工程的install操作，可以交由“聚合”一次性搞定。。。</p>
+
+<p>聚合的使用：</p>
+
+<p>在一个总工程中使用(聚合的配置只能配置在打包方式pom方式的Maven工程中)</p>
+
+<pre><code>&lt;!--配置聚合，避免前置工程的install操作--&gt;
+&lt;modules&gt;
+	&lt;!--项目的根路径   可以不用设置顺序--&gt;
+	&lt;module&gt;. . /Maven1&lt; /module&gt;
+	&lt;module&gt;. . /Maven2&lt; , module&gt;
+&lt;/ modules&gt;
+</code></pre>
+
+<p>注意: clean命令是删除target目录，并不是清理install存放入的本地仓库</p>
+
+<p>配置完聚合之后，以后只要操作总工程，则会自动操作改聚合中配置过的工程</p>
+
+<p>清理本地仓库需要手动进入仓库进行删除</p>
+
+<p>聚合:</p>
+
+<pre><code>Maven将一一个大 工程拆分成若干个子工程(子模块)
+
+聚合可以将拆分的多个子工程合起来
+</code></pre>
+
+<p>继承:</p>
+
+<pre><code>父-&gt;子工程，可以通过父工程
+
+统一管理依赖的版本
+</code></pre>
+
+<p>部署web工程</p>
+
+<pre><code>需要在webapp下建立META-INF文件夹和web.xml文件
+</code></pre>
+
+<pre><code>&lt;build&gt;
+	&lt;fina lName &gt;MavenWebProject&lt;/finalName&gt;
+	&lt;plugins&gt;
+		&lt;plugin&gt;
+			&lt;!--启动tomcat--&gt;
+			&lt;groupId&gt;org. codehaus .cargok/ groupId&gt;
+			&lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.4.9&lt;/version&gt;
+			
+			&lt;!--配置tomcat--&gt;
+			&lt;configuration&gt;
+				&lt; container&gt;
+				&lt; containerId&gt;tomcat8-5-30&lt;/ containerId&gt;
+				&lt;home&gt;D: \study\apache-tomcat-8.5.30&lt;/home&gt;
+				&lt;/container&gt;
+				&lt; configuration&gt;
+				&lt;type&gt;existing&lt;/type&gt;
+				&lt;home&gt;D: \study\apache-tomcat8x&lt; /home&gt;
+				&lt;!--默认值8080-- &gt;
+					&lt; properties&gt;
+						&lt;cargo.servlet .port&gt;8888&lt;/ cargo. servlet . port&gt;
+					&lt;/ properties&gt;
+				&lt;/ configuration&gt;
+			&lt;/ configuration&gt;
+			&lt;executions&gt;
+				&lt;execution&gt;
+				&lt;！--阶段--&gt;
+					&lt;id&gt;cargo-run&lt;/id&gt;
+					&lt;phase&gt;install&lt;/phase&gt;
+					&lt;goals&gt;
+					&lt;goal&gt;run&lt;/goal&gt;
+					&lt;/goals&gt;
+				&lt;/execution&gt;
+			&lt;/executions&gt;
+		&lt;/plugin&gt;
+	&lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<p>命令：<code>deploy</code></p>
+
+<p>实际开发中，开发人员将自己的项目开发完毕后打成war包 交给实施人员去部署;</p>
+
+<p>package</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Maven学习笔记" target="_blank" rel="external">https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="FastDfs学习笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

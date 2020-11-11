@@ -5,10 +5,28 @@
     <link>https://mumulx.github.io/categories/</link>
     <description>Recent content in Categories on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Maven学习笔记</title>
+      <link>https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>maven官网 maven的作用 管理Jar 增加第三方Jar (commons-fileupload. jarcommons- io. jar) jar包之间的依赖关系(commons-fileupload. jar自动关联</description>
+    </item>
+    
+    <item>
+      <title>FastDfs学习笔记</title>
+      <link>https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>说起分布式文件管理系统，大家可能很容易想到 HDFS、GFS 等系统，前者是 Hadoop 的一部分，后者则是 Google 提供的分布式文件管理系统。除了这些之外，国内淘</description>
+    </item>
     
     <item>
       <title>Java底层知识汇总</title>
@@ -17,6 +35,15 @@
       
       <guid>https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</guid>
       <description>Spring中的问题 Spring中的循环依赖 什么是循环依赖？ 很简单，就是A对象依赖了B对象，B对象依赖了A对象。 比如： // A依赖了B class A{ public B b;</description>
+    </item>
+    
+    <item>
+      <title>背包九讲问题汇总</title>
+      <link>https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
+      <description>背包九讲 P01: 01背包问题 题目 有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费</description>
     </item>
     
     <item>
@@ -35,15 +62,6 @@
       
       <guid>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
       <description>技术面试指导 本文从“必备项”和“加分项”两个角度分析。 一、必备项 0.自我介绍 表达流畅，不要太差即可 1.基础 坑：【答案很标准】面试时的回答，一</description>
-    </item>
-    
-    <item>
-      <title>背包九讲问题汇总</title>
-      <link>https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
-      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/08/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
-      <description>背包九讲 P01: 01背包问题 题目 有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费</description>
     </item>
     
     <item>
