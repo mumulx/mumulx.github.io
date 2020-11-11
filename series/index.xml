@@ -5,19 +5,10 @@
     <link>https://mumulx.github.io/series/</link>
     <description>Recent content in Series on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Maven学习笔记</title>
-      <link>https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/11/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>maven官网 maven的作用 管理Jar 增加第三方Jar (commons-fileupload. jarcommons- io. jar) jar包之间的依赖关系(commons-fileupload. jar自动关联</description>
-    </item>
     
     <item>
       <title>FastDfs学习笔记</title>
@@ -494,6 +485,15 @@
       
       <guid>https://mumulx.github.io/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description>记录自己的第一篇博客 &amp;emsp;2019-10-31，抓住10月的小尾巴，创建了人生的第一个博客。经过一天的努力，终于是在22：13的时候创</description>
+    </item>
+    
+    <item>
+      <title>Maven学习笔记</title>
+      <link>https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>maven官网 maven的作用 管理Jar 增加第三方Jar (commons-fileupload. jarcommons- io. jar) jar包之间的依赖关系(commons-fileupload. jar自动关联</description>
     </item>
     
     <item>

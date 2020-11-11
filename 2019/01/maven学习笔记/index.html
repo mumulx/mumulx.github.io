@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        FastDfs学习笔记 - 木木的个人博客
+        Maven学习笔记 - 木木的个人博客
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,35 +23,35 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="FastDfs学习笔记" />
+  <meta name="description" content="Maven学习笔记" />
   <meta name="generator" content="Hugo 0.59.1 with theme pure" />
-  <title>FastDfs学习笔记 - 木木的个人博客</title>
+  <title>Maven学习笔记 - 木木的个人博客</title>
   
 
   <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <meta property="og:title" content="FastDfs学习笔记" />
-<meta property="og:description" content="FastDfs学习笔记" />
+  <meta property="og:title" content="Maven学习笔记" />
+<meta property="og:description" content="Maven学习笔记" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2020-11-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-03T00:00:00+00:00" />
+<meta property="og:url" content="https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2019-01-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-11T00:00:00+00:00" />
 
-<meta itemprop="name" content="FastDfs学习笔记">
-<meta itemprop="description" content="FastDfs学习笔记">
-
-
-<meta itemprop="datePublished" content="2020-11-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-11-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3925">
+<meta itemprop="name" content="Maven学习笔记">
+<meta itemprop="description" content="Maven学习笔记">
 
 
+<meta itemprop="datePublished" content="2019-01-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-01-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3279">
 
-<meta itemprop="keywords" content="分布式," />
+
+
+<meta itemprop="keywords" content="杂七杂八," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="FastDfs学习笔记"/>
-<meta name="twitter:description" content="FastDfs学习笔记"/>
+<meta name="twitter:title" content="Maven学习笔记"/>
+<meta name="twitter:description" content="Maven学习笔记"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -314,24 +314,31 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-什么是-fastdfs">1.什么是 FastDFS</a>
+<li>
 <ul>
-<li><a href="#1-1-fastdfs-简介">1.1 FastDFS 简介</a></li>
-<li><a href="#1-2-为什么需要-fastdfs">1.2 为什么需要 FastDFS</a></li>
-<li><a href="#1-3-fastdfs-架构">1.3 FastDFS 架构</a></li>
-</ul></li>
-<li><a href="#2-fastdfs-安装">2.FastDFS 安装</a>
+<li><a href="#maven的作用">maven的作用</a></li>
+<li><a href="#maven概念">Maven概念:</a></li>
+<li><a href="#部署maven">部署maven</a></li>
+<li><a href="#maven常见命令">maven常见命令：</a>
 <ul>
-<li><a href="#2-1-tracker-安装">2.1 Tracker 安装</a></li>
-<li><a href="#2-2-storage-安装">2.2 Storage 安装</a></li>
-<li><a href="#2-3-nginx-安装">2.3 Nginx 安装</a></li>
+<li><a href="#依赖的传递性">依赖的传递性</a></li>
+<li><a href="#依赖原则">依赖原则</a></li>
 </ul></li>
-<li><a href="#3-java-客户端调用">3.Java 客户端调用</a>
+<li><a href="#在eclipse创建maven项目">在eclipse创建maven项目</a>
 <ul>
-<li><a href="#3-1-文件上传">3.1 文件上传</a></li>
-<li><a href="#3-2-文件下载">3.2 文件下载</a></li>
+<li><a href="#配置本地仓库">配置本地仓库</a></li>
 </ul></li>
-<li><a href="#4-安全问题">4.安全问题</a></li>
+<li><a href="#maven生命周期">maven生命周期</a>
+<ul>
+<li><a href="#统一项目的jdk">统一项目的jdk:</a></li>
+</ul></li>
+<li><a href="#继承">继承：</a>
+<ul>
+<li><a href="#子类">子类</a></li>
+<li><a href="#在子类中需要声明-使用哪些父类的依赖">在子类中需要声明：使用哪些父类的依赖</a></li>
+<li><a href="#聚合">聚合</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -347,395 +354,538 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >FastDfs学习笔记</a
+    href="/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Maven学习笔记</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+<a href="https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-01-11</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
-  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-    <a class="article-tag-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"> 分布式 </a>
+    <a class="article-tag-link" href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3925字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:8分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3279字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:7分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
 
-<p>说起分布式文件管理系统，大家可能很容易想到 HDFS、GFS 等系统，前者是 Hadoop 的一部分，后者则是 Google 提供的分布式文件管理系统。除了这些之外，国内淘宝和腾讯也有自己的分布式文件管理系统，都叫 TFS（<code>Taobao File System</code> 和 <code>Tencent File System</code>）。</p>
+<p><a href="https://mvnrepository.com/">maven官网</a></p>
 
-<p>相对于上面提到的这些分布式文件管理系统而言，FastDFS 可能离我们 Java 工程师更近一些，因为文件上传这个功能太常见了，而想要搭建独立的分布式文件管理系统，FastDFS+Nginx 组合无疑是最佳方案。</p>
+<h3 id="maven的作用">maven的作用</h3>
 
-<h2 id="1-什么是-fastdfs">1.什么是 FastDFS</h2>
-
-<h3 id="1-1-fastdfs-简介">1.1 FastDFS 简介</h3>
-
-<p>FastDFS 由淘宝的余庆大佬在 2008 年开源的一款轻量级分布式文件管理系统，FastDFS 用 C 语言实现，支持 Linux、FreeBSD、MacOS 等类 UNIX 系统。FastDFS 类似 google FS，属于应用级文件系统，不是通用的文件系统，只能通过专有 API 访问，目前提供了 C 和 Java SDK ，以及 PHP 扩展 SDK。</p>
-
-<p>这款开源软件从发布至今，历经数十年，这款开源软件的生命力依然旺盛，在业界依然备受推崇，当然这也得益于作者一直在不断完善该软件。</p>
-
-<p>FastDFS 专为互联网应用量身定做，解决大容量文件存储问题，追求高性能和高扩展性，它可以看做是基于文件的 key/value 存储系统，key 为文件 ID，value 为文件内容，因此称作分布式文件存储服务更为合适。</p>
-
-<h3 id="1-2-为什么需要-fastdfs">1.2 为什么需要 FastDFS</h3>
-
-<p>传统的企业级开发对于高并发要求不是很高，而且数据量可能也不大，在这样的环境下文件管理可能非常 Easy。</p>
-
-<p>但是互联网应用访问量大、数据量大，在互联网应用中，我们必须考虑解决文件大容量存储和高性能访问的问题，而 FastDFS 就特别适合干这件事情，常见的图片存储、视频存储、文档存储等等我们都可以采用 FastDFS 来做。</p>
-
-<h3 id="1-3-fastdfs-架构">1.3 FastDFS 架构</h3>
-
-<p>作为一款分布式文件管理系统，FastDFS 主要包括四个方面的功能：</p>
+<ol>
+<li><p>管理Jar</p>
 
 <ul>
-<li>文件存储</li>
-<li>文件同步</li>
-<li>文件上传</li>
-<li>文件下载</li>
-</ul>
+<li>增加第三方Jar (commons-fileupload. jarcommons- io. jar)</li>
+<li>jar包之间的依赖关系(commons-fileupload. jar自动关联下载所有依赖的Jar,并且不会冲突)</li>
+</ul></li>
 
-<p>这个方面的功能，基本上就能搞定我们常见的文件管理需求了。</p>
+<li><p>将项目拆分成若干个模块</p>
 
-<p>下面这是一张来自 FastDFS 官网的系统架构图：</p>
+<h3 id="maven概念">Maven概念:</h3></li>
+</ol>
 
-<p>从上面这张图中我们可以看到，FastDFS 架构包括 Tracker 和 Storage 两部分，看名字大概就能知道，Tracker 用来追踪文件，相当于是文件的一个索引，而 Storage 则用来保存文件。</p>
+<p>是一个基于Java平台的自动化构建工具
+    make- ant- -maven- gradle</p>
 
-<p>我们上传文件的文件最终保存在 Storage 上，文件的元数据信息保存在 Tracker 上，通过 Tracker 可以实现对 Storage 的负载均衡。</p>
+<p>清理:删除编译的结果，为重新编译做准备。</p>
 
-<p>Storage 一般会搭建成集群，一个 Storage Cluster 可以由多个组构成，不同的组之间不进行通信，一个组又相当于一个小的集群，组由多个 Storage Server 组成，组内的 Storage Server 会通过连接进行文件同步来保证高可用。</p>
+<p>编译: java-&gt;class</p>
 
-<h2 id="2-fastdfs-安装">2.FastDFS 安装</h2>
+<p>测试: 针对于项目中的关键点进行测试，亦可用项目中的测试代码去测试开发代码;</p>
 
-<p>介绍完 FastDFS 之后，相信小伙伴已经摩拳擦掌跃跃欲试了，接下来我们就来看下 FastDFS 的安装。</p>
+<p>报告:将测试的结果进行显示</p>
 
-<p>我这里为了测试方便，就不开启多台虚拟机了，Tracker 和 Storage 我将安装在同一台服务器上。</p>
+<p>打包: 将项目中包含的多个文件压缩成一个文件， 用于安装或部署。（Java项目&ndash;jar  web项目&ndash;war）</p>
 
-<p>图片上传我们一般使用 FastDFS，图片上传成功之后，接下来的图片访问我们一般采用 Nginx，所以这里的安装我将从三个方面来介绍：</p>
+<p>安装:将打成的包放到本地仓库。</p>
 
-<ul>
-<li>Tracker 安装</li>
-<li>Storage 安装</li>
-<li>Nginx 安装</li>
-</ul>
+<p>部署:将打成的包放到服务器上准备运行。  将java js  jsp等文件进行筛选，变成直接进行的项目</p>
 
-<h3 id="2-1-tracker-安装">2.1 Tracker 安装</h3>
+<p>-Eclipse中部署的web项目可以运行</p>
 
-<p>安装，我们首先需要准备一个环境两个库以及一个安装包。</p>
+<p>-将Eclipse中的项目，复制到tomcat/webapps中则不能运行</p>
 
-<p><strong>「1.一个环境」</strong></p>
+<p>-项目可以在webappas中直接运行</p>
 
-<p>先来看一个环境，由于 FastDFS 采用 C 语言开发，所以在安装之前，如果没有 gcc 环境，需要先安装，安装命令如下：</p>
+<p>Eclipse中的项目，在部署时会生成一个对应的部署项目(在wtpwebapps中)，</p>
 
-<pre><code>yum install gcc-c++
+<p>区别在于:部署项目没有源码文件src（java文件），只有编译后的class文件和jsp文件</p>
+
+<p>因为二者目录结构不一致因此tomcat无法直接运行eclipse中赋值过来的项目（因为要在tomcat中运行一个项目必须严格遵循tomcat的目录）</p>
+
+<p>要将eclipse项目部署到tomcat中只需要右键项目导出war包放到webapps中   tomcat会直接进行解压不需要自己解压</p>
+
+<p><code>startup.bat</code>   和<code>shutdown.bat</code>是运行tomca和结束tomcat的快捷键</p>
+
+<p>自动化构建工具maven:将原材料(java、 js、css、html、图片) -&gt;产品(可发布项目)</p>
+
+<pre><code>编译-打包-部署-测试--&gt;自动构建
 </code></pre>
 
-<p><strong>「2.两个库」</strong></p>
+<h3 id="部署maven">部署maven</h3>
 
-<p>再来看两个库，由于 FastDFS 依赖 libevent 库，安装命令如下：</p>
+<ol>
+<li><p>检查配置JAVA-HOME</p></li>
 
-<pre><code>yum -y install libevent
-</code></pre>
+<li><p>配置</p>
 
-<p>另一个库是 libfastcommon，这是 FastDFS 官方提供的，它包含了 FastDFS 运行所需要的一些基础库。</p>
-
-<p>libfastcommon 下载地址：<a href="https://github.com/happyfish100/libfastcommon/archive/V1.0.43.tar.gz">https://github.com/happyfish100/libfastcommon/archive/V1.0.43.tar.gz</a></p>
-
-<p>将下载好的 libfastcommon 拷贝至 /usr/local/ 目录下，然后依次执行如下命令：</p>
-
-<pre><code>cd /usr/local
-tar -zxvf V1.0.43.tar.gz
-cd libfastcommon-1.0.43/
-./make.sh
-./make.sh install
-</code></pre>
-
-<p><strong>「3.一个安装包」</strong></p>
-
-<p>接下来我们下载 Tracker，注意，由于 Tracker 和 Storage 是相同的安装包，所以下载一次即可（2.2 小节中不用再次下载）。</p>
-
-<p>安装文件可以从 FastDFS 的 GitHub 仓库上下载，下载地址：<a href="https://github.com/happyfish100/fastdfs/archive/V6.06.tar.gz">https://github.com/happyfish100/fastdfs/archive/V6.06.tar.gz</a></p>
-
-<blockquote>
-<p>❝</p>
-
-<p>考虑到 GitHub 访问较慢，松哥已经把安装文件下载好了，放在百度网盘上，小伙伴们可以在松哥公众号后台回复 fastdfs 获取下载链接。</p>
-
-<p>❞</p>
-</blockquote>
-
-<p>下载成功后，将下载文件拷贝到 /usr/local 目录下，然后依次执行如下命令安装：</p>
-
-<pre><code>cd /usr/local
-tar -zxvf V6.06.tar.gz
-cd fastdfs-6.06/
-./make.sh
-./make.sh install
-</code></pre>
-
-<p>安装成功后，执行如下命令，将安装目录内 conf 目录下的配置文件拷贝到 /etc/fdfs 目录下：</p>
-
-<pre><code>cd conf/
-cp ./* /etc/fdfs/
-</code></pre>
-
-<p><strong>「4.配置」</strong></p>
-
-<p>接下来进入 /etc/fdfs/ 目录下进行配置：</p>
-
-<p>打开 tracker.conf 文件：</p>
-
-<pre><code>vi tracker.conf
-</code></pre>
-
-<p>修改如下配置：</p>
-
-<p>默认端口是 22122，可以根据实际需求修改，我这里就不改了。然后下面配置一下元数据的保存目录（注意目录要存在）。</p>
-
-<p><strong>「5.启动」</strong></p>
-
-<p>接下来执行如下命令启动 Tracker：</p>
-
-<pre><code>/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
-</code></pre>
-
-<p>如此之后，我们的 Tracker 就算安装成功了。</p>
-
-<h3 id="2-2-storage-安装">2.2 Storage 安装</h3>
-
-<p>简单起见，这里我们搭建一个 Storage 实例即可。Storage 安装也需要 libevent 和 libfastcommon，这两个库的安装参考上文，这里我不在细说。</p>
-
-<p>Storage 本身的安装，也和 Tracker 一致，执行命令也都一样，因为我这里将 Tracker 和 Storage 安装在同一台服务器上，所以不用再执行安装命令了（相当于安装 Tracker 时已经安装了 Storage 了）。</p>
-
-<p>唯一要做的，就是进入到 /etc/fdfs 目录下，配置 Storage：</p>
-
-<pre><code>vi storage.conf
-</code></pre>
-
-<p>这里一共配置三个地方，分别是 base_path、store_path0 以及 tracker_server ，tracker_server 模板有两个地址，我们这里只有一个，配置完成后，记得注释掉另外一个不用的。</p>
-
-<pre><code>rerved_storage_space = 10%  --这个是至少留有20%的空间才可以存储---可以配置小点  看实际的情况
-</code></pre>
-
-<p>配置完成后，执行如下命令启动 Storage：</p>
-
-<pre><code>/usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
-</code></pre>
-
-<p>这两个启动完成后，现在就可以做文件的上传了，但是一般如果是图片文件，我们还需要提供一个图片的访问功能，目前来说最佳方案当然是 Nginx 了，所以我们这里连同 Nginx 一起配置好，再来做测试。</p>
-
-<ul>
-<li>tracker_server 不能使用localhost&ndash;127.0.0.1作为自己的ip地址斗则会在使用的时候报错</li>
-</ul>
-
-<h3 id="2-3-nginx-安装">2.3 Nginx 安装</h3>
-
-<p>Nginx 可以算是 FastDFS 的重要搭档。</p>
-
-<p>Nginx 的安装分为两个步骤：</p>
-
-<ul>
-<li>安装 Nginx</li>
-
-<li><p>首先在 Storage 下安装 fastdfs-nginx-module</p>
-
-<pre><code>wget http://nginx.org/download/nginx-1.19.4.tar.gz
-tar -zxvf nginx-1.19.4.tar.gz
-cd nginx-1.19.4
-./configure
-make
-make install
+<pre><code>MAVEN_HOME:D:\RJ\tomcat\jar\apache-maven-3.6.2-bin\apache-maven-3.6.2
 </code></pre></li>
-</ul>
 
-<p>接下来看第二步。</p>
+<li><p>配置path</p>
 
-<p>首先下载 fastdfs-nginx-module，下载地址：<a href="https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.22.tar.gz">https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.22.tar.gz</a></p>
+<pre><code>%MAVEN_HOME%\bin
+</code></pre></li>
 
-<p>下载完成后，将下载的文件拷贝到 /usr/local 目录下。然后进入 /usr/local 目录，分别执行如下命令：</p>
+<li><p>验证</p>
 
-<pre><code>cd /usr/local/fastdfs
-wget https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.22.tar.gz
-tar -zxvf fastdfs-nginx-module-1.22.tar.gz
-cd fastdfs-nginx-module-1.22
-cp src/mod_fastdfs.conf /etc/fdfs
+<pre><code>cmd mvn -v
+</code></pre></li>
+
+<li><p>本地仓库</p>
+
+<p>maven目录/conf/settings.xml</p>
+
+<p>默认本地仓库：</p>
+
+<pre><code>    &lt;!-- localRepository
+| The path to the local repository maven will use to store artifacts.
+|
+| Default: ${user.home}/.m2/repository
+&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
+--&gt;
+
+user.home：C:\Users  
 </code></pre>
 
-<p>然后将 <code>/usr/local/fastdfs-nginx-module-1.22/src/mod_fastdfs.conf</code> 文件拷贝到 <code>/etc/fdfs/</code> 目录下，并修改该文件的内容：</p>
+<p>修改本地仓库</p>
 
-<pre><code>vi /etc/fdfs/mod_fastdfs.conf
+<pre><code>&lt;localRepository&gt;D:/RJ/tomcat/mvnrep&lt;/localRepository&gt;        
+</code></pre></li>
+
+<li><p>使用maven</p>
+
+<p>约定  优于配置</p>
+
+<p>硬编码方式: <code>job. setPath(&quot; d: \\abc&quot;) ;</code></p>
+
+<p>配置方式:</p>
+
+<pre><code>    job
+    conf. xml
+    &lt;path&gt;d:\\abc&lt;/path&gt;
+
+约定:使用默认值d:\\abc
+    job
 </code></pre>
 
-<p>接下来，回到第一步下载的 nginx 安装文件的解压目录中，执行如下命令，重新配置编译安装：</p>
+<p>maven约定的目录结构</p>
 
-<pre><code>#  ./configure --add-module=/usr/local/fastdfs-nginx-module-1.22/src
-./configure --add-module=/usr/local/fastdfs/fastdfs-nginx-module-1.22/src
-make
-make install
+<p>main主函数执行项目</p>
+
+<p>test测试项目</p>
+
+<pre><code>项目
+    -src
+        -main       :程序代码
+            -java   ：java代码
+            -resource   ：资源代码、配置代码
+        -test           ：测试代码
+            --java
+            -resource
+        target:
+    pom.xml             :项目对象模型  与src同级
+
+&lt;groupId&gt;域名翻转.大项目名&lt;/ groupId&gt;
+&lt;groupId&gt;org.lanqiao.maven&lt;/ groupId&gt;
+
+&lt;artifactId&gt;子模块名&lt;/artifactId&gt;
+&lt;artifactId&gt;HelloWorld&lt;/artifactId&gt;
+
+&lt;version&gt;版本号&lt;/version&gt;
+&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
 </code></pre>
 
-<p>安装完成后，修改 nginx 的配置文件，如下：</p>
+<p>依赖:</p>
 
-<pre><code>cd /usr/local/nginx/conf
-vi /usr/local/nginx/conf/nginx.conf
+<pre><code>commons- fileupload. jar --&gt; commons-io. jar
 </code></pre>
 
-<p><img src="/resources/技术框架/分布式/FastDfs/image-20201103112825635.png" alt="image-20201103112825635" /></p>
+<p>A中的某些类需要使用B中的某些类，则称为A依赖于B</p>
 
-<p>在这里配置 nginx 请求转发。</p>
+<p>在maven项目中，如果要使用一个当时存在的Jar或模块，则可以通过依赖实现(去本地仓库、中央仓库去寻找)</p>
 
-<pre><code>location ~/group([0-9]) {
-	root /home/mumu/fastdfs/data;
-	ngx_fastdfs_module;
-}
+<p>执行mvn: 必须在pom. xml所在目录中执行</p>
+
+<p>利用cmd进入目录或者直接在地址框打cmd</p></li>
+</ol>
+
+<h3 id="maven常见命令">maven常见命令：</h3>
+
+<p>第一次时因为需要下载执行该命令的基础环境，因此会从中央仓库中下载该环境到本地仓库   所以会比较慢</p>
+
+<pre><code>mvn compile:只编译main目录下的文件
+
+mvn test：执行test目录下的文件
+
+mvn package    打包命令 jar/war
+
+mvn install  将开发的模块放入本地仓库供其他项目使用（放入的位置通过gav决定）
+
+mvn clean       删除target目录（删除编译后的文件目录）
+
+运行mvn命令必须在pom.xml目录下
 </code></pre>
 
-<p>配置完成后，启动 nginx，看到如下日志，表示 nginx 启动成功：</p>
+<p>仓库：    依次向下寻找资源</p>
 
-<pre><code>cd /usr/local/nginx/sbin
-./nginx
+<pre><code>本地仓库
+私服nexus
+中央仓库
+中央仓库镜像
+远程仓库
 </code></pre>
 
-<pre><code>ngx_http_fastdfs_set pid=9908
-</code></pre>
+<p>依赖:</p>
 
-<p><strong>「疑问：fastdfs-nginx-module 有啥用」</strong></p>
-
-<p>看了整个安装过程之后，很多小伙伴有疑问，到头来还是 nginx 本身直接找到了图片文件目录，fastdfs-nginx-module 到底有啥用？</p>
-
-<p>前面我们说过，Storage 由很多组构成，每个组又是一个小的集群，在每一个组里边，数据会进行同步，但是如果数据还没同步，这个时候就有请求发来了，该怎么办？此时fastdfs-nginx-module 会帮助我们直接从源 Storage 上获取文件。</p>
-
-<p>安装成功了。</p>
-
-<h2 id="3-java-客户端调用">3.Java 客户端调用</h2>
-
-<p>安装成功后，接下来我们就用 Java 客户端来测试一下文件上传下载。</p>
-
-<p>首先我们来创建一个普通的 Maven 工程，添加如下依赖：</p>
+<p>A jar-&gt;Bjar</p>
 
 <pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;net.oschina.zcx7878&lt;/groupId&gt;
-    &lt;artifactId&gt;fastdfs-client-java&lt;/artifactId&gt;
-    &lt;version&gt;1.27.0.0&lt;/version&gt;
+    &lt; groupId&gt; junit&lt;/ groupId&gt;
+    &lt;artifactId&gt; junit&lt;/artifactId&gt;
+    &lt;version&gt;4.0&lt;/version&gt;
+    &lt; scope&gt; test&lt;/ scope&gt;  依赖的范围
 &lt;/dependency&gt;
 </code></pre>
 
-<p>然后，在项目的 resources 目录下添加 FastDFS 的配置文件 fastdfs-client.properties，内容如下：</p>
+<p>依赖的范围、依赖的有效性：</p>
 
-<pre><code>fastdfs.connect_timeout_in_seconds = 5
-fastdfs.network_timeout_in_seconds = 30
-fastdfs.charset = UTF-8
-fastdfs.http_anti_steal_token = false
-fastdfs.http_secret_key = FastDFS1234567890
-fastdfs.http_tracker_http_port = 80
-fastdfs.tracker_servers = 192.168.91.128:22122
-fastdfs.connection_pool.enabled = true
-fastdfs.connection_pool.max_count_per_entry = 500
-fastdfs.connection_pool.max_idle_time = 3600
-fastdfs.connection_pool.max_wait_time_in_ms = 1000
+<pre><code>compile(默认)   test  provided
 </code></pre>
 
-<p>这里的配置基本上都能见名知义，我就不挨个解释了。这里先配置下 fastdfs.tracker_servers，这是 Tracker 的地址，根据实际情况配置即可。</p>
+<p>依赖排除
+在依赖里面添加</p>
 
-<p>fastdfs.http_secret_key 配置这里先不用管它，后面我会跟大家解释。</p>
-
-<h3 id="3-1-文件上传">3.1 文件上传</h3>
-
-<p>配置完成后，先来看文件上传，代码如下：</p>
-
-<pre><code>@Test
-void testUpload() {
-    try {
-        ClientGlobal.initByProperties(&quot;fastdfs-client.properties&quot;);
-        TrackerClient tracker = new TrackerClient();
-        TrackerServer trackerServer = tracker.getConnection();
-        StorageServer storageServer = null;
-        StorageClient1 client = new StorageClient1(trackerServer, storageServer);
-        NameValuePair nvp[] = null;
-        //上传到文件系统
-        String fileId = client.upload_file1(&quot;C:\\Users\\javaboy\\Pictures\\picpick\\1.png&quot;, &quot;png&quot;,
-                nvp);
-        logger.info(fileId);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
+<pre><code>&lt;exclusions&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+    &lt;exclusion&gt;
+        &lt;groupId&gt;org. springframework&lt;/ groupId&gt;
+        &lt;artifactId&gt;spring- beans&lt;/artifactId&gt;
+    &lt;/exclusion&gt;
+&lt;/exclusions&gt;
 </code></pre>
 
-<p>这里，首先加载配置文件，然后构造一个 TrackerClient 对象，接着再根据这个对象获取到一个 TrackerServer，然后创建一个 StorageClient1 实例。NameValuePair 中保存的是文件的元数据信息，如果有的话，就以 key/value 的方式来设置，如果没有的话，直接给一个 null 即可。</p>
+<h4 id="依赖的传递性">依赖的传递性</h4>
 
-<p>最后，调用 client 的 upload_file1 方法上传文件，第一个参数是文件路径，第二个参数是文件的扩展名，第三个参数就是文件的元数据信息，这个方法的返回值，就是上传文件的访问路径。执行该方法，打印日志如下：</p>
+<p>A. jar-B. jar-&gt;C. jar</p>
 
-<pre><code>2020-02-29 17:46:03.017  INFO 6184 --- [           main] o.j.fastdfs.FastdfsApplicationTests      : group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png
+<p>要使A. jar -&gt;C. jar:当且仅当B. jar依赖于C. jar的范围是compile</p>
+
+<h4 id="依赖原则">依赖原则</h4>
+
+<ol>
+<li><p>最短路径优先</p>
+
+<pre><code>a-&gt;b-&gt;c.2
+
+a-&gt;c.1
 </code></pre>
 
-<p>group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png 就是文件的路径，此时，在浏览器中输入 <a href="http://192.168.91.128/group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png">http://192.168.91.128/group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png</a> 就可以看到上传的图片了。</p>
+<p>那么a会引入c.1</p></li>
 
-<h3 id="3-2-文件下载">3.2 文件下载</h3>
+<li><p>路径长度相同</p>
 
-<pre><code>@Test
-void testDownload() {
-    try {
-        ClientGlobal.initByProperties(&quot;fastdfs-client.properties&quot;);
-        TrackerClient tracker = new TrackerClient();
-        TrackerServer trackerServer = tracker.getConnection();
-        StorageServer storageServer = null;
-        StorageClient1 client = new StorageClient1(trackerServer, storageServer);
-        byte[] bytes = client.download_file1(&quot;group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png&quot;);
-        FileOutputStream fos = new FileOutputStream(new File(&quot;C:\\Users\\javaboy\\Pictures\\picpick\\666.png&quot;));
-        fos.write(bytes);
-        fos.close();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
+<ul>
+<li><p>在同一个pom.xml文件中有2个相同的依赖:后面声明的依赖会覆盖前面声明的依赖（严禁在同一个pom声明两个版本不同的依赖）</p></li>
+
+<li><p>如果是不同的pom. xml中有2个相同的依赖:则先声明的依赖，会覆盖后声明的依赖（引入的依赖的顺序决定）</p></li>
+</ul>
+
+<p>( JDK只能够识别source folder中的源码)  普通的folder需要右键bilid path</p>
+
+<pre><code>			compile			  test			     provided
+编译			V				x					V
+测试			V				v					v
+部署(运行)	    V				x					x
+</code></pre></li>
+</ol>
+
+<p>Maven在编译、测试、运行项目时，各自使用-套 classpath</p>
+
+<h3 id="在eclipse创建maven项目">在eclipse创建maven项目</h3>
+
+<h4 id="配置本地仓库">配置本地仓库</h4>
+
+<p>window    preferences   搜索maven</p>
+
+<pre><code>installation配置maven版本
+usersetting配置本地仓库  打开pom.xml文件
 </code></pre>
 
-<p>这段代码就很好理解了，直接调用 download_file1 方法获取到一个 byte 数组，然后通过 IO 流写出到本地文件即可。</p>
+<p>在eclipse中配置完pom.xml后需要</p>
 
-<h2 id="4-安全问题">4.安全问题</h2>
+<p>右键maven项目   <code>maven   update project</code></p>
 
-<p>现在，任何人都可以访问我们服务器上传文件，这肯定是不行的，这个问题好解决，加一个上传时候的令牌即可。</p>
+<p>执行   右键pom.xml   <code>run as    maven build...</code></p>
 
-<p>首先我们在服务端开启令牌校验：</p>
+<p><code>maven build</code>执行上一次</p>
 
-<pre><code>vi /etc/fdfs/http.conf
+<p>package:打包命令会执行以下</p>
+
+<pre><code>resources
+compile
+test
+package
 </code></pre>
 
-<p>配置完成后，记得重启服务端：</p>
+<h3 id="maven生命周期">maven生命周期</h3>
 
-<pre><code>./nginx -s stop
-./nginx
+<p>生命周期和构建的关系</p>
+
+<pre><code>a   b   c   d   e
 </code></pre>
 
-<p>接下来，在前端准备一个获取令牌的方法，如下：</p>
+<p>执行c命令会将之前的命令全部执行一遍</p>
 
-<pre><code>@Test
-public void getToken() throws Exception {
-    int ts = (int) Instant.now().getEpochSecond();
-    String token = ProtoCommon.getToken(&quot;M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png&quot;, ts, &quot;FastDFS1234567890&quot;);
-    StringBuilder sb = new StringBuilder();
-    sb.append(&quot;?token=&quot;).append(token);
-    sb.append(&quot;&amp;ts=&quot;).append(ts);
-    System.out.println(sb.toString());
-}
+<p>生命周期包含的三个阶段：</p>
+
+<pre><code>clean lifecycle :清理
+            pre-clean    clean      post-clearn
+
+default lifecycle :默认   最常用
+
+site lifecycle: 站点  
+            pre-site    site    post-site site-deploy
 </code></pre>
 
-<p>这里，我们主要是根据 ProtoCommon.getToken 方法来获取令牌，注意这个方法的第一个参数是你要访问的文件 id，<strong>注意，这个地址里边不包含 group，千万别搞错了</strong>；第二个参数是时间戳，第三个参数是密钥，密钥要和服务端的配置一致。</p>
+<p>下载jar包直接  搜&hellip;mvn   复制下面的maven里面的dependency</p>
 
-<p>将生成的字符串拼接，追加到访问路径后面，如：<code>http://192.168.91.128/group1/M00/00/00/wKhbgF5aMteAWy0gAAJkI7-2yGk361.png?token=7e329cc50307000283a3ad3592bb6d32&amp;ts=1582975854</code>。<strong>「此时访问路径里边如果没有令牌，会访问失败。」</strong></p>
+<p>测试</p>
+
+<pre><code> package org.lanqiao . maven;
+ import org. junit. Test;
+ public class HelloWorldTest{
+	@Test//导包
+	public void testHello( ){
+		HelloWorld hello = new HelloWorld( );
+		String result = hello. sayHello(&quot;zs&quot;);
+		assertEquals(&quot;Hello zs&quot; ,result); //断言
+	}
+ }
+依赖
+&lt; dependency&gt;
+	&lt;groupId&gt;junit&lt;/ groupId&gt;
+	&lt;artifactId&gt; junit&lt;/ artifactId&gt;
+	&lt;version&gt;4.0&lt; /version&gt;
+	&lt;scope&gt;test&lt;/ scope&gt;
+&lt;/ dependency&gt;
+
+</code></pre>
+
+<h4 id="统一项目的jdk">统一项目的jdk:</h4>
+
+<p>build path:删除旧版本，增加新版本</p>
+
+<p>右键项目-属性-Project Factors -java version 改版本 (之前存在要改的版本)</p>
+
+<p>通过maven统一jdk版本:</p>
+
+<pre><code>&lt;profiles&gt;
+	&lt;profile&gt;
+		&lt;id&gt;jdk-18&lt;/id&gt;
+		&lt;activation&gt;
+			&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+			&lt;jdk&gt;1.8&lt;/jdk&gt;
+		&lt;/activation&gt;
+		&lt;properties&gt;
+			&lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+			&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+			&lt;maven.compiler. compilerVersion&gt;1.8&lt;/maven. compiler.compilerVersion&gt;
+		&lt;/ properties&gt;
+	&lt;/profile&gt;
+&lt;/profiles&gt;|
+
+</code></pre>
+
+<p>统一jar的版本</p>
+
+<pre><code>//统一jar的版本
+&lt;properties&gt;
+	&lt;project.build.sourceEncoding&gt;UTF-8&lt;/ project.build.sourceEncoding&gt;
+	&lt;!--统一版本--&gt;
+	&lt;lanqiao.World.Jjunit.version&gt;4.0k/lanqiao.World.junit.version&gt;变量值
+&lt;/ properties&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;junit&lt;/groupId&gt;
+	&lt;artifactId&gt;junit&lt;/artifactId&gt;
+	&lt;version&gt;$ {lanqiao.World.junit. version}&lt;/version&gt;    引用变量
+	&lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="继承">继承：</h3>
+
+<p>a继承b   则a继承b的所有依赖</p>
+
+<ol>
+<li>建立父工程：父工程用pom</li>
+
+<li><p>在父工程的pom.xml中编写依赖</p>
+
+<pre><code>&lt;!--父工程，父工程的依赖需要写在--&gt;
+&lt;dependencyManagement&gt; 
+
+	&lt;dependencies&gt;
+		&lt;dependency&gt;&lt;/ dependency&gt;
+	&lt;/ dependencies&gt;
+
+&lt;/dependencyManagement&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="子类">子类</h4>
+
+<pre><code>&lt;!-- 给当前工程继承一个父工程 
+
+1加入父工程坐标gav 
+
+2当前工程的Pom.xml到父工程的Pom.xml之间的相对路径--&gt;
+
+&lt;parent&gt;
+&lt;!-- 1加入父工程坐标gav --&gt;
+	&lt; groupId&gt;org.lanqiao . maven&lt;/ groupId&gt;
+	&lt;artifactId&gt;B&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1- SNAPSHOT&lt;/version&gt;
+&lt;!-- 2当前工程的Pom. xml到父工程的Pom. xml之间的相对路径--&gt;
+&lt;relativePath&gt;. . /B/ pom. xml&lt;/relativePath&gt;
+&lt;/parent&gt;
+		子类的g和v如果与父类的gv相同的话可以省略
+</code></pre>
+
+<h4 id="在子类中需要声明-使用哪些父类的依赖">在子类中需要声明：使用哪些父类的依赖</h4>
+
+<pre><code>&lt;dependency&gt;
+&lt;! --声明:需要使用到父类的junit (只需要ga)--&gt;
+	&lt;groupId&gt;junit&lt;/ groupId&gt;
+	&lt;artifactId&gt;junit&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+
+<h4 id="聚合">聚合</h4>
+
+<p>Maven项目能够识别的:</p>
+
+<p>自身包含、本地仓库中的</p>
+
+<p>Maven2依赖于Maven1, 则在执行时:必须先将Maven1加入到本地仓库(install), 之后才能执行Maven2
+以上前置工程的install操作，可以交由“聚合”一次性搞定。。。</p>
+
+<p>聚合的使用：</p>
+
+<p>在一个总工程中使用(聚合的配置只能配置在打包方式pom方式的Maven工程中)</p>
+
+<pre><code>&lt;!--配置聚合，避免前置工程的install操作--&gt;
+&lt;modules&gt;
+	&lt;!--项目的根路径   可以不用设置顺序--&gt;
+	&lt;module&gt;. . /Maven1&lt; /module&gt;
+	&lt;module&gt;. . /Maven2&lt; , module&gt;
+&lt;/ modules&gt;
+</code></pre>
+
+<p>注意: clean命令是删除target目录，并不是清理install存放入的本地仓库</p>
+
+<p>配置完聚合之后，以后只要操作总工程，则会自动操作改聚合中配置过的工程</p>
+
+<p>清理本地仓库需要手动进入仓库进行删除</p>
+
+<p>聚合:</p>
+
+<pre><code>Maven将一一个大 工程拆分成若干个子工程(子模块)
+
+聚合可以将拆分的多个子工程合起来
+</code></pre>
+
+<p>继承:</p>
+
+<pre><code>父-&gt;子工程，可以通过父工程
+
+统一管理依赖的版本
+</code></pre>
+
+<p>部署web工程</p>
+
+<pre><code>需要在webapp下建立META-INF文件夹和web.xml文件
+</code></pre>
+
+<pre><code>&lt;build&gt;
+	&lt;fina lName &gt;MavenWebProject&lt;/finalName&gt;
+	&lt;plugins&gt;
+		&lt;plugin&gt;
+			&lt;!--启动tomcat--&gt;
+			&lt;groupId&gt;org. codehaus .cargok/ groupId&gt;
+			&lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.4.9&lt;/version&gt;
+			
+			&lt;!--配置tomcat--&gt;
+			&lt;configuration&gt;
+				&lt; container&gt;
+				&lt; containerId&gt;tomcat8-5-30&lt;/ containerId&gt;
+				&lt;home&gt;D: \study\apache-tomcat-8.5.30&lt;/home&gt;
+				&lt;/container&gt;
+				&lt; configuration&gt;
+				&lt;type&gt;existing&lt;/type&gt;
+				&lt;home&gt;D: \study\apache-tomcat8x&lt; /home&gt;
+				&lt;!--默认值8080-- &gt;
+					&lt; properties&gt;
+						&lt;cargo.servlet .port&gt;8888&lt;/ cargo. servlet . port&gt;
+					&lt;/ properties&gt;
+				&lt;/ configuration&gt;
+			&lt;/ configuration&gt;
+			&lt;executions&gt;
+				&lt;execution&gt;
+				&lt;！--阶段--&gt;
+					&lt;id&gt;cargo-run&lt;/id&gt;
+					&lt;phase&gt;install&lt;/phase&gt;
+					&lt;goals&gt;
+					&lt;goal&gt;run&lt;/goal&gt;
+					&lt;/goals&gt;
+				&lt;/execution&gt;
+			&lt;/executions&gt;
+		&lt;/plugin&gt;
+	&lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<p>命令：<code>deploy</code></p>
+
+<p>实际开发中，开发人员将自己的项目开发完毕后打成war包 交给实施人员去部署;</p>
+
+<p>package</p>
 
     </div>
     <div class="article-footer">
@@ -743,7 +893,7 @@ public void getToken() throws Exception {
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="FastDfs学习笔记" target="_blank" rel="external">https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+      <a href="https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Maven学习笔记" target="_blank" rel="external">https://mumulx.github.io/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -775,9 +925,14 @@ public void getToken() throws Exception {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Java底层知识汇总"><i
+                <a href="https://mumulx.github.io/2019/01/emoji-support/" title="Emoji Support"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"
+                    title="自己的第一篇博客"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
