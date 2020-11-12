@@ -2,524 +2,524 @@
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
   <channel>
     <title>Java并发编程 on 木木的个人博客</title>
-    <link>https://gitee.com/mumulx/blog/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
+    <link>https://mumulx.gitee.io/blog/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
     <description>Recent content in Java并发编程 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://gitee.com/mumulx/blog/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://mumulx.gitee.io/blog/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FastDFS学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>FastDFS 说起分布式文件管理系统，大家可能很容易想到 HDFS、GFS 等系统，前者是 Hadoop 的一部分，后者则是 Google 提供的分布式文件管理系统。除了这些之外，国内</description>
     </item>
     
     <item>
       <title>Java底层知识汇总</title>
-      <link>https://gitee.com/mumulx/blog/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</link>
+      <link>https://mumulx.gitee.io/blog/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</guid>
       <description>Spring中的问题 Spring中的循环依赖 什么是循环依赖？ 很简单，就是A对象依赖了B对象，B对象依赖了A对象。 比如： // A依赖了B class A{ public B b;</description>
     </item>
     
     <item>
       <title>背包九讲问题汇总</title>
-      <link>https://gitee.com/mumulx/blog/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
+      <link>https://mumulx.gitee.io/blog/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
       <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
       <description>背包九讲 P01: 01背包问题 题目 有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费</description>
     </item>
     
     <item>
       <title>Java算法笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
       <description>数组 基本概念 public class TestOpArray { public static void main(String[] args) { //解决数组的长度不可变的问题 int[] arr = new int[] {9,8,7}; //快速查看数组中的元素 System.out.println(Arrays.toString(arr)); //要加入数组的目标元素 int dst=6; //创建一个</description>
     </item>
     
     <item>
       <title>Java面试准备一</title>
-      <link>https://gitee.com/mumulx/blog/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
+      <link>https://mumulx.gitee.io/blog/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
       <description>技术面试指导 本文从“必备项”和“加分项”两个角度分析。 一、必备项 0.自我介绍 表达流畅，不要太差即可 1.基础 坑：【答案很标准】面试时的回答，一</description>
     </item>
     
     <item>
       <title>Teamcenter定制学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>Teamcenter笔记 概述 Teamcenter的标准功能基本可以供用户使用，但是基于每家公司业务问题以及使用习惯，还有一些特殊的应用与数据</description>
     </item>
     
     <item>
       <title>复习知识点总结</title>
-      <link>https://gitee.com/mumulx/blog/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</link>
+      <link>https://mumulx.gitee.io/blog/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</guid>
       <description>操作系统与计算机网络 TCP是传输层协议。对应osI网络模型的第4层传输层。 TCP协议的特点是基于链接。也就是传输数据前需要先建立好链接，然后</description>
     </item>
     
     <item>
       <title>网络通信与NIO</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</guid>
       <description>网络通信基础 Socket入门 什么是Socket? Socket就是为网络服务提供的一种机制。 通讯的两端都有Sokcet. 网络通讯其实就是Sok</description>
     </item>
     
     <item>
       <title>OnJava8学习与理解</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/onjava8/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/onjava8/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/onjava8/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/onjava8/</guid>
       <description>感谢该项目的开源从中学到了很多的知识，对于java也有了更深的了解 已经看了两遍，里面写的很好，从中收获了跟多，也认识到了自己的许多不足。对于</description>
     </item>
     
     <item>
       <title>Java设计模式</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>学习路线（掌握） JAVA语法 Java基础 JVM 类加载机制 字节码执行机制 JVM内存模型 GC垃圾回收 JVM性能监控与故障定位 JVM调优 多线程 并发编程</description>
     </item>
     
     <item>
       <title>Java知识点01</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</guid>
       <description>JDK8 lambda :简化代码 lambda λ 组成 ： 逗号隔开的参数列表 (x,x,x) () 箭头符号 -&amp;gt; 方法体 （λ代码块） 示例 package lambda; public class Demo01 { public static void test01(){ new Thread(new Runnable() { @Override public void run() { System.out.println(&amp;quot;run....&amp;quot;); } }).start(); } public static void test02(){ new Thread( // ()</description>
     </item>
     
     <item>
       <title>Java进阶及JVM</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/java%E8%BF%9B%E9%98%B6jvm/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/java%E8%BF%9B%E9%98%B6jvm/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/java%E8%BF%9B%E9%98%B6jvm/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/java%E8%BF%9B%E9%98%B6jvm/</guid>
       <description>JVM性能调优 组成：类加载子系统；运行时数据区；执行引擎 方法区 永久代 堆 jdk7 元空间 直接内存native memory jdk8 最小20. 75M 最大 无限 方法区与永久代、元</description>
     </item>
     
     <item>
       <title>Java并发编程JUC</title>
-      <link>https://gitee.com/mumulx/blog/2020/05/juc/</link>
+      <link>https://mumulx.gitee.io/blog/2020/05/juc/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/05/juc/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/05/juc/</guid>
       <description>JUC 1 、什么是JUC java.util 工具包、包、分类 业务：普通的线程代码 Thread Runnable 没有返回值、效率相比入 Callable 相对较低！ 2 、线程和进程 线程、进程，如果不能使用一句话说</description>
     </item>
     
     <item>
       <title>Java并发编程</title>
-      <link>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
+      <link>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
       <description>1.概览 1.1 预备知识 希望你不是一个初学者 线程安全问题，需要你接触过 Java Web 开发、Jdbc 开发、Web 服务器、分布式框架时才会遇到 基于 JDK 8，最好对函</description>
     </item>
     
     <item>
       <title>Java并发编程原理篇</title>
-      <link>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</link>
+      <link>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%8E%9F%E7%90%86%E7%AF%87/</guid>
       <description>原理篇 指令级并行原理 1. 名词 Clock Cycle Time 主频的概念大家接触的比较多，而 CPU 的 Clock Cycle Time（时钟周期时间），等于主频的倒数，意思是 CPU 能 够识别的最小时间单</description>
     </item>
     
     <item>
       <title>Java并发编程应用篇</title>
-      <link>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</link>
+      <link>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E7%AF%87/</guid>
       <description>应用篇 效率 1.使用多线程充分利用 CPU 1)环境搭建 基准测试工具选择，使用了比较靠谱的 JMH，它会执行程序预热，执行多次测试并平均 cpu 核数限制，有两</description>
     </item>
     
     <item>
       <title>Java并发编程模式篇</title>
-      <link>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/</link>
+      <link>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/04/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E7%AF%87/</guid>
       <description>模式篇 同步模式之保护性暂停 1.定义 即 Guarded Suspension，用在一个线程等待另一个线程的执行结果 要点 有一个结果需要从一个线程传递到另一个线程</description>
     </item>
     
     <item>
       <title>Nginx进阶学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/03/nginx%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/03/nginx%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/03/nginx%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/03/nginx%E7%AC%94%E8%AE%B0/</guid>
       <description>Nginx nginx 简介 什么是 nginx 和可以做什么事情 Nginx 是高性能的 HTTP 和反向代理的服务器，处理高并发能力是十分强大的，能经受高负载的考验,有报告表明能支持高达 50,000 个并</description>
     </item>
     
     <item>
       <title>SpringSecurity自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/03/springsecurity/</link>
+      <link>https://mumulx.gitee.io/blog/2020/03/springsecurity/</link>
       <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/03/springsecurity/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/03/springsecurity/</guid>
       <description>SpringSecurity 官网: SpringSecurity是强大的，且容易定制的实现认证，与授权的基于Spring 开发的框架。 Spring Security的核心功能 Auth</description>
     </item>
     
     <item>
       <title>SpringCloud自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/03/springbootcloud/</link>
+      <link>https://mumulx.gitee.io/blog/2020/03/springbootcloud/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/03/springbootcloud/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/03/springbootcloud/</guid>
       <description>源码 SpringCloud 微服务架构4个核心问题? 服务很多，客户端该怎么访问? 这么多服务?服务之间如何通信? 这么多服务? 如何治理? 服务挂了怎么办? 解决方案:Sp</description>
     </item>
     
     <item>
       <title>Redis笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/redis%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/redis%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/redis%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/redis%E7%AC%94%E8%AE%B0/</guid>
       <description>Redis Redis 是完全开源免费的，遵守BSD协议，是一个高性能的（noSQL）key-value数据库 Redis 与其他 key - value 缓存产品有以下三个特点： Redis支</description>
     </item>
     
     <item>
       <title>NX二次开发</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</guid>
       <description>入门 环境准备 NX12.0 visual studio 2015 1）、将，安装路径\NX 12.0\UGOPEN\vs_files\VC\vcprojects下的文件全部拷贝到vs201</description>
     </item>
     
     <item>
       <title>SpringData JPA自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/springdata/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/springdata/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/springdata/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/springdata/</guid>
       <description>[源码]() JPA 简介 JPA是Java Persistence API的简称，中文名Java持久层API，是JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行</description>
     </item>
     
     <item>
       <title>我的阿里云服务器Centos7</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</link>
       <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</guid>
       <description>win10远程桌面连接阿里云centos7.3 使用secureCRT连接到自己的服务器 安装x windows yum groupinstall -y &amp;quot;X Window System&amp;quot; 查看已安装软件 yum grouplist 安装桌面 yum groupinstall &amp;quot;GNOME Desktop&amp;quot;</description>
     </item>
     
     <item>
       <title>校园失物招领项目实战</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/%E6%A0%A1%E5%9B%AD%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</guid>
       <description>搭建ssm环境 jar 表和类 配置数据库db.properties,log4j.properties 加载spring配置文件applicationC</description>
     </item>
     
     <item>
       <title>Springboot整合</title>
-      <link>https://gitee.com/mumulx/blog/2020/02/springboot-examples/</link>
+      <link>https://mumulx.gitee.io/blog/2020/02/springboot-examples/</link>
       <pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/02/springboot-examples/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/02/springboot-examples/</guid>
       <description>源码 Springboot整合缓存 JSR-107、Spring缓存抽象、整合Redis JSR107 Java Caching定义了5个核心接口，分别是Cachin</description>
     </item>
     
     <item>
       <title>Quartz框架</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/quartz%E6%A1%86%E6%9E%B6/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/quartz%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/quartz%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/quartz%E6%A1%86%E6%9E%B6/</guid>
       <description>简介 Quartz：定时任务 Quartz ：定时异步任务 Quartz官网 概念 任务：做什么事情&amp;hellip;. StudentService 触发器：定义时间 调度器：将任务、触发器 一一</description>
     </item>
     
     <item>
       <title>Dubbo自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/dubbo%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>源码 软件发展史 All In One 所有代码在一个类/模块中编写容易造成代码混乱 MVC/三层架构 将各个功能根据层次进行了划分，但是所有代码任然在同一台计算机</description>
     </item>
     
     <item>
       <title>SQL优化Mysql版</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/</guid>
       <description>系统使用的Linux Centos6 MySQL版本： 基础 5.x: 5.0-5.1:早期产品的延续，升级维护 5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5</description>
     </item>
     
     <item>
       <title>MybatisPlus和Mapper框架</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/mybatisplus%E5%92%8Cmapper%E6%A1%86%E6%9E%B6/</guid>
       <description>MybatisPlus mubatis plus 官网 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生 ORM（Object</description>
     </item>
     
     <item>
       <title>Java常见应用</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/java%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8/</guid>
       <description>Java反射 RTTI（RunTime Type Information，运行时类型信息） 反射机制是在[运行状态]中: 对于任意一个类，都能够知道这个类的</description>
     </item>
     
     <item>
       <title>虚拟机搭建easymock</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
       <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /app/easymock/easy-mock/ npm run dev 本机访问 http://centos6:7300/ li</description>
     </item>
     
     <item>
       <title>蓝桥杯算法笔记</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
       <description>入门训练 圆的面积 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;iostream&amp;gt; int main (){ int r; scanf(&amp;quot;%d&amp;quot;,&amp;amp;r); double pi = 3.14159265358979323,s; s=pi * r *r; printf(&amp;quot;%.7f&amp;quot;,s); return 0; } 小数点的控制 %d 按十进制整型数据的实际长度输出。 %ld 输出长整型数据。 %lld 输出长长整型数据。</description>
     </item>
     
     <item>
       <title>IntelliJIDEA基础配置</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
       <description>学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Spring</description>
     </item>
     
     <item>
       <title>VisualStudioCode常用插件</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
       <description>下面来介绍几个我自己用到的vscode的插件 主题 Atom One Dark Theme 文件图标主题 vscode-icons 代码格式化 Beautify 中文汉化 Chinese (Simplified) Language Pack for Visual Studio Code 与谷歌浏览器的链接 Debugger for Chrome js语言 ESLint</description>
     </item>
     
     <item>
       <title>Web前端技术栈</title>
-      <link>https://gitee.com/mumulx/blog/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <link>https://mumulx.gitee.io/blog/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <guid>https://mumulx.gitee.io/blog/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
       <description>简介 Web前端技术栈包括 elementUI Nuxt Vue.js webpack ESLint Node.js axios mock.js ES6 Swagger 核心：Node.js和Vue.js webpack webpack:打包, 可用将js等静态资源进行压缩，从而提高</description>
     </item>
     
     <item>
       <title>Vue自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>vue介绍 vue是一个渐进式的JavaScript框架。渐进式：可插拔式、可扩展。 我们刚开始只需要使用最核心的核心库，后期可以自己去增加新库</description>
     </item>
     
     <item>
       <title>Springboot自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/12/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>git源码 简介 SpringBoot官网 SpringBoot是由Pivotal团队在2013年开始研发、2014年4月发布第一个版本的全新开源</description>
     </item>
     
     <item>
       <title>Express框架</title>
-      <link>https://gitee.com/mumulx/blog/2019/12/express%E6%A1%86%E6%9E%B6/</link>
+      <link>https://mumulx.gitee.io/blog/2019/12/express%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/12/express%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/12/express%E6%A1%86%E6%9E%B6/</guid>
       <description>Express 简介 什么是Express express是一个基于node.js的极简、灵活的web开发框架。可以实现非常强大的web服务器功能。 Expre</description>
     </item>
     
     <item>
       <title>Svn学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/12/svn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>常见的操作 发布项目（share project）：项目组长将本机的项目第一次发布到中央仓库中 下载项目（check out）：（检出项目：chec</description>
     </item>
     
     <item>
       <title>Node.js学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/12/node/</link>
+      <link>https://mumulx.gitee.io/blog/2019/12/node/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/12/node/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/12/node/</guid>
       <description>node.js简介 简单来说node.js就是js的一个运行环境，可以运行js代码，用于服务器端编程。 下载安装 下载node.js 安装：一路ne</description>
     </item>
     
     <item>
       <title>Eclipse导入springBoot项目jar包下载太慢的问题</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</link>
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</guid>
       <description>关于解决Eclipse导入SpringBoot项目jar包从Maven中下载太慢的问题 只需要在maven安装目录./config/setti</description>
     </item>
     
     <item>
       <title>Git自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>Git简介 git lab指令 启动 gitlab-ctl start 关闭 gitlab-ctl stop 关闭防火墙 systemctl stop firewalld 开启防火墙 systemctl start firewalld Git指令 git init 项目初始化 git status 查看当前状态 git log 查看日志 git log -2 查看最近两次</description>
     </item>
     
     <item>
       <title>JQuery自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/jquery%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/jquery%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/jquery%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/jquery%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>简介 Query是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScr</description>
     </item>
     
     <item>
       <title>JSP学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>源码 JSP:动态网页 静态、动态： 不用 和 是否有“动感”混为一谈 是否随着时间、地点、用户操作的改变而改变 动态网页需要使用到服务端脚本语言（JSP</description>
     </item>
     
     <item>
       <title>JSP进阶学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>源码 EL Expression Launguage:可以代替JSp页面中的Java代码 传统的在jsp代码中显示java代码 需要使用&amp;lt;%%&amp;gt;&amp;lt;%=%</description>
     </item>
     
     <item>
       <title>Linux Centos6安装</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</guid>
       <description>vm安装centos6 新建虚拟机 稍后安装操作系统 处理器数量（虚拟的，只跟自己的真实机有关）1，1，1 内存2048 网络nat 磁盘20G 完成 编辑</description>
     </item>
     
     <item>
       <title>Mybatis自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>Mybatis 简介 官网 mybatis: ibatis:apache 2010 ibatis-&amp;gt; google colde ,Mybatis MyBatis可以简化JDBC操作，实现数据的持久化 。 ORM:Object Relational Mapping ORM可以解决数据库与程序间的异构性，比如在Java中我</description>
     </item>
     
     <item>
       <title>Spring Boot自学笔记-02</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
       <description>源码 一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
     </item>
     
     <item>
       <title>SpringMVC自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/springmvc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>git源码 SpringMVC 简介 Servlet发展史 Struts1.x&amp;ndash;&amp;gt;Struts2.x&amp;ndash;&amp;gt;SpringMVC springmvc: 第一个SpringMVC程序 jar spring-aop.jar spring-bean.jar spring-context.jar spring-core.jar spring-web.jar spring-webmvc.jar commons-logging.jar 报错NoClassDefFoundError：缺少jar</description>
     </item>
     
     <item>
       <title>Spring自学笔记-01</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>spring spring简介 2002 Rod Johnon 发布&amp;lt;Expoer One-on-one j2eedevelopment and Design&amp;gt; 2003产生Spring，Spring两大核心IOC(DI)、Aop Spring data, spring boot, spring cloud, spring framework</description>
     </item>
     
     <item>
       <title>SSM整合自学笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/11/ssm%E6%95%B4%E5%90%88%E7%AC%94%E8%AE%B0/</guid>
       <description>Spring整合MyBatis git源码 Spring - MyBatis 思路： SqlSessionFactory -&amp;gt; SqlSession -&amp;gt;StudentMapper -&amp;gt;CRUD 可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据</description>
     </item>
     
     <item>
       <title>自己的第一篇博客</title>
-      <link>https://gitee.com/mumulx/blog/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://mumulx.gitee.io/blog/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/10/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description>记录自己的第一篇博客 &amp;emsp;2019-10-31，抓住10月的小尾巴，创建了人生的第一个博客。经过一天的努力，终于是在22：13的时候创</description>
     </item>
     
     <item>
       <title>Maven学习笔记</title>
-      <link>https://gitee.com/mumulx/blog/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.gitee.io/blog/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/01/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>maven官网 maven的作用 管理Jar 增加第三方Jar (commons-fileupload. jarcommons- io. jar) jar包之间的依赖关系(commons-fileupload. jar自动关联</description>
     </item>
     
     <item>
       <title>Emoji Support</title>
-      <link>https://gitee.com/mumulx/blog/2019/01/emoji-support/</link>
+      <link>https://mumulx.gitee.io/blog/2019/01/emoji-support/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/01/emoji-support/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/01/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://gitee.com/mumulx/blog/2019/01/markdown-syntax/</link>
+      <link>https://mumulx.gitee.io/blog/2019/01/markdown-syntax/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/01/markdown-syntax/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/01/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Placeholder Text</title>
-      <link>https://gitee.com/mumulx/blog/2019/01/placeholder-text/</link>
+      <link>https://mumulx.gitee.io/blog/2019/01/placeholder-text/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://gitee.com/mumulx/blog/2019/01/placeholder-text/</guid>
+      <guid>https://mumulx.gitee.io/blog/2019/01/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
 pectora summo.&lt;/p&gt;</description>
     </item>
