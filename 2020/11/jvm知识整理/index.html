@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        JVM知识整理 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="JVM知识整理" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>JVM知识整理 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="JVM知识整理" />
+<meta property="og:description" content="JVM知识整理" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" />
+<meta property="article:published_time" content="2020-11-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-18T00:00:00+00:00" />
+
+<meta itemprop="name" content="JVM知识整理">
+<meta itemprop="description" content="JVM知识整理">
+
+
+<meta itemprop="datePublished" content="2020-11-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-11-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="14709">
+
+
+
+<meta itemprop="keywords" content="Java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JVM知识整理"/>
+<meta name="twitter:description" content="JVM知识整理"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">30</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/j2ee/" class="tag-list-link">j2ee</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="tag-list-link">java并发编程</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/jvm/" class="tag-list-link">jvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98/" class="tag-list-link">其他问题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" class="tag-list-link">开发软件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/" class="title">背包九讲问题汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#jvm-java-virtua-machine">JVM： java virtua Machine</a>
+<ul>
+<li><a href="#类的生命周期">类的生命周期</a></li>
+<li><a href="#jvm内存模型">JVM内存模型</a></li>
+<li><a href="#volatile">volatile</a></li>
+<li><a href="#jvm运行时的内存区域">JVM运行时的内存区域</a></li>
+<li><a href="#程序计数器">程序计数器</a></li>
+<li><a href="#虚拟机栈">虚拟机栈</a></li>
+<li><a href="#本地方法栈">本地方法栈</a></li>
+<li><a href="#堆">堆</a></li>
+<li><a href="#方法区">方法区</a></li>
+<li><a href="#类的使用方式">类的使用方式</a></li>
+<li><a href="#主动使用">主动使用</a></li>
+<li><a href="#被动使用">被动使用</a></li>
+<li><a href="#助记符">助记符</a></li>
+<li><a href="#jvm四种引用级别">JVM四种引用级别</a>
+<ul>
+<li><a href="#强引用">强引用</a></li>
+<li><a href="#软引用">软引用</a></li>
+<li><a href="#弱引用">弱引用</a></li>
+<li><a href="#虚引用-幻影引用或者幽灵引用">虚引用（幻影引用或者幽灵引用）</a></li>
+<li><a href="#使用软引用实现缓存的淘汰策略">使用软引用实现缓存的淘汰策略</a></li>
+</ul></li>
+<li><a href="#双亲委派">双亲委派</a>
+<ul>
+<li><a href="#自定义类的加载器">自定义类的加载器</a></li>
+<li><a href="#类的卸载">类的卸载</a></li>
+</ul></li>
+<li><a href="#jvm监测工具">JVM监测工具</a></li>
+<li><a href="#gc调优">GC调优</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"
+    >JVM知识整理</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="article-date">
+  <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+    <a class="article-tag-link" href="/tags/jvm/"> JVM </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14709字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:30分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="jvm-java-virtua-machine">JVM： java virtua Machine</h1>
+
+<p>jdk中包含了jvm和“屏蔽操作系统差异的组件”</p>
+
+<ul>
+<li>jvm各个操作系统之上是一致的</li>
+<li>“屏蔽操作系统差异的组件：在各个PC上各不相同（联想下载jdk的场景，不同系统 需要下载不同版本的jdk）</li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568186168727.png" alt="1568186168727" /></p>
+
+<h2 id="类的生命周期">类的生命周期</h2>
+
+<p>生命周期： 类的加载-&gt;连接-&gt;初始化-&gt;使用-&gt;卸载</p>
+
+<ul>
+<li>类的加载</li>
+</ul>
+
+<p>查找并加载类的二进制数据（class文件）</p>
+
+<p>硬盘上的class文件 加载到jvm内存中</p>
+
+<ul>
+<li><p>连接 ：确定类与类之间的关系  ； student.setAddress( address );</p>
+
+<ul>
+<li>验证</li>
+</ul>
+
+<p>.class 正确性校验</p>
+
+<ul>
+<li>准备</li>
+</ul>
+
+<p>static静态变量分配内存，并赋初始化默认值</p>
+
+<p>static int num =  10 ;  在准备阶段，会把num=0，之后（初始化阶段）再将0修改为10</p>
+
+<p>在准备阶段，JVM中只有类，没有对象。</p>
+
+<p>初始化顺序： static -&gt;非static -&gt;构造方法</p>
+
+<p>public class Student{</p>
+
+<p>​   static int age ; //在准备阶段，将age = 0 ;</p>
+
+<p>​   String name ;</p>
+
+<p>}</p>
+
+<ul>
+<li>解析:把类中符号引用，转为直接引用</li>
+</ul>
+
+<p>前期阶段，还不知道类的具体内存地址，只能使用“com.mumu.pojo.Student ”来替代Student类，“com.mumu.pojo.Student ”就称为符号引用；</p>
+
+<p>在解析阶段，JVM就可以将 “com.mumu .pojo.Student ”映射成实际的内存地址，会后就用 内存地址来代替Student，这种使用 内存地址来使用 类的方法 称为直接引用。</p>
+
+<ul>
+<li>初始化：给static变量 赋予正确的值</li>
+</ul></li>
+</ul>
+
+<p>static int num =  10 ;  在连接的准备阶段，会把num=0，之后（初始化阶段）再将0修改为10</p>
+
+<ul>
+<li>使用： 对象的初始化、对象的垃圾回收、对象的销毁</li>
+<li>卸载</li>
+</ul>
+
+<p><strong>jvm结束生命周期的时机：</strong></p>
+
+<ul>
+<li>正常结束</li>
+<li>异常结束/错误   Throwable (Exception/Error)</li>
+<li>System.exit()</li>
+<li>操作系统异常</li>
+</ul>
+
+<h2 id="jvm内存模型">JVM内存模型</h2>
+
+<p>（Java Memoery Model，简称JMM）</p>
+
+<p>JMM:用于定义（所有线程的共享变量， 不能是局部变量）变量的访问规则</p>
+
+<p>JMM将内存划分为两个区： 主内存区、工作内存区</p>
+
+<ul>
+<li>主内存区 ：真实存放变量</li>
+<li>工作内存区：主内存中变量的副本，供各个线程所使用</li>
+</ul>
+
+<p>注意：1.各个线程只能访问自己私有的工作内存（不能访问其他线程的工作内存，也不能访问主内存）</p>
+
+<p>2.不同线程之间，可以通过主内存 简介的访问其他线程的工作内存</p>
+
+<p>完整的研究：不同线程之间交互数据时 经历的步骤：</p>
+
+<p>1.Lock:将主内存中的变量，表示为一条线程的独占状态</p>
+
+<p>2.Read：将主内存中的变量，读取到工作内存中</p>
+
+<p>3.Load：将2中读取的变量拷贝到变量副本中</p>
+
+<p>4.Use：把工作内存中的变量副本，传递给线程去使用</p>
+
+<p>5.Assign:把线程正在使用的变量，传递给工作内存中的变量副本中</p>
+
+<p>6.Store:将工作内存中变量副本的值，传递到主内存中</p>
+
+<p>7.Write：将变量副本作为一个主内存中的变量进行存储</p>
+
+<p>8.Unlock:解决线程的独占状态</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568776570724.png" alt="1568776570724" /></p>
+
+<p>JVM要求以上的8个动作必须是原子性的;jvm但是对于64位的数据类型（long double）有些非原子性协议。说明什么问题：在执行以上8个操作时，可能会出现 只读取（写入等）了半个long/double数据，因此出现错误。如何避免？ 1.商用JVM已经充分考虑了此问题，无需我们操作  2.可以通过volatile避免此类问题（读取半个数据的问题）   volatile double num ;</p>
+
+<h2 id="volatile">volatile</h2>
+
+<p>概念：JVM提供的一个轻量级的同步机制</p>
+
+<p>作用：</p>
+
+<p>1.防止JVM对long/double等64位的非原子性协议进行的误操作（读取半个数据）</p>
+
+<p>2.可以使变量对所有的线程立即可见（某一个线程如果修改了 工作内存中的变量副本，那么加上volatile 之后，该变量就会立刻同步到其他线程的工作内存中）</p>
+
+<p>3.禁止指令的“重排序”优化</p>
+
+<p>原子性 ： num = 10 ;</p>
+
+<p>非原子性： int num = 10 ; -&gt; int num ;   num =10 ;</p>
+
+<p>重排序：排序的对象就是 原子性操作，目的是为了提高执行效率，优化</p>
+
+<pre><code class="language-java">int a  =10 ; //1    int a ; a = 10 ;
+int b ;//2
+b = 20 ;//3
+int c = a * b ;//4
+</code></pre>
+
+<p>重排序“不会影响<strong>单线程</strong>的执行结果”，因此以上程序在经过重排序后，可能的执行结果：1,2,3,4 ；2,3,1,4</p>
+
+<pre><code class="language-java">//2 3 1 4
+int b ;
+b = 20 ;
+int a  =10 ;
+int c = a * b ;
+</code></pre>
+
+<pre><code class="language-java">package com.mumu;
+//双重检查式的懒汉式单例模式
+public class Singleton {
+    private static Singleton instance = null ;//单例
+    private Singleton(){}
+    public static Singleton getInstance(){
+        if(instance == null){
+            synchronized (Singleton.class){
+                if(instance == null){
+                    instance = new Singleton() ;//不是一个原子性操作
+                }
+            }
+        }
+        return instance ;
+    }
+}
+
+
+</code></pre>
+
+<p>以上代码可能会出现问题，原因 <code>instance = new Singleton()</code> 不是一个原子性操作，会在执行时拆分成以下动作：</p>
+
+<ol>
+<li><p>JVM会分配内存地址、内存空间</p></li>
+
+<li><p>使用构造方法实例化对象</p></li>
+
+<li><p>instance = 第1步分配好的内存地址</p></li>
+</ol>
+
+<p>根据重排序的知识，可知，以上3个动作在真正执行时 可能1、2、3，也可能是1、3、2</p>
+
+<p>如果在多线程环境下，使用1、3、2可能出现问题：</p>
+
+<p>假设线程A刚刚执行完以下步骤（即刚执行 1、3，但还没有执行2）</p>
+
+<p>1正常0x123 ,  &hellip;</p>
+
+<p>3instance=0x123</p>
+
+<p>此时，线程B进入单例程序的if，直接会得到Instance对象（注意，此instance是刚才线程A并没有new的对象）,就去使用该对象，例如instance.xxx() 则必然报错。解决方案，就是 禁止此程序使用1 3 2 的重排序顺序。解决：</p>
+
+<pre><code>  private volatile static Singleton instance = null ;//单例
+</code></pre>
+
+<p>volatile是通过“内存屏障”防止重排序问题：</p>
+
+<ol>
+<li><p>在volatile写操作前，插入StoreStore屏障</p></li>
+
+<li><p>在volatile写操作后，插入StoreLoad屏障</p></li>
+
+<li><p>在volatile读操作后，插入LoadLoad屏障</p></li>
+
+<li><p>在volatile读操作后，插入LoadStore屏障</p></li>
+</ol>
+
+<p><strong><em>volatile</em></strong>是否能保证原子性、保证线程安全？不能！</p>
+
+<p>要想保证原子性/线程安全，可以使用原子包java.util.cocurrent.aotmic中的类，该类能够保证原子性的核心，是因为提供了compareAndSet()方法，该方法提供了 cas算法（无锁算法）。</p>
+
+<pre><code class="language-java">import java.util.concurrent.atomic.AtomicInteger;
+public class TestVolatile {
+//    static volatile  int num =  0;
+    static AtomicInteger num = new AtomicInteger(0) ;
+
+    public static void main(Math[] args) throws InterruptedException {
+        for(int i=0;i&lt;100;i++){
+            //每个线程：将num类似3万次；100个线程 在线程安全时，结果应该300万
+            new Thread( () -&gt;{
+                for(int j=0;j&lt;30000;j++){
+//                    num++ ;//不是一个原子性操作
+                    num.incrementAndGet() ;
+                    /*
+                         num = num + 1  :
+                          ①num+1
+                          ② num = ①的结果
+
+
+                          2个线程同时执行 num +1  （假设此时num的值是10）
+                            一个线程：   10 +1 -&gt; 11
+                            另一个线程： 10 + 1 -&gt; 11
+                     */
+
+
+                }
+            }  ).start();//lambda
+        }
+        Thread.sleep(1000);
+        System.out.println(num);
+    }
+
+}
+
+</code></pre>
+
+<h2 id="jvm运行时的内存区域">JVM运行时的内存区域</h2>
+
+<p>将JVM在运行时的内存，划分为了5个部分，如图所示。</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568883650128.png" alt="1568883650128" /></p>
+
+<h2 id="程序计数器">程序计数器</h2>
+
+<p>程序计数器：行号指示器，指向当前线程所执行的字节码指令的地址</p>
+
+<p>Test.java -&gt; Test.class</p>
+
+<pre><code class="language-java">int num = 1;   //1
+int num2 = 2 ; //2
+if(num1&gt;num2){//3
+...//4-10
+}else //11
+{
+    ...
+}
+while(...)
+{
+    
+}
+</code></pre>
+
+<p>简单的可以理解为：class文件中的行号</p>
+
+<blockquote>
+<p>注意：</p>
+
+<p>1.一般情况下，程序计数器 是行号；但如果正在执行的方法是native方法，则程序计数器的值 undefined。</p>
+
+<p>2.程序计数器 是唯一一个 不会 产生 “内存溢出”的区域。</p>
+</blockquote>
+
+<p>goto的本质就是改变的 程序计数器的值（java中没有goto，goto在java中的保留字(好像是唯一一个)）</p>
+
+<h2 id="虚拟机栈">虚拟机栈</h2>
+
+<p>定义：描述 方法执行的内存模型</p>
+
+<ul>
+<li>方法在执行的同时，会在虚拟机栈中创建一个栈帧</li>
+<li>栈帧中包含：方法的局部变量表（局部变量），操作数据栈（局部变量的值）、动态链接（动态的指向对象）、方法出口信息等</li>
+</ul>
+
+<p>当方法太多时，就可能发生 栈溢出异常StackOverflowError，或者内存溢出异常OutOfMemoryError</p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+    main(new String[]{&quot;abc&quot;,&quot;abc&quot;});
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568887498037.png" alt="1568887498037" /></p>
+
+<h2 id="本地方法栈">本地方法栈</h2>
+
+<p>原理和结构与虚拟机栈一致，不同点： 虚拟机栈中存放的 jdk或我们自己编写的方法，而本地方法栈调用的 操作系统底层的方法。</p>
+
+<h2 id="堆">堆</h2>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568940940376.png" alt="1568940940376" /></p>
+
+<ul>
+<li><p>存放对象实例（数组、对象）</p></li>
+
+<li><p>堆是jvm区域中最大的一块，在jvm启动时就已经创建完毕</p></li>
+
+<li><p>GC主要管理的区域</p></li>
+
+<li><p>堆本身是线程共享，但在堆内部可以划分出多个线程私有的缓冲区</p></li>
+
+<li><p>堆允许物理空间不连续，只要逻辑连续即可</p></li>
+
+<li><p>堆可以分 新生代、老生代 。大小比例，新生代：老生代= 1:2</p></li>
+
+<li><p>新生代中 包含eden、s0、s1 = 8:1:1</p></li>
+
+<li><p>新生代的使用率一般在90%。 在使用时，只能使用 一个eden和一块s区间(s0或s1)</p></li>
+
+<li><p>新生代：存放 1.生命周期比较短的对象  2.小的对象；反之，存放在老生代中。对象的大小，可以通过参数设置 -XX：PretenureSizeThredshold 。一般而言，大对象一般是 集合、数组、字符串。生命周期： -XX:MaxTenuringThredshold</p></li>
+</ul>
+
+<p>新生代、老生代中年龄：MinorGC回收新生代中的对象。如果Eden区中的对象在一次回收后仍然存活，就会被转移到 s区中；之后，如果MinorGC再次回收，已经在s区中的对象仍然存活，则年龄+1。如果年龄增长一定的数字，则对象会被转移到 老生代中。简言之：在新生代中的对象，每经过一次MinorGC，有三种可能：1从eden -》s区   2.（已经在s区中）年龄+1  3.转移到老生代中</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568946567405.png" alt="1568946567405" /></p>
+
+<p>新生代在使用时，只能同时使用一个s区：底层采用的是复制算法，为了避免碎片产生</p>
+
+<p>老生代： 1.生命周期比较长的对象  2.大的对象； 使用的回收器 MajorGC\FullGC</p>
+
+<p>新生代特点：</p>
+
+<ul>
+<li>大部分对象都存在于新生代</li>
+<li>新生代的回收频率高、效率高</li>
+</ul>
+
+<p>老生代特点：</p>
+
+<ul>
+<li>空间大、</li>
+<li>增长速度慢</li>
+<li>频率低</li>
+</ul>
+
+<p>意义：可以根据项目中 对象大小的数量，设置新生代或老生代的空间容量，从提高GC的性能。</p>
+
+<p>如果对象太多，也可能导致内存异常。</p>
+
+<p>虚拟机参数：</p>
+
+<p>-Xms128m ：JVM启动时的大小</p>
+
+<p>-Xmn32m：新生代大小</p>
+
+<p>-Xmx128：总大小</p>
+
+<p>jvm总大小= 新生代 + 老生代</p>
+
+<p>堆内存溢出的示例：java.lang.OutOfMemoryError: Java heap space</p>
+
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+
+public class TestHeap {
+    public static void main(String[] args) {
+
+        List list = new ArrayList() ;
+        while(true){
+            list.add(  new int[1024*1024]) ;
+        }
+
+    }
+}
+
+</code></pre>
+
+<h2 id="方法区">方法区</h2>
+
+<p>存放：类的元数据（描述类的信息）、常量池、方法信息（方法数据、方法代码）</p>
+
+<p>gc：类的元数据（描述类的信息）、常量池</p>
+
+<p>方法区中数据如果太多，也会抛异常OutOfMemory异常</p>
+
+<p>图：方法区与其他区域的调用关系</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1568949355998.png" alt="1568949355998" /></p>
+
+<p>常量池：存放编译期间产生的 字面量(&ldquo;abc&rdquo;)、符号引用</p>
+
+<p>注意： 导致内存溢出的异常OutOfMemoryError，除了虚拟机中的4个区域以外，还可能是直接内存。在NIO技术中会使用到直接内存。</p>
+
+<h2 id="类的使用方式">类的使用方式</h2>
+
+<p>类的初始化：JVM只会在<strong>“首次主动使用”</strong>一个类/接口时，才会初始化它们 。</p>
+
+<h2 id="主动使用">主动使用</h2>
+
+<ol>
+<li><p>new 构造类的使用</p>
+
+<pre><code class="language-java">public class Test1 {
+static{
+    System.out.println(&quot;Test1...&quot;);//静态代码块在类初始化时自动执行
+}
+public static void main(String[] args) {
+    new Test1();//首次主动使用
+    new Test1();
+}
+}
+</code></pre></li>
+</ol>
+
+<p>结果：Test1&hellip;</p>
+
+<ol>
+<li><p>访问类/接口的 静态成员（属性、方法）</p>
+
+<pre><code class="language-java">package init;
+class A{
+static int i  = 10;
+
+static{
+    System.out.println(&quot;A...&quot;);
+}
+
+ static void method(){
+    System.out.println(&quot;A method...&quot;);
+}
+}
+
+public class Test2 {
+public static void main(String[] args) {
+
+//        A.i = 1 ;
+//        A.i = 1 ;
+//        System.out.println(A.i);
+    A.method();
+
+}
+}
+
+</code></pre></li>
+</ol>
+
+<p>注：main()本身也是一个静态方法，也此main()的所在类 也会在执行被初始化</p>
+
+<p>特殊情况：</p>
+
+<ul>
+<li>如果成员变量既是static，又是final ，即常量，则不会被初始化</li>
+
+<li><p>上一种情况中，如果常量的值 是一个随机值，则会被初始化 (为了安全)</p>
+
+<pre><code class="language-java">/*final static 称为常量
+常量的产生的时机：
+时间：编译期间
+地点：JVM方法区中的（调用这个常量的方法所在类的）常量池中
+*/
+class A{
+final static int i=10;
+}
+public class Test{
+//Test中保存了A中产生的常量i=10;
+public static void main(String[] args){
+    System.out.println(A.i);
+}
+    
+}
+
+//Test的字节码文件可以观察到
+public class Test{
+public Tets(){}
+//Test中保存了A中产生的常量i=10;
+public static void main(String[] args){
+    System.out.println(10);
+}
+    
+}
+</code></pre>
+
+<pre><code class="language-java">class Father{
+
+public static int i=10;
+//public static int i=(int)(Math.random()*100);  //结果跟上面一致  原因是没有加 final
+//public final static int i=10;  //结果只有10
+//public final static int i=(int)(Math.random()*100);  //结果:father...  10
+ static {
+    System.out.println(&quot;Father....&quot;);
+}
+}
+class Son{
+//public static int i=100; 字类重写了父类的变量后 就会加载子类    结果：father... Son....  100
+
+ static {
+    System.out.println(&quot;Son....&quot;);
+}
+}
+
+public class Test{
+public static void main(String[] args){
+    System.out.println(Son.i);//i来自于Father
+}
+}
+/*输出结果
+Father....
+10
+*/
+
+</code></pre></li>
+</ul>
+
+<ol>
+<li><p>使用Class.forName(&ldquo;init.B&rdquo;)执行反射时使用的类（B类）</p>
+
+<p>三种反射入口</p>
+
+<ul>
+<li>类.class</li>
+<li>Class.forNam(&ldquo;&rdquo;)</li>
+<li>对象.getClass()</li>
+</ul></li>
+
+<li><p>初始化一个子类时，该子类的父类也会被初始化(双亲委派机制)</p>
+
+<pre><code class="language-java">public class Son extends  Father {
+public static void main(String[] args) {
+    new Son();
+}
+}
+</code></pre></li>
+
+<li><p>动态语言（java7提供）在执行所涉及的类 也会被初始化（动态代理）</p></li>
+</ol>
+
+<h2 id="被动使用">被动使用</h2>
+
+<p>除了主动以外，其他都是被动使用。</p>
+
+<pre><code class="language-java">package init;
+class BD
+{
+    static {
+        System.out.println(&quot;BD...&quot;);
+    }
+}
+
+public class BeiDong {
+    public static void main(String[] args) {
+        BD[] bds = new BD[3];//new的是一个数组
+
+    }
+}
+
+</code></pre>
+
+<p>以上代码，不属于主动使用类，因此不会被初始化。</p>
+
+<h2 id="助记符">助记符</h2>
+
+<p>反编译： cd到class目录中， javap -c class文件名</p>
+
+<p>Test.java  -&gt;     javap -c Test.java</p>
+
+<p>javap反编译的是class文件</p>
+
+<p>应该：xx.java -&gt; xx.class -&gt;javap</p>
+
+<pre><code class="language-java">package com;
+/*
+ *  Created by IntelliJ IDEA.
+ *  User: 木木
+ *  Date: 2020/11/18
+ *  Time: 9:41
+ */
+class T{
+    public static final int i=10;
+    public static final short s=10;
+    public static final long l=10;
+    public static final double d=10;
+    public static final float f=10;
+    public static final byte b=10;
+    public static final boolean bl=true;
+    public static final char c='c';
+    public static final String str=&quot;string&quot;;
+    public static final Test test=new Test();
+    public static final Test[] tests=new Test[3];
+}
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(T.i);
+        System.out.println(T.s);
+        System.out.println(T.l);
+        System.out.println(T.d);
+        System.out.println(T.f);
+        System.out.println(T.b);
+        System.out.println(T.bl);
+        System.out.println(T.c);
+        System.out.println(T.str);
+        System.out.println(T.test);
+        System.out.println(T.tests);
+
+    }
+}
+</code></pre>
+
+<p>反编译后</p>
+
+<pre><code>$ javap -c Test.class
+Compiled from &quot;Test.java&quot;
+public class com.Test {
+  public com.Test();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: bipush        10
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       8: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: bipush        10
+      13: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+      16: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      19: ldc2_w        #5                  // long 10l
+      22: invokevirtual #7                  // Method java/io/PrintStream.println:(J)V
+      25: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      28: ldc2_w        #8                  // double 10.0d
+      31: invokevirtual #10                 // Method java/io/PrintStream.println:(D)V
+      34: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      37: ldc           #11                 // float 10.0f
+      39: invokevirtual #12                 // Method java/io/PrintStream.println:(F)V
+      42: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      45: bipush        10
+      47: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+      50: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      53: iconst_1
+      54: invokevirtual #13                 // Method java/io/PrintStream.println:(Z)V
+      57: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      60: bipush        99
+      62: invokevirtual #14                 // Method java/io/PrintStream.println:(C)V
+      65: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      68: ldc           #15                 // String string
+      70: invokevirtual #16                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      73: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      76: getstatic     #17                 // Field com/T.test:Lcom/Test;
+      79: invokevirtual #18                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      82: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      85: getstatic     #19                 // Field com/T.tests:[Lcom/Test;
+      88: invokevirtual #18                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      91: return
+}
+</code></pre>
+
+<blockquote>
+<p>aload_0: 装载了一个引用类型（ iload 加载了一个整数 lload加载了一个long  第一个数字代表了数据类型；_0：局部变量表第0个位置放的就是它）</p>
+
+<p>Invokespecial:  init,  private  , super.method() :  &lt;init&gt;存放的是初始化代码的位置</p>
+
+<p>getstatic ：获取静态成员</p>
+
+<p>bipush ： 整数范围 -128  &ndash; 127之内  (8位带符号的整数),放到栈顶 （与类型无关无论是int类型还是short类型   在这个范围内的都是使用bipush）</p>
+
+<p>sipush:    &gt;127   (16个带符号的整数),放到栈顶</p>
+
+<p>ldc  : int  float String 常量 ,放到栈顶</p>
+
+<p>ldc2_w :long  double常量,放到栈顶</p>
+</blockquote>
+
+<p>注意：无论是定义int或short 等，只要在 -128 &ndash;127以内 都是bipush，否则是sipush.</p>
+
+<p>注意：特殊：-1  &ndash; 5不是bipush</p>
+
+<blockquote>
+<p>iconst_m1（-1）</p>
+
+<p>iconst_0</p>
+
+<p>iconst_1</p>
+
+<p>iconst_2</p>
+
+<p>iconst_3</p>
+
+<p>iconst_4</p>
+
+<p>iconst_5</p>
+</blockquote>
+
+<h2 id="jvm四种引用级别">JVM四种引用级别</h2>
+
+<p>如果一个对象存在着指向它的引用，那么这个对象就不会被GC回收？  &ndash; 局限性</p>
+
+<pre><code>Object obj = new Object() ; --强引用
+</code></pre>
+
+<p>根据引用的强弱关系： 强引用&gt;软引用&gt;弱引用&gt;虚引用</p>
+
+<h3 id="强引用">强引用</h3>
+
+<pre><code>Object obj = new Object() ;
+</code></pre>
+
+<p>我们在这里约定： 引用代表左边的变量名 obj，引用对象代表右边的new Object()</p>
+
+<p>强引用对象什么时候失效？</p>
+
+<ol>
+<li><p>生命周期结束（作用域失效）</p>
+
+<pre><code class="language-java">public void method(){
+Object obj = new Object() ;
+}
+//当方法执行完毕后，强引用指向的 引用而对象new Object()就会等待被GC回收
+</code></pre></li>
+
+<li><p>引用被置为null，引用对象被GC回收</p>
+
+<pre><code class="language-java">obj = null ;//此时，没有任何引用指向new Object() 因此，new Object() 就会等待被GC回收
+</code></pre></li>
+</ol>
+
+<p>除了以上两个情况以外，其他任何时候GC都不会回收强引用对象(即使内存溢出了)。</p>
+
+<h3 id="软引用">软引用</h3>
+
+<p>根据JVM内存情况： 如果内存充足，GC不会随便的回收软引用对象；如果JVM内存不足，则GC就会主动的回收软引用对象。</p>
+
+<p>各种引用的出处：</p>
+
+<ul>
+<li><p>强引用:new</p></li>
+
+<li><p>软引用 弱引用 虚引用 （最终引用）：Reference</p></li>
+</ul>
+
+<p>软引用：<code>java.lang.ref.SoftReference</code></p>
+
+<p>Reference中有一个get()方法，用于返回 所引用的对象</p>
+
+<pre><code class="language-java">SoftReference&lt;SoftObject&gt; softRef = new SoftReference&lt;&gt;(new SoftObject() );
+</code></pre>
+
+<p>softRef.get()  &ndash;&gt;返回引用所指向的SoftObject对象本身</p>
+
+<pre><code class="language-java">import java.lang.ref.SoftReference;
+import java.util.ArrayList;
+import java.util.List;
+//软引用对象
+class SoftObject{}
+public class SoftReferenceDemo {
+    public static void main(String[] args) throws Exception {
+        //softRef  --&gt;SoftObject  设计模式中的：装饰模式  在io中用的比较多
+        SoftReference&lt;SoftObject&gt; softRef = new SoftReference&lt;&gt;(new SoftObject() );
+        List&lt;byte[]&gt; list = new ArrayList&lt;&gt;();
+        //开启一个线程，监听 是否有软引用已经被回收
+        new Thread(  ()-&gt;{
+            while(true) {
+                System.out.println();//将工作内存中的对象  刷到主内存中---否则变量一直在使用  感知不到对象已经被回收
+                if (softRef.get() == null) //软引用对象
+                {
+                    System.out.println(&quot;软引用对象已被回收..&quot;);
+                    System.exit(0);
+                }
+            }
+        }  ,&quot;线程A&quot; ) .start();     //lambda
+        //不断的往集合中 存放数据，模拟内存不足
+        while(true){
+            //          Thread.sleep(10);
+            if(softRef.get() != null)
+                list.add(new byte[1024*1024]) ;//每次向list中增加1m内容
+        }
+    }
+}
+</code></pre>
+
+<h3 id="弱引用">弱引用</h3>
+
+<p>回收的时机：只要GC执行，就会将弱引用对象进行回收。</p>
+
+<pre><code class="language-java">java.lang.ref.WeakReference&lt;T&gt;
+</code></pre>
+
+<pre><code class="language-java">import java.lang.ref.WeakReference;
+public class WeakReferenceDemo {
+    public static void main(String[] args) throws Exception {
+        WeakReference&lt;Object&gt; weakRef = new WeakReference&lt;&gt;(new Object());
+        //weakRef-&gt;Object
+        System.out.println( weakRef.get()==null   ? &quot;已被回收&quot;:&quot;没被回收&quot;  );
+        System.gc();//建议GC执行一次回收（存在概率   可能不会执行gc）
+        Thread.sleep(100);
+        System.out.println( weakRef.get()==null   ? &quot;已被回收&quot;:&quot;没被回收&quot;  );
+    }
+}
+</code></pre>
+
+<h3 id="虚引用-幻影引用或者幽灵引用">虚引用（幻影引用或者幽灵引用）</h3>
+
+<pre><code class="language-java">java.lang.ref.PhantomReference&lt;T&gt;
+</code></pre>
+
+<p>是否使用虚引用，和引用对象本身 没有任何关系； 无法通过虚引用来获取对象本身.</p>
+
+<pre><code>引用get() -&gt; 引用对象
+
+虚引用get() -&gt; null
+</code></pre>
+
+<p>虚引用不会单独使用，一般会和 引用队列（<code>java.lang.ref.ReferenceQueue</code>）一起使用。</p>
+
+<p>价值： 当gc回收一个对象，如果gc发现 此对象还有一个虚引用，就会将虚引用放入到 引用队列中，之后（当虚引用出队之后）再去回收该对象。因此，我们可以使用 虚引用+引用对象 实现：在对象被gc之前，进行一些额外的其他操作。</p>
+
+<p>GC -&gt;如果有虚引用-&gt;虚引用入队-&gt;虚引用出队-&gt; 回收对象</p>
+
+<pre><code class="language-java">import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+class MyObject {}
+public class PhantomReferenceDemo {
+    public static void main(String[] args) throws Exception {
+        MyObject obj = new MyObject();//强引用
+        //引用队列
+        ReferenceQueue queue = new ReferenceQueue();
+        //虚引用+引用队列
+        PhantomReference&lt;MyObject&gt; phantomRef = new PhantomReference&lt;&gt;(obj, queue);
+        //让gc执行一次回收操作
+        obj = null;//置为null
+        System.gc();//执行gc  会被回收
+        Thread.sleep(30);//确保GC执行
+        System.out.println(&quot;GC执行...&quot;);
+        //GC-&gt; 虚引用-&gt;入队-&gt;出队-&gt;     obj
+        System.out.println(queue.poll());
+    }
+}
+</code></pre>
+
+<p>特殊情况：如果虚引用对象重写了finalize()，那么JVM会延迟 虚引用的入队时间。</p>
+
+<pre><code class="language-java">import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+class MyObject3 {
+    @Override
+    protected void finalize() throws Throwable {
+		System.out.println(&quot;即将被回收之前...&quot;);
+        super.finalize();
+    }
+}
+public class PhantomReferenceDemo2 {
+    public static void main(String[] args) throws Exception {
+        MyObject3 obj = new MyObject3();
+        //引用队列
+        ReferenceQueue queue = new ReferenceQueue();
+
+        //虚引用+引用队列
+        PhantomReference&lt;MyObject3&gt; phantomRef = new PhantomReference&lt;&gt;(obj, queue);
+
+        //让gc执行一次回收操作
+        obj = null;
+
+        System.gc();
+//        Thread.sleep(30);
+        System.out.println(&quot;GC执行...&quot;);
+
+        //GC-&gt; 虚引用-&gt;入队-&gt;出队-&gt;     obj
+        System.out.println(queue.poll());//虚引用并没有入队
+
+        System.gc();
+//        Thread.sleep(30);
+        System.out.println(&quot;GC执行...&quot;);
+
+        //GC-&gt; 虚引用-&gt;入队-&gt;出队-&gt;     obj
+        System.out.println(queue.poll());//虚引用延迟到了第二次gc时入队
+
+        System.gc();
+//        Thread.sleep(30);
+        System.out.println(&quot;GC执行...&quot;);
+
+        //GC-&gt; 虚引用-&gt;入队-&gt;出队-&gt;     obj
+        System.out.println(queue.poll());
+
+        System.gc();
+        Thread.sleep(30);
+        System.out.println(&quot;GC执行...&quot;);
+
+        //GC-&gt; 虚引用-&gt;入队-&gt;出队-&gt;     obj
+        System.out.println(queue.poll());
+    }
+}
+</code></pre>
+
+<pre><code>final class Finalizer extends FinalReference：最终引用
+</code></pre>
+
+<p>C++ ：构造方法()  -&gt; 析构函数()，在java中存在Finalizer  可以帮我们自动的回收一些不需要的对象，因此不需要写析构函数。</p>
+
+<p>jvm能够直接操作的是：非直接内存</p>
+
+<p>直接内存：native （操作系统中的内存，而不是jvm内存）</p>
+
+<p>jvm不能操作 直接内存（非jvm操作的内容）时，而恰好 此区域的内容 又忘了关闭，此时Finalizer就会将这些内存进行回收。</p>
+
+<h3 id="使用软引用实现缓存的淘汰策略">使用软引用实现缓存的淘汰策略</h3>
+
+<p>java -&gt;缓存( 90% -&gt;60%)  -&gt;   db(iphone)</p>
+
+<p><strong>LRU</strong></p>
+
+<p>一般的淘汰策略：</p>
+
+<p>根据容量/缓存个数 + LRU 进行淘汰。</p>
+
+<p>在java中 还可以用引用实现 淘汰策略。</p>
+
+<pre><code>MyObject obj = new MyObject();//强引用，不会被GC回收
+
+map.put( id   ,   obj ) ;
+
+Map.put(id,  软引用(obj) )；//当jvm内存不足时，会主动回收。
+</code></pre>
+
+<pre><code class="language-java">import java.lang.ref.SoftReference;
+import java.util.HashMap;
+import java.util.Map;
+class MyObject10{}
+public class SoftDemo {
+
+    //map: key:id  ,value:对象的软引用  （拿对象： 对象的软引用 .get() ）
+    Map&lt;String, SoftReference&lt;MyObject10&gt;&gt; caches = new HashMap&lt;&gt;();
+    //java -&gt; caches -&gt; db
+    //set: db-&gt;caches
+    //get: java-&gt;cache
+    void setCaches(String id,MyObject10 obj){
+        caches.put( id,   new SoftReference&lt;MyObject10&gt;(obj) );
+    }
+    MyObject10 getCache(String id){
+        SoftReference&lt;MyObject10&gt; softRef = caches.get(id) ;
+       return  softRef == null ?  null : softRef.get()  ;
+    }
+    //优势：当jvm内存不足时，gc会自动回收软引用。因此本程序 无需考虑 OOM问题。
+}
+</code></pre>
+
+<h2 id="双亲委派">双亲委派</h2>
+
+<p>前置：类的加载</p>
+
+<pre><code class="language-java">class MyClass{
+    static int num1 = 100 ;
+    static int num2 = 100 ;
+    static MyClass myClass = new MyClass();
+    public MyClass(){
+        num1 = 200 ;
+        num2 = 200 ;
+    }
+
+    public static MyClass getMyClass(){
+        return myClass ;
+    }
+    @Override
+    public String toString() {
+        return this.num1 + &quot;\t&quot; + this.num2 ;
+    }
+}
+public class MyClassLoader {
+    public static void main(String[] args) {
+        MyClass myc =  MyClass.getMyClass() ;
+        System.out.println(myc);
+    }
+}
+/**
+结果200 200
+**/
+</code></pre>
+
+<pre><code class="language-java">class MyClass{
+    static int num1 = 100 ;
+    static MyClass myClass = new MyClass();
+    public MyClass(){
+        num1 = 200 ;
+        num2 = 200 ;
+    }
+    static int num2 = 100 ;
+
+    public static MyClass getMyClass(){
+        return myClass ;
+    }
+    @Override
+    public String toString() {
+        return this.num1 + &quot;\t&quot; + this.num2 ;
+    }
+}
+public class MyClassLoader {
+    public static void main(String[] args) {
+        MyClass myc =  MyClass.getMyClass() ;
+        System.out.println(myc);
+    }
+}
+/**
+结果200 
+100
+*/
+</code></pre>
+
+<p>分析</p>
+
+<pre><code class="language-java">    static int num1 = 100 ;     【 0 】-&gt; 【100】-&gt;【200】
+        
+    static MyClass myClass = new MyClass();【null】 -&gt;【引用地址0x112231】
+    public MyClass(){
+        num1 = 200 ;
+        num2 = 200 ;
+    }
+    static int num2 = 100 ;  【0】-&gt;【200】-&gt;【100】
+
+连接：static静态变量并赋默认值
+
+初始化：给static变量 赋予正确的值
+</code></pre>
+
+<p>总结：在类中 给静态变量的初始化值问题，一定要注意顺序问题（静态变量 和构造方法的顺序问题）</p>
+
+<p>双亲委派： JVM自带的加载器（在JVM的内部所包含，C++）、用户自定义的加载器（独立于JVM之外的加载器,Java）</p>
+
+<ul>
+<li><p>JVM自带的加载器</p>
+
+<ul>
+<li>根加载器,Bootstrap   : 加载 <code>jre\lib\rt.jar</code> （包含了平时编写代码时 大部分jdk api）；指定加载某一个jar（ -Xbootclasspath=a.jar）</li>
+<li>扩展类加载器，Extension：<code>C:\Java\jdk1.8.0_101\jre\lib\ext\*.jar</code> ;指定加载某一个jar(-Djava.ext.dirs= &hellip;.)</li>
+<li>AppClassLoader/SystemClassLoader，系统加载器（应用加载器）：加载classpath；指定加载（-Djava.class.path= 类/jar）</li>
+</ul></li>
+
+<li><p>用户自定义的加载器</p>
+
+<ul>
+<li>都是抽象类<code>java.lang.ClassLoader</code>的子类
+
+<br /></li>
+</ul></li>
+</ul>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1571541215432.png" alt="1571541215432" /></p>
+
+<p>双亲委派：当一个加载器要加载类的时候，自己先不加载，而是逐层向上交由双亲去加载；当双亲中的某一个加载器 加载成功后，再向下返回成功。如果所有的双亲和自己都无法加载，则报异常。</p>
+
+<pre><code class="language-java">
+//classpath: .; ..lib，其中“.”代表当前（自己写的类）
+class MyClass2{
+}
+public class TestParentsClassLoader {
+    public static void main(String[] args) throws Exception {
+       Class myClass1 =  Class.forName(&quot;java.lang.Math&quot;) ;
+        ClassLoader classLoader1 = myClass1.getClassLoader();
+        System.out.println(classLoader1);//结果为null  使用的是bootstrap class loader
+        /* JDK中的官方说明：
+            Some implementations may use null to represent the bootstrap class loader
+         */
+       Class myClass2 =  Class.forName(&quot;com.mumu.parents.MyClass2&quot;) ;
+        ClassLoader classLoader2 = myClass2.getClassLoader();
+        System.out.println(classLoader2);
+    }
+}
+</code></pre>
+
+<p>输出结果</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1571542429810.png" alt="1571542429810" /></p>
+
+<p><strong>null: bootstrap class loader</strong></p>
+
+<p>小结：如果类是 rt.jar中的，则该类是被 bootstrap（根加载器）加载；如果是classpath中的类（自己编写的类），则该类是被AppClassLoader加载。</p>
+
+<p><strong>定义类加载</strong>：最终实际加载类的 加载器</p>
+
+<p><strong>初始化类加载类</strong>：直接面对加载任务的类</p>
+
+<pre><code class="language-java">import java.net.URL;
+import java.util.Enumeration;
+class MyCL{}
+public class JVMParentsCL {
+    public static void main(String[] args) throws Exception {
+        Class&lt;?&gt; myCL = Class.forName(&quot;com.mumu.parents.MyCL&quot;);
+        ClassLoader classLoader = myCL.getClassLoader();
+        System.out.println(classLoader);
+        System.out.println(&quot;---&quot;);
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        System.out.println(systemClassLoader);
+
+        ClassLoader parent1 = systemClassLoader.getParent();
+        System.out.println(parent1);
+        ClassLoader parent2 = parent1.getParent();
+        System.out.println(parent2);
+        System.out.println(&quot;----&quot;);
+        
+        ClassLoader appClassLoader = ClassLoader.getSystemClassLoader();
+        Enumeration&lt;URL&gt; resources = appClassLoader.getResources(&quot;com/mumu/parents/MyCL.class&quot;);// a/b/c.txt
+        while(resources.hasMoreElements()){
+            URL url = resources.nextElement();
+            System.out.println(url);
+        }
+    }
+}
+</code></pre>
+
+<p>输出结果</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1571556896861.png" alt="1571556896861" /></p>
+
+<h3 id="自定义类的加载器">自定义类的加载器</h3>
+
+<p>二进制名binary names:</p>
+
+<pre><code>   &quot;java.lang.String&quot;
+   &quot;javax.swing.JSpinner$DefaultEditor&quot;
+   &quot;java.security.KeyStore$Builder$FileBuilder$1&quot;
+   &quot;java.net.URLClassLoader$3$1&quot;
+</code></pre>
+
+<blockquote>
+<p>$代表内部类：</p>
+
+<p>$数字：第几个匿名内部类</p>
+</blockquote>
+
+<pre><code>The class loader for an array class, as returned by {@link* Class#getClassLoader()} is the same as the class loader for its element* type; if the element type is a primitive type, then the array class has no* class loader.
+</code></pre>
+
+<pre><code class="language-java">class JvmClass{}
+public class JVMClassLoader {
+    public static void main(Math[] args) {
+        Object[] objs = new Object[10] ;
+        System.out.println(&quot; 数组的类加载器：&quot;+  objs.getClass().getClassLoader() );
+        Object obj = new Object();
+        System.out.println(&quot;数组元素的类加载器：&quot;+ obj.getClass().getClassLoader());
+        JvmClass[] cls = new JvmClass[10] ;
+        JvmClass cl = new JvmClass() ;
+        System.out.println(cls.getClass().getClassLoader());
+        System.out.println(cl.getClass().getClassLoader());
+
+        System.out.println(&quot;---&quot;);
+        int[] nums = new int[10] ;
+        System.out.println(nums.getClass().getClassLoader());
+        System.out.println( int.class.getClassLoader());
+    }
+}
+</code></pre>
+
+<ol>
+<li><p>数组的加载器类型  和数组元素的加载器类型 是相同</p></li>
+
+<li><p>原生类型的数组 是没有类加载器的</p></li>
+</ol>
+
+<p>如果加载的结果是null：  可能是此类没有加载器(int[]) ， 也可能是 加载类型是“根加载器”</p>
+
+<pre><code>&lt;p&gt; However, some classes may not originate from a file; they may originate* from other sources, such as the network, or they could be constructed by an* application.  The method {@link #defineClass(String, byte[], int, int)* &lt;tt&gt;defineClass&lt;/tt&gt;} converts an array of bytes into an instance of class* &lt;tt&gt;Class&lt;/tt&gt;. Instances of this newly defined class can be created using* {@link Class#newInstance &lt;tt&gt;Class.newInstance&lt;/tt&gt;}.
+</code></pre>
+
+<p>xxx.class文件可能是在本地存在，也可能是来自于网络 或者在运行时动态产生(jsp)</p>
+
+<pre><code class="language-java">&lt;p&gt; The network class loader subclass must define the methods {@link
+ * #findClass &lt;tt&gt;findClass&lt;/tt&gt;} and &lt;tt&gt;loadClassData&lt;/tt&gt; to load a class
+ * from the network.  Once it has downloaded the bytes that make up the class,
+ * it should use the method {@link #defineClass &lt;tt&gt;defineClass&lt;/tt&gt;} to
+ * create a class instance.  A sample implementation is:
+ *
+ * &lt;blockquote&gt;&lt;pre&gt;
+ *     class NetworkClassLoader extends ClassLoader {
+ *         String host;
+ *         int port;
+ *
+ *         public Class findClass(String name) {
+ *             byte[] b = loadClassData(name);
+ *             return defineClass(name, b, 0, b.length);
+ *         }
+ *
+ *         private byte[] loadClassData(String name) {
+ *             // load the class data from the connection
+ *             &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+ *         }
+ *     }
+</code></pre>
+
+<p>如果class文件来自原Network，则加载器中必须重写findClas()和loadClassData().</p>
+
+<p><strong>自定义类加载器的实现</strong></p>
+
+<p>重写findClas()和loadClassData()</p>
+
+<pre><code class="language-java">import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+//public class MyException extends Exception{...}
+public class MyClassLoaderImpl  extends ClassLoader{
+        //优先使用的类加载器是：getSystemClassLoader()
+        public MyClassLoaderImpl(){
+            super();
+        }
+        public MyClassLoaderImpl(ClassLoader parent){//扩展类加载器
+            super(parent);
+        }
+        //com.mumu.xx.class
+        public Class findClass(String name) {
+            System.out.println(name);
+              byte[] b = loadClassData(name);
+              return defineClass(name, b, 0, b.length);
+          }
+          //“com/mumu/xxx.class” -&gt;  byte[]
+          private byte[] loadClassData(String name)  {
+
+              name =  dotToSplit(&quot;out.production.MyJVM.&quot;+name)+&quot;.class&quot; ;
+              byte[] result = null ;
+              FileInputStream inputStream = null ;
+              ByteArrayOutputStream output = null ;
+              try {
+                 inputStream = new FileInputStream( new File(  name)  );
+                //inputStream -&gt; byte[]
+                 output = new ByteArrayOutputStream();
+
+                byte[] buf = new byte[2];
+                int len = -1;
+                while ((len = inputStream.read(buf)) != -1) {
+                    output.write(buf, 0, len);
+                }
+                result = output.toByteArray();
+            }catch (Exception e){
+                    e.printStackTrace(); ;
+            }finally {
+                  try {
+                      if(inputStream != null )inputStream.close();
+                      if(output != null ) output.close();
+                  }catch (Exception e){
+                      e.printStackTrace();
+                  }
+            }
+            return result ;
+          }
+    public static void main(String[] args) throws Exception{
+            //自定义加载器的对象
+        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl();//默认在双亲委派时，会根据正规流程：系统——》扩展-&gt;根
+//        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl();//直接指定某个 具体的的委派
+        Class&lt;?&gt; aClass = myClassLoader.loadClass(&quot;com.mumu.parents.MyDefineCL&quot;);
+        System.out.println(aClass.getClassLoader());
+
+        MyDefineCL myDefineCL =  (MyDefineCL)(aClass.newInstance() );
+        myDefineCL.say();
+    }
+    public static String dotToSplit(String clssName){
+        return clssName.replace(&quot;.&quot;,&quot;/&quot;) ;
+    }
+}
+class MyDefineCL{
+    public void say(){
+        System.out.println(&quot;Say...&quot;);
+    }
+}
+</code></pre>
+
+<p>实现流程：</p>
+
+<ol>
+<li><p><code>public class MyClassLoaderImpl  extends ClassLoader</code></p></li>
+
+<li><p><code>findClass(String name){...}</code> ：直接复制文档中的NetworkClassLoader中的即可</p></li>
+
+<li><p><code>loadClassData(String name){...}</code> ：name所代表的文件内容-&gt;byte[]</p></li>
+
+<li><p>细节：</p>
+
+<p><code>loadClassData(String name)</code>： 是文件形式的字符串a/b/c.class，并且开头out.production..</p>
+
+<p><code>findClass(String name)</code>:是全类名的形式  a.b.c.class，并且开头 是： 包名.类名.class</p></li>
+</ol>
+
+<p><strong>操作思路：</strong></p>
+
+<p>要先将 .class文件从classpath中删除，之后才可能用到 自定义类加载器；否在classpath中的.class会被 APPClassLoader加载</p>
+
+<pre><code class="language-java">import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+//public class MyException extends Exception{...}
+public class MyClassLoaderImpl  extends ClassLoader{
+    private String path ; //null
+        //优先使用的类加载器是：getSystemClassLoader()
+        public MyClassLoaderImpl(){
+            super();
+        }
+        public MyClassLoaderImpl(ClassLoader parent){//扩展类加载器
+            super(parent);
+        }
+        //com.mumu.xx.class
+        public Class findClass(String name) {
+            System.out.println(&quot;findClass...&quot;);
+              byte[] b = loadClassData(name);
+              return defineClass(name, b, 0, b.length);
+          }
+          //“com/mumu/xxx.class” -&gt;  byte[]
+          private byte[] loadClassData(String name)  {
+              System.out.println(&quot;加载loadClassData...&quot;);
+              if(path != null){//name: com.yanqun.parents.MyDefineCL
+                  name = path+ name.substring(  name.lastIndexOf(&quot;.&quot;)+1  )+&quot;.class&quot; ;
+              }else{
+                  //classpath -&gt;APPClassLoader
+                  name =  dotToSplit(&quot;out.production.MyJVM.&quot;+name)+&quot;.class&quot; ;
+              }
+              byte[] result = null ;
+              FileInputStream inputStream = null ;
+              ByteArrayOutputStream output = null ;
+              try {
+                 inputStream = new FileInputStream( new File(  name)  );
+                //inputStream -&gt; byte[]
+                 output = new ByteArrayOutputStream();
+                byte[] buf = new byte[2];
+                int len = -1;
+                while ((len = inputStream.read(buf)) != -1) {
+                    output.write(buf, 0, len);
+                }
+                result = output.toByteArray();
+            }catch (Exception e){
+                    e.printStackTrace(); ;
+            }finally {
+                  try {
+                      if(inputStream != null )inputStream.close();
+                      if(output != null ) output.close();
+                  }catch (Exception e){
+                      e.printStackTrace();
+                  }
+            }
+            return result ;
+          }
+    public static void main(String[] args) throws Exception {
+        System.out.println(&quot;main...&quot;);
+        //自定义加载器的对象
+        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl();//默认在双亲委派时，会根据正规流程：系统——》扩展-&gt;根
+        myClassLoader.path = &quot;d:/&quot; ;
+        //MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl();//直接指定某个 具体的的委派
+        Class&lt;?&gt; aClass = myClassLoader.loadClass(&quot;com.mumu.parents.MyDefineCL&quot;);
+        System.out.println(aClass.getClassLoader());
+//        MyDefineCL myDefineCL = (MyDefineCL)( aClass.newInstance()) ;
+    }
+    public static String dotToSplit(String clssName){  return clssName.replace(&quot;.&quot;,&quot;/&quot;) ;  }
+}
+class MyDefineCL{
+    public void say(){
+        System.out.println(&quot;Say...&quot;);
+    }
+}
+</code></pre>
+
+<p>代码流程：</p>
+
+<pre><code>loadClass() -&gt;findClass()-&gt;loadClassData()
+</code></pre>
+
+<p>一般而言，启动类加载loadClass()；</p>
+
+<p><strong>实现自定义加载器，只需要：</strong></p>
+
+<ol>
+<li><p>继承ClassLoader</p></li>
+
+<li><p>重写的 findClass()（loadClassData方法完全可以写在findClass方法中）</p></li>
+</ol>
+
+<p>情况一：用APPClassLoader</p>
+
+<p>加载classpath中的MyDefineCL.class文件两次：</p>
+
+<pre><code>class的hash码   文件只加载一次
+1163157884
+1163157884
+</code></pre>
+
+<p>情况二：</p>
+
+<p>去d盘中的MyDefineCL.class文件：</p>
+
+<p>356573597</p>
+
+<p>说明，<strong>类加载器 只会把同一个类 加载一次</strong>； 同一个class文件  加载后的位置</p>
+
+<p><strong>结论：</strong></p>
+
+<p>自定义加载器 加载.class文件的流程：</p>
+
+<p>先委托APPClassLoader加载，APPClassLoader会在classpath中寻找是否存在，如果存在 则直接加载；如果不存在，才有可能（app继续向上委托）交给 自定义加载器加载。</p>
+
+<pre><code class="language-java">import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+//public class MyException extends Exception{...}
+public class MyClassLoaderImpl  extends ClassLoader{
+    private String path ; //null
+        //优先使用的类加载器是：getSystemClassLoader()
+        public MyClassLoaderImpl(){
+            super();
+        }
+        public MyClassLoaderImpl(ClassLoader parent){//扩展类加载器
+            super(parent);
+        }
+        //com.mumu.xx.class
+        public Class findClass(String name) {
+//            System.out.println(&quot;findClass...&quot;);
+              byte[] b = loadClassData(name);
+              return defineClass(name, b, 0, b.length);
+          }
+
+          //“com/mumu/xxx.class” -&gt;  byte[]
+          private byte[] loadClassData(String name)  {
+//              System.out.println(&quot;加载loadClassData...&quot;);
+              if(path != null){//name: com.mumu.parents.MyDefineCL
+//                  System.out.println(&quot;去D盘加载;;&quot;);
+                  name = path+ name.substring(  name.lastIndexOf(&quot;.&quot;)+1  )+&quot;.class&quot; ;
+              }
+
+              byte[] result = null ;
+              FileInputStream inputStream = null ;
+              ByteArrayOutputStream output = null ;
+              try {
+                 inputStream = new FileInputStream( new File(  name)  );
+                //inputStream -&gt; byte[]
+                 output = new ByteArrayOutputStream();
+
+                byte[] buf = new byte[2];
+                int len = -1;
+                while ((len = inputStream.read(buf)) != -1) {
+                    output.write(buf, 0, len);
+                }
+                result = output.toByteArray();
+            }catch (Exception e){
+                    e.printStackTrace(); ;
+            }finally {
+                  try {
+                      if(inputStream != null )inputStream.close();
+                      if(output != null ) output.close();
+                  }catch (Exception e){
+                      e.printStackTrace();
+                  }
+            }
+            return result ;
+          }
+    public static void main(String[] args) throws Exception {
+//        System.out.println(&quot;main...&quot;);
+        //自定义加载器的对象
+//        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl();//默认在双亲委派时，会根据正规流程：系统——》扩展-&gt;根
+//        myClassLoader.path = &quot;d:/&quot; ;
+//        Class&lt;?&gt; aClass = myClassLoader.loadClass(&quot;com.mumu.parents.MyDefineCL&quot;);
+//        System.out.println(aClass.hashCode());
+        MyClassLoaderImpl myClassLoader2 = new MyClassLoaderImpl();//默认在双亲委派时，会根据正规流程：系统——》扩展-&gt;根
+        Class&lt;?&gt; aClass2 = myClassLoader2.loadClass(&quot;com.mumu.parents.MyDefineCL&quot;);
+        System.out.println(aClass2.hashCode());
+//        System.out.println(aClass.getClassLoader());
+//        MyDefineCL myDefineCL = (MyDefineCL)( aClass.newInstance()) ;
+    }
+    public static String dotToSplit(String clssName){  return clssName.replace(&quot;.&quot;,&quot;/&quot;) ;  }
+}
+class MyDefineCL{
+    public void say(){
+        System.out.println(&quot;Say...&quot;);
+    }
+}
+</code></pre>
+
+<p>通过以下源码可知，在双亲委派体系中，“下面”的加载器 是通过parent引用 “上面”的加载器。即在双亲委派体系中，<strong>各个加载器之间不是继承关系</strong>。</p>
+
+<p>是一个引用组合的关系</p>
+
+<pre><code class="language-java">public abstract class ClassLoader {
+    private static native void registerNatives();
+    static {
+        registerNatives();
+    }
+    // The parent class loader for delegation
+    // Note: VM hardcoded the offset of this field, thus all new fields
+    // must be added *after* it.
+    private final ClassLoader parent;
+</code></pre>
+
+<p>ClassLoader源码解读</p>
+
+<pre><code class="language-java">    protected Class&lt;?&gt; loadClass(String name, boolean resolve)
+        throws ClassNotFoundException
+    {
+        synchronized (getClassLoadingLock(name)) {
+            // First, check if the class has already been loaded
+            Class&lt;?&gt; c = findLoadedClass(name);
+            if (c == null) {
+                long t0 = System.nanoTime();
+                try {
+                   //如果“父类”不为空，则委托“父类”加载
+                    if (parent != null) {
+                        c = parent.loadClass(name, false);
+                    } else {
+                        //如果“父类”为空，说明是双亲委派的顶层了，就调用顶层的加载器（BootstrapClassLoader）
+                        c = findBootstrapClassOrNull(name);
+                    }
+                } catch (ClassNotFoundException e) {
+                    // ClassNotFoundException thrown if class not found
+                    // from the non-null parent class loader
+                }
+				//如果“父类”加载失败，则只能自己加载（自定义加载器中的findClass()方法）
+                if (c == null) {
+                    // If still not found, then invoke findClass in order
+                    // to find the class.
+                    long t1 = System.nanoTime();
+                    c = findClass(name);
+
+                    // this is the defining class loader; record the stats
+                    sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);
+                    sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
+                    sun.misc.PerfCounter.getFindClasses().increment();
+                }
+            }
+            if (resolve) {
+                resolveClass(c);
+            }
+            return c;
+        }
+    }
+</code></pre>
+
+<p>双亲委派机制优势： 可以防止用户自定义的类 和 rt.jar中的类重名，而造成的混乱</p>
+
+<p>自定义一个java.lang.Math(和jdk中rt.jar中的类重名)</p>
+
+<pre><code class="language-java">package java.lang;
+
+public class Math {
+    public static void main(String[] args) {
+        System.out.println(&quot;hello Math...&quot;);
+    }
+}
+
+</code></pre>
+
+<p>运行结果：</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1571816579201.png" alt="1571816579201" /></p>
+
+<p>原因：根据双亲委派， 越上层的加载器越优先执行。最顶层的加载器是 根加载器，根加载器就会加载rt.jar中的类。因此rt.jar中的Math会被优先加载。 即程序最终加载的是不是我们自己写的Math，而是jdk/rt.jar中 内置的Math;而内置的Math根本没有提供main()方法，因此报 无法找到main()。</p>
+
+<p>实验：将相关联的类A.class和B.class分别用 不同的类加载器加载</p>
+
+<p><strong>A和B是继承关系</strong></p>
+
+<pre><code class="language-java">public class B{
+    public B(){
+        System.out.println(&quot;B被加载了，加载器是： &quot;+ this.getClass().getClassLoader());//对象使用之前，必然先把此对象对应的类加载
+    }
+}
+
+public class A extends  B
+{
+    public A(){
+        super();//默认会直接调用父类的构造方法
+        System.out.println(&quot;A被加载了，加载器是： &quot;+ this.getClass().getClassLoader());//对象使用之前，必然先把此对象对应的类加载
+    }
+}
+//AppClassLoader.class : TestMyClassLoader2
+//自定义加载器: A.class/B.class
+public class TestMyClassLoader2 {
+    public static void main(String[] args) throws Exception{
+        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl() ;
+        //自定义加载路径
+        myClassLoader.path = &quot;d:/&quot; ;
+        Class&lt;?&gt; aClass = myClassLoader.loadClass(&quot;com.mumu.parents.A&quot;);
+        Object aObject = aClass.newInstance();//newInstance()会调用 该类的构造方法(new 构造方法())
+        System.out.println(aObject);
+    }
+}
+
+</code></pre>
+
+<p><strong>A和B不是继承关系</strong></p>
+
+<pre><code class="language-java">public class Y {
+    public Y(){
+        System.out.println(&quot;Y被加载了，加载器是： &quot;+ this.getClass().getClassLoader());//对象使用之前，必然先把此对象对应的类加载
+    }
+}
+public class X {
+    public X(){
+        new Y() ;//加载Y（系统加载器）
+        System.out.println(&quot;X被加载了，加载器是： &quot;+ this.getClass().getClassLoader());//对象使用之前，必然先把此对象对应的类加载
+    }
+}
+
+//AppClassLoader.class : TestMyClassLoader2
+//自定义加载器: A.class/B.class
+public class TestMyClassLoader3 {
+    public static void main(String[] args) throws Exception{
+        MyClassLoaderImpl myClassLoader = new MyClassLoaderImpl() ;
+        //自定义加载路径
+        myClassLoader.path = &quot;d:/&quot; ;
+        //程序第一次加载时（X），使用的是  自定义加载器
+        Class&lt;?&gt; aClass = myClassLoader.loadClass(&quot;com.yanqun.parents.X&quot;);
+
+
+
+        Object aObject = aClass.newInstance();//newInstance()会调用 该类的构造方法(new 构造方法())
+        System.out.println(aObject);
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">存在继承关系
+
+A.class:  classpath
+B.class:   classpath
+原因
+同一个AppClassLoader 会同时加载A.class和B.class
+
+--
+A.class:   d:\
+B.class:   classpath
+原因
+A.class：自定义加载器加载
+B.class：被AppClassLoader加载
+因此，加载A.class和B.class的不是同一个加载器
+IllegalAccess
+    
+---
+A.class:    classpath
+B.class:    d:\	
+NoClassDefFoundError
+原因:
+A.class: 被AppClassLoader加载  
+B.class: 自定义加载器加载
+因此，加载A.class和B.class的不是同一个加载器
+
+--
+A.class	d:\
+B.class d:\
+TestMyClassLoader2 can not access a member of class com.mumu.parents.A with modifiers &quot;public&quot;
+A.class/B.class: 自定义加载器加载
+原因是 main()方法所在类在 工程中（APPClassLoader），而A和B不在工程中（自定义加载器）。
+
+造成这些异常的核心原因： 命名空间（不是由同一个类加载器所加载）
+
+----
+没有继承关系
+
+X.class:  D:		自定义加载器
+Y.class:  classpath	系统加载器
+
+Y被加载了，加载器是： sun.misc.Launcher$AppClassLoader@18b4aac2
+X被加载了，加载器是： com.yanqun.parents.MyClassLoaderImpl@74a14482
+
+
+---
+
+X.class:  classpath  系统加载器
+Y.class:  D:	    自定义加载器
+
+java.lang.NoClassDefFoundError: com/yanqun/parents/Y
+
+--
+
+</code></pre>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1571824096839.png" alt="1571824096839" /></p>
+
+<p>如果存在继承关系： 继承的双方（父类、子类）都必须是同一个加载器，否则出错；</p>
+
+<p>如果不存在继承关系： 子类加载器可以访问父类加载器加载的类（自定义加载器，可以访问到 系统加载器加载的Y类）；反之不行（父类加载器 不能访问子类加载器）</p>
+
+<p><strong>核心： 双亲委派</strong></p>
+
+<p>如果都在同一个加载器 ，则不存在加载问题； 如果不是同一个，就需要双亲委派。</p>
+
+<p>如果想实现各个加载器之间的自定义依赖，可以使用<strong>ogsi</strong>规范</p>
+
+<p><img src="/resources/技术收录/Java/JVM知识整理/1572660850713.png" alt="1572660850713" /></p>
+
+<p>OSGi：</p>
+
+<p>1.网状结构的加载结构</p>
+
+<p>2.屏蔽掉硬件的异构性。例如，可以将项目部署在网络上，可以在A节点上 远程操作B节点。在操作上，可以对硬件无感。也可以在A节点上 对B节点上的项目进行运维、部署，并且立项情况下  在维护的期间，不需要暂时、重启。</p>
+
+<h3 id="类的卸载">类的卸载</h3>
+
+<p>1.系统自带（系统加载器、扩展加载器、根加载器）：这些加载器加载的类  是不会被卸载。</p>
+
+<p>2.用户自定义的加载器，会被GC卸载</p>
+
+<pre><code class="language-java">import sun.misc.GC;
+class Z{}
+/*
+    vm参数：
+        -XX:+TraceClassLoading
+        -XX:+TraceClassUnloading
+ */
+public class TestMyClassLoaderUnloading  {
+    public static void main(String[] args) throws Exception{
+        MyClassLoaderImpl classLoader = new MyClassLoaderImpl() ;
+        classLoader.path = &quot;D:/&quot; ;
+        Class&lt;?&gt; myClass = classLoader.loadClass(&quot;com.yanqun.parents.Z&quot;);//确保自己的类加载器被使用   要加载的类不再classpath中
+        System.out.println(&quot;11111111111&quot;);
+        classLoader = null ;
+        myClass = null ;
+        System.gc();
+    }
+}
+</code></pre>
+
+<h2 id="jvm监测工具">JVM监测工具</h2>
+
+<blockquote>
+<p>jps: 查看Java进程 （java命令）</p>
+
+<p>jstat:只能查看当前时刻的内存情况；可以查看到 新生代、老年代中的内存使用情况</p>
+
+<p>jmap：查看堆内存的占用情况；也可以执行dump操作</p>
+
+<p>jconsole:图形的监控界面</p>
+
+<p>​ 例如：如果通过jconsole中的&rdquo;执行gc&rdquo;按钮发现 GC回收的内存太少，就说明当前进程是存在问题的（至少是可以被优化的）</p>
+
+<p>jvisualvm:  监视 - 堆Dump -查找最大对象，从中可以发现 当前进程中是哪个对象 占据了最大的内存，从而对这个对象进行分析。</p>
+</blockquote>
+
+<p>通过VM参数实现： 当内存溢出时，自动将溢出时刻的内存dump下来。</p>
+
+<pre><code>-Xmx100m
+-Xms100m
+-XX:+HeapDumpOnOutOfMemoryError
+</code></pre>
+
+<h2 id="gc调优">GC调优</h2>
+
+<p>Java开发者为什么不把所有的参数调到最优？非得让我们手工去调？</p>
+
+<p>取舍。</p>
+
+<p>调优实际是是一种取舍，以xx换xx的策略。因此在调优之前，必须明确方向：低延迟？高吞吐量呢？</p>
+
+<p>有两种情况需要考虑：</p>
+
+<p>1.在已知条件相同的前提下， 牺牲低延迟 来换取 高吞吐量，或者反之。</p>
+
+<p>2.随着软件硬件技术的发展，可能 二者都升高。</p>
+
+<p>GC的发展：</p>
+
+<p>JVM自身在GC上进行了很多次的改进升级：</p>
+
+<p>JVM默认的GC:  CMS GC（在jdk9以后被逐步废弃） -&gt; G1 GC(jdk9) -&gt; Z GC(jdk11)</p>
+
+<ul>
+<li><p>Serial GC:</p>
+
+<p>串行GC，是一种在单核环境下的串行回收器。当GC回收的时刻，其他线程必须等待。一般不会使用。</p></li>
+
+<li><p>Parallel GC：</p>
+
+<p>在Serial 的基础上，使用 了多线程技术。 提高吞吐量。</p></li>
+
+<li><p>CMS GC</p>
+
+<p>CMS使用了多线程技术，使用“标记-清除”算法，可以极大提升效率 （尤其在低延迟上有很大的提升）。繁琐，参数太多，对开发者的经验要求太高。</p></li>
+
+<li><p>G1 GC</p>
+
+<p>jdk9开始使用的默认GC。特点：将堆内存划分为很多大小相等region，并会对这些区域的使用状态进行标记。以便GC在回收时，能够快速的定位出哪些region是空闲的，哪些是有垃圾对象，从而提升GC的效率。G1使用的算法是“标记-整理”算法。</p></li>
+
+<li><p>Z GC</p>
+
+<p>jdk11开始提供全新的GC。回收TB级别的垃圾 在毫秒范围。</p></li>
+</ul>
+
+<p>如果从生命周期角度划分，GC也可以划分成：Minor GC，和Full GC</p>
+
+<ul>
+<li>Minor GC：回收新生代中的对象</li>
+<li>Full  GC：回收整个堆空间（新生代、老年代）</li>
+</ul>
+
+<p>案例：</p>
+
+<p>如果通过监测工具发现： Minor GC和Full GC都在频繁的回收，如何优化？</p>
+
+<p>Minor GC为什么会频繁执行？因为 新生代中的对象太多了  Minor GC-&gt;短生命周期的对象太多了-&gt;造成逃逸到老年代中的对象越多-&gt;  新生代多+老年代多-&gt;Full GC</p>
+
+<p>Minor GC:可以尝试调大 新生代的最大空间</p>
+
+<p>再调大 新生代晋升到老年代的阈值，从而降低  短生命周期的对象 从新生代转移到老年代的概率。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" title="JVM知识整理" target="_blank" rel="external">https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="FastDFS学习笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2020
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
