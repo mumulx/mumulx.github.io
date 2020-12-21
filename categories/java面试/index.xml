@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/</link>
     <description>Recent content in Java面试 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java面试准备二</title>
+      <link>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</guid>
+      <description>面试一 说说JVM的内存布局？ JVM的四大模块 类加载子系统 内存模型 堆 本地方法栈 虚拟机栈 程序计数器 方法区 执行引擎 垃圾回收器 堆 堆Java虚拟机中最</description>
+    </item>
     
     <item>
       <title>JVM知识整理</title>

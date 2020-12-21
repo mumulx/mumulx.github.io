@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-08-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-08-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="19000">
+<meta itemprop="wordCount" content="21346">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">30</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
@@ -233,7 +233,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">12</span></li>
+                    class="tag-list-count">13</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -252,6 +252,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -289,16 +299,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
                     </p>
                 </div>
             </li>
@@ -468,8 +468,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19000字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:38分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:21346字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:43分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -2324,6 +2324,289 @@ public class RadixSort {
          }
       }
    }  
+}
+</code></pre>
+
+<pre><code class="language-c#">/*冒泡排序*/
+static int[] bubbleSort(int[] nums)
+{
+    //每次选出一个最大的放在最后面   ---   两两比较---每一轮都从索引0开始循环比较
+    //或者每次选出一个最小的放在最前面 
+    for(int i = 0; i &lt; nums.Length-1; i++)
+    {
+        for(int j = 0; j &lt; nums.Length - i - 1;j++)
+        {
+            if (nums[j] &gt; nums[j + 1])
+            {
+                int temp = nums[j];
+                nums[j] = nums[j+1];
+                nums[j + 1] = temp;
+            }
+        }
+    }
+    return nums;
+}
+/*快速排序
+             K位置左边的数字都要比k小
+             K位置右边的数字都要比K大
+             k是基准--一般取待排序数组的第一个元素；
+             1.判断递归出口，if begin&lt;end才执行该操作
+             2.取出基准元素pivot;
+             3.找到该基准元素的位置  K  K指向的元素是最后一个小于基准元素的元素（最后需要和基准元素beigin交换值），
+                只有当一个元素小于基准元素的时候K才会自增
+                对待排序的数组进行循环遍历，将所有小于基准的元素放到K++的位置,
+                K指向的元素的位置就是基准元素pivot的位置，最后在交换二者的值
+             4.递归左边的数组
+             5.递归右边的数组
+                 */
+static void quickSort(int[] nums,int begin,int end)
+{
+    if (begin &lt; end)
+    {
+        int pivot = nums[begin];//作为基准
+        int i, k = begin;
+        for (i = begin+1; i &lt;= end; i++)
+        {
+            if (nums[i] &lt; pivot)
+            {
+                k++;//K就指向了第一个大于目标元素的值，而且又遇到了一个小于目标元素的值，因此需要交换i和k位置的元素
+                if (k != i)
+                {
+                    int temp = nums[i];
+                    nums[i] = nums[k];
+                    nums[k] = temp;
+                }
+            }
+        }
+        nums[begin] = nums[k];
+        nums[k] = pivot;
+        //处理所有的小的数字
+        quickSort(nums, begin, k - 1);
+        quickSort(nums, k + 1, end);
+    }
+}
+
+/**
+             插入排序
+                假设K元素前面的元素都已经排好序，只需将k元素插入到前面的元素数组的适当的位置，比它大的后移
+                1.对数组进行遍历，从第二个元素开始，因为第一个元素永远是有序的
+                2.如果当前元素比前一个元素小，说明当前元素需要前移。如果大的话就不需要移动，现在的位置就应该是它所在的为hi在
+                3.取出当前元素temp,对i之前的元素进行遍历，循环条件：1.数组遍历完毕；2.有一个元素比目标元素小。则结束循环
+                4.如果该元素比目标元素temp大，说明该元素需要后移，
+                5.将temp放到它应该在的位置j+1
+
+                 */
+static void insertSort(int[] nums)
+{
+    for(int i = 1; i &lt; nums.Length; i++)
+    {
+        if (nums[i] &lt; nums[i - 1])
+        {
+            int temp = nums[i];
+            int j;
+            for (j = i - 1; j &gt;= 0 &amp;&amp; nums[j] &gt; temp; j--)
+            {
+                nums[j + 1] = nums[j];
+            }
+            nums[j + 1] = temp;
+        }
+
+
+    }
+}
+/*折半插入排序
+
+                 插入排序是依次与前面的所有元素进行比较，折半插入排序是与中间的元素进行比较来逐步缩小范围
+                 1.缩小范围
+                 2.元素后移
+                 3.元素归位
+
+                 */
+static void binaryInsertSort(int[] nums)
+{
+    for (int i = 1; i &lt; nums.Length; i++) {
+        if (nums[i] &lt; nums[i - 1])
+        {
+            int temp = nums[i];
+            int mid, low = 0, height = i - 1;//最后low和height指向temp应该在的位置
+            while (low &lt;= height)
+            {
+                mid = (low + height) / 2;
+                if (temp &lt; nums[mid])
+                {
+                    height = mid - 1;
+                }
+                else
+                {
+                    low = mid + 1;
+                }
+            }
+            //将元素后移 范围是i-1到low，low的位置指向了temp应该在的位置
+            for(int j = i - 1; j &gt;= low; j--)
+            {
+                nums[j + 1] = nums[j];//元素后移
+            }
+            nums[low] = temp;//元素归位
+        }
+    }
+}
+/*希尔排序（缩小增量排序）
+             * 思想是区块内有序，每隔gap个元素取一个值，使得这几个元素有序，然后缩小间隔再进行排序直至间隔为1
+             * 
+             * 没一组的元素是从后向前找的，与插入排序的思想类似，区块内的元素其实使用的就是插入排序来进行排序的
+             * **/
+static void shellSort(int[] nums)
+{
+    //遍历所有的步长  值从数组长度的一半，然后逐渐缩减一半
+    for(int d = nums.Length / 2; d &gt; 0; d /= 2)
+    {
+        //遍历所有的元素(从步长的位置的元素进行遍历)
+        for(int i = d; i &lt; nums.Length; i++)
+        {
+            //遍历本组元素 从后向前遍历本组元素（与插入排序类似）
+            for(int j = i - d; j &gt;= 0; j-= d)
+            {
+                //如果当前元素大于加上步长后的元素就交换位置
+                if (nums[j] &gt; nums[j + d])
+                {
+                    int temp = nums[j];
+                    nums[j] = nums[j + d];
+                    nums[j + d] = temp;
+                }
+            }
+        }
+    }
+}
+/**简单的选择排序
+             每次选出一个最小或最大的元素，放在它应该在的位置
+
+                 */
+static void selectSort(int[] nums) {
+
+    for(int i = 0; i &lt; nums.Length; i++)
+    {
+        int min = i;
+        for(int j = i + 1; j &lt; nums.Length; j++)
+        {
+            if (nums[j] &lt; nums[min])
+            {
+                min = j;
+            }
+        }
+        if (min != i)
+        {
+            int temp = nums[i];
+            nums[i] = nums[min];
+            nums[min] = temp;
+        }
+    }
+}
+/**堆排序
+                 堆分为大根堆和小根堆。即子节点的值总是小于或大于父节点的值
+                 */
+static void heapSort(int[] nums) {
+    //最后一个非叶子结点，即最后一个结点的父节点
+    int start = (nums.Length - 1) / 2;
+    //调整为大根堆
+    for(int i= start; i &gt;= 0; i--)//自底向上的调整大根堆，应该从最后一个叶子结点的父节点开始，逐层向上进行构建大根堆
+    {
+        maxHeap(nums, nums.Length, i);//调整的堆为以结点i为根的堆
+    }
+    //先把数组中的第0个和数组中的最后一个数交换位置，再把前面的处理为大顶堆，因为数组中的第一个元素就是大根堆的堆，是这些数字中最大的数字，因此需要把他放在最后
+    for (int i = nums.Length - 1; i &gt; 0; i--)
+    {
+        int temp = nums[0];//取出大根堆的根节点  也就是最大的元素   与最后一个元素进行交换 在重新调整大根堆
+        nums[0] = nums[i];
+        nums[i] = temp;
+        maxHeap(nums, i, 0);
+    }
+}
+/**
+             nums:堆中的数据
+             size:待排序的元素的个数（因为是逐个逐个取出大根堆的堆顶的元素，所以待排序的元素的个数是逐步减少的）
+             index:堆的根节点所在的位置
+                 */
+static void maxHeap(int[] nums,int size,int index)
+{
+    //左子节点
+    int leftNode = 2 * index + 1;
+    //右子节点
+    int rightNode = 2 * index + 2;
+    int max = index;
+    if (leftNode &lt; size &amp;&amp; nums[leftNode] &gt; nums[max])
+    {
+        max = leftNode;
+    }
+    if (rightNode &lt; size &amp;&amp; nums[rightNode] &gt; nums[max])
+    {
+        max = rightNode;
+    }
+    //交换位置
+    if (max != index)
+    {
+        int temp = nums[index];
+        nums[index] = nums[max];
+        nums[max] = temp;
+        //交换位置后，可能会破坏之前排好序的堆，所以，之前排好序的堆需要重新调整
+        maxHeap(nums, size, max);
+    }
+
+}
+/**
+             归并排序：
+                二路归并排序:与快速排序算法一样，归并排序算法也是基于分治法的
+                归并排序将待排序的元素序列分为两个长度相等的子序列，为每个子序列排序，然后再将他们合并为一个序列。
+                合并两个子序列的过程被称为二路归并(合并)
+                 */
+static void mergeSort(int[] nums,int low,int height)
+{
+
+    int middle = (low + height) / 2;
+    if (low &lt; height)
+    {
+        mergeSort(nums, low, middle);
+        mergeSort(nums, middle + 1, height);
+        merge(nums, low, middle, height);
+    }
+}
+/**用于归并算法的合并工作
+             将两个已经排好序的数组合并为一个新的有序数组
+            1.定义一个临时存储元素的数组
+            2.定义三个下标，分别指向这三个数组的起始位置
+            3.遍历两个数组，将较小的元素插入到temp数组中
+            4.分别处理两个数组中剩下的元素。
+            5.将temp数组中的元素还原到原数组中。
+                 */
+static void merge(int[] nums, int low, int middle, int height)
+{
+    //用于临时存储归并后的元素
+    int[] temp = new int[height - low + 1];
+    int i = low;
+    int j = middle + 1;
+    int index = 0;
+    while (i &lt;= middle &amp;&amp; j &lt;= height)
+    {
+        if (nums[i] &lt;= nums[j])
+        {
+            temp[index++] = nums[i++];
+        }
+        else
+        {
+            temp[index++] = nums[j++];
+        }
+    }
+    while (i &lt;= middle)
+    {
+        temp[index++] = nums[i++];
+    }
+    while (j &lt;= height)
+    {
+        temp[index++] = nums[j++];
+    }
+    for(int k = 0; k &lt; nums.Length; k++)
+    {
+        nums[k] = temp[k];
+    }
 }
 </code></pre>
 

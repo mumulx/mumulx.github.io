@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="19115">
+<meta itemprop="wordCount" content="19129">
 
 
 
@@ -161,7 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">30</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
@@ -233,7 +233,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">12</span></li>
+                    class="tag-list-count">13</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -252,6 +252,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -289,16 +299,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-09-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-23</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
                     </p>
                 </div>
             </li>
@@ -461,7 +461,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19115字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:19129字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:39分 </span>
       </div>
     </div>
@@ -681,11 +681,21 @@ student.setXxx();
 &lt;constructor-arg value=&quot;22&quot; type=&quot;int&quot;&gt;&lt;/constructor-arg&gt;
 </code></pre>
 
+<ol>
+<li><p>注解注入</p>
+
+<ul>
+<li>@Autowired</li>
+</ul></li>
+
+<li><p>@Resource</p></li>
+</ol>
+
 <p>这几种方式也可以同时使用</p>
 
-<p><strong>需要注意：</strong>如果  <code>&lt;constructor-arg&gt;</code>的顺序 与构造方法参数的顺序不一致，则需要通过<code>type</code>或者<code>index</code>或<code>name</code>指定。</p></li>
+<p><strong>需要注意：</strong>如果  <code>&lt;constructor-arg&gt;</code>的顺序 与构造方法参数的顺序不一致，则需要通过<code>type</code>或者<code>index</code>或<code>name</code>指定。</p>
 
-<li><p>p命名空间注入</p>
+<p>p命名空间注入（取代的是setter注入）</p>
 
 <p>引入p命名空间</p>
 
@@ -693,10 +703,14 @@ student.setXxx();
 </code></pre></li>
 </ol>
 
-<p>​    使用
-​    <code>xml
-&lt;bean id=&quot;teacher&quot; class=&quot;org.ycit.entity.Teacher&quot; p:age=&quot;25&quot; p:name=&quot;zs&quot;&gt;&lt;/bean&gt;
-​</code></p>
+<p>​    使用</p>
+
+<pre><code>```xml
+</code></pre>
+
+<p><bean id="teacher" class="org.ycit.entity.Teacher" p:age="25" p:name="zs"></bean>
+​    <code>
+</code></p>
 
 <p>简单类型：</p>
 
