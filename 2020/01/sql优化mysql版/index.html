@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-01-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="15981">
+<meta itemprop="wordCount" content="15732">
 
 
 
@@ -162,9 +162,9 @@
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">30</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">9</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-list-link">私人博客</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/" class="category-list-link">问题收录</a><span class="category-list-count">2</span></li>
         </ul>
@@ -193,7 +193,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/node/" class="tag-list-link">node</a><span
@@ -233,7 +233,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
-                    class="tag-list-count">13</span></li>
+                    class="tag-list-count">12</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="tag-list-link">版本控制</a><span
@@ -364,6 +364,63 @@
 <li><a href="#using-filesort">using filesort ：</a></li>
 <li><a href="#using-temporary">using temporary:</a></li>
 <li><a href="#using-index">using index :</a></li>
+<li><a href="#using-where">using where</a></li>
+<li><a href="#impossible-where">impossible where</a></li>
+</ul></li>
+<li><a href="#优化实例">优化实例</a></li>
+</ul></li>
+<li><a href="#优化案例">优化案例</a>
+<ul>
+<li><a href="#单表优化">单表优化</a></li>
+<li><a href="#两表优化">两表优化</a></li>
+<li><a href="#三张表优化a-b-c">三张表优化A B C</a></li>
+</ul></li>
+<li><a href="#避免索引失效的一些原则">避免索引失效的一些原则</a>
+<ul>
+<li>
+<ul>
+<li><a href="#复合索引">复合索引</a></li>
+<li><a href="#索引操作">索引操作</a></li>
+<li><a href="#复合索引关键判断">复合索引关键判断</a></li>
+<li><a href="#like问题">Like问题</a></li>
+<li><a href="#类型转换">类型转换</a></li>
+<li><a href="#or">or</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#一些其他的优化方法">一些其他的优化方法</a>
+<ul>
+<li><a href="#exist和in">exist和in</a></li>
+<li><a href="#order-by-优化">order by 优化</a></li>
+</ul></li>
+<li><a href="#sql排查-慢查询日志">SQL排查 - 慢查询日志:</a></li>
+<li><a href="#分析海量数据">分析海量数据</a>
+<ul>
+<li>
+<ul>
+<li><a href="#通过存储函数-插入海量数据">通过存储函数 插入海量数据：</a></li>
+<li><a href="#分析海量数据-1">分析海量数据:</a>
+<ul>
+<li><a href="#profiles">profiles</a></li>
+<li><a href="#精确分析-sql诊断">精确分析:sql诊断</a></li>
+<li><a href="#全局查询日志">全局查询日志 ：</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#锁机制">锁机制</a>
+<ul>
+<li><a href="#表锁">表锁 ：</a></li>
+<li><a href="#加读锁">加读锁：</a></li>
+<li><a href="#加写锁">加写锁：</a></li>
+<li><a href="#mysql表级锁的锁模式">MySQL表级锁的锁模式</a></li>
+<li><a href="#分析表锁定">分析表锁定：</a></li>
+<li><a href="#行锁-innodb">行锁（InnoDB）</a></li>
+<li><a href="#主从复制-集群在数据库的一种实现">主从复制  （集群在数据库的一种实现）</a>
+<ul>
+<li><a href="#先卸载">先卸载：</a></li>
+<li><a href="#安装mysql">安装MYSQL：</a></li>
+<li><a href="#主机-以下代码和操作-全部在主机windows中操作-my-ini">主机（以下代码和操作 全部在主机windows中操作）：my.ini</a></li>
+<li><a href="#从机-以下代码和操作-全部在从机linux中操作">从机（以下代码和操作 全部在从机linux中操作）：</a></li>
+<li><a href="#开启主从同步">开启主从同步：</a></li>
 <li><a href="#演示">演示：</a></li>
 </ul></li>
 </ul></li>
@@ -404,7 +461,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/sql%E4%BC%98%E5%8C%96mysql%E7%89%88/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15981字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15732字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:32分 </span>
       </div>
     </div>
@@ -1275,1495 +1332,1285 @@ explain select a1,a3 from test02 where a1='' or a3= '' ;--用到的a3不是索�
 
 <li><p>如果有where，则索引 出现在key和possible_keys中。</p>
 
-<pre><code>```sql
-</code></pre>
-
-<p>explain select a1,a2 from test02 where a1=&rdquo; or a2= &ldquo; ;
-explain select a1,a2 from test02  ;</p>
-
-<pre><code>
-#### using where
-
-using where （需要回表查询）
-
-假设age是索引列，但查询语句`select age,name from ...where age =...,`此语句中必须回原表查Name，因此会显示using where.
-</code></pre>
-
-<p>sql</p></li>
+<pre><code class="language-sql">explain select a1,a2 from test02 where a1='' or a2= '' ;
+explain select a1,a2 from test02  ;
+</code></pre></li>
 </ul>
 
-<p>explain select a1,a3 from test02 where a3 = &ldquo; ;&ndash;a3需要回原表查询</p>
+<h4 id="using-where">using where</h4>
 
-<pre><code>
-#### impossible where
+<p>using where （需要回表查询）</p>
 
-impossible where ： where子句永远为false
+<p>假设age是索引列，但查询语句<code>select age,name from ...where age =...,</code>此语句中必须回原表查Name，因此会显示using where.</p>
 
+<pre><code class="language-sql">explain select a1,a3 from test02 where a3 = '' ;--a3需要回原表查询
 </code></pre>
 
-<p>sql
-explain select * from test02 where a1=&lsquo;x&rsquo; and a1=&lsquo;y&rsquo;  ;&ndash;impossible where</p>
+<h4 id="impossible-where">impossible where</h4>
 
-<pre><code>
-### 优化实例
+<p>impossible where ： where子句永远为false</p>
 
+<pre><code class="language-sql">explain select * from test02 where a1='x' and a1='y'  ;--impossible where
 </code></pre>
 
-<p>sql
-create table test03(
+<h3 id="优化实例">优化实例</h3>
+
+<pre><code class="language-sql">create table test03(
     a1 int(4) not null,
     a2 int(4) not null,
     a3 int(4) not null,
     a4 int(4) not null
 );
-alter table test03 add index idx_a1_a2_a3_a4(a1,a2,a3,a4);</p>
-
-<pre><code></code></pre>
-
-<p>mssql
-explain select a1,a2,a3,a4 from test03 where a1=1 and a2=1 and a3=1 and a4=1;&ndash;using index</p>
-
-<pre><code>--推荐写法，因为索引的使用属性顺序（where）后面的顺序和复合索引的顺序一致
-
+alter table test03 add index idx_a1_a2_a3_a4(a1,a2,a3,a4);
 </code></pre>
 
-<p>mssql
-explain select a1,a2,a3,a4 from test03 where a4=1 and a3=1 and a2=1 and a1=1;&ndash;using index</p>
-
-<pre><code>虽然编写的顺序和索引的顺序不一致，但是我们发现两者结果一致：是因为mysql的服务层的sql优化器对该语句进行了优化
-
-以上2个sql，使用了全部的符合索引：通过key_len=16
+<pre><code class="language-mssql">explain select a1,a2,a3,a4 from test03 where a1=1 and a2=1 and a3=1 and a4=1;--using index
 </code></pre>
 
-<p>mssql
-explain select a1,a2,a3,a4 from test03 where a1=1 and a2=1 and a4=1 order by a3;</p>
+<p>&ndash;推荐写法，因为索引的使用属性顺序（where）后面的顺序和复合索引的顺序一致</p>
 
-<pre><code>a1,a2按顺序，显示using index，不需要回表查询
-
-a4:无效索引，因为跨列使用(变为无效索引)会回表查询显示using where
-
-可以通过key_len校验  ：8
-
-
-
+<pre><code class="language-mssql">explain select a1,a2,a3,a4 from test03 where a4=1 and a3=1 and a2=1 and a1=1;--using index
 </code></pre>
 
-<p>sql
-explain select a1,a2,a3,a4 from test03 where a1=1 and a4=4 order by a3;</p>
+<p>虽然编写的顺序和索引的顺序不一致，但是我们发现两者结果一致：是因为mysql的服务层的sql优化器对该语句进行了优化</p>
 
-<pre><code>
-以上sql出现了--using filesort(文件内排序，“多了一次额外的查找、排序”)
-不要跨列使用(where和order by拼起来不要跨列使用)
+<p>以上2个sql，使用了全部的符合索引：通过key_len=16</p>
 
-a1--(a4无效)--a3:1-3结果跨列
-
+<pre><code class="language-mssql">explain select a1,a2,a3,a4 from test03 where a1=1 and a2=1 and a4=1 order by a3;
 </code></pre>
 
-<p>sql
-explain select a1,a2,a3,a4 from test03 where a1=1 and a4=1 order by a2,a3;</p>
+<p>a1,a2按顺序，显示using index，不需要回表查询</p>
 
-<pre><code>结果没有--using filesort，没有进行跨列使用
+<p>a4:无效索引，因为跨列使用(变为无效索引)会回表查询显示using where</p>
 
-a1--a2--（a4失效）--a3:1-2-3
+<p>可以通过key_len校验  ：8</p>
 
-结果没有跨列
-
-小结：
-
-如果（a,b,c,d）复合索引和使用的顺序一致（且不跨列使用），则复合索引全部使用。如果部分一致，则使用部分索引
-
-where和order by拼起来，不要跨列使用
-
-
-
-## 优化案例
-
-单表优化、两表优化、三表优化
-
-### 单表优化
-
+<pre><code class="language-sql">explain select a1,a2,a3,a4 from test03 where a1=1 and a4=4 order by a3;
 </code></pre>
 
-<p>mssql
-create table book
+<p>以上sql出现了&ndash;using filesort(文件内排序，“多了一次额外的查找、排序”)
+不要跨列使用(where和order by拼起来不要跨列使用)</p>
+
+<p>a1&ndash;(a4无效)&ndash;a3:1-3结果跨列</p>
+
+<pre><code class="language-sql">explain select a1,a2,a3,a4 from test03 where a1=1 and a4=1 order by a2,a3;
+</code></pre>
+
+<p>结果没有&ndash;using filesort，没有进行跨列使用</p>
+
+<p>a1&ndash;a2&ndash;（a4失效）&ndash;a3:1-2-3</p>
+
+<p>结果没有跨列</p>
+
+<p>小结：</p>
+
+<p>如果（a,b,c,d）复合索引和使用的顺序一致（且不跨列使用），则复合索引全部使用。如果部分一致，则使用部分索引</p>
+
+<p>where和order by拼起来，不要跨列使用</p>
+
+<h2 id="优化案例">优化案例</h2>
+
+<p>单表优化、两表优化、三表优化</p>
+
+<h3 id="单表优化">单表优化</h3>
+
+<pre><code class="language-mssql">create table book
 (
     bid int(4) primary key,
     name varchar(20) not null,
     authorid int(4) not null,
     publicid int(4) not null,
-    typeid int(4) not null
+    typeid int(4) not null 
 );
-insert into book values(1,&lsquo;tjava&rsquo;,1,1,2) ;
-insert into book values(2,&lsquo;tc&rsquo;,2,1,2) ;
-insert into book values(3,&lsquo;wx&rsquo;,3,2,1) ;
-insert into book values(4,&lsquo;math&rsquo;,4,2,3) ;	
-commit;	</p>
-
-<pre><code>
-查询authorid=1且 typeid为2或3的   bid
-
+insert into book values(1,'tjava',1,1,2) ;
+insert into book values(2,'tc',2,1,2) ;
+insert into book values(3,'wx',3,2,1) ;
+insert into book values(4,'math',4,2,3) ;	
+commit;	
 </code></pre>
 
-<p>mssql
-explain select bid from book where typeid in(2,3) and authorid=1  order by typeid desc ;</p>
+<p>查询authorid=1且 typeid为2或3的   bid</p>
 
-<pre><code>
-
-优化：加索引
-
+<pre><code class="language-mssql">explain select bid from book where typeid in(2,3) and authorid=1  order by typeid desc ;
 </code></pre>
 
-<p>mssql
-alter table book add index idx_bta (bid,typeid,authorid);</p>
+<p>优化：加索引</p>
 
-<pre><code>
-索引一旦进行 升级优化，需要将之前废弃的索引删掉，防止干扰。
-
+<pre><code class="language-mssql">alter table book add index idx_bta (bid,typeid,authorid);
 </code></pre>
 
-<p>sql
-drop index idx_bta on book;</p>
+<p>索引一旦进行 升级优化，需要将之前废弃的索引删掉，防止干扰。</p>
 
-<pre><code>
-根据SQL实际解析的顺序，调整索引的顺序：
-
+<pre><code class="language-sql">drop index idx_bta on book;
 </code></pre>
 
-<p>from .. on.. join ..where ..group by &hellip;.having &hellip;select dinstinct ..order by limit &hellip;</p>
+<p>根据SQL实际解析的顺序，调整索引的顺序：</p>
 
-<pre><code>
+<pre><code>from .. on.. join ..where ..group by ....having ...select dinstinct ..order by limit ...
 </code></pre>
 
-<p>sql
-alter table book add index idx_tab (typeid,authorid,bid);</p>
-
-<pre><code>
---虽然可以回表查询bid，但是将bid放到索引中 可以提升使用using index ;
-    
-再次优化（之前是index级别）：思路,因为范围查询in有时会失效(in失效后a也会失效)，因此交换索引的顺序，将typeid in(2,3) 放到最后（这样即使in失效了我们的a还有用）。
-
+<pre><code class="language-sql">alter table book add index idx_tab (typeid,authorid,bid); 
 </code></pre>
 
-<p>sql
-drop index idx_tab on book;</p>
+<p>&ndash;虽然可以回表查询bid，但是将bid放到索引中 可以提升使用using index ;</p>
 
-<p>alter table book add index idx_atb (authorid,typeid,bid);</p>
+<p>再次优化（之前是index级别）：思路,因为范围查询in有时会失效(in失效后a也会失效)，因此交换索引的顺序，将typeid in(2,3) 放到最后（这样即使in失效了我们的a还有用）。</p>
 
-<p>explain select bid from book where  authorid=1 and  typeid in(2,3) order by typeid desc ;</p>
+<pre><code class="language-sql">drop index idx_tab on book;
 
-<pre><code>
---小结：   
+alter table book add index idx_atb (authorid,typeid,bid);
 
-1. 最佳左前缀，保持索引的定义和使用的顺序一致性  
-1. 索引需要逐步优化  
-1. 将含In的范围查询 放到where条件的最后，防止失效。
-
-本例中同时出现了Using where（需要回原表）; Using index（不需要回原表）：
-
-原因，`where  authorid=1 and  typeid in(2,3)`中authorid在索引(authorid,typeid,bid)中，因此不需要回原表（直接在索引表中能查到）；
-
-而typeid虽然也在索引(authorid,typeid,bid)中，但是含in的范围查询已经使该typeid索引失效，因此相当于没有typeid这个索引，所以需要回原表（using where）；
-
-例如以下没有了In，则不会出现using where
-
+explain select bid from book where  authorid=1 and  typeid in(2,3) order by typeid desc ;
 </code></pre>
 
-<p>sql
-explain select bid from book where  authorid=1 and  typeid =3 order by typeid desc ;</p>
+<p>&ndash;小结：</p>
 
-<pre><code>
-还可以通过key_len证明in可以使索引失效。
+<ol>
+<li>最佳左前缀，保持索引的定义和使用的顺序一致性<br /></li>
+<li>索引需要逐步优化<br /></li>
+<li>将含In的范围查询 放到where条件的最后，防止失效。</li>
+</ol>
 
-* 有in时索引长度为4
-* 没in时索引长度为8
+<p>本例中同时出现了Using where（需要回原表）; Using index（不需要回原表）：</p>
 
-### 两表优化
+<p>原因，<code>where  authorid=1 and  typeid in(2,3)</code>中authorid在索引(authorid,typeid,bid)中，因此不需要回原表（直接在索引表中能查到）；</p>
 
+<p>而typeid虽然也在索引(authorid,typeid,bid)中，但是含in的范围查询已经使该typeid索引失效，因此相当于没有typeid这个索引，所以需要回原表（using where）；</p>
+
+<p>例如以下没有了In，则不会出现using where</p>
+
+<pre><code class="language-sql">explain select bid from book where  authorid=1 and  typeid =3 order by typeid desc ;
 </code></pre>
 
-<p>sql
-create table teacher2
+<p>还可以通过key_len证明in可以使索引失效。</p>
+
+<ul>
+<li>有in时索引长度为4</li>
+<li>没in时索引长度为8</li>
+</ul>
+
+<h3 id="两表优化">两表优化</h3>
+
+<pre><code class="language-sql">create table teacher2
 (
     tid int(4) primary key,
     cid int(4) not null
-);</p>
+);
 
-<p>insert into teacher2 values(1,2);
+insert into teacher2 values(1,2);
 insert into teacher2 values(2,1);
-insert into teacher2 values(3,3);</p>
+insert into teacher2 values(3,3);
 
-<p>create table course2
+create table course2
 (
     cid int(4) ,
     cname varchar(20)
-);</p>
+);
 
-<p>insert into course2 values(1,&lsquo;java&rsquo;);
-insert into course2 values(2,&lsquo;python&rsquo;);
-insert into course2 values(3,&lsquo;kotlin&rsquo;);
-commit;</p>
-
-<pre><code>
-左连接：
-
+insert into course2 values(1,'java');
+insert into course2 values(2,'python');
+insert into course2 values(3,'kotlin');
+commit;
 </code></pre>
 
-<p>sql
-explain select *from teacher2 t left outer join course2 c on t.cid=c.cid where c.cname=&lsquo;java&rsquo;;</p>
+<p>左连接：</p>
 
-<pre><code>
-
-索引往哪张表加？   
-
-小表驱动大表  (where 小表.x = 大表.y)
-
-索引建立经常使用的字段上 （本题 t.cid=c.cid可知，t.cid字段使用频繁，因此给该字段加索引）,一般情况对于左外连接(以左表为基础：左表的数据要全部匹配)，给左表加索引；右外连接（以右表为基准），给右表加索引
-
+<pre><code class="language-sql">explain select *from teacher2 t left outer join course2 c on t.cid=c.cid where c.cname='java';
 </code></pre>
 
-<pre><code>小表:10
-大表:300
+<p>索引往哪张表加？</p>
 
-select ...where 小表.x10=大表.x300 ;
-for(int i=0;i&lt;小表.length 10;i++)
-{
-    for(int j=0;j&lt;大表.length 300;j++)
+<p>小表驱动大表  (where 小表.x = 大表.y)</p>
+
+<p>索引建立经常使用的字段上 （本题 t.cid=c.cid可知，t.cid字段使用频繁，因此给该字段加索引）,一般情况对于左外连接(以左表为基础：左表的数据要全部匹配)，给左表加索引；右外连接（以右表为基准），给右表加索引</p>
+
+<pre><code>    小表:10
+    大表:300
+
+    select ...where 小表.x10=大表.x300 ;
+    for(int i=0;i&lt;小表.length 10;i++)
     {
-        ...
+        for(int j=0;j&lt;大表.length 300;j++)
+        {
+            ...
+        }
     }
-}
+    
+    select ...where 大表.x300=小表.x10 ;
 
-select ...where 大表.x300=小表.x10 ;
-
-for(int i=0;i&lt;大表.length300;i++)
-{
-    for(int j=0;j&lt;小表.length10;j++)
+    for(int i=0;i&lt;大表.length300;i++)
     {
-        ...
+        for(int j=0;j&lt;小表.length10;j++)
+        {
+            ...
+        }
     }
-}
 </code></pre>
 
-<pre><code>
-以上2个FOR循环，最终都会循环3000次；但是 对于双层循环来说：一般建议 将数据小的循环 放外层；数据大的循环放内层。小表驱动大表
+<p>以上2个FOR循环，最终都会循环3000次；但是 对于双层循环来说：一般建议 将数据小的循环 放外层；数据大的循环放内层。小表驱动大表</p>
 
-当编写 ..on t.cid=c.cid 时，将数据量小的表 放左边（假设此时t表数据量小）
-优化
+<p>当编写 ..on t.cid=c.cid 时，将数据量小的表 放左边（假设此时t表数据量小）
+优化</p>
 
+<pre><code class="language-sql">	alter table teacher2 add index index_teacher2_cid(cid) ;
+
+	alter table course2 add index index_course2_cname(cname);--where后面的字段一定要加索引
 </code></pre>
 
-<p>	sql
-	alter table teacher2 add index index_teacher2_cid(cid) ;</p>
-
-<p>	alter table course2 add index index_course2_cname(cname);&ndash;where后面的字段一定要加索引</p>
-
-<pre><code></code></pre>
-
-<p>sql
-	explain select *from teacher2 t left outer join course2 c on t.cid=c.cid where c.cname=&lsquo;java&rsquo;;</p>
-
-<pre><code>
-Using join buffer:extra中的一个选项，作用：Mysql引擎使用了 连接缓存。写的sql太差了mysql看不下去了，动了你的sql，给加了一个连接缓存。
-
----
-
-左连接（left join）即为两张表进行连接时,是以处于left join语句左侧的表为基准去匹配left join语句右边的表，如果左表中的一条数据在右表中能找到与之对应的一条数据，那么就会出现在以虚表形式存在的结果表中，如果没有找到，那么会以null来代替右表中的数据去匹配左表。这样会有一个鲜明的对比，左表中的每一条数据中的对象在右表中的某个属性的存在性是一目了然的。同时在使用on 进行连接时，on的作用仅仅是进行两张表的上诉连接，发挥匹配的功能，它选出来的是满足这种匹配的所有结果，而并不一定是用户所需要的，这时候就要使用where进行条件判断，从而筛选出真正需要的信息。
-
-----
-
-右连接（right join）本质上是相当于将上述的左连接的这个过程反过来，以连接语句right join右侧的表为基准去匹配左边的表，剩下的道理是一样的，不再赘述。
-
------
-
-内连接（inner join）就是在用两张表进行匹配的时候，如果表中任意一条数据在另一张表中都是找不到对应数据的话，那么在结果表中是不会有这一条数据的。也就是说必须是两张表中任意两条能够互相对应着的数据才能被存入到结果表中，有点类似于取交集的味道。这种适用于一旦某条数据为空便没有意义的场景，这时给它设成null也就毫无意义了。表中的数据也因此显得简练很多。
-
-----
-
-外链接（outer join）与内连接是相反的，就是说，如果某张表中的数据在另一张中找不到对应的条目并不影响它依然出现在查询的结果中，这对于两张表都是满足的，两边都有出现null的可能，这就有一点数学里的并集的意思。
-
------
-
-自连接(self join)可能看起来有点晦涩难懂，但是实际上换个角度你就会豁然开朗，你可以把它这个过程想象成两张一样的表进行左连接或右连接，这样就会简单多了，其中一张表通过设别名的方式成为了虚表，但是共享原标中的信息。应用场景是这样的，就是表的一个字段和另一个字段是相同性质的东西，譬如员工与上司，他们本质也都是员工，在员工表中，员工的直接上司编号会以另一个字段的形式出现，但是他的上司的编号也是会出现在员工编号这个字段里。那么在这种情况下，假如需要去查询某一位员工的上司的信息，在已知该员工编号的条件下，可以根据他的编号去获得上司的编号，进而通过上司的编号去获得上司的信息。
-
-### 三张表优化A B C
-
-* 小表驱动大表  
-* 索引建立在经常查询的字段上
-
-
-## 避免索引失效的一些原则 
-
-#### 复合索引
-
-* 复合索引，不要跨列或无序使用（最佳左前缀）
-
-* 复合索引，尽量使用全索引匹配
-
-复合索引可以看为是书的目录(a,b,c)一级目录a二级目录b三级目录c
-
-#### 索引操作
-
-不要在索引上进行任何操作（计算、函数、类型转换），否则索引失效
-
+<pre><code class="language-sql">	explain select *from teacher2 t left outer join course2 c on t.cid=c.cid where c.cname='java';
 </code></pre>
 
-<p>sql
-select ..where A.x = .. ;  &ndash;假设A.x是索引</p>
+<p>Using join buffer:extra中的一个选项，作用：Mysql引擎使用了 连接缓存。写的sql太差了mysql看不下去了，动了你的sql，给加了一个连接缓存。</p>
 
-<p>&ndash;不要：select ..where A.x*3 = .. ;</p>
+<hr />
 
-<p>explain select * from book where authorid = 1 and typeid = 2 ;&ndash;用到了at2个索引</p>
+<p>左连接（left join）即为两张表进行连接时,是以处于left join语句左侧的表为基准去匹配left join语句右边的表，如果左表中的一条数据在右表中能找到与之对应的一条数据，那么就会出现在以虚表形式存在的结果表中，如果没有找到，那么会以null来代替右表中的数据去匹配左表。这样会有一个鲜明的对比，左表中的每一条数据中的对象在右表中的某个属性的存在性是一目了然的。同时在使用on 进行连接时，on的作用仅仅是进行两张表的上诉连接，发挥匹配的功能，它选出来的是满足这种匹配的所有结果，而并不一定是用户所需要的，这时候就要使用where进行条件判断，从而筛选出真正需要的信息。</p>
 
-<p>explain select * from book where authorid = 1 and typeid*2 = 2 ;&ndash;用到了a1个索引</p>
+<hr />
 
-<p>explain select * from book where authorid*2 = 1 and typeid*2 = 2 ;&mdash;-用到了0个索引</p>
+<p>右连接（right join）本质上是相当于将上述的左连接的这个过程反过来，以连接语句right join右侧的表为基准去匹配左边的表，剩下的道理是一样的，不再赘述。</p>
 
-<p>explain select * from book where authorid*2 = 1 and typeid = 2 ;&mdash;-用到了0个索引,</p>
+<hr />
 
-<pre><code>
-原因：对于复合索引，如果左边失效，右侧全部失效。(a,b,c)，例如如果 b失效，则b c同时失效。
+<p>内连接（inner join）就是在用两张表进行匹配的时候，如果表中任意一条数据在另一张表中都是找不到对应数据的话，那么在结果表中是不会有这一条数据的。也就是说必须是两张表中任意两条能够互相对应着的数据才能被存入到结果表中，有点类似于取交集的味道。这种适用于一旦某条数据为空便没有意义的场景，这时给它设成null也就毫无意义了。表中的数据也因此显得简练很多。</p>
 
-如果是单独的索引就没有这种问题
+<hr />
 
+<p>外链接（outer join）与内连接是相反的，就是说，如果某张表中的数据在另一张中找不到对应的条目并不影响它依然出现在查询的结果中，这对于两张表都是满足的，两边都有出现null的可能，这就有一点数学里的并集的意思。</p>
+
+<hr />
+
+<p>自连接(self join)可能看起来有点晦涩难懂，但是实际上换个角度你就会豁然开朗，你可以把它这个过程想象成两张一样的表进行左连接或右连接，这样就会简单多了，其中一张表通过设别名的方式成为了虚表，但是共享原标中的信息。应用场景是这样的，就是表的一个字段和另一个字段是相同性质的东西，譬如员工与上司，他们本质也都是员工，在员工表中，员工的直接上司编号会以另一个字段的形式出现，但是他的上司的编号也是会出现在员工编号这个字段里。那么在这种情况下，假如需要去查询某一位员工的上司的信息，在已知该员工编号的条件下，可以根据他的编号去获得上司的编号，进而通过上司的编号去获得上司的信息。</p>
+
+<h3 id="三张表优化a-b-c">三张表优化A B C</h3>
+
+<ul>
+<li>小表驱动大表<br /></li>
+<li>索引建立在经常查询的字段上</li>
+</ul>
+
+<h2 id="避免索引失效的一些原则">避免索引失效的一些原则</h2>
+
+<h4 id="复合索引">复合索引</h4>
+
+<ul>
+<li><p>复合索引，不要跨列或无序使用（最佳左前缀）</p></li>
+
+<li><p>复合索引，尽量使用全索引匹配</p></li>
+</ul>
+
+<p>复合索引可以看为是书的目录(a,b,c)一级目录a二级目录b三级目录c</p>
+
+<h4 id="索引操作">索引操作</h4>
+
+<p>不要在索引上进行任何操作（计算、函数、类型转换），否则索引失效</p>
+
+<pre><code class="language-sql">select ..where A.x = .. ;  --假设A.x是索引
+
+--不要：select ..where A.x*3 = .. ;
+
+explain select * from book where authorid = 1 and typeid = 2 ;--用到了at2个索引
+
+explain select * from book where authorid = 1 and typeid*2 = 2 ;--用到了a1个索引
+
+explain select * from book where authorid*2 = 1 and typeid*2 = 2 ;----用到了0个索引
+
+explain select * from book where authorid*2 = 1 and typeid = 2 ;----用到了0个索引,
 </code></pre>
 
-<p>sql
-drop index idx_atb on book ;</p>
+<p>原因：对于复合索引，如果左边失效，右侧全部失效。(a,b,c)，例如如果 b失效，则b c同时失效。</p>
 
-<p>alter table book add index idx_authroid (authorid) ;</p>
+<p>如果是单独的索引就没有这种问题</p>
 
-<p>alter table book add index idx_typeid (typeid) ;</p>
+<pre><code class="language-sql">drop index idx_atb on book ; 
 
-<pre><code>
-独立索引，不影响
+alter table book add index idx_authroid (authorid) ;
 
+alter table book add index idx_typeid (typeid) ;
 </code></pre>
 
-<p>sql
-explain select * from book where authorid*2 = 1 and typeid = 2 ;&ndash;使用到了0个索引
-explain select * from book where authorid*2 = 1 and typeid = 2 ;&ndash;使用到了一个索引</p>
+<p>独立索引，不影响</p>
 
-<pre><code>
-#### 复合索引关键判断
-
-复合索引不能使用不等于（!=  &lt;&gt;）或is null (is not null)，否则自身以及右侧索引全部失效。
-
-复合索引中如果有&gt;，则自身和右侧索引全部失效。
-
+<pre><code class="language-sql">explain select * from book where authorid*2 = 1 and typeid = 2 ;--使用到了0个索引
+explain select * from book where authorid*2 = 1 and typeid = 2 ;--使用到了一个索引
 </code></pre>
 
-<p>sql
-explain select * from book where authorid = 1 and typeid =2 ;&ndash;预测使用两个索引，实际使用到了一个索引</p>
+<h4 id="复合索引关键判断">复合索引关键判断</h4>
 
-<pre><code>
--- SQL优化，是一种概率层面的优化。至于是否实际使用了我们的优化，需要通过explain进行推测。
+<p>复合索引不能使用不等于（!=  &lt;&gt;）或is null (is not null)，否则自身以及右侧索引全部失效。</p>
 
+<p>复合索引中如果有&gt;，则自身和右侧索引全部失效。</p>
+
+<pre><code class="language-sql">explain select * from book where authorid = 1 and typeid =2 ;--预测使用两个索引，实际使用到了一个索引
 </code></pre>
 
-<p>sql
-explain select * from book where authorid != 1 and typeid =2 ;&ndash;authorid失效</p>
+<p>&ndash; SQL优化，是一种概率层面的优化。至于是否实际使用了我们的优化，需要通过explain进行推测。</p>
 
-<p>explain select * from book where authorid != 1 and typeid !=2 ;&ndash;两个索引都失效</p>
+<pre><code class="language-sql">explain select * from book where authorid != 1 and typeid =2 ;--authorid失效
 
-<pre><code>
-
-​   
-体验概率情况(&lt; &gt; =)：
-
-原因是服务层中有SQL优化器，可能会影响我们的优化。
-
+explain select * from book where authorid != 1 and typeid !=2 ;--两个索引都失效
 </code></pre>
 
-<p>sql
-show index from book;
-drop index idx_typeid on book;</p>
+<p>​<br />
+体验概率情况(&lt; &gt; =)：</p>
 
-<p>drop index idx_authroid on book;</p>
+<p>原因是服务层中有SQL优化器，可能会影响我们的优化。</p>
 
-<p>alter table book add index idx_book_at (authorid,typeid);</p>
+<pre><code class="language-sql">show index from book;
+drop index idx_typeid on book;
 
-<p>explain select * from book where authorid = 1 and typeid =2 ;&ndash;复合索引at全部使用</p>
+drop index idx_authroid on book;
 
-<pre><code>
+alter table book add index idx_book_at (authorid,typeid);
 
-    explain select * from book where authorid &gt; 1 and typeid =2 ; 
---复合索引中如果有&gt;，则自身和右侧索引全部失效。(大部分的情况下是这种)
-
+explain select * from book where authorid = 1 and typeid =2 ;--复合索引at全部使用
 </code></pre>
 
-<p>sql
-explain select * from book where authorid = 1 and typeid &gt;2 ;</p>
-
-<pre><code>
---复合索引at全部使用
-
-明显的概率问题：下面几个很明显
-
+<pre><code>explain select * from book where authorid &gt; 1 and typeid =2 ; 
 </code></pre>
 
-<p>sql
-explain select * from book where authorid &lt; 1 and typeid =2 ;</p>
+<p>&ndash;复合索引中如果有&gt;，则自身和右侧索引全部失效。(大部分的情况下是这种)</p>
 
-<pre><code>--复合索引at只用到了1个索引
-
+<pre><code class="language-sql">explain select * from book where authorid = 1 and typeid &gt;2 ;
 </code></pre>
 
-<p>sql
-explain select * from book where authorid &lt; 4 and typeid =2 ;&ndash; 只是将1改为了4</p>
+<p>&ndash;复合索引at全部使用</p>
 
-<pre><code>--复合索引全部失效
+<p>明显的概率问题：下面几个很明显</p>
 
-* 我们学习的索引优化 ，是一个大部分情况适用的结论，但由于SQL优化器等原因  该结论不是100%正确。
-* 一般而言， 范围查询（&gt; &lt;  in），之后的索引失效。
-
-**补救尽量使用索引覆盖（using index）**
-
-不会出错，永远成立
-
+<pre><code class="language-sql">explain select * from book where authorid &lt; 1 and typeid =2 ;
 </code></pre>
 
-<p>sql
-（a,b,c）</p>
+<p>&ndash;复合索引at只用到了1个索引</p>
 
-<p>select a,b,c from xx..where a=  .. and b =.. ;</p>
-
-<pre><code>
-#### Like问题
-
-**like尽量以“常量”开头，不要以'%'开头，否则索引失效**
-
+<pre><code class="language-sql">explain select * from book where authorid &lt; 4 and typeid =2 ;-- 只是将1改为了4
 </code></pre>
 
-<p>sql
-select * from xx where name like &lsquo;%x%&rsquo; ;</p>
+<p>&ndash;复合索引全部失效</p>
 
-<pre><code>--name即使是一个索引，也会失效
+<ul>
+<li>我们学习的索引优化 ，是一个大部分情况适用的结论，但由于SQL优化器等原因  该结论不是100%正确。</li>
+<li>一般而言， 范围查询（&gt; &lt;  in），之后的索引失效。</li>
+</ul>
+
+<p><strong>补救尽量使用索引覆盖（using index）</strong></p>
+
+<p>不会出错，永远成立</p>
+
+<pre><code class="language-sql">（a,b,c）
+
+select a,b,c from xx..where a=  .. and b =.. ;
+</code></pre>
+
+<h4 id="like问题">Like问题</h4>
+
+<p><strong>like尽量以“常量”开头，不要以&rsquo;%&lsquo;开头，否则索引失效</strong></p>
+
+<pre><code class="language-sql">select * from xx where name like '%x%' ; 
+</code></pre>
+
+<p>&ndash;name即使是一个索引，也会失效</p>
+
+<pre><code class="language-sql">explain select * from teacher  where tname like '%x%'; 
+</code></pre>
+
+<p>&ndash;tname索引失效（开发过程中不要使用*）</p>
+
+<pre><code class="language-sql">explain select * from teacher  where tname like 'x%';
+</code></pre>
+
+<p>&ndash;使用name索引，索引为没失效</p>
+
+<pre><code class="language-sql">explain select tname from teacher  where tname like '%x%'; 
+</code></pre>
+
+<p>&ndash;如果必须使用like &lsquo;%x%&lsquo;进行模糊查询，可以使用索引覆盖 挽救一部分。</p>
+
+<h4 id="类型转换">类型转换</h4>
+
+<p><strong>尽量不要使用类型转换（显示、隐式），否则索引失效</strong></p>
+
+<pre><code class="language-sql">explain select * from teacher where tname = 'abc' ;--使用了索引没问题
+explain select * from teacher where tname = 123 ;--程序底层将 123 -&gt; '123'，即进行了类型转换，因此索引失效
+</code></pre>
+
+<h4 id="or">or</h4>
+
+<p>尽量不要使用or，否则索引失效</p>
+
+<pre><code class="language-sql">explain select * from teacher where tname ='';--索引正常
+explain select * from teacher where tname ='' or tcid &gt;1 ; --将or左侧的tname 失效。
+</code></pre>
+
+<h2 id="一些其他的优化方法">一些其他的优化方法</h2>
+
+<h3 id="exist和in">exist和in</h3>
+
+<pre><code class="language-sql">select ..from table where exist (子查询) ;
+select ..from table where 字段 in  (子查询) ;
+</code></pre>
+
+<p>如果主查询的数据集大，则使用In ,效率高。</p>
+
+<p>如果子查询的数据集大，则使用exist,效率高。</p>
+
+<hr />
+
+<p>exist语法： 将主查询的结果，放到子查询结果中进行条件校验（看子查询是否有数据，如果有数据则校验成功）  ，如果符合校验，则保留数据；</p>
+
+<pre><code class="language-sql">select tname from teacher where exists (select * from teacher) ; 
+</code></pre>
+
+<p>&ndash;等价于<code>select tname from teacher</code></p>
+
+<pre><code class="language-sql">select tname from teacher where exists (select * from teacher where tid =9999) ;
+</code></pre>
+
+<p>子查询没数据,校验失败</p>
+
+<hr />
+
+<p>in:</p>
+
+<pre><code class="language-sql">select ..from table where tid in  (1,3,5) ;
+</code></pre>
+
+<h3 id="order-by-优化">order by 优化</h3>
+
+<p>using filesort 有两种算法：双路排序、单路排序 （根据IO（访问硬盘文件）的次数）</p>
+
+<p>MySQL4.1之前 默认使用 双路排序；</p>
+
+<p>双路：扫描2次磁盘</p>
+
+<ol>
+<li><p>从磁盘读取排序字段 ,对排序字段进行排序（在buffer(缓冲区)中进行的排序）</p></li>
+
+<li><p>扫描其他字段</p>
+
+<p>&ndash;IO较消耗性能</p></li>
+</ol>
+
+<p>MySQL4.1之后 默认使用 单路排序  ：</p>
+
+<p>只读取一次（全部字段），在buffer中进行排序。</p>
+
+<p>但此种单路排序 会有一定的隐患 （不一定真的是“单路|1次IO”，有可能多次IO）。</p>
+
+<p>原因：如果数据量特别大，则无法 将所有字段的数据 一次性读取完毕，因此 会进行“分片读取、多次读取”。</p>
+
+<p>注意：单路排序 比双路排序 会占用更多的buffer。</p>
+
+<p>单路排序在使用时，如果数据大，可以考虑调大buffer的容量大小：  sql命令</p>
+
+<pre><code class="language-sql">set max_length_for_sort_data = 1024;  --单位byte
+</code></pre>
+
+<p>如果max_length_for_sort_data值太低，则mysql会自动从 单路-&gt;双路   （太低：需要排序的列的总大小超过了max_length_for_sort_data定义的字节数）</p>
+
+<p>提高order by查询的策略：</p>
+
+<ol>
+<li><p>选择使用单路、双路 ；调整buffer的容量大小；</p></li>
+
+<li><p>避免select * &hellip;  用什么查什么</p></li>
+
+<li><p>复合索引 不要跨列使用 ，避免using filesort</p></li>
+
+<li><p>保证全部的排序字段 排序的一致性（都是升序 或 降序）</p></li>
+</ol>
+
+<h2 id="sql排查-慢查询日志">SQL排查 - 慢查询日志:</h2>
+
+<p>MySQL提供的一种日志记录，用于记录MySQL种响应时间超过阀值的SQL语句 （long_query_time，默认10秒）</p>
+
+<p>慢查询日志默认是关闭的；</p>
+
+<p>建议：开发调优是 打开，而 最终部署时关闭。</p>
+
+<p>检查是否开启了 慢查询日志 ：</p>
+
+<pre><code class="language-sql">show variables like '%slow_query_log%' ;
+</code></pre>
+
+<p>临时开启：mysql退出重启服务后关闭</p>
+
+<pre><code class="language-sql">set global slow_query_log = 1 ;  --在内存中开启
+
+exit
+
+service mysql restart
+</code></pre>
+
+<p>永久开启：</p>
+
+<p>/etc/my.cnf 中追加配置：</p>
+
+<pre><code>vi /etc/my.cnf 
+[mysqld]
+slow_query_log=1
+slow_query_log_file=/var/lib/mysql/localhost-slow.log
+</code></pre>
+
+<p>慢查询阀值：</p>
+
+<pre><code class="language-sql">show variables like '%long_query_time%' ;
+</code></pre>
+
+<p>临时设置阀值：</p>
+
+<pre><code class="language-sql">set global long_query_time = 5 ; --设置完毕后，重新登陆后起效 （不需要重启服务）
+</code></pre>
+
+<p>永久设置阀值：</p>
+
+<p>/etc/my.cnf 中追加配置：</p>
+
+<pre><code>vi /etc/my.cnf 
+[mysqld]
+long_query_time=3
+</code></pre>
+
+<p>实例</p>
+
+<pre><code>select sleep(4);
+select sleep(5);
+select sleep(3);
+select sleep(3);
+</code></pre>
+
+<p>&ndash;查询超过阀值的SQL：</p>
+
+<pre><code class="language-sql"> show global status like '%slow_queries%' ;
+</code></pre>
+
+<ol>
+<li><p>慢查询的sql被记录在了日志中，因此可以通过日志 查看具体的慢SQL。</p>
+
+<pre><code class="language-shell">cat /var/lib/mysql/localhost-slow.log
+</code></pre></li>
+
+<li><p>通过mysqldumpslow工具查看慢SQL,可以通过一些过滤条件 快速查找出需要定位的慢SQL</p>
+
+<pre><code>mysqldumpslow --help
+s：排序方式
+r:逆序
+l:锁定时间
+g:正则匹配模式        
+</code></pre></li>
+</ol>
+
+<p><strong>linux命令</strong></p>
+
+<p>获取返回记录最多的3个SQL</p>
+
+<pre><code>mysqldumpslow -s r -t 3  /var/lib/mysql/localhost-slow.log
+</code></pre>
+
+<p>获取访问次数最多的3个SQL</p>
+
+<pre><code>mysqldumpslow -s c -t 3 /var/lib/mysql/localhost-slow.log
+</code></pre>
+
+<p>按照时间排序，前10条包含left join查询语句的SQL</p>
+
+<pre><code>mysqldumpslow -s t -t 10 -g &quot;left join&quot; /var/lib/mysql/localhost-slow.log
+</code></pre>
+
+<p>语法：</p>
+
+<pre><code>mysqldumpslow 各种参数  慢查询日志的文件
+</code></pre>
+
+<h2 id="分析海量数据">分析海量数据</h2>
+
+<p><strong>模拟海量数据  存储过程（无return）/存储函数（有return）</strong></p>
+
+<pre><code class="language-sql">create database testdata ;
+use testdata
     
-
-</code></pre>
-
-<p>sql
-explain select * from teacher  where tname like &lsquo;%x%&rsquo;;</p>
-
-<pre><code>--tname索引失效（开发过程中不要使用*）
-
-</code></pre>
-
-<p>sql
-explain select * from teacher  where tname like &lsquo;x%&rsquo;;</p>
-
-<pre><code> --使用name索引，索引为没失效
-
-</code></pre>
-
-<p>sql
-explain select tname from teacher  where tname like &lsquo;%x%&rsquo;;</p>
-
-<pre><code>
---如果必须使用like '%x%'进行模糊查询，可以使用索引覆盖 挽救一部分。
-
-#### 类型转换
-
-**尽量不要使用类型转换（显示、隐式），否则索引失效**
-
-</code></pre>
-
-<p>sql
-explain select * from teacher where tname = &lsquo;abc&rsquo; ;&ndash;使用了索引没问题
-explain select * from teacher where tname = 123 ;&ndash;程序底层将 123 -&gt; &lsquo;123&rsquo;，即进行了类型转换，因此索引失效</p>
-
-<pre><code>
-#### or
-
-尽量不要使用or，否则索引失效
-
-</code></pre>
-
-<p>sql
-explain select * from teacher where tname =&ldquo;;&ndash;索引正常
-explain select * from teacher where tname =&rdquo; or tcid &gt;1 ; &ndash;将or左侧的tname 失效。</p>
-
-<pre><code>
-
-## 一些其他的优化方法
-
-### exist和in
-
-</code></pre>
-
-<p>sql
-select ..from table where exist (子查询) ;
-select ..from table where 字段 in  (子查询) ;</p>
-
-<pre><code>
-如果主查询的数据集大，则使用In ,效率高。
-
-如果子查询的数据集大，则使用exist,效率高。    
-
----
-exist语法： 将主查询的结果，放到子查询结果中进行条件校验（看子查询是否有数据，如果有数据则校验成功）  ，如果符合校验，则保留数据；
-
-</code></pre>
-
-<p>sql
-select tname from teacher where exists (select * from teacher) ;</p>
-
-<pre><code>--等价于`select tname from teacher`
-
-</code></pre>
-
-<p>sql
-select tname from teacher where exists (select * from teacher where tid =9999) ;</p>
-
-<pre><code>子查询没数据,校验失败
-
----
-in:
-
-</code></pre>
-
-<p>sql
-select ..from table where tid in  (1,3,5) ;</p>
-
-<pre><code>
-### order by 优化
-
-using filesort 有两种算法：双路排序、单路排序 （根据IO（访问硬盘文件）的次数）
-
-MySQL4.1之前 默认使用 双路排序；
-
-双路：扫描2次磁盘
-
-1. 从磁盘读取排序字段 ,对排序字段进行排序（在buffer(缓冲区)中进行的排序）
-
-2. 扫描其他字段
-
-    --IO较消耗性能
-
-MySQL4.1之后 默认使用 单路排序  ： 
-
-只读取一次（全部字段），在buffer中进行排序。
-
-但此种单路排序 会有一定的隐患 （不一定真的是“单路|1次IO”，有可能多次IO）。
-
-原因：如果数据量特别大，则无法 将所有字段的数据 一次性读取完毕，因此 会进行“分片读取、多次读取”。
-
-注意：单路排序 比双路排序 会占用更多的buffer。
-
-单路排序在使用时，如果数据大，可以考虑调大buffer的容量大小：  sql命令
-
-</code></pre>
-
-<p>sql
-set max_length_for_sort_data = 1024;  &ndash;单位byte</p>
-
-<pre><code>
-如果max_length_for_sort_data值太低，则mysql会自动从 单路-&gt;双路   （太低：需要排序的列的总大小超过了max_length_for_sort_data定义的字节数）
-
-提高order by查询的策略：
-
-1. 选择使用单路、双路 ；调整buffer的容量大小；
-
-2. 避免select * ...  用什么查什么
-
-1. 复合索引 不要跨列使用 ，避免using filesort
-
-1. 保证全部的排序字段 排序的一致性（都是升序 或 降序）
-        
-        
-## SQL排查 - 慢查询日志:
-
-MySQL提供的一种日志记录，用于记录MySQL种响应时间超过阀值的SQL语句 （long_query_time，默认10秒）
-
-慢查询日志默认是关闭的；
-
-建议：开发调优是 打开，而 最终部署时关闭。
-    
-检查是否开启了 慢查询日志 ：   
-
-</code></pre>
-
-<p>sql
-show variables like &lsquo;%slow_query_log%&rsquo; ;</p>
-
-<pre><code>
-临时开启：mysql退出重启服务后关闭
-
-</code></pre>
-
-<p>sql
-set global slow_query_log = 1 ;  &ndash;在内存中开启</p>
-
-<p>exit</p>
-
-<p>service mysql restart</p>
-
-<pre><code>
-永久开启：
-
-/etc/my.cnf 中追加配置：
-
-    vi /etc/my.cnf 
-    [mysqld]
-    slow_query_log=1
-    slow_query_log_file=/var/lib/mysql/localhost-slow.log
-
-
-慢查询阀值：
-
-</code></pre>
-
-<p>sql
-show variables like &lsquo;%long_query_time%&rsquo; ;</p>
-
-<pre><code>
-临时设置阀值：
-
-</code></pre>
-
-<p>sql
-set global long_query_time = 5 ; &ndash;设置完毕后，重新登陆后起效 （不需要重启服务）</p>
-
-<pre><code>
-永久设置阀值：
-            
-/etc/my.cnf 中追加配置：
-
-    vi /etc/my.cnf 
-    [mysqld]
-    long_query_time=3
-
-实例
-
-    select sleep(4);
-    select sleep(5);
-    select sleep(3);
-    select sleep(3);
-
---查询超过阀值的SQL： 
-
-</code></pre>
-
-<p>sql
- show global status like &lsquo;%slow_queries%&rsquo; ;</p>
-
-<pre><code>
-1. 慢查询的sql被记录在了日志中，因此可以通过日志 查看具体的慢SQL。
-
-</code></pre>
-
-<p>shell
-   cat /var/lib/mysql/localhost-slow.log</p>
-
-<pre><code>
-1. 通过mysqldumpslow工具查看慢SQL,可以通过一些过滤条件 快速查找出需要定位的慢SQL
-
-        mysqldumpslow --help
-        s：排序方式
-        r:逆序
-        l:锁定时间
-        g:正则匹配模式        
-
-**linux命令**
-
-获取返回记录最多的3个SQL
-
-    mysqldumpslow -s r -t 3  /var/lib/mysql/localhost-slow.log
-
-获取访问次数最多的3个SQL
-
-    mysqldumpslow -s c -t 3 /var/lib/mysql/localhost-slow.log
-
-按照时间排序，前10条包含left join查询语句的SQL
-
-    mysqldumpslow -s t -t 10 -g &quot;left join&quot; /var/lib/mysql/localhost-slow.log
-
-语法：
-
-    mysqldumpslow 各种参数  慢查询日志的文件
-
-
-
-## 分析海量数据
-
-**模拟海量数据  存储过程（无return）/存储函数（有return）**
-
-</code></pre>
-
-<p>sql
-create database testdata ;
-use testdata</p>
-
-<p>create table dept
+create table dept
 (
     dno int(5) primary key default 0,
-    dname varchar(20) not null default &ldquo;,
-    loc varchar(30) default &ldquo;
-)engine=innodb default charset=utf8;</p>
+    dname varchar(20) not null default '',
+    loc varchar(30) default ''
+)engine=innodb default charset=utf8;
 
-<p>create table emp
+create table emp
 (
     eid int(5) primary key,
-    ename varchar(20) not null default &ldquo;,
-    job varchar(20) not null default &ldquo;,
+    ename varchar(20) not null default '',
+    job varchar(20) not null default '',
     deptno int(5) not null default 0
-)engine=innodb default charset=utf8;</p>
+)engine=innodb default charset=utf8;
+</code></pre>
 
-<pre><code>
-#### 通过存储函数 插入海量数据：
+<h4 id="通过存储函数-插入海量数据">通过存储函数 插入海量数据：</h4>
 
-1. 创建存储函数：
+<ol>
+<li><p>创建存储函数：</p>
 
-    ```sql
-    randstring(6)  -&gt;aXiayx  用于模拟员工名称
+<pre><code class="language-sql">randstring(6)  -&gt;aXiayx  用于模拟员工名称
     
-    delimiter $ 
+delimiter $ 
     
-    create function randstring(n int)   returns varchar(255) 
-    begin
-        declare  all_str varchar(100) default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ;
-        declare return_str varchar(255) default '' ;
-        declare i int default 0 ; 
-        while i&lt;n        
-        do                                  
-            set return_str = concat(  return_str,      substring(all_str,   FLOOR(1+rand()*52)   ,1)       );
-            set i=i+1 ;
-        end while ;
-        return return_str;
+create function randstring(n int)   returns varchar(255) 
+begin
+    declare  all_str varchar(100) default 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ;
+    declare return_str varchar(255) default '' ;
+    declare i int default 0 ; 
+    while i&lt;n        
+    do                                  
+        set return_str = concat(  return_str,      substring(all_str,   FLOOR(1+rand()*52)   ,1)       );
+        set i=i+1 ;
+    end while ;
+    return return_str;
         
-    end $ 
-    ```
-    
+end $ 
+</code></pre></li>
+</ol>
 
---如果报错：You have an error in your SQL syntax，说明SQL语句语法有错，需要修改SQL语句；
+<p>&ndash;如果报错：You have an error in your SQL syntax，说明SQL语句语法有错，需要修改SQL语句；</p>
 
- 如果报错`This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)`
-是因为 存储过程/存储函数在创建时 与之前的 开启慢查询日志冲突了 
+<p>如果报错<code>This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)</code>
+是因为 存储过程/存储函数在创建时 与之前的 开启慢查询日志冲突了</p>
 
-解决冲突：
+<p>解决冲突：</p>
 
-临时解决( 开启log_bin_trust_function_creators )
+<p>临时解决( 开启log_bin_trust_function_creators )</p>
 
+<pre><code class="language-sql">	show variables like '%log_bin_trust_function_creators%';
+
+	set global log_bin_trust_function_creators = 1;
 </code></pre>
 
-<p>sql
-	show variables like &lsquo;%log_bin_trust_function_creators%&lsquo;;</p>
+<p>永久解决：</p>
 
-<p>	set global log_bin_trust_function_creators = 1;</p>
-
-<pre><code>
-永久解决：
-
-</code></pre>
-
-<p>s
-/etc/my.cnf
+<pre><code class="language-s">/etc/my.cnf 
 [mysqld]
-log_bin_trust_function_creators = 1</p>
-
-<pre><code>
-**创建产生随机整数存储函数（0-99）**
-
+log_bin_trust_function_creators = 1
 </code></pre>
 
-<p>sql
-create function ran_num() returns int(5)
+<p><strong>创建产生随机整数存储函数（0-99）</strong></p>
+
+<pre><code class="language-sql">create function ran_num() returns int(5)
 begin
 	declare i int default 0;
 	set i =floor( rand()*100 ) ;
 	return i ;
-end $</p>
-
-<pre><code>
-**通过存储过程插入海量数据：**
-
-emp表中，从eid_start开始插入data_times条数据
-
+end $
 </code></pre>
 
-<p>sql
-create procedure insert_emp( in eid_start int(10),in data_times int(10))
-begin
+<p><strong>通过存储过程插入海量数据：</strong></p>
+
+<p>emp表中，从eid_start开始插入data_times条数据</p>
+
+<pre><code class="language-sql">create procedure insert_emp( in eid_start int(10),in data_times int(10))
+begin 
 	declare i int default 0;
 	set autocommit = 0 ;
 	repeat
-		insert into emp values(eid_start + i, randstring(5) ,&lsquo;other&rsquo; ,ran_num()) ;
+		insert into emp values(eid_start + i, randstring(5) ,'other' ,ran_num()) ;
 		set i=i+1 ;
 		until i=data_times
 	end repeat ;
 	commit ;
-end $</p>
-
-<pre><code>
-**--通过存储过程插入海量数据：dept表中**  
-
+end $
 </code></pre>
 
-<p>sql
-create procedure insert_dept(in dno_start int(10) ,in data_times int(10))
+<p><strong>&ndash;通过存储过程插入海量数据：dept表中</strong></p>
+
+<pre><code class="language-sql">create procedure insert_dept(in dno_start int(10) ,in data_times int(10))
 begin
     declare i int default 0;
     set autocommit = 0 ;
-    repeat</p>
-
-<pre><code>    insert into dept values(dno_start+i ,randstring(6),randstring(8)) ;
-    set i=i+1 ;
-    until i=data_times
-end repeat ;
+    repeat
+    
+        insert into dept values(dno_start+i ,randstring(6),randstring(8)) ;
+        set i=i+1 ;
+        until i=data_times
+    end repeat ;
+commit ;
+end$
 </code></pre>
 
-<p>commit ;
-end$</p>
+<p><strong>&ndash;插入数据</strong></p>
 
-<pre><code>
-**--插入数据**
-
-</code></pre>
-
-<p>sql
-	delimiter ;
+<pre><code class="language-sql">	delimiter ; 
 	call insert_emp(1000,800000) ;
-	call insert_dept(10,30) ;</p>
-
-<pre><code>
-#### 分析海量数据:
-
-##### profiles
-
+	call insert_dept(10,30) ;
 </code></pre>
 
-<p>shell
-show profiles ; &ndash;默认关闭</p>
+<h4 id="分析海量数据-1">分析海量数据:</h4>
 
-<p>show variables like &lsquo;%profiling%&rsquo;;</p>
+<h5 id="profiles">profiles</h5>
 
-<p>set profiling = on ;</p>
+<pre><code class="language-shell">show profiles ; --默认关闭
 
-<p>show profiles  ：会记录所有profiling打开之后的  全部SQL查询语句所花费的时间。缺点：不够精确，只能看到 总共消费的时间，不能看到各个硬件消费的时间（cpu  io ）</p>
+show variables like '%profiling%';
 
-<pre><code>
-##### 精确分析:sql诊断
+set profiling = on ; 
 
+show profiles  ：会记录所有profiling打开之后的  全部SQL查询语句所花费的时间。缺点：不够精确，只能看到 总共消费的时间，不能看到各个硬件消费的时间（cpu  io ）
 </code></pre>
 
-<p>sql
- show profile all for query 上一步查询的的Query_Id</p>
+<h5 id="精确分析-sql诊断">精确分析:sql诊断</h5>
 
-<p>show profile cpu,block io for query 上一步查询的的Query_Id</p>
+<pre><code class="language-sql"> show profile all for query 上一步查询的的Query_Id
 
-<pre><code>
-##### 全局查询日志 ：
-
-记录开启之后的 全部SQL语句。 （这次全局的记录操作 仅仅在调优、开发过程中打开即可，在最终的部署实施时 一定关闭）
-
+ show profile cpu,block io for query 上一步查询的的Query_Id
 </code></pre>
 
-<p>sql
-show variables like &lsquo;%general_log%&lsquo;;</p>
+<h5 id="全局查询日志">全局查询日志 ：</h5>
 
-<pre><code>
-* --执行的所有SQL记录在表中
+<p>记录开启之后的 全部SQL语句。 （这次全局的记录操作 仅仅在调优、开发过程中打开即可，在最终的部署实施时 一定关闭）</p>
 
-    ```sql
-    set global general_log = 1 ;--开启全局日志
-    set global log_output='table' ; --设置 将全部的SQL 记录在表中
-    ```
-    
-* --执行的所有SQL记录在文件中
-
-    ```sql
-    set global log_output='file' ;
-    set global general_log = on ;
-    set global general_log_file='/tmp/general.log' ;
-    ```
-    
-
-开启后，会记录所有SQL ： 会被记录mysql.general_log表中。
-
+<pre><code class="language-sql">show variables like '%general_log%';
 </code></pre>
 
-<p>sql
-select * from  mysql.general_log ;</p>
+<ul>
+<li><p>&ndash;执行的所有SQL记录在表中</p>
 
-<pre><code>
-## 锁机制
+<pre><code class="language-sql">set global general_log = 1 ;--开启全局日志
+set global log_output='table' ; --设置 将全部的SQL 记录在表中
+</code></pre></li>
 
-锁机制 ：解决因资源共享 而造成的并发问题。
+<li><p>&ndash;执行的所有SQL记录在文件中</p>
 
-示例：买最后一件衣服X
+<pre><code class="language-sql">set global log_output='file' ;
+set global general_log = on ;
+set global general_log_file='/tmp/general.log' ;
+</code></pre></li>
+</ul>
 
-    A:      X   买 ：  X加锁 -&gt;试衣服...下单..付款..打包 -&gt;X解锁
-    B:  X       买：发现X已被加锁，等待X解锁，   X已售空
+<p>开启后，会记录所有SQL ： 会被记录mysql.general_log表中。</p>
 
-分类：
-
-1. 操作类型：
-
-    1. 读锁（共享锁）： 对同一个数据（衣服），多个读操作可以同时进行，互不干扰。
-
-    2. 写锁（互斥锁）： 如果当前写操作没有完毕（买衣服的一系列操作），则无法进行其他的读操作、写操作
-
-1. 操作范围：
-
-    1. 表锁 ：一次性对一张表整体加锁。如MyISAM存储引擎使用表锁，开销小、加锁快；无死锁；但锁的范围大，容易发生锁冲突、并发度低。
-
-    1. 行锁 ：一次性对一条数据加锁。如InnoDB存储引擎使用行锁，开销大，加锁慢；容易出现死锁；锁的范围较小，不易发生锁冲突，并发度高（很小概率 发生高并发问题：脏读、幻读、不可重复度、丢失更新等问题）。
-
-    1. 页锁       
-    
-
-示例：
-
-### 表锁 ：  
-
---自增操作 MYSQL/SQLSERVER 支持；oracle需要借助于序列来实现自增
-
+<pre><code class="language-sql">select * from  mysql.general_log ;
 </code></pre>
 
-<p>sql
-create table tablelock
+<h2 id="锁机制">锁机制</h2>
+
+<p>锁机制 ：解决因资源共享 而造成的并发问题。</p>
+
+<p>示例：买最后一件衣服X</p>
+
+<pre><code>A:      X   买 ：  X加锁 -&gt;试衣服...下单..付款..打包 -&gt;X解锁
+B:  X       买：发现X已被加锁，等待X解锁，   X已售空
+</code></pre>
+
+<p>分类：</p>
+
+<ol>
+<li><p>操作类型：</p>
+
+<ol>
+<li><p>读锁（共享锁）： 对同一个数据（衣服），多个读操作可以同时进行，互不干扰。</p></li>
+
+<li><p>写锁（互斥锁）： 如果当前写操作没有完毕（买衣服的一系列操作），则无法进行其他的读操作、写操作</p></li>
+</ol></li>
+
+<li><p>操作范围：</p>
+
+<ol>
+<li><p>表锁 ：一次性对一张表整体加锁。如MyISAM存储引擎使用表锁，开销小、加锁快；无死锁；但锁的范围大，容易发生锁冲突、并发度低。</p></li>
+
+<li><p>行锁 ：一次性对一条数据加锁。如InnoDB存储引擎使用行锁，开销大，加锁慢；容易出现死锁；锁的范围较小，不易发生锁冲突，并发度高（很小概率 发生高并发问题：脏读、幻读、不可重复度、丢失更新等问题）。</p></li>
+
+<li><p>页锁</p></li>
+</ol></li>
+</ol>
+
+<p>示例：</p>
+
+<h3 id="表锁">表锁 ：</h3>
+
+<p>&ndash;自增操作 MYSQL/SQLSERVER 支持；oracle需要借助于序列来实现自增</p>
+
+<pre><code class="language-sql">create table tablelock
 (
-    id int primary key auto_increment ,
+    id int primary key auto_increment , 
     name varchar(20)
 )engine myisam;
-insert into tablelock(name) values(&lsquo;a1&rsquo;);
-insert into tablelock(name) values(&lsquo;a2&rsquo;);
-insert into tablelock(name) values(&lsquo;a3&rsquo;);
-insert into tablelock(name) values(&lsquo;a4&rsquo;);
-insert into tablelock(name) values(&lsquo;a5&rsquo;);
-commit;</p>
-
-<pre><code>
-增加锁：
-
+insert into tablelock(name) values('a1');
+insert into tablelock(name) values('a2');
+insert into tablelock(name) values('a3');
+insert into tablelock(name) values('a4');
+insert into tablelock(name) values('a5');
+commit;
 </code></pre>
 
-<p>sql
-locak table 表1  read/write  ,表2  read/write   ,&hellip;</p>
+<p>增加锁：</p>
 
-<pre><code>
-查看加锁的表：
-
+<pre><code class="language-sql">locak table 表1  read/write  ,表2  read/write   ,...
 </code></pre>
 
-<p>sql
-show open tables ;</p>
+<p>查看加锁的表：</p>
 
-<pre><code>
-会话：session :每一个访问数据的dos命令行、数据库客户端工具  都是一个会话
-
-### 加读锁：
-1. 会话0：
-
-    ```sql
-    lock table  tablelock read ;
-    
-    select * from tablelock; --读（查），可以
-    
-    delete from tablelock where id =1 ; --写（增删改），不可以
-    ```
-
-    其他表
-
-    ```sql
-    select * from emp ; --读，不可以
-    delete from emp where eid = 1; --写，不可以
-    ```
-
-    结论1：
-
-    * --如果某一个会话 对A表加了read锁，则 该会话 可以对A表进行读操作、不能进行写操作：且该会话不能对其他表进行读、写操作。
-
-    * --即如果给A表加了读锁，则当前会话只能对A表进行读操作。
-
-2. 会话1（其他会话）：
-
-    ```sql
-    select * from tablelock;   --读（查），可以
-    
-    delete from tablelock where id =1 ; --写，会“等待”会话0将锁释放
-    ```
-
-
-2. 会话2（其他会话）：操作其他表
-
-    ```sql
-    select * from emp ;  --读（查），可以
-    
-    ```
-
-delete from emp where eid = 1; --写，可以
-    ```
-
-    --总结：
-    
-    会话0给A表加了锁；其他会话的操作：
-    
-    1. 可以对其他表（A表以外的表）进行读、写操作
-    1. 对A表：读-可以；  写-需要等待释放锁。
-
-释放锁: 
-
+<pre><code class="language-sql">show open tables ;
 </code></pre>
 
-<p>sql
-unlock tables ;</p>
+<p>会话：session :每一个访问数据的dos命令行、数据库客户端工具  都是一个会话</p>
 
-<pre><code>
+<h3 id="加读锁">加读锁：</h3>
 
+<ol>
+<li><p>会话0：</p>
 
-### 加写锁：
-
-1. 会话0：
-
-    ```sql
-    lock table tablelock write ;
-    ```
-
-    当前会话（会话0） 可以对加了写锁的表  进行任何操作（增删改查）；但是不能 操作（增删改查）其他表
-
-1. 其他会话：
-
-    对会话0中加写锁的表 可以进行增删改查的前提是：等待会话0释放写锁
-
-### MySQL表级锁的锁模式
-
-MyISAM
-
-在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，
-
-在执行更新操作（DML）前，会自动给涉及的表加写锁。
-
-所以对MyISAM表进行操作，会有以下情况：
-
-* 对MyISAM表的读操作（加读锁），不会阻塞其他进程（会话）对同一表的读请求，
-但会阻塞对同一表的写请求。只有当读锁释放后，才会执行其它进程的写操作。
-
-* 对MyISAM表的写操作（加写锁），会阻塞其他进程（会话）对同一表的读和写操作，
-只有当写锁释放后，才会执行其它进程的读写操作。
-
-### 分析表锁定：
-
-查看哪些表加了锁：   
-
+<pre><code class="language-sql">lock table  tablelock read ;
+    
+select * from tablelock; --读（查），可以
+    
+delete from tablelock where id =1 ; --写（增删改），不可以
 </code></pre>
 
-<p>sql
-show open tables ;  1代表被加了锁</p>
+<p>其他表</p>
 
-<pre><code>
-分析表锁定的严重程度： 
-
+<pre><code class="language-sql">select * from emp ; --读，不可以
+delete from emp where eid = 1; --写，不可以
 </code></pre>
 
-<p>sql
-show status like &lsquo;table%&rsquo; ;</p>
+<p>结论1：</p>
 
-<p>Table_locks_immediate :即可能获取到的锁数</p>
+<ul>
+<li><p>&ndash;如果某一个会话 对A表加了read锁，则 该会话 可以对A表进行读操作、不能进行写操作：且该会话不能对其他表进行读、写操作。</p></li>
 
-<p>Table_locks_waited：需要等待的表锁数(如果该值越大，说明存在越大的锁竞争)</p>
+<li><p>&ndash;即如果给A表加了读锁，则当前会话只能对A表进行读操作。</p></li>
+</ul></li>
 
-<pre><code>
-一般建议：
+<li><p>会话1（其他会话）：</p>
 
-Table_locks_immediate/Table_locks_waited &gt; 5000， 建议采用InnoDB引擎，否则MyISAM引擎
+<pre><code class="language-sql">select * from tablelock;   --读（查），可以
+    
+delete from tablelock where id =1 ; --写，会“等待”会话0将锁释放
+</code></pre></li>
 
+<li><p>会话2（其他会话）：操作其他表</p>
 
-### 行锁（InnoDB）
-
+<pre><code class="language-sql">select * from emp ;  --读（查），可以
 </code></pre>
 
-<p>sql
-create table linelock(
+<pre><code class="language-sql">delete from emp where eid = 1; --写，可以
+</code></pre></li>
+</ol>
+
+<p><strong>总结：</strong></p>
+
+<pre><code>会话0给A表加了锁；其他会话的操作：
+
+1. 可以对其他表（A表以外的表）进行读、写操作
+1. 对A表：读-可以；  写-需要等待释放锁。
+</code></pre>
+
+<p>释放锁:</p>
+
+<pre><code class="language-sql">unlock tables ;
+</code></pre>
+
+<h3 id="加写锁">加写锁：</h3>
+
+<ol>
+<li><p>会话0：</p>
+
+<pre><code class="language-sql">lock table tablelock write ;
+</code></pre>
+
+<p>当前会话（会话0） 可以对加了写锁的表  进行任何操作（增删改查）；但是不能 操作（增删改查）其他表</p></li>
+
+<li><p>其他会话：</p>
+
+<p>对会话0中加写锁的表 可以进行增删改查的前提是：等待会话0释放写锁</p></li>
+</ol>
+
+<h3 id="mysql表级锁的锁模式">MySQL表级锁的锁模式</h3>
+
+<p>MyISAM</p>
+
+<p>在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，</p>
+
+<p>在执行更新操作（DML）前，会自动给涉及的表加写锁。</p>
+
+<p>所以对MyISAM表进行操作，会有以下情况：</p>
+
+<ul>
+<li><p>对MyISAM表的读操作（加读锁），不会阻塞其他进程（会话）对同一表的读请求，
+但会阻塞对同一表的写请求。只有当读锁释放后，才会执行其它进程的写操作。</p></li>
+
+<li><p>对MyISAM表的写操作（加写锁），会阻塞其他进程（会话）对同一表的读和写操作，
+只有当写锁释放后，才会执行其它进程的读写操作。</p></li>
+</ul>
+
+<h3 id="分析表锁定">分析表锁定：</h3>
+
+<p>查看哪些表加了锁：</p>
+
+<pre><code class="language-sql">show open tables ;  1代表被加了锁
+</code></pre>
+
+<p>分析表锁定的严重程度：</p>
+
+<pre><code class="language-sql">show status like 'table%' ;
+
+Table_locks_immediate :即可能获取到的锁数
+
+Table_locks_waited：需要等待的表锁数(如果该值越大，说明存在越大的锁竞争)
+</code></pre>
+
+<p>一般建议：</p>
+
+<p>Table_locks_immediate/Table_locks_waited &gt; 5000， 建议采用InnoDB引擎，否则MyISAM引擎</p>
+
+<h3 id="行锁-innodb">行锁（InnoDB）</h3>
+
+<pre><code class="language-sql">create table linelock(
     id int(5) primary key auto_increment,
     name varchar(20)
 )engine=innodb ;
-insert into linelock(name) values(&lsquo;1&rsquo;)  ;
-insert into linelock(name) values(&lsquo;2&rsquo;)  ;
-insert into linelock(name) values(&lsquo;3&rsquo;)  ;
-insert into linelock(name) values(&lsquo;4&rsquo;)  ;
-insert into linelock(name) values(&lsquo;5&rsquo;)  ;</p>
-
-<pre><code>
-
---mysql默认自动commit;  oracle默认不会自动commit ;
-
-为了研究行锁，暂时将自动commit关闭; 
-
+insert into linelock(name) values('1')  ;
+insert into linelock(name) values('2')  ;
+insert into linelock(name) values('3')  ;
+insert into linelock(name) values('4')  ;
+insert into linelock(name) values('5')  ;
 </code></pre>
 
-<p>sql
-set autocommit =0 ;</p>
+<p>&ndash;mysql默认自动commit;  oracle默认不会自动commit ;</p>
 
-<pre><code>
-以后需要通过commit
+<p>为了研究行锁，暂时将自动commit关闭;</p>
 
-
-会话0： 写操作
-
+<pre><code class="language-sql">set autocommit =0 ; 
 </code></pre>
 
-<p>sql
-insert into linelock values(6,&lsquo;a6&rsquo;) ;</p>
+<p>以后需要通过commit</p>
 
-<pre><code>
-会话1： 写操作 同样的数据
+<p>会话0： 写操作</p>
 
+<pre><code class="language-sql">insert into linelock values(6,'a6') ;
 </code></pre>
 
-<p>sql
-update linelock set name=&lsquo;ax&rsquo; where id = 6;</p>
+<p>会话1： 写操作 同样的数据</p>
 
-<pre><code>
-对行锁情况：
-
-1. 如果会话x对某条数据a进行 DML操作（研究时：关闭了自动commit的情况下），则其他会话必须等待会话x结束事务(commit/rollback)后  才能对数据a进行操作。
-
-2. 表锁 是通过unlock tables，也可以通过事务解锁 ; 行锁 是通过事务解锁。  
-
-行锁，操作不同数据：
-    
-会话0： 写操作
-    
-
+<pre><code class="language-sql">update linelock set name='ax' where id = 6;
 </code></pre>
 
-<p>sql
-insert into linelock values(8,&lsquo;a8&rsquo;) ;</p>
+<p>对行锁情况：</p>
 
-<pre><code>
-会话1： 写操作， 不同的数据
+<ol>
+<li><p>如果会话x对某条数据a进行 DML操作（研究时：关闭了自动commit的情况下），则其他会话必须等待会话x结束事务(commit/rollback)后  才能对数据a进行操作。</p></li>
 
+<li><p>表锁 是通过unlock tables，也可以通过事务解锁 ; 行锁 是通过事务解锁。</p></li>
+</ol>
+
+<p>行锁，操作不同数据：</p>
+
+<p>会话0： 写操作</p>
+
+<pre><code class="language-sql">insert into linelock values(8,'a8') ;
 </code></pre>
 
-<p>sql
-update linelock set name=&lsquo;ax&rsquo; where id = 5;</p>
+<p>会话1： 写操作， 不同的数据</p>
 
-<pre><code>
-行锁，一次锁一行数据；因此 如果操作的是不同数据，则不干扰。
-
-
-行锁的注意事项：
-
-1. 如果没有索引，则行锁会转为表锁
-
-    ```sql
-    show index from linelock ;
-    
-    alter table linelock add index idx_linelock_name(name);
-    ```
-
-
-    会话0： 写操作
-    
-    ```sql
-    update linelock set name = 'ai' where name = '3' ;
-    ```
-    
-    会话1： 写操作， 不同的数据
-    
-    ```sql
-    update linelock set name = 'aiX' where name = '4' ;
-    ```
-    
-    两者互不干扰
-    
-    会话0： 写操作
-    
-    ```sql
-    update linelock set name = 'ai' where name = 3 ;
-    ```
-    
-    会话1： 写操作， 不同的数据
-    
-    ```sql
-    update linelock set name = 'aiX' where name = 4 ;
-    ```
-    
-    --可以发现，数据被阻塞了（加锁）
-    
-    -- 原因：如果索引类 发生了类型转换，则索引失效。 因此 此次操作，会从行锁 转为表锁。
-
-1. 行锁的一种特殊情况：间隙锁：值在范围内，但却不存在
-
-     --此时linelock表中 没有id=7的数据
-
-    ```sql
-update linelock set name ='x' where id &gt;1 and id&lt;9 ;  
-    ```
-    
-    --即在此where范围中，没有id=7的数据，则id=7的数据成为间隙。
-    
-    ```sql
-insert into linelock values(7,&quot;zs&quot;);
-    ```
-
-    --结果被锁住了
-
-    间隙：Mysql会自动给 间隙 加锁 -&gt;间隙锁。即 本题 会自动给id=7的数据加 间隙锁（行锁）。
-    
-    行锁：如果有where，则实际加锁的范围 就是where后面的范围（不是实际的值）（2-8之间都加上锁）
-    
-    
-
-如果仅仅是查询数据，能否加锁？ 
-
-可以   `for update `
-
-研究学习时，将自动提交关闭：(三种方式)
-
+<pre><code class="language-sql">update linelock set name='ax' where id = 5;
 </code></pre>
 
-<p>sql
-set autocommit =0 ;</p>
+<p>行锁，一次锁一行数据；因此 如果操作的是不同数据，则不干扰。</p>
 
-<p>start transaction ;</p>
+<p>行锁的注意事项：</p>
 
-<p>begin ;</p>
+<ol>
+<li><p>如果没有索引，则行锁会转为表锁</p>
 
-<pre><code></code></pre>
+<pre><code class="language-sql">show index from linelock ;
+    
+alter table linelock add index idx_linelock_name(name);
+</code></pre></li>
+</ol>
 
-<p>sql
-	select * from linelock where id =2 for update ;</p>
+<p>会话0： 写操作</p>
 
-<pre><code>通过`for update`对`query`语句进行加锁。
-
-**行锁**：
-
-InnoDB默认采用行锁；
-
-缺点： 比表锁性能损耗大。
-
-优点：并发能力强，效率高。
-
-因此建议，高并发用InnoDB，否则用MyISAM。
-
-行锁分析：
-
-
+<pre><code class="language-sql">update linelock set name = 'ai' where name = '3' ;
 </code></pre>
 
-<p>sql
-show status like &lsquo;%innodb_row_lock%&rsquo; ;</p>
+<p>会话1： 写操作， 不同的数据</p>
 
-<p>Innodb_row_lock_current_waits :当前正在等待锁的数量<br />
+<pre><code class="language-sql">update linelock set name = 'aiX' where name = '4' ;
+</code></pre>
+
+<p>两者互不干扰</p>
+
+<p>会话0： 写操作</p>
+
+<pre><code class="language-sql">update linelock set name = 'ai' where name = 3 ;
+</code></pre>
+
+<p>会话1： 写操作， 不同的数据</p>
+
+<pre><code class="language-sql">update linelock set name = 'aiX' where name = 4 ;
+</code></pre>
+
+<p>&ndash;可以发现，数据被阻塞了（加锁）</p>
+
+<p>&ndash; 原因：如果索引类 发生了类型转换，则索引失效。 因此 此次操作，会从行锁 转为表锁。</p>
+
+<ol>
+<li><p>行锁的一种特殊情况：间隙锁：值在范围内，但却不存在</p>
+
+<p>&ndash;此时linelock表中 没有id=7的数据</p>
+
+<pre><code class="language-sql">update linelock set name ='x' where id &gt;1 and id&lt;9 ;  
+</code></pre>
+
+<p>&ndash;即在此where范围中，没有id=7的数据，则id=7的数据成为间隙。</p>
+
+<pre><code class="language-sql">insert into linelock values(7,&quot;zs&quot;);
+</code></pre>
+
+<p>&ndash;结果被锁住了</p>
+
+<p>间隙：Mysql会自动给 间隙 加锁 -&gt;间隙锁。即 本题 会自动给id=7的数据加 间隙锁（行锁）。</p>
+
+<p>行锁：如果有where，则实际加锁的范围 就是where后面的范围（不是实际的值）（2-8之间都加上锁）</p></li>
+</ol>
+
+<p>如果仅仅是查询数据，能否加锁？</p>
+
+<p>可以   <code>for update</code></p>
+
+<p>研究学习时，将自动提交关闭：(三种方式)</p>
+
+<pre><code class="language-sql">set autocommit =0 ;
+
+start transaction ;
+
+begin ;
+</code></pre>
+
+<pre><code class="language-sql">	select * from linelock where id =2 for update ;
+</code></pre>
+
+<p>通过<code>for update</code>对<code>query</code>语句进行加锁。</p>
+
+<p><strong>行锁</strong>：</p>
+
+<p>InnoDB默认采用行锁；</p>
+
+<p>缺点： 比表锁性能损耗大。</p>
+
+<p>优点：并发能力强，效率高。</p>
+
+<p>因此建议，高并发用InnoDB，否则用MyISAM。</p>
+
+<p>行锁分析：</p>
+
+<pre><code class="language-sql">show status like '%innodb_row_lock%' ;
+
+Innodb_row_lock_current_waits :当前正在等待锁的数量  
 Innodb_row_lock_time：等待总时长。从系统启到现在 一共等待的时间
 Innodb_row_lock_time_avg  ：平均等待时长。从系统启到现在平均等待的时间
 Innodb_row_lock_time_max  ：最大等待时长。从系统启到现在最大一次等待的时间
-Innodb_row_lock_waits ：	等待次数。从系统启到现在一共等待的次数</p>
+Innodb_row_lock_waits ：	等待次数。从系统启到现在一共等待的次数
+</code></pre>
 
-<pre><code>
+<h3 id="主从复制-集群在数据库的一种实现">主从复制  （集群在数据库的一种实现）</h3>
 
-### 主从复制  （集群在数据库的一种实现）
-
-集群的优点
+<p>集群的优点
 1. 负载均衡
-2. 失败迁移
+2. 失败迁移</p>
 
-windows:mysql 主
+<p>windows:mysql 主</p>
 
-linux:mysql从
+<p>linux:mysql从</p>
 
-安装windows版mysql:
+<p>安装windows版mysql:</p>
 
-如果之前计算机中安装过Mysql，要重新再安装  则需要：先卸载 再安装
+<p>如果之前计算机中安装过Mysql，要重新再安装  则需要：先卸载 再安装</p>
 
-#### 先卸载：
+<h4 id="先卸载">先卸载：</h4>
 
-1. 通过电脑自带卸载工具卸载Mysql (电脑管家也可以)
-    
-2. 删除一个mysql缓存文件夹C:\ProgramData\MySQL
-   
-3. 删除注册表regedit中所有mysql相关配置
+<ol>
+<li><p>通过电脑自带卸载工具卸载Mysql (电脑管家也可以)</p></li>
 
-4. --重启计算机
-   
-#### 安装MYSQL：
+<li><p>删除一个mysql缓存文件夹C:\ProgramData\MySQL</p></li>
 
-[下载官网](https://dev.mysql.com/downloads/mysql/5.5.html#downloads)
+<li><p>删除注册表regedit中所有mysql相关配置</p></li>
 
-安装时，如果出现未响应：  则重新打开
+<li><p>&ndash;重启计算机</p></li>
+</ol>
 
-    xxx\bin\MySQLInstanceConfig.exe
+<h4 id="安装mysql">安装MYSQL：</h4>
 
-图形化客户端： SQLyog, Navicat
+<p><a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载官网</a></p>
 
-如果要远程连接数据库，则需要授权远程访问。 
+<p>安装时，如果出现未响应：  则重新打开</p>
 
-在linux中授权远程访问 :(A-&gt;B,则再B计算机的Mysql中执行以下命令)
-
-    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
-    
-    FLUSH PRIVILEGES;
-
-如果仍然报错：可能是防火墙没关闭 ：  在B关闭防火墙
-
+<pre><code>xxx\bin\MySQLInstanceConfig.exe
 </code></pre>
 
-<p>shell
-service iptables stop</p>
+<p>图形化客户端： SQLyog, Navicat</p>
 
-<pre><code>
-实现主从同步（主从复制）：
+<p>如果要远程连接数据库，则需要授权远程访问。</p>
 
-主从同步的核心：通过二进制日志
+<p>在linux中授权远程访问 :(A-&gt;B,则再B计算机的Mysql中执行以下命令)</p>
 
-1. master将改变的数 记录在本地的 二进制日志中（binary log） ；该过程 称之为：二进制日志事件
+<pre><code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 
-2. slave将master的binary log拷贝到自己的 relay log（中继日志文件）中
-
-3. 中继日志事件，将数据读取到自己的数据库之中
-    MYSQL主从复制 是异步的，串行化的， 有延迟
-
-MYSQL主从复制是异步的，串行化的，有延迟的
-
-    master:slave = 1:n
-
-配置： 
-
-windows(mysql: my.ini)
-
-linux(mysql: my.cnf)
-
-配置前，为了无误，先将权限(远程访问)、防火墙等处理：
-
-关闭windows/linux防火墙： 
-
-1. windows：右键“网络”   
-
-2. linux: 
-
-    ```shell
-    service iptables stop
-    ```
-
-Mysql允许远程连接(windowos/linux)：
-
-    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
-    FLUSH PRIVILEGES;
-
-window mysql8.0 版本修改允许访问远程权限
-
-    use mysql;
-    
-    select host, user, authentication_string, plugin from user;
-    
-    update user set host='%' where user='root';
-    
-    grant all privileges on *.* to root@'%';
-    
-    flush privileges;
-
-#### 主机（以下代码和操作 全部在主机windows中操作）：my.ini
-
-    [mysqld]
-    #id
-    server-id=1
-    #二进制日志文件（注意是/  不是\）
-    log-bin=&quot;C:/Program Files/MySQL/MySQL Server 8.0/data/mysql-bin&quot;
-    #错误记录文件
-    log-error=&quot;C:/Program Files/MySQL/MySQL Server 8.0/data/mysql-error&quot;
-    #主从同步时 忽略的数据库
-    binlog-ignore-db=mysql
-    #(可选)指定主从同步时，同步哪些数据库
-    binlog-do-db=test   
-
-windows中的数据库 授权哪台计算机中的数据库 是自己的从数据库：
-
-    GRANT REPLICATION slave,reload,super ON *.* TO 'root'@'192.168.2.%' IDENTIFIED BY 'root';
-    flush privileges ; 
-
-查看主数据库的状态（每次在左主从同步前，需要观察 主机状态的最新值）
-
+FLUSH PRIVILEGES;
 </code></pre>
 
-<p>sql
-show master status;（mysql-bin.000001、 107）</p>
+<p>如果仍然报错：可能是防火墙没关闭 ：  在B关闭防火墙</p>
 
-<pre><code>（mysql-bin.000001、 107）：二进制文件名和位置
-
-
-#### 从机（以下代码和操作 全部在从机linux中操作）：
-
-    my.cnf
-    [mysqld]
-    server-id=2
-    log-bin=mysql-bin
-    replicate-do-db=test
-
-linux中的数据 授权哪台计算机中的数控 是自己的主计算机
-
-    CHANGE MASTER TO 
-    MASTER_HOST = '192.168.2.2', 
-    MASTER_USER = 'root', 
-    MASTER_PASSWORD = 'root', 
-    MASTER_PORT = 3306,
-    master_log_file='mysql-bin.000001',
-    master_log_pos=107;
-
-如果报错：This operation cannot be performed with a running slave; run STOP SLAVE first
-
-解决：
-
+<pre><code class="language-shell">service iptables stop 
 </code></pre>
 
-<p>shell
-STOP SLAVE ;</p>
+<p>实现主从同步（主从复制）：</p>
 
-<pre><code>
-再次执行上条授权语句
+<p>主从同步的核心：通过二进制日志</p>
 
-#### 开启主从同步：
+<ol>
+<li><p>master将改变的数 记录在本地的 二进制日志中（binary log） ；该过程 称之为：二进制日志事件</p></li>
 
-从机linux:
+<li><p>slave将master的binary log拷贝到自己的 relay log（中继日志文件）中</p></li>
 
+<li><p>中继日志事件，将数据读取到自己的数据库之中
+MYSQL主从复制 是异步的，串行化的， 有延迟</p></li>
+</ol>
+
+<p>MYSQL主从复制是异步的，串行化的，有延迟的</p>
+
+<pre><code>master:slave = 1:n
 </code></pre>
 
-<p>shell
-start slave ;</p>
+<p>配置：</p>
 
-<pre><code>
-检验  
+<p>windows(mysql: my.ini)</p>
 
+<p>linux(mysql: my.cnf)</p>
+
+<p>配置前，为了无误，先将权限(远程访问)、防火墙等处理：</p>
+
+<p>关闭windows/linux防火墙：</p>
+
+<ol>
+<li><p>windows：右键“网络”</p></li>
+
+<li><p>linux:</p>
+
+<pre><code class="language-shell">service iptables stop
+</code></pre></li>
+</ol>
+
+<p>Mysql允许远程连接(windowos/linux)：</p>
+
+<pre><code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 </code></pre>
 
-<p>sql
-show slave status \G</p>
+<p>window mysql8.0 版本修改允许访问远程权限</p>
 
-<pre><code>
-主要观察： Slave_IO_Running和 Slave_SQL_Running，确保二者都是yes；如果不都是yes，则看下方的 Last_IO_Error。
+<pre><code>use mysql;
 
-本次 通过 Last_IO_Error发现错误的原因是 主从使用了相同的server-id， 检查:在主从中分别查看serverid:  
+select host, user, authentication_string, plugin from user;
 
+update user set host='%' where user='root';
+
+grant all privileges on *.* to root@'%';
+
+flush privileges;
 </code></pre>
 
-<p>sql
-show variables like &lsquo;server_id&rsquo; ;</p>
+<h4 id="主机-以下代码和操作-全部在主机windows中操作-my-ini">主机（以下代码和操作 全部在主机windows中操作）：my.ini</h4>
 
-<pre><code>
-可以发现，在Linux中的my.cnf中设置了server-id=2，但实际执行时 确实server-id=1，原因：可能是 linux版Mysql的一个bug，也可能是 windows和Linux版本不一致造成的兼容性问题。
-
-解决改bug： 
-
+<pre><code>[mysqld]
+#id
+server-id=1
+#二进制日志文件（注意是/  不是\）
+log-bin=&quot;C:/Program Files/MySQL/MySQL Server 8.0/data/mysql-bin&quot;
+#错误记录文件
+log-error=&quot;C:/Program Files/MySQL/MySQL Server 8.0/data/mysql-error&quot;
+#主从同步时 忽略的数据库
+binlog-ignore-db=mysql
+#(可选)指定主从同步时，同步哪些数据库
+binlog-do-db=test   
 </code></pre>
 
-<p>sql
-set global server_id =2 ;</p>
+<p>windows中的数据库 授权哪台计算机中的数据库 是自己的从数据库：</p>
 
-<pre><code>重复执行上面
-
+<pre><code>GRANT REPLICATION slave,reload,super ON *.* TO 'root'@'192.168.2.%' IDENTIFIED BY 'root';
+flush privileges ; 
 </code></pre>
 
-<p>shell
-stop slave ;</p>
+<p>查看主数据库的状态（每次在左主从同步前，需要观察 主机状态的最新值）</p>
 
-<p>set global server_id =2 ;</p>
+<pre><code class="language-sql">show master status;（mysql-bin.000001、 107）
+</code></pre>
 
-<p>start slave ;</p>
+<p>（mysql-bin.000001、 107）：二进制文件名和位置</p>
 
-<p>show slave status \G
-```
-确保两个是yes</p>
+<h4 id="从机-以下代码和操作-全部在从机linux中操作">从机（以下代码和操作 全部在从机linux中操作）：</h4>
+
+<pre><code>my.cnf
+[mysqld]
+server-id=2
+log-bin=mysql-bin
+replicate-do-db=test
+</code></pre>
+
+<p>linux中的数据 授权哪台计算机中的数控 是自己的主计算机</p>
+
+<pre><code>CHANGE MASTER TO 
+MASTER_HOST = '192.168.2.2', 
+MASTER_USER = 'root', 
+MASTER_PASSWORD = 'root', 
+MASTER_PORT = 3306,
+master_log_file='mysql-bin.000001',
+master_log_pos=107;
+</code></pre>
+
+<p>如果报错：This operation cannot be performed with a running slave; run STOP SLAVE first</p>
+
+<p>解决：</p>
+
+<pre><code class="language-shell">STOP SLAVE ;
+</code></pre>
+
+<p>再次执行上条授权语句</p>
+
+<h4 id="开启主从同步">开启主从同步：</h4>
+
+<p>从机linux:</p>
+
+<pre><code class="language-shell">start slave ;
+</code></pre>
+
+<p>检验</p>
+
+<pre><code class="language-sql">show slave status \G
+</code></pre>
+
+<p>主要观察： Slave_IO_Running和 Slave_SQL_Running，确保二者都是yes；如果不都是yes，则看下方的 Last_IO_Error。</p>
+
+<p>本次 通过 Last_IO_Error发现错误的原因是 主从使用了相同的server-id， 检查:在主从中分别查看serverid:</p>
+
+<pre><code class="language-sql">show variables like 'server_id' ;
+</code></pre>
+
+<p>可以发现，在Linux中的my.cnf中设置了server-id=2，但实际执行时 确实server-id=1，原因：可能是 linux版Mysql的一个bug，也可能是 windows和Linux版本不一致造成的兼容性问题。</p>
+
+<p>解决改bug：</p>
+
+<pre><code class="language-sql">set global server_id =2 ;
+</code></pre>
+
+<p>重复执行上面</p>
+
+<pre><code class="language-shell">stop slave ;
+
+set global server_id =2 ;
+
+start slave ;
+
+show slave status \G
+</code></pre>
+
+<p>确保两个是yes</p>
 
 <h4 id="演示">演示：</h4>
 
@@ -2906,7 +2753,7 @@ stop slave ;</p>
 </ul>
   <div class="copyright">
     &copy;2019  -
-    2020
+    2021
     <div class="publishby">
         联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
     </div>
