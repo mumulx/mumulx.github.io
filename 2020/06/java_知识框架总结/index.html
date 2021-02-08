@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java复习知识点总结 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java学习路线与知识点总结." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java复习知识点总结 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java复习知识点总结" />
+<meta property="og:description" content="Java学习路线与知识点总结." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2020-06-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java复习知识点总结">
+<meta itemprop="description" content="Java学习路线与知识点总结.">
+
+
+<meta itemprop="datePublished" content="2020-06-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="70032">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java复习知识点总结"/>
+<meta name="twitter:description" content="Java学习路线与知识点总结."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#操作系统与计算机网络">操作系统与计算机网络</a></li>
+<li><a href="#java语言特性与设计模式">Java语言特性与设计模式</a></li>
+<li><a href="#深入浅出jvm">深入浅出JVM</a>
+<ul>
+<li><a href="#jvm">jvm</a></li>
+<li><a href="#jmm">JMM</a></li>
+<li><a href="#java的类加载机制">Java的类加载机制</a></li>
+</ul></li>
+<li><a href="#多线程">多线程</a>
+<ul>
+<li><a href="#线程池">线程池</a></li>
+<li><a href="#线程池参数介绍">线程池参数介绍</a></li>
+<li><a href="#juc常用工具类">JUC常用工具类</a></li>
+</ul></li>
+<li><a href="#数据结构与算法">数据结构与算法</a>
+<ul>
+<li><a href="#字符串匹配问题">字符串匹配问题:</a></li>
+<li><a href="#top-k问题">Top k问题</a></li>
+</ul></li>
+<li><a href="#常用工具集">常用工具集</a>
+<ul>
+<li><a href="#jmc">JMC</a></li>
+<li><a href="#btrace">btrace</a></li>
+<li><a href="#jvm-1">jvm</a></li>
+<li><a href="#git">git</a></li>
+<li><a href="#linux分析工具">linux分析工具</a></li>
+</ul></li>
+<li><a href="#spring全家桶">spring全家桶</a>
+<ul>
+<li><a href="#spring">spring</a></li>
+<li><a href="#spring-boot">spring boot</a></li>
+<li><a href="#netty">Netty</a></li>
+<li><a href="#rpc">RPC</a></li>
+<li><a href="#mybatis">Mybatis</a></li>
+</ul></li>
+<li><a href="#缓存">缓存</a>
+<ul>
+<li><a href="#memcache">Memcache</a></li>
+<li><a href="#redis">Redis</a></li>
+</ul></li>
+<li><a href="#消息队列与数据库">消息队列与数据库</a>
+<ul>
+<li><a href="#kafka">kafka</a></li>
+<li><a href="#数据库事务">数据库事务</a></li>
+<li><a href="#mysql">Mysql</a></li>
+</ul></li>
+<li><a href="#架构的演讲之路与前沿技术">架构的演讲之路与前沿技术</a>
+<ul>
+<li><a href="#容器化技术">容器化技术</a></li>
+</ul></li>
+<li><a href="#小结笔记">小结笔记</a>
+<ul>
+<li><a href="#cap理论">CAP理论</a></li>
+</ul></li>
+<li><a href="#技术人行走职场的建议">技术人行走职场的建议</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/"
+    >Java复习知识点总结</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-06-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-06-09</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:70032字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:140分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h2 id="操作系统与计算机网络">操作系统与计算机网络</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608191643081.png" alt="image-20200608191643081" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200609230636924.png" alt="image-20200609230636924" /></p>
+
+<p>TCP是传输层协议。对应osI网络模型的第4层传输层。 TCP协议的特点是基于链接。也就是传输数据前需要先建立好链接，然后再进行传输。 TCP连接一旦建立,就可以在连接上进行双向的通信。Tcp的传输是基于字节流而不是报文，将数据按字节大小进行编号，接收端通过LCK来确认收到的数据编号，通过这种机制，TCP协议能够保证接收数据的有序性和完整性。</p>
+
+<p>因此 TCP能够提供可靠性传输，TCP还能提供流量控制能力，通过滑动窗口来控制数据的发送速率。滑动窗口的本质是动态缓冲区，接收端根据自己的处理能力，在TCP的header中动态调整窗口大小，通过ACK应答包通知给发送端，发送端根据窗口的大小调整发送的速度，仅有流量控制能力还不够。Tcp协议还考虑到了网络问题可能会导致大量重传，进而导致网络情况进一步恶化。因此 TCP协议还提供了拥塞控制，TCP处理拥塞控制，主要是用到了慢启动，拥塞控制，快速重传，快速恢复四个算法。<a href="https://blog.csdn.net/qq_41431406/article/details/97926927">TCP的拥塞控制（详解）</a></p>
+
+<p>除了TCP协议的特点。还可以进一步了解TCP协议的报文状态，滑动窗口的工作流程，keep alive的参数设置和Nagel算法的规则等一些细节。另外还有典型的TCP协议问题。例如特定场景下Nagel和aCK延迟机制配合使用，可能会出现延迟40毫秒超时后才能回复aCK包的问题。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606203128785.png" alt="image-20200606203128785" /></p>
+
+<p>接下来我们来看看TCP建连的三次握手。TCP是基于链接的。所以在传输数据前需要先建立链接，TCP在传输上是双工传输，不区分client端与server端。为了便于理解。我们把主动发起建连请求的一端称作client端，把被动建立连接的一端称作server端。</p>
+
+<p>看下面这张图，建连的时序是从上到下，左右两边的绿色字，分别代表client端与server端当时的链接状态。首先建立链接前需要server端先监听端口，因此server端建立链接前的初始状态就是LISTREM状态，开始客户端准备建立链接，先发送一个syn同步包，发送完成后，client端的链接状态就变成了syn_sent的状态。Server端收到syn后，同意建立链接，会向client端回复一个ACK；由于TCP是双工传输，server端也会同时向client端发送一个同步请求syn申请server向client方向建立连接，发送完ACK和SYN后，server端的链接状态就变成了syn_rcvd。client收到SYN、ACK后，client端的链接状态就变成了established的状态。同时 client端向server端发送ACK响应，回复server端的SYN请求，server端收到client端的ack后，server的链接状态也就变成了established的状态。其实建连完成双方随时可以进行数据传输，</p>
+
+<p>需要明白三次握手是为了建立双向的连接，需要记住client端和server端的链接状态变化。另外回答建连的问题是可以提到syn洪水攻击发生的原因，就是server端收到client端的SYN请求后，发送了ACK和syn，但是server端不进行回复，导致server端大量的连接处在SYN_RCVD状态，进而影响其他正常请求的建连。</p>
+
+<p>可以通过设置Linux的TCP参数，tcp_syn_retries=0来加快半连接的回收速度，或者调大tcp_max_syn_backlog来应对少量的SYN洪水攻击。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606204152575.png" alt="image-20200606204152575" /></p>
+
+<p>再来看看TCP的断连，TCP链接的关闭。<strong>通信双方都可以先发起</strong>，我们暂且把先发起的一方看作client，从图中可以看出，通信中的client和server两端的链接状态都是established的状态，然后client端先发起了关闭链接请求 ；client向server发送了一个FIN包，表示客户端已经没有数据要发送了，然后client端就进入了FIN_WAIT_1状态。Server端收到FIN后。返回ACK , 然后进入close_wait状态。其实 server端属于半关闭状态，因为此时client向server方向已经不会再发送数据了，可是server向client端可能还有数据要发送，当server端数据发送完毕后，server端会向client端发送FIN表示server端也没有数据要发送的。这时 server进入last_ack状态，就等待client端的应答就可以关闭链接了。Client端收到server端的FIN后。回复ACK。然后进入time_wait的状态，time_wait的状态下需要等待<strong>两倍的msl</strong>就是最大报文段生存时间，来保证链接的可靠关闭。之后才会进入closed状态。而server端收到ack后，直接就可以进入close状态。</p>
+
+<p>这里可能会问为什么需要等待两倍的msl之后才能关闭链接？</p>
+
+<p>原因有两个</p>
+
+<ul>
+<li>第一要保证TCP协议的全双工链接能够可靠关闭。</li>
+<li>第二，要保证这次链接中重复的数据段能够从网络中消失，防止端口被重用的时候，可能会产生数据混淆。</li>
+</ul>
+
+<p>从这个交互流程上可以看出，无论是建联还是断连，都是需要在两个方向上进行，只不过建连时，server端的syn和aCK两个包合并为一次发送，而断开连接时，两个方向的数据发送的停止时间可能是不同的，所以无法合并FIN和ACK发送；这就是建连的时候必须要三次握手，而断连的时候必须要4次挥手的原因。</p>
+
+<p>另外在回答断连的问题时，可以提到实际应用中，有可能会遇到大量socket出在time_wait或者close_wait状态的问题，一般开启Linux的TCP参数，tcp_tw_reuse 和tcp_tw_recycle能够加快time_wait的状态的回收。<a href="https://blog.csdn.net/zhangjunli/article/details/89321202">解决Linux TIME_WAIT过多造成的问题</a></p>
+
+<p>而出现大量的close_wait状态,一般是被动关闭的一方可能存在代码的bug，没有正确关闭链接导致的。</p>
+
+<h2 id="java语言特性与设计模式">Java语言特性与设计模式</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608193626880.png" alt="image-20200608193626880" /></p>
+
+<p>最常见的设计模式有单例模式，工厂模式、代理模式、构造者模式、责任链模式、适配器模式、观察者模式等。</p>
+
+<p>我们看一下详解，设计模式的知识点分为三大类型，共23种，其中</p>
+
+<p>创建型的有5种，工厂方法模式，抽象工厂模式，单例模式、建造者模式、原型模式，
+结构型的有7种，适配器模式，装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式，
+行为型的有11种，策略模式、模板方法模式、观察者模式、迭代器模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式，中介者模式和解释器模式。</p>
+
+<p>面试中对于设计模式。应该明白。不同设计用来解决什么样的场景问题，对于常用的设计模式能够灵活运用。重点介绍几种常用的设计模式</p>
+
+<p>工厂模式: Spring如何创建Bean
+代理模式: Motan服务的动态代理
+责任链模式: Netty消息处理的方式
+适配器模式: SLF4J如何支持Log4J
+观察者模式: GRPC是如何支持流式请求的
+构造者模式: PB序列化中的Builder</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606211120990.png" alt="image-20200606211120990" /></p>
+
+<p>HashMap和ConcurrentHashMap</p>
+
+<p>先来看HashMap的实现。简单来说，Java的HashMap就是数组加链表实现的，数组中的每一项是一个链表。通过计算存入对象的hashcode的来计算出对象在数组中要存入的位置，用链表来解决散列冲突。链表中的节点存储的是键值对，除了实现的方式，我们还需要知道填充因子的作用与HashMap扩容时的机制，需要知道HashMap容量都是二的幂次方。是因为可以通过按位与操作来计算余数。比求模要更快。</p>
+
+<p>另外需要知道HashMap是非线程安全的在多线程put的情况下。有可能在容量超过填充因子时进行hash。因为HashMap为了避免尾部遍历，在链表的插入时使用的是头插法。多线程场景下，可能会产生死循环。从HashMap的非线程安全，面试官很自然的就会问到线程安全的ConcurrentHashMap，ConcurrentHashMap采用分段锁的思想来降低并发场景下的锁定发生频率。</p>
+
+<p>在jdk1.7和1.8中实现差异非常大。1.7中使用的segment进行分段枷锁，降低并发锁定程度。1.8中使用cas自旋锁。这是一种乐观思维模式来提高性能。但是在并发度较高的场景下，性能会比较一般。另外1.8中ConcurrentHashMap引入了红黑树。用来解决希冲突时列表的顺序查找问题。红黑树的启用条件与列表的长度，和map的总容量有关。默认是链表大于8，且容量大于64时转为红黑树方式。</p>
+
+<p>最后在1.8中对方法区进行了调整。使用metaspace(元空间)替换掉了PermGen的永久代。metaspace与PermGen间最大的区别在于 metaspace并不在虚拟机中，而是使用本地内存。替换的目的一方面是可以提升对原数据的处理。提升这些效率。另一方面方便后续hot spot。11版本是Java最新的长期支持版本，</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606212130795.png" alt="image-20200606212130795" /></p>
+
+<ol>
+<li>进程与线程的区别与联系</li>
+<li>简单介绍一-下进程的切换过程</li>
+<li>你经常使用哪些Linux命令,主要用来解决什么问题?</li>
+<li>为什么TCP建连需要3次握手而断连需要4次</li>
+<li>为什么TCP关闭链接时需要TIME_WAIT状态，为什么要等2MSL ?</li>
+<li>一次完整的HTTP请求过程 是怎样的</li>
+<li>HTTP2和HTTP的区别有哪些?</li>
+<li>在你的项目中你使用过哪些设计模式?主要用来解决什么问题?</li>
+<li>Object中的equals和hashcode的作用分别是什么?</li>
+<li>final , finally , finalize的区别与使用场景</li>
+<li>简单描述一下java的异常机制</li>
+<li>线上使用的哪个版本jdk ,为什么使用这个版本(有什么特点) ?</li>
+</ol>
+
+<h2 id="深入浅出jvm">深入浅出JVM</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200609230457889.png" alt="image-20200609230457889" /></p>
+
+<h3 id="jvm">jvm</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606221652980.png" alt="image-20200606221652980" /></p>
+
+<p>内存模型主要是运行时的数据区，包括5个部分，栈也叫方法栈，是线程私有的，线程在执行哪个方法是都会同时创建一个栈帧，用来存储局部变量表，操作栈、动态链接方法出口等信息，调用方法时执行入栈，方法返回时执行出栈，本地方法栈与栈类似，也是用来保存现成执行方法时的信息，不同的是执行Java方法时使用栈，而执行native方法是使用本地方法栈；程序计数器保存着当前线程所执行的字节码位置，每个线程工作时都有一个独立的计数器，程序计数器只为执行Java方法服务，执行native方法时，程序计数器为空；栈、本地方法栈、程序计数器这三部分都是线程独占的。</p>
+
+<p>堆是JVM管理的内存中最大的一块，堆被所有的线程共享，目的是为了存放对象的实例，几乎所有的对象实例，都会放在这里。当堆内存没有可用的空间时，会抛出OOM异常，根据对象存活的周期不同，JVM对内存进行分代管理，由垃圾回收器来进行对象的回收。方法区也是各个线程共享的内存区域，又叫非堆区，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器优化后的代码等数据，jdk1.7中的永久代和1.8中的元空间都是方法区的一种实现。</p>
+
+<h3 id="jmm">JMM</h3>
+
+<p>JMM是Java内存模型，与刚才讲到的JVM模型是两回事。JMM的主要目标是定议程序中变量的访问规则，如图所示所有的共享变量都存储在主内存中共享。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606222202739.png" alt="image-20200606222202739" /></p>
+
+<p>每个线程有自己的工作内存，工作内存中保存的是主内存中变量的副本，线程对变量的读写等操作。必须在自己的工作内存中进行。而不能直接读写主内存中的变量。在多线程进行数据交互时，例如线程a给一个共享变量赋值后，由线程b来读取这个值，a修改完变量是修改在自己的。你的工作内存区中，B是不可见的，只有从a的工作内存区写回到主内存， B再从主内存读取到自己的工作区。才能进行进一步的操作。由于指令重排序的存在，这个写读的顺序有可能会被打乱，因此JMM需要提供原子性、可见性、有序性的保证。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606222607465.png" alt="image-20200606222607465" /></p>
+
+<p>我们来看看JMM如何保证原子性、可见性和有序性。<strong>JMM保证对除long和double外的基础数据类型，它的读写操作是原子性的</strong>。另外关键字synchronized也可以提供原子性保证，synchronized的原子性是通过Java的两个高级字级码指令，<strong>monitorenter和monitorexit</strong>来保证的。</p>
+
+<p>JMM可见性的保证，一个是通过synchronized的，另外一个就是通过volatile。volatile强制变量的赋值会同步刷新回主内存，强制变量的读取。会从主内存中重新加载。保证不同的线程总是能够看到该变量的最新值，JMM对有序性的保证，主要通过volatile和一系列的happens -before原则。</p>
+
+<p>volatile的另一个作用就是阻止指令重排序，这样就可以保证变量读写的有序性。Happens-before原则，包括一系列规则，比如程序顺序原则，就是一个线程内必须保证与一串型性，所谓的就是对同一把锁的解锁一定要发生在再次加锁之前。此外还包括happens before原则的传递性。线程的启动中断中止规则等。</p>
+
+<h3 id="java的类加载机制">Java的类加载机制</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606223012854.png" alt="image-20200606223012854" /></p>
+
+<p>类的加载。是指将编译好的class类文件中的字节码读入到内存中。将其放在方法区内，并创建对应的Klass对象。类的加载分为加载、链接、初始化，其中链接又包括验证、准备、解析三步，看图中上半部深绿色的部分，我们逐个解析。</p>
+
+<p>加载是文件到内存的过程，通过类的完全限定名，查找此类字节码文件，并利用字节码文件创建一个Klass对象；</p>
+
+<p>验证是对类文件内容验证，目的在于确保class文件符合当前虚拟机的要求，不会危害到虚拟机自身安全。主要包括4种，文件格式验证、原数据验证、字节码验证、符号引用验证；</p>
+
+<p>准备阶段是进行内存分配，为类变量，也就是由类中static修饰的变量分配内存，并设置初始值。这里要注意初始值是0或null而不是代码中设置的具体值，代码中设置的值，在初始化阶段完成。另外这里也不包含final修饰的静态变量，因为final变量在编译时就已经分配了。</p>
+
+<p>解析主要是解析字段、接口、方法，主要是将常量词中的符号引用替换为直接引用的过程，直接引用就是直接指向目标的指针或者相对偏移量等。</p>
+
+<p>最后是初始化，主要完成静态代码块执行与静态变量的赋值，这是累类加载最后阶段。若被加载类的父类没有初始化，则先对父类进行初始化，只有对类的主动使用时才会进行初始化，初始化的触发条件，包括创建类的实例的时候，访问类的静态方法或者静态变量的时候，使用class forname反射类的时候，或者某个子类被初始化的时候，图中下方浅绿的两个部分，表示类的生命周期，就是从类的加载到类的实例的创建与使用，再到类对象不再被使用，可以被这些回收。</p>
+
+<p>这里要注意一点，由Java虚拟机自带的三种类加载器加载的类，在虚拟机的整个生命周期中是不会被卸载的。只有用户自定义的类加载器所加载的类才可以被卸载。接下来我们学习不同的类加载器</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606223544658.png" alt="image-20200606223544658" /></p>
+
+<p>Java自带的三种类加载器，分别是bootstrap启动类加载器、扩展类加载器、应用加载器也叫系统加载器，图右边的橘黄色文字，表示各类加载器对应的加载目录；</p>
+
+<p>启动类加载器，加载Java_home中内部目录下的加载类;</p>
+
+<p>扩展加载器，负责加载ext目录下的类;</p>
+
+<p>应用加载器加载classpath指定目录下的类。</p>
+
+<p>除此之外还可以自定义类加载器，Java的类加载，使用双亲委派模式。即一个类加载器，在加载类时，先把这个请求委托给自己的父类加载器去执行。如果父类加载器还存在父类加载器，就继续向上委托，直到顶层的启动类加载器，如图中蓝色向上的箭头，如果父类加载器能够完成类的加载就成功返回。如果父类加载器无法完成加载，那么子加载器才会尝试自己去加载，如图中黄色向下的箭头，这种双亲委派模式的好处，一是可以避免类的重复加载，另外也避免了Java的核心API被篡改。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606223808517.png" alt="image-20200606223808517" /></p>
+
+<p>前面提到过 Java的堆内存被分代管理，为什么要分代管理？分代管理主要是为了方便垃圾回收，这样做是基于两个事实。</p>
+
+<p>第一是大部分对象很快就不再使用了。第二是还有一部分不会立即无用，但也不会持续很长时间。</p>
+
+<p>虚拟机中划分为年轻代、老年代和永久代。我们来看图，年轻代主要用来存放新创建的对象，年轻代分为eden等区和两个survivor区，大部分对象在eden区中生成，当eden区满时还存活的对象会在两个survival区交替保存，达到一定次数后，对象会晋升到老年代，老年代用来存放从年轻代晋升而来的存活时间较长的对象，永久代在前面也介绍过，主要保存类信息等内容，这里的永久代是指对象划分方式，不是专指1.7的永久代，或者1.8之后的元空间</p>
+
+<p>根据年轻代与老年代的特点，JVM提供了不同的垃圾回收算法，垃圾回收算法按类型可以分为引用计数法、复制法、标记清除法几种，</p>
+
+<p>其中引用计数法是通过对象被引用的次数来确定对象是否还在被使用，缺点是无法解决循环引用的问题。</p>
+
+<p>复制算法需要from和to两块大小相同的内存空间，对象分配时只在from块中进行，回收时把存活对象复制到to块中，并清空form块，然后交换两块的分工。把from块作为to快，把to块作为from块，缺点是内存使用率较低；</p>
+
+<p>标记清除算法分为标记对象和清除不再使用的对象两个阶段，标记清除算法的缺点是会产生内存碎片。</p>
+
+<p>JVM中提供的年轻代回收算法，Serial、parnew、Parallel scavenge。都是复制算法，而cms、G1、ZGC都属于标记清除算法。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606225457453.png" alt="image-20200606225457453" /></p>
+
+<p>下面我们详细介绍几个典型的垃圾回收算法。先来看cms回收算法，cms是jk1.7以前，可以说最主流的垃圾回收算法，cms使用标记清除算法，优点是并发收集，停顿下，我们看图中cms的处理过程，</p>
+
+<ul>
+<li>cms的第一个阶段是初始标记，这个阶段会stop the world，标记的对象只是从root级最直接可达的对象。</li>
+<li>第二个阶段是并发标记，这时GC线程和应用线程并发执行，主要是标记可达的对象。</li>
+<li>第三个阶段是重新标记阶段，这个阶段是第二个stop the world阶段，停顿时间比并发标记要小很多，占比初始标记稍长，主要对象进行重新扫描并标记。</li>
+<li>第四个阶段是并发清理阶段，进行并发的垃圾清理。</li>
+<li>最后一个阶段是并发重置阶段，为下一次这些重置相关数据结构</li>
+</ul>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606225722650.png" alt="image-20200606225722650" /></p>
+
+<p>G1算法在jdk1.9后成为了JVM的默认垃圾回收算法。G1的特点是保持高回收率的同时减少停顿，G1算法取消了堆中年轻代与老年代的物理划分，但它仍然属于分代收集器，G1算法将对堆分为若干个区域，为region，如图中的小方格所示，一部分区域用作年轻代，一部分用在老年代，还有另外一种专门用来存储巨型对象的分区Humongous，G1和cms一样，会遍历全部对象，然后标记对象引用情况，在清除对象后会对区域进行复制移动整合碎片空间。</p>
+
+<p>图的右边是G1年轻代与老年代的回收过程，G1的年轻代回收采用复制算法并行进行收集，收集过程会stop the world；G1的老年代回收，同时也会对年轻代进行回收。主要分为4个阶段</p>
+
+<p>第一个阶段依然是初始标记阶段，完成对跟对象的标记。这个过程是stop the world。</p>
+
+<p>第二个阶段，并发标记阶段，这个阶段是和用户线程并行执行的。</p>
+
+<p>第三个阶段，最终标记的阶段，完成三次标记的标记周期。</p>
+
+<p>第四阶段，复制清除阶段，这个阶段会优先对可回收空间较大的region进行回收，Garbage First这也是G1名称的由来。</p>
+
+<p>G1采用每次只清理一部分，而不是全部region的增量式清理，由此来保证每次GC停顿时间不会过长。</p>
+
+<p>总结一下G1算法，这部分需要掌握G1是逻辑分代，不是物理分代，需要知道回收的过程和停顿的阶段。此外还需要知道G1算法允许通过jvm参数设置region的大小，范围是1~32M，还可以设置期望的最大这些停顿时间等。如果你有兴趣，也可以对CMs和G1使用的三次标记算法进行简单的了解。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606230631668.png" alt="image-20200606230631668" /></p>
+
+<p>ZGC是最新的jdk1.11中提供的高效垃圾回收算法，针对大堆内存设计可以支持T级别的堆，他非常高效，能够做到10毫秒以下的回收停顿时间，这么短的停顿时间是ZGC如何做到的？我们来了解一下 ZGC的黑科技，ZGC使用了着色指针技术。我们知道64位平台上一个指针可用位是64位，ZGC限制最大支持4tb的堆，这样寻址只需要使用42位。那么会剩下22位就可以用来保存额外的信息。着色指针技术就是利用指针的额外信息位在指针上对象进行着色标记。</p>
+
+<p>第二个特点是使用读屏障，ZGC使用读屏障来解决GC线程和应用线程可能并发修改对象状态的问题，而不是简单粗暴的通过stop the world来做全局的锁定，使用读屏障只会在单个对象的处理上有概率被减速。</p>
+
+<p>第三个特点：由于读屏障这样的使用，进行垃圾回收的大部分时候都是不需要stop the world。因此ZGC的大部分时间都是并发处理；</p>
+
+<p>第四个特点是基于region，这与G1算法一样，不过虽然也分了region，但是并没有进行分代。Zgc的region不像G1那样是固定大小，而是动态决定region的大小。Region可以动态创建和销毁，这样可以更好地对大对象进行分配管理。</p>
+
+<p>第5五特点是压缩整理CMS算法，清理对象是原地回收，会存在内存碎片问题。ZGC和G1一样，也会在回收后对Region中的对象进行移动合并，解决了碎片问题，虽然ZGC的大部分时间是并发进行，但还是会有短暂的停顿。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200606231116774.png" alt="image-20200606231116774" /></p>
+
+<p>来看一下ZGC的回收过程。这张图是按ZGC的回收时序绘制的，我们从上往下看，初始状态是整个堆空间被划分为大小不等的许多region，及图中绿色的方块，开始进行回收时，ZGC首先会进行一个短暂的stop the world，来进行root根对象的标记，这个步骤非常短，因为root的总数量通常比较小，然后就开始进行并发标记。</p>
+
+<p>如图。通过对象指针进行着色来进行标记，结合读屏障，解决单个对象的并发问题。其实这个阶段在最后的时候，还会有一个非常短的stop the word停顿，用来处理一些边缘情况，这个阶段绝大部分时间都是并发进行的，所以没有明显标识出这个停顿。</p>
+
+<p>下一个阶段是清理阶段，这个阶段会把标记为不可用的对象进行回收。如图把橘色的不再使用的对象进行了回收。</p>
+
+<p>最后一个阶段是重定位，重定位就是对GC后存活的对象进行移动，来腾出大块的内存空间解决碎片问题。在重定位最开始，会有一个短暂的stop the world，用来重定位该集合中的root对象，暂停时间取决于root的数量和重定位集与对象的总活动集的比率</p>
+
+<p>最后是并发重定位，这个过程也是通过读屏障与应用线程并发进行的。</p>
+
+<ol>
+<li>深入理解JVM内存模型</li>
+<li>了解类加载机制</li>
+<li>了解内存可见性</li>
+<li>了解常用的GC算法实现和适用场景</li>
+<li>能够根据业务场景选择合适JVM参数与GC算法</li>
+</ol>
+
+<p>总结一下JVM相关的面试考察点。首先需要理解的内存模型和Java的内存模型。其次要了解类的加载过程，了解双亲委派机制。第三，要理解内存的可见性与Java内存模型对原子性可见性有序性的保证机制。第四要了解常用的这些算法的特点，执行过程和适用场景。例如G1适合对最大延迟有要求的场合，zgc适用于64位系统的大内存服务中。</p>
+
+<p>第五，要了解常用的JVM参数，明白对不同参数的调整会有怎样的影响，适用于什么样的场景？比如垃圾回收的并发数，偏向锁的设置等。如果想要面试官对你留下更好的印象的话，注意这些加分项。</p>
+
+<ol>
+<li>编译器优化</li>
+
+<li><p>问题排查经验与思路</p></li>
+
+<li><p>JVM调优经验和调优思路</p></li>
+
+<li><p>了 解最新的技术趋势(例如ZGC、Graalvm )</p></li>
+</ol>
+
+<p>首先如果在编译器优化方面有深入的了解的话，会让面试官觉得你对技术深度比较有追求。比如知道在编程时如何利用栈上分配，降低GC压力，如何编写适合内容优化的代码等。其次，如果你能有线上实际问题的排查经验或者思路，那就更好了。面试官都喜欢动手能力强的同学，例如解决过线上经常FullGC的问题，排查过内存泄漏的问题等。</p>
+
+<p>第三，如果有针对特定场景的JVM优化实践，或者优化思路，也会有意想不到的效果。比如针对高并发低延迟的场景，如何调整GC数，尽量降低停顿时间，针对队列处理机如何尽可能提高吞吐率等。</p>
+
+<p>第四，如果对最新的JVM技术趋势有所了解，也会给面试官留下比较深的印象。ZGC高效的实现原理，了解grave vm的特点等。</p>
+
+<p>第一题，Java内存模型前面已经讲过了，面试回答这个问题时，记得和面试官确认是希望回答gvm的内存模型，还是Java对内存访问的模型，不要打跑偏了。</p>
+
+<p>真题汇总</p>
+
+<ol>
+<li>简单描述一下JVM的内存模型</li>
+
+<li><p>什么情况下会触发FulIGC ?(年轻代晋升时老年代空间不足，永久代空间不足等)</p></li>
+
+<li><p>Java类加载器有几种,关系是怎样的?</p></li>
+
+<li><p>双亲委派机制的加载流程是怎样的,有什么好处?</p></li>
+
+<li><p>1.8为什么用Metaspace替换掉PermGen ? Metaspace保存在哪里?</p></li>
+
+<li><p>编译期会对指令做哪些优化? (简单描述编译器的指令重排)</p></li>
+
+<li><p>简单描述一下volatile可以解决什么问题 ?如何做到的?</p></li>
+
+<li><p>简单描述一- 下GC的分代回收。</p></li>
+
+<li><p>G1垃圾回收算法与CMS的区别有哪些?</p></li>
+
+<li><p>对象引用有哪几种方式，有什么特点?</p></li>
+
+<li><p>使用过哪些JVM调试工具，主要分析哪些内容?</p></li>
+</ol>
+
+<h2 id="多线程">多线程</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200609230730710.png" alt="image-20200609230730710" /></p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607102100150.png" alt="image-20200607102100150" /></p>
+
+<p>线程状态转换，在运行中线程一共有NEW、RUNNING、BLOCKED、WAITING、TIME_WAITING、TERMINATED 6种状态，这些状态对应thread中state枚举类的状态。</p>
+
+<p>如图上方。当创建一个线程的时候，线程处在NEW状态。运行thread start方法后。现成进入RUNNABLE可运行状态，这个时候所有可运行状态的线程并不能马上运行，而是需要先进入就绪状态，等待线程调度，就是图中间的 ready状态。</p>
+
+<p>在获取到CPU后才能进入运行状态，就是图中的running。运行状态可随着不同条件转换成除new以外的其他状态。我们先看左边，在运行态中的线程，进入synchronized同步块或者同步方法时，如果获取锁失败，就会进入到BLOCKED的状态。当获取到锁时，会从block状态恢复到就绪状态。</p>
+
+<p>再来看右边，运行中的线程还会进入等待状态，这两个等待状态一个是有超时间的等待，例如调用object类的wait方法。 Thread类的join方法等。另外一个是无超时的等待，例如调用thread类的join方法或者lock的park方法。这两种等待都可以通过notify或者unpark。结束等待状态，恢复到就绪状态，最后是线程运行完成结束时。如图下方。线程状态就变成了TERMINATED的。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607102824238.png" alt="image-20200607102824238" /></p>
+
+<p>线程的同步与互斥，解决线程同步与互斥的主要方式是cas、Synchronized和lock。</p>
+
+<p>我们先来看CAS，CAS是属于一种乐观锁的实现，是一种轻量级锁，JUC中很多工具类的实现就是基于CAS。 CAS操作的流程如左图所示。线程在读取数据时不进行加锁，在准备写回数据时，比较原值是否修改，若未被其他线程修改，则写回若已被修改则重新执行读取流程，这是一种乐观策略。认为并发操作并不总会发生，比较并写回的操作是通过操作系统的原语实现的，保证执行过程中不会被中断。CAS容易出现ABA问题，比如按右图所示的时序，线程t一在读取完值a后发生过两次写入，先由线程t二写回了b又由线程t三写回了a；此时T1在写回时进行比较，发现值还是a就无法判断是否发生过修改。ABA问题不一定会影响结果，但还是需要防范；解决的办法可以增加额外的标志位或者时间戳，JUC工具包中提供了这样的类；</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607103352369.png" alt="image-20200607103352369" /></p>
+
+<p>synchronized是最常用的现成同步手段之一。 他是如何保证同一时刻只有一个线程可以进入到临界区？我们知道 synchronized是对象进行加锁，在JVM中对象在内存中分为三块区域，对象头、实例数据和对齐填充，在对象头中保存了锁标志位和指向monitor对象的起始地址。如上图所示，右边的就是一个对象，它对应的monitor对象，当monitor被某个线程占用后，就会处于锁定状态。如图中的owner部分会指向持有monitor对象的线程。另外， Monitor还有两个队列，用来存放进入以及等待获取所的线程synchronize的应用在方法上时，在字节码中是通过方法的acc_synchronized的标志来实现的。</p>
+
+<p>Synchronize应用在同步块上时，在字节码中是通过monitor enter和monitor exit来实现的。针对synchronized获取锁的方式，JVM使用了锁升级的优化方式，就是先使用偏向锁，优先同一线程再次获取锁，如果失败就升级为cas轻量级锁，如果再失败会进行短暂的自旋，防止线程被系统挂起，最后如果以上都失败，就会升级为重量级锁。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607103843306.png" alt="image-20200607103843306" /></p>
+
+<p>在介绍lock前，我们先来看一下AQS也就是队列同步器，这是实现lock的基础。.左图就是AQS的结构图，从图中可以看出，AQS有一个state标志位,值为1时表示有线程占用，其他线程需要进入到同步队列等待。同步队列是一个双向链表，当获得所在线程需要等待某个条件时，会进入condition的等待队列，等待队列可以有多个，当condition条件满足时，线程会从等待队列重新进入到同步对列，进行获取锁得竞争。</p>
+
+<p>ReentrantLock就是基于AQS实现的，我们看右边的图，ReentrantLock内部有公平锁和非公平锁两种实现，差别就在于新来的线程有没有可能比已经在同步队列中等待的线程更早获得锁，和ReentrantLock的实现方式类似。Semaphore也是基于AQs差别在于与ReentrantLock是独占锁，Semaphore是共享锁。</p>
+
+<h3 id="线程池">线程池</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607104255161.png" alt="image-20200607104255161" /></p>
+
+<p>线程池通过复用线程，避免线程频繁的创建与销毁。Java的Executors工具类提供了5种类型线程池的创建方法。就是图中列出的这5种，我们看看他们的特点和适用场景：</p>
+
+<p>第一个是固定大小线程池，特点是线程数固定，使用的是无界缓冲队列，适用于任务数量不均匀的场景，以及对内存压力不敏感，但对系统负载比较敏感的场景。</p>
+
+<p>第二个是cach的线程池，特点是不限制创建的线程数，适用于要求低延迟的短期任务的场景。</p>
+
+<p>第三个是单线程线程池，也就是一个线程的固定线程池，适用于需要异步执行，但需要保证任务执行顺序的场景。</p>
+
+<p>第4个是scheduled的线程池，适用于定期执行任务的场景，支持按固定的频率定期执行和按固定的延时定期执行两种方式。</p>
+
+<p>第5个是工作窃取线程池，使用的forkjoinpool，是固定并行度的多任务队列，适合任务执行时长不均匀的场景。前面提到的线程池，除了工作窃取线程池之外，都是通过threadPoolExecute的不同初始化参数来创建的。</p>
+
+<h3 id="线程池参数介绍">线程池参数介绍</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607104639772.png" alt="image-20200607104639772" /></p>
+
+<p>构造函数的参数列表，看到这张图。</p>
+
+<p>第一个参数设置核心线程数，默认情况下，核心线程会一直存活。</p>
+
+<p>第二个参数设置最大线程数，决定线程池最多可以创建多少线程。</p>
+
+<p>第3个参数和第4个参数，用来设置现成的空闲时间和空闲时间的单位，当线程闲置超过空闲时间时就会被销毁。可以通过<code>threadPoolExecutor.allowCoreThreadTimeOut(true);</code>方法来允许核心线程被回收。</p>
+
+<p>第5个参数设置缓冲队列，图中左下方的三个队列是设置线程池时最常使用的缓冲队列，其中ArrayBlockingQueue是一个有界队列，就是指队列有最大容量限制，linkedBlockingQueue是无界队列，就是队列不限制容量，最后一个是synchronousQueue是一个同步队列，内部没有缓冲区。</p>
+
+<p>第6个参数设置线程池工厂方法，线程工厂用来创建新的线程，可以用来对现成的一些属性进行定制。例如线程的group、线程名、优先级等，一般使用默认工厂类即可。</p>
+
+<p>第7个参数设置线程池满时的拒绝策略，如右下角所示有4种策略。</p>
+
+<ul>
+<li>Abort策略，在线程池满后。提交新任务时会抛出rejectExecutionException，这个也是默认的拒绝策略。</li>
+<li>Discard策略，会在提交失败时对任务直接进行丢弃。</li>
+<li>CallerOldest策略,会在提交失败时，由提交任务的线程直接执行提交的任务。</li>
+<li>DiscardOldest的策略，会丢弃最早提交的任务。</li>
+</ul>
+
+<p>我们再来看前面说的几种线程池都是使用怎样的参数来创建的？</p>
+
+<p>固定大小线程池创建时，核心和最大线程数都设置成指定的线程数，这样线程池中就只会使用固定大小的线程数，这种类型的线程池它的缓冲队列使用的是无界队列linkedBlockingQueue，</p>
+
+<p>single线程池就是线程数设置为1的固定线程池。</p>
+
+<p>cach的线程池它的核心线程数设置为0，最大线程数是整数integer的最大值，主要是通过把缓存队列设置成synchronousQueue这样只要没有空闲的线程就会新建；</p>
+
+<p>schedule的线程池，与前几种不同的是使用了delayworkQueue这是一种按延迟时间获取任务的优先级队列。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607105912384.png" alt="image-20200607105912384" /></p>
+
+<p>我们向线程池提交任务时，可以使用execute和submit，区别就是 submit可以返回一个future对象，通过future对象可以了解任务的执行情况，可以取消任务的执行，还可以获取执行结果或者执行异常。Submit最终也是通过execute执行的。</p>
+
+<p>我们看看图中，向线程池提交任务时的执行顺序。向线程池提交任务时，会首先判断线程池中的线程数是否大于设置的核心线程数？如果不大于，就创建一个核心线程来执行任务，如果大于核心线程数，就会判断缓冲队列是否满了。如果没满，则放入队列，等待线程空闲时来执行，如果队列已经满了，就判断是否达到了线程值设置的最大线程数。如果没达到。就创建新的线程来执行任务。如果已经达到了最大线程数，就会执行指定的拒绝策略。这里需要注意，队列的判断，与最大线程数的判断，他们之间的顺序不要搞反。</p>
+
+<h3 id="juc常用工具类">JUC常用工具类</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607110123686.png" alt="image-20200607110123686" /></p>
+
+<p>前面基础知识部分已经提到过JUC是Java提供的用于多线程处理的工具类库，我们来看看其中常用工具类的作用，看图表格，第一行的类都是基本数据类型的原子类。包括AtomicBoolean、AtomicLong、AtomicInteger。</p>
+
+<p>AtomicLong是通过unsafe类实现的，基于cas。unsafe类是底层工具类，JUC中很多类的底层都使用到了unsafe包中的功能。unsafe类提供了类似c的指针操作，提供CAS的功能。unsafe中的所有方法，都是native修饰的。</p>
+
+<p>另外的LongAdder 4个类，是jdk1.8中提供的更高效的操作类。LongAdder是基于Cell实现使用分段锁思想，是一种以空间换时间的策略，更适合高并发场景。LongAccumulator提供了比LongAdder更强大的功能，能够指定对数据的操作规则。例如可以把对数据的相加操作改成相乘操作。</p>
+
+<p>第二行中的类。提供了对象的原子读写功能后两个类atomicStampReferenc和 atomicmarkableReference，是用来解决我们前面提到的aba问题，分别基于时间戳和标志位来解决.</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607124135554.png" alt="image-20200607124135554" /></p>
+
+<p>上图第一行的类主要是所相关的类，例如我们前面介绍过的reentrant重入锁，与reentrantLock的独占锁不同，Semaphore是共享锁，允许多个线程共享资源，适用于限制使用共享资源线程数量的场景，例如100个车辆要使用20个停车位，那么最多允许20个车占用停车位，stampedLock是1.8中改进的读写锁，是一种使用CLH的乐观锁，能够有效防止写饥饿。所谓写饥饿就是在多线程读写时，读线程访问非常频繁，导致总是有读线程占用资源，写线程很难加上写锁。</p>
+
+<p>第二行中主要是异步执行相关的类，这里可以重点了解JDK1.8中提供的 completableFuture，可以支持流式调用，可以方便的进行多future的组合使用。例如可以同时执行两个异步任务，然后对执行结果进行合并处理，还可以很方便的设置完成时间。</p>
+
+<p>另外一个是1.7中提供的folkJoinPool，采用分治思想，将大任务分解成多个小任务来处理，然后再合并处理结果，folkJoinPool的特点，是使用工作窃取算法，可以有效平衡任务执行时间长短不一的场景。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607124447167.png" alt="image-20200607124447167" /></p>
+
+<p>上图中第一行是常用的阻塞队列，刚才讲解线程知识已经简单介绍过了，这里再补充一点，linkedblockingDeque是双端队列，也就是可以分别从队头和队尾操作入队和出队，而arrayBlockingQueue是单端队列，只能从队尾入队，从队头出队。</p>
+
+<p>第二行是控制多线程协作式使用的类，其中, CountDown Latch,实现计数器功能，可以用来等待多个线程执行任务后进行汇总。CyclicBarrier可以让一组线程等待着某个状态后在全部同时执行，一般在测试时使用，可以让多线程更好的并发执行。</p>
+
+<p>Semaphore前面已经介绍过，用来控制对共享资源的并发访问度。最后一行。是比较常用的两个集合类。ConcurrentHashMap前面已经细介绍过了，这里可以再了解一下。CopyOnWriteArrayList，COW通过写入数据时进行拷贝修改，然后再更新引用的方式，来消除并行读写中的锁使用，比较适合读多写少，数据量比较小，但是并发非常高的场景。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>理解线程的同步与互斥的原理</li>
+<li>掌握线程安全相关机制</li>
+<li>了解JUC工具的使用场景与实现原理</li>
+<li>熟悉线程池的原理、使用场景、常用配置</li>
+<li>理解线程的同步与异步、阻塞与非阻塞</li>
+</ul>
+
+<p>同步与异步的区别，是任务是否是在同一个线程中执行的，阻塞与非阻塞的区别是异步执行任务时，线程是不是会阻塞等待结果，还是会继续执行后面的逻辑。</p>
+
+<p>加分项</p>
+
+<ul>
+<li>结合实际项目经验或实际案例介绍原理</li>
+<li>解决多线程问题的排查思路与经验</li>
+<li>熟悉常用的线程分析工具与方法</li>
+<li>了解Java8对JUC的增强</li>
+<li>了解Reactive异步编程思想</li>
+</ul>
+
+<p>面试题</p>
+
+<ul>
+<li>如何实现一个生产者与消费者模型? ( 锁、信号量、线程通信、阻塞队列等)</li>
+<li>如何理解线程的同步与异步、阻塞与非阻塞?</li>
+<li>线程池处理任务的流程是怎样的?</li>
+<li>wait与sleep的有什么不同?
+
+<ul>
+<li>wait属于Object类，sleep属于Thread类</li>
+<li>wait会释放对象锁而sleep不会</li>
+<li>wait需要在同步代块中使用，而sleep不需要，可以在任何地方使用</li>
+<li>wait不需要捕获异常，sleep需要捕获异常</li>
+</ul></li>
+<li>Synchronized和ReentrantLock有什么不同?各适合什么场景?</li>
+<li>读写锁适用于什么场景? ReentrantReadWriteLock是如何实现的?
+
+<ul>
+<li>读写锁适合读并发多，写并发少的场景另外一个解决该场景的方式时copyOnWrite</li>
+</ul></li>
+<li>线程之间如何通信?（wait notify机制、共享变量的synchronized和Lock同步机制）</li>
+<li>保证线程安全的方法有哪些?（CAS、Synchronized、Lock、ThreadLocal机制）</li>
+<li>如何尽可能提高多线程并发性能?（尽量减少临界值范围、使用ThreadLocal、减少线程切换、使用读写锁或CopyOnWrite机制）</li>
+<li>ThreadL ocal用来解决什么问题? ThreadLocal是如何实现的?（ThreadLocal不是用来解决多线程共享变量的问题而是用来解决线程数据隔离的问题）</li>
+<li>死锁的产生条件?如何分析是否有线程死锁?</li>
+<li>在实际工作中遇到过什么样的并发问题,如何发现(排查)并解决的?</li>
+</ul>
+
+<h2 id="数据结构与算法">数据结构与算法</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607145404737.png" alt="image-20200607145404737" /></p>
+
+<p>首先看数据结构的知识点有哪些，队列和栈是经常使用的数据结构，需要了解他们的特点。队列是先进先出，栈是后进先出。第三个是表，包括很多种，有占用连续空间的数组，用指针链接的单向和双向链表，首尾相接的循环链表，以及散列表也叫哈希表。</p>
+
+<p>第4个是图,在特定领域使用的比较多。例如旅游算法中经常会使用到。图分为有向图、无向图以及带权图。这部分需要掌握图的深度遍历和广度遍历算法，了解最短路径算法。最后部分是树的内容。树一般用作查找与排序的辅助结构。</p>
+
+<p>剩下的两个部分都和树有关。一个是二叉树，一个是多叉树，多叉数包括b树组。有B树，B+树。B+树比较适合用来做文件检索。另外一个是字典树，适合进行字符串的多模匹配，二叉树包括平衡二叉树、红黑树、哈夫曼树以及堆，适合用来进行数据查找和排序，这部分需要了解二叉树的构建、插入、删除操作的实现，需要掌握二叉树的前序中序后序便利。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607145342138.png" alt="image-20200607145342138" /></p>
+
+<p>二分查找适合小数量级内存查找，B树适合文件索引，哈希是常数集的时间复杂度，更适合对查找效率要求较高的场合，BloomFilter适合对大数据及进行数据存在性过滤。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607145559450.png" alt="image-20200607145559450" /></p>
+
+<p>二叉搜索树满足这样的条件。每个节点包含一个值，每个节点至多有两棵子树，每个节点左子树节点的值都小于自身的值。每个节点右子树的值都大于自身的值。如左图所示，二叉树的查询时间复杂度是O(log n)但是随着不断的插入删除节点。二叉树的树高可能会不断变大。当一个二叉树所有的节点都只有左子树。或者都只有右子树时，去查找性能已经退化成线性的了。平衡二叉树可以解决这个问题，平衡二叉树保证每个节点左右指数的高度差，绝对值不会超过1。例如avl树，avl树是严格的平衡二叉树插入或删除数据时，可能经常需要旋转来保持平衡。比较适合插入删除比较少的场景。红黑树是一种更加实用的非严格的平衡二叉数。红黑树更关注局部平衡而非整体平衡，确保没有一条路径会比其他路径长出两倍。所以是接近平衡的，但减少了许多不必要的旋转操作，更加实用。前面提到过，Java8的发行map中就应用了红黑树解决散列冲突时查找的问题。Tree map也是通过红黑树来保证有序性的。红黑树除了拥有二叉搜索树的特点还有以下规则。</p>
+
+<p>看到右边的图,红黑树具有如下特性</p>
+
+<ul>
+<li>第一，每个节点不是红色，就是黑色</li>
+<li>第二，根节点是黑色</li>
+<li>第三，每个叶子节点都是黑色的空节点，例如图中的黑色三角。</li>
+<li>第四，红色节点的两个子节点都是黑色的。</li>
+<li>第五，任意节点到其夜节点的每条路径上，包含相同数量的黑色节点</li>
+</ul>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607145941241.png" alt="image-20200607145941241" /></p>
+
+<p>再来看看B树的知识点，B树是一种多叉树，也叫多路搜索树。B树中每个节点可以存储多个元素，非常适合用在文件索引上，可以有效减少磁盘的IO次数。</p>
+
+<p>B树中所有的节点最大子节点数称为B树的阶，左边的图就是一棵三阶B树，也叫二三树。一个m阶b树有如下特点。</p>
+
+<ul>
+<li>第一，非叶节点最多有m颗子树。</li>
+<li>第二，根节点最少有两颗子树，非根非叶节点最少有二分之m棵子数。</li>
+<li>第三，非叶子节点中保存的关键字个数等于该节点子树个数减一。就是说一颗节点如果有三颗子树，那么其中必定包含两个关键字。</li>
+<li>第四。非叶子节点中的关键字大小有序。如图中左面的节点。37、51这两个元素就是有序的。</li>
+<li>第五，节点中每个关键字左子树中的关键字。都小于该关键字。右子树中的关键字都大于该关键字，如图中关键字51的左子数有42 49都小于51。右子树的节点有59。都大于51。</li>
+<li>第六，所有叶结点都在同一层</li>
+</ul>
+
+<p>b树在查找时，从根节点开始，对节点内有序的关键字序列进行二分查找，如果找到就结束，如果没找到就进入查询关键字所属范围的子树进行查找，直到叶结点。</p>
+
+<p>总结一下：B树的关键字分布在整棵树中，一个关键字，只出现在一个节点中，搜索可能在非叶结点停止。B树一般应用在文件系统。右边的图是B树的一个变种。叫B+树，B+树的定义与B树基本相同。除了下面这几个特点。</p>
+
+<ul>
+<li>第一，节点中的关键字与子树目相同，比如节点有三个关键字，那么就有三棵子树。</li>
+<li>第二，关键字对应的指数的节点都大于等于关键字。子数中包括关键字自身。</li>
+<li>第三。所有关键字都出现在叶结点中。</li>
+<li>第四。所有叶节点都有指向下一个叶节点的指针。</li>
+</ul>
+
+<p>与b树不同，B+树在搜索时。不会在非叶结点命中，一定会查询到叶子节点。另外一个叶子节点，相当于数据存储层，保存关键字对应的数据，而非叶节点只保存关键字和指向叶节点的指针，不保存关键字对应的数据，所以同样关键字数量的分页节点。B+树比b树要小很多。B+树更适合做索引系统，原因有三个。</p>
+
+<ul>
+<li>第一个由于叶节点之间有指针相连，B+树更适合范围检索。</li>
+<li>第二个，由于非叶结点只保存关键字和指针，同样大小的非叶结点，B+树可以容纳更多的关键字，可以降低树高，查询时磁盘读写代价更低。</li>
+<li>第三个，B+树的查询效率比较稳定，任何关键字的查找必须走一条从根节点到叶节点的路。所有关键字查询的路径长度相同，效率相当。</li>
+</ul>
+
+<p>MySQL数据库的索引就提供了B+树的实现。最后可以简单了解，还有一种B*树的变种。在B+树的非叶节点上，也增加了指向同一层下一个非叶节点的指针。</p>
+
+<h3 id="字符串匹配问题">字符串匹配问题:</h3>
+
+<p>判断给定字符串中的括号是否匹配
+解题思路:
+1、使用栈
+2、遇左括号入栈
+3、遇右括号出栈,判断出栈括号是否与右括号成对</p>
+
+<p>判定给定字符串中的括号是否匹配。以这道题为例，可以确认括号的范围是不是只考虑大中小括号就可以？包不包括尖括号？对函数的入参和返回值有没有什么样的特殊要求？需不需要考虑针对大文件的操作等。我们假定细化后，本题的要求是只考虑大中小括号，不考虑针对大文件的操作，以字符串作为入参，返回值为boolean类型，未出现括号也算做匹配的一种情况。那么解题思路如下。字符串匹配问题，可以考虑使用栈的特性来处理。遇到左括号时入栈，遇到右括号时出栈对比，看是不是成对的括号。当匹配完成时。如果栈内为空，说明匹配，否则说明左括号多余右括号。</p>
+
+<pre><code class="language-java">public class Test {
+    public static Map&lt;Character, Character&gt; brackets = new HashMap&lt;&gt;();
+    static {
+        brackets.put(')', '(');
+        brackets.put(']', '[');
+        brackets.put('}', '{');
+    }
+    public static Boolean isMatch(String str) {
+        if (str == null) {
+            return false;
+        }
+        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+        for (char ch : str.toCharArray()) {
+            if (brackets.containsValue(ch)) {
+                stack.push(ch);
+            } else if (brackets.containsKey(ch)) {
+                if (stack.empty() || stack.pop() != brackets.get(ch)) {
+                    return false;
+                }
+            }
+        }
+        return stack.empty();
+    }
+}
+</code></pre>
+
+<p>按照刚才的思路，需要对字符串进行遍历。所以首先要能确定栈操作的触发条件。也就是定义好括号对。方便入栈和出栈匹配。这里要注意编码实现时一定要注意编码风格与规范。例如变量命名必须要有明确的意义。不能简单使用a，b这种没有明确意义的变量名。我们首先定义一个brackets 的Map。Key是所有的右括号，Value是所有对应的左括号这样定义方便出栈时对比括号是否成对？再看一下匹配函数的逻辑，这里也要注意，作为工具类函数，要做好健壮性防御，首先要对输入参数进行验空，然后我们定义一个保存字符类型的栈，开始对输入的字符串进行遍历。</p>
+
+<p>如果当前的字符串是bracket中的值，也就是左括号的入栈。这里要注意 map的值查询的时间复杂度是O(n)因为本题中括号种类非常少，才使用这种方式让代码更简洁一些。如果当前的字符不是左括号。在使用containsKey来判断是不是又括号？如果是有括号，需要检验是否匹配，如果栈为空，表示右括号多余左括号。如果栈不空，但出栈的左括号不匹配，这两种情况都说明字符串中括号是不匹配的。当遍历完成时，如果栈中没有多余的左括号的匹配，最后强调一下，编码题除了编程思路，一定要注意编程风格和细节点的处理。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607153033012.png" alt="image-20200607153033012" /></p>
+
+<h3 id="top-k问题">Top k问题</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607153538175.png" alt="image-20200607153538175" /></p>
+
+<p>例如微博的热搜。</p>
+
+<p>第三个讲解知识点，我们就来分析Top k问题。Top k一般是要求在n个数据的集合中找到最小或者最大的k个值。通常n都非常的大，Top k可以通过排序的方式来解决，但是时间复杂度较高，一般是<code>O(n*k)</code>这里我们来看看更高效的方法，看到右面的图。首先取k个元素，建立一个大根堆。然后对剩下的n-k个元素进行遍历，如果小于对应的元素，则替换掉对应元素，然后调整堆当全部遍历完成时，堆中的k个元素就是最小的k个值。这个算法的时间复杂度是<code>O(n*log k)</code>算法的优点是不用在内存中读入全部的元素，能够适用于非常大的数据集。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607153856628.png" alt="image-20200607153856628" /></p>
+
+<p>也许还会碰到关于Top k的变种问题。就是从n个有序队列中找到最小或最大的k个值。这个问题的不同点在于是对多个数据集进行排序，由于初始的数据集是有序的，因此不需要遍历完n个队列中的所有元素。因此解题思路是如何减少要遍历的元素。</p>
+
+<p>解题思路如右面的图所示。第一步先用n个队列的对头元素。也就是每个队列的最小元素，组成一个有k个元素的小根堆，方式同Top k中的方法。第二步。获取堆顶值，也就是所有队列中最小的那一个元素。第三步。用这个堆顶元素所在的队列的下一个值放入堆顶，然后调整堆，最后重复这个步骤。直到获取够k个数，这里还可以有个小优化。，就是第三步往堆顶放入新值时。跟堆的最大值进行一下比较。如果已经大于堆中的最大值。就可以提前终止循环了。这个算法的时间复杂度是<code>O(N+K-1)*logK</code>。注意这里与队列的长度无关.</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607154124243.png" alt="image-20200607154124243" /></p>
+
+<p>第一个方法是分治法。分治法的思想是将一个难以直接解决的复杂问题或者大问题，分割成一些规模较小的相同的问题，分而治之。</p>
+
+<p>比如快速排序，归并排序。都是应用了分治法是和使用分治法的场景，需要满足三点要求。</p>
+
+<ul>
+<li>第一、可以分解为子问题</li>
+<li>第二、子问题的解可以合并为原问题的解。</li>
+<li>第三、子问题之间没有关联。</li>
+</ul>
+
+<p>使用分治法解决问题的一般步骤，如表格第三列所示。第一步，要找到最小子问题的求解方法。第二步，要找到合并子问题解的方法。第三步，要找到递归终止条件。</p>
+
+<p>第二个方法。是动态规划法，与分治法类似，也是将问题分解为多个子问题。与分治法不同的是，子问题的解之间是有关联的，前一子问题的解为后一子问题的求解提供了有用信息，动态规划法依次解决各个子问题，在求解每一个子问题时，列出所有的局部解，通过决策保留那些可能达到全集最优的局部解。最后一个子问题的解就是初始问题的解。使用动态规划的场景。也需要满足三个条件。</p>
+
+<ul>
+<li>第一，子问题的求解必须是按顺序进行的。</li>
+<li>第二，相邻的子问题之间有关联关系。</li>
+<li>第三，最后一个子问题的解就是初始问题的解。</li>
+</ul>
+
+<p>使用动态规划解决问题时。第一步。先要分析最优解的性质。第二步，递归的定义最优解。第三步，记录不同阶段的最优值。第4步，根据阶段最优质，选择全局最优解。</p>
+
+<p>第三个方法是贪心算法，因为它考虑的是局部最优解，所以贪心算法不是对所有问题都能得到整体最优解，贪心算法的关键是贪心策略的选择，贪心策略必须具备无后效性。就是说某个状态以后的过程，不会影响以前的状态，只与当前状态有关。贪心算法使用的场景必须满足两点。第一是局部最优解能产生全局最优解。第二点就是刚才说的必须具备无后效性。使用贪心算法，解题的一般步骤为。第一步，先分解子问题。第二步，贪心策略 计算每个子问题的局部最优解。第三步，合并局部最优解。</p>
+
+<p>第四个方法是回溯算法。它实际上是一种深度优先的搜索算法，按选优的条件向前搜索，当探索到某一步时，发现，原先的选择并不优或者达不到目标，就退回上一步重新选择。这种走不通就退回再走的方法，就是回溯法，回溯法适用于能够深度优先搜索，并且需要获取解空间的所有解的场合。例如迷宫问题，回溯算法一般的解题步骤为。第一步。先针对所给问题确定问题的解空间。第二步，确定节点的扩展搜索规则。第三步，以深度优先的方式搜索解空间，并在搜索过程中用剪枝函数避免无效搜索。</p>
+
+<p>最后是分支界定法。与回溯法的求解目标不同，回溯法求解目标是找出满足约束条件的所有解，而分支界定法的求解目标是找出满足约束条件的一个解。分支界定法适用于广度优先搜索。并且获取解空间任意解就可以的场合。例如求解整数规划的问题。分支界定法一般的解题步骤。第一步。先确定解的特征。第二步。再确定子节点搜索策略。例如是先入先出还是先入后出？第三步通过广度优先遍历寻找解。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>了解基本数据结构及特点</li>
+<li>表、栈、队列、树需要熟练掌握,深刻理解使用场景</li>
+<li>了解常用的搜索、排序算法,及复杂度和稳定性</li>
+<li>了解常用的字符串处理算法</li>
+<li>能够分析算法实现的复杂度</li>
+<li>了解常用算法分类,解决问题的思路和解决哪类问题</li>
+</ul>
+
+<p>加分项</p>
+
+<ul>
+<li>能够将数据结构与实际使用场景结合</li>
+<li>不同算法在业务场景中的应用</li>
+<li>面对模糊的题目能沟通确认条件和边界</li>
+<li>书写算法代码前,先讲一下解题思路</li>
+<li>能够发现解答中的一些问题,给出改进的思路</li>
+</ul>
+
+<p>题目</p>
+
+<ul>
+<li>各种排序算法实现和复杂度、稳定性</li>
+<li>二叉树的前、中、后序遍历</li>
+<li>翻转句子中单词的顺序</li>
+<li>用栈模拟队列(或用队列模拟栈)</li>
+<li>对10亿个数进行排序,限制内存为1G</li>
+<li>去掉(或找出)两个数组中重复的数字</li>
+<li>将一颗二叉树转换成其镜像</li>
+<li>确定一个字符串中的括号是否匹配</li>
+<li>给定一个开始词，一个结束词，一个字典，如何找到从开始词到结束词的最短单词接龙路径</li>
+<li>如何查找两个二叉树节点的最近公共祖先</li>
+</ul>
+
+<h2 id="常用工具集">常用工具集</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200609230759203.png" alt="image-20200609230759203" /></p>
+
+<h3 id="jmc">JMC</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607160443094.png" alt="image-20200607160443094" /></p>
+
+<p>第一个要介绍的是JMC就是 Java Mission control，JMC是Jdk1.7中提供的图形化JVM监控与分析工具。我们看图，JMC包括JVM浏览器和JMX控制台，以及JFR也就是飞行记录器三部分，</p>
+
+<p>JVM浏览器可以列出正在运行的Java程序的JVM,每个JVM实例叫做一个JVM连接，JVM浏览器使用GDP，也就是Java发现协议，可以连接到本地和远程运行的JVM 。JMMX是Java管理扩展规范，能够管理并监控 JVM。JMX通过对MBns的管理，可以实时收集JVM信息，比如类实例信息，堆使用情况，CPU负载、线程信息等，以及其他可以通过MBns管理的一些运行时的属性，JFR提供了深入到JVM内部，去看运行是状态的能力，是一个非常强大的性能profile工具，适合对程序进行调优和问题排查。</p>
+
+<p>JFR对jvm运行时产生的事件进行采集，可以通过指定采集事件的类型和频率来收集非常全面的数据信息。这里我主要介绍一下使用JFR可以分析到哪些信息？看到图下方 JFR可以采集分析5大类信息，第一部分是内存信息，这里可以获取到gc的不同阶段及耗时情况，GC的停顿时间，gc的分代大小等配置信息，能够查看到对象分配，包括Tlab栈上分配情况，以及对象统计信息等。第二部分是代码信息，可以分析出热点的类热点的方法、热点的调用数、运行时的异常信息、编译情况、包括osr栈上替换等信息，以及类的加载卸载情况。第三部分是现线程息部分。可以分析到热点的线程。线程的征用情况，线程的等待时间，以及锁相关的信息。第4部分是io信息部分。可以获得收集期间的磁盘Io。也就是文件读写信息以及网络IO等信息。最后一部分系统信息可以获取到操作系统信息，进程相关信息以及环境变量等信息。</p>
+
+<p>总结一下 JMX和JFR都可以获得JVM运行时的信息，JMX主要用来对JVM进行监控与管理，通过扩展mbn，支持自定义的管理能力。JFR主要用来对JVM运行信息进行周期性采集，用来对运行状况进行分析。</p>
+
+<h3 id="btrace">btrace</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607161034759.png" alt="image-20200607161034759" /></p>
+
+<p>第二个工具，我们来了解btrace，如果你在分析线上问题时，发现日志打的不全，无法定位问题怎么办？添加日志重新上线肯定不是个好主意，特别是调试时，可能需要反复添加日志来定位问题，或者。线上出现的问题很难再复现，你根本没有机会添加日志再继续分析，这时就需要使用到btrace。btrace是一个实时监控工具，被Java工程师分为性能调优和线上问题诊断的神器，btrace基于动态字节码修改技术，来实现对运行时的Java程序进行跟踪和替换。</p>
+
+<p>也就是说可以在不重启JVM的情况下，监控系统运行情况，获取JVM运行时的数据信息。比如方法参数。返回值，全局变量、堆栈信息等。先看左边的表格，btrace可以做什么？</p>
+
+<p>首先可以对方法进行定位拦截，获取方法的入参，返回值、执行时间等信息。第二，可以查看某类对象的创建情况。第三，可以对内存使用情况进行统计，可以查看对象大小，可以查看同步块执行情况。第五可以查看异常抛出情况，即导致异常的参数信息。第六，能够支持定时执行检查任务。第七，能够查看类加载的信息，批发能够进行死锁检测。第九。可以打印线程栈信息。第十，可以监控文件或网络的读写情况，可以看到btrace的功能非常强大，几乎无所不能。因为btrace会把逻辑直接植入到运行的中，为了保证安全，在使用上会有一些限制。</p>
+
+<p>我们再看看右边的表格，btrace不能做什么？第一，btrace不能创建新的对象。第二不能抛出或者捕获异常。第三不能使用循环。例如for while。第四，btrace脚本的属性和方法必须使用static修饰。第五。不能使用synchronized同步块或同步方法。第六，不能调用实例方法或静态方法，只能使用b treesutil类提供的方法，使用btrace条件还是非常严格的。</p>
+
+<p>这里要注意三点，一个是不恰当的使用btrace，可能导致JVM崩溃。第二个。Btrace所做的修改是会一直生效的，直到重新启动后才会消除。第三，可以通过设置JVM参数，取消被btrace的安全限制。</p>
+
+<h3 id="jvm-1">jvm</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607161505046.png" alt="image-20200607161505046" /></p>
+
+<p>我们再来看看其他一些常用的JVM工具，JPS用来查看Java进程的信息，包括进程ID，主类名称、主类全路径等。</p>
+
+<p>jmap可以查看JVM中对象的统计信息。包括内存占用，实例个数。对象类型等。jmap可以把堆dump下来。配合内存分析工具MIT进行分析。jstat对资源和性能进行实时监控。统计项主要包括类加载情况，内存容量及使用量，GC次数和时间等。</p>
+
+<p>jstack可以查看JVM线程栈信息。包括线程的名称、序号。优先级，线程状态锁状态等，jinfo可以查看运行中JVM的全部参数，还可以设置部分参数，jcmd是jdk1.7后提供的工具，可以向JVM发送诊断命令，它的功能非常强大，基本上包括了jmap、jstack、jstat的功能，可以重点了解一下这个工具。</p>
+
+<p>我再来列举几个实际应用场景，当你排查线上问题时，需要查看GC日志，发现没有打印jGC详细日志，这是可以通过jinfo来开启JVM参数，print GC details来动态生效。</p>
+
+<p>当你分析内存泄漏风险时，可以通过jmap或jcmd定期获取堆对象的统计信息，来发现持续增长的可疑对象。当你遇到某一时刻，所有服务都出现耗时较高的情况，可以通过jstack来观察GC回收状况，看看是不是GC行动耗时过高了。当你遇到JVM中某一个服务卡死。或者停止处理时，可以通过jsdaCK来查看线程栈，看看是否有多个线程处于blocked状态，产生了死锁。当你的服务上线后，发现性能达不到预期，可以使用jmc来分析运行信息，看看哪些热点方法可以优化，哪些线程竞争可以避免。</p>
+
+<h3 id="git">git</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607162046218.png" alt="image-20200607162046218" /></p>
+
+<p>来看看git相关的知识点详解。Git与svn的区别在前面的知识点汇总中已经简单介绍过，这里来看看Git的常用命令及其对应的使用场景。Git对版本是分布式管理，有4个保存数据的区域，如图中浅绿色的部分，分别是本地工作区，work space，本地暂存区stage，本地仓库和远程仓库开发时，先从远程仓库拉取代码到工作区。</p>
+
+<p>可以有clone，full。Fetch加check out几种方式，如图中向左的几个箭头所示，在提交代码时，先通过add命令添加到暂存区，然后再commit提交到本地仓库,之后再使用push推送到远程仓库。如图中向右的几个箭头所示，稍微注意一下fetch与pull的区别，fetch是从远程仓库同步到本地仓库，但并不会合并到工作区，pull相当于执行的是fetch命令加merge命令，先同步到本地仓库，然后在merge到工作区，get的命令行提示做得非常友好，对常用的Git操作的说明也非常完善，其他的命令我就不展开介绍。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607162550876.png" alt="image-20200607162550876" /></p>
+
+<p>使用Git进行团队协作开发时，多人协作多分支开发是非常见的。为了更好的管理代码，需要制定一个工作流程，这就是我们说的工作流，也可以叫做分支管理策略，常见的基于git的工作流，有get flow工作流，github工作流和gitlab工作流。</p>
+
+<p>看到左边的图，gitflow按功能来说分为5种分支，在图中以不同颜色表示，其中master和develop是长期分支，master分支上的代码都是版本发布状态，develop分支是代表最新的开发进度，当需要开发某些功能时，就从develop拉出feature分支进行开发。开发完成并验证后。就可以合并回develop分支，当develop上的代码达到一个稳定状态，可以发布版本的时候，会从develop合并到release分支进行发布。如果验证有问题，就在release分支进行修复。修复验证通过后进行正式发布。然后合并到master分支和develop分支，还有一个hotfix分支，用来做线上的紧急bug修复，hotfix直接从master拉出分支修改，修改完成验证后，直接合并回master，并同步到develop分支。gitflow的流程非常完善，但对很多开发人员和团队来说，会稍微有些复杂，而且没有图形界面。</p>
+
+<p>我们来看另一种更简单的工作流，图中间的github工作流，github工作流只有一个长期分支master，而且master分支的代码永远是可发布状态。如果有新的功能开发，可以从master分支上剪出新分支，开发完成需要合并时，创建一个合并到master的p2，也就是pull request。当merge通过或者验证通过后，代码合并到master分支。github工作流hotfix热修复的流程，和feature分支是完全一样的。</p>
+
+<p>最后看到右面的gitlab工作流，前面两种工作流各有优缺点，gitflow工作流稍微复杂，github工作流的单一分支，有时会略显不足。gitlab结合了两者的优势，既支持gitflow的多分支策略，也有github工作流的一些机制。比如。merge、request和ishow跟踪。</p>
+
+<p>gitlab的工作流，使用pre production分支来进行预发管理，使用production分支来发布版本。</p>
+
+<h3 id="linux分析工具">linux分析工具</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607163035111.png" alt="image-20200607163035111" /></p>
+
+<p>首先是表格中列出的stat系列，vm state可以获取有关进程，内存页面交换，虚拟内存线程上下文切换，等待队列等信息，能够反映系统的负载情况，一般用来查看进程，等待数量，内存换液情况，系统上下文切换是否频繁等。</p>
+
+<p>iostat的工具可以对系统的磁盘操作活动进行监视，同时也可以显示CPU使用情况，一般用来排查与文件读写有关的问题。例如，排查文件写入耗时较高时，可以查看awake和ut是否过高。iotop是查看磁盘io使用状况的Top类工具，当你想知道到底哪个进程产生了大量的io时，可以使用Io Top。</p>
+
+<p>ifstat是简洁的实时网络流量监控工具，可以查看系统的网络出口入口的使用情况。IfTop可以用来监控网卡的实时流量，反向解析IP，显示端口信息等。通过IfTop很容易找到哪个IP在霸占网络流量。</p>
+
+<p>netstat是一个监控系统网络状态的工具，它可以查看网络链接状态，监听了哪些端口，链接相关的进程等信息，能够显示与IP、tcp、udp、ICMP协议相关的统计数据是非常用的网络工具。</p>
+
+<p>dstat是一个全能实时系统信息统计工具，能够统计cpu占用，内存占用，网络状况、系统负载、进程信息、磁盘信息等，可以用来替换vmstat，Iostat，netstat、idstat这些工具。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607163356596.png" alt="image-20200607163356596" /></p>
+
+<p>再来看这一张图几个工具，strace是一个用于诊断调试程序运行时系统调用的工具，可以动态跟踪程序的运行，能够清楚地看到一个程序运行时产生的系统调用的过程及其使用的参数，返回值和执行耗时。JVM执行native方法是可以很方便的通过strace来进行调试。例如。在执行系统读写时，线程卡住很长时间，就可以用strace来查看系统调用的参数和耗时。</p>
+
+<p>GDB是一个强大的命令行调试工具，可以让程序在受控的环境中运行，让被调试的程序在您所指定的断点处停住，也可以动态的改变你程序的执行环境。当JVM因为未知原因crash时。你可以通过GDP来分析crash产生的coredump文件，来定位分析问题。</p>
+
+<p>LSOF是一个列出当前系统打开文件的工具，我们知道Linux中一切皆文件，包括设备链接等，都以文件形式管理。因此通过lsof工具查看文件列表，对系统监测以及排错都很有帮助。</p>
+
+<p>Tcpdump是一个强大的网络抓包工具，在分析服务之间的调用时非常有用，可以将网络中传输的数据包抓取下来进行分析。Tcpdump提供灵活的抓取策略，支持针对网络层协议、主机或者端口进行过滤。并提供and or not。等逻辑语句来去掉不想要的信息。</p>
+
+<p>Trace root是一个网络路由分析工具，利用sMP协议定位本地计算机和目标计算机之间的所有路由，trace note对服务之间，特别是经过公网的服务之间的网络问题排查非常有帮助。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>了解常用的JVM分析工具</li>
+<li>掌握Git的常用操作和工作流</li>
+<li>了解Linux系统下常用的分析工具</li>
+</ul>
+
+<p>例如线程死锁可以用现成分析工具jstack。内存溢出可以使用jmap查看堆中占用最大的对象类型，需要对程序性能进行分析时，可以使用JMC中的飞行记录器等。</p>
+
+<p>第要知道git的merge与get replaced的区别，merge是提交commit来合并修改，replace是修改提交历史记录，还要知道自己的团队在协作开发时使用的哪种工作流，有什么样的优缺点。</p>
+
+<p>当面试官询问你遇到过哪些现象问题时。你可以说我遇到过单机请求耗时较高的问题。</p>
+
+<p>通过JMC的飞行记录器采样分析，发现写log日志时，线程竞争非常激烈，很多线程在等待解写锁时耗时非常大，进一步通过lOstat排查发现ut利用率。比较高。最后定位是磁盘出现的问题，解决方法一方面更换磁盘来解决问题，另一方面对写竞争比较激烈的日志文件使用了异步log机制。</p>
+
+<p>这样回答。既可以突出你对常用工具的掌握能力。也可以突出你的实战和解决问题能力。另外再给你提供两个思路。一个你可以在介绍自己开发的项目时。提到在上线前使用jmc做了性能profile，发现并优化了某些问题。第二个。在介绍项目方案时，讲到自己对某两个不同方案进行了jMh测试，来验证方案实现的性能等。</p>
+
+<p>真题</p>
+
+<ul>
+<li>排查JVM问题有哪些常用工具? (你曾经遇到过什么问题,如何排查,如何解决的)</li>
+<li>Git合并代码有哪两种方法?有什么区别?</li>
+<li>Git与SVN有哪些差异?</li>
+<li>你所在的团队项目开发使用什么样工作流?有什么优点?</li>
+</ul>
+
+<h2 id="spring全家桶">spring全家桶</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200609225557326.png" alt="image-20200609225557326" /></p>
+
+<p>spring boot的目标是简化spring应用和服务的创建开发与部署，简化了配置文件，使用嵌入式web服务，还有诸多开箱即用的微服务功能，可以和spring cloud联合部署，spring boot的核心思想是约定大于配置，应用只需要很少的配置即可，简化了应用开发模式。</p>
+
+<p>Spring data是一个数据访问及操作的工具集，封装了对多种数据源的操作能力。包括JDBC、Redis等。Springcloud是一套完整的微服务解决方案，是一系列不同功能的微服务框架的集合。Spring cloud基于spring boot，简化了分布式系统的开发，集成了服务发现，配置管理、消息总线、负载均衡、断路器、数据监控的各种服务治理能力，比如sleuth。提供了全链路追踪能力，Netflix套件提供了Hystrix熔断器做网关等众多的治理组件，configure组件提供了动态配置能力，bus组件支持了rabbit mq、kfaka、Active mq等消息队列，实现分布式服务之间的事件通信，spring security，用于快速构建安全的应用程序和服务。</p>
+
+<p>在spring boot和spring security OAuth2 的基础上，可以快速实现常见安全模型。比如单点登录、令牌中继、品牌交换。这里可以了解一下 OAuth2的授权机制和的认证方式。OAuth2是一种授权机制，规定了完备的授权认证流程。</p>
+
+<p>Jwt全称是jason web token，是一种把认证信息包含在token中的认证实现。OAuth2的授权机制，就可以运用jwt来作为认证的具体实现方法。</p>
+
+<p>第二个知识点是struts，它是曾经非常火爆的web组合，ssh中的控制层，我们知道web服务一般都采用分层模型构建。就是 Model层负责内部数据模型。Controller负责请求的分发控制、dao层负责返回给用户展示的视图，struts实现的就是集中控制层的角色，struts采用filter实现，针对类进行拦截，每次请求就会创建一个action，不过使用struts的ssh组合，已经逐渐被使用spring mvc的ssm组合代替，一方面原因是由于struts对几次安全漏洞的处理，让大家对struts的信心受到了影响。另一方面string mvc更加灵活，不需要额外配置，不存在和string整合的问题，使用更加方便。所以建议。以ssm框架的学习为主。</p>
+
+<p>第三个知识点，我们来看看常用的orm框架，orm就是对象关系匹配。是为了解决面向对象与关系数据库存在互相不匹配的问题。简单来说，就是把关系数据库中的数据转化成面向对象程序中的对象，常用的orm框架有hibernate和mybatis，也就是ssh组合和ssm组合中的h与m我们来看一下它们的特点和区别，hibernate对数据库结构提供了完整的封装，实现了对象与数据库表之间的映射，能够自动生成并执行sql语句。只要定义了portal到数据库表的用水关系，就可以通过hibernate提供的方法完成数据库操作，hibernate符合JPA规范，就是 Java持久层API。mybatis是通过映射配置文件，将sql所需的参数和返回的结果映射到指定对象。mybatis是不会自动生成sql,需要自己定义sql语句，不过这样也更方便对sql语句进行优化。</p>
+
+<p>总结起来,hibernate配置要比mybatis复杂,学习成本也比mybatis高。mybatis是简单、高效、灵活，但是需要自己维护sql，hibernate功能强大，全自动适配不同数据库。但是非常复杂，灵活性稍差。再来看到图的右面，netty是一个高性能的异步事件驱动的网络通信框架，Netty对jdk原生的nio进行封装，简化了网络服务的开发，耐的知识点详解，后面我也会说到。</p>
+
+<p>下一个知识点是RPC服务。Motan、Dubbo、Grpc都是比较常用的高性能RPC框架，可以提供完善的服务治理能力。Java版本的通信层都是基于前面提到的netty实现的，他们的特点也会在详解中进行介绍。最后再简单介绍几个常用的框架，jersey和resteasy都是可以快速开发rest服务的框架，和spring mvc相比，这两个框架都基于jaxrs标准。而spring mvc基于servlet使用自己构建的API是两个不同的标准。shiro框架是一个与spring security类似的开源权限管理框架，用于访问的授权认证加密及会话管理，能够支持单机与分布式的session管理，相比security，shiro更加简单易用。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607170409935.png" alt="image-20200607170409935" /></p>
+
+<h3 id="spring">spring</h3>
+
+<p>第一个讲解知识点是spring框架，讲解中涉及的流程与实现，默认都是基于5.x版本。先来看spring中的几个重要概念，第一个是ioc，也就是控制反转，看到图片最左边，我们拿公司招聘岗位来举个例子。假设一个公司有产品研发、测试、等岗位。如果是公司根据岗位要求，逐个安排人选，如图中向下的箭头，这就是正向流程。如果翻过来，不用公司来安排人选，而是由第三方猎头来匹配岗位和候选人，然后进行推荐。如图中向上的箭头，这就是控制反转。</p>
+
+<p>在spring中，对象的属性是由对象自己创建的，这是正向流程。如果属性不是对象创建，而是由spring来自动进行装配，这就是控制反转。这里的DI也就是依赖注入，是实现控制反转的一种方式，正向流程导致了对象与对象之间的高耦合，IOC可以解决对象耦合的问题，有利于功能的复用，能够使程序的结构变得非常灵活。</p>
+
+<p>第二个是spring进行loc实现时使用的两个概念，context上下文和bean，如中间图所示，所有被spring管理的，由spring创建的。用于依赖注入的对象就叫做一个bean。Spring创建并完成依赖注入后，所有的bean统一放在一个叫做context上下文中进行管理。</p>
+
+<p>最后一个重要的概念是aop也就是面向切面编程，看右面的图，一般我们的程序执行流程是从controller调用service层。然后service层调用dao层访问数据最后再逐层返回结果。这是一个图中向下箭头所示的按程序执行顺序的纵向处理。但是我们思考这样一个问题，一个系统中会有多个不同的服务。比如用户服务、商品信息服务等。每个服务的controller层都需要验证参数，都需要处理异常。</p>
+
+<p>如果按照图中红色的部分。对不同服务的纵向处理流程中进行横切，在每个切面上完成通用的功能。例如身份验证、参数验证、异常处理等。这样就不用在每个服务中都写相同的逻辑了，这就是aop思想解决的问题。Aop功能进行划分，对服务顺序执行流程中的不同位置进行横切，完成各服务共同需要实现的功能。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607170842083.png" alt="image-20200607170842083" /></p>
+
+<p>再来看看spring框架，图中列出了string框架主要包含的组件，这张图来自spring四点几的文档，目前最新的5.x版本中，右面的portlet组件已经被废弃掉，同时增加了用于异步响应式处理的webFlux组件。</p>
+
+<p>这里你不需要对所有组件都详细了解，只需要重点了解最常用的几个组件实现，以及知道每个组件用来实现哪一类功能就可以了。图中橙色框住的是比较重要的组件，core组件是spring所有组件的核心beans组件和context组件，刚才我提到了，是实现IOC和依赖注入的基础。</p>
+
+<p>AOP组件用来实现面向切面编程，web组件包括了stringMVC。是web服务的控制层实现。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607203353858.png" alt="image-20200607203353858" /></p>
+
+<p>接下来是spring中机制和实现相关的知识点。我们从左边看起，aop的实现是通过代理模式，在调用对象的某个方法时，执行插入的切面逻辑，实现的方式有动态代理，也叫做运行时增强。比如jdk代理CGLib，还有静态代理，就是在编译时进行植入，或者类加载时进行植入，比如AspectJ 。关于AOP还需要了解一下对应的aspect，print，card，advice等注解和具体的使用方式。Place holder动态替换，主要需要了解替换发生的时间是在Beandefactory创建完成后，bean初始化之前，是通过实现BeanFactoryPostProcessor接口实现的，主要实现的方式。有PropertyPlaceholderConfigurer和PropertySourcesPlacesPlaceholderConfigurer实现。这两个类实现逻辑不一样。Spring boot使用的是PropertySourcesPlacesPlaceholderConfigurer。</p>
+
+<p>第三个知识点是事务。需要了解spring中对事物规定的隔离类型和事物传播类型。这里需要知道事务的隔离级别是由具体的数据库来实现的。事物的传播类型，可以重点了解最常用的requireed和Supports两种类型。再来看右上方需要重点掌握的核心类，applicationcontext，保存了IOC的整个应用上下文，可以通过其中的bean factory获取到任意的bean。beanfactory的主要作用是根据being definition，也就是bean的描述。来创建具体的bean，beanWrapper是对bean的包装,一般情况下是在spring lOc的内部使用，提供了访问bean的属性值，属性编辑器注册，类型转换等功能，方便loc容器用统一的方式来访问bean的属性。</p>
+
+<p>Factorybean通过getobject方法返回实际的bean对象。例如motan框架中，refer对service的动态代理，就是通过factory bean来实现的。bean的scope是指bean的作用域，默认情况下是单例模式，这也是使用最多的一种方式。多例模式，就是每次从beanFactory中获取bean时都创建一个新的bean。request，session，globalSession是在web服务中使用的scope，request每次请求时都会创建一个实例。session是在一个会话周期内保证只有一个session。 Global session在五点几版本中已经不再使用。同时增加了application和web socket两种scope，分别保证在一个servlet context与一个web socket中只创建一个实例，还可以了解一下spring的事件机制，知道string定义的5种标准事件，了解如何自定义事件和实现对应的application listener来处理自定义事件。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607205423503.png" alt="image-20200607205423503" /></p>
+
+<p>我们来看看string应用相关的知识点，首先要熟练掌握常用的注解的使用，按类型来分，可以分为类型类的注解，包括controller、service等，你可以重点了解一下component和bean这两个注解的区别，component注解在类上使用，表明这个类是个组件类，需要spring为这个类创建bean。bean注解使用在方法上告诉string，这个方法将会返回一个bean对象，需要把返回的对象注册到此类应用的上下文中，设置类的注解，可以重点了解autowired和qualifier。以及Bytype byname等不同的自动装配机制。</p>
+
+<p>web类主要以了解为主，关注requestMapping，getMappeing。PostMapping等路径匹配注解。以及Pathvariable、requestparam等参数获取注解。最后是功能类注解。包括。ImportResource引用配置，components scan，注解自动扫描。Traditional事务注解等，这里就不一一介绍了。再来看右面，我们需要了解配置string的几种方式，XML文件配置、注解配置和使用API进行配置，自动装配机制，需要了解按类型匹配进行自动装配，按变名称进行自动装配，构造器中的自动装配和自动检测等4种主要方式。</p>
+
+<p>最后还可以了解一下 list、set、map等集合类型的属性，它的配置方式，以及内部bean的使用。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607210051340.png" alt="image-20200607210051340" /></p>
+
+<p>这部分是spring context的初始化流程，左上角是三种类型的content，xml配置方式的content，spring boot 的 context和web服务的context，不论哪种centext的，创建后。都会调用abstract application context类的refresh方法。这个方法是我们要重点分析的。Refresh方法中。</p>
+
+<ul>
+<li>第一步，首先对刷新进行准备，包括设置开始时间，设置激活状态，初始化contents环境中的占位符。这个动作根据子类的需求，由子类来执行。然后验证是否缺失必要的property。</li>
+<li>第二步，刷新并获取内部的beanfactory。</li>
+<li>第三步，对beanfactory进行准备工作。比如设置类加载器和后置处理器。配置不能自动装配的类型，注册默认的环境bean<br /></li>
+<li>第四步为contact的子类提供后置处理beanfactory的扩展能力。如果子类想在bean定义与加载完成后，开始初始化上下文之前。做一些特殊逻辑，可以复写这个方法。</li>
+<li>第五步，执行contents中注册的beanfactory后置处理器，这里有两种后置处理器。一种是可以注册bean的后置处理器。另一种是针对beanfactory进行处理的后置处理器。执行的顺序是先按优先级执行。可注册bean的处理器。然后再按优先级执行，针对beanfactory的处理器。对spring boot来说。这一步。会进行注解beandefinition的解析。流程如右面的小框中所示，由configuration class post processor触发，并注册到并factory。</li>
+<li>第六步。按优先级顺序。在beanfactory中注册bean后置处理器，bean后置处理器可以在bean的初始化前后执行处理。</li>
+<li>第七步。初始化消息源，消息源用来支持消息的国际化。</li>
+<li>第8步，初始化应用事件广播器，事件广播器。用来向application listener通知各种应用产生的事件。是一个标准的观察者模式。</li>
+<li>第9步,是留给子类的扩展步骤，用来让特定的context子类来初始化其他的bean。</li>
+<li>第10步,把实现了application listener的bean注册到事件广播器，并对广播器中早期没有广播的事件进行通知。</li>
+<li>第11步,冻结所有的bean描述信息的修改，实力化非延迟加载的单例bean。</li>
+<li>第12步，完成上下文的刷新工作。调用life cycle processor的on fresh方法，以及发布context refresh的even事件。</li>
+<li>最后在finally中。执行第13步，重置公共的缓存。比如。Reflection duties中的缓存，annotation units中的缓存等。</li>
+</ul>
+
+<p>至此。Spring的contact的初始化就完成了 。由于篇幅和时间的关系。这里介绍了最主要的流程，建议课后阅读源码来复习这个知识点。来补全细节。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607210657501.png" alt="image-20200607210657501" /></p>
+
+<p>面试中经常会问到bean的生命周期。我们先看绿色的部分，bean的创建过程，</p>
+
+<ul>
+<li>首先调用bean的构造方法创建bean</li>
+<li>然后通过反射调用set方法进行属性的依赖注入。</li>
+<li>第三步，如果实现了beannameaware接口的话，会设置bean的name。</li>
+<li>第4步，如果实现了beanfactoryaware接口，会把bean factory设置给bean。</li>
+<li>第5步，如果实现了application context aware接口，会给bean设置application context。</li>
+<li>第6步,如果实现了bean post processor接口。则执行前置的处理方法。</li>
+<li>第7步,实现了initializingBean接口的话，会执行 after property side的方法。</li>
+<li>第8步，执行自定义的init方法。</li>
+<li>第9步,执行bean post processor接口的后置处理方法。这时就完成了bean的创建过程。</li>
+</ul>
+
+<p>那么在bean使用完毕需要销毁的时候。会先执行DisposableBean接口的destroy方法，然后再执行自定义的destroy方法。这部分也建议你阅读原版来加深理解。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607211044348.png" alt="image-20200607211044348" /></p>
+
+<p>这介绍对spring进行定制化功能扩展时可以选择的一些扩展点。beanFactorytPostprocessor，是beanfactory的后置处理器，支持在beandfactory标准初始化完成后，对beanfactory进行一些额外处理。我们在讲context初始化流程时介绍过，这时所有的bean的描述信息已经加载完毕，但是还没有进行bean的初始化。例如我前面提到的 Property place holder configure。就是在这个扩展点上对bean属性中的占位符进行替换的。</p>
+
+<p>第二个扩展点。是beandefinitionregistrypostprocessor。它扩展自beanFactoeyPostprocessor，在执行beanpost processor的功能前，提供了可以添加bean定义的能力。允许在初始化一般的bean前注册额外的bean。例如可以在这里根据bean的scope创建一个新的代理bean。第三个困难点是beanPostprocess，提供了在bean初始化的之前和之后插入自定义逻辑的能力，与beanfactory post process的区别，主要是处理对象不同，beanfactory post process是对beanfactory进行处理。beanpostprocessor时对bean进行处理。上面这三个扩展点，可以通过实现 order的或者 priority order的接口来指定执行顺序，实现priority order接口的processor，会先于实行order接口的执行。</p>
+
+<p>第4个扩展点，是application contacts aware可以获得application content以及其中的bean，但需要在代码中动态获取bean时，可以通过实现这个接口来实现。</p>
+
+<p>第5个扩展点，是 Initializingbean。可以在bean初始化完成，所有属性设置完成后执行特定的逻辑。例如对自动装配的属性进行验证等。第6个扩展点是disposabledbean，用于在bean销毁前执行特定的逻辑，例如做一些回收工作等。</p>
+
+<p>第7个扩展点是application listener用来监听string的标准事件，以及自定义的事件。</p>
+
+<h3 id="spring-boot">spring boot</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607212354158.png" alt="image-20200607212354158" /></p>
+
+<p>第一个是spring boot启动流程，首先要配置environment。然后准备contact上下文，包括执行application context的后置处理器，初始化initialize，通知listener处理contacts prepared和contacts loaded的事件。最后执行refresh contact。也就是我们前面介绍过的 abstract application context类的fresh方法。然后要知道spring boot中有两种上下文。一种是bootstrap，另一种是application。</p>
+
+<p>bootstrap是应用程序的副上下文，也就是说bootstrap会先于application加载。bootstrap主要用于从额外的资源来加载配置信息。还可以从本地外部配置文件中紧密属性，bootstrap里面的属性会优先加载，默认也不能被本地相同的配置覆盖。</p>
+
+<p>再来看右面 spring boot的注解，需要知道springBootApplication。包含了componentScan、EnableAutoConfiguration 、SpringBootConfiguration三个注解。而sSpringBootConfiguration注解里面包含了 configuration注解，也就是spring的自动配置功能、Conditional注解是控制自动配置的生效条件的注解。例如，Bean或class的存在或不存在时进行配置。当满足条件时进行配置等。</p>
+
+<p>最后，了解一下bootstrap的几个特色模块，Starter是spring提供的无缝集成功能的一种方式，使用某个功能时，开发者不需要关注各种依赖库的处理，不需要具体的配置信息，由bootstrap的自动配置进行bean的创建。</p>
+
+<p>例如。需要使用web功能时。只需要在依赖中引入springBoot-start-web即可。Accurate是用来对应用程序进行监控和管理。通过rest for API请求来监管审计收集应用的运行情况。devtools提供了一系列开发工具的支持，来提高开发效率。例如支持热部署能力等。cli就是命令行接口是一个命令行工具，支持使用grow way脚本，可以快速搭建spring原型项目。</p>
+
+<h3 id="netty">Netty</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607214302748.png" alt="image-20200607214302748" /></p>
+
+<p>先看到左面，首先你要了解Netty的特点，Netty是一个高性能的异步事件驱动的l框架，他对消息的处理采用串型无锁化设计。提供了对TCP、UDP和文件传输的支持。</p>
+
+<p>Netty内置了多种encoder的decode的实现，来解决TCP粘包问题。Netty处理消息时，使用了池化的ByteBufs缓冲池，来提高性能。同时结合内存零copy机制，减少了对象的创建，降低了GC的压力。</p>
+
+<p>第二个，要掌握Netty中的一些对象概念。比如,将socket封装成channel对象，在channel读写消息时。使用chandler对消息进行处理。一组handle的顺序链接，组成了channel pipeline的责任链模式，一个channel产生的所有事件，交给一个单线程的eventLoop事件处理器来进行串行处理，而bootstrap对象的主要作用是配置整个Netty程序，串联起各个组件，是一个Netty应用的起点。</p>
+
+<p>第三个，要掌握Netty的线程模型，我会在稍后详解介绍Netty4的现场模型。右面第4点，要了解Netty的内存零copy技术，包括使用堆外内存，避免在socket的读写时，缓冲数据在对堆与对堆内进行频繁的复制，使用compositeByteBuf来减少对多个小的buffer合并时产生的内存复制。</p>
+
+<p>使用file region实现文件传输时的零copy等。</p>
+
+<p>第5个，要了解TCP协议下粘包与半包产生的原因。知道Netty提供的多个decoder是，用什么方式解决这个问题的？例如。FixedLengthframe decoder用来解决固定大小数据包的占包问题。Linebased frame decoder适合对文本进行按行分包，delimiterbased frame decoder，适合按特殊字符作为分包标记的场景。LengthFieldbasedframedecoder可以支持复杂的自定义协议分包等。</p>
+
+<p>最后一个要简单了解一下Netty3和Netty4的区别，其中最主要的就是两个版本的线程处理模型完全不同，Netty4的处理模型更加优雅。其他的以Netty4的特点介绍为主即可。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607215321053.png" alt="image-20200607215321053" /></p>
+
+<p>Netty线程模型，采用服务端监听线程和IO线程分离的方式，看图的左面，boss线程负责监听事件，创建socket并绑定到work线程组。work线程组负责IO处理，线程组有eventloop，group实现。其中包含了多个eventloop事件处理器，每个eventloop包含一个处理线程，通常在NIO非阻塞模式下,Netty为每个channel分配一个event loop，并且它的整个生命周期中的事件都由这个eventLoop来处理。</p>
+
+<p>一个event loop可以绑定多个channel，我们再看图的右面，evenloop的处理模型。Netty4中，Channel的读写事件都是由work线程来处理的。请求处理中最主要的就是ChannelPipeline。其中包含了一组channel handle，这些handle组成了责任链模式，依次对Channel中的消息进行处理。一般接收消息时由Pipeline处理完成，会把消息提交到业务线程池进行处理。当业务线程处理完成时，会封装成task。提交回channel对应的eventloop写回返回值。</p>
+
+<h3 id="rpc">RPC</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607215730160.png" alt="image-20200607215730160" /></p>
+
+<p>RPC是远程过程调用的简写，RPC与HTTP一样，都可以实现远程服务的调用，但是在使用方式上有很大的区别，RPC能够像使用本地方法一样调用远程的方法。我们看看RPC的交互流程，图中绿色的模块是RPC中最主要的三个角色，左面是client就是请求的发起方。也可以叫做consumer或者rubbe。右面的模块是server端，也就是服务的提供方，也叫做Provider，为了保持较高的性能，client端一般都是直接请求远端的server节点，因此 RPC框架需要一个自动的服务注册与发现能力。上方绿色的注册中心就是用来动态维护可用服务节点信息的模块。图中的箭头代表交互流程。当serve提供服务时，向注册中心注册服务信息，告诉注册中心可以提供哪些服务。同时与注册中心保持心跳，或者维持长连接，来维持服务的可能状态。具体的方式与注册中心的时间有关。例如。ZK使用长链接推送方式。而channel使用心跳方式。当client需要使用服务时，会先向注册中心订阅服务，获得可用的server节点，并保存在client的本地。当serve节点发生变更时，会通知client更新本地server节点信息，client按某种负载均衡策略，直接请求server端使用服务。</p>
+
+<p>这里要注意注册中心只参与服务节点的注册与变更通知，并不会参与到具体请求的处理当中。另外一般的RPC框架都提供了完整的服务治理能力。因此会额外的管理模块和信息采集模块来监控管理服务。如图中灰色的模块所示。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607220054661.png" alt="image-20200607220054661" /></p>
+
+<p>Dubbo是阿里开源的RPC框架，提供完善的服务治理能力，可以快速的为Java服务提供RPC能力，Dubbo提供了随机轮巡，最少调用优先等多种负载均衡策略，提供对ZK等多种注册中心的支持，能够自动完成服务的注册与发现，double提供可视化的管理后台，方便对服务状态进行监控和管理。Dubbo的数据通讯默认使用我们前面介绍的Netty框架来实现的，拥有非常不错的性能。</p>
+
+<p>第二个是微博开源的轻量级服务治理框架模板，Motan的特点是轻量级，提供强大灵活的扩展能力Motan提供了多语言支持。Motan通过a站的代理方式，实现了跨语言的service match支持，service match被誉为下一代的微服务。</p>
+
+<p>Motan Java版本的通信层也是通过Netty来实现的。基于TCP的私有协议进行通信。第三个是Google勘验的GRPC。GRPC默认使用product buff进行消息序列化。非常适合多语言服务之间进行交互。虽然GRPC本身支持的服务治理能力并不多，但提供了非常灵活的插件扩展能力，可以方便的实现自定义的服务治理功能。GRPC基于HTTP2协议，能够支持链接复用，并且提供了流式调用能力，也支持从服务端进行推送消息的能力。</p>
+
+<h3 id="mybatis">Mybatis</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607221105207.png" alt="image-20200607221105207" /></p>
+
+<p>下面我们来看orm框架Mybatis，首先要了解它的特点，可以和habinitate来对比进行理解。Mybatis的优点，第一个是原生sql，不像habinitate的hacker，需要额外的学习成本。第二个优点是sql语句与代码进行了解耦合，这个与habinitate是一致的。</p>
+
+<p>第三个优点是功能简单，学习成本比较低，使用的门槛也非常低，可以快速上手。最后一个优点是Mysql调优比较灵活，对比habinitated的sql语句是自动生成的，当有复杂语句需要进行优化时就比较难处理。Mybatis的缺点就是相比habinitate，这样的全自动orm框架不能自动生成sql语句，编写sql的工作量比较大，尤其是字段多，关联比较多的情况下，另一个缺点就是sql语句依赖于具体的数据库，导致数据库迁移性差。而habinitate则拥有良好的数据库可移植性。</p>
+
+<p>第二个知识点是缓存相关，Mybatis只提供两级缓存，Mybatis的一级缓存，存储作用域是session。会对同一个session中执行语句的结果进行缓存。来提高再次执行时的效率。Mybatis内部通过HashMap实现存储缓存，一级缓存默认开启的。Mybatis的二级缓存的作用域，是一个mapper的namespace，在同一个namespace中查询sql时，可以从缓存中获取数据。二级缓存能够跨sqlSession生效。并且可以自定义存储源，比如ehcache、redis 。 Mybatis是二级缓存，可以设置剔除策略，刷新间隔，缓存数量等参数来进行优化。</p>
+
+<p>第三个是使用相关的知识点，第一个小点，Mybatis提供井号加大括号，这样的变量占位符来支持sql的预编译，防止sql注入。第二个获取自增主键的ID，可以通过使用keyProperty属性和使用selectKey 标签两种方式来实现。</p>
+
+<pre><code class="language-xml">&lt;!--增加一个用户并返回主键id--&gt;
+&lt;insert id=&quot;saveOne&quot; parameterType=&quot;com.buwei.entity.User&quot; &gt;
+    INSERT into user(name, password) value(#{name},#{password})
+    &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;int&quot;&gt;
+        select  last_insert_id()
+    &lt;/selectKey&gt;
+&lt;/insert&gt;
+&lt;insert id=&quot;saveOne&quot; parameterType=&quot;com.buwei.entity.User&quot;  useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+    INSERT into user(name, password) value(#{name},#{password})
+&lt;/insert&gt;
+</code></pre>
+
+<p>第三个小点要记住，动态最后常用的几个标签。例如for each。where、if 等。右边Mybatis的执行流程，咱们稍后再讲。</p>
+
+<p>第5个需要理解Mybatis主要对象有哪些？它们的作用是什么？例如，Sqlsessionfactory是用来创建Sqlsession的工厂类，一个Sqlsessionfactory对应配置文件中的一个环境，也就是一个数据库配置，对数据库的操作必须在Sqlession中进行。Sqlsession非线程安全，每一次操作完数据库后，做到调用close对其进行关闭。sqlsession通过内部的execute来执行增删改查操作。Statement handler用来处理sql语句的预编译，设置参数等。Primate handler用来设置预编译参数，Resultsethandler用来处理结果集。typehandler进行数据库类型和Java bean类型的互相映射。最后一个知识点需要了解Mybatis的插件机制。</p>
+
+<p>要知道插件机制是通过拦截器组成责任链，来对executor、 statementHandler、ParameterHandler、resultSetHandler这4个作用点进行定制化处理。另外可以了解一下，基于插件机制实现的pagehelper分页插件</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607222042530.png" alt="image-20200607222042530" /></p>
+
+<p>上一页我们提到了Mybatis的处理流程，在执行sql时，首先会从SqlsessionFactory中创建一个新的sqlsession，sql语句是通过sqlsession中的executor来执行的，executor根据sqlsession传递的参数，执行query方法，然后创建一个statement handle的对象。将必要的参数传递给statement handler。由statement handler来完成对数据库的查询。Statement handler将用primate handler的setprimate的方法，把用户传递的参数转换成 JDBCstatement所需要的参数，调用原生的jdbc来执行语句。</p>
+
+<p>最后有resultsethandler的handleresult et方法，对jdbc反回的resultset结果集转换成对象集，并逐级返回结果，完成一次sql语句执行。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>掌握Spring的IOC、AOP的概念与实现</li>
+<li>掌握Spring的Contex创建流程和Bean的生命周期</li>
+<li>了解Spring常用注解的作用与使用方式</li>
+<li>了解SpringBoot的相关知识点</li>
+<li>掌握Netty的线程处理模型</li>
+<li>知道常用RPC框架的特点</li>
+<li>了解Mybatis、Hibernate的实现原理</li>
+</ul>
+
+<p>真题</p>
+
+<ul>
+<li>SSH和SSM框架组合的区别是什么?</li>
+<li>能描述一下Spring Context初始化的整个流程吗?</li>
+<li>简单介绍一下Bean的生命周期及作用域。</li>
+<li>Spring配置中的placeholder占位符是如何替换的?有什么办法可以实现自定义的配置替换?</li>
+<li>SpringMVC的工作流程是怎样的?</li>
+<li>Spring如何解决循环依赖?</li>
+<li>Bean的构造方法、@PostConstruct注解、 InitializingBean、 init-method的执行顺序是怎样的?(就是题目中的顺序)</li>
+<li>说说Netty中有哪些重要的对象,它们之间的关系是什么?</li>
+<li>RPC与HTTP的区别是什么,什么场景适合选用RPC ,什么场景适合使用HTTP ?</li>
+<li>RPC的交互流程是怎样的?</li>
+<li>请介绍一下Mybatis的缓存机制。</li>
+<li>Mybatis如何配置动态SQL ?有哪些动态SQL标签?</li>
+</ul>
+
+<p>第一题除了说出ssh框架是struts spring habinitate。Ssm框架是指springmvc spring、mybatis。除了这个之外，还要重点说一下 springmvc和struts 的区别。以及mybatis和habinitate的区别。</p>
+
+<h2 id="缓存">缓存</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607224054502.png" alt="image-20200607224054502" /></p>
+
+<p>缓存是高并发场景下提高热点数据访问性能的一个有效手段。在开发项目时经常会使用。到我们先看缓存的类型，分为本地缓存，分布式缓存和多级缓存，本地缓存就是在进程的内存中进行缓存，比如我们的JVM堆中。最简单的我们可以用LRUmap来实现，也可以使用这样的工具来实现。本地缓存是内存访问。没有远程交互的开销，性能最好，但是受限于单机容量，一般缓存较小且无法扩展。分布式缓存可以很好地解决这个问题。分布式缓存一般都提供良好的水平扩展能力。对较大数据量的场景也能应付自如。缺点就是需要进行远程请求，性能不如本地缓存。为了平衡这种状况，实际业务中。一般采用多级缓存。本地缓存只保存访问频率最高的部分热点数据，其他的热点数据。放在分布式缓存中。</p>
+
+<p>第二个知识点是淘汰策略。不管是本地缓存还是分布式缓存,为了保证较高的性能，都使用内存来保存数据。由于成本和内存容量的限制，当存储的数据超过缓存容量时，需要对缓存的数据进行剔除。一般的剔除策略有fIfo就是先入先出，淘汰最早的数据，FRU最近最少使用的数据和LFU剔除最近使用频率最低的数据几种策略。</p>
+
+<p>第三个知识点是使用缓存时常见的一些问题，我在后面详细讲解。剩下两个知识点是最常使用的分布式缓存Memcache和Redis。注意后面我会把Memcache简称为MC。先来看MC有哪些特点，MC处理请求时使用多线程异步IO的方式，可以合理利用CPU多核的优势，性能非常优秀，MC功能简单，使用内存存储数据，只支持kv结构，不提供持久化和主从同步功能。Mc的内存结构以及钙化问题，我稍后详细讲解。Mc对缓存的数据可以设置失效期，过期后的数据会被清除，失效的策略采用延迟失效，就是当再次使用数据时检查是否失效，当容量存满时，会对缓存中的数据进行剔除，剔除时除了会对过期k进行清理，还会按LRU策略对数据进行剔除。另外还要记住几个使用MC的限制，k不能超过250个字节，value不能超过一兆字节，key的最大失效周期是30天。</p>
+
+<p>最后一个知识点redis，我会展开详细介绍。这里先简单说一下redis的特点，方便和MC比较，与MC不同的是 redis采用单线程模式处理请求，这样做的原因有两个，一个是因为采用非阻塞的异步事件处理 机制，另一个是缓存数据都是内存操作，IO时间不会太长，单线程可以避免线程上下文切换产生的代价。</p>
+
+<p>redis的另一个特点是支持久化。所以redis不仅可以用作缓存。也可以用作NOSQL数据库。相比MC， redis还有一个非常大的优势，就是除了KV之外，还支持多种数据格式。最后redis供主从同步机制以及class集群部署能力，能够提供高可用服务。</p>
+
+<h3 id="memcache">Memcache</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607224923680.png" alt="image-20200607224923680" /></p>
+
+<p>我们进入详解知识点，先来看看MC的内存结构，MC默认通过slap alligator来管理内存，slap机制主要是用来解决产生内存碎片的问题。</p>
+
+<p>看到图左面，MC会把内存分为许多个不同类型的slab，每 种类型slab用来保存不同大小的对象，每个slide由若干page组成，如图中浅绿色的模块，不同page的配置默认大小都是一样的，都是一兆，这也是默认MC存储对象不能超过一兆的原因。</p>
+
+<p>每个配置内又划分许多chunk，chunk就是实际用来保存对象的空间，就是图中橘红色的部分，不同类型的slap中的chunk大小是不同的。当保存一个对象时，MC会根据对象的大小来选择最合适的chunk来存储，减少空间浪费。Slap alligator创建slap时的参数有三个，分别是chunk大小的增长因子，chunk大小的初始值，以及page的大小。</p>
+
+<p>在运行时会根据要保存的对象大小来逐个创建slab。我们来考虑这样一个场景，使用MC来保存用户信息，假设单个对象大约是300字节，确实会产生大量384字节的大小的slab。运行一段时间后，用户信息增加了一个属性，单个对象大小变成了500字节，确实在保存对象需要使用768字节的slap，而MC中的容量大部分都创建了384字节的slap，所以768的非常少。</p>
+
+<p>这时虽然384的slave内存大量空闲，但是768sleep还是会根据lru算法。频繁的剔除缓存。导致MC的剔除率升高，命中率降低，这就是所谓的MC钙化问题，解决钙化问题，可以开启MC的auto move机制，每10秒调整slab，也可以分批重启MC缓存，不过要注意重启时要进行一定时间的预热，防止雪崩的问题。</p>
+
+<p>另外使用MC时，最好计算一下数据的预期平均长度，调整growth factor，以获得最恰当的设置，避免内存的大量浪费。</p>
+
+<h3 id="redis">Redis</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607230008809.png" alt="image-20200607230008809" /></p>
+
+<p>第二个知识点，我们来看看redis，首先是redis支持的多种数据结构，要了解最常用的5种数据结构及相关的命令，稍后我详细介绍一下radis是怎么实现这5种结构的。</p>
+
+<p>第二个点是redis提供的功能，bit map是支持按bit位来存储信息，可以用来实现htperLogLog，提供不精确的去重统计功能，比较适合用来做大规模数据去重的统计。例如统计uv只有special可以用来保存地理位置，并作位置距离计算，或者根据半径计算位置等，这三个其实也可以算作数据结构。</p>
+
+<p>pub/sub是订阅发布功能，可以用作简单的消息队列。pipeline可以批量执行一组指令，一次性返回全部结果，可以减少频繁的请求应答。另一种方式是使用脚本，redis支持提交lua脚本来执行一系列的功能。</p>
+
+<p>最后一个功能是事务，但redis提供的不是严格的事务，redis只保证串行执行命令，并且能保证全部执行，但是执行命令失败时并不会回滚，而是会继续执行下去。第三个知识点是redis的持久化，redis提供了RDB和AOF两种持续化方式，RDB是把内存中的数据集以快照形式写入磁盘，实际操作是通过父进程执行的，采用二进制压缩存储，SOF是以文本日志的形式记录redis处理的每一个写入或者删除操作。RDB把整个redis的数据保存在单一文件中，比较适合用来做灾备。但缺点是快照保存完成之前如果宕机，这段时间的数据将会丢失。另外保存快照是可能导致服务短时间不可用，AOF对日志文件的写入操作使用追加模式，有灵活的同步策略，支持每秒同步，每次修改同步和不同步，缺点就是相同规模的数据集AOF要大于RDB，AOF在运行效率上往会慢于RDB。</p>
+
+<p>再来看图的右面。第4个知识点是Redis的高可用，Redis支持主从同步提供class的集群部署模式，通过sentinel的哨兵来监控Redis主服务器的状态。当主挂掉时，在从节点中根据一定策略选出新主，并调整其他从slave的新主，选主的策略简单的说有三个，slave部的priority设置的越低，优先级就越高。同等情况下，slave复制的数据越多，优先级就越高，相同的条件下，让ID越小就越容易被选中。在redis集群中，sentinel也会进行多实例部署，sentinel之间通过rough的协议来保证自身的高可用，redis class的使用分片机制，在内部分为16384个slot，也就是2的14次方，分布在所有的master节点上，每个master节点负责一部分的slot，数据操作时，按k做crc16来计算，在哪个slot上，由哪个master进行处理，数据的冗余是通过slave节点来保障的。</p>
+
+<p>第5个redis key可以设置过期时间，过期后redis 采用主动和被动结合的失效机制，一个是和MC一样，在访问时触发被动删除，另一种是定期的主动删除，</p>
+
+<p>第6个redis 提供了6种淘汰策略，分别是只针对设置了失效期的k做lru最小生存时间和随机剔除。</p>
+
+<p>另一类是针对所有的k做lru随机剔除，当然也可以设置不剔除，容量满时再存储对象会返回异常，但是以存储的key还是可以继续读取。最后一个可以了解一下redis 4.0和5.0的新特性，例如5.0的stream，是一个支持多波，也就是一写多读的消息队列，4.0的模块机制等。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607232747501.png" alt="image-20200607232747501" /></p>
+
+<p>redis 内部使用字典来存储不同类型的数据。如图中的dictht，字典由1组dictentry组成，其中包括了指向k和value的指针，以及指向下一个dictentry的安全的指针。在redis中所有的对象就被封装成了redis object。如图中浅绿色的模块，redis object包括了对象的类型，就是redis中支持的5种类型。另外还包括了具体对象的存储方式，比如最右边虚线标出的模块内的几种类型，下面我结合着类型来介绍具体的数据存储方式。String类型是redis中最常使用的类型，内部的实现是通过sds来实现的，就是 simple dynamic strain的缩写。Sds类似于Java中的arraylist，可以通过预分配冗余空间的方式，来减小内存的频繁分配。对于list类型有这个ziplist压缩列表和linklist的双链表实现，ziplist是存储在一段连续的内存上，存储效率高，但是它不利于修改操作，适用于数据较少的情况。</p>
+
+<p>Linkedlist在插入节点上复杂度很低，但它的内存开销很大，每个节点的地址不连续，容易产生内存碎片。此外这3.2版本后，增加了quick list，quicklist结合了两者的优点，quicklist本身是一个双向无关链表，它的每一个节点都是一个ziplist，哈希类型在redis中有ziplist和hashtable两种实现。</p>
+
+<p>在hash表中所有的key和value字符串长度都小于64字节，且键值对的数量小于512个时，使用压缩表来节省空间，超过时转为使用hashtable</p>
+
+<p>set类型的内部实现，可以是intset或者是hashtable，当集合中元素小于512，且所有的数据都是数值类型时，才会使用intset，否则会使用hashtable。最后sortedset是有序集合，有序集合的实现，可以是zip list，或者是skiplist的跳表，有序集合的编码转换条件与hash和list有些不同，当有序集合中元素数量小于128个时，并且所有元素长度都小于64字节时，会使用ziplist，否则会转换成skip list跳表。提示一下，redis的内存分配是使用ge molecule进行分配的，ge molecule将内存空间划分为小大巨大三个范围，并在范围内划分了许多小的内存块。当存储数据时，选择大小最合适的内存块进行分配，有利于减小内存碎片。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200607233514182.png" alt="image-20200607233514182" /></p>
+
+<p>这里我对使用缓存时常遇到的几个问题整理出一个表格，第一个问题是缓存更新方式，这是决定在使用缓存时就该考虑的问题。缓存的数据在数据源发生变更时，需要对缓存进行更新，数据源可能是db，也可能是远程服务，更新的方式可以是主动更新。</p>
+
+<p>例如数据源是db时，可以在更新完db后直接更新缓存，当数据源不是db时，而是其他远程服务，可能无法及时主动的感知数据变更。这种情况下，一般会选择对缓存数据设置失效期，也就是数据不一致的最大容忍时间。这种场景下可以选择失效更新，key不存在或者失效时，先请求数据源获取最新的数据，然后再次缓存并更新时效期。但这样做有个问题，如果依赖的远程服务在更新时出现异常，则会导致数据不可用，改进的办法是异步更新。就是当失效时先不清除数据，继续使用旧的数据，然后由异步的线程去执行更新任务，这样就避免了失效瞬间的空窗期。另外还有一种纯异步更新方式，定时对数据进行分批更新，实际使用时可以根据业务场景选择具体的更新方式。</p>
+
+<p>第二个问题是数据不一致的问题，可以说只要使用缓存就要考虑如何面对这个问题，缓存不一致产生的原因，一般是主动更新失败。例如更新db后更新redis时，因为网络原因请求超时或者异步更新失败导致。解决的办法，如果服务对耗时不是特别敏感，可以增加重试，如果服务对耗时敏感，可以通过异步补偿任务来处理失败的更新，或者短期的数据不一致，不会影响业务，那么只要下次更新时可以成功就能保证最终一致性就可以了。</p>
+
+<p>第三个问题是缓存穿透，产生这个问题的原因，可能是外部的恶意攻击。例如对用户信息进行了缓存，但恶意攻击者使用不存在的用户ID，频繁请求接口，导致查询缓存不命中，然后穿透db查询依然不命中，这是会有大量的请求，穿透缓存访问到db解决的办法。一是对不存在的用户在缓存中保存一个空对象进行标记，防止相同ID再次访问db。不过有时这个方法并不能很好的解决问题，可能会导致缓存中存储大量的无用数据。另一个方法就是使用布隆过滤器，bloomfilter的特点是存在性检测，如果布bloomfilter中不存在，那么数据一定不存在。如果bloomfilter中存在，实际数据可能存在，也有可能不存在，这非常适合解决这类问题。</p>
+
+<p>第4个问题是缓存击穿，就是某个热点数据失效时，大量针对这个数据的请求，会穿透到数据源，为了解决这个问题，可以使用互斥锁更新，保证同一个进程中针对同一个数据，不会并发请求db减小db的压力。另一个方法就是使用随机配备方式，失效时随机sleep一段时间。再次查询，如果失败，再执行更新，还有一个方法是针对多个热点可以同时失效的问题，可以在缓存时使用固定时间，加上一个很小的随机数，避免大量的热点k同一时刻失效。</p>
+
+<p>第5个问题是缓存的雪崩，产生的原因是缓存挂掉了，这时所有的请求都会穿透到db，解决的办法，一个是使用快速失败的熔断策略，减少db的压力，另一个就是使用主从模式和集群模式，来尽可能保证缓存服务的高可用。实际场景中通常会将这两种方式结合来使用。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>了解缓存的使用场景,不同类型缓存的使用方式</li>
+<li>掌握MC和Redis的常用命令</li>
+<li>了解MC和Redis在内存中的存储结构</li>
+<li>了解MC和Redis的数据失效方式和剔除策略</li>
+<li>了解Redis的持久化、主从同步与cluster部署的原理</li>
+</ul>
+
+<p>缓存的使用场景，不同类型的缓存的使用方式，例如对db热点数据进行缓存，可以减少db压力，对依赖的服务进行缓存，可以提高并发访问性能。例如单纯的kv缓存场景可以使用MC，而需要缓存list set等特殊数据结构时，可以使用redis。像缓存一个数据，最近播放的视频列表这种场景，可以使用redis的list来保存，需要计算排行榜数据时，可以使用redis的gset结构来保存。</p>
+
+<p>其次，要了解MC和redis的常用命令，例如原子增减，对不同数据结构进行操作的命令等。第三个要了解MC和redis在内存中的存储结构，这对评估使用容量会很有帮助。第4个，了解MC和redis的数据失效方式和剔除策略，比如主动出发的定期删除和被动触发的延期删除。</p>
+
+<p>最后要理解redis的持久化，主从同步和cluster部署的原理，比如rdb和aof的实现方式与区别。</p>
+
+<p>第一是要结合实际应用场景来介绍缓存的使用，例如调用后端服务接口获取信息时，可以使用本地加远程的多级缓存。对于动态排行榜类的场景，可以考虑使用redis的sortedset来实现等。</p>
+
+<p>比如redis是单线程处理，应尽量避免耗时较高的单客请求任务，防止相互影响。redis服务应避免和其他CPU密集型的进程，部署在同一台机器或者进入swap内存交换，防止redis的缓存数据交换到硬盘上，影响性能。再比如前面提到的MC钙化问题等。</p>
+
+<p>第四，要了解redis的典型应用场景。例如 redis来实现分布式锁，使用bit map来实现blue filter，使用hyperlog log来进行uv统计等。最后要知道redis4.05.0中的新特性，例如支持多波的可持续化消息队列stream，通过model系统来进行定制功能扩展等。</p>
+
+<p>真题</p>
+
+<ul>
+<li>Redis和Memcache有什么区别?该如何选用?</li>
+<li>你用到过哪些Redis的数据结构?用在什么场景下?</li>
+<li>Redis有哪些持久化方式，区别是什么?</li>
+<li>Redis的过期机制是怎样的? Redis有哪些淘汰策略?</li>
+<li>如何保证Redis的高并发和高可用?</li>
+<li>如何使用Redis实现延时队列?如何使用Redis实现分布式锁?</li>
+</ul>
+
+<p>第5题，可以从主从读写分离，多存库，多端口实例，以及claster集群部署，来支持水平扩展等几方面来回答。高可用可以回答，用sentinel来保证主挂角时重新选主，并完成从库的变更。</p>
+
+<p>第6题可以使用ready的shortage site来实现延迟队列，使用时间戳做score，消费方使用z range by score，来获取指定延迟时间之前的数据。简单场景下，分布式锁可以使用set n x事件，使用set n x设置k如果返回一表示设置成功，即获取锁成功，如果返回零则获取锁失败。</p>
+
+<p>setnx需要同时使用px参数，设置超时间，防止获取锁的实力，宕机后产生死锁，严格场景下可以考虑使用readlock方案，但实现比较复杂。</p>
+
+<h2 id="消息队列与数据库">消息队列与数据库</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608100254580.png" alt="image-20200608100254580" /></p>
+
+<p>提到的队列就是指消息队列。队列可以对应用进行解耦合，应用之间不用直接调用，可以通过队列来传递消息完成通信，队列也可以用来执行异步任务，任务提交方无需等待结果。队列的另一个作用是削峰填谷，在突发流量时可以通过队列做缓冲，不会对后端服务产生较大的压力。当峰值过去时，可以逐渐消费堆积的数据，来填平流量的低谷。消息队列一般还提供了一写多读的能力，可以用来做消息的广播与多播。关于队列你还需要知道两个主要的消息协议。JMS是Java的消息服务，规定了Java使用消息服务的API，在前面spring的j介绍中，我提到过 spring提供了支持JMS组件，amqp是高级消息队列协议，是应用层协议的一个开放标准。</p>
+
+<p>Amqp不从API层进行限定，而是直接定义网络交换的数据格式。因此，支持跨语言的能力。例如RabbitMQ就使用了AMQP实现。我们再来对比几个常用的消息队列，首先是rabbitmq使用Erlang开发的开源消息队列，中国Erlang的act模型，实现了数据的稳定可靠传输，支持产品amqp、 smtp等多种协议，因此也比较重量级。由于采用break代理架构发送给客户端时，先在中心队列进行排队，rabbitMQ的单机吞吐量在万级不算很高，activemq，可以部署于代理模式和P2P模式。支持多种协议，单机存储量在万级，但activemq不够轻巧，对于队列较多的情况支持不是很好，并且有较低概率丢失消息。</p>
+
+<p>第三个RocketMQ是阿里开源的消息中间件，单机能够支持10万级的存储量，使用Java开发，具有高吞吐量高可用性的特点，适合在大规模分布式系统中应用，最后是kafka，由Scala开发的高性能跨语言分布式消息队列，单机吞吐量可以达到10万级，消息延迟在毫秒级，kafka 是完全的分布式系统。</p>
+
+<p>Broker.Producer、consumer都是原生自动支持分布式，依赖于组zookeeper做分布式协调，kafka支持一写多读，消息可以被多个客户端消费，消息有可能会重复，但是不会丢失。后面的讲解知识点，我会对kafka的架构进行介绍。</p>
+
+<p>左下方第二大知识点是常用的数据库中间件，数据库中间件一般提供了读写分离，数据库水平扩展的能力，首先是sharding-sphere，是一个开源的分布式数据库中间件解决方案，由Sharding-JDBC、Sharding-Proxy和Sharding-Sidecar，这几个独立的产品组成，适用不同的使用场景，这几个产品都提供标准化的数据分片，读写分离，柔性事务和数据治理功能，可适用于Java重构，异构语言、容器、云原生。等多种多样的应用场景。</p>
+
+<p>目前sharding-sphere已经进入apache，发展速度非常的快，可以重点关注。第二个中间件是MyCat，也提供了分库分表能力，MyCat基于proxy代理模式，后端可以支持Mysql、oracle、db2等不同的数据库实现。不过代理方式对性能会有一定影响。其他还有些数据库中间件，例如vtc等，这个使用不算广泛了解即可。</p>
+
+<p>我们再来看右面，主要是数据库相关的知识点，首先需要知道不同类型的数据库，常用的关系型数据库主要是oracle和MySql。</p>
+
+<p>Oracle功能强大，主要缺点就是贵。MySQL是互联网行业中最流行的数据库，这不仅是因为MySQL的免费，可以说关系数据库场景中你需要用到的功能，MySQL都能很好的满足。后面的讲解部分，我会详细介绍MySQL的一些知识点Mqriadb是MySQL的分支，由开源社区维护，MariaDB虽然被看作MySQL的代替品。但是它在功能扩展。存储引擎上都有非常好的改进，后续可以继续关注。PostgreSQL也叫PGSQL。PGSQL类似于oracle的多进程模型，可以支持高并发的应用场景，几乎支持所有的oracle标准，知识类型相当丰富，PG更加适合严格的企业应用场景。而MySql更适合业务逻辑相对简单，数据可靠性要求比较低的互联网场景。</p>
+
+<p>第二类是NOSQL。就是 Not only sql。一般指非关系型数据库。比如redis，提供了持久化的能力，支持多种数据类型。redis适用于数据变化快，写数据大小可预测的场景，mongoDB是一个基于分布式文件存储的数据库，将数据存储为一个文档，数据结构由键值对组成。</p>
+
+<p>mongoDB比较适合表结构不明确。写数据结构可能不断发生变化的场景，不适合有事务或者复杂查询的场景。hbase是建立在hdfs也就是Hadoop文件系统之上的分布式面向列的数据库，类似于Google的大表设计，hbase可以提供快速随机访问海量结构化数据，在表中它有行排序，一个表有多个列族，以及每个列族都可以有任意数量的列。hbase依赖于hdfs可以实现海量数据的可靠存储，适用于数据量大，写多读少，不需要复杂查询的场景。</p>
+
+<p>cassandra是一个高可靠的大规模分布式存储系统，支持分布式的结构化kv存储，以高可用为主要目标。适合写多的场景，适合做一些简单的查询。不适合用来做数据分析统计。pika是一个可持久化的大容量类redis的存储服务，兼容redis的5种主要数据结构的大部分命令。pika使用磁盘存储，主要解决redis大容量存储的成本问题。</p>
+
+<p>第三类new sql数据库也越来越被大家关注。New sql是指新一代的关系型数据库。比较典型的有TiDB。TiDB是开源分布式关系数据库，几乎完全兼容Mysql，能够支持水平弹性扩展。S i d事务、标准sql，Mysql语法和Mysql协议，具有数据强一致性的高可用性。既适合在线事务处理，也是和在线分析处理。另外一个比较著名的new sql是蚂蚁金服的OceanBase，OceanBase是可以满足金融级的可靠性和数据一致性要求的数据库系统。当你需要使用事务，并且数据量比较大，就比较适合使用ob。不过目前ob已经商业化，不再开源。</p>
+
+<p>看数据库的范式，目前关系数据库一共有6种范式，第一范式第二范式第三范式、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式），范式级别越高，对数据表的要求越严格，要求最低的第一范式只要求表中的字段不可再拆分。</p>
+
+<p>第二范式是在第一范式的基础上。要求每条记录有主键唯一区分。记录中的所有属性都依赖于主键。第三范式是在第二范式的基础上。要求所有的属性必须直接依赖于主键。不允许间接依赖，一般来说数据库只需要满足第三范式就可以了。</p>
+
+<h3 id="kafka">kafka</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608103353109.png" alt="image-20200608103353109" /></p>
+
+<p>我们来学习kafka的架构，先结合这张架构图来了解一下kafka中的几个概念。首先kafka消息队列由三个角色组成，左面的是消息生产方producer，中间是kafka集群。kafka集群由多台kafka server组成。每个server称为一个broker，也就是消息代理。右面是消息的消费方consumer。传感中消息是按照topic进行划分的，一个topic就是一个q。我们在实际应用中，不同业务数据就可以设置为不同的topic。</p>
+
+<p>一个topic可以有多个消费方，当生产方在某个topic发出一条消息后。所有订阅了这个 topic的消费方都可以收到这条消息。为了提高并行能力，kafka为每个topic维护了多个partition分区。每个分区可以看做一份追加类型的日志，每个分区中的消息，保证ID唯一且有序，新消息不断追加在尾部。</p>
+
+<p>Partition实际存储数据时，会按照大小进行分段，来保证总是对较小的文件进行写操作，提高性能方面管理。看到图中间的部分，partition分布于多个broker上。图中绿色的模块表示。Topic1，被分成了三个partition。每个partition，会被复制多份，存在于不同的broker上，如图中红色的模块，这样可以保证主分区出现问题时进行融灾。每个broker可以保存多个topic的多个partition，kafka只保证一个分区内的消息有序。不能保证一个topic中不同的分区之间消息有序。为了保证较高的处理效率，所有的消息读写都是在主partition上进行的。其他的副本分区，主分区复制数据，kafka会在zookeeper上针对每个topic维护一个称为 isr，也就是以同步副本集，如果某个主分区不可用了。kafka就会从ISR集合中选择一个副本作为新的分区。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608104047283.png" alt="image-20200608104047283" /></p>
+
+<p>kafka对消费方进行分组管理，来支持消息的一写多读。我们来看图中的例子，这个 topic分为4个partition，就是图中绿色的p1到p4，上部的生产方根据规则选择一个partition进行写入，默认规则是轮巡策略，也可以由生产方指定partition，或者指定key来根据hash值选择partition。消息的发送有三种方式，同步、异步、发送并忘记。同步模式下，后台线程发送消息时，同步获取结果，这也是默认的模式。异步模式，允许生产者批量发送数据。可以极大的提高性能，但是会增加丢失数据的风险。、发送并忘记模式只发送消息。不需要返回发送结果，消息可靠性最低，但是低延迟高吞吐，适合用于对可靠性要求不高的场景。再来看消息的消费，consumer按照group来消费消息。Topic中，每一条消息可以被多个consumer group消费。如图中的group a和group b。kafka确保每个partition在一个group中只能有一个consumer消费。kafka通过group coordinator来管理consumer实力，负责消费哪个partition？默认支持range和轮巡分配。kafka在zk中保存了每个topic，每个partition在不同group的消费偏移量offset，通过更新偏移量，保证每条消息都被消费。</p>
+
+<p>这里要注意用多线程来读取消息时，一个线程相当于一个很深的consumer实例，当consumer的数量大于分期数量时，有的comsumer线程会读取不到数据。</p>
+
+<h3 id="数据库事务">数据库事务</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608104601717.png" alt="image-20200608104601717" /></p>
+
+<p>第二个讲解知识点是数据库事务，数据库的特性是面试时考察频率非常高的题目。我们先看看数据库的acId4大特性</p>
+
+<p>第一个原则性是指事务由原子的操作序列组成。所有的操作要么全部成功，要么全部失败回滚。</p>
+
+<p>第二个事务的一致性是指事务的执行，不能破坏数据库数据的完整性和一致性。一个事物在执行前和执行之后，数据库都必须处于一致性状态。比如在做多表操作时。多个表，要么都是事务后的新值。要么都是事务前的旧值。</p>
+
+<p>第三个事务的隔离性是指多个用户并发访问数据库时。数据库为每个用户执行的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离，事务的隔离级别我们稍后介绍。</p>
+
+<p>第4个事物的持久性。是指一个事务一旦提交并执行成功，那么对数据库中数据的改变是永久性的。即便是在数据库系统遇到故障的情况下，也不会丢失提交事务的操作。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608104819851.png" alt="image-20200608104819851" /></p>
+
+<p>在介绍数据库的隔离级别之前，我们先看看在没有隔离性的情况下，数据库会出现哪些并发问题？看到图的左面，首先可能会出现脏读，脏读是指一个事务处理过程中读取了另一个未提交的事务中的数据。例如账户a转账给b500元，b余额增加后，但事务还没完成提交。此时如果另外的请求中，获取到的是b增加后的余额，这就发生了脏读。因为事务如果失败回滚时，b的余额就不应该增加。</p>
+
+<p>第二个并发问题是不可重复读，不可重复读是指对于数据库中的某个数据，一个事务范围内多次查询，返回了不同的数据值。这是由于多次查询之间，有其他事物修改的数据。并进行了提交。</p>
+
+<p>第三个是幻读，是指一个事务中执行两次完全相同的查询，第二次查询所返回的结果集跟第一次查询的不同，与不可重复读的区别在于不可重复读是对同一条记录两次读取的值不同，而幻读是记录的增加或者删除，导致两次相同条件获取的结果记录数不同。</p>
+
+<p>事务的4种隔离级别，可以解决这几种并发问题。我们看到这一页的右面由上到下，4种隔离级别由低到高，第一个隔离级别是读未提交。也就是可以读取到其他事务未提交的内容。这是最低的隔离级别。在这个隔离级别下，前面提到三种并发问题，都可能会发生。第二个级别是读已提交。就是只能读取到其他事务已提交的数据，这个隔离级别可以解决脏读问题。第三个是可重复读，可以保证整个事务过程中对数据的多次读取结果是相同的，这个级别可以解决脏读和不可重复读的问题。MySql默认的隔离级别就是可重复读。最后一个是串行化，这是最高的隔离级别，所有事务操作都依次顺序执行。这个级别会导致并发度下降，性能最差。不过这个级别可以解决前面提到的所有并发问题。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608105154996.png" alt="image-20200608105154996" /></p>
+
+<p>接下来我们看一下事务的分类，第一个是扁平化事务，扁平事务中，所有的操作都在同一层次，这也是我们平时使用最多的一种事务。它的主要限制是不能提交或者回滚事务的某一部分，要么都成功，要么都回滚。</p>
+
+<p>为了解决第一种事务的弊端，就有了第二种带保存点的扁平事务。他允许事务在执行过程中回滚到较早的状态，而不是全部回滚。通过在事务中插入保存点，当操作失败后，可以选择回滚到最近的保存点处。</p>
+
+<p>第三个事务是链事物。可以看作第二种事务的变种。他在事务提交时，会将必要的上下文隐式传递给下一个事务，当事务失败时，可以回滚到最近的事务。不过链事务只能回滚到最近的保存点。而在保存点的扁平化事务，是可以回滚到任意一个保存点。</p>
+
+<p>第4种事务是嵌套事务，由顶层事务和子事务构成，类似于树的结构，一般顶层事务负责逻辑处理，子事务负责具体的工作，此事务可以提交，但真正的提交要等到父事务的提交。如果上层事务回滚，那么所有的子事务都会回滚。</p>
+
+<p>最后一种是分布式事务，是指在分布式环境中的扁平化事务。常用的分布式事务解决方案如图右面所示。第一个解决方案是XA协议，是保证强一致性的刚性事务，实现方式有两段式提交和三段式提交。两段式提交需要一个事务协调者。来保证所有的事务参与者都完成了第一阶段的准备工作。如果协调者收到了所有参与者都准备好的消息。就会通知所有的事务执行第二阶段提交，一般场景下两段式提交，已经能够很好的解决分布式事务了。然而两阶段在即使只有一个进程发生故障时，也会导致整个系统存在较长时间的阻塞。三段式提交，通过增加。Pre commit阶段来减少前面提到的系统阻塞时间。三段式提交很少在实际中使用，简单了解就可以了。</p>
+
+<p>第二个分布式解决方案是tcc是满足最终一致性的柔性事务方案，tcc采用补偿机制。核心的思想是对每一个操作都要注册对应的确认和补偿操作。它分为三个阶段，try阶段，主要对业务系统进行检测及资源预留，confirm阶段，对业务系统进行确认提交。Cancel阶段是在业务执行错误执行回滚，释放预留的资源。</p>
+
+<p>第三种方案是消息一致性方案，基本思路是将本地操作和发送消息封装在一个事务中。保证本地的操作和消息发送，要么都成功，要么都失败。下游应用订阅消息，收到消息后执行对应的操作。最后可以了解一下阿里云中的全局事务服务，gts对应的开源版本是fescar，fescar基于两段式提交进行改良，剥离了分布式事务方案，对数据库在协议支持上的要求。使用fescar的前提，是分支事务中涉及的资源，必须是支持acId事务的关系性数据库，分支的提交和回滚机制，都依赖于本地事务来保障。fescar实现目前还存在一些局限，比如事务隔离级别，最高支持到读已提交级别。</p>
+
+<h3 id="mysql">Mysql</h3>
+
+<p>第三个知识点，我们来学习互联网行业中使用最为广泛的关系性数据库Mysql</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608122309223.png" alt="image-20200608122309223" /></p>
+
+<p>第二个知识点。要知道Mysql都提供哪些基本的数据类型。不同数据类型占用的空间大小，</p>
+
+<p>第三个知识点是Mysql中的主要存储引擎，MyIASM是Mysql官方提供的存储引擎，其特点是支持全文检索，查询效率比较高，缺点是不支持事务，使用表级锁。innodb在5.5版本后成为Mysql中的默认存储引擎。特点是支持aCAD事务，支持外建，支持行级锁提高的并发效率。TokuDB是第三方开发的开源存储引擎，有非常快的写速度，支持数据的压缩存储。可以在线添加索引，而不影响读写操作。但是因为压缩的原因，TokuDB非常适合访问频率不高的数据，或者历史数据归档，不适合大量读取的场景。</p>
+
+<p>第4个知识点是Mysql中的锁。刚才也提到了MyIASM使用表级锁，innoDB使用行级锁。</p>
+
+<p>表锁开销小加锁快，不会出现死锁，但锁的力度比较大，发生锁冲突的概率高，并发访问效率比较低；行级锁开销大，加锁慢有可能会出现死锁，不会因为锁定力度小，发生锁冲突的概率比较低，并发访问效率比较高；共享锁也就是读锁，其他事务可以读，但不能写。Mysql可以通过log in share mode，语句来显示的使用共享锁；排他锁就是写锁，其他事务不能读取也不能写。对于update、Delete、insert语句 innoDB会自动给涉及的数据集加排他锁，或者使用select for update。使用显式的排他锁。第5个知识点索引，我们稍后讲解。</p>
+
+<p>第6个知识点。是Mysql的存储过程与函数，存储过程与函数，都可以避免开发人员重复编写相同的sql语句，并且存储过程和函数都是在Mysql服务器中运行的，可以减少客户端与服务端的数据传输，存储过程实现了更复杂的功能。而函数一般用来实现针对性比较强的功能。比如按特殊策略来求和。存储过程。可以执行，包括修改表等一系列数据库操作，而用户定义函数不能用于执行修改全局数据库状态的操作。</p>
+
+<p>存储过程一般是作为一个独立的部分来执行，而函数可以作为查询语句中的一个部分来调用。Sql语句中不能使用存储过程。但可以使用函数。不过存储过程一般与数据库的实现绑定。使用存储过程，会降低程序的可移植性，应谨慎使用。</p>
+
+<p>第7个知识点。可以去了解一下Mysql8.0的一些新特性。例如默认字符集改为了utf-8，增加了隐式索引功能，隐藏后的索引不会被查询优化器使用。可以使用这个特性用于性能调试。支持了通用表表达式，使复杂查询中的嵌入语句表达更清晰，新增了窗口函数的概念，它可以用来实现新的查询方式，窗口函数。与some count等级和函数类似但不会将多行查询结果合并，而是将结果放于多行中，即窗口函数不需要group by。最后一个知识点，Mysql调优，稍后展开讲解。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608123209263.png" alt="image-20200608123209263" /></p>
+
+<p>先来看索引，索引可以大幅增加数据库的查询性能，在实际业务场景中或多或少都会使用到，但索引也是有代价的。</p>
+
+<p>首先需要额外的磁盘空间来保存索引。其次，对于插入、更新、删除等操作，由于更新索引会增加额外的开销，因此索引比较适合用在读多写少的场景。我们先学习Mysql的索引类型。看得出左面的模块。Mysql的索引按类型有唯一索引。就是索引列中的值必须是唯一的，但是允许出现空值，这种索引一般用来保证数据的唯一性。比如保存账户信息的表。每个账户的ID必须要保证唯一，如果重复插入相同的账户ID，这个时候Mysql会返回异常。第二种主键索引是一种特殊的唯一索引，但它不允许出现空值。第三种是普通索引，与唯一索引不同，它允许索引列中存在相同的值。例如学生的成绩表。各个学科的分数是允许重复的，就可以使用普通索引。第4种是联合索引，就是由多个列共同组成的索引。一个表中含有多个单列的索引，并不是联合索引，联合索引是对多个列字段按顺序共同组成一个索引。应用联合索引时需要注意最左原则。就是 While查询条件中的字段必须与索引字段从左到右进行匹配。比如一个用户信息表用姓名和年龄组成了联合索引。如果查询条件是姓名等于张三。那么满足最左原则，如果查询条件是年龄大于20。由于索引中最左的字段是姓名，不是年龄。所以就不能使用这个索引。</p>
+
+<p>最后一个类型是全文索引，前面提到了MyIASM引擎中实现了这个索引。在5.6版本后，innodb引擎也支持了全文索引，并且在5.7.6版本后支持了中文索引。全文索引只能在char、varchar、text 类型上使用，底层使用的是倒排索引实现。要注意对于大数据量的表生成全文索引会非常消耗时间，也非常消耗磁盘空间。再看到图右面的模块，Mysql的索引，按时间来分，有我们前面学习过的B+树，B+树比较适合用做大于或者小于这样的范围查询，是Mysql中最常使用的一种索引实现。</p>
+
+<p>R-Tree是一种用于处理多维数据的数据结构。可以对地理数据进行空间索引，不过实际业务场景中使用的比较少.hash是使用散列表来对数据进行索引，hash是不需要像B-Tree那样需要查询多次才能定位到记录，因此hash索引的效率比b_tree高。但是不支持范围查找和排序等功能，实际使用的也比较少。最后fullText就是我们前面提到的全文索引。是一种记录关键字与对于文档关系的一种倒排索引。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608123826900.png" alt="image-20200608123826900" /></p>
+
+<p>MySQL的调优，也是研发人员需要掌握的一项技能。一般MySQL调优有图中的4个维度，第一个是针对数据库设计、表结构设计、以及索引设置维度进行优化。第二个是对我们业务中使用的sql语句进行优化，那例如调整where查询条件。第三个维度是对MySQL服务的配置进行优化，例如对连接数的管理，对索引缓存、查询缓存、排序缓存等各种缓存大小进行优化。第4个维度是对硬件设备和操作系统设置进行优化。例如调整操作系统参数禁用swap、增加内存、升级固态硬盘等。这4个维度从优化成本的角度讲。从左到右优化成本逐渐升高。从优化效果角度来看，从右到左优化效果更高。对于研发人员来说，前两个维度与业务息相关，因此需要重点掌握。后两个维度更适合DBA进行深入学习。简单了解就好。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608140836714.png" alt="image-20200608140836714" /></p>
+
+<p>我们重点来看刚才说的前两个维度，先看到左边的模块，关于表结构和索引的优化，应掌握如下原则。第一个要在设计表结构时考虑数据库的水平和垂直扩展能力，提前规划好未来一年的数据量和读写量的增长，规划好分库分表方案。比如设计用户信息表时，预计一年后用户数据10亿条。写QPS(每秒Query量)约5000，读QPS 3万。可以设计按uId维度进行散列。分为4个库，每个库32张表。这样可以保证单表数据量控制在千万级别。第二个，要为字段选择合适的数据类型。在保留扩展能力的前提下，优先选用较小的数据结构。 例如保持年龄的字段，要使用talent。而不要使用int。第三个可以将字段多的表分解成多个表。必要时增加中间表进行关联。假如一张表有四五十个字段，显然不是一个好的设计。第4个一般来说，我们设计关系数据库时，需要满足第三范式，但为了满足第三范式，我们可能会拆分出多张表，而在查询时就需要对多张表进行关联查询，有时为了提高查询效率，会降低范式要求，在表中保存一定的冗余信息，也叫做反范式。但要注意反范式时一定要适度。第5个要善用索引，比如为经常作为查询条件的字段创建索引，创建联合索引时要根据最左原则。考虑所有的复用能力，不要重复创建索引，要为保证数据不能重复的字段创建唯一索引等。不过要注意索引，对插入更新等写操作是有代价的，不要滥用索引。比如像性别这样唯一性很差的字段。就不适合建立索引。第6个，列字段，尽量设置not null，MySQL难以对使用null的列进行查询优化，允许null会使索引，索引统计和值更加复杂，允许null值得列需要更多的存储空间，还需要MySQL内部进行特殊处理。</p>
+
+<p>再看到右面的模块，对sql语句进行优化的原则。第一个。要找到最需要优化的sql语句，要么是使用频率最高的。要么是优化后。提高最明显的语句，可以通过查询MySQL的慢查询日志，来发现需要进行优化的sql语句。第二个要学会利用MySQL提供的分析工具，例如使用explain来分析语句的执行计划。看看是否使用了索引，使用了哪个索引？扫描了多少记录，是否使用了文件排序等，或者使用profile命令，来分析某个语句执行过程中的各分部耗时。第三个，要注意使用查询语句时。要避免使用select *，而应当指定需要获取的字段。原因，一是可以避免查询出不需要使用的字段。二是可以避免查询列字段的原信息。第4个是尽量使用Preparestatement。一是性能更好，另一个是可以防止sql注入。第5个是尽量使用索引扫描来进行排序。也就是尽量在有索引的字段上进行排序操作。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>了解消息队列、数据库的基本原理和常用队列、数据库的特点。</li>
+<li>了解Kafka的架构和消息处理流程</li>
+<li>理解数据库事务的ACID特性和隔离级别</li>
+<li>掌握常用的MySQL语句,和常用函数</li>
+<li>了解MySQL数据库不同引|擎的特点及不同类型的索弓|实现</li>
+</ul>
+
+<p>比如消息队列适用于异步处理和削峰填谷的场景。kfaka在提供高可用性的前提下，实现了零消息丢失的高性能分布式队列服务。MySql提供了多种引擎，可以支持事务型与非事务型的关系对象库服务等。</p>
+
+<ul>
+<li>了解新特性</li>
+<li>知道数据库表设计原则、有设计经验</li>
+<li>有过数据库调优经验</li>
+<li>消息队列使用经验,不同场景下的取舍</li>
+</ul>
+
+<p>第三，你最好有过数据库的调优经验。例如。明建立了索引语句，但是查询效率还很慢。后来通过一个explain分析发现表中有多个索引。</p>
+
+<p>真题</p>
+
+<ul>
+<li>使用过消息队列吗?在什么场景使用的?用来解决什么问题?</li>
+<li>使用队列时如何保证可靠性?</li>
+<li>MQ有可能发生重复消费吗,如何解决?</li>
+<li>在数据库中查询语句速度很慢，如何优化?</li>
+<li>数据库事务有哪些特性?事务的隔离级别有哪几种?</li>
+<li>如何对SQL语句进行优化?</li>
+</ul>
+
+<h2 id="架构的演讲之路与前沿技术">架构的演讲之路与前沿技术</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608142525178.png" alt="image-20200608142525178" /></p>
+
+<p>首先第一个知识点，我们以演进的方式来了解不同的系统架构，最简单的系统架构是单体服务，一个项目中的多个服务，混合部署在一个进程内。服务之间的交互都是通过进程内调用完成的。就像图中的service之间红色的箭头所示，这样做的好处是可以快速开发部署服务，服务之间的调用的性能也是最好的。当然这种架构缺点也非常多，比如随着业务的增长，项目越来越臃肿。服务之间，因为jar引用导致频繁的依赖冲突。服务资源变更困难，因为一个服务可能会被多个不同的业务引用，升级资源需要多个业方同时升级，同时因为不同业务方都可以直连服务的数据资源，这个架构也存在明显的数据安全风险。另外还有修改代码后回归困难，架构难以调整等。</p>
+
+<p>以上所有的问题都是因为服务耦合在一起导致的。在服务规模不大的情况下，比较适合采用单体架构，方便快速迭代。但是当服务规模变大时，单体架构就不是一个好的选择。当服务的规模变大时，为了解决服务耦合的问题，出现了sOA就是面向服务架构，</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608144518575.png" alt="image-20200608144518575" /></p>
+
+<p>它的起源是为了解决企业应用问题，随着不断的演进，发展到目前业界普遍采用的微服务架构，微服务架构的思想，就是让服务尽可能做到高内聚低耦合，不同的服务单独开发，单独测试单独部署。服务之间通过RPC或者是HTTP进行远程交互，如图中蓝色加粗箭头所示微服务架构解决了单体架构的耦合问题。但同时也带来了新的问题，因为服务部署在不同的进程或者服务器中，要使用服务前需要先找到服务。这就是所谓的服务发现。一般微服务使用两种发现方式，一种是我们前面课程介绍过的RPC方式，通过注册中心进行服务的注册和订阅。来完成服务发现，比如图中灰色的register模块。这种方式由服务的调用端，获得全部可用服务节点。由client进行负载均衡调用服务。另外一种是通过HTTP协议，调用服务端提供的rest for接口。这种方式不需要client侧做服务发现，而是在server端通过nginx这样的反向代理。来提供server侧的负载均衡。</p>
+
+<p>不论哪种方式，服务的交互，都从进程内通信变成了远程通信，所以性能必然会受到一些影响。此外也会产生很多不确定的因素。例如网络拥塞，server端服务宕机、挖掘机铲断机房光纤等，需要许多额外的功能和措施，才能保证微服务流畅稳定的工作。</p>
+
+<p>前面讲spring cloud提到的各种组件，都是用来解决这些问题的微服务组件。在微服务架构中，服务变成了无状态的分布式服务，所以我们有必要了解一下，分布式系统中的cAP原则和base理论。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608144936000.png" alt="image-20200608144936000" /></p>
+
+<p>看这张图，cAP原则是指在一个分布式系统中 consistency一致性，availability可用性、partition tolerance分区容错性这三个特征最多只能同时满足两个，三者不可兼得。</p>
+
+<p>其中一致性是指所有节点在同一时间的数据完全一致，可用性指任何时候对分布式系统总是可以成功读和写。分区容错性是指当某些节点或者网络分析故障的时候，仍然能够提供满足一致性和可用性的服务。既然无法同时满足三个特征，那么就会有三种取舍。</p>
+
+<p>首先是选择ca，就是放弃分区容错，这也就等同于放弃了分布式系统，所以ca只存在于单机系统。第二个选择是cp也就是选择强一致和分区容错。允许在极端情况下出现短时的服务不可用，采用cp原则实现分布式系统，比如zookeeper。zookeeper是一个分布式协调系统，强一致性是zookeeper的目标，允许出现短时的系统不可用，也正是因为这个原因。zk并不适合用来做微服务的注册中心。第三个选择是AP，也就是选择分区容错和高可用，允许数据出现短时间不一致。采用AP原则的分布式系统有eureka。在服务注册的场景，短期的不一致，一般不会对服务交互产生影响。因此采用AP原则的注册中心，才是微服务比较适合的选择。</p>
+
+<p>最后介绍一下base理论，就是图下方的几个词汇的缩写，是指basically available基本可用，soft state软状态，eventually consistent最终一致性，它是对cAP中的一致性和可用性权衡的结果。base的核心思想是即使无法做到强一致性，但可以根据系统的特点，采用适当的方式达到最终一致性。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608145320361.png" alt="image-20200608145320361" /></p>
+
+<p>回来继续看系统架构演进，微服务架构的思路是服务结构和这会导致一个大的业务拆分成众多的小的服务。每个服务的部署都需要考虑单点问题。需要多机房多节点部署，会造成系统资源的浪费。另外在服务扩容时。需要重新整理服务运行依赖的环境，对微服务的普及都有一定阻碍。容器化技术，把服务的运行环境进行打包管理，解决了服务扩缩容时。对运行环境的管理问题，以及服务器的利用率问题。因此随着容器技术的逐渐成熟，微服务架构也快速普及。云原生架构有微服务组成，它不是一种业务系统架构，而是一种能够快速持续可靠规模化的交付业务服务的模式。图上方列出的是云原生的三个特征，第一个是容器化的微服务，这是云原生的主体。第二个是Devops，是对微服务的动态管理。第三个是持续交付能力，这是云原生的目的。云原生服务需要底层的云服务。提供as基础设施。或者pass平台设施来运行。as理解为提供了服务器资源，pass平台可以理解为提供了运行环境，常见的实践方式有两种，自建的私有云和云厂商提供的公有云。公有云，比如阿里云、aws腾讯云等，像新浪微博内部使用的私有云与公有云结合的混合云模式。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608145625999.png" alt="image-20200608145625999" /></p>
+
+<p>接下来我们看云原生应用开发的最佳实践原则。12要素。它定义了设计SARS应用时需要遵循的一些基本原则。SARS是软件及服务的缩写，通过云原生应用来提供服务。第一个要素是基本代码，是指代码有版本管理工具来管理，一个应用只有一份基准代码，运行时有多个部署实力。第二个要素依赖是指要在应用中显示的生命依赖，方便服务进行构建。第三个要素配置。只要在环境中存储配置，而不是写在代码配置文件中,也就是说配置与代码要分开管理，从代码外部进行加载。例如测试环境的配置，仿真环境的配置以及生产环境的配置，都应该从对应的环境中进行加载。第4个要素后端服务，是只要把依赖的后端服务看作统一资源来对待，不论是db缓存还是HTTP服务，第5个要素是构建发布运行，是指要严格区分应用的构建、发布、运行这三个步骤，并且必须按顺序进行。第6个要素进程，是指应用以一个或多个进程运行。要保证应用的无状态性。第7个要素端口绑定，是指不同的应用，使用不同的端口提供服务，应用与端口是绑定的，这不是指具体的绑定某一个端口，而是指，一旦服务启动。确定了端口，那么这个端口就能够提供对应的服务，一直到应用进程停止。第8个要素并发是指应用进程之间。可以并发处理。因此可以通过多进程方式进行水平扩展。第9个要素，易处理是指应用应该容易被管理。可以通过优雅停机和快速启动，构建最健壮的服务。第10个要素。开发生产等价。是指要保证在开发、预览、生产等不同环境下的应用。尽可能一致。第11个要素日志，是指要合理记录应用的运行日志，并且把日志当做一种事件流来对待，方便对日志的收集和处理。第12个要素，管理进程是只要把后台管理任务当做一次性进程来运行，而不是常驻的后台进程的方式。以上12要素是对设计云原生服务的指导原则。在实际项目中可以结合实际业务场景进行架构设计，不一定完全照搬。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608150017580.png" alt="image-20200608150017580" /></p>
+
+<p>云原生应用是目前大部分互联网公司的服务架构推进方向，那么下一代的服务架构是什么样？这里我给你介绍一个最新的服务化趋势，它离实际应用可能还有些遥远，我们可以静待它的发展service mesh是2017年逐渐在国内进入大家视野的一种架构方式，被誉为下一代的微服务。service mesh在微服务的基础上，引入了 sidecar边圈的概念，如图左下方的放大图所示，每个服务会伴生着部署一个sidecar。服务之间的交互不再由服务自身来完成。服务所有的出入的请求都交由这个sidecar尔来进行处理。通过管理平面对所有的sidecar尔进行统一管理。由sidecar来实现服务发现。负载均衡、流量调度等能力。目前最有代表性 service mesh的开源实现是由Google IBM last三家一起维护的Istio。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608150433413.png" alt="image-20200608150433413" /></p>
+
+<p>那么service mesh与微服务的区别是什么？service mesh又可以解决哪些问题？我们看图，微服务的出现是为了解决多个服务之间的耦合问题，如图中绿色的竖线，就是微服务架构要做的事情，他把service a、b、c进行了解耦。服务单独部署，单独管理。这时每个服务都需要实现，比如服务发现，服务的远程交互，交互过程中的负载均衡，高可用策略、服务熔断等一系列的功能，这些功能与服务自身的业务逻辑没有任何关系。service mesh的思路是把与业务逻辑无关的功能进行解耦。如图中红色的线，对服务进行横切，把与服务交互相关的功能从服务中剥离出来，统一交给sidecar去实现。让服务更聚焦于业务逻辑，提高研发效率。同时由于功能相对独立。sidecar可以更专注于服务的交互与管理，更方便实现极致的功能与性能。所以service mesh不是一个全新的技术，他对业务与服务的交互管理进行了拆分，提供统一强大的服务管理能力，是在微服务基础上进行的演进。另外,service mesh是由于使用独立的sidecar进程。因此天然适合为不同语言的服务提供统一的服务治理能力。因此跨语言服务治理也是service mesh的一个重要特点。像微博基于motan研发的weibo mesh,初衷就是为了解决内部不同语言之间服务化的问题。</p>
+
+<p>由于引入了额外的sidecar，service mesh的架构复杂度更高，也会带来额外的可用性和性能问题，这也是service mesh架构需要努力解决的问题。通过了解系统架构的演进，我们发现从单体架构到微服务架构，实现了服务之间的解耦，但带来了额外的服务发现与交互问题。</p>
+
+<p>从微服务到service mesh，实现了业务与服务治理功能的解耦，但是引入了额外的可用性和性能问题，架构复杂度也随之提高。那么这样做的意义在哪里？系统架构的设计从来就是一个权衡的艺术，在很多情况下，我们只是让问题进行了转移，方便对问题进行集中的整治和处理，让服务更聚焦于业务研发。不同的功能就 交给专门的组件来处理。正所谓术业有专攻，通过架构的演进，虽然当下没有消灭复杂度，但可以成功的让问题变得透明化，变得业务无感知，提升服务整体的开发效率扩展能力，拓宽服务能力的上限。</p>
+
+<h3 id="容器化技术">容器化技术</h3>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608151113556.png" alt="image-20200608151113556" /></p>
+
+<p>微服务之所以能够快速发展，很重要的一个原因就是容器化技术的发展和容器管理系统的成熟。第二个知识点，我们来学习微服务架构的基础，容器化技术docker和Kubernetes容器集群管理系统 。docker的作用，主要是快速构建部署运行服务，通过服务镜像能够为服务提供版本管理理，通过容器化技术，可以屏蔽不同运行环境的差异，让服务在任何docker环境中运行，就像Java的一次编译到处运行，docker是轻量化虚拟技术，可以在一台宿主机上运行多个服务，对运行的服务之间进行了有效的隔离，提高宿主机的资源利用率。再来看docker的特点，第一个是开源，意味着可以免费使用docker容器技术。第二个特点是基于LXC实现轻量虚拟化，docker容器直接运行进程，不需要模拟，运行效率非常高。第三个是能够支持大规模的构建，docker的架构十分灵活，可扩展不同的实现。例如支持不同存储驱动的实现。最后docker可以提供可视化UI，管理非常简单，还有docker的几个主要概念，第一个是镜像，就是服务代码和运行环境的封装，服务的版本管理就是通过镜像来实现的，镜像是部署的基础。第二个概念是容器，就是tontainer，容器是基于镜像的服务运行状态，可以基于一个镜像运行多个容器。</p>
+
+<p>第三个概念是守护进程，是运行在宿主机上的管理进程，用户通过client与守护进程进行交互。第4个客户端是用来和守护进程交互的命令行工具。也可以通过socket或者rest for apI访问远程的docker守护进程。最后一个概念是镜像仓库，类似我们的git代码仓库。镜像仓库用来保存管理不同服务不同版本的镜像。服务部署时会从镜像仓库拉取对应版本的镜像进行部署。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608151424105.png" alt="image-20200608151424105" /></p>
+
+<p>docker的实现我们再来了解一下原理，docker是通过对不同运行进程进行隔离，来实现虚拟化，主要利用三种方式来实现服务的隔离。</p>
+
+<p>如图所示第一个是利用Linux的namespace命名空间来隔离进程之间的可见性，不同的服务进程，彼此属于不同的namespace，互相之间无法感知对方的存在。docker实现了host、 container、none、bridge 4种网络模式，默认使用bridge桥接模式。每一个容器在创建时都会创建一对虚拟网卡，两个虚拟网卡组成了数据的通道，其中一个会放在容器中，另一个会加入到docker0的网桥中。docker的网桥通过APP tables中的配置，与宿主机的网卡相连，所有符合条件的请求都会通过IP table转发到docker0，并由网桥分发给对应的容器网卡。为了防止容器进程，修改宿主机的文件目录，doctor通过改变进程访问文件目录的根节点，结合namespace来隔离不同容器进程，可以访问的文件目录，通过namespace，docker隔离了进程，网络和文件目录，但是在进程运行中的CPU和内存等还是共享状态，docker通过control groups，也就是c groups来对进程使用的资源进行限制。包括CPU、内存和网络带宽等。</p>
+
+<p>docker是如何把镜像运行起来的呢？docker的镜像是分层结构。例如一个服务镜像，可以由操作系统层、技术环境层、web容器层、服务代码层，层层依赖构成，通过UnionFS就是联合文件系统把Image子中不同的分层作为不同的制度目录，而Container是在只读镜像目录上创建的可读可写的目录。通过这种方式把进项运行起来的。docker提供了aufs 、OverlayFs、DeviceMapper等多种不同的存储驱动实现。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608152329800.png" alt="image-20200608152329800" /></p>
+
+<p>另一个知识点是Kubernetes，Kubernetes也叫k8s，因为k与s之间一共有8个字母，k8s是一个容器集群管理系统，它不是一个pass平台，pass平台是可以运行在k8s上的，按照刚docker的介绍方式，这里也分为三点，k8s的作用，就是进行容器集群的管理，它只针对容器管理。不部署源码不编译应用。它能够实现服务容器的自动部署，与按指定条件进行自动扩缩容服务，来实现对应用的管理。支持应用的负载均衡、滚动更新、资源监控等。K8s的特点，一个是可移植性，支持在公有云、私有云、混合云中运行，第二个是可扩展。K8s采用模块化方式，差价化架构。可挂载可组合。第三个特点是自动化支持服务的自动部署、自动重启、自动复制、自动伸缩。K8s中的概念非常的多，这里列出了比较重要的几个，我逐个来说明，K8s是集群容器管理系统，容器首先需要运行在宿主机上，因此K8s首先要管理宿主机集群，可以把s分为master节点和Node节点，Node节点也叫work Node，master负责管理节点，管理k8s集群，master协调集群中所有的行为与活动。例如应用的运行、修改更新等，node的节点用来运行容器。Node上可以运行多个Pod。Pod是k8s创建或者部署的基本单位，Pod中可以运行多个container，一个container就是一个运行中的服务镜像，Pod中的container共享网络和存储 service是k8s中的一个逻辑概念，通过对不同的Pod添加标签来划分为不同的service。Deployment。表示用户对k8s机群的一次更新操作，可以是创建一个新的服务，更新一个服务，也可以是滚动升级一个服务。我们来结合k8s的架构理解这些概念。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608152826691.png" alt="image-20200608152826691" /></p>
+
+<p>看到这张图，图左侧绿色的模块代表master节点，右侧蓝色的模块，代表运行容器的work Node节点。我们先来看master节点中的架构，灰色的部分是master中的模块。其中api server用户对k8s中资源操作的唯一入口。创建应用部署，管理部署状态等，都需要通过API server进行 api server提供了认证授权，访问控制，API注册和发现等机制。</p>
+
+<p>Controller manager负责维护集群的状态。比如故障检测，自动扩展、滚动更新等。Controller manager，包含多个可以扩展的controller。例如node controller。负责初始化弄的节点，获取运行中的node 信息，routercontrol，负责配置集群间通信的路由信息，service controller负责监听服务创建、更新删除等事件，来调整负载均衡信息等。</p>
+
+<p>scheduler负责资源的调度,按照预定的调度策略，选择哪个pod的运行在哪个节点上。另外图下方的绿色模块是用来保存整个集群状态的etcd。图最左侧的kubectl是用于运行k8s命令的管理工具.kubectl和APi server进行交互，通过API server下发对k8集群的指令，再来看右面的work node，刚才介绍概念时提过，note用来运行应用容器，所以note中必须要有一个容器运行时，可以是doctor，也可以是其他容器技术。node中部署应用时，每个应用都有一个pod组成。可以把pod看做一个虚拟服务器。上面可以运行一个或多个containert容器，当应用服务需要多个进程共同协作时，可以把这些协作的镜像打包放在一个pod中，共享pod存储和网络，比如scheduler代理模式，就是通过在服务的pod 中注入一个sidecar镜像。来实现与服务IP的绑定，进行流量控制的。</p>
+
+<p>看到右面图中灰色的两个node的模块，kubelet负责与master进行通信，它周期性的访问APIController进行检查和报告，执行容器的操作，维护容器的生命周期，也负责volume和网络的管理。kube-proxy处理网络代理。和每个容器的负载均衡，他通过改变IP table规则来控制在容器上的TCP和utp包，k 8s把所有对管理资源看作对象，对资源的管理就变成了对象属性的设置。k8s对象的配置采用yaml格式来描述。K 8s中的对象概念非常的多，大致可以分为4类，资源对象。例如。Pod、job。配置对象比如node，namespace、 service。存储对象例如Volume、present volume。策略对象例如 security context。Resource quarter、Limit range等。</p>
+
+<p>考察点</p>
+
+<ul>
+<li>表达沟通</li>
+<li>分布式架构的理解</li>
+<li>了解系统优化的常用方法</li>
+<li>对工作的熟悉程度</li>
+<li>解决问题能力</li>
+</ul>
+
+<p>第一。要对分布式架构有自己的理解比如系统可用性、扩展性，比如故障的应对方法，包括熔断、容灾、流量迁移、机房多活等。再比如架构设计中的解耦合等。</p>
+
+<p>第二。要了解系统架构优化的常用方法。比如。并行、异步、水平扩展和 垂直扩展、预处理、缓存、分区等。</p>
+
+<p>第三。会考察对你负责项目的了解程度，是否有责任心。如果连自己负责的项目的部署规模定位量级都不清楚，怎么能有很强的责任心。</p>
+
+<p>最后一个是解决问题的能力，看你是否会灵活运用各种知识的能力</p>
+
+<p>加分项</p>
+
+<ul>
+<li>关注业界最新趋势</li>
+<li>如果有方案对比选型会更好</li>
+</ul>
+
+<p>比如在介绍项目架构时有两个方案。一个是同步方案，一个是异步方案。这两个方案各有什么优缺点？最后结合业务场景实际需求请求量级选择了其中的某一种。</p>
+
+<p>面试技巧</p>
+
+<ul>
+<li>交代背景: STAR法则</li>
+<li>描述架构:架构图或交互流程图</li>
+<li>做了什么:重点突出</li>
+<li>结果如何:用实例佐证</li>
+<li>如何改进:存在的问题与解决方法</li>
+</ul>
+
+<p>面试时，你一定会遇到介绍项目这个问题，我见过的大多数人在这里表现的并不好，要么讲不清楚项目的结构和交互流程，要么不能理解项目的架构为什么要这样设计，要么没有思考过项目中存在哪些问题，有哪些可以改进的地方。同样不仅是针对面试，在工作中我们更应该搞清楚这些问题，尤其是工作1~3年的工程师们，这个部分我着重说一下，在面试中如何更好的介绍自己负责的项目。图中的这些方法是根据面试考察点总结的，我会提示每个方法要重点体现出哪些能力。</p>
+
+<p>第一步。要简单交代项目的背景，让面试官可以快速的进入到项目上下文，更容易理解项目架构，一般采用四大法则来进行介绍，situation介绍项目的背景。比如这个项目是研发一个短视频案，配合公司主客户端来交叉提高用户量和活跃度。Task，来介绍自己的任务。比如。我在这个项目中负责了后端服务的架构设计和研发，action介绍自己做了哪些工作。比如。当时用了两周时间做架构设计，4周时间做研发，两周时间测试上线。Result介绍结果。这个也是大部分人容易忽视的地方。比如项目上线后两个月用户数达到了100万。后端服务接口总量峰值在5万，主要接口服务sla p99小于50毫秒。注意背景介绍是为了后面详细介绍做铺垫。简洁明了就行了。这部分主要体现出你的表达能力。</p>
+
+<p>第二步。重点介绍项目的架构，这也是面试官最想了解的部分。务必要结合架构图交互流程图来介绍。避免对一些关键问题理解歧义。架构图要注意边界清晰。就是你的服务和你依赖的其他外部服务之间的边界，以及你的服务内部模块之间的边界都要描述清楚，这有利于你下一步介绍自己做了哪些内容。这一步要体现出你对项目架构的理解。</p>
+
+<p>第三步。介绍你在这个项目中具体做了哪些内容。例如。我设计了整个架构。或者我实现了架构图中的某几个具体的模块。注意这一步是你面试中的绝对加分点，必须要把握住。这里要突出你在项目中做的最具有挑战性的点，优雅的架构设计，或者独特有效的解决方案。比如在数据量非常大的场景下。通过优化redis存储结构，减少了70%的redis使用容量。比如,对查询接口应用了双发功能，使p三个9降低了60%。再比如。使用的trees功能，来快速定位问题等。</p>
+
+<p>第三步要体现出你的实现能力和亮点。</p>
+
+<p>第4步，你要为你第三步介绍的优秀架构或者解决方案提供证明。比如前面介绍了系统架构中使用了模块化设计来提高扩展性，那这里就可以说系统上线后，通过这种模块化方式，我支持了7个新业务的接入，来体现你设计的架构的优点。这里要注意。所有的结果必须是可以量化的。不要用性能大幅提升，极大提高灵活性，这里很虚的描述。好一点的表述可以是这样。通过增加二级缓存，对后端服务的调用请求，从7000qps降低到600qps。这一步要体现出你对项目的掌握能力和了解程度。</p>
+
+<p>第5步。思考项目中存在哪些问题。或者还有哪些可以进行优化的点。例如。现在项目的qps还是不高，某些任务是同步处理的，会有一定效率问题，这些处理步骤可以异步执行。如果请求量级增加，可以考虑使用kafka进行异步处理，处理时还应该考虑消息重复的问题。可以把处理逻辑设计成幂等性等。这一步要体现出。你对项目的思考以及总结反思能力。如果我作为面试官，遇到一位按照上面5个方向来交流的候选人，一定会非常看好的。</p>
+
+<p>面试技巧</p>
+
+<ul>
+<li>提前思考、提前准备</li>
+<li>项目在精不在多</li>
+<li>我了解的,就是我的</li>
+<li>体现对架构的理解,对设计的思考</li>
+</ul>
+
+<p>再来介绍几个备战面试的小技巧。第一点，肯定要提前思考，提前准备。像项目架构图怎么画更容易理解。项目中到底哪个设计最有亮点。项目还存在哪些可以改进的地方等问题，可能要花很多时间才能找到比较理想的答案。在面试现场临时回答难度非常大，一定要根据我前面的方法提前准备。</p>
+
+<p>第二点。要记住项目在精不在多。有的人在介绍项目时会抛出好几个项目。但每个项目介绍的都很潦草，在面试中，面试官想通过项目介绍来考察你的各方面能力，一个重点项目就足够了，一定要选你最了解，最能代表你能力的来介绍。</p>
+
+<p>第三点，我了解就是我的有的，同学可能因为机遇的原因，没有付出过重点的项目，不过项目介绍这么重要的考察点，也不能白在这里丢分，你可以多了解一下其他同事或者其他团队负责的项目，只要你能把项目细节搞明白，把架构理解透，那么知识就是你的，依然可以拿来进行介绍。</p>
+
+<p>第4点，要重点体现对架构的理解，对设计的思考。这会让面试官觉得你很有潜力。你可以在介绍项目设计思路时做适当的延伸。例如你可以说。在我的业务场景下，可以容忍低概率的消息丢失。所以基于性能优先的考虑，我去掉了kafaka的aCK应答。如果是严格要求不丢消息的场景，我会使用同步应答，并且使用最高消息可靠性等级。</p>
+
+<h2 id="小结笔记">小结笔记</h2>
+
+<h3 id="cap理论">CAP理论</h3>
+
+<p>任何一个分布式系统 都必须重点考虑的原则。</p>
+
+<p>C:一致性（强一致性）：所有子节点中的数据 时刻保持一致</p>
+
+<p>A：可用性：整体能用</p>
+
+<p>P:分区容错性 ：允许部分失败</p>
+
+<p>CAP理论：在任何分布式系统中，C\A\P不可能共存，只能存在两个。</p>
+
+<p>基础知识：一般而言，至少要保证P可行，因为分布式 经常会出现 弱网环境。因此 就需要在C和A之间二选一。</p>
+
+<p>分布式中的两种解决方案Zookeeper+Dubbo、Eureka+Feign</p>
+
+<p>Eureka：AP架构：保证了可用性&ndash;使用最终一致性来解决一致性问题</p>
+
+<p>Zookeeper：CP架构：保证了一致性&mdash;降低了服务的可用性</p>
+
+<p>我们的项目中使用的使eureka作为我们的服务注册中心&ndash;我认为可用性的价值要高于一致性。可以使用最终一致性来代替强一致性。</p>
+
+<h2 id="技术人行走职场的建议">技术人行走职场的建议</h2>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608160725939.png" alt="image-20200608160725939" /></p>
+
+<p>先来看怎么写简历，大部分候选人都是倒在了简历筛选这一关，hr或者面试官一般只会在简历上停留10~30秒，如果简历不吸引人，再优秀的候选人也会错失良机。那么一份好的简历都有哪些特点？首先结构清晰，主次分明，简历可以分为基本信息，项目经历、自我总结等部分，各个部分要做到主次分明，特别是项目介绍，建议按照发生时间倒序来排列，最新的项目放在最前，多个项目之间也要分主次，重点的项目最能体现你能力和工作成果的项目，要详细介绍，无论是面试还是简历，都可以使用star法则。在简历中，star法则的各个要素可以更加精炼。</p>
+
+<p>第二个特点，语句通顺，没有错别字，尤其是一些英文名称的拼写。语句不通或者太过于口语化，这样的项目尽量简洁。同一类型的项目建议不要重复，另外技术工作里有很多英文单词，要注意检查拼写和大小写，要让面试官第一印象觉得你是个严谨的人。</p>
+
+<p>第三个特点，less is more，少即是多。简历的内容不是越多越好，建议不要超过两页。如果不能让面试官快速找到想要的信息，马上就会被pass。简历一定都是体现你能力的关键信息。可有可无的信息一律都要删除。比如。教育背景只保留到高等教育阶段即可。高中就不需要出现。如果是社招，大学里无关紧要的证书就不用体现等。</p>
+
+<p>第4个特点是所有的结果都是可以量化的，这点是很多人都会忽视的地方。简历里不能只说做了什么。要说做成了什么，可量化的结果更加真实可信，比如完成了15个功能模块的设计与开发，比如优化后响应时间提升了70%等，最好用数字来体现。</p>
+
+<p>第5个特点是自我评价部分更加务实。而不是空洞的描述。像性格开朗，责任心强。善于组织和协调沟通，能良好的与团队协作，这些看上去挺像那么回事，但比较空洞，千篇一律，没有特点，你可以考虑使用关键词加说明的形式，分条来写自我评价。比如这样说，项目经验丰富，主导过授权认证，支付、视频、账户等项目的落地。对不同类型的项目架构方案和实现有深刻的理解。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608161005166.png" alt="image-20200608161005166" /></p>
+
+<p>知道了好简历的特点，但是还不够。下面这些技巧可以帮你进一步打磨简历。第一个技巧，你要了解工作岗位的要求，针对岗位来调整简历。好的简历不一定是通用的，要根据应聘的公司和岗位做针对性的优化，提高匹配度，有个重要的原则。就是要突出你非常适合这个岗位，简历中要强调你的优势、技能、特长。正好是招聘职位所需要的，这样会极大的提高成功率。</p>
+
+<p>第二个技巧，要想在海量简历中脱颖而出，你必须塑造自己的特点，引起面试官的兴趣，先审视自己，寻找自己的优点。比如你参与过非常多的项目，那么实战经验绝对是你的加分项，如果你没有太多项目经验，那你是不是逻辑清晰，思维敏捷，或者你的自我学习能力非常强，阅读过很多开源框架的代码。另外如果你参与过github开源项目。或者经常撰写技术博客，一定要在简历中体现，这也是面试官非常关注的点。但切记你简历中突出的点。也会是面试官重点考察的点，要能把握住。不要给自己挖坑。第三个技巧是你可以换一个视角。</p>
+
+<p>找经验丰富的朋友来帮忙review你的简历，听哪里不足或修改建议。如果当你没有参与过比较重大的项目，或者项目经验并没有太多出彩的地方是怎么办？第4个技巧。建议你看看负责过的项目的上下游。是否有比较有特色的服务。或者你熟悉的其他小组是否有重点的项目，正所谓他山之石可以攻玉。你可以向同事请教学习，了解那些项目的架构，存在的问题，思考解决的方案。面试时你可以参与者的角度进行介绍。这不是鼓励你去造假。而是能够体现出你对技术的热情和好学。但要记住，如果不能做到真正的了解，结果可能适得其反。</p>
+
+<p>第5个技巧，如果你的简历中存在硬伤是怎么办？这时可以考虑另辟蹊径。比如你项目经验丰富，技术能力高超，但是学历不高，这样简历很可能通不过出差，连面试的机会都很难获得。这时找朋友内推，或者直接投递简历给公司内部的技术人员，是非常有效的手段。你可以多加入一些技术交流群，就有机会联系到目标公司的技术人员，帮忙内推。不过要注意技术人员对技术能力比较注重。技术能力一般的话从这条路很难走通。</p>
+
+<p><img src="/resources/杂七杂八/杂七杂八/复习总结/image-20200608161219052.png" alt="image-20200608161219052" /></p>
+
+<p>前面讲了很多面试前的准备工作，不过你也不要忽略了面试后需要做什么。这里我给几点建议，第一个，面试结束后，一般面试官都会询问候选人有没有哪些想知道的问题，这也是一个表现的机会，千万不要什么都不问，你可以提前准备1~2个问题，可以是对面试中的问题进行补充和延伸。例如，刚才面试中提到的问题，我觉得还可以如何设计，您看这样是否可行，能否给一些建议，这样可以体现出你对技术的兴趣和执着，也可以对面试公司的技术或者架构进行简单的询问。例如我听说您的公司对某框架进行了改造，我想了解一下，主要是想解决什么样的问题。这可以体现出你对业界技术趋势的了解。也可以获取一些建议。比如您看我在这次面试中哪些地方需要进行改进。也可以询问一下面试的岗位职责。主要负责哪些业务线和工作，使用何种技术栈等。另外如果是hr面试，可以询问一下。关于岗位的职业发展和职业晋升途径等问题。表现出职业规划意识和上进心。第二点，面试结束后，一定不要马上询问面试结果，这是缺乏耐心的一种表现。第三点，在面试结束后，回家一定要做面试复盘和总结。每次面试。不论成功与否都非常有意义。面试结束后。要对面试中的问题进行记录，回答不上来的问题，要及时查阅资料，或者源码来搞明白，补充自己的知识短板，思考自己在面试中有哪些行为触发了面试官的不满。在下次面试时。可以扬长避短。如果你通过努力成功进入到了心仪的公司。一定不要懈怠放松。职场成长和新技术学习一样，不进则退。那么在职场中应该如何保持竞争力，如何提升自己？</p>
+
+<ul>
+<li>有策略的努力:方向、计划、机会</li>
+<li>打造自己的技术品牌</li>
+<li>总结与反思</li>
+</ul>
+
+<p>首先就是要明确努力的方向，你要主动从业务角度，产品角度来思考问题，思考如何能在业务角度更好的为公司产生价值。</p>
+
+<p>比如。如果能通过优化业务的交互和处理流程。可以为公司节省30%的服务器成本，那么就应该持续思考。要如何解决在新流程下的技术难题。当有多个方向时，要衡量可行性，难度与收益，优先突破最有价值的方向。比如降低运行成本和提高研发效率来比较，可以优先以降低成本为方向，有了方向以后。要把方向转化为可执行的计划。规定时间和阶段，按计划分步完成。有时候这些计划会与本职工作产生冲突。要协调好时间和效率，不要影响日常工作。最后。这种有价值的方向可能并不容易发现。又或者因为某些原因无法进行，这时候不要急躁。可以调整为学习某个在自己职业规划中必须要掌握的新技术。</p>
+
+<p>这里给不同工作经验的朋友一些建议，工作1~2年内。以学习知识为主。先打好基础，注意知识广度的培养，保持对新技术的好奇心，切记心浮气躁。工作三年以后需要多一些主动思考。培养自我学习能力。要有意识的提升团队协作，跨团队沟通，项目设计等能力，工作5年以上，要重点树立起自己的技术品牌。要经常思考业务或者项目中存在什么样的问题。如何解决？解决后的收益是什么？对于管理能力要有意识的加强。</p>
+
+<p>第二个可以提高的点。是要努力打造自己的技术品牌和技术口碑。积累自己的技术价值。比如工作中有强烈的责任心。只要交代给你的事情，一定会言出必行负责到底。再比如经常协助同事排查解决技术难题，经常做一些有技术深度的分享，或者技术问题排查案例的分享等，不要简单的认为这份工作不合适。我就再找另一个，没必要那么辛苦，打造什么技术品牌。</p>
+
+<p>要知道你后续的职场人脉都是建立在你的技术品牌基础之上的。维持好技术品牌，会对你的职业中后期发展大有裨益。第三个建议，要经常进行总结与自我反思，真正的成长都是在总结与反思之后获得的。某项工作或阶段性任务完成时，都要及时总结，既有助于发现改进空间，又有利于后续准备进行素材，你可以分这几条进行总结，获得了哪些收益？开发中遇到了哪些问题？哪些问题是在设计初期就可以避免的，哪些问题要提早解决。</p>
+
+<p>在开发过程中自己有哪些地方做得不好。后续要如何进行改进等。再比如。完成一次项目重构，可以总结一下。旧的项目中都存在哪些问题？重构时哪些地方？获得的收益最明显等。下面我分享几个我的高校学习的小tips。</p>
+
+<ol>
+<li>积极的心态</li>
+<li>目标要集中、简单</li>
+<li>制定计划、规律执行</li>
+<li>正确的方法</li>
+<li>要有阶段性产出物</li>
+<li>不断总结与改进</li>
+</ol>
+
+<p>第一，必须要有积极主动的心态，如果主观上不想去做一件事情，肯定无法做到有效率。现在种树是为了日后乘凉。第二。要把任务分解成多个简单一的目标，争取每次只做一件事，按自己的待办事项表，一项进行处理，越专注效率就会越高。第三要规划好时间计划。并按规律的执行，这样可以有效避免拖延症。注意时间计划中要安排出充足的休息时间，会休息才能更好的工作。第四，要使用正确的方法执行工作或学习任务。比如学习时可以通过断点调试，阅读源码。画类关系图、流程图、架构图等方式来进行。第五，要阶段的产出，这样会让自己经常获得成就感，能够更好的坚持执行计划，阶段的产出物可以是定期的工作记录，小组内的技术分享，总结的技术博客等。第六，要做好总结与改进。刚开始执行计划时可能还不太习惯。效率并不太高，随着按阶段不断总结和改进，工作和学习效率也会不断提高。</p>
+
+<p>我感觉在职场打拼就好比下棋，没有人天生就是高手，你必须多看多学，多实战切磋才能不断进步。而且高手在落子的时候，永远思考的都是下一步。想到的可能性越多，体力也就越高。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/" title="Java复习知识点总结" target="_blank" rel="external">https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/05/java%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/" title="Java网络通信与NIO"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                    title="Teamcenter定制学习笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

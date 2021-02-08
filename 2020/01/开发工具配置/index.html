@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        开发工具 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="记录开发工具使用配置和所遇到的问题." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>开发工具 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="开发工具" />
+<meta property="og:description" content="记录开发工具使用配置和所遇到的问题." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2020-01-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-03T00:00:00+00:00" />
+
+<meta itemprop="name" content="开发工具">
+<meta itemprop="description" content="记录开发工具使用配置和所遇到的问题.">
+
+
+<meta itemprop="datePublished" content="2020-01-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1976">
+
+
+
+<meta itemprop="keywords" content="开发工具," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="开发工具"/>
+<meta name="twitter:description" content="记录开发工具使用配置和所遇到的问题."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#idea">IDEA</a>
+<ul>
+<li>
+<ul>
+<li><a href="#修改配置文件">修改配置文件</a></li>
+<li><a href="#快捷键">快捷键</a></li>
+<li><a href="#模板">模板</a>
+<ul>
+<li><a href="#psvm">psvm</a></li>
+<li><a href="#sout">sout</a></li>
+<li><a href="#soutp">soutp</a></li>
+<li><a href="#soutm">soutm</a></li>
+<li><a href="#soutv">soutv</a></li>
+<li><a href="#xxx-sout">xxx.sout</a></li>
+<li><a href="#fori">fori</a></li>
+<li><a href="#iter">iter</a></li>
+<li><a href="#itar">itar</a></li>
+<li><a href="#list-for">list.for</a></li>
+<li><a href="#list-fori">list.fori</a></li>
+<li><a href="#list-forr">list.forr</a></li>
+<li><a href="#ifn">ifn</a></li>
+<li><a href="#inn">inn</a></li>
+<li><a href="#xxx-nn">xxx.nn</a></li>
+<li><a href="#xxx-null">xxx.null</a></li>
+<li><a href="#prsf">prsf</a></li>
+<li><a href="#psf">psf</a></li>
+<li><a href="#psfi">psfi</a></li>
+<li><a href="#psfs">psfs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#vscode">VSCode</a>
+<ul>
+<li>
+<ul>
+<li><a href="#主题">主题</a></li>
+<li><a href="#文件图标主题">文件图标主题</a></li>
+<li><a href="#代码格式化">代码格式化</a></li>
+<li><a href="#中文汉化">中文汉化</a></li>
+<li><a href="#与谷歌浏览器的链接">与谷歌浏览器的链接</a></li>
+<li><a href="#js语言">js语言</a></li>
+<li><a href="#html-css">HTML CSS</a></li>
+<li><a href="#标签的提示修改">标签的提示修改</a></li>
+<li><a href="#jquery">JQuery</a></li>
+<li><a href="#vue">Vue</a></li>
+<li><a href="#写博客使用的markdown">写博客使用的markdown</a></li>
+<li><a href="#打开浏览器">打开浏览器</a></li>
+<li><a href="#显示路径文件">显示路径文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#eclipse">Eclipse</a>
+<ul>
+<li><a href="#关于解决eclipse导入springboot项目jar包从maven中下载太慢的问题">关于解决Eclipse导入SpringBoot项目jar包从Maven中下载太慢的问题</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"
+    >开发工具</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"> 杂七杂八 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1976字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="idea">IDEA</h1>
+
+<p>学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Spring家族的时候用的是STS。慢慢就听说了IDEA这个工具，听说要比Eclipse好用一些，第一次使用IDEA的时候是跟着老师学习在IDEA中使用Gradle整合gretty进行Web开发的时候。突然感觉IDEA好像确实名不虚传，这里就记录一下自己的IDEA的简单配置，这些配置有些是Eclipse中有的，有一些是Eclipse中没有的。工欲善其事，必先利其器，好的开发工具能提高自己的开发效率。</p>
+
+<h3 id="修改配置文件">修改配置文件</h3>
+
+<p>找到IDEA的安装目录/bin/idea64.exe.vmoptions文件修改</p>
+
+<pre><code>-Xms500m
+-Xmx1500m
+-XX:ReservedCodeCacheSize=500m
+</code></pre>
+
+<ul>
+<li><p>-Xms500m &ndash; Java Heap初始值，Server端JVM最好将-Xms和-Xmx设为相同值，开发测试机JVM可以保留默认值</p></li>
+
+<li><p>-Xmx1500m &ndash; Java Heap最大值，默认值为物理内存的1/4，最佳设值应该视物理内存大小及计算机内其他内存开销而定</p></li>
+
+<li><p>-XX:ReservedCodeCacheSize=500m &ndash; 预留保存代码的内存空间大小</p></li>
+</ul>
+
+<p>注意：电脑配置在16G 64位系统时修改，可以提高IDEA的启动速度，代码自动保存的频率，提高开发效率。内存太小，不修改也可以。</p>
+
+<p>设置文件会放到github上，大家自行导入就行了<a href="https://github.com/mumulx/Project-source-code">github地址</a></p>
+
+<h3 id="快捷键">快捷键</h3>
+
+<p>直接导入快捷键设置，文件也在上面的github仓库中，采用的是类似Eclipse的快捷键的设置。</p>
+
+<pre><code>执行(run)	                        alt+r
+
+提示补全(Class Name Completion)     alt+/
+
+单行注释                            ctrl+/
+多行注释                            ctrl+shift+/
+
+向下复制一行(Duplicate Lines)       ctrl+alt+downe
+
+删除行或选中行(delete line)         ctrl+d
+
+向下移动行(move statement down)     alt+down
+
+向上移动行(move statement up)       alt+up
+
+向下开始新的一行(start new line)    shift+enter
+
+向上开始新的一行                    ctrl+shift+entere
+
+如何查看源码(class)                 ctrl+选中指定的结构或ctrl+shift+t
+
+万能解错/生成返回值变量             alt+enter
+
+退回到前一个编辑的页面(back)        alt+left
+
+进入到下一个编辑的页面              alt +right
+
+查看继承关系(type hierarchy)       F4
+
+格式化代码(reformat code)          ctrl+shift+F
+
+提示方法参数类型(Parameter Info)   ctrl+alt+/
+
+复制代码                           ctrl+C
+
+撤销                               ctrl+Z
+
+反撤销                             ctrl+y
+
+剪切                               ctrl+X
+
+粘贴                               ctrl+V
+
+保存                               ctrl+S
+
+全选                               ctrl+a
+
+选中数行，整体往后移动              tab
+
+选中数行，整体往前移动              shift + tab
+
+查看类的结构:类似Feclipse 的outline ctrl+o
+
+重构:修改交量名与方法名(rename)     alt+shift+r
+
+大写转小写/小写转大写(toggle case)  ctrl+shift+y
+
+生成构造器/get/set/tostring         alt+shift+s
+
+查看文档说明(quick documentation)   F2
+
+收起所有的方法(collapse all)        alt+shift+C
+
+打开所有方法(expand all)            alt+shift+x
+
+打开代码所在硬盘文件夹               ctrl+shift+x
+
+生成try- catch等(surround with)    alt+shift+z
+
+局部变量抽取为成员变量               alt+shift+f
+
+查找/替换(当前)                     ctrl+f
+
+查找(全局)                          ctrl+h
+
+查找文件                            double shift
+
+查看类的继承结构图(Show UML Diagram)    ctrl+shift+u
+
+查看方法的多层重写结构(method hierarchy)    ctrl+alt+h
+
+添加到收藏(add to favorites)            ctrl+alt+f
+
+抽取方法(Extract Method)                alt+shift+m
+
+打开最近修改的文件(Recently Files)      ctrl+E
+
+关闭当前打开的代码栏(close)             ctrl+W
+
+关闭打开的所有代码栏(close all)         ctrl+shift+W
+
+快速搜索类中的错误(next highlighted error)  ctrl+shift+q
+
+选择要粘贴的内容(Show in Explorer)      ctrl+shift+V
+
+查找方法在哪里被调用(Call Hierarchy)    ctrl+shift+h
+
+查看 树形 的类层次结构图                 F4
+
+结尾符                                  ctrl+alt+enter
+
+快速添加返回值                          ctrl+alt+v
+
+代码格式化                              ctrl+alt+l
+
+</code></pre>
+
+<h3 id="模板">模板</h3>
+
+<p>IDEA中代码模板所处的位置: settings Editor Live Templates/Postfix completion</p>
+
+<h4 id="psvm">psvm</h4>
+
+<pre><code>public statis void mian(String[] args){
+
+}
+</code></pre>
+
+<h4 id="sout">sout</h4>
+
+<pre><code>System.out.println(&quot;&quot;);
+</code></pre>
+
+<h4 id="soutp">soutp</h4>
+
+<pre><code>System.out.println(&quot;args = [&quot; + args + &quot;]&quot;);
+</code></pre>
+
+<p>输出形参</p>
+
+<h4 id="soutm">soutm</h4>
+
+<pre><code>System.out.println(&quot;test.main&quot;);
+</code></pre>
+
+<p>输出方法名</p>
+
+<h4 id="soutv">soutv</h4>
+
+<pre><code>System.out.println(&quot;a = &quot; + a);
+</code></pre>
+
+<p>输出变量：就近原则</p>
+
+<h4 id="xxx-sout">xxx.sout</h4>
+
+<pre><code>a.sout
+
+System.out.println(a);
+</code></pre>
+
+<p>输出变量a</p>
+
+<h4 id="fori">fori</h4>
+
+<pre><code>for (int i = 0; i &lt; ; i++) {
+
+}
+</code></pre>
+
+<h4 id="iter">iter</h4>
+
+<pre><code>for (String arg : args) {
+
+}
+</code></pre>
+
+<h4 id="itar">itar</h4>
+
+<pre><code>for (int i = 0; i &lt; args.length; i++) {
+    String arg = args[i];     
+}
+</code></pre>
+
+<h4 id="list-for">list.for</h4>
+
+<pre><code>for (Object o : list) {
+
+}
+</code></pre>
+
+<p>遍历list</p>
+
+<h4 id="list-fori">list.fori</h4>
+
+<pre><code>for (int i = 0; i &lt; list.size(); i++) {
+
+}
+</code></pre>
+
+<h4 id="list-forr">list.forr</h4>
+
+<pre><code>for (int i = list.size() - 1; i &gt;= 0; i--){
+
+}
+</code></pre>
+
+<h4 id="ifn">ifn</h4>
+
+<pre><code>if (list == null) {
+
+}
+</code></pre>
+
+<h4 id="inn">inn</h4>
+
+<pre><code>if (list != null) {
+
+}
+</code></pre>
+
+<h4 id="xxx-nn">xxx.nn</h4>
+
+<pre><code>if (list != null) {
+
+}
+</code></pre>
+
+<h4 id="xxx-null">xxx.null</h4>
+
+<pre><code>if (list == null) {
+
+}
+</code></pre>
+
+<h4 id="prsf">prsf</h4>
+
+<pre><code>private static final 
+</code></pre>
+
+<h4 id="psf">psf</h4>
+
+<pre><code>public static final 
+</code></pre>
+
+<h4 id="psfi">psfi</h4>
+
+<pre><code>public static final int 
+</code></pre>
+
+<h4 id="psfs">psfs</h4>
+
+<pre><code>public static final String 
+</code></pre>
+
+<hr />
+
+<h1 id="vscode">VSCode</h1>
+
+<p>下面来介绍几个我自己用到的vscode的插件</p>
+
+<h3 id="主题">主题</h3>
+
+<ul>
+<li>Atom One Dark Theme</li>
+</ul>
+
+<h3 id="文件图标主题">文件图标主题</h3>
+
+<ul>
+<li>vscode-icons</li>
+</ul>
+
+<h3 id="代码格式化">代码格式化</h3>
+
+<ul>
+<li>Beautify</li>
+</ul>
+
+<h3 id="中文汉化">中文汉化</h3>
+
+<ul>
+<li>Chinese (Simplified) Language Pack for Visual Studio Code</li>
+</ul>
+
+<h3 id="与谷歌浏览器的链接">与谷歌浏览器的链接</h3>
+
+<ul>
+<li>Debugger for Chrome</li>
+</ul>
+
+<h3 id="js语言">js语言</h3>
+
+<ul>
+<li><p>ESLint</p></li>
+
+<li><p>JavaScript (ES6) code snippets</p></li>
+</ul>
+
+<h3 id="html-css">HTML CSS</h3>
+
+<ul>
+<li><p>HTML CSS Support</p></li>
+
+<li><p>HTML Snippets</p></li>
+</ul>
+
+<h3 id="标签的提示修改">标签的提示修改</h3>
+
+<ul>
+<li>Auto Rename Tag<br /></li>
+</ul>
+
+<h3 id="jquery">JQuery</h3>
+
+<ul>
+<li>jQuery Code Snippets</li>
+</ul>
+
+<h3 id="vue">Vue</h3>
+
+<ul>
+<li><p>Vetur</p></li>
+
+<li><p>Vue 2 Snippets</p></li>
+</ul>
+
+<h3 id="写博客使用的markdown">写博客使用的markdown</h3>
+
+<ul>
+<li>markdownlint</li>
+</ul>
+
+<h3 id="打开浏览器">打开浏览器</h3>
+
+<ul>
+<li>open in browser</li>
+</ul>
+
+<h3 id="显示路径文件">显示路径文件</h3>
+
+<ul>
+<li>Path Intellisense</li>
+</ul>
+
+<p>建议将自动保存选项给勾上，不然&hellip;..血一样的教训。文件&ndash;&gt;自动保存前面打上钩</p>
+
+<p>以前前端做网页使用JQuery的时候还是比较喜欢HBuilder这个软件的。</p>
+
+<p>当使用Vue的话，感觉还是vscode更好用一些。</p>
+
+<p>以前没接触到vscode，学C++的时候还是用的visual studio2010，听到vscode的第一印象是visual studio，就像听到JavaScript和Java的感觉一样。并不很想用，用了之后发现 ,真香!!!!!!!</p>
+
+<p>vscode是世界上最好的编辑器！！！！！不接受反驳。</p>
+
+<hr />
+
+<h1 id="eclipse">Eclipse</h1>
+
+<h2 id="关于解决eclipse导入springboot项目jar包从maven中下载太慢的问题">关于解决Eclipse导入SpringBoot项目jar包从Maven中下载太慢的问题</h2>
+
+<p>只需要在maven安装目录./config/settings.xml中插入下列代码,配置阿里镜像就可以了！</p>
+
+<pre><code>&lt;mirrors&gt;
+&lt;mirror&gt;
+&lt;id&gt;nexus-aliyun&lt;/id&gt;
+&lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+&lt;name&gt;Nexus aliyun&lt;/name&gt;
+&lt;url&gt;https://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;;
+&lt;/mirror&gt;
+&lt;/mirrors&gt;
+shshsh
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" title="开发工具" target="_blank" rel="external">https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2019/12/vue%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Vue自学笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/"
+                    title="Web前端技术栈"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

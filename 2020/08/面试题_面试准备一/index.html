@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java面试准备一 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java面试准备一." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java面试准备一 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java面试准备一" />
+<meta property="og:description" content="Java面试准备一." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" />
+<meta property="article:published_time" content="2020-08-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-13T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java面试准备一">
+<meta itemprop="description" content="Java面试准备一.">
+
+
+<meta itemprop="datePublished" content="2020-08-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="8415">
+
+
+
+<meta itemprop="keywords" content="面试题," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java面试准备一"/>
+<meta name="twitter:description" content="Java面试准备一."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#技术面试指导">技术面试指导</a></li>
+<li><a href="#技术面试-java-se">技术面试 - Java SE</a>
+<ul>
+<li><a href="#主题-出奇制胜">主题： 出奇制胜</a>
+<ul>
+<li><a href="#1-反对和所有应聘者-千篇一律">1.反对和所有应聘者 千篇一律</a></li>
+<li><a href="#2-反对和所有-面试宝典-千篇一律">2.反对和所有《面试宝典》 千篇一律</a></li>
+<li><a href="#3-源码级解决问题">3.源码级解决问题</a></li>
+</ul></li>
+<li><a href="#4-找对时机-秀技能">4.找对时机，秀技能</a></li>
+<li><a href="#5-比较通过的-秀点">5.比较通过的 秀点</a></li>
+<li><a href="#6-技术沉淀">6.技术沉淀</a></li>
+<li><a href="#7-大厂的区别">7.大厂的区别</a></li>
+<li><a href="#8-心态建设">8.心态建设</a></li>
+</ul></li>
+<li><a href="#ssm和开源框架">SSM和开源框架</a>
+<ul>
+<li><a href="#mybatis开发时的常用对象">MyBatis开发时的常用对象</a></li>
+<li><a href="#mybatis四大核心对象">MyBatis四大核心对象</a></li>
+<li><a href="#mybatis四大处理器">MyBatis四大处理器</a></li>
+<li><a href="#执行流程">执行流程</a></li>
+<li><a href="#一对一-一对多-延迟加载">一对一、一对多，延迟加载</a></li>
+</ul></li>
+<li><a href="#spring">Spring</a>
+<ul>
+<li><a href="#aop-面向方面编程">AOP:面向方面编程</a></li>
+<li><a href="#spring用到了那些设计模式">Spring用到了那些设计模式</a></li>
+<li><a href="#spring-cloud">Spring Cloud</a></li>
+<li><a href="#eureka">Eureka</a></li>
+<li><a href="#ribbon">Ribbon</a></li>
+<li><a href="#feign">Feign</a></li>
+<li><a href="#熔断器">熔断器</a></li>
+</ul></li>
+<li><a href="#分布式核心设计">分布式核心设计</a>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#cap理论">CAP理论</a></li>
+<li><a href="#base理论">BASE理论</a></li>
+<li><a href="#分布式缓存">分布式缓存</a></li>
+<li><a href="#一致性hash">一致性hash</a></li>
+<li><a href="#缓存一致性">缓存一致性</a></li>
+<li><a href="#分布式锁">分布式锁</a></li>
+<li><a href="#使用zookeeper实现分布式锁">使用Zookeeper实现分布式锁</a></li>
+<li><a href="#分布式事务">分布式事务</a></li>
+<li><a href="#分布式事务实现">分布式事务实现</a>
+<ul>
+<li><a href="#使用2pc实现分布式事务">使用2PC实现分布式事务</a></li>
+</ul></li>
+<li><a href="#分布式认证-分布式授权">分布式认证 &amp;分布式授权</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/"
+    >Java面试准备一</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" class="article-date">
+  <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/java%E9%9D%A2%E8%AF%95/"> Java面试 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"> 面试题 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:8415字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:17分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="技术面试指导">技术面试指导</h1>
+
+<p>本文从“必备项”和“加分项”两个角度分析。</p>
+
+<p>一、必备项</p>
+
+<p>0.自我介绍</p>
+
+<p>表达流畅，不要太差即可</p>
+
+<p><strong>1.基础</strong></p>
+
+<p>坑：【答案很标准】面试时的回答，一定不要背网上《面试大全》中的标准答案，一定要有自己的思想 (哪怕有少量错误) 。</p>
+
+<p>常见的题，一定要提前准备好。例如，以下列举的几乎都是必考题目：</p>
+
+<p>arraylist/hashmap的源码、实现原理 ，冒泡排序/快速排序、 单例模式/工厂模式/动态工厂、谈谈你对面向对象的理解， 事务ACID/隔离级别 ，Spring IOC/AOP</p>
+
+<p>建议：自己的理解 ，或者搜博客/githug上大神的博文。也就是说，可以将 面试题中的问题 在博客、github上搜答案，而不要死记“XXX面试大全”中附带的答案（那些答案往往很浅）。总之，要在自己写答案时，向面试官传达“我的答案是自己写的，我是一个有独立思维的人，而不是网上抄的”。</p>
+
+<p><strong>2.技术列表</strong></p>
+
+<p>掌握程度</p>
+
+<p>坑：“精通” （3年以内的开发者，几乎没人敢说“精通”哪一门技术）</p>
+
+<p>建议：掌握、熟练、理解 ，会使用</p>
+
+<p>坑：个人掌握的技能过于“标准化”，明显就是培训、或者看某套视频学出来。如：java + 数据库+web前端+jsp/servlet+ssm +boot/cloud</p>
+
+<p>建议：一般而言，自学成才的人比培训出来的学生 更具有独立思考的能力，因此在相同的条件下，企业更喜欢没有参加过培训的学生。</p>
+
+<p>建议写上2-3门非培训机构标配课程，如service mesh、netty等（最好写与高并发、分布式有关的，技术的名字相对“少见”但又很重要的）。</p>
+
+<p>对面试而言，这些“少见”的技术，只要你写上了，并且能把其中任意一个核心知识点说明白，就已经非常加分了。（假设Spring是一个“少见”的技术，那么你只要在面试时解释一下什么是IoC就可以了）</p>
+
+<p>坑：简历上写一大堆牛B的技术，显得自己很厉害</p>
+
+<p>建议：技术点宁可少写，也别多写。面试官经常都很忙，没时间精心准备对你的面试，甚至有时候是一边神游一边在提问，所以很可能从你简历里随便挑几个你写上的技术来问你。因此简历上写到的技术，都很可能被问到。</p>
+
+<p>（本条建议与上一个“2-3门非标准课程”并不冲突）</p>
+
+<p><strong>3.项目</strong></p>
+
+<p>坑：项目名叫“Xxx电商项目”、“Xxx管理系统”，这些“项目”简直就是培训机构的标配，缺乏真实项目的感觉</p>
+
+<p>建议：</p>
+
+<p>（1）提前准备好回答“项目”的剧本。</p>
+
+<p>“你做过什么样的项目？”或者根据你简历中的项目来提问，几乎是技术面试官必须做、并且非常喜欢做的事。所以，如果你没有充足的项目经验，就提前准备好台词吧。</p>
+
+<p>（2）关于项目，经常会被问到的点是：某个技术本身的不足，以及如何弥补。因为这样问，能够检验你是否真的做过这个“项目”，至少能说明你是否深入思考过。举例如下：</p>
+
+<p>a.你项目中用到了Mysql ：如果数据超过的Mysql的容量怎么处理？（弥补MySQL自身的不足）</p>
+
+<p>b.你做的这个项目是高并发吧？缓存用了吗？在哪些场景 你见过缓存失效？怎么解决？（还是在问你缓存自身的问题如何解决）</p>
+
+<p>c.看你的项目用到了MQ？MQ可以用来解耦合，具体讲讲你项目中到底哪些场景用到了解耦合？（在考你的项目是真的，还是假的）</p>
+
+<p>（3）项目的重难点。</p>
+
+<p>每个项目都有自己的重难点，这些重难点也就是必问点，</p>
+
+<p>举例如下：</p>
+
+<p>a.分布式项目：如何共享数据？什么是CAP原则？分布式锁、分布式事务、分布式缓存怎么实现？</p>
+
+<p>b.高并发项目：几级缓存，如何限流，如何熔断，用docker了没？</p>
+
+<p>（4）真实性：实际的使用场景</p>
+
+<p>a.简历上写的“用到了人脸识别技术” ：哪些场景用到了？人脸识别是自己公司写的，还是调用的三方API？自己写的话，用的什么算法？调用API的话，每次调用需要付费多少钱？识别时的光线强度有什么要求？</p>
+
+<p>b.多线程、设计模式、算法：用来处理什么业务？场景？</p>
+
+<p>c.大数据的项目：数据从哪来的？d.项目能否访问？</p>
+
+<p>（5）描述方式：技术列表 + 文字 （如果绘图功底不错，可以加上架构图）</p>
+
+<p>项目周期：半年以上</p>
+
+<p>简历上的项目个数：3个以内（如果是才毕业3年以内，写1-2个就可以了）</p>
+
+<p><strong>4.表达沟通能力</strong></p>
+
+<p><strong>二、加分项</strong></p>
+
+<p>1.高并发/分布式/调优</p>
+
+<p>a.多线程（juc、aqs、线程安全、锁机制、生产消费者、线程依赖问题）</p>
+
+<p>b.数据处理SQL优化 ， 常见高性能数据库架构（如mysql+mycat+haproxy+keepalived）</p>
+
+<p>c.JVM调优</p>
+
+<p>2.实际的解决问题能力</p>
+
+<p>这点需要自己在面试时主动将话题引入。</p>
+
+<p>例如在回答项目时，主动说一下你在做项目时遇到过什么问题。具体是如何发现、排查、分析、解决问题的。</p>
+
+<p><strong>3.绝杀</strong></p>
+
+<p>ACM竞赛、蓝桥杯等全国性竞赛（学生专享）</p>
+
+<p>有过书籍、论文等出版物在github发布过项目(star很多)</p>
+
+<p>博客、微信公众号公众号、 个人在阿里云等部署的可访问项目（这一条大部分人都能做到）。如果是电子简历，附上链接地址；如果是纸质简历，将链接封装在二维码里。</p>
+
+<p>研究过JDK/spring/mybatis等源码</p>
+
+<p><strong>三、注意/建议事项</strong></p>
+
+<p>1.在描述时，多使用“数字”：几个项目、几篇博客 、排名第几</p>
+
+<p>2.工资：不要写面议 ，至少给个薪资范围，如1.5w - 2.0w3.简历：1-2页（每一页写满，尽量不要空半页），不要包书皮，</p>
+
+<p>格式使用PDF（不要wps或word，可能出现兼容问题）,</p>
+
+<p>外观简洁大方即可，不要太过绚丽</p>
+
+<p>4.细节：毕业时间、年龄、工作履历、期望薪资等要相互匹配。例如，不要“毕业5年”，但“工作履历加起来只有3年”。</p>
+
+<p>5.沟通：注意人文素养 ，不要抱怨问题， 要体现解决问题、愿意承担责任的态度建议：个人解决问题的能力、团队感、沟通能力</p>
+
+<h1 id="技术面试-java-se">技术面试 - Java SE</h1>
+
+<p>背景：秋招 有些同学 没找到offer</p>
+
+<p>1.自己知识储备不足</p>
+
+<p>2.准备OK，但是仍然没找到offer</p>
+
+<p>面试技巧（重点）、代码讲解</p>
+
+<p>招聘岗位10， 50个人  ： 10 +  40</p>
+
+<p>不会脱颖而出</p>
+
+<h2 id="主题-出奇制胜">主题： 出奇制胜</h2>
+
+<h3 id="1-反对和所有应聘者-千篇一律">1.反对和所有应聘者 千篇一律</h3>
+
+<p>积累： 阿里巴巴 编程规范   ， 《effective java》</p>
+
+<h3 id="2-反对和所有-面试宝典-千篇一律">2.反对和所有《面试宝典》 千篇一律</h3>
+
+<p>建议： 只看宝典里的题目，不看答案（答案自己写）</p>
+
+<p>只看题目 +   github/知乎/博客</p>
+
+<p>线程通信  wait()、notify()/notifyAll()</p>
+
+<p>Semaphore、google guava类库Monitor</p>
+
+<h3 id="3-源码级解决问题">3.源码级解决问题</h3>
+
+<p>产生一个问题？百度、谷歌、问老师。</p>
+
+<p>面试官问： 请讲讲ArrayList如何库容的？</p>
+
+<p>我最初看书（看博客、文档），上面它的底层是动态数组，会在add()时 如果发现已满，则自动扩容1.5 。我还查阅了源码进行了验证，发现是在数组已满扩容，并且是通过 位移运算符扩容。</p>
+
+<pre><code>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+</code></pre>
+
+<h2 id="4-找对时机-秀技能">4.找对时机，秀技能</h2>
+
+<p>每个人都有一些 独到的经验，要想办法在面试的时候 讲给面试官。</p>
+
+<p>“聊聊自己的项目经验”  ,讲项目，讲完的时候 加一句：我在做这个项目的时候 曾经遇到了一个bug，当时ArrayList.asList()返回一个List，当时通过阅读源码 发现 返回的LIst不是 Collection中的那个List。</p>
+
+<h2 id="5-比较通过的-秀点">5.比较通过的 秀点</h2>
+
+<p>优化类（JVM、SQL优化）</p>
+
+<p>jvm优化：1.项目做完时，我用jmeter进行了压力测试，结果发现相应时间太慢（或者内存利用率太高） ，然后我用jvisualvm分析了下JVM的内存情况。分析后，进一步发现项目中的小对象太多了，并且发现这些小对象都是生命周期比较短的对象。然后我猜测可能就是由于短对象太多，造成了堆中新生代容量不足，进而让很多短对象逃逸到了老年代中。这样一来，新生代和老年代中的对象都会很多，就会加速GC的回收频率，从而降低系统的性能。对此，我调大了新生代的内存大小，并且调高了新生代 逃逸到老年代的 阈值。之后再测试，发现性能平稳了许多。</p>
+
+<p>PS：以上短短200字，就告诉了面试官你有性能测试的良好习惯、会发现问题、分析问题，并且会JVM调优！</p>
+
+<p>2.项目做完时，我用jmeter进行了压力测试，结果发现响应时间太慢。然后我用mysqldumslow工具查找到了项目中执行时间最长的那个SQL语句，因此猜测是这条SQL的性能太低，拖累了整个系统。然后我用explain查看了SQL执行计划，发现这个SQL根本没有写索引并且是大表驱动了小表，所以特别慢。之后，我给它后面的where查询字段加上了索引，并且改为了小表驱动大表。然后再次测试，响应时间就缩短了很多。</p>
+
+<p>PS：这个秀点是“SQL优化”，具体流程是：定位慢SQL-&gt;使用explain查询SQL执行计划，用于分析SQL执行慢的原因-&gt;SQL优化。上述中的“小表驱动大表”等是SQL优化时的术语。</p>
+
+<p>算法类的：字符串算法  (KMP算法)</p>
+
+<h2 id="6-技术沉淀">6.技术沉淀</h2>
+
+<p>数据支撑： github、博客、专栏、微信公众号、项目发布到阿里云</p>
+
+<h2 id="7-大厂的区别">7.大厂的区别</h2>
+
+<p>bat ,美团，字节调动，google  facebook</p>
+
+<p>数据结构和算法、操作系统、网络、设计模式、分布式、逻辑思维（8+11 ？）</p>
+
+<h2 id="8-心态建设">8.心态建设</h2>
+
+<p>回答正确，但被面试官“否定”</p>
+
+<p>1.答案来自于面试宝典，千篇一律</p>
+
+<p>2.面试官自己在秀技术  ，调整好心态，不要受干扰。</p>
+
+<p>正常面试官： 引导你来回答，而不是想方设法吓唬你</p>
+
+<p>有没有用过List? 哪些常见子类？数组?动态扩容，不越界？</p>
+
+<p>3.如果问到 自己不会的？一定要答出自己的想法/答类似的框架，  虽然没用过这个新框架，但是我用过同类产品，并且相信他们是差不多的，然后就答这个同类产品的 实现原理。</p>
+
+<p>mybatis \jpa</p>
+
+<p>新dao框架 ？ 映射文件/注释： 实体类-表， 然后通过框架本身的api的进行crud&hellip;.</p>
+
+<p>MQ：rabitmq rocketmq  kafka\新MQ</p>
+
+<h1 id="ssm和开源框架">SSM和开源框架</h1>
+
+<p>MyBatis重要组件：</p>
+
+<ul>
+<li>Mapper配置：  实体类Student.java - 数据表student ,   XML或注解</li>
+<li>Mapper接口： DAO层接口。 （只需要写接口，不用写实现类 ：需要遵循约定）</li>
+</ul>
+
+<p>Mapper接口在编写时 需要遵循约定：</p>
+
+<p>1.方法名和SQL配置文件（studentMapper.xml）中的id值必须相同</p>
+
+<p>2.方法的输入参数，必须和SQL配置文件的 parameterType的类型相同；</p>
+
+<p>3.方法的返回值，必须和SQL配置文件的resultType的类型相同</p>
+
+<p>SQL配置文件</p>
+
+<pre><code class="language-sql">&lt;select id=&quot;queryStudentByNo&quot;  parameterType=&quot;int&quot;  resultType=&quot;lanqiao.entity.Student&quot; &gt;
+	select * from student where stuNo = #{stuNo}
+&lt;/select&gt;
+</code></pre>
+
+<p>接口</p>
+
+<pre><code class="language-sql">&lt;select id=&quot; queryStudentByNo&quot; parameterType=&quot;int&quot;  resultType=&quot;Student&quot;&gt; 
+ select * from student where stuNo=#{stuNo} 
+&lt;/select&gt;
+</code></pre>
+
+<p>根据约定，编写接口</p>
+
+<pre><code class="language-java">public interface StudentMapper
+{
+  Student queryStudentByNo(int stuNO)
+   List&lt;Student&gt; queryStudentByNo()
+}
+</code></pre>
+
+<p>特殊：</p>
+
+<p>1.如果不存在parameterType ，则代表是一个无参方法</p>
+
+<p>2.如果不存在resultType，则代表返回值是void</p>
+
+<p>3.如果方法的返回值是一个集合类型，则实际resultType仍然是元素类型，而不是集合类型。</p>
+
+<h2 id="mybatis开发时的常用对象">MyBatis开发时的常用对象</h2>
+
+<p>1.SqlSessionFactory：SqlSesssion工厂。通过SqlSessionFactory：SqlSesssion中的openSession()产生SqlSesssion对象。</p>
+
+<p>2.SqlSesssion：SqlSesssion对象（类似于JDBC中的Connection）</p>
+
+<p>3.Executor：MyBatis中所有Mapper语句的执行 都是通过Executor进行的。</p>
+
+<h2 id="mybatis四大核心对象">MyBatis四大核心对象</h2>
+
+<p>1.StatementHandler(负责sql语句)：数据库的处理对象 select&hellip; from where id = #{}  ..</p>
+
+<p>2.PrameterHandler(负责sql中的参数)：处理SQL中的参数对象</p>
+
+<p>3.Executor</p>
+
+<p>4.ResultSetHandler：处理SQL的返回结果集</p>
+
+<h2 id="mybatis四大处理器">MyBatis四大处理器</h2>
+
+<p>StatementHandler、PrameterHandler、ResultSetHandler</p>
+
+<p>剩下一个：TypeHandler （类型转换器）</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578052621363.png" alt="1578052621363" /></p>
+
+<h2 id="执行流程">执行流程</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/1578052925399.png" alt="1578052925399" /></p>
+
+<h2 id="一对一-一对多-延迟加载">一对一、一对多，延迟加载</h2>
+
+<p>一对一</p>
+
+<pre><code class="language-java">使用&lt;resultMap&gt;中&lt;association&gt;
+一对一的延迟加载：
+使用&lt;resultMap&gt;中&lt;association&gt;的select属性指定延迟加载的sql语句
+&lt;resultMap&gt;	
+		&lt;association select=&quot;延迟加载的sql语句&quot; &gt;
+		&lt;&lt;association&gt;&gt;
+&lt;/resultMap&gt;
+
+
+</code></pre>
+
+<p>一对多：将一对一中的<association>改为<collection></p>
+
+<h1 id="spring">Spring</h1>
+
+<p>IOC/DI：控制反转/依赖注入</p>
+
+<p>目的：解耦合</p>
+
+<p>Student2 student = new  Student2()  使用new会造成耦合度较高 -&gt;工厂模式</p>
+
+<p>类- &gt;new -&gt;对象</p>
+
+<p>类- &gt; 工厂模式-&gt;对象  ，可以实现解耦，问题是：需要自己编写工厂</p>
+
+<p>IOC：IoC帮我们提供了一个工厂。  1.向工厂中注入对象 （配置[xml、注解]）  2.从工厂中获取对象</p>
+
+<p>总结：Ioc可以让我们通过“配置的方式”来创建对象</p>
+
+<h2 id="aop-面向方面编程">AOP:面向方面编程</h2>
+
+<p>OOP的补充，不是替代。</p>
+
+<p>使用oop的不足：</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578053610951.png" alt="1578053610951" /></p>
+
+<p>以上OOP两个不足，可以通过AOP进行改进。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578053925807.png" alt="1578053925807" /></p>
+
+<p>使用AOP的实际场景：</p>
+
+<p>日志、安全统一校验</p>
+
+<h2 id="spring用到了那些设计模式">Spring用到了那些设计模式</h2>
+
+<p>工厂模式：创建bean、获取bean</p>
+
+<p>单例模式/原型模式： 创建bean时，设置作用域 ，singleton/prototype</p>
+
+<p>监听模式：自定义事件发布，监听模式。如ApplicationListener，当某个动作触发时，就会自动执行一个通知。</p>
+
+<p>以前（不用spring boot），需要自己配置框架的配置文件。</p>
+
+<p>spring,mybatis  ,SSM整合等情况 需要编写一大堆配置文件。</p>
+
+<p>如果使用Spring Boot，则可以省略配置 。 好处：将开发重点放在业务逻辑上，而不是配置上。</p>
+
+<p>自动装配的原理？  约定优于配置  (核心：将一些配置功能，前置到源码底层实现好)</p>
+
+<p>自动装配两个特点：</p>
+
+<p>1.版本仲裁中心：因此，以后引入依赖时，不用再写版本号。好处：1.不用记  2.避免冲突(防止引入多个引来时，由于各个依赖的版本不兼容造成的冲突)</p>
+
+<p>2.提供了很多starter(场景启动器) ：批量jar。</p>
+
+<p>假设开发web项目  ( json.jar  tomcat.jar  hibernate-validator.jar, spring-web.jar &hellip; )  =&gt; spring-boot-starter-web.</p>
+
+<p>以后使用web项目，只需要引入spring-boot-starter-web</p>
+
+<p>自动装配的应用时： @EnableAutoConfiguration 就是springboot提供自动装配的 注解。</p>
+
+<h2 id="spring-cloud">Spring Cloud</h2>
+
+<p>Spring Cloud：微服务治理框架</p>
+
+<p>内置了许许多多的组件</p>
+
+<h2 id="eureka">Eureka</h2>
+
+<p>服务注册中，类似于dubbo中的zookeeper.</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578055408461.png" alt="1578055408461" /></p>
+
+<p>换个角度：Eureka也可以理解为 两个组件 Eureka Server和Eureka Client。</p>
+
+<p>需要注意：Eureka Client有两个角度：如果站在eureka来看，是一个 客户端；如果站在系统角度来看，是一个服务端。</p>
+
+<h2 id="ribbon">Ribbon</h2>
+
+<p>客户端负载均衡工具</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578055800063.png" alt="1578055800063" /></p>
+
+<h2 id="feign">Feign</h2>
+
+<p>声明式客户端负载均衡工具</p>
+
+<p>Feign是建立在Ribbon之上。</p>
+
+<p>Feign与Ribbon的区别： Ribbon面向URI地址的；Feign面向接口的</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1578056064267.png" alt="1578056064267" /></p>
+
+<h2 id="熔断器">熔断器</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/1578056332522.png" alt="1578056332522" /></p>
+
+<p>熔断器：Hystrix</p>
+
+<pre><code class="language-java">@HystrixCommand(fallbackMethod=&quot;b2&quot;)
+public void a()
+{
+    
+    b();//远程
+}
+
+puyblic void b2()
+{
+    ...
+    
+}
+</code></pre>
+
+<h1 id="分布式核心设计">分布式核心设计</h1>
+
+<h2 id="简介">简介</h2>
+
+<p>最火？</p>
+
+<p>大数据、人工智能、区块链、边缘计算、微服务   -&gt; 分布式</p>
+
+<p>分布式：拆</p>
+
+<p>微服务&amp;分布式</p>
+
+<p>分布式：拆了就行</p>
+
+<p>微服务：纵向拆分(根据业务逻辑拆分，电商:用户、支付、购物&hellip;)、最小化拆分</p>
+
+<p>横向：jsp/servlet -&gt; service-&gt;dao</p>
+
+<h2 id="cap理论">CAP理论</h2>
+
+<p>任何一个分布式系统 都必须重点考虑的原则。</p>
+
+<p>C:一致性（强一致性）：所有子节点中的数据 时刻保持一致</p>
+
+<p>A：可用性：整体能用</p>
+
+<p>P:分区容错性 ：允许部分失败</p>
+
+<p>CAP理论：在任何分布式系统中，C\A\P不可能共存，只能存在两个。</p>
+
+<p>基础知识：一般而言，至少要保证P可行，因为分布式 经常会出现 弱网环境。因此 就需要在C和A之间二选一。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576842607298.png" alt="1576842607298" /></p>
+
+<h2 id="base理论">BASE理论</h2>
+
+<p>为了弥补CAP的不足。</p>
+
+<p>尽最大努力 近似的实现 CAP三者：最终一致性 代替强一致性C</p>
+
+<p>前置： 强一致性（时时刻刻一致、短时间内一致）、最终一致性（只要最后一致即可）</p>
+
+<p><strong>BASE理论：首选满足A\P，  因此不能满足C。但是可以用 最终一致性 来代替C。</strong></p>
+
+<p>BASE：Basically Available 基本可用</p>
+
+<p>软状态：多个节点时，允许中间某个时刻数据不一致。</p>
+
+<p>最终一致性</p>
+
+<h2 id="分布式缓存">分布式缓存</h2>
+
+<p>缓存问题（会提前将数据库中的数据放到缓存中（可以使用redis&mdash;&ndash;设置过期时间））</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576842722917.png" alt="1576842722917" /></p>
+
+<p>缓存击穿：某一个热点数据过期，造成大量用户请求直奔DB的现象。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576843062121.png" alt="1576843062121" /></p>
+
+<p>解决：1.监控线程（数据快过期了，再重新加载一份）    2.提前设置好时间，保证热点数据在 高峰期 不过期</p>
+
+<p><a href="https://blog.csdn.net/wx1528159409/article/details/88357728">Redis的缓存穿透及解决方法——布隆过滤器BloomFilter</a></p>
+
+<p>缓存雪崩：大量缓存全部失效 （给大量缓存设置了相同的过期时间 ; 缓存服务器故障）</p>
+
+<p>解决：1.合理分配缓存的过期时间（加个随机时间）  2.搭建缓存集群</p>
+
+<p>缓存穿透：恶意攻击。一般而言，不会缓存一些无意义的数据。但是如果恶意工具，就可以利用一些无意义的数据 反复发起请求。</p>
+
+<p>解决：将无意义的数据也进行缓存，并且将过期时间设置的相对短一些。</p>
+
+<p>以上的本质都是“缓存失效”，通用的解决方案：二级缓存（分布式缓存）</p>
+
+<p>一般而言，本地缓存 是一级缓存，分布式缓存是二级缓存。</p>
+
+<h2 id="一致性hash">一致性hash</h2>
+
+<p>hash算法：映射</p>
+
+<p>字符串、图片、对象  -&gt; 数字</p>
+
+<p>hash(a.png  ) -&gt; 12312313</p>
+
+<p>一致性hash最初用于解决分布式缓存问题</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576844077008.png" alt="1576844077008" /></p>
+
+<p>以上 将 数据 映射到 某个缓存服务器的做法 有一个问题： 当服务器个数发生改变时，缓存会失效。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576844327576.png" alt="1576844327576" /></p>
+
+<p>解决“服务器个数改变导致的问题”：一致性hash</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576844821413.png" alt="1576844821413" /></p>
+
+<p>hash偏斜问题</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576844930503.png" alt="1576844930503" /></p>
+
+<p>解决hash倾斜问题：虚拟节点</p>
+
+<p>在环上生成多个 虚拟节点，后续 请求先找虚拟节点，然后在通过虚拟节点找到对应的真实节点</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576845086834.png" alt="1576845086834" /></p>
+
+<h2 id="缓存一致性">缓存一致性</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/1576845213745.png" alt="1576845213745" /></p>
+
+<p>（思考）</p>
+
+<p>最容易想到，但也不推荐的做法： <strong>当DB更新后，立刻更新缓存</strong> ； 先删除缓存，在更新DB。</p>
+
+<p>推荐： 当DB更新后，立刻删除缓存</p>
+
+<p>分析：（反例）</p>
+
+<p>当DB更新后，立刻更新缓存（不推荐）</p>
+
+<p>问题：</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577447150203.png" alt="1577447150203" /></p>
+
+<p>如果线程A先更新，线程B后更新，最终的结果 可能是A的结果。原因：线程的执行速度可能不一致。</p>
+
+<p><strong>推荐： 当DB更新后，立刻删除缓存</strong>  。因为：对于删除来说，没有速度的先后问题（没有速度不一致的问题）</p>
+
+<p>（这种推荐的方式，仍然会存在 一个 极小概率 的错误情况）</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577447727705.png" alt="1577447727705" /></p>
+
+<p>以上就是这个推荐方式的一个错误情况，但发生的概率是极小的：1.发生在“缓存失效”的前提下 2.发生的前提：写线程的速度 要 快于 读线程，基本不可能。</p>
+
+<p>问：这个 极小的错误情况，能否避免？</p>
+
+<p>答：能！以上错误发生的大前提：读操作 和写操作 交叉执行，解决思路：让二者 不要交叉。 加锁，或者读写分离。  但是一般建议，不用解决。（解决小概率的成本一般比较高，可能会超过犯错的成本）</p>
+
+<p>能否调换顺序：删除缓存 ,  再DB更新后</p>
+
+<p>反例：</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577448501722.png" alt="1577448501722" /></p>
+
+<p>以上出错的前提：写慢，读快。因此发生的概率较大。</p>
+
+<h2 id="分布式锁">分布式锁</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/1576845520521.png" alt="1576845520521" /></p>
+
+<p>分布式锁：数据库的唯一约束、redis、Zookeeper</p>
+
+<p>在架构开发： 没有最好，只有比较合适的。</p>
+
+<h2 id="使用zookeeper实现分布式锁">使用Zookeeper实现分布式锁</h2>
+
+<p>zookeeper:分布式协调框架， 组成结构是 一个颗树（类似于DOM树）</p>
+
+<p>树种包含很多叶节点，在分布式锁中使用的 叶节点类型： 临时顺序节点。</p>
+
+<p>zookeeper提供了以下两种支持：</p>
+
+<ul>
+<li>监听器：可以监听某个节点的状态，当状态发生改变时 则触发相应的事件</li>
+<li>临时节点的删除时机：当客户端与访问的临时节点 断开连接时</li>
+</ul>
+
+<p>锁：同一个时间内，只能有一个线程/进程访问</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1576846319716.png" alt="1576846319716" /></p>
+
+<h2 id="分布式事务">分布式事务</h2>
+
+<p>本地事务：一个事务对于一个数据库连接。（事务：连接 = 1： 1）</p>
+
+<p>凡是不符合上述1:1关系的，都不能使用本地事务，举例如下（以下都无法使用本地事务）：</p>
+
+<p>1.单节点中存在多个数据库实例。在本地 建立了2个数据库： 订单数据库、支付数据库。</p>
+
+<p>下单操作  = 订单数据库+支付数据库</p>
+
+<p>2.分布式系统中，部署在不同节点上的多个服务访问同一个数据库。</p>
+
+<p>通过以上两点说明：本地事务的使用性 十分有限。</p>
+
+<h2 id="分布式事务实现">分布式事务实现</h2>
+
+<p>示例</p>
+
+<p>下单操作  = 订单数据库   +支付数据库</p>
+
+<p>服务器A： 下单操作 ，  订单数据库</p>
+
+<p>服务器B:   支付数据库</p>
+
+<p>模拟分布式事务：下单操作</p>
+
+<p>begin transaction:</p>
+
+<p>1.执行 订单数据库;</p>
+
+<p>2.执行 支付数据库</p>
+
+<p>commit/rollback ;</p>
+
+<p>以上，在分布式环境中存在问题：</p>
+
+<p>begin transaction:</p>
+
+<p>1.在本地（服务器A） 执行 订单数据库;</p>
+
+<p>2.远程调用服务器B上的   支付数据库</p>
+
+<p>commit/rollback ;</p>
+
+<p>以上的错误情况：如果本地的订单服务 成功、远程的支付也成功，但是在 响应时由于网络等问题  无法响应，就会让用户以为 下单失败。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577449304786.png" alt="1577449304786" /></p>
+
+<p>以上，本地事务无法操作的情况，就可以使用分布式事务。可以使用幂等性解决</p>
+
+<h3 id="使用2pc实现分布式事务">使用2PC实现分布式事务</h3>
+
+<p>2pc：2 phase  commit  ，由一个协调者 和多个 参与者组成  （类似master-slave结构）</p>
+
+<p>协调者： 事务管理器,TM</p>
+
+<p>参与者： 资源管理器,RM</p>
+
+<p>两阶段指的是：</p>
+
+<p>准备阶段(Prepare阶段)：当事务开始时，协调者向所有的参与者发送 Prepare消息，请求执行事务。参与者接收到消息后，要么同意，要么拒绝。如果同意，就会在本地执行事务，记录日志，但是不提交。</p>
+
+<p>提交阶段（commit阶段）：如果所有的参与者都同意，协调者再次给全部参与者发送 提交请求。否则进行回滚。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577449974475.png" alt="1577449974475" /></p>
+
+<p>总体思路： 将一个任务（多个步骤） 进行2步操作：  1.请求各个节点执行   ；  2.如果大家都同意，请求一起提交</p>
+
+<p>2pc缺点：1.分布式事务在执行期间是阻塞式的，因此会带来延迟    2.如果协调在第“5”步遇到弱网环境，可能造成一部分节点 没有commit的情况。  3.中心化架构，单点灾难。</p>
+
+<p>其他分布式事务解决方案：三阶段提交，使用TCC实现分布式事务，使用消息队列实现分布式事务</p>
+
+<p>注意：如果要严格的保证事务一致性：paxos算法。  google chubby作者</p>
+
+<h2 id="分布式认证-分布式授权">分布式认证 &amp;分布式授权</h2>
+
+<p>认证方式：系统自己开发 、 三方平台</p>
+
+<p>系统自己开发：分布式认证</p>
+
+<p>三方平台：分布式授权 （SSO单点认证）</p>
+
+<p><strong>分布式授权：  OAuth2.0授权协议</strong>  ，该协议的流程如下：</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1577451194623.png" alt="1577451194623" /></p>
+
+<p>提示：发展史上， OAuth2.0 不兼容 OAuth1.0</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/" title="Java面试准备一" target="_blank" rel="external">https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/06/tc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Teamcenter定制学习笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"
+                    title="Java算法笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

@@ -5,26 +5,26 @@
     <link>https://mumulx.github.io/tags/java/</link>
     <description>Recent content in Java on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java面试准备二</title>
-      <link>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</link>
+      <link>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</guid>
+      <guid>https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</guid>
       <description>面试一 说说JVM的内存布局？ JVM的四大模块 类加载子系统 内存模型 堆 本地方法栈 虚拟机栈 程序计数器 方法区 执行引擎 垃圾回收器 堆 堆Java虚拟机中最</description>
     </item>
     
     <item>
-      <title>JVM知识整理</title>
-      <link>https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</link>
+      <title>Java底层JVM知识整理</title>
+      <link>https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</guid>
+      <guid>https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</guid>
       <description>JVM： java virtua Machine jdk中包含了jvm和“屏蔽操作系统差异的组件” jvm各个操作系统之上是一致的 “屏蔽操作系统差异的组件：在各个PC上各不相同（</description>
     </item>
     
@@ -47,29 +47,20 @@
     </item>
     
     <item>
-      <title>背包九讲问题汇总</title>
-      <link>https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/09/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</guid>
-      <description>背包九讲 P01: 01背包问题 题目 有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费</description>
-    </item>
-    
-    <item>
       <title>Java算法笔记</title>
       <link>https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
-      <description>数组 基本概念 public class TestOpArray { public static void main(String[] args) { //解决数组的长度不可变的问题 int[] arr = new int[] {9,8,7}; //快速查看数组中的元素 System.out.println(Arrays.toString(arr)); //要加入数组的目标元素 int dst=6; //创建一个</description>
+      <description>基础数据结构 数组 基本概念 public class TestOpArray { public static void main(String[] args) { //解决数组的长度不可变的问题 int[] arr = new int[] {9,8,7}; //快速查看数组中的元素 System.out.println(Arrays.toString(arr)); //要加入数组的目标元素 int dst=6;</description>
     </item>
     
     <item>
       <title>Java面试准备一</title>
-      <link>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
+      <link>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
+      <guid>https://mumulx.github.io/2020/08/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80/</guid>
       <description>技术面试指导 本文从“必备项”和“加分项”两个角度分析。 一、必备项 0.自我介绍 表达流畅，不要太差即可 1.基础 坑：【答案很标准】面试时的回答，一</description>
     </item>
     
@@ -83,29 +74,29 @@
     </item>
     
     <item>
-      <title>复习知识点总结</title>
-      <link>https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</link>
+      <title>Java复习知识点总结</title>
+      <link>https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/06/%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://mumulx.github.io/2020/06/java_%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93/</guid>
       <description>操作系统与计算机网络 TCP是传输层协议。对应osI网络模型的第4层传输层。 TCP协议的特点是基于链接。也就是传输数据前需要先建立好链接，然后</description>
     </item>
     
     <item>
-      <title>网络通信与NIO</title>
-      <link>https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</link>
+      <title>Java网络通信与NIO</title>
+      <link>https://mumulx.github.io/2020/05/java%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/05/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</guid>
+      <guid>https://mumulx.github.io/2020/05/java%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E4%B8%8Enio/</guid>
       <description>网络通信基础 Socket入门 什么是Socket? Socket就是为网络服务提供的一种机制。 通讯的两端都有Sokcet. 网络通讯其实就是Sok</description>
     </item>
     
     <item>
       <title>OnJava8学习与理解</title>
-      <link>https://mumulx.github.io/2020/05/onjava8/</link>
+      <link>https://mumulx.github.io/2020/05/java_onjava8%E6%91%98%E5%BD%95/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/05/onjava8/</guid>
+      <guid>https://mumulx.github.io/2020/05/java_onjava8%E6%91%98%E5%BD%95/</guid>
       <description>感谢该项目的开源从中学到了很多的知识，对于java也有了更深的了解 已经看了两遍，里面写的很好，从中收获了跟多，也认识到了自己的许多不足。对于</description>
     </item>
     
@@ -119,11 +110,11 @@
     </item>
     
     <item>
-      <title>Java知识点01</title>
-      <link>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</link>
+      <title>Java知识点Java8新特性</title>
+      <link>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B9java8/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B901/</guid>
+      <guid>https://mumulx.github.io/2020/05/java%E7%9F%A5%E8%AF%86%E7%82%B9java8/</guid>
       <description>JDK8 lambda :简化代码 lambda λ 组成 ： 逗号隔开的参数列表 (x,x,x) () 箭头符号 -&amp;gt; 方法体 （λ代码块） 示例 package lambda; public class Demo01 { public static void test01(){ new Thread(new Runnable() { @Override public void run() { System.out.println(&amp;quot;run....&amp;quot;); } }).start(); } public static void test02(){ new Thread( // ()</description>
     </item>
     
@@ -137,11 +128,11 @@
     </item>
     
     <item>
-      <title>Java并发编程JUC</title>
-      <link>https://mumulx.github.io/2020/05/juc/</link>
+      <title>Java底层JUC学习</title>
+      <link>https://mumulx.github.io/2020/05/java_juc%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/05/juc/</guid>
+      <guid>https://mumulx.github.io/2020/05/java_juc%E5%AD%A6%E4%B9%A0/</guid>
       <description>JUC 1 、什么是JUC java.util 工具包、包、分类 业务：普通的线程代码 Thread Runnable 没有返回值、效率相比入 Callable 相对较低！ 2 、线程和进程 线程、进程，如果不能使用一句话说</description>
     </item>
     
@@ -201,10 +192,10 @@
     
     <item>
       <title>SpringCloud自学笔记</title>
-      <link>https://mumulx.github.io/2020/03/springbootcloud/</link>
+      <link>https://mumulx.github.io/2020/03/springtcloud/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/03/springbootcloud/</guid>
+      <guid>https://mumulx.github.io/2020/03/springtcloud/</guid>
       <description>源码 SpringCloud 微服务架构4个核心问题? 服务很多，客户端该怎么访问? 这么多服务?服务之间如何通信? 这么多服务? 如何治理? 服务挂了怎么办? 解决方案:Sp</description>
     </item>
     
@@ -236,11 +227,11 @@
     </item>
     
     <item>
-      <title>我的阿里云服务器Centos7</title>
-      <link>https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</link>
+      <title>Linux-Centos7</title>
+      <link>https://mumulx.github.io/2020/02/linux-centos7/</link>
       <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2020/02/%E6%88%91%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8centos7/</guid>
+      <guid>https://mumulx.github.io/2020/02/linux-centos7/</guid>
       <description>win10远程桌面连接阿里云centos7.3 使用secureCRT连接到自己的服务器 安装x windows yum groupinstall -y &amp;quot;X Window System&amp;quot; 查看已安装软件 yum grouplist 安装桌面 yum groupinstall &amp;quot;GNOME Desktop&amp;quot;</description>
     </item>
     
@@ -308,48 +299,21 @@
     </item>
     
     <item>
-      <title>虚拟机搭建easymock</title>
-      <link>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAeasymock/</guid>
-      <description>虚拟机启动访问 启动mongodb cd /usr/local/mongodb/bin/ ./mongod --port 27017 --dbpath=/data/mongodb 登录数据库 cd /usr/local/mongodb/bin/ netstat -lanp | grep &amp;quot;27017&amp;quot; ./mongo use admin db.auth(&amp;quot;root&amp;quot;,&amp;quot;135451&amp;quot;) 启动redis cd /data/redis/bin/ redis-server 启动EasyMock cd /app/easymock/easy-mock/ npm run dev 本机访问 http://centos6:7300/ li</description>
-    </item>
-    
-    <item>
-      <title>蓝桥杯算法笔记</title>
-      <link>https://mumulx.github.io/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/01/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
-      <description>入门训练 圆的面积 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;iostream&amp;gt; int main (){ int r; scanf(&amp;quot;%d&amp;quot;,&amp;amp;r); double pi = 3.14159265358979323,s; s=pi * r *r; printf(&amp;quot;%.7f&amp;quot;,s); return 0; } 小数点的控制 %d 按十进制整型数据的实际长度输出。 %ld 输出长整型数据。 %lld 输出长长整型数据。</description>
-    </item>
-    
-    <item>
-      <title>IntelliJIDEA基础配置</title>
-      <link>https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/01/intellijidea%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
-      <description>学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Spring</description>
-    </item>
-    
-    <item>
-      <title>VisualStudioCode常用插件</title>
-      <link>https://mumulx.github.io/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</link>
-      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2020/01/visualstudiocode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</guid>
-      <description>下面来介绍几个我自己用到的vscode的插件 主题 Atom One Dark Theme 文件图标主题 vscode-icons 代码格式化 Beautify 中文汉化 Chinese (Simplified) Language Pack for Visual Studio Code 与谷歌浏览器的链接 Debugger for Chrome js语言 ESLint</description>
-    </item>
-    
-    <item>
       <title>Web前端技术栈</title>
       <link>https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mumulx.github.io/2020/01/web%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
       <description>简介 Web前端技术栈包括 elementUI Nuxt Vue.js webpack ESLint Node.js axios mock.js ES6 Swagger 核心：Node.js和Vue.js webpack webpack:打包, 可用将js等静态资源进行压缩，从而提高</description>
+    </item>
+    
+    <item>
+      <title>开发工具</title>
+      <link>https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2020/01/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/</guid>
+      <description>IDEA 学java的时候还是使用的Eclipse，并且使用了很长一段时间。然后学JSP的时候使用的是Eclipse IDE。接着就到了学习Sprin</description>
     </item>
     
     <item>
@@ -398,15 +362,6 @@
     </item>
     
     <item>
-      <title>Eclipse导入springBoot项目jar包下载太慢的问题</title>
-      <link>https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</link>
-      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.github.io/2019/11/eclipse%E5%AF%BC%E5%85%A5springboot/</guid>
-      <description>关于解决Eclipse导入SpringBoot项目jar包从Maven中下载太慢的问题 只需要在maven安装目录./config/setti</description>
-    </item>
-    
-    <item>
       <title>Git自学笔记</title>
       <link>https://mumulx.github.io/2019/11/git%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
@@ -443,12 +398,12 @@
     </item>
     
     <item>
-      <title>Linux Centos6安装</title>
-      <link>https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</link>
+      <title>Linux Centos6</title>
+      <link>https://mumulx.github.io/2019/11/linux-centos6/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/11/linux-centos6%E5%AE%89%E8%A3%85/</guid>
-      <description>vm安装centos6 新建虚拟机 稍后安装操作系统 处理器数量（虚拟的，只跟自己的真实机有关）1，1，1 内存2048 网络nat 磁盘20G 完成 编辑</description>
+      <guid>https://mumulx.github.io/2019/11/linux-centos6/</guid>
+      <description>Centos6安装 vm安装centos6 新建虚拟机 稍后安装操作系统 处理器数量（虚拟的，只跟自己的真实机有关）1，1，1 内存2048 网络nat</description>
     </item>
     
     <item>
@@ -462,10 +417,10 @@
     
     <item>
       <title>Spring Boot自学笔记-02</title>
-      <link>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</link>
+      <link>https://mumulx.github.io/2019/11/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B002/</link>
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/11/spring-boot%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.github.io/2019/11/springboot%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B002/</guid>
       <description>源码 一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
     </item>
     
@@ -516,28 +471,28 @@
     
     <item>
       <title>Emoji Support</title>
-      <link>https://mumulx.github.io/2019/01/emoji-support/</link>
+      <link>https://mumulx.github.io/2019/01/other_emoji-support/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/01/emoji-support/</guid>
+      <guid>https://mumulx.github.io/2019/01/other_emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://mumulx.github.io/2019/01/markdown-syntax/</link>
+      <link>https://mumulx.github.io/2019/01/other_markdown-syntax/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/01/markdown-syntax/</guid>
+      <guid>https://mumulx.github.io/2019/01/other_markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Placeholder Text</title>
-      <link>https://mumulx.github.io/2019/01/placeholder-text/</link>
+      <link>https://mumulx.github.io/2019/01/other_placeholder-text/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.github.io/2019/01/placeholder-text/</guid>
+      <guid>https://mumulx.github.io/2019/01/other_placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
 pectora summo.&lt;/p&gt;</description>
     </item>

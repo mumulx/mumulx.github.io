@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Linux Centos6 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Linux Centos6." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Linux Centos6 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Linux Centos6" />
+<meta property="og:description" content="Linux Centos6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2019/11/linux-centos6/" />
+<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="Linux Centos6">
+<meta itemprop="description" content="Linux Centos6.">
+
+
+<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3799">
+
+
+
+<meta itemprop="keywords" content="Linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Centos6"/>
+<meta name="twitter:description" content="Linux Centos6."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#centos6安装">Centos6安装</a>
+<ul>
+<li>
+<ul>
+<li><a href="#vm安装centos6">vm安装centos6</a></li>
+<li><a href="#磁盘布局">磁盘布局:</a></li>
+<li><a href="#关于vmware中计算机名子">关于vmware中计算机名子:</a></li>
+<li><a href="#查看计算机名-hostname">查看计算机名: hostname</a></li>
+<li><a href="#linux安装vm-tools">linux安装vm tools</a></li>
+<li><a href="#centos网络配置">centos网络配置</a>
+<ul>
+<li><a href="#配置windows访问虚拟机">配置windows访问虚拟机</a></li>
+<li><a href="#centos网卡">centos网卡</a></li>
+<li><a href="#通过网络名访问虚拟机-192-168-2-128-bi-gdata01">通过网络名访问虚拟机(192. 168. 2.128 -&gt;bi gdata01)</a></li>
+<li><a href="#配置网络服务">配置网络服务</a></li>
+</ul></li>
+<li><a href="#防火墙">防火墙</a></li>
+<li><a href="#自动同步时间">自动同步时间</a></li>
+<li><a href="#windows真实机通过securecrt操作centos">windows真实机通过SecureCRT操作centos</a>
+<ul>
+<li><a href="#添加连接">添加连接</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#软件安装">软件安装</a>
+<ul>
+<li>
+<ul>
+<li><a href="#下载安装jdk-rpm方式">下载安装jdk（rpm方式）</a>
+<ul>
+<li><a href="#配置环境变量">配置环境变量:</a></li>
+</ul></li>
+<li><a href="#集群-3台-完整克隆">集群(3台) :完整克隆</a></li>
+<li><a href="#ssh免密钥登录">SSH免密钥登录</a>
+<ul>
+<li><a href="#生成密钥">生成密钥</a></li>
+<li><a href="#发送给其他计算机">发送给其他计算机</a></li>
+</ul></li>
+<li><a href="#用户权限">用户权限</a>
+<ul>
+<li><a href="#用户组">用户组</a></li>
+<li><a href="#删除用户">删除用户</a></li>
+<li><a href="#切换用户">切换用户</a></li>
+</ul></li>
+<li><a href="#jps">jps</a></li>
+</ul></li>
+<li><a href="#easymock安装">EasyMock安装</a>
+<ul>
+<li><a href="#虚拟机启动访问">虚拟机启动访问</a>
+<ul>
+<li><a href="#启动redis">启动redis</a></li>
+<li><a href="#启动easymock">启动EasyMock</a></li>
+<li><a href="#本机访问">本机访问</a></li>
+</ul></li>
+<li><a href="#nodejs安装">nodejs安装</a>
+<ul>
+<li><a href="#测试">测试</a></li>
+<li><a href="#安装cnpm">安装cnpm</a></li>
+<li><a href="#软连接">软连接</a></li>
+<li><a href="#错误解决">错误解决</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#mongodb安装">Mongodb安装</a></li>
+<li><a href="#redis安装">redis安装</a>
+<ul>
+<li><a href="#问题解决">问题解决</a></li>
+<li><a href="#安装git">安装git</a></li>
+<li><a href="#安装easymock">安装EasyMock</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#linux-centos7-安装">Linux Centos7 安装</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#设置hostname">设置hostname</a></li>
+<li><a href="#设置ip">设置ip</a></li>
+<li><a href="#域名映射">域名映射</a></li>
+<li><a href="#配置网络服务-1">配置网络服务</a></li>
+</ul></li>
+<li><a href="#防火墙-1">防火墙</a></li>
+<li><a href="#自动同步时间-1">自动同步时间</a></li>
+<li><a href="#windows真实机通过securecrt操作centos-1">windows真实机通过SecureCRT操作centos</a>
+<ul>
+<li><a href="#添加连接-1">添加连接</a></li>
+</ul></li>
+<li><a href="#下载安装jdk-rpm方式-1">下载安装jdk（rpm方式）</a>
+<ul>
+<li><a href="#配置环境变量-1">配置环境变量:</a></li>
+</ul></li>
+<li><a href="#集群-3台-完整克隆-1">集群(3台) :完整克隆</a></li>
+<li><a href="#ssh免密钥登录-1">SSH免密钥登录</a>
+<ul>
+<li><a href="#生成密钥-1">生成密钥</a></li>
+<li><a href="#发送给其他计算机-1">发送给其他计算机</a></li>
+</ul></li>
+<li><a href="#后台运行命令">后台运行命令</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/11/linux-centos6/"
+    >Linux Centos6</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2019/11/linux-centos6/" class="article-date">
+  <time datetime="2019-11-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-11-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/linux/"> Linux </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/linux-centos6/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3799字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:8分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="centos6安装">Centos6安装</h1>
+
+<h3 id="vm安装centos6">vm安装centos6</h3>
+
+<p>新建虚拟机</p>
+
+<p>稍后安装操作系统</p>
+
+<p>处理器数量（虚拟的，只跟自己的真实机有关）1，1，1</p>
+
+<p>内存2048</p>
+
+<p>网络nat</p>
+
+<p>磁盘20G</p>
+
+<p>完成</p>
+
+<p>编辑虚拟机设置</p>
+
+<p>设置iso镜像位置</p>
+
+<p>开启虚拟机</p>
+
+<p>第一项回车</p>
+
+<p>skip  跳过检测</p>
+
+<p>语言简体中文</p>
+
+<p>键盘默认</p>
+
+<p>是忽略所有数据</p>
+
+<p>主机名  centosinit</p>
+
+<p>选择时区 亚洲/上海</p>
+
+<p>输入密码</p>
+
+<p>自定义系统布局</p>
+
+<h3 id="磁盘布局">磁盘布局:</h3>
+
+<p>创建  标准分区</p>
+
+<pre><code>/boot:系统启动时需要的内存200M
+
+/:系统的可用磁盘大小10240M
+
+swap:交换内存，建议大小和内存一致2048M
+</code></pre>
+
+<p>鼠标从虚拟机中释放: ctrl+alt</p>
+
+<p>下一步</p>
+
+<p>格式化</p>
+
+<p>是将修改写入磁盘</p>
+
+<p>Desktopt 现在自定义</p>
+
+<p>基本系统取消java平台</p>
+
+<p>下一步</p>
+
+<p>重新引导</p>
+
+<p>不创建用户</p>
+
+<h3 id="关于vmware中计算机名子">关于vmware中计算机名子:</h3>
+
+<pre><code>虚拟机名: bigdata01
+
+计算机名: bigdata01
+
+网络中的名字: bigdata01
+
+用户名:root
+</code></pre>
+
+<p>默认超级管理员: root/自己设置</p>
+
+<h3 id="查看计算机名-hostname">查看计算机名: hostname</h3>
+
+<pre><code>hostname
+</code></pre>
+
+<p>查看计算机名</p>
+
+<p>通过文本编辑器打开文件: vi路径/文件名</p>
+
+<pre><code>vi /etc/sysconfig/network
+</code></pre>
+
+<p>查看文件: <code>cat /etc/sysconfig/network</code></p>
+
+<p>编辑: <code>a</code></p>
+
+<p>保存: <code>esc，shift +z+z</code></p>
+
+<p>重启计算机:<code>reboot</code></p>
+
+<p>关机:<code>halt</code></p>
+
+<h3 id="linux安装vm-tools">linux安装vm tools</h3>
+
+<p>虚拟机&ndash;&gt;安装vmtool&mdash;&gt;复制压缩包xxx.tar.gz到桌面&ndash;&gt;解压缩&ndash;&gt;xxxx.pl&mdash;&gt;在命令行打开，一直回车&ndash;&gt;重启</p>
+
+<h3 id="centos网络配置">centos网络配置</h3>
+
+<p>编辑&ndash;》虚拟机网络设置&ndash;》更改设置》NAT模式 vmnet8</p>
+
+<p>子网ip 192.168.2.0</p>
+
+<p>子网掩码255.255.255.0</p>
+
+<p>DHCP设置</p>
+
+<p>起始IP192.168.2.128
+终止ip192.168.2.254</p>
+
+<p>NAT设置
+网关192.168.2.1</p>
+
+<h4 id="配置windows访问虚拟机">配置windows访问虚拟机</h4>
+
+<p>网络&ndash;》右键属性&ndash;》更改适配器设置&ndash;网络连接- vmNet8- -TCP/IP V4 - IP192. 168. 2.2，网关192. 168.2. 1 ，子网掩码 255.255.255.0</p>
+
+<h4 id="centos网卡">centos网卡</h4>
+
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+</code></pre>
+
+<pre><code>DEVICE=eth0
+HWADDR=00:0C:29:26:8F:4F
+TYPE=Ethernet
+UUID=d7986e04-0a7d-4f73-a69a-782be645067b
+--修改以下配置
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=static
+IPADDR=192.168.2.128
+GATEWAY=192.168.2.1
+BROADCAST=192.168.2.255
+DNS1=114.114.114.114
+DNS2=8.8.8.8
+</code></pre>
+
+<p>vi如果使用shift+z+z无法保存，则使用&rdquo;:wq!&rdquo;</p>
+
+<h4 id="通过网络名访问虚拟机-192-168-2-128-bi-gdata01">通过网络名访问虚拟机(192. 168. 2.128 -&gt;bi gdata01)</h4>
+
+<ul>
+<li><p>centos:</p>
+
+<pre><code>vi /etc/hosts,
+追加:
+
+192.168.2.128 centos6
+</code></pre></li>
+
+<li><p>windows:</p>
+
+<pre><code>C: \Windows \System32\drivers\etc\hosts
+追加:
+
+192.168.2.128 bigdata01
+</code></pre></li>
+</ul>
+
+<h4 id="配置网络服务">配置网络服务</h4>
+
+<pre><code>service NetworkManager stop
+
+/etc/init.d/network restart
+
+chkconfig NetworkManager off
+
+vi /etc/resolv.conf
+
+追 加
+
+nameserve 192. 168. 2.1
+
+service network restart
+</code></pre>
+
+<p>移动虚拟机后配置网络</p>
+
+<pre><code>cat /etc/udev/rules.d/70-persistent-net.rules
+查看网络信息   
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+更改信息
+
+service network restart
+</code></pre>
+
+<h3 id="防火墙">防火墙</h3>
+
+<pre><code>service iptables stop：关闭当前防火墙
+chkconfig iptables off：禁止开机自启
+service iptables status：查看当前防火墙状态
+</code></pre>
+
+<h3 id="自动同步时间">自动同步时间</h3>
+
+<pre><code>yum -y install ntp utpdate：安装时间插件
+ntpdate cn.pool.ntp.org：根据网站同步时间
+hwclock --systohc：将系统时间写入硬盘时间
+</code></pre>
+
+<h3 id="windows真实机通过securecrt操作centos">windows真实机通过SecureCRT操作centos</h3>
+
+<ul>
+<li><p>下载SecureCRT</p>
+
+<p>通过SecureCRT对centos进行文件的上传下载:</p>
+
+<pre><code>yum -y install lrzsz
+</code></pre>
+
+<p>上传:切换到当前目录cd /tmp, 直接用鼠标拖拽，Zmodem. .</p></li>
+</ul>
+
+<h4 id="添加连接">添加连接</h4>
+
+<p>单击快速连接(alt+q)</p>
+
+<p>hostname 填写ip地址</p>
+
+<p>username 填写root</p>
+
+<h1 id="软件安装">软件安装</h1>
+
+<h3 id="下载安装jdk-rpm方式">下载安装jdk（rpm方式）</h3>
+
+<pre><code>exe:rpm
+rar:.tar.gz
+</code></pre>
+
+<p>下载rpm版jdk</p>
+
+<p>安装:切到 rpm版 jdk的文件夹中，</p>
+
+<pre><code>rpm -ivh jdk名字
+</code></pre>
+
+<p><code>ll</code>:查看当前文件夹文件
+<code>pwd</code>:查看当前所在的目录
+<code>rpm</code>安装完毕之后全部在usr文件夹中</p>
+
+<p>例如Java的安装位置：/usr/java/jdk1.8.0_231-amd64</p>
+
+<p><strong>linux</strong>：一切都是文件，一切都是命令</p>
+
+<h4 id="配置环境变量">配置环境变量:</h4>
+
+<pre><code>vi /etc/profile
+
+中 的最后追加:
+
+export JAVA_ HOME=/usr/java/jdk1.8.0_ 181-amd64
+export CLASSPATH=$JAVA_HOME$\lib: $CLASSPATH
+export PATH=$JAVA_HOME$\bin:$PATH
+</code></pre>
+
+<p>让环境变量立即生效</p>
+
+<pre><code>source /etc/profile
+</code></pre>
+
+<h3 id="集群-3台-完整克隆">集群(3台) :完整克隆</h3>
+
+<pre><code>bigdata01 -&gt; bigdata02/bi gdata03
+</code></pre>
+
+<p>克隆完毕后:</p>
+
+<ul>
+<li><p>将从计算机的内存适当降低</p></li>
+
+<li><p>修改从计算中唯一性的配置(ip、uuid、hostname映射)</p>
+
+<p>在克隆后的bigdata02/bigdata03中</p>
+
+<p>修改计算机名:</p>
+
+<pre><code>vi /etc/sysconfig/network
+</code></pre>
+
+<p>修改ip</p>
+
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
+修改IP地址
+
+删除uuid/hwaddr (在重启时，自动生成)
+</code></pre>
+
+<p>删除文件：</p>
+
+<pre><code>rm -r /etc/udev/rule.d/70-persistent-net.rules
+
+输入yes
+</code></pre></li>
+
+<li><p>映射</p>
+
+<p>centos</p>
+
+<pre><code>vi /etc/hosts
+
+追加:
+
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre>
+
+<p>windows:</p>
+
+<pre><code>C: \Windows \System32\drivers\etc \hosts
+追加:
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre></li>
+</ul>
+
+<h3 id="ssh免密钥登录">SSH免密钥登录</h3>
+
+<h4 id="生成密钥">生成密钥</h4>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<p>一直回车</p>
+
+<p>存储路径：</p>
+
+<pre><code>/root/.ssh
+</code></pre>
+
+<p>id_rsa:私钥</p>
+
+<p>id_rsa.pub：公钥</p>
+
+<h4 id="发送给其他计算机">发送给其他计算机</h4>
+
+<p>发送私钥(本机)：</p>
+
+<pre><code>ssh-copy-id localhost
+yes
+当前用户密码
+</code></pre>
+
+<p>发送公钥（其他计算机）</p>
+
+<pre><code>ssh-copy-id xxxx
+yes
+xxxx计算机的密码
+</code></pre>
+
+<p>测试免密钥登录</p>
+
+<pre><code>ssh localhost
+ssh xxxx
+</code></pre>
+
+<h3 id="用户权限">用户权限</h3>
+
+<h4 id="用户组">用户组</h4>
+
+<p>创建用户组</p>
+
+<pre><code>groupadd bd
+</code></pre>
+
+<p>在用户组中添加用户</p>
+
+<pre><code>useradd -g bd lx
+passwd lx 回车
+输入密码
+</code></pre>
+
+<p>给用户提升权限（在/etc/sudoers中设置lx的权限）</p>
+
+<p>/etc/sudoers文件本身是可读的，所以修改该文件前需要，将只读禁止</p>
+
+<pre><code>chmod 777 /etc/sudoers 最高权限（可读可写）
+</code></pre>
+
+<p>编辑文件</p>
+
+<p>追加</p>
+
+<pre><code>lx ALL(ALL)     ALL
+</code></pre>
+
+<p>还原/etc/sudoers的权限为只读：</p>
+
+<pre><code>chomd 440 /etc/sudoers
+</code></pre>
+
+<h4 id="删除用户">删除用户</h4>
+
+<pre><code>userdel lx
+</code></pre>
+
+<h4 id="切换用户">切换用户</h4>
+
+<pre><code>su lx       切换普通用户
+
+su          切换到管理员用户
+</code></pre>
+
+<p>​</p>
+
+<h3 id="jps">jps</h3>
+
+<p>查看进程</p>
+
+<pre><code>jps
+</code></pre>
+
+<p>删除进程</p>
+
+<pre><code>kill -9 进程编号
+</code></pre>
+
+<h2 id="easymock安装">EasyMock安装</h2>
+
+<p>+++</p>
+
+<h3 id="虚拟机启动访问">虚拟机启动访问</h3>
+
+<p>启动mongodb</p>
+
+<pre><code>cd /usr/local/mongodb/bin/
+
+./mongod --port 27017 --dbpath=/data/mongodb
+</code></pre>
+
+<p>登录数据库</p>
+
+<pre><code>cd /usr/local/mongodb/bin/
+
+netstat -lanp | grep &quot;27017&quot;
+
+./mongo
+
+use admin
+
+db.auth(&quot;root&quot;,&quot;135451&quot;)
+</code></pre>
+
+<h4 id="启动redis">启动redis</h4>
+
+<pre><code>cd /data/redis/bin/
+
+redis-server
+</code></pre>
+
+<h4 id="启动easymock">启动EasyMock</h4>
+
+<pre><code>cd /app/easymock/easy-mock/
+
+npm run dev
+</code></pre>
+
+<h4 id="本机访问">本机访问</h4>
+
+<pre><code>http://centos6:7300/
+</code></pre>
+
+<p><strong>linux软件安装</strong></p>
+
+<p>使用到的软件有nodejs、mongodb、redis、easy-mock、git</p>
+
+<h3 id="nodejs安装">nodejs安装</h3>
+
+<pre><code>cd /opt
+
+wget  https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz
+
+xz -d  node-v8.11.1-linux-x64.tar.xz 
+
+tar -xvf node-v8.11.1-linux-x64.tar
+
+cd node-v8.11.1-linux-x64/bin
+
+pwd
+
+
+ln -s /opt/node-v8.11.1-linux-x64/bin/node /usr/sbin/node
+
+ln -s /opt/node-v8.11.1-linux-x64/bin/node /usr/bin/node
+ln -s /opt/node-v8.11.1-linux-x64/bin/npm /usr/sbin/npm
+ln -s /opt/node-v8.11.1-linux-x64/bin/npm /usr/bin/npm
+
+</code></pre>
+
+<h4 id="测试">测试</h4>
+
+<pre><code>node -v
+
+npm -v
+
+</code></pre>
+
+<h4 id="安装cnpm">安装cnpm</h4>
+
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+ln -s /opt/node-v8.11.1-linux-x64/bin/cnpm /usr/sbin/cnpm
+
+ln -s /opt/node-v8.11.1-linux-x64/bin/cnpm /usr/bin/cnpm
+
+</code></pre>
+
+<h4 id="软连接">软连接</h4>
+
+<p>创建软链接</p>
+
+<pre><code>ln  -s  [源文件或目录]  [目标文件或目录]
+</code></pre>
+
+<p>例如：</p>
+
+<p>当前路径创建test 引向/var/www/test 文件夹</p>
+
+<pre><code>ln –s  /var/www/test  test
+</code></pre>
+
+<p>创建/var/test 引向/var/www/test 文件夹</p>
+
+<pre><code>ln –s  /var/www/test   /var/test 
+</code></pre>
+
+<p>删除软链接</p>
+
+<p>和删除普通的文件是一样的，删除都是使用rm来进行操作</p>
+
+<pre><code>rm –rf 软链接名称（请注意不要在后面加”/”，rm –rf 后面加不加”/” 的区别，可自行去百度下啊）
+</code></pre>
+
+<p>例如：</p>
+
+<p>删除test</p>
+
+<pre><code>rm –rf test
+</code></pre>
+
+<p>修改软链接</p>
+
+<pre><code>ln –snf  [新的源文件或目录]  [目标文件或目录]
+</code></pre>
+
+<p>这将会修改原有的链接地址为新的地址</p>
+
+<p>例如：</p>
+
+<p>创建一个软链接</p>
+
+<pre><code>ln –s  /var/www/test   /var/test
+</code></pre>
+
+<p>修改指向的新路径</p>
+
+<pre><code>ln –snf  /var/www/test1   /var/test
+</code></pre>
+
+<h4 id="错误解决">错误解决</h4>
+
+<p><code>python: /lib64/libc.so.6: version</code>GLIBC_2.14&rsquo; not found (required by /usr/lib64/libpython2.7.so.1.0)，`</p>
+
+<pre><code>http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.gz 
+
+http://ftp.gnu.org/gnu/glibc/glibc-ports-2.14.tar.gz 
+
+tar -xvf  glibc-2.14.tar.gz 
+
+tar -xvf  glibc-ports-2.14.tar.gz
+
+mv glibc-ports-2.14 glibc-2.14/ports
+
+mkdir glibc-2.14/build
+
+cd glibc-2.14/build 
+
+../configure  --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
+
+make
+
+make install
+
+
+</code></pre>
+
+<pre><code>strings /lib64/lib.so.6 |grep GLBC_
+</code></pre>
+
+<p>查看是否有2.14版本</p>
+
+<h2 id="mongodb安装">Mongodb安装</h2>
+
+<pre><code>cd /opt
+
+wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.2.10.tgz
+
+tar -zxvf mongodb-linux-x86_64-rhel70-3.2.10.tgz.gz
+
+mv mongodb-linux-x86_64-rhel70-3.2.10 /usr/local/mongodb
+
+mkdir -p /data/mongodb
+
+cd /usr/local/mongodb/bin
+
+./mongod --port 27017 --dbpath=/data/mongodb 启动服务
+</code></pre>
+
+<p>终端在运行，如果想操作的话，换另一个终端</p>
+
+<pre><code>netstat -lanp | grep &quot;27017&quot;        检查是否启动
+
+./mongo                             进入数据库
+
+use admin                           登录
+
+db.createUser({user:&quot;root&quot;,pwd:&quot;yourpasswd&quot;,roles:[&quot;root&quot;]});
+ 
+db.auth(&quot;root&quot;,&quot;yourpasswd&quot;)
+
+</code></pre>
+
+<h2 id="redis安装">redis安装</h2>
+
+<p><a href="https://www.cnblogs.com/zuidongfeng/p/8032505.html">参考博客</a></p>
+
+<pre><code>cd /opt
+
+wget http://download.redis.io/releases/redis-2.8.0.tar.gz
+
+
+tar zxf redis-2.8.0.tar.gz
+
+mv redis-2.8.0 /data/redis
+
+yum install gcc cpp binutils glibc glibc-kernheaders glibc-common glibc-devel tcl
+
+cd /data/redis
+
+cd tests/unit/
+
+vi memefficiency.tcl
+
+找到16384,把后面的0.90改成0.80
+
+cd ..
+
+cd ..
+
+make &amp;&amp; make test
+
+等待较长时间后
+
+cd src
+
+make install
+
+cd ..
+mkdir etc
+
+mkdir bin
+
+
+mv redis.conf /data/redis/etc/
+
+cd src
+
+mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-cli redis-server /data/redis/bin/
+
+cd ..
+
+cd bin
+
+redis-server
+
+</code></pre>
+
+<pre><code>cd etc/
+
+vim redis.conf
+
+daemonize 将no修改为yes
+
+# requirepass foobared 取消注释设置登录密码
+
+再次启动redis服务，并指定启动服务配置文件
+
+redis-server /data/redis/etc/redis.conf
+
+登录
+
+redis-cli -h 127.0.0.1 -p 6379 -a 密码
+</code></pre>
+
+<h3 id="问题解决">问题解决</h3>
+
+<p><code>Creating Server TCP listening socket *:6379: bind: Address already in use</code></p>
+
+<pre><code>ps -ef | grep -i redis
+</code></pre>
+
+<p>结果</p>
+
+<pre><code>root      3086     1  0 Apr24 ?        00:00:07 ./bin/redis-server *:6379      
+root      3531  3467  0 01:00 pts/0    00:00:00 grep -i redis
+</code></pre>
+
+<p>杀死指定进程</p>
+
+<pre><code>kill -9 3086
+</code></pre>
+
+<p>重新启动服务即可</p>
+
+<h3 id="安装git">安装git</h3>
+
+<pre><code>
+cd /app
+
+yum install  gcc perl-ExtUtils-MakeMaker
+
+在https://github.com/git/git/releases下载安装包，上传到linux
+
+tar -zxvf v2.25.0.tar.gz
+
+cd git-2.25.0
+
+
+yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+
+yum -y remove git
+
+make prefix=/usr/local/git all
+
+make prefix=/usr/local/git install
+
+vi /etc/profile 
+
+
+
+
+source /etc/profile
+
+
+git --version
+</code></pre>
+
+<h3 id="安装easymock">安装EasyMock</h3>
+
+<pre><code>cd /app/easymock
+
+git clone https://github.com/easy-mock/easy-mock.git
+
+cd easy-mock/
+
+cnpm install
+
+npm run build
+
+npm run start
+</code></pre>
+
+<h1 id="linux-centos7-安装">Linux Centos7 安装</h1>
+
+<p>新建虚拟机</p>
+
+<p>稍后安装操作系统</p>
+
+<p>处理器数量（虚拟的，只跟自己的真实机有关）1，1，1</p>
+
+<p>内存2048</p>
+
+<p>网络nat</p>
+
+<p>磁盘20G</p>
+
+<p>完成</p>
+
+<p>编辑虚拟机设置</p>
+
+<p>设置iso镜像位置</p>
+
+<p>开启虚拟机</p>
+
+<p>第一项回车</p>
+
+<p>语言推荐选英语</p>
+
+<p>更改时区</p>
+
+<p>SOFTWARE SELECTION选择</p>
+
+<pre><code>GNOME Desktop
+</code></pre>
+
+<p>INSTALLATION DESTINATION选择</p>
+
+<pre><code>I will configure partitioning
+</code></pre>
+
+<p>Standard Partition 点击+</p>
+
+<pre><code>/           10240
+/boot       300
+swap        1024(与内存大小一致)
+</code></pre>
+
+<p>设置管理员密码</p>
+
+<p>重启</p>
+
+<p>同意协议</p>
+
+<h4 id="设置hostname">设置hostname</h4>
+
+<pre><code>hostnamectl set-hostname centos7init
+</code></pre>
+
+<h4 id="设置ip">设置ip</h4>
+
+<p>编辑&ndash;》虚拟网络编辑器，与centos6设置一样</p>
+
+<pre><code>cd /etc/sysconfig/network-scripts/
+ls
+</code></pre>
+
+<pre><code>DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=f75a83a8-750a-40db-8ac1-562e6190d1e4
+DEVICE=ens33
+ONBOOT=yes
+IPADDR=192.168.2.150
+GATEWAY=192.168.2.1
+BROADCAST=192.168.2.255
+DNS1=114.114.114.114
+DNS2=8.8.8.8
+</code></pre>
+
+<h4 id="域名映射">域名映射</h4>
+
+<pre><code>vi /etc/hosts
+
+192.168.2.150 centos7init
+</code></pre>
+
+<p>windows:</p>
+
+<pre><code>C: \Windows \System32\dr ivers\etc \hosts
+
+追加:
+
+192.168.2.150 centos7init
+</code></pre>
+
+<h4 id="配置网络服务-1">配置网络服务</h4>
+
+<pre><code>service NetworkManager stop
+
+/etc/init.d/network restart
+
+chkconfig NetworkManager off
+
+vi /etc/resolv.conf
+
+追 加
+
+nameserve 192. 168. 2.1
+
+service network restart
+</code></pre>
+
+<h3 id="防火墙-1">防火墙</h3>
+
+<pre><code>systemctl stop firewalld：关闭当前防火墙
+systemctl disable firewalld：禁止开机自启
+</code></pre>
+
+<h3 id="自动同步时间-1">自动同步时间</h3>
+
+<pre><code>yum -y install ntp utpdate：安装时间插件
+ntpdate cn.pool.ntp.org：根据网站同步时间
+hwclock --systohc：将系统时间写入硬盘时间
+</code></pre>
+
+<h3 id="windows真实机通过securecrt操作centos-1">windows真实机通过SecureCRT操作centos</h3>
+
+<ul>
+<li><p>下载SecureCRT</p>
+
+<p>通过SecureCRT对centos进行文件的上传下载:</p>
+
+<pre><code>yum -y install lrzsz
+</code></pre>
+
+<p>上传:切换到当前目录cd /tmp, 直接用鼠标拖拽，Zmodem. .</p></li>
+</ul>
+
+<h4 id="添加连接-1">添加连接</h4>
+
+<p>单击快速连接(alt+q)</p>
+
+<p>hostname 填写ip地址</p>
+
+<p>username 填写root</p>
+
+<h3 id="下载安装jdk-rpm方式-1">下载安装jdk（rpm方式）</h3>
+
+<pre><code>exe:rpm
+rar:.tar.gz
+</code></pre>
+
+<p>下载rpm版jdk</p>
+
+<p>安装:切到 rpm版 jdk的文件夹中，</p>
+
+<pre><code>rpm -ivh jdk名字
+</code></pre>
+
+<p>例如Java的安装位置：/usr/java/jdk1.8.0_231-amd64</p>
+
+<p><strong>linux</strong>：一切都是文件，一切都是命令</p>
+
+<h4 id="配置环境变量-1">配置环境变量:</h4>
+
+<pre><code>vi /etc/profile
+
+中 的最后追加:
+
+export JAVA_ HOME=/usr/java/jdk1.8.0_231-amd64
+export CLASSPATH=$JAVA_HOME$\lib: $CLASSPATH
+export PATH=$JAVA_HOME$\bin:$PATH
+</code></pre>
+
+<p>让环境变量立即生效</p>
+
+<pre><code>source /etc/profile
+</code></pre>
+
+<h3 id="集群-3台-完整克隆-1">集群(3台) :完整克隆</h3>
+
+<p>克隆完毕后:</p>
+
+<ul>
+<li><p>将从计算机的内存适当降低</p></li>
+
+<li><p>修改从计算中唯一性的配置(ip、uuid、hostname映射)</p>
+
+<p>在克隆后的bigdata02/bigdata03中</p>
+
+<p>修改计算机名:</p>
+
+<pre><code>hostnamectl set-hostname xxxx
+</code></pre>
+
+<p>修改ip</p>
+
+<pre><code>cd /etc/sysconfig/network-scripts/
+ls
+
+删除uuid(在重启时，自动生成)
+</code></pre></li>
+
+<li><p>映射</p>
+
+<p>centos</p>
+
+<pre><code>vi /etc/hosts
+
+追加:
+
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre>
+
+<p>windows:</p>
+
+<pre><code>C: \Windows \System32\drivers\etc \hosts
+追加:
+192.168. 2.128 bi gdata01
+192. 168. 2. 129 bi gdata02
+192.168. 2. 130 bi gdata03
+</code></pre></li>
+</ul>
+
+<h3 id="ssh免密钥登录-1">SSH免密钥登录</h3>
+
+<h4 id="生成密钥-1">生成密钥</h4>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<p>一直回车</p>
+
+<p>存储路径：</p>
+
+<pre><code>/root/.ssh
+</code></pre>
+
+<p>id_rsa:私钥</p>
+
+<p>id_rsa.pub：公钥</p>
+
+<h4 id="发送给其他计算机-1">发送给其他计算机</h4>
+
+<p>发送私钥(本机)：</p>
+
+<pre><code>ssh-copy-id localhost
+yes
+当前用户密码
+</code></pre>
+
+<p>发送公钥（其他计算机）</p>
+
+<pre><code>ssh-copy-id xxxx
+yes
+xxxx计算机的密码
+</code></pre>
+
+<p>测试免密钥登录</p>
+
+<pre><code>ssh localhost
+ssh xxxx
+</code></pre>
+
+<h3 id="后台运行命令">后台运行命令</h3>
+
+<p>般情况下关闭终端时，那么在这个终端中启动的后台程序也会终止，要使终端关闭后，后台程序保持执行，使用这个指令：</p>
+
+<pre><code> nohup test.sh &amp;
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2019/11/linux-centos6/" title="Linux Centos6" target="_blank" rel="external">https://mumulx.github.io/2019/11/linux-centos6/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2019/11/mybatis%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Mybatis自学笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2019/11/jsp%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                    title="JSP进阶学习笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

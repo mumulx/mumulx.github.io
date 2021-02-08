@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java面试准备二 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java面试准备二." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java面试准备二 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java面试准备二" />
+<meta property="og:description" content="Java面试准备二." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" />
+<meta property="article:published_time" content="2020-12-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-21T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java面试准备二">
+<meta itemprop="description" content="Java面试准备二.">
+
+
+<meta itemprop="datePublished" content="2020-12-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-12-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="28920">
+
+
+
+<meta itemprop="keywords" content="面试题," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java面试准备二"/>
+<meta name="twitter:description" content="Java面试准备二."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">13</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="title">Java底层知识汇总</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/08/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="title">Java算法笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#面试一">面试一</a>
+<ul>
+<li><a href="#说说jvm的内存布局">说说JVM的内存布局？</a>
+<ul>
+<li><a href="#jvm的四大模块">JVM的四大模块</a>
+<ul>
+<li><a href="#堆">堆</a>
+<ul>
+<li><a href="#对象布局">对象布局</a></li>
+<li><a href="#计算对象大小">计算对象大小</a></li>
+<li><a href="#指针压缩">指针压缩</a></li>
+</ul></li>
+<li><a href="#栈">栈</a></li>
+<li><a href="#方法区">方法区</a></li>
+<li><a href="#本地方法栈">本地方法栈</a></li>
+<li><a href="#程序计数器">程序计数器</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#java的类加载机制">Java的类加载机制</a>
+<ul>
+<li><a href="#类加载器">类加载器</a></li>
+</ul></li>
+<li><a href="#知道双亲委派模型吗">知道双亲委派模型吗？</a></li>
+<li><a href="#说说有哪些垃圾回收算法">说说有哪些垃圾回收算法？</a>
+<ul>
+<li><a href="#cms">CMS</a></li>
+<li><a href="#g1">G1</a></li>
+<li><a href="#zgc">ZGC</a></li>
+</ul></li>
+<li><a href="#频繁fullgc怎么排查">频繁FullGC怎么排查？</a></li>
+<li><a href="#jvm调优有什么经验吗">JVM调优有什么经验吗？</a></li>
+<li><a href="#java-内存分配">Java 内存分配。</a></li>
+</ul></li>
+<li><a href="#面试二">面试二</a>
+<ul>
+<li><a href="#如何判断一个对象是否存活-或者-gc-对象的判定方法">如何判断一个对象是否存活？（或者 GC 对象的判定方法）</a>
+<ul>
+<li><a href="#gc-roots">GC Roots</a></li>
+</ul></li>
+<li><a href="#垃圾回收的优点和原理-并考虑-2-种回收机制">垃圾回收的优点和原理。并考虑 2 种回收机制。</a></li>
+<li><a href="#垃圾回收器的基本原理是什么-垃圾回收器可以马上回收内存吗-有什么办法主动通知虚拟机进行垃圾回收">垃圾回收器的基本原理是什么？垃圾回收器可以马上回收内存吗？有什么办法主动通知虚拟机进行垃圾回收？</a></li>
+<li><a href="#java-中会存在内存泄漏吗-请简单描述">Java 中会存在内存泄漏吗，请简单描述。</a></li>
+<li><a href="#深拷贝和浅拷贝">深拷贝和浅拷贝。</a></li>
+<li><a href="#system-gc-和-runtime-gc-会做什么事情">System.gc() 和 Runtime.gc() 会做什么事情？</a></li>
+<li><a href="#finalize-方法什么时候被调用-析构函数-finalization-的目的是什么">finalize() 方法什么时候被调用？析构函数 (finalization) 的目的是什么？</a></li>
+<li><a href="#如果对象的引用被置为-null-垃圾收集器是否会立即释放对象占用的内存">如果对象的引用被置为 null，垃圾收集器是否会立即释放对象占用的内存？</a></li>
+<li><a href="#什么是分布式垃圾回收-dgc-它是如何工作的">什么是分布式垃圾回收（DGC）？它是如何工作的？</a></li>
+<li><a href="#串行-serial-收集器和吞吐量-throughput-收集器的区别是什么">串行（serial）收集器和吞吐量（throughput）收集器的区别是什么？</a></li>
+<li><a href="#在-java-中-对象什么时候可以被垃圾回收">在 Java 中，对象什么时候可以被垃圾回收？</a></li>
+<li><a href="#简述-java-内存分配与回收策率以及-minor-gc-和-majorgc">简述 Java 内存分配与回收策率以及 Minor GC 和 MajorGC。</a></li>
+<li><a href="#jvm-的永久代中会发生垃圾回收么">JVM 的永久代中会发生垃圾回收么？</a></li>
+<li><a href="#java-中垃圾收集的方法有哪些">Java 中垃圾收集的方法有哪些？</a></li>
+<li><a href="#什么是类加载器-类加载器有哪些">什么是类加载器，类加载器有哪些？</a></li>
+<li><a href="#类加载器双亲委派模型机制">类加载器双亲委派模型机制？</a></li>
+</ul></li>
+<li><a href="#了解一下老年代空间担保规则">了解一下老年代空间担保规则</a>
+<ul>
+<li><a href="#老年代担保什么">老年代担保什么？</a></li>
+<li><a href="#老年代想担保就能担保">老年代想担保就能担保？</a></li>
+<li><a href="#老年代想要担保需要遵守什么规则">老年代想要担保需要遵守什么规则？</a></li>
+</ul></li>
+<li><a href="#对象已死">对象已死？</a>
+<ul>
+<li>
+<ul>
+<li><a href="#对象已死-1">对象已死？</a></li>
+</ul></li>
+<li><a href="#引用计数算法">引用计数算法</a></li>
+<li><a href="#根搜索算法">根搜索算法</a></li>
+<li><a href="#引用">引用</a></li>
+<li><a href="#finalize-方法">finalize()方法</a></li>
+<li><a href="#回收方法区">回收方法区</a></li>
+</ul></li>
+<li><a href="#java经典面试题详解-全是干货突围金九银十面试季-附详细答案">Java经典面试题详解，全是干货突围金九银十面试季（附详细答案）</a>
+<ul>
+<li><a href="#1-java-自动装箱与拆箱">1.Java 自动装箱与拆箱</a></li>
+<li><a href="#2-重载和重写的区别">2.重载和重写的区别</a></li>
+<li><a href="#3-equals-与-的区别">3.equals 与==的区别</a></li>
+<li><a href="#4-hashcode-的作用">4. Hashcode 的作用</a></li>
+<li><a href="#5-string-string-stringbuﬀer-和-stringbuilder-的区别是什么">5.String、String StringBuﬀer 和 StringBuilder 的区别是什么?</a></li>
+<li><a href="#6-arraylist-和-linkedlist-的区别">6.ArrayList 和 linkedList 的区别</a></li>
+<li><a href="#7-hashmap-和-hashtable-的区别">7.HashMap 和 HashTable 的区别</a></li>
+<li><a href="#8-collection-包结构-与-collections-的区别">8.Collection 包结构，与 Collections 的区别</a></li>
+<li><a href="#9-java-的四种引用-强弱软虚">9.Java 的四种引用，强弱软虚</a></li>
+<li><a href="#10-a-a-b-与-a-b-有什么区别吗">10.a=a+b 与 a+=b 有什么区别吗?</a></li>
+<li><a href="#11-try-catch-ﬁnally-try-里有-return-ﬁnally-还执行么">11.try catch ﬁnally，try 里有 return，ﬁnally 还执行么？</a></li>
+<li><a href="#12-java-线程实现-创建方式">12.Java 线程实现/创建方式</a></li>
+<li><a href="#13-线程池原理">13.线程池原理</a></li>
+<li><a href="#14-java-常用算法">14.Java 常用算法</a></li>
+<li><a href="#15-spring-beans">15.Spring Beans</a>
+<ul>
+<li><a href="#抽象类与接口区别">抽象类与接口区别</a></li>
+</ul></li>
+<li><a href="#总结">总结：</a></li>
+</ul></li>
+<li><a href="#java中的四大引用">Java中的四大引用</a>
+<ul>
+<li><a href="#强引用-strongreference">强引用(StrongReference)</a></li>
+<li><a href="#软引用-softreference">软引用(SoftReference)</a></li>
+<li><a href="#弱引用-weakreference">弱引用(WeakReference)</a></li>
+<li><a href="#虚引用-phantomreference">虚引用(PhantomReference)</a></li>
+</ul></li>
+<li><a href="#多线程">多线程</a>
+<ul>
+<li>
+<ul>
+<li><a href="#线程池">线程池</a></li>
+<li><a href="#线程池参数介绍">线程池参数介绍</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/"
+    >Java面试准备二</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="article-date">
+  <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/java%E9%9D%A2%E8%AF%95/"> Java面试 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"> 面试题 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:28920字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:58分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="面试一">面试一</h1>
+
+<h2 id="说说jvm的内存布局">说说JVM的内存布局？</h2>
+
+<h3 id="jvm的四大模块">JVM的四大模块</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/1568883650128.png" alt="1568883650128" /></p>
+
+<ul>
+<li>类加载子系统</li>
+<li>内存模型
+
+<ul>
+<li>堆</li>
+<li>本地方法栈</li>
+<li>虚拟机栈</li>
+<li>程序计数器</li>
+<li>方法区</li>
+</ul></li>
+<li>执行引擎</li>
+<li>垃圾回收器</li>
+</ul>
+
+<h4 id="堆">堆</h4>
+
+<p>堆Java虚拟机中最大的一块内存，是线程共享的内存区域，基本上所有的对象实例数组都是在堆上分配空间。堆区细分为Young区年轻代和Old区老年代，其中年轻代又分为Eden、S0、S1, 3个部分，他们默认的比例是8:1:1的大小。</p>
+
+<ul>
+<li>存放对象实例（数组、对象）</li>
+<li>堆是jvm区域中最大的一块，在jvm启动时就已经创建完毕</li>
+<li>GC主要管理的区域</li>
+<li>堆本身是线程共享，但在堆内部可以划分出多个线程私有的缓冲区</li>
+<li>堆允许物理空间不连续，只要逻辑连续即可</li>
+<li>堆可以分 新生代、老生代 。大小比例，新生代：老生代= 1:2</li>
+<li>新生代中 包含eden、s0、s1 = 8:1:1</li>
+<li>新生代的使用率一般在90%。 在使用时，只能使用 一个eden和一块s区间(s0或s1)</li>
+<li>新生代：存放 1.生命周期比较短的对象 2.小的对象；反之，存放在老生代中。对象的大小，可以通过参数设置 -XX：PretenureSizeThredshold 。一般而言，大对象一般是 集合、数组、字符串。生命周期： -XX:MaxTenuringThredshold 默认15</li>
+</ul>
+
+<p>新生代、老生代中年龄：MinorGC回收新生代中的对象。如果Eden区中的对象在一次回收后仍然存活，就会被转移到 s区中；之后，如果MinorGC再次回收，已经在s区中的对象仍然存活，则年龄+1。如果年龄增长一定的数字，则对象会被转移到 老生代中。简言之：在新生代中的对象，每经过一次MinorGC，有三种可能：</p>
+
+<ol>
+<li>从eden -》s区</li>
+<li>（已经在s区中）年龄+1</li>
+<li>转移到老生代中</li>
+</ol>
+
+<p>新生代在使用时，只能同时使用一个s区：底层采用的是复制算法，为了避免碎片产生</p>
+
+<p>老生代： 1.生命周期比较长的对象 2.大的对象； 使用的回收器 MajorGC\FullGC</p>
+
+<p>新生代特点：</p>
+
+<ul>
+<li>大部分对象都存在于新生代</li>
+<li>新生代的回收频率高、效率高</li>
+</ul>
+
+<p>老生代特点：</p>
+
+<ul>
+<li>空间大</li>
+<li>增长速度慢</li>
+<li>频率低</li>
+</ul>
+
+<p>意义：可以根据项目中 对象大小的数量，设置新生代或老生代的空间容量，从提高GC的性能。</p>
+
+<p>如果对象太多，也可能导致内存异常。</p>
+
+<p>虚拟机参数：</p>
+
+<pre><code>-Xms128m ：JVM启动时的大小
+-Xmn32m：新生代大小
+-Xmx128：总大小
+</code></pre>
+
+<p>jvm总大小= 新生代 + 老生代</p>
+
+<p>堆内存溢出的示例：<code>java.lang.OutOfMemoryError: Java heap space</code></p>
+
+<p>堆是调优的主战场，想调优先要学会计算对象的大小</p>
+
+<h5 id="对象布局">对象布局</h5>
+
+<ul>
+<li>对象头
+
+<ul>
+<li>Mark Word</li>
+<li>类型指针</li>
+<li>数组长度</li>
+</ul></li>
+<li>实例数据</li>
+<li>对齐填充</li>
+</ul>
+
+<p>对象的内存布局</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200924205727182.png" alt="image-20200924205727182" /></p>
+
+<p>对象头（锁就与它有关）</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200924205756580.png" alt="image-20200924205756580" /></p>
+
+<p>64位机为例</p>
+
+<ul>
+<li>mark word:8字节 64bit</li>
+<li>类型指针： 8字节（会变成4字节，在开启指针压缩的时候）</li>
+<li>数组长度：4个字节（不是数组对象就为0）</li>
+<li>实例数据：类的普通属性（不包括静态变量）</li>
+<li>对齐填充：</li>
+</ul>
+
+<p>java中所有的对象都是8字节对齐的</p>
+
+<p>类型指针：对象所属类的class对象的内存地址</p>
+
+<p>对其填充其实有两个部分组成</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200924210446373.png" alt="image-20200924210446373" /></p>
+
+<h5 id="计算对象大小">计算对象大小</h5>
+
+<p>指针压缩</p>
+
+<p>jdk6默认是开启的</p>
+
+<pre><code>-XX:+/-UseCompressedOops
+</code></pre>
+
+<p><strong>空对象占多少字节</strong>？</p>
+
+<p>没有数据的对象叫空对象（没有普通属性）</p>
+
+<ul>
+<li>开启指针压缩：16—–8（mark word）+4（类型指针）+4（填充空间）</li>
+<li>未开启指针压缩：16—–8（mark word）+8（类型指针）+0（填充空间）</li>
+</ul>
+
+<p><img src="https://mumulx.github.io/resources/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/Java/Java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/image-20200924211341669.png" alt="image-20200924211341669" /></p>
+
+<p><strong>普通对象</strong></p>
+
+<pre><code class="language-java">public class Test{
+    int a=20;
+    int b=20;
+}
+</code></pre>
+
+<ul>
+<li>开启：24（8+4+（4+4）+4）=24</li>
+<li>关闭：24（8+8+（4+4））=24</li>
+</ul>
+
+<p>指针压缩：将内存地址的8字节–&gt;4字节，节省了空间，提升了寻址效率</p>
+
+<pre><code class="language-java">public class Test{
+    int a=20;
+    int b=20;
+    static int[] arr={0,1,2};
+}
+</code></pre>
+
+<ul>
+<li>开启：32</li>
+<li>关闭：40</li>
+</ul>
+
+<p><img src="https://mumulx.github.io/resources/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/Java/Java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/image-20200924211948989.png" alt="image-20200924211948989" /></p>
+
+<p><img src="https://mumulx.github.io/resources/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/Java/Java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/image-20200924212157878.png" alt="image-20200924212157878" /></p>
+
+<h5 id="指针压缩">指针压缩</h5>
+
+<p>64bit机下，内存地址占8字节</p>
+
+<p>8—&gt;4到底是怎么存储的？使用过程中做了什么？</p>
+
+<p><strong>实现原理</strong></p>
+
+<p><img src="https://mumulx.github.io/resources/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/Java/Java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/image-20200924212859919.png" alt="image-20200924212859919" /></p>
+
+<pre><code>test1=00 000
+test2=10 000
+test3=110 000
+</code></pre>
+
+<p>8字节对齐后三位永远是0</p>
+
+<p>在存储的时候，去除3为，高位补0</p>
+
+<pre><code>test1=00
+test2=10
+test3=110
+</code></pre>
+
+<p>再用的时候增加三位，低位补0</p>
+
+<pre><code>test1=00 000
+test2=10 000
+test3=110 000
+</code></pre>
+
+<p>那么只是移动的3位，还少一位呢？</p>
+
+<p>8字节–&gt;4字节之后与32位机器又有什么差别呢？</p>
+
+<p>我们使用了这样的技术</p>
+
+<ol>
+<li>我们的性能一定要高于32位机器</li>
+<li>留有一定的扩容的退路</li>
+</ol>
+
+<p>对象实际上是占35位，按32位存储</p>
+
+<p>oop不是面向对象的意思是对象指针的意思（ordinary object pointer）</p>
+
+<p>oops：</p>
+
+<p>开启指针压缩内存地址占4字节 32位，在使用的时候增加三位32+3</p>
+
+<p>一个oop能支持的最大堆空间是多少？2^35</p>
+
+<p>如何扩容？16字节对齐，</p>
+
+<p>这个扩容是修改操作系统代码还是openjdk代码？openjdk</p>
+
+<h4 id="栈">栈</h4>
+
+<p>栈是线程私有的内存区域，每个方法执行的时候都会在栈创建一个栈帧，方法的调用过程就对应着栈的入栈和出栈的过程。每个栈帧的结构又包含</p>
+
+<ul>
+<li>局部变量表</li>
+<li>操作数栈</li>
+<li>动态连接</li>
+<li>方法返回地址</li>
+</ul>
+
+<p>局部变量表用于存储方法参数和局部变量。当第一个方法被调用的时候，他的参数会被传递至从0开始的连续的局部变量表中。
+操作数栈用于一些字节码指令从局部变量表中传递至操作数栈，也用来准备方法调用的参数以及接收方法返回结果。
+动态连接用于将符号引用表示的方法转换为实际方法的直接引用。</p>
+
+<p><a href="https://www.cnblogs.com/tommaoxiaoqi/p/13063340.html">栈帧中动态连接的理解</a></p>
+
+<p>定义：描述 方法执行的内存模型</p>
+
+<ul>
+<li>方法在执行的同时，会在虚拟机栈中创建一个栈帧</li>
+<li>栈帧中包含：方法的局部变量表（局部变量），操作数据栈（局部变量的值）、动态链接（动态的指向对象）、方法出口信息等</li>
+</ul>
+
+<p>当方法太多时，就可能发生 栈溢出异常StackOverflowError，或者内存溢出异常OutOfMemoryError</p>
+
+<p><img src="/resources/杂七杂八/Java面试/1568887498037.png" alt="1568887498037" /></p>
+
+<h4 id="方法区">方法区</h4>
+
+<p>经常会跟永久代，元空间放在一起，他们之间的关系是</p>
+
+<ul>
+<li>方法区是规范，永久代、元空间是具体实现</li>
+<li>方法区是接口，永久代、元空间是实现类</li>
+</ul>
+
+<p>永久代、元空间是否同时存在同一个JVM中？否</p>
+
+<p>永久代</p>
+
+<ul>
+<li>jdk8以前方法区的实现</li>
+<li>堆中的</li>
+</ul>
+
+<p>元空间</p>
+
+<ul>
+<li>jdk8以后方法区的实现</li>
+<li>直接内存中的</li>
+</ul>
+
+<p>为什么以元空间取代永久代?</p>
+
+<ol>
+<li>oom：元空间存放的是Klass文件信息，不可避免的会占用一些空间</li>
+<li>gc：既有对象，又有源信息。垃圾回收判断你很困难</li>
+<li>受硬件限
+
+<ol>
+<li>32位机4G
+
+<ul>
+<li>内核2G</li>
+<li>应用层2G</li>
+</ul></li>
+<li>64位机= 16 +48（16位作为保留位，48位作为实际使用的位数）
+
+<ul>
+<li>2的64次方</li>
+<li>2的48次方256T</li>
+</ul></li>
+</ol></li>
+</ol>
+
+<p>元空间有什么缺点?</p>
+
+<ul>
+<li>动态生成</li>
+</ul>
+
+<p>元空间的调优</p>
+
+<pre><code>java -XX:+PrintFlagsFinal -version | grep ThreadStack
+</code></pre>
+
+<p>最小20.75M</p>
+
+<p>最大 256T</p>
+
+<p>元空间的调优</p>
+
+<ol>
+<li>最大、最小设置成一样，防止内存抖动</li>
+<li>大小设置成物理机器的1/32
+
+<ul>
+<li>arthas、visualyM..</li>
+</ul></li>
+<li>保存20% -30%的空间空余</li>
+</ol>
+
+<p>元数据：在Java1.7之前，包含方法区的概念，常量池就存在于方法区（永久代）中，而方法区本身是一个逻辑上的概念，在1.7之后则是把常量池移到了堆内，1.8之后移出了永久代的概念(方法区的概念仍然保留)，实现方式则是现在的元数据。它包含类的元信息和运行时常量池。Class文件就是类和接口的定义信息。运行时常量池就是类和接口的常量池运行时的表现形式。</p>
+
+<p>方法区</p>
+
+<p>存放：类的元数据（描述类的信息）、常量池、方法信息（方法数据、方法代码）</p>
+
+<p>gc：类的元数据（描述类的信息）、常量池</p>
+
+<p>方法区中数据如果太多，也会抛异常OutOfMemory异常</p>
+
+<p>常量池：存放编译期间产生的 字面量(“abc”)、符号引用</p>
+
+<p>注意： 导致内存溢出的异常OutOfMemoryError，除了虚拟机中的4个区域以外，还可能是直接内存。在NIO技术中会使用到直接内存。</p>
+
+<h4 id="本地方法栈">本地方法栈</h4>
+
+<p>主要用于执行本地native方法的区域，运行JNI程序需要的栈</p>
+
+<p>原理和结构与虚拟机栈一致，不同点： 虚拟机栈中存放的 jdk或我们自己编写的方法，而本地方法栈调用的 操作系统底层的方法。</p>
+
+<h4 id="程序计数器">程序计数器</h4>
+
+<p>也是线程私有的区域，用于记录当前线程下虚拟机正在执行的字节码的指令地址</p>
+
+<p>简单的可以理解为：class文件中的行号</p>
+
+<blockquote>
+<p>注意：</p>
+
+<p>1.一般情况下，程序计数器 是行号；但如果正在执行的方法是native方法，则程序计数器的值 undefined。</p>
+
+<p>2.程序计数器 是唯一一个 不会 产生 “内存溢出”的区域。</p>
+</blockquote>
+
+<p>goto的本质就是改变的 程序计数器的值（java中没有goto，goto在java中的保留字(好像是唯一一个)）</p>
+
+<h2 id="java的类加载机制">Java的类加载机制</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606223012854.png" alt="image-20200606223012854" /></p>
+
+<p>类的加载，是指将编译好的class类文件中的字节码读入到内存中。将其放在方法区内，并创建对应的Klass对象。类的加载分为加载、链接、初始化，其中链接又包括验证、准备、解析三步，看图中上半部深绿色的部分，我们逐个解析。</p>
+
+<ul>
+<li>加载是文件到内存的过程，通过类的完全限定名，查找此类字节码文件，并利用字节码文件创建一个Klass对象；</li>
+<li>验证是对类文件内容验证，目的在于确保class文件符合当前虚拟机的要求，不会危害到虚拟机自身安全。主要包括4种，
+
+<ul>
+<li>文件格式验证</li>
+<li>原数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ul></li>
+<li>准备阶段是进行内存分配，为类变量，也就是由类中static修饰的变量分配内存，并设置初始值。这里要注意初始值是0或null而不是代码中设置的具体值，代码中设置的值，在初始化阶段完成。另外这里也不包含final修饰的静态变量，因为final变量在编译时就已经分配了。</li>
+<li>解析主要是解析字段、接口、方法，主要是将常量词中的符号引用替换为直接引用的过程，直接引用就是直接指向目标的指针或者相对偏移量等。</li>
+<li>初始化，主要完成静态代码块执行与静态变量的赋值，这是累类加载最后阶段。若被加载类的父类没有初始化，则先对父类进行初始化，只有对类的主动使用时才会进行初始化，初始化的触发条件，包括创建类的实例的时候，访问类的静态方法或者静态变量的时候，使用class forname反射类的时候，或者某个子类被初始化的时候。
+
+<ul>
+<li>为静态变量赋值</li>
+<li>执行静态代码块</li>
+<li>执行构造方法</li>
+</ul></li>
+</ul>
+
+<p><a href="https://mumulx.github.io/2020/11/jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/#%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">类的使用方式：主动使用与被动使用</a></p>
+
+<p>这里要注意一点，由Java虚拟机自带的三种类加载器加载的类，在虚拟机的整个生命周期中是不会被卸载的。只有用户自定义的类加载器所加载的类才可以被卸载。接下来我们学习不同的类加载器</p>
+
+<h3 id="类加载器">类加载器</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606223544658.png" alt="image-20200606223544658" /></p>
+
+<p>Java自带的三种类加载器，分别是bootstrap启动类加载器、扩展类加载器、应用加载器也叫系统加载器，图右边的橘黄色文字，表示各类加载器对应的加载目录；</p>
+
+<p>启动类加载器，加载Java_home中内部目录下的加载类;</p>
+
+<p>扩展加载器，负责加载ext目录下的类;</p>
+
+<p>应用加载器加载classpath指定目录下的类。</p>
+
+<p>除此之外还可以<strong>自定义类加载器</strong>，Java的类加载，使用双亲委派模式。即一个类加载器，在加载类时，先把这个请求委托给自己的父类加载器去执行。如果父类加载器还存在父类加载器，就继续向上委托，直到顶层的启动类加载器，如图中蓝色向上的箭头，如果父类加载器能够完成类的加载就成功返回。如果父类加载器无法完成加载，那么子加载器才会尝试自己去加载，如图中黄色向下的箭头，这种双亲委派模式的好处，一是可以避免类的重复加载，另外也避免了Java的核心API被篡改。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/20201106203127414.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="知道双亲委派模型吗">知道双亲委派模型吗？</h2>
+
+<p>类加载器自顶向下分为：
+Bootstrap ClassLoader启动类加载器：默认会去加载JAVA_HOME/lib目录下的jar
+Extention ClassLoader扩展类加载器：默认去加载JAVA_HOME/lib/ext目录下的jar
+Application ClassLoader应用程序类加载器：比如我们的web应用，会加载web程序中ClassPath下的类
+User ClassLoader用户自定义类加载器：由用户自己定义
+当我们在加载类的时候，首先都会向上询问自己的父加载器是否已经加载，如果没有则依次向上询问，如果没有加载，则从上到下依次尝试是否能加载当前类，直到加载成功。<img src="/resources/杂七杂八/Java面试/20201106203141801.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="说说有哪些垃圾回收算法">说说有哪些垃圾回收算法？</h2>
+
+<p><strong>标记-清除</strong>
+统一标记出需要回收的对象，标记完成之后统一回收所有被标记的对象，而由于标记的过程需要遍历所有的GC ROOT，清除的过程也要遍历堆中所有的对象，所以标记-清除算法的效率低下，同时也带来了内存碎片的问题。
+<strong>复制算法</strong>
+为了解决性能的问题，复制算法应运而生，它将内存分为大小相等的两块区域，每次使用其中的一块，当一块内存使用完之后，将还存活的对象拷贝到另外一块内存区域中，然后把当前内存清空，这样性能和内存碎片的问题得以解决。但是同时带来了另外一个问题，可使用的内存空间缩小了一半！
+因此，诞生了我们现在的常见的年轻代+老年代的内存结构：Eden+S0+S1组成，因为根据IBM的研究显示，98%的对象都是朝生夕死，所以实际上存活的对象并不是很多，完全不需要用到一半内存浪费，所以默认的比例是8:1:1。
+这样，在使用的时候只使用Eden区和S0S1中的一个，每次都把存活的对象拷贝另外一个未使用的Survivor区，同时清空Eden和使用的Survivor，这样下来内存的浪费就只有10%了。
+如果最后未使用的Survivor放不下存活的对象，这些对象就进入Old老年代了。
+PS：所以有一些初级点的问题会问你为什么要分为Eden区和2个Survior区？有什么作用？就是为了节省内存和解决内存碎片的问题，这些算法都是为了解决问题而产生的，如果理解原因你就不需要死记硬背了
+<strong>标记-整理</strong>
+针对老年代再用复制算法显然不合适，因为进入老年代的对象都存活率比较高了，这时候再频繁的复制对性能影响就比较大，而且也不会再有另外的空间进行兜底。所以针对老年代的特点，通过标记-整理算法，标记出所有的存活对象，让所有存活的对象都向一端移动，然后清理掉边界以外的内存空间。</p>
+
+<p>Java的堆内存被分代管理，为什么要分代管理？分代管理主要是为了方便垃圾回收，这样做是基于两个事实。</p>
+
+<ul>
+<li>第一是大部分对象很快就不再使用了</li>
+<li>第二是还有一部分不会立即无用，但也不会持续很长时间。</li>
+</ul>
+
+<p>虚拟机中划分为年轻代、老年代和永久代。我们来看图，年轻代主要用来存放新创建的对象，年轻代分为eden等区和两个survivor区，大部分对象在eden区中生成，当eden区满时还存活的对象会在两个survivor区交替保存，达到一定次数后，对象会晋升到老年代，老年代用来存放从年轻代晋升而来的存活时间较长的对象，永久代在前面也介绍过，主要保存类信息等内容，这里的永久代是指对象划分方式，不是专指1.7的永久代，或者1.8之后的元空间</p>
+
+<p>根据年轻代与老年代的特点，JVM提供了不同的垃圾回收算法，垃圾回收算法按类型可以分为引用计数法、复制法、标记清除法几种，</p>
+
+<p>其中引用计数法是通过对象被引用的次数来确定对象是否还在被使用，缺点是无法解决循环引用的问题。</p>
+
+<p>复制算法需要from和to两块大小相同的内存空间，对象分配时只在from块中进行，回收时把存活对象复制到to块中，并清空form块，然后交换两块的分工。把from块作为to快，把to块作为from块，缺点是内存使用率较低；</p>
+
+<p>标记清除算法分为标记对象和清除不再使用的对象两个阶段，标记清除算法的缺点是会产生内存碎片。</p>
+
+<p>JVM中提供的年轻代回收算法，Serial、parnew、Parallel scavenge。都是复制算法，而cms、G1、ZGC都属于标记清除算法。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/20201106203155101.png" alt="在这里插入图片描述" /></p>
+
+<p>年轻代的垃圾收集器包含有Serial、ParNew、Parallell，老年代则包括Serial Old老年代版本、CMS、Parallel Old老年代版本和JDK11中的船新的G1收集器。</p>
+
+<ul>
+<li>Serial：单线程版本收集器，进行垃圾回收的时候会STW（Stop The World），也就是进行垃圾回收的时候其他的工作线程都必须暂停</li>
+<li>ParNew：Serial的多线程版本，用于和CMS配合使用</li>
+<li>Parallel Scavenge：可以并行收集的多线程垃圾收集器</li>
+<li>Serial Old：Serial的老年代版本，也是单线程</li>
+<li>Parallel Old：Parallel Scavenge的老年代版本</li>
+<li>CMS（Concurrent Mark Sweep）：CMS收集器是以获取最短停顿时间为目标的收集器，相对于其他的收集器STW的时间更短暂，可以并行收集是他的特点，同时他基于标记-清除算法。</li>
+<li>G1（Garbage First）：G1收集器是JDK9的默认垃圾收集器，而且不再区分年轻代和老年代进行回收。</li>
+<li>ZGC：Jdk11开始提供全新的GC。回收TB级别的垃圾 在毫秒范围。</li>
+</ul>
+
+<h3 id="cms">CMS</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606225457453.png" alt="image-20200606225457453" /></p>
+
+<p>下面我们详细介绍几个典型的垃圾回收算法。先来看cms回收算法，cms是jk1.7以前，可以说最主流的垃圾回收算法，cms使用标记清除算法，优点是并发收集，停顿下，我们看图中cms的处理过程，</p>
+
+<ul>
+<li>cms的第一个阶段是初始标记，这个阶段会stop the world，标记的对象只是从root级最直接可达的对象。</li>
+<li>第二个阶段，从GCRoots的直接关联对象开始遍历整个对象图的过程，不需要STW</li>
+<li>第三个阶段，为了修正并发标记期间，因用户程序继续运作而导致标记产生改变的标记，需要STW</li>
+<li>第四个阶段，并发清理删除掉标记阶段判断的已经死亡的对象，不需要STW</li>
+</ul>
+
+<p>从整个过程来看，并发标记和并发清除的耗时最长，但是不需要停止用户线程，而初始标记和重新标记的耗时较短，但是需要停止用户线程，总体而言，整个过程造成的停顿时间较短，大部分时候是可以和用户线程一起工作的。</p>
+
+<h3 id="g1">G1</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606225722650.png" alt="image-20200606225722650" /></p>
+
+<p>G1算法在jdk1.9后成为了JVM的默认垃圾回收算法。G1的特点是保持高回收率的同时减少停顿，G1算法取消了堆中年轻代与老年代的物理划分，但它仍然属于分代收集器，G1算法将对堆分为若干个区域，为region，如图中的小方格所示，一部分区域用作年轻代，一部分用在老年代，还有另外一种专门用来存储巨型对象的分区Humongous，G1和cms一样，会遍历全部对象，然后标记对象引用情况，在清除对象后会对区域进行复制移动整合碎片空间。</p>
+
+<p>图的右边是G1年轻代与老年代的回收过程，G1的年轻代回收采用复制算法并行进行收集，收集过程会stop the world；G1的老年代回收，同时也会对年轻代进行回收。主要分为4个阶段</p>
+
+<ol>
+<li>第一个阶段依然是初始标记阶段，完成对跟对象的标记。这个过程是stop the world。</li>
+<li>第二个阶段，并发标记阶段，这个阶段是和用户线程并行执行的。，从GCRoots的直接关联对象开始遍历整个对象图的过程，扫描完成后还会重新处理并发标记过程中产生变动的对象</li>
+<li>第三个阶段，最终标记的阶段，完成三次标记的标记周期。短暂暂停用户线程，再处理一次，需要STW</li>
+<li>第四阶段，复制清除阶段，这个阶段会优先对可回收空间较大的region进行回收，Garbage First这也是G1名称的由来。</li>
+</ol>
+
+<p>G1采用每次只清理一部分，而不是全部region的增量式清理，由此来保证每次GC停顿时间不会过长。</p>
+
+<p>总结一下G1算法，这部分需要掌握G1是逻辑分代，不是物理分代，需要知道回收的过程和停顿的阶段。此外还需要知道G1算法允许通过jvm参数设置region的大小，范围是1~32M，还可以设置期望的最大这些停顿时间等。如果你有兴趣，也可以对CMs和G1使用的三次标记算法进行简单的了解。
+总的来说除了并发标记之外，其他几个过程也还是需要短暂的STW，G1的目标是在停顿和延迟可控的情况下尽可能提高吞吐量。</p>
+
+<h3 id="zgc">ZGC</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606230631668.png" alt="image-20200606230631668" /></p>
+
+<p>ZGC是最新的jdk1.11中提供的高效垃圾回收算法，针对大堆内存设计可以支持T级别的堆，他非常高效，能够做到10毫秒以下的回收停顿时间，这么短的停顿时间是ZGC如何做到的？我们来了解一下 ZGC的黑科技，ZGC使用了着色指针技术。我们知道64位平台上一个指针可用位是64位，ZGC限制最大支持4tb的堆，这样寻址只需要使用42位。那么会剩下22位就可以用来保存额外的信息。着色指针技术就是利用指针的额外信息位在指针上对象进行着色标记。</p>
+
+<p>第二个特点是使用读屏障，ZGC使用读屏障来解决GC线程和应用线程可能并发修改对象状态的问题，而不是简单粗暴的通过stop the world来做全局的锁定，使用读屏障只会在单个对象的处理上有概率被减速。</p>
+
+<p>第三个特点：由于读屏障这样的使用，进行垃圾回收的大部分时候都是不需要stop the world。因此ZGC的大部分时间都是并发处理；</p>
+
+<p>第四个特点是基于region，这与G1算法一样，不过虽然也分了region，但是并没有进行分代。Zgc的region不像G1那样是固定大小，而是动态决定region的大小。Region可以动态创建和销毁，这样可以更好地对大对象进行分配管理。</p>
+
+<p>第5五特点是压缩整理CMS算法，清理对象是原地回收，会存在内存碎片问题。ZGC和G1一样，也会在回收后对Region中的对象进行移动合并，解决了碎片问题，虽然ZGC的大部分时间是并发进行，但还是会有短暂的停顿。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200606231116774.png" alt="image-20200606231116774" /></p>
+
+<p>来看一下ZGC的回收过程。这张图是按ZGC的回收时序绘制的，我们从上往下看，初始状态是整个堆空间被划分为大小不等的许多region，及图中绿色的方块，开始进行回收时，ZGC首先会进行一个短暂的stop the world，来进行root根对象的标记，这个步骤非常短，因为root的总数量通常比较小，然后就开始进行并发标记。</p>
+
+<p>如图。通过对象指针进行着色来进行标记，结合读屏障，解决单个对象的并发问题。其实这个阶段在最后的时候，还会有一个非常短的stop the word停顿，用来处理一些边缘情况，这个阶段绝大部分时间都是并发进行的，所以没有明显标识出这个停顿。</p>
+
+<p>下一个阶段是清理阶段，这个阶段会把标记为不可用的对象进行回收。如图把橘色的不再使用的对象进行了回收。</p>
+
+<p>最后一个阶段是重定位，重定位就是对GC后存活的对象进行移动，来腾出大块的内存空间解决碎片问题。在重定位最开始，会有一个短暂的stop the world，用来重定位该集合中的root对象，暂停时间取决于root的数量和重定位集与对象的总活动集的比率</p>
+
+<p>最后是并发重定位，这个过程也是通过读屏障与应用线程并发进行的。</p>
+
+<h2 id="频繁fullgc怎么排查">频繁FullGC怎么排查？</h2>
+
+<p>这种问题最好的办法就是结合有具体的例子举例分析，如果没有就说一般的分析步骤。发生FGC有可能是内存分配不合理，比如Eden区太小，导致对象频繁进入老年代，这时候通过启动参数配置就能看出来，另外有可能就是存在内存泄露，可以通过以下的步骤进行排查：
+jstat -gcutil或者查看gc.log日志，查看内存回收情况<img src="/resources/杂七杂八/Java面试/20201106203229872.png" alt="在这里插入图片描述" />
+S0 S1 分别代表两个Survivor区占比
+E代表Eden区占比，图中可以看到使用78%
+O代表老年代，M代表元空间，YGC发生54次，YGCT代表YGC累计耗时，GCT代表GC累计耗时。<img src="/resources/杂七杂八/Java面试/20201106203239701.png" alt="在这里插入图片描述" />
+[GC [FGC 开头代表垃圾回收的类型
+PSYoungGen: 6130K-&gt;6130K(9216K)] 12274K-&gt;14330K(19456K), 0.0034895 secs代表YGC前后内存使用情况
+Times: user=0.02 sys=0.00, real=0.00 secs，user表示用户态消耗的CPU时间，sys表示内核态消耗的CPU时间，real表示各种墙时钟的等待时间
+这两张图只是举例并没有关联关系，比如你从图里面看能到是否进行FGC，FGC的时间花费多长，GC后老年代，年轻代内存是否有减少，得到一些初步的情况来做出判断。
+dump出内存文件在具体分析，比如通过jmap命令jmap -dump:format=b,file=dumpfile pid，导出之后再通过Eclipse Memory Analyzer等工具进行分析，定位到代码，修复
+这里还会可能存在一个提问的点，比如CPU飙高，同时FGC怎么办？办法比较类似
+找到当前进程的pid，top -p pid -H 查看资源占用，找到线程
+printf “%x\n” pid，把线程pid转为16进制，比如0x32d
+jstack pid|grep -A 10 0x32d查看线程的堆栈日志，还找不到问题继续
+dump出内存文件用MAT等工具进行分析，定位到代码，修复</p>
+
+<h2 id="jvm调优有什么经验吗">JVM调优有什么经验吗？</h2>
+
+<p>要明白一点，所有的调优的目的都是为了用更小的硬件成本达到更高的吞吐，JVM的调优也是一样，通过对垃圾收集器和内存分配的调优达到性能的最佳。
+简单的参数含义
+首先，需要知道几个主要的参数含义。<img src="/resources/杂七杂八/Java面试/20201106203249576.png" alt="在这里插入图片描述" />
+-Xms设置初始堆的大小，-Xmx设置最大堆的大小
+-XX:NewSize年轻代大小，-XX:MaxNewSize年轻代最大值，-Xmn则是相当于同时配置-XX:NewSize和-XX:MaxNewSize为一样的值
+-XX:NewRatio设置年轻代和年老代的比值，如果为3，表示年轻代与老年代比值为1:3，默认值为2
+-XX:SurvivorRatio年轻代和两个Survivor的比值，默认8，代表比值为8:1:1
+-XX:PretenureSizeThreshold 当创建的对象超过指定大小时，直接把对象分配在老年代。
+-XX:MaxTenuringThreshold设定对象在Survivor复制的最大年龄阈值，超过阈值转移到老年代
+-XX:MaxDirectMemorySize当Direct ByteBuffer分配的堆外内存到达指定大小后，即触发Full GC
+调优
+为了打印日志方便排查问题最好开启GC日志，开启GC日志对性能影响微乎其微，但是能帮助我们快速排查定位问题。-XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:gc.log
+一般设置-Xms=-Xmx，这样可以获得固定大小的堆内存，减少GC的次数和耗时，可以使得堆相对稳定
+-XX:+HeapDumpOnOutOfMemoryError让JVM在发生内存溢出的时候自动生成内存快照，方便排查问题
+-Xmn设置新生代的大小，太小会增加YGC，太大会减小老年代大小，一般设置为整个堆的1/4到1/3
+设置-XX:+DisableExplicitGC禁止系统System.gc()，防止手动误触发FGC造成问题</p>
+
+<p>当虚拟机遇见new关键字时候，实现判断当前类是否已经加载，如果类没有加载，首先执行类的加载机制，加载完成后再为对象分配空间、初始化等。
+首先校验当前类是否被加载，如果没有加载，执行类加载机制
+加载：就是从字节码加载成二进制流的过程
+验证：当然加载完成之后，当然需要校验Class文件是否符合虚拟机规范，跟我们接口请求一样，第一件事情当然是先做个参数校验了
+准备：为静态变量、常量赋默认值
+解析：把常量池中符号引用(以符号描述引用的目标)替换为直接引用(指向目标的指针或者句柄等)的过程
+初始化：执行static代码块(cinit)进行初始化，如果存在父类，先对父类进行初始化
+Ps：静态代码块是绝对线程安全的，只能隐式被java虚拟机在类加载过程中初始化调用！(此处该有问题static代码块线程安全吗？)
+当类加载完成之后，紧接着就是对象分配内存空间和初始化的过程
+首先为对象分配合适大小的内存空间
+接着为实例变量赋默认值
+设置对象的头信息，对象hash码、GC分代年龄、元数据信息等
+执行构造函数(init)初始化</p>
+
+<h2 id="java-内存分配">Java 内存分配。</h2>
+
+<p>• 寄存器：我们无法控制。</p>
+
+<p>• 静态域：static 定义的静态成员。</p>
+
+<p>• 常量池：编译时被确定并保存在 .class 文件中的（final）常量值和一些文本修饰的符号引用（类和接口的全限定名，字段的名称和描述符，方法和名称和描述符）。</p>
+
+<p>• 非 RAM 存储：硬盘等永久存储空间。</p>
+
+<p>• 堆内存：new 创建的对象和数组，由 Java 虚拟机自动垃圾回收器管理,存取速度慢。</p>
+
+<p>• 栈内存：基本类型的变量和对象的引用变量（堆内存空间的访问地址），速度快，可以共享，但是大小与生存期必须确定，缺乏灵活性。</p>
+
+<p>Java 堆的结构是什么样子的？什么是堆中的永久代（Perm Genspace）?</p>
+
+<p>JVM 的堆是运行时数据区，所有类的实例和数组都是在堆上分配内存。它在 JVM 启动的时候被创建。对象所占的堆内存是由自动内存管理系统也就是垃圾收集器回收。</p>
+
+<p>堆内存是由存活和死亡的对象组成的。存活的对象是应用可以访问的，不会被垃圾回收。死亡的对象是应用不可访问尚且还没有被垃圾收集器回收掉的对象。一直到垃圾收集器把这些 对象回收掉之前，他们会一直占据堆内存空间。</p>
+
+<h1 id="面试二">面试二</h1>
+
+<h2 id="如何判断一个对象是否存活-或者-gc-对象的判定方法">如何判断一个对象是否存活？（或者 GC 对象的判定方法）</h2>
+
+<p>判断一个对象是否存活有两种方法：</p>
+
+<ol>
+<li>引用计数法</li>
+</ol>
+
+<p>所谓引用计数法就是给每一个对象设置一个引用计数器，每当有一个地方引用这个对象时，就将计数器加一，引用失效时，计数器就减一。当一个对象的引用计数器为零时，说明此对象没有被引用，也就是“死对象”,将会被垃圾回收。</p>
+
+<p>引用计数法有一个缺陷就是无法解决循环引用问题，也就是说当对象 A 引用对象 B，对象 B 又引用者对象 A，那么此时 A、B 对象的引用计数器都不为零，也就造成无法完成垃圾回收，所以主流的虚拟机都没有采用这种算法。</p>
+
+<ol>
+<li>可达性算法（引用链法）</li>
+</ol>
+
+<p>该算法的思想是：从一个被称为 GC Roots 的对象开始向下搜索，如果一个对象到 GC Roots 没有任何引用链相连时，则说明此对象不可用。</p>
+
+<h3 id="gc-roots">GC Roots</h3>
+
+<p>在 Java 中可以作为 GC Roots 的对象有以下几种：</p>
+
+<p>• 虚拟机栈中引用的对象</p>
+
+<p>• 方法区类静态属性引用的对象</p>
+
+<p>• 方法区常量池引用的对象</p>
+
+<p>• 本地方法栈 JNI 引用的对象</p>
+
+<p>虽然这些算法可以判定一个对象是否能被回收，但是当满足上述条件时，一个对象比不一定会被回收。当一个对象不可达 GC Root时，这个对象并不会立马被回收，而是出于一个死缓的阶段，若要被真正的回收需要经历两次标记</p>
+
+<p>如果对象在可达性分析中没有与 GC Root 的引用链，那么此时就会被第一次标记并且进行一次筛选，筛选的条件是是否有必要执行finalize() 方法。当对象没有覆盖 finalize() 方法或者已被虚拟机调用过，那么就认为是没必要的。 如果该对象有必要执行finalize() 方法，那么这个对象将会放在一个称为 F-Queue 的对队列中，虚拟机会触发一个 Finalize() 线程去执行，此线程是低优先级的，并且虚拟机不会承诺一直等待它运行完，这是因为如果finalize() 执行缓慢或者发生了死锁，那么就会造成 F-Queue 对列一直等待，造成了内存回收系统的崩溃。GC 对处于 F-Queue中的对象进行第二次被标记，这时，该对象将被移除” 即将回收”集合，等待回收。</p>
+
+<h2 id="垃圾回收的优点和原理-并考虑-2-种回收机制">垃圾回收的优点和原理。并考虑 2 种回收机制。</h2>
+
+<p>Java 语言中一个显著的特点就是引入了垃圾回收机制，使 C++程序员最头疼的内存管理的问题迎刃而解，它使得 Java 程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java 中的对象不再有“作用域”的概念，只有对象的引用才有&rdquo;作用域&rdquo;。垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。</p>
+
+<p>回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。</p>
+
+<h2 id="垃圾回收器的基本原理是什么-垃圾回收器可以马上回收内存吗-有什么办法主动通知虚拟机进行垃圾回收">垃圾回收器的基本原理是什么？垃圾回收器可以马上回收内存吗？有什么办法主动通知虚拟机进行垃圾回收？</h2>
+
+<p>对于 GC 来说，当程序员创建对象时，GC 就开始监控这个对象的地址、大小以及使用情况。通常，GC 采用有向图的方式记录和管理堆（heap）中的所有对象。通过这种方式确定哪些对象是”可达的”，哪些对象是”不可达的”。当 GC 确定一些对象为“不可达”时，GC 就有责任回收这些内存空间。可以。程序员可以手动执行 System.gc()，通知 GC 运行，但是 Java 语言规范并不保证 GC 一定会执行。</p>
+
+<h2 id="java-中会存在内存泄漏吗-请简单描述">Java 中会存在内存泄漏吗，请简单描述。</h2>
+
+<p>所谓内存泄露就是指一个不再被程序使用的对象或变量一直被占据在内存中。Java 中有垃圾回收机制，它可以保证一对象不再被引用的时候，即对象变成了孤儿的时候，对象将自动被垃圾回收器从内存中清除掉。由于 Java 使用有向图的方式进行垃圾回收管理，可以消除引用循环的问题，例如有两个对象，相互引用，只要它们和根进程不可达的，那么 GC 也是可以回收它们的。</p>
+
+<p>Java 中的内存泄露的情况：长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄露，尽管短生命周期对象已经不再需要，但是因为长生命周期对象持有它的引用而导致不能被回收，这就是 Java 中内存泄露的发生场景，通俗地说，就是程序员可能创建了一个对象，以后一直不再使用这个对象，这个对象却一直被引用，即这个对象无用但是却无法被垃圾回收器回收的，这就是 java中可能出现内存泄露的情况，例如，缓存系统，我们加载了一个对象放在缓存中 (例如放在一个全局 map 对象中)，然后一直不再使用它，这个对象一直被缓存引用，但却不再被使用。</p>
+
+<p>检查 Java 中的内存泄露，一定要让程序将各种分支情况都完整执行到程序结束，然后看某个对象是否被使用过，如果没有，则才能判定这个对象属于内存泄露。</p>
+
+<p>如果一个外部类的实例对象的方法返回了一个内部类的实例对象，这个内部类对象被长期引用了，即使那个外部类实例对象不再被使用，但由于内部类持久外部类的实例对象，这个外部类对象将不会被垃圾回收，这也会造成内存泄露。</p>
+
+<p>内存泄露的另外一种情况：当一个对象被存储进 HashSet 集合中以后，就不能修改这个对象中的那些参与计算哈希值的字段了，否则，对象修改后的哈希值与最初存储进 HashSet 集合中时的哈希值就不同了，在这种情况下，即使在 contains 方法使用该对象的当前引用作为的参数去 HashSet 集合中检索对象，也将返回找不到对象的结果，这也会导致无法从 HashSet 集合中单独删除当前对象，造成内存泄露。</p>
+
+<h2 id="深拷贝和浅拷贝">深拷贝和浅拷贝。</h2>
+
+<p>简单来讲就是复制、克隆。</p>
+
+<pre><code>Person p=new Person(“张三”);
+</code></pre>
+
+<p>浅拷贝就是对对象中的数据成员进行简单赋值，如果存在动态成员或者指针就会报错。</p>
+
+<p>深拷贝就是对对象中存在的动态成员或指针重新开辟内存空间。</p>
+
+<h2 id="system-gc-和-runtime-gc-会做什么事情">System.gc() 和 Runtime.gc() 会做什么事情？</h2>
+
+<p>这两个方法用来提示 JVM 要进行垃圾回收。但是，立即开始还是延迟进行垃圾回收是取决于 JVM 的。</p>
+
+<h2 id="finalize-方法什么时候被调用-析构函数-finalization-的目的是什么">finalize() 方法什么时候被调用？析构函数 (finalization) 的目的是什么？</h2>
+
+<p>垃圾回收器（garbage colector）决定回收某对象时，就会运行该对象的 finalize() 方法 但是在 Java 中很不幸，如果内存总是充足的，那么垃圾回收可能永远不会进行，也就是说 filalize() 可能永远不被执行，显然指望它做收尾工作是靠不住的。 那么finalize() 究竟是做什么的呢？ 它最主要的用途是回收特殊渠道申请的内存。Java 程序有垃圾回收器，所以一般情况下内存问题不用程序员操心。但有一种 JNI（Java Native Interface）调用non-Java 程序（C 或 C++）， finalize() 的工作就是回收这部分的内存。</p>
+
+<h2 id="如果对象的引用被置为-null-垃圾收集器是否会立即释放对象占用的内存">如果对象的引用被置为 null，垃圾收集器是否会立即释放对象占用的内存？</h2>
+
+<p>不会，在下一个垃圾回收周期中，这个对象将是可被回收的。</p>
+
+<h2 id="什么是分布式垃圾回收-dgc-它是如何工作的">什么是分布式垃圾回收（DGC）？它是如何工作的？</h2>
+
+<p>DGC 叫做分布式垃圾回收。RMI 使用 DGC 来做自动垃圾回收。因为 RMI 包含了跨虚拟机的远程对象的引用，垃圾回收是很困难的。DGC 使用引用计数算法来给远程对象提供自动内存管理。</p>
+
+<h2 id="串行-serial-收集器和吞吐量-throughput-收集器的区别是什么">串行（serial）收集器和吞吐量（throughput）收集器的区别是什么？</h2>
+
+<p>吞吐量收集器使用并行版本的新生代垃圾收集器，它用于中等规模和大规模数据的应用程序。 而串行收集器对大多数的小应用（在现代处理器上需要大概 100M 左右的内存）就足够了。</p>
+
+<h2 id="在-java-中-对象什么时候可以被垃圾回收">在 Java 中，对象什么时候可以被垃圾回收？</h2>
+
+<p>当对象对当前使用这个对象的应用程序变得不可触及的时候，这个对象就可以被回收了。</p>
+
+<h2 id="简述-java-内存分配与回收策率以及-minor-gc-和-majorgc">简述 Java 内存分配与回收策率以及 Minor GC 和 MajorGC。</h2>
+
+<p>• 对象优先在堆的 Eden 区分配</p>
+
+<p>• 大对象直接进入老年代</p>
+
+<p>• 长期存活的对象将直接进入老年代</p>
+
+<p>当 Eden 区没有足够的空间进行分配时，虚拟机会执行一次Minor GC。Minor GC 通常发生在新生代的 Eden 区，在这个区的对象生存期短，往往发生 Gc 的频率较高，回收速度比较快；</p>
+
+<p>Full GC/Major GC 发生在老年代，一般情况下，触发老年代 GC的时候不会触发 Minor GC，但是通过配置，可以在 Full GC 之前进行一次 Minor GC 这样可以加快老年代的回收速度。</p>
+
+<h2 id="jvm-的永久代中会发生垃圾回收么">JVM 的永久代中会发生垃圾回收么？</h2>
+
+<p>垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收（Full GC）。</p>
+
+<p>注：Java 8 中已经移除了永久代，新加了一个叫做元数据区的native 内存区。</p>
+
+<h2 id="java-中垃圾收集的方法有哪些">Java 中垃圾收集的方法有哪些？</h2>
+
+<p>标记 - 清除：</p>
+
+<p>这是垃圾收集算法中最基础的，根据名字就可以知道，它的思想就是标记哪些要被回收的对象，然后统一回收。这种方法很简单，但是会有两个主要问题：</p>
+
+<ol>
+<li>效率不高，标记和清除的效率都很低；</li>
+<li>会产生大量不连续的内存碎片，导致以后程序在分配较大的对象时，由于没有充足的连续内存而提前触发一次 GC 动作。</li>
+</ol>
+
+<p>复制算法：</p>
+
+<p>为了解决效率问题，复制算法将可用内存按容量划分为相等的两部分，然后每次只使用其中的一块，当一块内存用完时，就将还存活的对象复制到第二块内存上，然后一次性清楚完第一块内存，再将第二块上的对象复制到第一块。但是这种方式，内存的代价太高，每次基本上都要浪费一般的内存。</p>
+
+<p>于是将该算法进行了改进，内存区域不再是按照 1:1 去划分，而是将内存划分为 8:1:1 三部分，较大那份内存交 Eden 区，其余是两块较小的内存区叫 Survior 区。每次都会优先使用 Eden 区，若 Eden 区满，就将对象复制到第二块内存区上，然后清除 Eden区，如果此时存活的对象太多，以至于 Survivor 不够时，会将这些对象通过分配担保机制复制到老年代中。（java 堆又分为新生代和老年代）</p>
+
+<p>标记 - 整理：</p>
+
+<p>该算法主要是为了解决标记 - 清除，产生大量内存碎片的问题；当对象存活率较高时，也解决了复制算法的效率问题。它的不同之处就是在清除对象的时候现将可回收对象移动到一端，然后清除掉端边界以外的对象，这样就不会产生内存碎片了。</p>
+
+<p>分代收集：</p>
+
+<p>现在的虚拟机垃圾收集大多采用这种方式，它根据对象的生存周期，将堆分为新生代和老年代。在新生代中，由于对象生存期短，每次回收都会有大量对象死去，那么这时就采用复制算法。</p>
+
+<p>老年代里的对象存活率较高，没有额外的空间进行分配担保。</p>
+
+<h2 id="什么是类加载器-类加载器有哪些">什么是类加载器，类加载器有哪些？</h2>
+
+<p>实现通过类的权限定名获取该类的二进制字节流的代码块叫做类加载器。</p>
+
+<p>主要有一下四种类加载器：</p>
+
+<p>• 启动类加载器（Bootstrap ClassLoader）用来加载 Java 核心类库，无法被 Java 程序直接引用。</p>
+
+<p>• 扩展类加载器（extensions class loader）：它用来加载 Java的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。</p>
+
+<p>• 系统类加载器（system class loader）：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java应用的类都是由它来完成加载的。可以通过ClassLoader.getSystemClassLoader() 来获取它。</p>
+
+<p>• 用户自定义类加载器，通过继承 java.lang.ClassLoader 类的方式实现。</p>
+
+<h2 id="类加载器双亲委派模型机制">类加载器双亲委派模型机制？</h2>
+
+<p>当一个类收到了类加载请求时，不会自己先去加载这个类，而是将其委派给父类，由父类去加载，如果此时父类不能加载，反馈给子类，由子类去完成类的加载。</p>
+
+<h1 id="了解一下老年代空间担保规则">了解一下老年代空间担保规则</h1>
+
+<h2 id="老年代担保什么">老年代担保什么？</h2>
+
+<p>当新生代被分配了大对象(该对象大小可以通过参数设置)，或者经过Minor GC后，存活下来的对象，Survivor区放不下，那么这些对象都会被分配到老年代。</p>
+
+<h2 id="老年代想担保就能担保">老年代想担保就能担保？</h2>
+
+<p>老年代空间也是有限的，既然不是无限大，那么老年代在担保前也得自己掂量下，自己是不是吃的下那些要分配给自己的对象。</p>
+
+<h2 id="老年代想要担保需要遵守什么规则">老年代想要担保需要遵守什么规则？</h2>
+
+<ol>
+<li>在执行任何一次Minor GC前，JVM都会检查一下老年代的的可用内存空间，然后和新生代中的所有对象的大小总和做个比较，如果大于新生代中的所有对象的大小总和，那么就可以保证Minor GC后，即使新生代中所有的对象都存活下来，Survivor区放不下，老年代也是能够完全分配下这些对象的。如果老年代的的可用内存空间是小于新生代中的所有对象的大小总和的，那么就要继续走第二步的判断。</li>
+<li>第二步判断，要看看是否设置了“-XX:-HandlePromotionFailure”参数，该参数的作用在于会多加一步判断规则：判断老年代的的可用内存空间是否大于之前每一次Minor GC后进入老年代的对象的平均大小。如果不加这个参数或者这个参数判断失败，同时老年代的的可用内存空间小于新生代中的所有对象的大小总和，就会直接进行Full GC，尽量先腾出一些老年代空间来，然后再触发Minor GC，尽最大努力防止出现OOM。如果“-XX:-HandlePromotionFailure”参数判断是成功的，那么就走第三步。</li>
+<li>第三步就可以试着进行Minor GC了，毕竟该做的判断做了和该满足的条件都有了，此时Minor GC后，如果存活的对象大小小于Survivor区的大小，那么存活的对象直接进入Survivor区。如果存活的对象大小大于Survivor区的大小，却小于老年代大小，那么存活的对象直接进入老年代。最极端的情况就是存活的对象大小大于Survivor区的大小，同时也大于老年代大小，那么此时机会触发一次Full GC，对老年代和新生代统一做一次垃圾回收，腾出空间，方便让Minor GC后存活的对象可以进入老年代。最差的情况就是即使经过了Full GC，老年代空间也还是不够，那么就会爆出OOM了。</li>
+</ol>
+
+<blockquote>
+<p>总结</p>
+</blockquote>
+
+<p>可以发现Minor GC时，JVM会判断老年代此时是否具有担保的资格，同时设置相应的规则，尽可能的避免出现OOM的情况。</p>
+
+<h1 id="对象已死">对象已死？</h1>
+
+<h3 id="对象已死-1">对象已死？</h3>
+
+<ul>
+<li><a href="https://blog.csdn.net/weixin_44624410/article/details/108763639#_2">引用计数算法</a></li>
+<li><a href="https://blog.csdn.net/weixin_44624410/article/details/108763639#_10">根搜索算法</a></li>
+<li><a href="https://blog.csdn.net/weixin_44624410/article/details/108763639#_13">引用</a></li>
+<li><a href="https://blog.csdn.net/weixin_44624410/article/details/108763639#finalize_82">finalize()方法</a></li>
+<li><a href="https://blog.csdn.net/weixin_44624410/article/details/108763639#_86">回收方法区</a></li>
+</ul>
+
+<p>我们怎么判断对象是否已经死亡呢？</p>
+
+<h2 id="引用计数算法">引用计数算法</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/2020092322421083.png" alt="在这里插入图片描述" />
+算法的优点
+使用引用计数器,内存回收可以穿插在程序的运行中，在程序运行中，当发现某一对象的引用计数器为0时，可以立即对该对象所占用的内存空间进行回收，这种方式可以避免FULL GC时带来的程序暂停</p>
+
+<p>算法的劣势
+采用引用计数器进行垃圾回收，最大的缺点就是不能解决循环引用的问题，例如一个父对象持有一个子对象的引用，子对象也持有父对象的引用，这种情况下，父子对象将一直存在于JVM的堆中，无法进行回收，如图所示：
+<img src="/resources/杂七杂八/Java面试/20200923224651401.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="根搜索算法">根搜索算法</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/20200923224944912.png" alt="在这里插入图片描述" />
+<img src="/resources/杂七杂八/Java面试/20200923225058878.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="引用">引用</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/20200924091257698.png" alt="在这里插入图片描述" /></p>
+
+<ul>
+<li><p>强引用
+<img src="/resources/杂七杂八/Java面试/20200924091321750.png" alt="在这里插入图片描述" /></p></li>
+
+<li><p>软引用
+<img src="/resources/杂七杂八/Java面试/20200924091338943.png" alt="在这里插入图片描述" />
+<img src="/resources/杂七杂八/Java面试/20200924091350471.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-java">Object obj = new Object();
+SoftReference&lt;Object&gt; softRef = new SoftReference&lt;Object&gt;(obj);
+System.out.println(obj);
+System.out.println(softRef.get());
+// 对象通过设置为null让对象失去引用，方便GC
+obj = null;
+// 当内存不足时，会自动触发GC操作，这里就无需手动GC
+try {
+    byte[] b = new byte[30 * 1024 * 1024];
+} catch (Exception e) {} 
+finally {
+    System.out.println(obj);
+    System.out.println(softRef.get());
+}
+1234567891011121314
+</code></pre></li>
+
+<li><p>弱引用
+<img src="/resources/杂七杂八/Java面试/20200924091948984.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-java">Object obj = new Object();
+WeakReference&lt;Object&gt; weakRef = new WeakReference&lt;Object&gt;(obj);
+System.out.println(obj);            // java.lang.Object@7852e922
+System.out.println(weakRef.get());    // java.lang.Object@7852e922
+// 对象通过设置为null让对象失去引用，方便GC
+obj = null;
+// 这里通过手动触发GC操作。否则内存充足的情况下很难自动触发GC
+System.gc();
+System.out.println(obj);            // null
+System.out.println(weakRef.get());    // null
+12345678910
+</code></pre></li>
+
+<li><p>虚引用
+<img src="/resources/杂七杂八/Java面试/20200924092002350.png" alt="在这里插入图片描述" />
+换句话说，设置虚引用关联的唯一目的，就是在这个对象被收集器回收的时候收到一个系统通知或者后续添加进一步的处理。Java技术允许使用finalize()方法在垃圾收集器将对象从内存中清除之前做必要的清理工作</p>
+
+<pre><code class="language-java">Object obj = new Object();
+ReferenceQueue&lt;String&gt; queue = new ReferenceQueue&lt;String&gt;();  
+PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(obj, queue);  
+System.out.println(pr.get());  // null
+1234
+</code></pre></li>
+
+<li><p>引用队列
+引用队列可以配合软引用、弱引用及幽灵引用使用，当引用的对象将要被JVM回收时，会将其加入到引用队列中。通过引用队列可以了解JVM垃圾回收情况</p>
+
+<pre><code class="language-java">// 引用队列
+ReferenceQueue&lt;String&gt; rq = new ReferenceQueue&lt;String&gt;();
+// 软引用
+SoftReference&lt;String&gt; sr = new SoftReference&lt;String&gt;(new String(&quot;Soft&quot;), rq);
+// 弱引用
+WeakReference&lt;String&gt; wr = new WeakReference&lt;String&gt;(new String(&quot;Weak&quot;), rq);
+// 幽灵引用
+PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(new String(&quot;Phantom&quot;), rq);
+// 从引用队列中弹出一个对象引用
+Reference&lt;? extends String&gt; ref = rq.poll();
+12345678910
+</code></pre></li>
+</ul>
+
+<h2 id="finalize-方法">finalize()方法</h2>
+
+<p><img src="/resources/杂七杂八/Java面试/20200924093514979.png" alt="在这里插入图片描述" />
+<img src="/resources/杂七杂八/Java面试/20200924093613933.png" alt="在这里插入图片描述" />
+<img src="/resources/杂七杂八/Java面试/20200924093744180.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="回收方法区">回收方法区</h2>
+
+<p>方法区其实也是需要被回收的，并不是说虚拟机永久代中不需要垃圾收集。而是方法区中的垃圾收集的效率很低，新生代中一次垃圾收集可以回收70%-95%的空间，而永久代中的下效率要远远低于此。
+方法区中的回收主要包括两部分内容:废弃的常量和无用的类</p>
+
+<ul>
+<li>废弃的常量主要包括两大类 字面量和符号引用
+<code>字面量比较接近Java语言中的常量概念。回收废弃的常量和回收Java堆中的对象类似，如：要回收字符串“s”，当系统中没有任何String类型的对象引用常量池中的&quot;s&quot;时，也没有其他地方引用这个字面量，如果发生内存回收，而且有必要的话，则会将该字符串清理出常量池中。其中包括文本字符串、被声明为final的常量值等 而符号引用属于编译方面的概念。常量池中的其他类、接口、方法、字段的符号引用也与此类似，包括</code>
+1.类和接口的全限定名
+2.字段的名称和描述符
+3.方法的名称和描述符</li>
+<li>无用的类： 要判断一个无用的类的条件非常的苛刻，需要满足：
+1.该类的所有实例都被回收，即：Java堆中不存在该类的任何实例
+2.该类的Classloader已经被回收
+3.该类对用的java.lang.Class对象没有任何地方被引用，无法在任何地方通过反射访问到该类的方法。
+当满足以上三个条件时，也未必说是一定要被回收。也仅仅是可以。
+<img src="/resources/杂七杂八/Java面试/20200924094852914.png" alt="在这里插入图片描述" /></li>
+</ul>
+
+<h1 id="java经典面试题详解-全是干货突围金九银十面试季-附详细答案">Java经典面试题详解，全是干货突围金九银十面试季（附详细答案）</h1>
+
+<h2 id="1-java-自动装箱与拆箱">1.Java 自动装箱与拆箱</h2>
+
+<p>装箱就是自动将基本数据类型转换为包装器类型（int–&gt;Integer）；调用方法：Integer 的 valueOf(int) 方法</p>
+
+<p>拆箱就是自动将包装器类型转换为基本数据类型（Integer–&gt;int）。调用方法：Integer 的 intValue 方法</p>
+
+<p>在 Java SE5 之前，如果要生成一个数值为 10 的 Integer 对象，必须这样进行：</p>
+
+<pre><code class="language-java">Integer i = new Integer(10);
+</code></pre>
+
+<p>而在从 Java SE5 开始就提供了自动装箱的特性，如果要生成一个数值为 10 的 Integer 对象，只需要这</p>
+
+<p>样就可以了：</p>
+
+<pre><code class="language-java">Integer i = 10;
+</code></pre>
+
+<h2 id="2-重载和重写的区别">2.重载和重写的区别</h2>
+
+<p><strong>重写(Override)</strong></p>
+
+<p>从字面上看，重写就是 重新写一遍的意思。其实就是在子类中把父类本身有的方法重新写一遍。子类继承了父类原有的方法，但有时子类并不想原封不动的继承父类中的某个方法，所以在方法名，参数列表，返回类型(除过子类中方法的返回值是父类中方法返回值的子类时)都相同的情况下， 对方法体进行修改或重写，这就是重写。但要注意子类函数的访问修饰权限不能少于父类的。</p>
+
+<pre><code class="language-java">public class Father {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Son s = new Son();
+        s.sayHello();
+    }
+    public void sayHello() {
+        System.out.println(&quot;Hello&quot;);
+    }
+}
+class Son extends Father{
+    @Override
+    public void sayHello() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;hello by &quot;);
+    }
+}
+</code></pre>
+
+<p>重写 总结：</p>
+
+<p>（1）发生在父类与子类之间</p>
+
+<p>（2）方法名，参数列表，返回类型（除过子类中方法的返回类型是父类中返回类型的子类）必须相同</p>
+
+<p>（3）访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</p>
+
+<p>（4）重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</p>
+
+<p><strong>重载（Overload）</strong></p>
+
+<p>在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同甚至是参数顺序不同）</p>
+
+<p>则视为重载。同时，重载对返回类型没有要求，可以相同也可以不同，但不能通过返回类型是否相同来</p>
+
+<p>判断重载。</p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Father s = new Father();
+    s.sayHello();
+    s.sayHello(&quot;wintershii&quot;);
+}
+public void sayHello() {
+    System.out.println(&quot;Hello&quot;);
+}
+public void sayHello(String name) {
+    System.out.println(&quot;Hello&quot; + &quot; &quot; + name);
+}
+}
+</code></pre>
+
+<p>重载 总结：</p>
+
+<p>（1）重载 Overload 是一个类中多态性的一种表现</p>
+
+<p>（2）重载要求同名方法的参数列表不同(参数类型，参数个数甚至是参数顺序)</p>
+
+<p>（3）重载的时候，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准</p>
+
+<h2 id="3-equals-与-的区别">3.equals 与==的区别</h2>
+
+<p><strong>== ：</strong></p>
+
+<p>== 比较的是变量(栈)内存中存放的对象的(堆)内存地址，用来判断两个对象的地址是否相同，即是否是指相同一个对象。比较的是真正意义上的指针操作。</p>
+
+<p>（1）比较的是操作符两端的操作数是否是同一个对象。</p>
+
+<p>（2）两边的操作数必须是同一类型的（可以是父子类之间）才能编译通过。</p>
+
+<p>（3）比较的是地址，如果是具体的阿拉伯数字的比较，值相等则为 true，如：</p>
+
+<p>int a=10 与 long b=10L 与 double c=10.0 都是相同的（为 true），因为他们都指向地址为 10 的堆。</p>
+
+<p><strong>equals：</strong></p>
+
+<p>equals 用来比较的是两个对象的内容是否相等，由于所有的类都是继承自 java.lang.Object 类的，所以适用于所有对象，如果没有对该方法进行覆盖的话，调用的仍然是 Object 类中的方法，而 Object 中的 equals 方法返回的却是==的判断。</p>
+
+<p>总结：</p>
+
+<p>所有比较是否相等时，都是用 equals 并且在对常量相比较时，把常量写在前面，因为使用 object 的 equals object 可能为 null 则空指针在阿里的代码规范中只使用 equals ，阿里插件默认会识别，并可以快速修改，推荐安装阿里插件来排查老代码使用“==”，替换成 equals</p>
+
+<h2 id="4-hashcode-的作用">4. Hashcode 的作用</h2>
+
+<p>java 的集合有两类，一类是 List，还有一类是 Set。前者有序可重复，后者无序不重复。当我们在 set 中插入的时候怎么判断是否已经存在该元素呢，可以通过 equals 方法。但是如果元素太多，用这样的方法就会比较满。</p>
+
+<p>于是有人发明了哈希算法来提高集合中查找元素的效率。 这种方式将集合分成若干个存储区域，每个对象可以计算出一个哈希码，可以将哈希码分组，每组分别对应某个存储区域，根据一个对象的哈希码就可以确定该对象应该存储的那个区域。</p>
+
+<p>hashCode 方法可以这样理解：它返回的就是根据对象的内存地址换算出的一个值。这样一来，当集合要添加新的元素时，先调用这个元素的 hashCode 方法，就一下子能定位到它应该放置的物理位置上。如果这个位置上没有元素，它就可以直接存储在这个位置上，不用再进行任何比较了；如果这个位置上已经有元素了，就调用它的 equals 方法与新元素进行比较，相同的话就不存了，不相同就散列其它的地址。这样一来实际调用 equals 方法的次数就大大降低了，几乎只需要一两次。</p>
+
+<h2 id="5-string-string-stringbuﬀer-和-stringbuilder-的区别是什么">5.String、String StringBuﬀer 和 StringBuilder 的区别是什么?</h2>
+
+<p>String 是只读字符串，它并不是基本数据类型，而是一个对象。从底层源码来看是一个ﬁnal 类型的字符数组，所引用的字符串不能被改变，一经定义，无法再增删改。每次对 String 的操作都会生成新的 String 对象。</p>
+
+<pre><code class="language-java">private final char value[];
+</code></pre>
+
+<p>每次+操作 ： 隐式在堆上 new 了一个跟原字符串相同的 StringBuilder 对象，再调用 append 方法 拼接+后面的字符。</p>
+
+<p>StringBuﬀer 和 StringBuilder 他们两都继承了 AbstractStringBuilder 抽象类，从 AbstractStringBuilder 抽象类中我们可以看到。</p>
+
+<pre><code class="language-java">/**
+* The value is used for character storage.
+*/
+char[] value;
+</code></pre>
+
+<p>他们的底层都是可变的字符数组，所以在进行频繁的字符串操作时，建议使用 StringBuﬀer 和 StringBuilder 来进行操作。 另外 StringBuﬀer 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。StringBuilder 并没有对方法进行加同步锁，所以是非线程安全的。</p>
+
+<h2 id="6-arraylist-和-linkedlist-的区别">6.ArrayList 和 linkedList 的区别</h2>
+
+<p>Array（数组）是基于索引(index)的数据结构，它使用索引在数组中搜索和读取数据是很快的。</p>
+
+<p>Array 获取数据的时间复杂度是 O(1),但是要删除数据却是开销很大，因为这需要重排数组中的所有数据,(因为删除数据以后, 需要把后面所有的数据前移)</p>
+
+<p>缺点: 数组初始化必须指定初始化的长度, 否则报错</p>
+
+<p>例如:</p>
+
+<pre><code class="language-java">int[] a = new int[4];
+//推荐使用 int[] 这种方式初始化
+int c[] = {23,43,56,78};
+//长度：4，索引范围：[0,3]
+</code></pre>
+
+<p>List—是一个有序的集合，可以包含重复的元素，提供了按索引访问的方式，它继承 Collection。</p>
+
+<p>List 有两个重要的实现类：ArrayList 和 LinkedList</p>
+
+<p>ArrayList: 可以看作是能够自动增长容量的数组</p>
+
+<p>ArrayList 的 toArray 方法返回一个数组</p>
+
+<p>ArrayList 的 asList 方法返回一个列表</p>
+
+<p>ArrayList 底层的实现是 Array, 数组扩容实现</p>
+
+<p>LinkList 是一个双链表,在添加和删除元素时具有比 ArrayList 更好的性能.但在 get 与 set 方面弱于</p>
+
+<p>ArrayList.当然,这些对比都是指数据量很大或者操作很频繁。</p>
+
+<h2 id="7-hashmap-和-hashtable-的区别">7.HashMap 和 HashTable 的区别</h2>
+
+<p>（1）两者父类不同</p>
+
+<p>HashMap 是继承自 AbstractMap 类，而 Hashtable 是继承自 Dictionary 类。不过它们都实现了同时实现了 map、Cloneable（可复制）、Serializable（可序列化）这三个接口。</p>
+
+<p>（2）对外提供的接口不同</p>
+
+<p>Hashtable 比 HashMap 多提供了 elments() 和 contains() 两个方法。</p>
+
+<p>elments() 方法继承自 Hashtable 的父类 Dictionnary。elements() 方法用于返回此 Hashtable 中的 value 的枚举。</p>
+
+<p>contains()方法判断该 Hashtable 是否包含传入的 value。它的作用与 containsValue()一致。事实上，contansValue() 就只是调用了一下 contains() 方法。</p>
+
+<p>（3）对 null 的支持不同</p>
+
+<p>Hashtable：key 和 value 都不能为 null。</p>
+
+<p>HashMap：key 可以为 null，但是这样的 key 只能有一个，因为必须保证 key 的唯一性；可以有多个 key 值对应的 value 为 null。</p>
+
+<p>（4）安全性不同</p>
+
+<p>HashMap 是线程不安全的，在多线程并发的环境下，可能会产生死锁等问题，因此需要开发人员自己处理多线程的安全问题。</p>
+
+<p>Hashtable 是线程安全的，它的每个方法上都有 synchronized 关键字，因此可直接用于多线程中。虽然 HashMap 是线程不安全的，但是它的效率远远高于 Hashtable，这样设计是合理的，因为大部分的使用场景都是单线程。当需要多线程操作的时候可以使用线程安全的 ConcurrentHashMap。</p>
+
+<p>ConcurrentHashMap 虽然也是线程安全的，但是它的效率比 Hashtable 要高好多倍。因为</p>
+
+<p>ConcurrentHashMap 使用了分段锁，并不对整个数据进行锁定。</p>
+
+<p>（5）计算 hash 值的方法不同</p>
+
+<p>Collection：存储的数据是 不唯一、无序的对象</p>
+
+<p>List：存储的数据是 不唯一、有序的对象</p>
+
+<p>Set:存储的数据是 唯一、无序的对象</p>
+
+<p>唯一：不能重复</p>
+
+<p>有序：不是排序；是输入顺序 是否与 输出顺序一致的。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/集合.png" alt="img" /></p>
+
+<h2 id="8-collection-包结构-与-collections-的区别">8.Collection 包结构，与 Collections 的区别</h2>
+
+<p>Collection 是集合类的上级接口，子接口有 Set、List、LinkedList、ArrayList、Vector、Stack、Set；Collections 是集合类的一个帮助类， 它包含有各种有关集合操作的静态多态方法，用于实现对各种集合的搜索、排序、线程安全化等操作。此类不能实例化，就像一个工具类，服务于 Java 的 Collection 框架。</p>
+
+<h2 id="9-java-的四种引用-强弱软虚">9.Java 的四种引用，强弱软虚</h2>
+
+<p><strong>强引用</strong></p>
+
+<p>强引用是平常中使用最多的引用，强引用在程序内存不足（OOM）的时候也不会被回收，使用方式：</p>
+
+<pre><code class="language-java">String str = new String(&quot;str&quot;);
+</code></pre>
+
+<p><strong>软引用</strong></p>
+
+<p>软引用在程序内存不足时，会被回收，使用方式：</p>
+
+<pre><code class="language-java">// 注意：wrf 这个引用也是强引用，它是指向 SoftReference 这个对象的，
+// 这里的软引用指的是指向 new String(&quot;str&quot;)的引用，也就是 SoftReference 类中 T
+SoftReference&lt;String&gt; wrf = new SoftReference&lt;String&gt;(new String(&quot;str&quot;));
+</code></pre>
+
+<p>可用场景： 创建缓存的时候，创建的对象放进缓存中，当内存不足时，JVM 就会回收早先创建的对象。</p>
+
+<p>使用软引用实现缓存的淘汰策略</p>
+
+<p><strong>弱引用</strong></p>
+
+<p>弱引用就是只要 JVM 垃圾回收器发现了它，就会将之回收，使用方式：</p>
+
+<pre><code class="language-java">WeakReference&lt;String&gt; wrf = new WeakReference&lt;String&gt;(str);
+</code></pre>
+
+<p>可用场景： Java 源码中的 java.util.WeakHashMap 中的 key 就是使用弱引用，我的理解就是，一旦我不需要某个引用，JVM 会自动帮我处理它，这样我就不需要做其它操作。</p>
+
+<p><strong>虚引用</strong></p>
+
+<p>虚引用的回收机制跟弱引用差不多，但是它被回收之前，会被放入 ReferenceQueue 中。注意哦，其它引用是被 JVM 回收后才被传入 ReferenceQueue 中的。由于这个机制，所以虚引用大多被用于引用销毁前的处理工作。还有就是，虚引用创建的时候，必须带有 ReferenceQueue，使用</p>
+
+<p>例子：</p>
+
+<pre><code class="language-java">PhantomReference&lt;String&gt; prf = new PhantomReference&lt;String&gt;(new
+String(&quot;str&quot;), new ReferenceQueue&lt;&gt;());
+</code></pre>
+
+<p>可用场景： 对象销毁前的一些操作，比如说资源释放等。** Object.finalize()虽然也可以做这类动作，但是这个方式即不安全又低效。</p>
+
+<h2 id="10-a-a-b-与-a-b-有什么区别吗">10.a=a+b 与 a+=b 有什么区别吗?</h2>
+
+<p>操作符会进行隐式自动类型转换,此处 a+=b 隐式的将加操作的结果类型强制转换为持有结果的类型,</p>
+
+<pre><code class="language-java">byte a = 127;
+byte b = 127;
+b = a + b;
+// 报编译错误:cannot convert from int to byte
+b += a;
+</code></pre>
+
+<p>以下代码是否有错,有的话怎么改？</p>
+
+<pre><code class="language-java">short s1= 1;
+s1 = s1 + 1;
+</code></pre>
+
+<p>有错误.short 类型在进行运算时会自动提升为 int 类型,也就是说 s1+1 的运算结果是 int 类型,而 s1 是 short 类型,此时编译器会报错.</p>
+
+<p>正确写法：</p>
+
+<pre><code class="language-java">short s1= 1;
+s1 += 1;
+12
+</code></pre>
+
+<p>+=操作符会对右边的表达式结果强转匹配左边的数据类型,所以没错.</p>
+
+<h2 id="11-try-catch-ﬁnally-try-里有-return-ﬁnally-还执行么">11.try catch ﬁnally，try 里有 return，ﬁnally 还执行么？</h2>
+
+<p>执行，并且ﬁnally 的执行早于 try 里面的 return</p>
+
+<p>结论：</p>
+
+<p>（1）不管有木有出现异常，ﬁnally 块中代码都会执行；</p>
+
+<p>（2）当 try 和 catch 中有 return 时，ﬁnally 仍然会执行；</p>
+
+<p>（3）ﬁnally 是在 return 后面的表达式运算后执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，管ﬁnally 中的代码怎么样，返回的值都不会改变，任然是之前保存的值），所以函数返回值是在ﬁnally 执行前确定的；</p>
+
+<p>（4）ﬁnally 中最好不要包含 return，否则程序会提前退出，返回值不是 try 或 catch 中保存的返回值。、</p>
+
+<h2 id="12-java-线程实现-创建方式">12.Java 线程实现/创建方式</h2>
+
+<p>继承 Thread 类</p>
+
+<p>Thread 类本质上是实现了 Runnable 接口的一个实例，代表一个线程的实例。启动线程的唯一方法就是通过 Thread 类的 start()实例方法。start()方法是一个 native 方法，它将启动一个新线程，并执行 run()方法。</p>
+
+<pre><code class="language-java"> public class MyThread extends Thread { 
+         public void run() { 
+             System.out.println(&quot;MyThread.run()&quot;); 
+         } 
+    } 
+        MyThread myThread1 = new MyThread(); 
+        myThread1.start();
+</code></pre>
+
+<p>实现 Runnable 接口</p>
+
+<p>如果自己的类已经 extends 另一个类，就无法直接 extends Thread，此时，可以实现一个Runnable 接口。</p>
+
+<pre><code class="language-java">public class MyThread extends OtherClass implements Runnable { 
+        public void run() { 
+             System.out.println(&quot;MyThread.run()&quot;); 
+         } 
+    } 
+    //启动 MyThread
+    MyThread myThread = new MyThread(); 
+    Thread thread = new Thread(myThread); 
+    thread.start(); 
+    target.run()
+    public void run() { 
+     if (target != null) { 
+     target.run(); 
+     } 
+    }
+</code></pre>
+
+<h2 id="13-线程池原理">13.线程池原理</h2>
+
+<p>线程池做的工作主要是控制运行的线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量超出数量的线程排队等候，等其它线程执行完毕，再从队列中取出任务来执行。主要特点为：线程复用；控制最大并发数；管理线程。</p>
+
+<p>线程复用 一个 Thread 的类都有一个 start 方法。 当调用 start 启动线程时 Java 虚拟机会调用该类的 run 方法。 那么该类的 run() 方法中就是调用了 Runnable 对象的 run() 方法。 我们可以继承重写 Thread 类，在其 start 方法中添加不断循环调用传递过来的 Runnable 对象。 这就是线程池的实现原理。循环方法中不断获取 Runnable 是用 Queue 实现的，在获取下一个 Runnable 之前可以是阻塞的。</p>
+
+<p>线程池的组成 一般的线程池主要分为以下 4 个组成部分：</p>
+
+<p>（1）线程池管理器：用于创建并管理线程池。 （2）工作线程：线程池中的线程。 （3）任务接口：每个任务必须实现的接口，用于工作线程调度其运行。 （4）任务队列：用于存放待处理的任务，提供一种缓冲机制。</p>
+
+<p>Java 中的线程池是通过 Executor 框架实现的，该框架中用到了 Executor，Executors，ExecutorService，ThreadPoolExecutor ，Callable 和 Future、FutureTask 这几个类。</p>
+
+<p>ThreadPoolExecutor 的构造方法如下：</p>
+
+<pre><code class="language-java">public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize, long keepAliveTime,
+            TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue) {
+            this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,Executors.defaultThreadFactory(), defaultHandler);
+</code></pre>
+
+<p><strong>corePoolSize</strong>：指定了线程池中的线程数量。</p>
+
+<p><strong>maximumPoolSize</strong>：指定了线程池中的最大线程数量。</p>
+
+<p><strong>keepAliveTime</strong>：当前线程池数量超过 corePoolSize 时，多余的空闲线程的存活时间，即多次时间内会被销毁。</p>
+
+<p><strong>unit</strong>：keepAliveTime 的单位。</p>
+
+<p><strong>workQueue</strong>：任务队列，被提交但尚未被执行的任务。</p>
+
+<p><strong>threadFactory</strong>：线程工厂，用于创建线程，一般用默认的即可。</p>
+
+<p><strong>handler</strong>：拒绝策略，当任务太多来不及处理，如何拒绝任务。</p>
+
+<p><strong>拒绝策略</strong> 线程池中的线程已经用完了，无法继续为新任务服务，同时，等待队列也已经排满了，再也塞不下新任务了。这时候我们就需要拒绝策略机制合理的处理这个问题。</p>
+
+<p>JDK 内置的拒绝策略如下：</p>
+
+<p><strong>AbortPolicy</strong> ： 直接抛出异常，阻止系统正常运行。</p>
+
+<p><strong>CallerRunsPolicy</strong> ： 只要线程池未关闭，该策略直接在调用者线程中，运行当前被丢弃的任务。显然这样做不会真的丢弃任务，但是，任务提交线程的性能极有可能会急剧下降。</p>
+
+<p><strong>DiscardOldestPolicy</strong> ： 丢弃最老的一个请求，也就是即将被执行的一个任务，并尝试再次提交当前任务。</p>
+
+<p><strong>DiscardPolicy</strong> ： 该策略默默地丢弃无法处理的任务，不予任何处理。如果允许任务丢失，这是最好的一种方案。</p>
+
+<p>以上内置拒绝策略均实现了 RejectedExecutionHandler 接口，若以上策略仍无法满足实际需要，完全可以自己扩展 RejectedExecutionHandler 接口。</p>
+
+<p><strong>Java 线程池工作过程</strong> （1）线程池刚创建时，里面没有一个线程。任务队列是作为参数传进来的。不过，就算队列里面有任务，线程池也不会马上执行它们。</p>
+
+<p>（2）当调用 execute() 方法添加一个任务时，线程池会做如下判断：</p>
+
+<p>a) 如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务； b) 如果正在运行的线程数量大于或等于 corePoolSize，那么将这个任务放入队列； c) 如果这时候队列满了，而且正在运行的线程数量小maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务； d) 如果队列满了，而且正在运行的线程数量大于或等maximumPoolSize，那么线程池会抛出异常 RejectExecutionException。</p>
+
+<p>（3）当一个线程完成任务时，它会从队列中取下一个任务来执行。</p>
+
+<p>（4）当一个线程无事可做，超过一定的时间（keepAliveTime）时，线程池会判断，如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。</p>
+
+<h2 id="14-java-常用算法">14.Java 常用算法</h2>
+
+<p><strong>1. 快速排序算法</strong>
+快速排序的原理：选择一个关键值作为基准值。比基准值小的都在左边序列（一般是无序的），比基准值大的都在右边（一般是无序的）。一般选择序列的第一个元素。一次循环：从后往前比较，用基准值和最后一个值比较，如果比基准值小的交换位置，如果没有继续比较下一个，直到找到第一个比基准值小的值才交换。找到这个值之后，又从前往后开始比较，如果有比基准值大的，交换位置，如果没有继续比较下一个，直到找到第一个比基准值大的值才交换。直到从前往后的比较索引&gt;从后往前比较的索引，结束第一次循环，此时，对于基准值来说，左右两边就是有序的了。</p>
+
+<pre><code class="language-java"> public void sort(int[] a,int low,int high){
+         int start = low;
+         int end = high;
+         int key = a[low]; 
+         while(end&gt;start){
+         //从后往前比较
+         while(end&gt;start&amp;&amp;a[end]&gt;=key) 
+        //如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
+         end--;
+         if(a[end]&lt;=key){
+             int temp = a[end];
+             a[end] = a[start];
+             a[start] = temp;
+         }
+         //从前往后比较
+         while(end&gt;start&amp;&amp;a[start]&lt;=key)
+        //如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置
+         start++;
+         if(a[start]&gt;=key){
+             int temp = a[start];
+             a[start] = a[end];
+             a[end] = temp;
+         }
+         //此时第一次循环比较结束，关键值的位置已经确定了。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用
+     }
+         //递归
+        if(start&gt;low) sort(a,low,start-1);//左边序列。第一个索引位置到关键值索引-1
+         if(end&lt;high) sort(a,end+1,high);//右边序列。从关键值索引+1 到最后一个
+         }
+ }
+</code></pre>
+
+<p><strong>2 .冒泡排序算法</strong>
+（1）比较前后相邻的二个数据，如果前面数据大于后面的数据，就将这二个数据交换。</p>
+
+<p>（2）这样对数组的第 0 个数据到 N-1 个数据进行一次遍历后，最大的一个数据就“沉”到数组第N-1 个位置。</p>
+
+<p>（3）N=N-1，如果 N 不为 0 就重复前面二步，否则排序完成。</p>
+
+<pre><code class="language-java">public static void bubbleSort1(int [] a, int n){
+         int i, j;
+         for(i=0; i&lt;n; i++){//表示 n 次排序过程。
+             for(j=1; j&lt;n-i; j++){
+                 if(a[j-1] &gt; a[j]){//前面的数字大于后面的数字就交换
+                //交换 a[j-1]和 a[j]
+                int temp;
+                temp = a[j-1];
+                a[j-1] = a[j];
+                a[j]=temp;
+                }
+            }
+         }
+    }
+</code></pre>
+
+<h2 id="15-spring-beans">15.Spring Beans</h2>
+
+<p><strong>什么是Spring beans？</strong></p>
+
+<p>Spring beans 是那些形成Spring应用的主干的java对象。它们被Spring IOC容器初始化，装配，和管理。这些beans通过容器中配置的元数据创建。比如，以XML文件中 的形式定义。</p>
+
+<p><strong>一个 Spring Bean 定义 包含什么？</strong></p>
+
+<p>一个Spring Bean 的定义包含容器必知的所有配置元数据，包括如何创建一个bean，它的生命周期详情及它的依赖。</p>
+
+<p><strong>如何给Spring 容器提供配置元数据？Spring有几种配置方式</strong></p>
+
+<p>这里有三种重要的方法给Spring 容器提供配置元数据。</p>
+
+<p>XML配置文件。
+基于注解的配置。
+基于java的配置。</p>
+
+<p><strong>Spring配置文件包含了哪些信息</strong></p>
+
+<p>Spring配置文件是个XML 文件，这个文件包含了类信息，描述了如何配置它们，以及如何相互调用。</p>
+
+<p><strong>Spring基于xml注入bean的几种方式</strong></p>
+
+<p>Set方法注入；
+构造器注入：①通过index设置参数的位置；②通过type设置参数类型；
+静态工厂注入；
+实例工厂；</p>
+
+<h3 id="抽象类与接口区别">抽象类与接口区别</h3>
+
+<ol>
+<li><p>抽象类可以有构造方法，接口中不能有构造方法。</p></li>
+
+<li><p>抽象类中可以有普通成员变量，接口中没有普通成员变量</p></li>
+
+<li><p>抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。</p></li>
+
+<li><p>抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。</p></li>
+
+<li><p>抽象类中可以包含静态方法，接口中不能包含静态方法</p></li>
+
+<li><p>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。</p></li>
+
+<li><p>一个类可以实现多个接口，但只能继承一个抽象类。</p></li>
+</ol>
+
+<h2 id="总结">总结：</h2>
+
+<p>互联网大厂比较喜欢的人才特点：对技术有热情，强硬的技术基础实力；主动，善于团队协作，善于总结思考。无论是哪家公司，都很重视高并发高可用技术，重视基础，所以千万别小看任何知识。面试是一个双向选择的过程，不要抱着畏惧的心态去面试，不利于自己的发挥。同时看中的应该不止薪资，还要看你是不是真的喜欢这家公司，是不是能真的得到锻炼。其实我写了这么多，只是我自己的总结，并不一定适用于所有人，相信经过一些面试，大家都会有这些感触。</p>
+
+<h1 id="java中的四大引用">Java中的四大引用</h1>
+
+<h2 id="强引用-strongreference">强引用(StrongReference)</h2>
+
+<p>我们平常使用new操作符来创建的对象就是强引用对象，只要有一个引用存在，垃圾回收器永远不可能回收具有强引用的对象。</p>
+
+<pre><code class="language-java">Object obj=new Object();
+</code></pre>
+
+<p><img src="/resources/杂七杂八/Java面试/20200712164148278.png" alt="在这里插入图片描述" />
+<strong>注意：</strong>
+强引用的对象并不是永远不会被回收，需要把obj值为null，或者超出对象的生命周期之后，GC就有机会去回收它，具体什么时候回收要看GC。还有，这里的StrongReference只是一个对强引用的称呼，在java中并没有对应的实体类。</p>
+
+<h2 id="软引用-softreference">软引用(SoftReference)</h2>
+
+<p>软引用是用来描述一些还有用但并非必须的对象。当内存充足时，垃圾回收器不会清理具有软引用的对象，只有当内存不足时垃圾回收器才会去清理这些对象，如果清理完软引用的对象后内存还是不足才会抛出异常。
+软引用在java中也是一个对象，对应的实体类是SoftReference</p>
+
+<p><strong>案例：</strong>
+这个案例我们事先把最大堆内存改为了24M</p>
+
+<pre><code class="language-java">-Xmx24M
+1
+/**
+  * 软引用demo
+  * SoftReference
+  * 1.当内存不足的时，JVM就会把软引用对象进行回收
+  * 2.如果回收后还是没有足够的内存，才会抛出内存溢出异常
+  */
+public static void main(String[] args) throws InterruptedException {
+ SoftReference&lt;byte[]&gt; s=new SoftReference&lt;&gt;(new         byte[1024*1024*10]);//10m
+ System.out.println(s.get());
+ System.gc();//启动GC
+ Thread.sleep(500);
+ System.out.println(s.get());
+ //再创建一个数组，堆中存不下的时候，垃圾回收器工作
+ //先回收一次，如果第一次回收后内存还是不够
+ //则再清理第二次，这一次会把软引用对象清除
+ byte[] b=new byte[1024*1024*15];//15m
+ System.out.println(s.get());//null
+}
+</code></pre>
+
+<p><strong>控制台打印结果</strong></p>
+
+<pre><code class="language-java">[B@2a139a55
+[B@2a139a55
+null
+</code></pre>
+
+<p>此外，还可以通过以下JVM参数来打印GC日志</p>
+
+<pre><code class="language-java">-XX:+PrintGC //打印简单的GC日志
+-XX:+PrintGCDetails //打印详细的GC日志
+</code></pre>
+
+<p>通过控制台的打印结果我们得出结论：内存充足的情况下，具有软引用的对象不会被垃圾回收器回收，当再次创建了新的对象，结果导致堆内存不足时就会启动第一次GC，这一次不会回收软引用关联的对象，但是当第一次清理之后发现内存还是不够，则会再启动第二次GC，这一次GC才会清理掉软引用关联的对象。</p>
+
+<p>由于，在JAVA中软引用也是一个类，我们需要软引用需要创建软引用类实例，我们在上面案例中，变量s的引用指向的是new SoftReference()这个实例对象，属于强引用关系，而在这个实例对象的里面又去引用了我们new出来的byte数组实例，这个引用是软引用关系。</p>
+
+<pre><code class="language-java">SoftReference&lt;byte[]&gt; s=new SoftReference&lt;&gt;(new byte[1024*1024*10]);
+</code></pre>
+
+<p><strong>关系图如下：</strong>
+<img src="/resources/杂七杂八/Java面试/20200712164405149.png" alt="在这里插入图片描述" />
+软引用非常适合用在缓存中，假如用户访问的系统中需要加载很多图片，内存够用的时候可以缓存很多图片，假如内存不够用了，再把图片先回收掉也无妨，下次需要的时候再加载一次即可。</p>
+
+<h2 id="弱引用-weakreference">弱引用(WeakReference)</h2>
+
+<p>无论内存够不够，只要垃圾回收器启动，弱引用关联的对象肯定被回收。
+弱引用对象的实体类是WeakReference。</p>
+
+<p><strong>案例：</strong></p>
+
+<pre><code class="language-java">/**
+  * 弱引用demo
+  * WeakReference
+  * 不管内存够不够，都会进行回收
+  */
+public static void main(String[] args) {
+ WeakReference&lt;Object&gt; w=new WeakReference&lt;Object&gt;(new Object());
+ System.out.println(w.get());
+ System.gc();
+ System.out.println(w.get());
+}
+</code></pre>
+
+<p><strong>控制台打印结果</strong></p>
+
+<pre><code class="language-java">java.lang.Object@2a139a55
+null
+</code></pre>
+
+<p>可以看出，弱引用关联的对象只能存活到下一次启动GC之前。
+弱引用可以用来解决内存泄露的问题，比如：ThreadLocal中的key就使用到了弱引用来防止内存泄露，ThreadLocal的相关文章在末尾。
+关系图如下：
+<img src="/resources/杂七杂八/Java面试/20200712164541119.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="虚引用-phantomreference">虚引用(PhantomReference)</h2>
+
+<p>虚引用，又称作幻象引用，如果一个对象具有虚引用，那么它和没有任何引用一样，被虚引用关联的对象引用通过get方法获取到的永远为null，也就是说这种对象在任何时候都有可能被垃圾回收器回收，通过这种方式关联的对象也无法调用对象中的方法。虚引用主要是用来管理堆外内存的，通过ReferenceQueue这个类实现，当一个对象被回收的时候，会向这个引用队列里面添加相关数据，给一个通知。
+<strong>案例一：</strong></p>
+
+<pre><code class="language-java">Object obj=new Object();
+ PhantomReference&lt;Object&gt; objRef=new PhantomReference&lt;Object&gt;(obj,null);
+ System.out.println(&quot;获取虚引用所指向的对象&quot;+objRef.get());
+ System.out.println(objRef.get().equals(obj));//尝试调用对象中的方法
+</code></pre>
+
+<p><strong>控制台打印结果：</strong>
+<img src="/resources/杂七杂八/Java面试/20200712164746303.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-java">获取虚引用所指向的对象null
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+ at com.sy.Reference.Test_phantom.main(Test_phantom.java:14)
+</code></pre>
+
+<p><strong>关系图如下：</strong>
+<img src="/resources/杂七杂八/Java面试/20200712164813504.png" alt="在这里插入图片描述" />
+虚引用配合ReferenceQueue类，可以用来管理堆外内存，如果虚引用对象被回收后，会向引用队列里面发送一个通知，可以参考以下demo便于理解。
+<strong>案例二：</strong></p>
+
+<pre><code class="language-java">/**
+ * 虚引用
+ *  管理堆外内存
+ */
+public class Test_PhantomReference {
+//引用队列
+private static final ReferenceQueue&lt;Object&gt; QUEUE=new ReferenceQueue&lt;&gt;();
+public static void main(String[] args) {
+ //当虚引用对象被回收时，会把一个信息填入到引用队列中
+ PhantomReference&lt;Object&gt; p=new PhantomReference&lt;Object&gt;(new Object(),QUEUE);
+ System.out.println(&quot;第一次获取虚引用指示的对象&quot;+p.get());//null
+ System.out.println(&quot;第一次获取虚引用的地址值&quot;+p);
+ List&lt;byte[]&gt; list=new ArrayList&lt;&gt;();
+ new Thread(()-&gt;{
+  boolean flag=true;
+  try {
+   while(flag) {
+    //不断去new新的对象,内存不足时GC就会启动
+    list.add(new byte[1024*1024]); 
+   }
+  } catch (Exception e) {
+   e.printStackTrace();
+  }finally {
+   flag=false;
+   System.out.println(&quot;第二次获取虚引用指示的对象&quot;+p.get());
+  }
+ }).start();
+ /* 再开启一个线程，做一个监控
+  * 当虚引用被回收时,会发送一个通知
+  * 如果引用队列QUEUE中不再是null
+  * 证明虚引用已经被回收
+  */
+ new Thread(()-&gt;{
+  boolean flag=true;
+  while(flag) {
+   Reference&lt;? extends Object&gt; poll = QUEUE.poll();
+   if(poll!=null) {
+    flag=false;
+    System.out.println(&quot;虚引用对象&quot;+poll+&quot;被回收了&quot;);
+   }
+  }
+ }).start();
+}
+}
+</code></pre>
+
+<p>虚引用可以用来管理堆外内存，以上案例中我们结合了一个Queue来进行测试，开启一个线程来进行监控，假如虚引用对象被回收那么通过poll方法就可以得知。</p>
+
+<h1 id="多线程">多线程</h1>
+
+<h3 id="线程池">线程池</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200607104255161.png" alt="image-20200607104255161" /></p>
+
+<p>线程池通过复用线程，避免线程频繁的创建与销毁。Java的Executors工具类提供了5种类型线程池的创建方法。就是图中列出的这5种，我们看看他们的特点和适用场景：</p>
+
+<p>第一个是固定大小线程池，特点是线程数固定，使用的是无界缓冲队列，适用于任务数量不均匀的场景，以及对内存压力不敏感，但对系统负载比较敏感的场景。</p>
+
+<p>第二个是cach的线程池，特点是不限制创建的线程数，适用于要求低延迟的短期任务的场景。</p>
+
+<p>第三个是单线程线程池，也就是一个线程的固定线程池，适用于需要异步执行，但需要保证任务执行顺序的场景。</p>
+
+<p>第4个是scheduled的线程池，适用于定期执行任务的场景，支持按固定的频率定期执行和按固定的延时定期执行两种方式。</p>
+
+<p>第5个是工作窃取线程池，使用的forkjoinpool，是固定并行度的多任务队列，适合任务执行时长不均匀的场景。前面提到的线程池，除了工作窃取线程池之外，都是通过threadPoolExecute的不同初始化参数来创建的。</p>
+
+<h3 id="线程池参数介绍">线程池参数介绍</h3>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200607104639772.png" alt="image-20200607104639772" /></p>
+
+<p>构造函数的参数列表，看到这张图。</p>
+
+<p>第一个参数设置核心线程数，默认情况下，核心线程会一直存活。</p>
+
+<p>第二个参数设置最大线程数，决定线程池最多可以创建多少线程。</p>
+
+<p>第3个参数和第4个参数，用来设置现成的空闲时间和空闲时间的单位，当线程闲置超过空闲时间时就会被销毁。可以通过<code>threadPoolExecutor.allowCoreThreadTimeOut(true);</code>方法来允许核心线程被回收。</p>
+
+<p>第5个参数设置缓冲队列，图中左下方的三个队列是设置线程池时最常使用的缓冲队列，其中ArrayBlockingQueue是一个有界队列，就是指队列有最大容量限制，linkedBlockingQueue是无界队列，就是队列不限制容量，最后一个是synchronousQueue是一个同步队列，内部没有缓冲区。</p>
+
+<p>第6个参数设置线程池工厂方法，线程工厂用来创建新的线程，可以用来对现成的一些属性进行定制。例如线程的group、线程名、优先级等，一般使用默认工厂类即可。</p>
+
+<p>第7个参数设置线程池满时的拒绝策略，如右下角所示有4种策略。</p>
+
+<ul>
+<li>Abort策略，在线程池满后。提交新任务时会抛出rejectExecutionException，这个也是默认的拒绝策略。</li>
+<li>Discard策略，会在提交失败时对任务直接进行丢弃。</li>
+<li>CallerOldest策略,会在提交失败时，由提交任务的线程直接执行提交的任务。</li>
+<li>DiscardOldest的策略，会丢弃最早提交的任务。</li>
+</ul>
+
+<p>我们再来看前面说的几种线程池都是使用怎样的参数来创建的？</p>
+
+<p>固定大小线程池创建时，核心和最大线程数都设置成指定的线程数，这样线程池中就只会使用固定大小的线程数，这种类型的线程池它的缓冲队列使用的是无界队列linkedBlockingQueue，</p>
+
+<p>single线程池就是线程数设置为1的固定线程池。</p>
+
+<p>cach的线程池它的核心线程数设置为0，最大线程数是整数integer的最大值，主要是通过把缓存队列设置成synchronousQueue这样只要没有空闲的线程就会新建；</p>
+
+<p>schedule的线程池，与前几种不同的是使用了delayworkQueue这是一种按延迟时间获取任务的优先级队列。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200607105912384.png" alt="image-20200607105912384" /></p>
+
+<p>我们向线程池提交任务时，可以使用execute和submit，区别就是 submit可以返回一个future对象，通过future对象可以了解任务的执行情况，可以取消任务的执行，还可以获取执行结果或者执行异常。Submit最终也是通过execute执行的。</p>
+
+<p>我们看看图中，向线程池提交任务时的执行顺序。向线程池提交任务时，会首先判断线程池中的线程数是否大于设置的核心线程数？如果不大于，就创建一个核心线程来执行任务，如果大于核心线程数，就会判断缓冲队列是否满了。如果没满，则放入队列，等待线程空闲时来执行，如果队列已经满了，就判断是否达到了线程值设置的最大线程数。如果没达到。就创建新的线程来执行任务。如果已经达到了最大线程数，就会执行指定的拒绝策略。这里需要注意，队列的判断，与最大线程数的判断，他们之间的顺序不要搞反。</p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200420224152017.png" alt="image-20200420224152017" /></p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200421090238260.png" alt="image-20200421090238260" /></p>
+
+<p><img src="/resources/杂七杂八/Java面试/image-20200420223937648.png" alt="image-20200420223937648" /></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" title="Java面试准备二" target="_blank" rel="external">https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" title="Java底层JVM知识整理"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
