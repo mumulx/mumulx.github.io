@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2021-03-15T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="86198">
+<meta itemprop="wordCount" content="83874">
 
 
 
@@ -308,6 +308,10 @@
 <ul>
 <li><a href="#1-项目相关">1. 项目相关</a></li>
 <li><a href="#2-操作系统">2. 操作系统</a></li>
+<li><a href="#3-java-基础">3. Java 基础</a></li>
+<li><a href="#4-集合框架">4. 集合框架</a></li>
+<li><a href="#5-多线程">5. 多线程</a></li>
+<li><a href="#6-jvm">6. JVM</a></li>
 <li><a href="#7-数据库">7. 数据库</a></li>
 <li><a href="#8-redis">8. Redis</a></li>
 <li><a href="#9-网络">9. 网络</a></li>
@@ -356,8 +360,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:86198字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:173分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:83874字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:168分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -510,1292 +514,1572 @@
 
 <li><p><strong>套接字(Sockets)</strong> : 此方法主要用于在客户端和服务器之间通过网络进行通信。套接字是支持 TCP/IP 的网络通信的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程。</p>
 
-<pre><code>&gt;    int socket(int domain, int type, int protocal)
-&gt;    ```
-
-&gt; **线程间的通信方式**：
-&gt;
-&gt; 1. **互斥量(Mutex)**：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。比如 Java 中的 synchronized 关键词和各种 Lock 都是这种机制。
-&gt; 2. **信号量(Semphares)**: 它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。
-&gt; 3. **事件(Event)**: Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。
-
-6. **fork函数的作用？**
-
-&gt;  在Linux中fork函数是非常重要的函数，它的作用是从已经存在的进程中创建一个子进程，而原进程称为父进程。
-&gt;
-&gt; 调用fork(),当控制转移到内核中的fork代码后，内核开始做： 
-&gt; 1.分配新的内存块和内核数据结构给子进程。 
-&gt; 2.将父进程部分数据结构内容拷贝至子进程。 
-&gt; 3.将子进程添加到系统进程列表。 
-&gt; 4.fork返回，开始调度。 
-
-&gt; 特点：
-&gt;
-&gt; * 调用一次，返回两次 
-&gt; * 并发执行 
-&gt; * 相同但是独立的地址空间 
-&gt; * fork的返回值 : fock函数调用一次却返回两次；向父进程返回子进程的ID，向子进程中返回0，
-&gt;   1. fork的子进程返回为0； 
-&gt;   2. 父进程返回的是子进程的pid。
-&gt; * fokr调用失败的原因 
-&gt;   1. 系统中有太多进程。
-&gt;   2. 实际用户的进程数超过限制。
-
-7. **协程的概念？**
-
-&gt; 协程是一种用户态的轻量级线程，协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。
-&gt;
-&gt; 对操作系统而言，线程是最小的执行单元，进程是最小的资源管理单元。无论是进程还是线程，都是由操作系统所管理的。
-&gt;
-&gt; 协程不是被操作系统内核所管理的，而是完全由程序所控制，也就是在用户态执行。这样带来的好处是性能大幅度的提升，因为不会像线程切换那样消耗资源。
-&gt;
-&gt; * 协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程它进程和进程不是一个维度的。
-&gt;
-&gt; * 一个进程可以包含多个线程，一个线程可以包含多个协程。
-&gt;
-&gt; * 一个线程内的多个协程虽然可以切换，但是多个协程是串行执行的，只能在一个线程内运行，没法利用CPU多核能力。
-&gt;
-&gt; * 协程与进程一样，切换是存在上下文切换问题的。
-
-8. **linux进程和线程？**
-
-&gt; 进程通过fork()创建
-&gt;
-&gt; 线程通过pthread_create()函数创建
-
-9. **僵尸进程产生的原因？**
-
-&gt; 僵尸进程是指它的父进程没有等待(调用wait/waitpid)。
-&gt;
-&gt; **如果子进程先结束而父进程后结束，即子进程结束后，父进程还在继续运行但是并未调用wait/waitpid那子进程就会成为僵尸进程。**
-&gt;
-&gt; 但如果子进程后结束，即父进程先结束了，但没有调用wait/waitpid来等待子进程的结束，此时子进程还在运行，父进程已经结束。那么并不会产生僵尸进程。应为每个进程结束时，系统都会扫描当前系统中运行的所有进程，看看有没有哪个进程时刚刚结束的这个进程的子进程，如果有，就有init来接管它，成为它的父进程。
-&gt;
-&gt; 进程设置僵尸状态的目的是维护子进程的信息，以便父进程在以后某个时间获取。要在当前进程中生成一个子进程，一般需要调用fork这个系统调用，fork这个函数的特别之处在于一次调用，两次返回，一次返回到父进程中，一次返回到子进程中，可以通过返回值来判断其返回点。如果子进程先于父进程退出， 同时父进程又没有调用wait/waitpid，则该子进程将成为僵尸进程。
-&gt;
-&gt; 在每个进程退出的时候，内核释放该进程所有的资源，包括打开的文件，占用的内存。但是仍然保留了一些信息（如进程号pid 退出状态 运行时间等）。这些保留的信息直到进程通过调用wait/waitpid时才会释放。这样就导致了一个问题，如果没有调用wait/waitpid的话，那么保留的信息就不会释放。比如进程号就会被一直占用了。但系统所能使用的进程号的有限的，如果产生大量的僵尸进程，将导致系统没有可用的进程号而导致系统不能创建进程。所以我们应该避免僵尸进程。
-&gt;
-&gt; **如果进程不调用wait / waitpid的话，** **那么保留的那段信息就不会释放，其进程号就会一直被占用，但是系统所能使用的进程号是有限的，如果大量的产生僵死进程，将因为没有可用的进程号而导致系统不能产生新的进程. 此即为僵尸进程的危害，应当避免。**
-
-10. **孤儿进程产生的原因？**
-
-&gt; **孤儿进程：一个父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。**
-&gt;
-&gt; **孤儿进程是没有父进程的进程，孤儿进程这个重任就落到了init进程身上，因此孤儿进程并不会有什么危害。**
-
-11. **讲一下虚拟内存。虚拟内存和物理内存的关系是什么？**
-
-&gt; 虚拟内存使得应用程序认为它拥有一个**连续的地址空间，而实际上，它通常是被分隔成多个物理内存碎片，还有一部分存储在外部磁盘存储器上，在需要时进行数据交换。**
-&gt;
-&gt; 虚拟内存可以让程序可以拥有超过系统物理内存大小的可用内存空间。虚拟内存让每个进程拥有一片连续完整的内存空间。
-
-&gt; 局部性原理表现在以下两个方面：
-&gt;
-&gt; 1. **时间局部性** ：如果程序中的某条指令一旦执行，不久以后该指令可能再次执行；如果某数据被访问过，不久以后该数据可能再次被访问。
-&gt; 2. **空间局部性** ：一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问。
-
-&gt; 操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，会将缺失的部分从磁盘装入物理内存。
-
-&gt; 页面置换算法：
-&gt;
-&gt; **OPT 页面置换算法（最佳页面置换算法）**：所选择的被换出的页面将是最长时间内不再被访问，通常可以保证获得最低的缺页率。
-&gt;
-&gt; **FIFO（First In First Out） 页面置换算法（先进先出页面置换算法）** : 总是淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。
-&gt;
-&gt; **LRU （Least Currently Used）页面置换算法（最近最久未使用页面置换算法）**：将最近最久未使用的页面换出。需要在内存中维护一个所有页面的链表。当一个页面被访问时，将这个页面移到链表表头。这样就能保证链表表尾的页面是最近最久未访问的。
-&gt;
-&gt; **LFU （Least Frequently Used）页面置换算法（最少使用页面置换算法）**：该置换算法选择在之前时期使用最少的页面作为淘汰页。被使用次数最少的数据优先淘汰。每个数据块都有一个引用计数，按照引用计数排序，具有相同计数的数据块按时间排序。
-
-11. **分段和分页讲一下？以及对应的场景？**
-
-&gt; **操作系统的内存管理机制了解吗？内存管理有哪几种方式?**
-&gt;
-&gt; 1. **块式管理** ： 将内存分为几个固定大小的块，每个块中只包含一个进程。
-&gt; 2. **页式管理** ：把主存分为大小相等且固定的一页一页的形式，页较小，相对相比于块式管理的划分力度更大，提高了内存利用率，减少了碎片。页式管理通过页表对应逻辑地址和物理地址。
-&gt; 3. **段式管理** ： 页式管理虽然提高了内存利用率，但是页式管理其中的页实际并无任何实际意义。 段式管理把主存分为一段段的，最重要的是段是有实际意义的，每个段定义了一组逻辑信息。 段式管理通过段表对应逻辑地址和物理地址。例如,有主程序段 MAIN、子程序段 X、数据段 D 及栈段 S 等。 段式管理通过段表对应逻辑地址和物理地址。
-&gt; 4. **段页式管理**：段页式管理机制结合了段式管理和页式管理的优点。段页式管理机制就是把主存先分成若干段，每个段又分成若干页。
-
-&gt; **分段和分页**：
-&gt;
-&gt; 1. 共同点
-&gt;    - 分页机制和分段机制都是为了提高内存利用率，较少内存碎片。
-&gt;    - 页和段都是离散存储的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。
-&gt; 2. 区别
-&gt;    - 页的大小是固定的，由操作系统决定；而段的大小不固定，取决于我们当前运行的程序。
-&gt;    - 分页仅仅是为了满足操作系统内存管理的需求，而段是逻辑信息的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。
-
-12. **讲一下用户态和内核态？所有的系统调用都会进入到内核态吗？**
-
-&gt;    &gt; 操作系统（Operating System，简称 OS）是管理计算机硬件与软件资源的程序。
-&gt;    &gt;
-&gt;    &gt; 根据进程访问资源的特点，我们可以把进程在系统上的运行分为两个级别：
-&gt;    &gt;
-&gt;    &gt; 1. 用户态(user mode) : 用户态运行的进程或可以直接读取用户程序的数据。
-&gt;    &gt; 2. 内核态(kernel mode):可以简单的理解系统态运行的进程或程序几乎可以访问计算机的任何资源，不受限制。
-&gt;    &gt;
-&gt;    &gt; 运行的程序基本都是运行在用户态。如果我们调用操作系统提供的内核态级别的子功能那就需要系统调用了。
-&gt;    &gt;
-&gt;    &gt; 系统调用：与系统态级别的资源有关的操作（如文件管理、进程控制、内存管理等)，都必须通过系统调用方式向操作系统提出服务请求，并由操作系统代为完成。
-&gt;    &gt;
-&gt;    &gt; 系统调用是操作系统为应用程序提供能够访问到内核态的资源的接口。
-&gt;
-&gt;    补充：
-&gt;
-&gt;    &gt; 用户态切换到内核态的几种方式
-&gt;    &gt;
-&gt;    &gt; - 系统调用: 系统调用是用户态主动要求切换到内核态的一种方式， 用户应用程序通过操作系统调用内核为上层应用程序开放的接口来执行程序。
-&gt;    &gt; - 异常: 当cpu在执行用户态的应用程序时，发生了某些不可知的异常。 于是当前用户态的应用进程切换到处理此异常的内核的程序中去。
-&gt;    &gt; - 硬件设备的中断: 当硬件设备完成用户请求后，会向cpu发出相应的中断信号， 这时cpu会暂停执行下一条即将要执行的指令，转而去执行与中断信号对应的应用程序， 如果先前执行的指令是用户态下程序的指令，那么这个转换过程也是用户态到内核台的转换。
-
-13. **如何查看占用内存比较多的进程？**
-
-&gt; ps aux | sort -k4nr | head -N
-&gt;
-&gt; `head`：-N可以指定显示的行数，默认显示10行。
-&gt;
-&gt; `ps`：a---指代所有的进程，u---userid---执行该进程的用户id，x---指代显示所有程序，不以终端机来区分。ps -aux的输出格式如下： 
-&gt;
-&gt; `sort -k4nr`中：k代表从根据哪一个关键词排序，后面的数字4表示按照第四列排序；n指代numberic sort，根据其数值排序；r指代reverse，这里是指反向比较结果，输出时默认从小到大，反向后从大到小。%MEM在第4个位置，-k4按照内存占用排序。%CPU在第三个位置，-k3表示按照cpu占用率排序。
-
-14. **通过进程id查看占用的端口，通过端口号查看占用的进程id？**
-
-&gt; 通过进程id查看占用的端口 : `netstat -nap | grep 进程id`
-&gt;
-&gt; 通过端口号查看占用的进程id : `netstat -nap | grep 端口号`
-
-15. **平常用什么linux命令比较多？如何打开文件并进行查找某个单词？怎么在某个目录下找到包含txt的文件？**
-
-&gt; - **`pwd`：** 显示当前所在位置
-&gt;
-&gt; - `sudo + 其他命令`：以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。
-&gt;
-&gt; - **`grep 要搜索的字符串 要搜索的文件 --color`：** 搜索命令，--color代表高亮显示
-&gt;
-&gt; - **`ps -ef`/`ps aux`：** 这两个命令都是查看当前系统正在运行进程，两者的区别是展示格式不同。如果想要查看特定的进程可以使用这样的格式：**`ps aux|grep redis`** （查看包括redis字符串的进程），也可使用 `pgrep redis -a`。
-&gt;
-&gt;   注意：如果直接用ps（（Process Status））命令，会显示所有进程的状态，通常结合grep命令查看某进程的状态。
-&gt;
-&gt; - **`kill -9 进程的pid`：** 杀死进程（-9 表示强制终止），先用ps查找进程，然后用kill杀掉。
-&gt;
-&gt; - `find 目录 参数`： 寻找目录（查）。在/home目录下查找以`.txt`结尾的文件名:`find /home -name &quot;*.txt&quot;`
-&gt;
-&gt; - **`ls或者ll`**:（ll是ls -l的别名，ll命令可以看到该目录下的所有目录和文件的详细信息）：查看目录信息。
-&gt;
-&gt; - **`free`** : 显示系统内存的使用情况，包括物理内存、交换内存(swap)和内核缓冲区内存。
-&gt;
-&gt; - **`tar -zcvf 打包压缩后的文件名 要打包压缩的文件`**: 打包并压缩文件，一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。c：压缩。
-&gt;
-&gt; - **`tar -xvf 压缩文件 -C 解压的位置  `**: 解压压缩包。x: 解压。
-&gt;
-&gt; - **`wget`**: 是从远程下载的工具。
-&gt;
-&gt; - **`vmstat`**: 虚拟内存性能监控、CPU监控。
-&gt;
-&gt; - **`top`**: 常用来监控Linux的系统状况，比如CPU、内存的使用，显示系统上正在运行的进程。load average：系统负载，就是进程队列的长度。当这个值&gt;cpu核心数的时候就说明有进程在等待处理了，是负载过重。
-
-&gt; `find /home -name &quot;*.txt&quot;`
-&gt;
-&gt; `cat a.txt | grep redis`
-
-16. **用过Ping命令么？简单介绍一下。TTL是什么意思？**
-
-&gt; `ping`: 查看与某台机器的连接情况。TTL：生存时间。数据报被路由器丢弃之前允许通过的网段数量。
-
-17. **怎么判断一个主机是不是开放某个端口？**
-
-&gt; `telnet 127.0.0.1 3389` `telnet IP地址 端口`
-
-21. **Linux文件系统？**
-
-&gt; inode 是 linux/unix 文件系统的基础。
-&gt;
-&gt; 硬盘的最小存储单位是扇区(Sector)，块(block)由多个扇区组成。文件数据存储在块中。块的最常见的大小是 4kb，约为 8 个连续的扇区组成（每个扇区存储 512 字节）。一个文件可能会占用多个块，但是一个块只能存放一个文件。
-&gt;
-&gt; 我们将文件存储在了块(block)中，但是我们还需要一个空间来存储文件的 **元信息 metadata** ：如某个文件被分成几块、每一块在的地址、文件拥有者，创建时间，权限，大小等。这种 **存储文件元信息的区域就叫 inode**，译为索引节点：**i (index) + node**。 每个文件都有一个 inode，存储文件的元信息。
-&gt;
-&gt; 可以使用 `stat` 命令可以查看文件的 inode 信息。每个 inode 都有一个号码，Linux/Unix 操作系统不使用文件名来区分文件，而是使用 inode 号码区分不同的文件。
-&gt;
-&gt; **inode 就是用来维护某个文件被分成几块、每一块在的地址、文件拥有者，创建时间，权限，大小等信息。**
-    
-&gt; - **inode** ：记录文件的属性信息，可以使用 stat 命令查看 inode 信息。
-&gt; - **block** ：实际文件的内容，如果一个文件大于一个块时候，那么将占用多个 block，但是一个块只能存放一个文件。（因为数据是由 inode 指向的，如果有两个文件的数据存放在同一个块中，就会乱套了）
-    
-20. **硬链接和软链接？**
-
-&gt; - 硬链接： 硬连接指通过索引节点`inode`来进行的连接，即每一个硬链接都是一个指向对应区域的文件。
-&gt; - 软链接： 保存了其代表的文件的绝对路径，是另外一种文件，在硬盘上有独立的区块，访问时替换自身路径。
-
-21. **中断的分类？**
-
-&gt; 1. 中断可以分为同步中断（synchronous）和异步中断(asynchronous)。
-&gt; 2. 中断可分为硬中断和软中断。
-&gt; 3. 中断可分为可屏蔽中断（Maskable interrupt）和非屏蔽中断（Nomaskable interrupt）。
-
-&gt; 同步中断是在指令执行时由CPU主动产生的，受到CPU控制，其执行点是可控的。
-&gt;
-&gt; 异步中断是CPU被动接收到的，由外设发出的电信号引起，其发生时间不可预测。
-
-22. **软中断和硬中断？**
-
-&gt; 从本质上讲，中断(硬)是一种电信号，当设备有某种事情发生的时候，他就会产生中断，通过总线把电信号发送给中断控制器。如果中断的线是激活的，中断控制器就把电信号发送给处理器的某个特定引脚。处理器于是立即停止自己正在做的事，跳到中断处理程序的入口点，进行中断处理。
-&gt;
-&gt; 硬中断是由硬件产生的，比如，像磁盘，网卡，键盘，时钟等。每个设备或设备集都有它自己的IRQ（中断请求）。
-&gt;
-&gt; 软中断是由当前正在运行的进程所产生的。
-&gt;
-&gt; 软中断比硬中断少了一个硬件发送信号的步骤。产生软中断的进程一定是当前正在运行的进程，因此它们不会中断CPU。但是它们会中断调用代码的流程。如果硬件需要CPU去做一些事情，那么这个硬件会使CPU中断当前正在运行的代码。
-
-----
-
-### 3. Java 基础
-
-1. **StringBuilder 和 StringBuffer（StringBuffer 是线程安全的，StringBuilder 是不安全的）**
-
-2. **Java实现连续空间的内存分配? java的内存管理 对象的分配与释放**
-
-&gt; 基本数据类型的数组，存放在栈内存里，连续分配
-&gt;
-&gt; 对象数组,在栈内存里的引用是连续分配的，实际数据分配在堆内存，不是连续分配的;
-
-&gt;  java的内存管理，对象的分配与释放
-&gt;
-&gt; 分配:
-&gt;
-&gt; 通过new为每个对象申请内存空间（基本类型除外）所有对象都在堆中分配空间;
-&gt;
-&gt; 释放：
-&gt;
-&gt; 对象的释放是由垃圾回收机制决定和执行的,这样极大的简化CG(垃圾处理装置)的负担,当然同时也为程序员带来便利(例如c语言需要手动的去处理已经不在使用的对象,如果遗忘内存就会被越占越多)。
-&gt;
-&gt; 2大类:堆内存与栈内存
-&gt;
-&gt; （1）在**函数中**定义的基本类型变量（即基本类型的局部变量）和对象的**引用变量**（即对象的变量名指向该对象的内存地址）都在栈内存中分配；
-&gt;
-&gt; （2）堆内存用来存储由**new创建的对象和数组**以及**对象的实例变量**（即全局变量）
-&gt;
-&gt; （3）每个线程包含一个栈区，保存基础数据类型的对象和自定义对象的引用，每个栈中的数据（原始类型和对象引用）都是私有的，其他栈不能访问。还有一个方法区：存储所有对象数据共享区域，存储静态变量和普通方法、静态方法、常量、字符串常量等信息，又叫静态区，是所有线程共享的。
-
-3. **创建对象的方式有哪几种？**
-
-&gt; 1. new Obj..()
-&gt;
-&gt; 2. clone()：使用Object类的clone方法。
-&gt;
-&gt; 3. 反射
-&gt;
-&gt;    &gt; 1. 调用public无参构造器 ，若是没有，则会报异常：Object o = clazz.newInstance();　
-&gt;    &gt;
-&gt;    &gt; 2. 有带参数的构造函数的类，先获取到其构造对象，再通过该构造方法类获取实例：
-&gt;    &gt;
-&gt;    &gt;    / /获取构造函数类的对象
-&gt;    &gt;
-&gt;    &gt;    Constroctor constroctor = User.class.getConstructor(String.class); 
-&gt;    &gt;
-&gt;    &gt;    // 使用构造器对象的newInstance方法初始化对象
-&gt;    &gt;
-&gt;    &gt;    Object obj = constroctor.newInstance(&quot;name&quot;); 
-&gt;
-&gt; 4. 通过反序列化来创建对象： 实现Serializable接口。
-
-4. **接口和抽象类有什么区别？**
-
-5. **深拷贝和浅拷贝区别？**
-
-6. **讲一讲封装，继承，多态(重要)。**
-
-&gt; 编译时多态
-&gt;
-&gt; **方法重载**都是编译时多态。根据实际参数的数据类型、个数和次序，Java在编译时能够确定执行重载方法中的哪一个。
-&gt;
-&gt; **方法覆盖**表现出两种多态性，当对象引用本类实例时，为编译时多态，否则为运行时多态。
-&gt;
-&gt; 
-&gt;
-&gt; 运行时多态
-&gt;
-&gt; 通过父类对象引用变量引用子类对象来实现。当父类对象引用子类实例时。
-&gt;
-&gt; 通过接口类型变量引用实现接口的类的对象来实现 。
-&gt;
-&gt; 运行时多态主要是通过继承和接口实现的。
-
-7. **泛型是什么?类型擦除？**
-
-&gt; 泛型：将类型当作参数传递给一个类或者是方法。
-&gt;
-&gt; 类型擦除：**Java的泛型是伪泛型，这是因为Java在编译期间，所有的泛型信息都会被擦掉，正确理解泛型概念的首要前提是理解类型擦除。**
-&gt;
-&gt; Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。
-&gt;
-&gt; **原始类型** 就是擦除去了泛型信息，最后在字节码中的类型变量的真正类型，无论何时定义一个泛型，相应的原始类型都会被自动提供，类型变量擦除，并使用其限定类型（无限定的变量用Object）替换。
-&gt;
-&gt; **Java编译器是通过先检查代码中泛型的类型，然后在进行类型擦除，再进行编译。当具体的类型确定后，泛型提供了一种类型检测的机制，只有相匹配的数据才能正常的赋值，否则编译器就不通过。**
-
-8. **如何实现静态代理？有啥缺陷？**
-
-&gt; 1. 为现有的每一个类都编写一个**对应的**代理类，并且让它实现和目标类相同的接口。
-&gt; 2. 在创建代理对象时，通过构造器塞入一个目标对象，然后在代理对象的方法内部调用目标对象同名方法，并在调用前后增加一些其他方法。比如打印日志。代理对象 = 增强代码 + 目标对象。
-&gt;
-&gt; 需要为每一个目标类编写对应的代理类，工作量太大了。
-
-9. **动态代理的作用？在哪些地方用到了？（*AOP、RPC 框架中都有用到*）**
-
-&gt; 为其它对象提供一种代理以控制对这个对象的访问控制，在程序运行时，通过反射机制动态生成。
-&gt;
-&gt; 动态代理的调用处理程序必须实现InvocationHandler接口，及使用Proxy类中的newProxyInstance方法动态的创建代理类。
-
-10. **JDK 的动态代理和 CGLIB 有什么区别？**
-
-&gt; **JDK 动态代理只能只能代理实现了接口的类，而 CGLIB 可以代理未实现任何接口的类。** 另外， CGLIB 动态代理是通过生成一个被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为 final 类型的类和方法。就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK 版本的升级，这个优势更加明显。
-
-11. **谈谈对 Java 注解的理解，解决了什么问题？**
-
-&gt; **Java 语言中的类、方法、变量、参数和包等都可以注解标记，程序运行期间我们可以获取到相应的注解以及注解中定义的内容，这样可以帮助我们做一些事情。比如说 Spring 中如果检测到说你的类被 `@Component`注解标记的话，Spring 容器在启动的时候就会把这个类归为自己管理，这样你就可以通过 `@Autowired`注解注入这个对象了。**
-
-12. **Java 反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？**
-
-&gt;    &gt; **反射介绍：**
-&gt;    &gt;
-&gt;    &gt; JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 java 语言的反射机制。
-&gt;
-&gt;    &gt; **反射的优缺点如下：**
-&gt;    &gt;
-&gt;    &gt; - **优点：** 运行期类型的判断，动态加载类，提高代码灵活度。
-&gt;    &gt; - **缺点：** 1,性能瓶颈：反射相当于一系列解释操作，通知 JVM 要做的事情，性能比直接的 java 代码要慢很多。2,安全问题，让我们可以动态操作改变类的属性同时也增加了类的安全隐患。
-&gt;
-&gt;    &gt; **为什么框架需要反射技术？**
-&gt;    &gt;
-&gt;    &gt; 在我们平时的项目开发过程中，基本上很少会直接使用到反射机制，但这不能说明反射机制没有用，实际上有很多设计、开发都与反射机制有关。动态代理设计模式也采用了反射机制，还有我们日常使用的 Spring／Hibernate 等框架也大量使用到了反射机制。
-&gt;    &gt;
-&gt;    &gt; 1. 我们在使用 JDBC 连接数据库时使用 `Class.forName()`通过反射加载数据库的驱动程序；
-&gt;    &gt; 2. Spring 框架的 IOC（动态加载管理 Bean）创建对象以及 AOP（动态代理）功能都和反射有联系；
-&gt;    &gt; 3. 动态配置实例的属性；
-&gt;
-&gt;    &gt; **获取 Class 对象的两种方式**
-&gt;    &gt;
-&gt;    &gt; 如果我们动态获取到这些信息，我们需要依靠 Class 对象。Class 类对象将一个类的方法、变量等信息告诉运行的程序。Java 提供了两种方式获取 Class 对象:
-&gt;    &gt;
-&gt;    &gt; 1.知道具体类的情况下可以使用：
-&gt;    &gt;
-&gt;    &gt; ```java
-&gt;    &gt; Class alunbarClass = TargetObject.class;
-&gt;    &gt; ```
-&gt;    &gt;
-&gt;    &gt; 但是我们一般是不知道具体类的，基本都是通过遍历包下面的类来获取 Class 对象
-&gt;    &gt;
-&gt;    &gt; 2.通过 `Class.forName()`传入类的路径获取：
-&gt;    &gt;
-&gt;    &gt; ```java
-&gt;    &gt; Class alunbarClass1 = Class.forName(&quot;cn.javaguide.TargetObject&quot;);
-&gt;    &gt; ```
-
-13. **内存泄露和内存溢出的场景。**
-
-&gt;内存泄漏：内存泄漏是指无用对象（不再使用的对象）持续占有内存或无用对象的内存得不到及时释放，从而造成内存空间的浪费称为内存泄漏。
-&gt;
-&gt;Java内存泄漏的根本原因是长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄漏，尽管短生命周期对象已经不再需要，但是因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景。
-&gt;
-&gt;内存溢出：指程序运行过程中无法申请到足够的内存而导致的一种错误。内存溢出通常发生于OLD段或Perm段垃圾回收后，仍然无内存空间容纳新的Java对象的情况。
-
-&gt; **内存泄露的场景**
-&gt;
-&gt; 1. **静态集合类引起内存泄漏**：静态成员的生命周期是整个程序运行期间。比如：Map是在堆上动态分配的对象，正常情况下使用完毕后，会被gc回收。而如果Map被static修饰，且没有删除机制，静态成员是不会被回收的，所以会导致这个很大的Map一直停留在堆内存中。懒初始化`static`变量，且尽量避免使用。
-&gt; 2. **当集合里面的对象属性被修改后，再调用remove()方法时不起作用**：修改hashset中对象的参数值，且参数是计算哈希值的字段。当一个对象被存储进HashSet集合中以后，就不能修改这个对象中的那些参与计算哈希值的字段，否则对象修改后的哈希值与最初存储进HashSet集合中时的哈希值就不同了。
-&gt; 3. **各种连接对象(IO流对象、数据库连接对象、网络连接对象)使用后未关闭**：因为每个流在操作系统层面都对应了打开的文件句柄，流没有关闭，会导致操作系统的文件句柄一直处于打开状态，而jvm会消耗内存来跟踪操作系统打开的文件句柄。
-&gt; 4. **监听器的使用**：在释放对象的同时没有相应删除监听器的时候也可能导致内存泄露。
-&gt; 5. **不正确使用单例模式是引起内存泄漏**：单例对象在初始化后将在JVM的整个生命周期中存在（以静态变量的方式），如果**单例对象持有外部的引用**，那么这个对象将不能被JVM正常回收，导致内存泄漏。
-&gt;
-&gt; 解决措施
-&gt;
-&gt; ​ 1.尽量减少使用静态变量，类的静态变量的生命周期和类同步的。  
-&gt;
-&gt; ​ 2.声明对象引用之前，明确内存对象的有效作用域，尽量减小对象的作用域，将类的成员变量改写为方法内的局部变量；
-&gt;
-&gt; ​ 3.减少长生命周期的对象持有短生命周期的引用；
-&gt;
-&gt; ​ 4.使用StringBuilder和StringBuffer进行字符串连接，Sting和StringBuilder以及StringBuffer等都可以代表字符串，其中String字符串代表的是不可变的字符串，后两者表示可变的字符串。如果使用多个String对象进行字符串连接运算，在运行时可能产生大量临时字符串，这些字符串会保存在内存中从而导致程序性能下降。  
-&gt;
-&gt; ​ 5.对于不需要使用的对象手动设置null值，不管GC何时会开始清理，我们都应及时的将无用的对象标记为可被清理的对象；
-&gt;
-&gt; ​ 6.各种连接（数据库连接，网络连接，IO连接）操作，务必显示调用close关闭。
-
-&gt; **内存溢出场景** 
-&gt;
-&gt; 1. **JVM Heap（堆）溢出：OutOfMemoryError: Java heap space**： 发生这种问题的原因是java虚拟机创建的对象太多，在进行垃圾回收之间，虚拟机分配的到堆内存空间已经用满了。
-&gt;
-&gt;    JVM在启动的时候会自动设置JVM Heap的值， 可以利用JVM提供的-Xmn -Xms -Xmx等选项可进行设置。Heap的大小是新生代和老年代之和。
-&gt;
-&gt;    解决方法：1. 手动设置JVM Heap（堆）的大小。2. 检查程序，看是否有死循环或不必要地重复创建大量对象。
-&gt;
-&gt; 2. **Metaspace溢出： java.lang.OutOfMemoryError: Metaspace**：程序中使用了大量的jar或class，使java虚拟机装载类的空间不够，与metaspace大小有关。
-&gt;
-&gt;    方法区用于存放Java类型的相关信息。在类装载器加载class文件到内存的过程中，虚拟机会提取其中的类型信息，并将这些信息存储到方法区。当需要存储类信息而方法区的内存占用又已经达到-XX:MaxMetaspaceSize设置的最大值，将会抛出OutOfMemoryError异常。对于这种情况的测试，基本的思路是运行时产生大量的类去填满方法区，直到溢出。
-&gt;
-&gt;    解决方法:通过-XX:MetaspaceSize和-XX:MaxMetaspaceSize设置永久代大小即可。
-&gt;
-&gt; 3. **栈溢出： java.lang.StackOverflowError : Thread Stack space**：线程的方法嵌套调用层次太多(如递归调用)，以致于把栈区溢出了。 
-&gt;
-&gt;    解决方法：
-&gt;
-&gt;      1：修改程序。2：通过 -Xss: 来设置每个线程的Stack大小即可。
-
-14. **讲一下，强引用，弱引用，软引用，虚引用。**
-
-&gt; 1. 强引用：被强引用关联的对象不会被回收。使用 new 一个新对象的方式来创建强引用。
-&gt;
-&gt; ```java
-&gt; Object obj = new Object();
-&gt; ```
-&gt;
-&gt; 2. 软引用：被软引用关联的对象只有在内存不够的情况下才会被回收。使用 SoftReference 类来创建软引用。
-&gt;
-&gt; ```java
-&gt; Object obj = new Object();
-&gt; SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
-&gt; obj = null;  // 使对象只被软引用关联
-&gt; ```
-&gt;
-&gt; 3. 弱引用：被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。
-&gt;
-&gt; 使用 WeakReference 类来创建弱引用。
-&gt;
-&gt; ```java
-&gt; Object obj = new Object();
-&gt; WeakReference&lt;Object&gt; wf = new WeakReference&lt;Object&gt;(obj);
-&gt; obj = null;
-&gt; ```
-&gt;
-&gt; **4. 虚引用：一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。**
-
-15. **讲一下Java的NIO，AIO, BIO?**
-
-&gt; **BIO (Blocking I/O)**：同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。
-&gt;
-&gt; **NIO (Non-blocking/New I/O):** NIO 是一种同步非阻塞的 I/O 模型，对应 java.nio 包，提供了 Channel , Selector，Buffer 等抽象。Java NIO使我们可以进行非阻塞IO操作。比如说，单线程中从通道读取数据到buffer，同时可以继续做别的事情，当数据读取到buffer中后，线程再继续处理数据。写数据也是一样的。另外，非阻塞写也是如此。一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。JDK 的 NIO 底层由 epoll 实现。
-&gt;
-&gt; 通常来说NIO中的所有IO都是从 Channel（通道） 开始的。
-&gt;
-&gt; - 从通道进行数据读取 ：创建一个缓冲区，然后请求通道读取数据。
-&gt; - 从通道进行数据写入 ：创建一个缓冲区，填充数据，并要求通道写入数据。
-&gt;
-&gt; **AIO (Asynchronous I/O)**：异步非阻塞IO模型，异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。AIO 的应用还不是很广泛。
-
-16. **Java中finalize()方法的使用?**
-
-&gt; finalize()是Object的protected方法，子类可以覆盖该方法以实现资源清理工作，GC在回收对象之前调用该方法。
-&gt;
-&gt; finalize()方法中一般用于释放非Java 资源（如打开的文件资源、数据库连接等）,或是调用非Java方法（native方法）时分配的内存（比如C语言的malloc()系列函数）。
-&gt;
-&gt; **避免使用的原因：**
-&gt;
-&gt; 首先，由于finalize()方法的调用时机具有不确定性，从一个对象变得不可到达开始，到finalize()方法被执行，所花费的时间这段时间是任意长的。我们并不能依赖finalize()方法能及时的回收占用的资源，可能出现的情况是在我们耗尽资源之前，gc却仍未触发，因而通常的做法是提供显示的close()方法供客户端手动调用。
-&gt; 另外，重写finalize()方法意味着延长了回收对象时需要进行更多的操作，从而延长了对象回收的时间。
-
-17. **GC Root 对象有哪些**
-
-&gt; - 虚拟机栈(栈帧中的本地变量表)中引用的对象
-&gt;- 本地方法栈(Native方法)中引用的对象
-&gt; - 方法区中类静态属性引用的对象
-&gt;- 方法区中常量引用的对象
-    
-18. **Java中Class.forName和ClassLoader的区别？**
-
-&gt; 类的加载：
-&gt;
-&gt; 加载：通过类的全限定名获取二进制字节流，将二进制字节流转换成方法区中的运行时数据结构，在内存中生成Java.lang.class对象； 
-&gt;
-&gt; 链接：执行下面的校验、准备和解析步骤，其中解析步骤是可以选择的； 
-&gt;
-&gt; 　　校验：检查导入类或接口的二进制数据的正确性；（文件格式验证，元数据验证，字节码验证，符号引用验证） 
-&gt;
-&gt; 　　准备：给类的静态变量分配内存并初始化内存空间； 
-&gt;
-&gt; 　　解析：将常量池中的符号引用转成直接引用； 
-&gt;
-&gt; 初始化：激活类的静态变量的初始化Java代码和静态Java代码块，并初始化程序员设置的变量值。
-
-&gt; 在java中Class.forName()和ClassLoader都可以对类进行加载。ClassLoader就是遵循**双亲委派模型**最终调用启动类加载器的类加载器，实现的功能是通过一个类的全限定名来获取描述此类的二进制字节流，获取到二进制流后放到JVM中。classloader只干一件事情，就是将.class文件加载到jvm中，不会执行static中的内容。
-&gt;
-&gt; Class.forName()方法实际上也是调用的CLassLoader来实现的。Class.forName()除了将类的.class文件加载到jvm中之外，还会对类进行初始化，执行类中的static块。
-&gt;
-&gt; ```java
-&gt;  @CallerSensitive
-&gt;     public static Class&lt;?&gt; forName(String className)
-&gt;                 throws ClassNotFoundException {
-&gt;         Class&lt;?&gt; caller = Reflection.getCallerClass();
-&gt;         return forName0(className, true, ClassLoader.getClassLoader(caller), caller);
-&gt;     }
-&gt; ```
-&gt;
-&gt; 最后调用的方法是forName0这个方法，在这个forName0方法中的第二个参数被默认设置为了true，这个参数代表是否对加载的类进行初始化，设置为true时会类进行初始化，代表会执行类中的静态代码块，以及对静态变量的赋值等操作。
-
-19. **讲一下CopyOnWriteArrayList和CopyOnWriteArraySet?**
-
-&gt; **CopyOnWrite容器**：写时复制的容器。当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。
-&gt;
-&gt; 以下代码是向ArrayList里添加元素，可以发现在添加的时候是需要加锁的，否则多线程写的时候会Copy出N个副本出来。
-&gt;
-&gt; ```java
-&gt; public boolean add(T e) {
-&gt;     final ReentrantLock lock = this.lock;
-&gt;     lock.lock();
-&gt;     try {
-&gt;         Object[] elements = getArray();
-&gt;         int len = elements.length;
-&gt;         // 复制出新数组
-&gt;         Object[] newElements = Arrays.copyOf(elements, len + 1);
-&gt;         // 把新元素添加到新数组里
-&gt;         newElements[len] = e;
-&gt;         // 把原数组引用指向新数组
-&gt;         setArray(newElements);
-&gt;         return true;
-&gt;     } finally {
-&gt;         lock.unlock();
-&gt;     }
-&gt; }
-&gt; 
-&gt; final void setArray(Object[] a) {
-&gt;     array = a;
-&gt; }
-&gt; ```
-&gt;
-&gt; 读的时候不需要加锁，如果读的时候有多个线程正在向ArrayList添加数据，读还是会读到旧的数据，因为写的时候不会锁住旧的ArrayList。
-&gt;
-&gt; ```java
-&gt; public E get(int index) {
-&gt;     return get(getArray(), index);
-&gt; }
-&gt; ```
-&gt;
-&gt; CopyOnWrite并发容器用于读多写少的并发场景。
-&gt;
-&gt; **CopyOnWrite的缺点**
-&gt;
-&gt; CopyOnWrite容器有很多优点，但是同时也存在两个问题，即**内存占用问题**和**数据一致性问题**。所以在开发的时候需要注意一下。
-&gt;
-&gt; **内存占用问题**。因为CopyOnWrite的写时复制机制，所以在进行写操作的时候，内存里会同时驻扎两个对象的内存，旧的对象和新写入的对象（注意:在复制的时候只是复制容器里的引用，只是在写的时候会创建新对象添加到新容器里，而旧容器的对象还在使用，所以有两份对象内存）。如果这些对象占用的内存比较大，比如说200M左右，那么再写入100M数据进去，内存就会占用300M，那么这个时候很有可能造成频繁的Yong GC和Full GC。
-&gt;
-&gt; 针对内存占用问题，可以通过压缩容器中的元素的方法来减少大对象的内存消耗，比如，如果元素全是10进制的数字，可以考虑把它压缩成36进制或64进制。或者不使用CopyOnWrite容器，而使用其他的并发容器，如ConcurrentHashMap。
-&gt;
-&gt; **数据一致性问题**。CopyOnWrite容器只能保证数据的最终一致性，不能保证数据的实时一致性。所以如果你希望写入的的数据，马上能读到，请不要使用CopyOnWrite容器。
-
-20. **说一下你最用的比较多得模式（我说的工厂模式和观察者模式），再实现一个单例模式。 为什么要用voliate修饰? 出现synchronized为啥还需要voliate，以及synchronized能保证啥？**
-
-&gt; 观察者模式：观察者模式定义了一系列对象之间的一对多关系。当一个对象改变状态, 其他依赖着都会受到通知。车辆的数据时不断更新的，需要监控数据的变化，当有新数据时就通知观测者observers。
-&gt;
-&gt; 迭代器模式：提供一种顺序访问聚合对象元素的方法。 hasNext() 和 next() 方法。
-&gt;
-&gt; 代理模式：代理模式给某一个对象提供一个代理对象，并由代理对象控制对原对象的引用。  
-&gt;
-&gt; **JDK 动态代理和 CGLIB 动态代理均是实现 Spring AOP 的基础**。
-&gt;
-&gt; 适配器模式：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作。
-    
-21. **单例模式代码（重要）**
-
-&gt; ```java
-&gt; // 线程安全，调用效率高，但是不能延时加载，单例未使用的时候便创建完成，可能造成资源浪费。
-&gt; class Singleton1 {
-&gt;     private static Singleton1 instance = new Singleton1();
-&gt;     private Singleton1() {}
-&gt;     public static Singleton1 getInstance() {
-&gt;         return instance;
-&gt;     }
-&gt; }
-&gt; 
-&gt; // 线程安全，调用效率不高，但是能延时加载，线程安全通过synchronized实现
-&gt; class Singleton2 {
-&gt;     private static Singleton2 instance;
-&gt;     private Singleton2() {}
-&gt;     public static synchronized Singleton2 getSingleton() {
-&gt;         if (instance == null) {
-&gt;             instance = new Singleton2();
-&gt;         }
-&gt;         return instance;
-&gt;     }
-&gt; }
-&gt; 
-&gt; // 双重校验锁，线程安全，延迟加载。
-&gt; // instance = new Singleton3(); 分为三个过程。
-&gt; // 1. 为instance分配内存空间
-&gt; // 2. 初始化instance
-&gt; // 3. 将instance指向分配的内存空间
-&gt; // 变量如果没有声明成volatile，多线程下会导致一个线程获得一个未初始化的实例。
-&gt; class Singleton3 {
-&gt;     private static volatile Singleton3 instance;
-&gt;     private Singleton3() {}
-&gt;     public static Singleton3 getSingleton() {
-&gt;         if (instance == null) {
-&gt;             synchronized (Singleton3.class) {
-&gt;                 if (instance == null) {
-&gt;                     instance = new Singleton3();
-&gt;                 }
-&gt;             }
-&gt;         }
-&gt;         return instance;
-&gt;     }
-&gt; }
-&gt; 
-&gt; // 静态内部类可以不依赖外部类的实例而被实例化。只有调用getSingleton()才进行初始化。
-&gt; class Singleton4 {
-&gt;     private Singleton4() {}
-&gt;     private static class Inner {
-&gt;         private static Singleton4 instance = new Singleton4();
-&gt;     }
-&gt;     public static Singleton4 getSingleton() {
-&gt;         return Inner.instance;
-&gt;     }
-&gt; 
-&gt; }
-&gt; ```
-
-----
-
-### 4. 集合框架
-
-1. **ArrayList的扩容机制？**
-
-&gt; ArrayList扩容发生在add()方法调用的时候，下面是add()方法的源码：
-&gt;
-&gt; ```java
-&gt; public boolean add(E e) {
-&gt;    //扩容
-&gt;     ensureCapacityInternal(size + 1);  // Increments modCount!!
-&gt;     elementData[size++] = e;
-&gt;     return true;
-&gt; }
-&gt; ```
-&gt;
-&gt; ArrayList扩容的关键方法grow():
-&gt;
-&gt; ```java
-&gt; private void grow(int minCapacity) {
-&gt;    // 获取到ArrayList中elementData数组的内存空间长度
-&gt;     int oldCapacity = elementData.length;
-&gt;     // 扩容至原来的1.5倍
-&gt;     int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
-&gt;     // 再判断一下新数组的容量够不够，够了就直接使用这个长度创建新数组，
-&gt;     // 不够就将数组长度设置为需要的长度
-&gt;     if (newCapacity - minCapacity &lt; 0)
-&gt;        newCapacity = minCapacity;
-&gt;        //若预设值大于默认的最大值检查是否溢出
-&gt;     if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
-&gt;         newCapacity = hugeCapacity(minCapacity);
-&gt;     // 调用Arrays.copyOf方法将elementData数组指向新的内存空间时newCapacity的连续空间
-&gt;     // 并将elementData的数据复制到新的内存空间
-&gt;      elementData = Arrays.copyOf(elementData, newCapacity);
-&gt; }
-&gt; ```
-&gt;
-&gt; int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
-&gt;
-&gt; oldCapacity &gt;&gt; 1  右移运算符  原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍
-&gt;
-&gt; 之前的所有都是确定新数组的长度，确定之后就是把老数组copy到新数组中，这样数组的扩容就结束了
-&gt;
-&gt; 以上的一切都是ArrayList扩容的第一步，第二步就没啥说的了，就是把需要添加的元素添加到数组的最后一位
-   
-2. **HashMap 的底层实现、JDK 1.8 的时候为啥将链表转换成红黑树？HashMap 的负载因子、HashMap 和 Hashtable 的区别？HashMap如何实现扩容？**
-
-&gt; **HashMap是用数组+链表+红黑树进行实现的，当添加一个元素（key-value）时，就首先计算元素key的hash值，并根据hash值来确定插入数组中的位置，但是可能存在其他元素已经被放在数组同一位置了，这个时候便使用链表来解决哈希冲突，当链表长度太长的时候，便将链表转换为红黑树来提高搜索的效率。**
-&gt;
-&gt; HashMap是基于拉链法实现的一个散列表，内部由数组和链表和红黑树实现。
-&gt;
-&gt; 1. 数组的初始容量为16，而容量是以2的次方扩充的，一是为了提高性能使用足够大的数组，二是为了能使用位运算代替取模预算。
-&gt; 2. 数组是否需要扩充是通过负载因子判断的，如果当前元素个数为数组容量的0.75时，就会扩充数组。这个0.75就是默认的负载因子，可由构造传入。
-&gt; 3. 为了解决碰撞，数组中的元素是单向链表类型。当链表长度到达一个阈值时（&gt;=8），会将链表转换成红黑树提高性能。而当链表长度缩小到另一个阈值时（&lt;=6），又会将红黑树转换回单向链表提高性能，这里是一个平衡点。
-&gt; 
-&gt;当个数不多的时候，直接链表遍历更方便，实现起来也简单。而红黑树的实现要复杂的多。
-
-3. **ConcurrentHashMap的底层实现。**
-
-&gt; 底层数据结构： JDK1.7的 ConcurrentHashMap 底层采用 分段的数组+链表 实现，JDK1.8 采用的数据结构跟HashMap1.8的结构一样，数组+链表/红黑二叉树。Hashtable 和 JDK1.8 之前的 HashMap 的底层数据结构类似都是采用 数组+链表 的形式，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的；
-&gt;
-&gt; 实现线程安全的方式（重要）： 
-&gt; ① 在JDK1.7的时候，ConcurrentHashMap（分段锁） 对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。 到了 JDK1.8 的时候已经摒弃了Segment的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 synchronized 和 CAS 来操作。（JDK1.6以后 对 synchronized锁做了很多优化） 整个看起来就像是优化过且线程安全的 HashMap，虽然在JDK1.8中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本；synchronized只锁定当前链表或红黑二叉树的首节点，这样只要hash不冲突，就不会产生并发，效率又提升N倍。(TreeBin: 红黑二叉树节点 Node: 链表节点)
-&gt;
-&gt; ② Hashtable(同一把锁) :使用 synchronized 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。
-
-&gt; **为什么 ConcurrentHashMap 的读操作不需要加锁？**
-&gt;
-&gt; &gt; ConcurrentHashMap 在jdk1.7中是采用Segment + HashEntry + ReentrantLock的方式进行实现的，而1.8中放弃了Segment臃肿的设计，取而代之的是采用Node + CAS + Synchronized来保证并发安全进行实现。
-&gt; &gt;
-&gt; &gt; 总结：定义成volatile的变量，能够在线程之间保持可见性，能够被多线程同时读，而不会读到过期的值。由于get操作中只需要读不需要写共享变量，所以可以不用加锁。之所以不会读到过期的值，依据Java内存模型的happen before原则，对volatile字段的写入操作先于读操作，get总能拿到最新的值。
-&gt; &gt;
-&gt; &gt; - get操作全程不需要加锁是因为Node的成员val是用volatile修饰的和数组用volatile修饰没有关系。
-&gt; &gt; - 数组用volatile修饰主要是保证在数组扩容的时候保证可见性。
-
-&gt; **HashMap，LinkedHashMap，TreeMap 有什么区别？HashMap ，TreeMap，LinkedHashMap 使用场景？**
-&gt;
-&gt; LinkedHashMap 保存了记录的插入顺序，在用 Iterator 遍历时，先取到的记录肯定是先插入的；遍历比 HashMap 慢；
-&gt;
-&gt; TreeMap 实现 SortMap 接口，能够把它保存的记录根据键排序（默认按键值升序排序，也可以指定排序的比较器）
-&gt;
-&gt; 一般情况下，使用最多的是 HashMap。
-&gt;
-&gt; HashMap：在 Map 中插入、删除和定位元素时；
-&gt;
-&gt; TreeMap：在需要按自然顺序或自定义顺序遍历键的情况下；
-&gt;
-&gt; LinkedHashMap：在需要输出的顺序和输入的顺序相同的情况下。
-
-4. **有哪些集合是线程不安全的，又有哪些集合是线程不安全的？怎么解决呢？**
-
-&gt; **线程安全的集合类**
-&gt;
-&gt; Vector
-&gt;
-&gt; Stack
-&gt;
-&gt; Hashtable
-&gt;
-&gt; java.util.concurrent包下所有的集合类（ConcurrentHashMap，CopyOnWriteArrayList和CopyOnWriteArraySet等）
-
-5. **什么是快速失败(fail-fast)、能举个例子吗？什么是安全失败(fail-safe)呢？**
-
-&gt; **快速失败(fail-fast)** 
-&gt;
-&gt; 快速失败(fail-fast)是 Java 集合的一种**错误检测机制**。**在使用迭代器对集合进行遍历的时候**，我们在多线程下操作非安全失败(fail-safe)的集合类可能就会触发 fail-fast 机制，导致抛出 `ConcurrentModificationException` 异常。另外，在单线程下，如果在遍历过程中对集合对象的内容进行了修改的话也会触发 fail-fast 机制。
-&gt;
-&gt; 举个例子：多线程下，如果线程 1 正在对集合进行遍历，此时线程 2 对集合进行修改（增加、删除、修改），或者线程 1 在遍历过程中对集合进行修改，都会导致线程 1 抛出 `ConcurrentModificationException` 异常。
-&gt;
-&gt; **安全失败(fail-safe)**
-&gt;
-&gt; 采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是**先复制原有集合内容，在拷贝的集合上进行遍历**。所以，在遍历过程中对原集合所作的修改并不能被迭代器检测到，故不会抛 `ConcurrentModificationException` 异常。
-
-6. **HashMap 多线程操作导致死循环问题**
-
-&gt; 主要原因在于并发下的 rehash 会造成元素之间会形成一个循环链表。不过，jdk 1.8 后解决了这个问题，但是还是不建议在多线程下使用 HashMap，因为多线程下使用 HashMap 还是会存在其他问题比如数据丢失。
-
------
-
-### 5. 多线程
-
-1. **Java 怎么实现线程？**
-
-&gt; ① 继承 Thread 类并重写 `run` 方法。实现简单，但不符合里氏替换原则，不可以继承其他类。
-&gt;
-&gt; ② 实现 Runnable 接口并重写 `run` 方法。避免了单继承局限性，实现解耦。
-&gt;
-&gt; ③实现 Callable 接口并重写 `call` 方法。可以获取线程执行结果的返回值，并且可以抛出异常。
-
-2. **Java 线程通信的方式？**
-
-&gt; Java 采用共享内存模型，线程间的通信总是隐式进行，整个通信过程对程序员完全透明。
-&gt;
-&gt; volatile 告知程序任何对变量的读需要从主内存中获取，写必须同步刷新回主内存，保证所有线程对变量访问的可见性。
-&gt;
-&gt; synchronized 确保多个线程在同一时刻只能有一个处于方法或同步块中，保证线程对变量访问的原子性、可见性和有序性。
-&gt;
-&gt; 等待通知机制指一个线程 A 调用了对象的 `wait` 方法进入等待状态，另一线程 B 调用了对象的 `notify/notifyAll` 方法，线程 A 收到通知后结束阻塞并执行后序操作。对象上的 `wait` 和 `notify/notifyAll` 完成等待方和通知方的交互。
-&gt;
-&gt; 如果一个线程执行了某个线程的 `join` 方法，这个线程就会阻塞等待执行了 `join` 方法的线程终止，这里涉及等待/通知机制。`join` 底层通过 `wait` 实现，线程终止时会调用自身的 `notifyAll` 方法，通知所有等待在该线程对象上的线程。
-&gt;
-&gt; 管道 IO 流用于线程间数据传输，媒介为内存。PipedOutputStream 和 PipedWriter 是输出流，相当于生产者，PipedInputStream 和 PipedReader 是输入流，相当于消费者。管道流使用一个默认大小为 1KB 的循环缓冲数组。输入流从缓冲数组读数据，输出流往缓冲数组中写数据。当数组已满时，输出流所在线程阻塞；当数组首次为空时，输入流所在线程阻塞。
-&gt;
-&gt; ThreadLocal 是线程共享变量，但它可以为每个线程创建单独的副本，副本值是线程私有的，互相之间不影响。
-
-3. **在多线程情况下如何保证线程安全**。
-
-4. **写一个死锁的例子**
-
-&gt; ```java
-&gt; public class DeadLock implements Runnable {  
-&gt;     public int flag = 1;  
-&gt;     //静态对象是类的所有对象共享的  
-&gt;     private static Object o1 = new Object(), o2 = new Object();  
-&gt;     @Override  
-&gt;     public void run() {  
-&gt;         System.out.println(&quot;flag=&quot; + flag);  
-&gt;         if (flag == 1) {  
-&gt;             synchronized (o1) {  
-&gt;                 try {  
-&gt;                     Thread.sleep(500);  
-&gt;                 } catch (Exception e) {  
-&gt;                     e.printStackTrace();  
-&gt;                 }  
-&gt;                 synchronized (o2) {  
-&gt;                     System.out.println(&quot;1&quot;);  
-&gt;                 }  
-&gt;             }  
-&gt;         }  
-&gt;         if (flag == 0) {  
-&gt;             synchronized (o2) {  
-&gt;                 try {  
-&gt;                     Thread.sleep(500);  
-&gt;                 } catch (Exception e) {  
-&gt;                     e.printStackTrace();  
-&gt;                 }  
-&gt;                 synchronized (o1) {  
-&gt;                     System.out.println(&quot;0&quot;);  
-&gt;                 }  
-&gt;             }  
-&gt;         }  
-&gt;     }  
-&gt;   
-&gt;     public static void main(String[] args) {  
-&gt;           
-&gt;         DeadLock td1 = new DeadLock();  
-&gt;         DeadLock td2 = new DeadLock();  
-&gt;         td1.flag = 1;  
-&gt;         td2.flag = 0;  
-&gt;         //td1,td2都处于可执行状态，但JVM线程调度先执行哪个线程是不确定的。  
-&gt;         //td2的run()可能在td1的run()之前运行  
-&gt;         new Thread(td1).start();  
-&gt;         new Thread(td2).start();  
-&gt;   
-&gt;     }  
-&gt; }
-&gt; ```
-
-5. **讲一下volatile关键字的作用。**
-
-&gt; 1. **保证了不同线程对该变量操作的内存可见性。**
-&gt; 2. **禁止指令重排序。**
-
-&gt; **当写一个volatile变量时，JMM将本地内存更改的变量写回到主内存中。**
-&gt;
-&gt; **当取一个volatile变量时，JMM将使线程对应的本地内存失效，然后线程将从主内存读取共享变量。**
-&gt;
-&gt; volatile 可以保证线程可见性且提供了一定的有序性，但是无法保证原子性。在 JVM 底层是基于内存屏障实现的。
-&gt;
-&gt; - 当对非 volatile 变量进行读写的时候，每个线程先从内存拷贝变量到 CPU 缓存中。如果计算机有多个CPU，每个线程可能在不同的 CPU 上被处理，这意味着每个线程可以拷贝到不同的本地内存中。
-&gt; - 而声明变量是 volatile 的，JVM 保证了每次读变量都从内存中读，跳过本地内存这一步，所以就不会有可见性问题
-&gt;   - **对 volatile 变量进行写操作时，会在写操作后加一条 store 屏障指令，将工作内存中的共享变量刷新回主内存；**
-&gt;   - **对 volatile 变量进行读操作时，会在读操作前加一条 load 屏障指令，从主内存中读取共享变量；**
-&gt;
-&gt; **volatile可以通过内存屏障防止指令重排序问题。硬件层面的内存屏障分为读屏障和写屏障。**
-&gt;
-&gt; **对于读屏障来说，在指令前插入读屏障，可以让高速缓存中的数据失效，强制重新从主内存加载数据。**
-&gt; **对于写屏障来说，在指令后插入写屏障，能让写入缓存中的最新数据更新写入主内存，让其他线程可见。**
-
-6. **synchronized 作用，讲一讲底层实现。**
-
-&gt; synchronized关键字解决的是多个线程之间访问资源的同步性，调用操作系统内核态做同步，synchronized关键字可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
-&gt;
-&gt; 在 Java 早期版本中，synchronized属于重量级锁，效率低下，因为监视器锁（monitor）是依赖于底层的操作系统的 Mutex Lock 来实现的，Java 的线程是映射到操作系统的原生线程之上的。JDK1.6对锁的实现引入了大量的优化，如自旋锁、适应性自旋锁、锁消除、锁粗化、偏向锁、轻量级锁等技术来减少锁操作的开销。
-
-&gt; **synchronized关键字最主要的三种使用方式：**
-&gt;
-&gt; - **修饰实例方法:** 作用于当前对象实例加锁，进入同步代码前要获得当前对象实例的锁
-&gt; - **修饰静态方法:** 也就是给当前类加锁，会作用于类的所有对象实例。因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态 synchronized 方法占用的锁是当前实例对象锁。
-&gt; - **修饰代码块:** 指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。
-
-&gt; **synchronized 关键字底层原理属于 JVM 层面。**
-&gt;
-&gt; **① synchronized 同步语句块的情况**：**synchronized 同步语句块的实现使用的是 monitorenter 和 monitorexit 指令，其中 monitorenter 指令指向同步代码块的开始位置，monitorexit 指令则指明同步代码块的结束位置。** 
-&gt;
-&gt; **② synchronized 修饰方法的的情况**：**JVM 通过该 ACC_SYNCHRONIZED 访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。**
-
-7. **ReetrantLock 和 synchronized 的区别**
-
-8. **说说 synchronized 关键字和 volatile 关键字的区别**
-
-&gt; - **volatile关键字**是线程同步的**轻量级实现**，所以**volatile性能肯定比synchronized关键字要好**。但是**volatile关键字只能用于变量而synchronized关键字可以修饰方法以及代码块**。synchronized关键字在JavaSE1.6之后进行了主要包括为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁以及其它各种优化之后执行效率有了显著提升，**实际开发中使用 synchronized 关键字的场景还是更多一些**。
-&gt; - **多线程访问volatile关键字不会发生阻塞，而synchronized关键字可能会发生阻塞**
-&gt; - **volatile关键字能保证数据的可见性，但不能保证数据的原子性。synchronized关键字两者都能保证。**
-&gt; - **volatile关键字主要用于解决变量在多个线程之间的可见性，而 synchronized关键字解决的是多个线程之间访问资源的同步性。**
-
-9. **ReetrantLock实现方式**
-
-&gt; 锁的获取过程：
-&gt;
-&gt; 1. 通过cas操作来修改state状态，表示争抢锁的操作，如果能够获取到锁，设置当前获得锁状态的线程。compareAndSetState(0, 1)
-&gt;
-&gt; 2. 如果没有获取到锁，尝试去获取锁。acquire(1)。
-&gt;
-&gt;    （1）通过tryAcquire尝试获取独占锁，如果成功返回true，失败返回false。如果是同一个线程来获得锁，则直接增加重入次数，并返回true。
-&gt;
-&gt;    （2）如果tryAcquire失败，则会通过addWaiter方法将当前线程封装成Node，添加到AQS队列尾部
-&gt;
-&gt;    （3）acquireQueued，将Node作为参数，通过自旋去尝试获取锁。（如果前驱为head才有资格进行锁的抢夺。）
-&gt;
-&gt;    （4）如果获取锁失败，则挂起线程。
-
-&gt; 锁的释放过程：
-&gt;
-&gt; 1. 释放锁。
-&gt; 2. 如果锁能够被其他线程获取，唤醒后继节点中的线程。一般情况下只要唤醒后继结点的线程就行了，但是后继结点可能已经取消等待，所以从队列尾部往前回溯，找到离头结点最近的正常结点，并唤醒其线程。
-
-&gt; 在获得同步锁时，同步器维护一个同步队列，获取状态失败的线程都会被加入到队列中并在队列中进行自旋；移出队列（或停止自旋）的条件是前驱节点为头节点且成功获取了同步状态。在释放同步状态时，同步器调用tryRelease(int arg)方法释放同步状态，然后唤醒头节点的后继节点。
-
-10. **AQS原理**
-
-&gt; **AQS是一个用来构建锁和同步器的框架**。AQS核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就**需要一套线程阻塞等待以及被唤醒时锁分配的机制**，这个机制AQS是用CLH队列锁实现的，即将暂时获取不到锁的线程加入到队列中。
-&gt;
-&gt; CLH队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS是将每条请求共享资源的线程封装成一个CLH锁队列的一个结点（Node）来实现锁的分配。
-&gt;
-&gt; AQS使用一个int成员变量来表示同步状态，通过内置的FIFO队列来完成获取资源线程的排队工作。AQS使用CAS对该同步状态进行原子操作实现对其值的修改。
-&gt;
-&gt; 状态信息通过protected类型的getState，setState，compareAndSetState进行操作。
-&gt;
-&gt; **AQS定义两种资源共享方式**
-&gt;
-&gt; Exclusive（独占）：只有一个线程能执行，如ReentrantLock。又可分为公平锁和非公平锁：
-&gt;
-&gt; Share（共享）：多个线程可同时执行。
-
-&gt; 以ReentrantLock为例，state初始化为0，表示未锁定状态。A线程lock()时，会调用tryAcquire()独占该锁并将state+1。此后，其他线程再tryAcquire()时就会失败，直到A线程unlock()到state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A线程自己是可以重复获取此锁的（state会累加），这就是可重入的概念。但要注意，获取多少次就要释放多么次，这样才能保证state是能回到零态的。
-&gt;
-&gt; 再以CountDownLatch以例，任务分为N个子线程去执行，state也初始化为N（注意N要与线程个数一致）。这N个子线程是并行执行的，每个子线程执行完后countDown()一次，state会CAS(Compare and Swap)减1。等到所有子线程都执行完后(即state=0)，会unpark()主调用线程，然后主调用线程就会从await()函数返回，继续后余动作。
-
-11. **interrupt，interrupted与isInterrupted方法的区别? 如何停止一个正在运行的线程** 
-
-&gt; （1）interrupt()方法的作用实际上是：在线程受到阻塞时抛出一个中断信号，这样线程就得以退出阻塞状态。
-&gt;
-&gt; （2）interrupted()调用的是currentThread().isInterrupted(true)方法，即说明是返回当前线程的是否已经中断的状态值，而且有清理中断状态的机制。
-&gt;
-&gt; 测试当前线程是否已经中断，线程的中断状态由该方法清除。即如果连续两次调用该方法，则第二次调用将返回false（在第一次调用已清除flag后以及第二次调用检查中断状态之前，当前线程再次中断的情况除外）所以，interrupted()方法具有清除状态flag的功能 
-&gt;
-&gt; （3）isInterrupted()调用的是isInterrupted(false)方法，意思是返回线程是否已经中断的状态，它没有清理中断状态的机制。
-
-&gt; ```java
-&gt; public void interrupt() {
-&gt;     if (this != Thread.currentThread())
-&gt;         checkAccess();
-&gt;     synchronized (blockerLock) {
-&gt;         Interruptible b = blocker;
-&gt;         if (b != null) {
-&gt;             interrupt0();        // Just to set the interrupt flag
-&gt;             b.interrupt(this);
-&gt;             return;
-&gt;         }
-&gt;     }
-&gt;     interrupt0();
-&gt; }
-&gt; ```
-&gt;
-&gt; **interrupt()** **方法用于中断线程。调用该方法的线程的状态为将被置为&quot;中断&quot;状态。**
-&gt; **中断可以理解为线程的一个标识位属性，它表示一个运行中的线程是否被其他线程进行了中断操作。中断好比其他线程对该线程打了个招呼，其他线程通过调用该线程的interrupt()方法对其进行中断操作。**
-&gt; 注意：**线程中断仅仅是置线程的中断状态位，不会停止线程。需要用户自己去监视线程的状态为并做处理。**
-&gt;
-&gt; ```
-&gt; public static boolean interrupted() {
-&gt;     return currentThread().isInterrupted(true);
-&gt; }
-&gt; ```
-&gt;
-&gt; **interrupted()** 检测当前线程是否已经中断，是则返回true，否则false，并清除中断状态。换言之，如果该方法被连续调用两次，第二次必将返回false，除非在第一次与第二次的瞬间线程再次被中断。如果中断调用时线程已经不处于活动状态，则返回false。
-&gt;
-&gt; ```
-&gt; public boolean isInterrupted() {
-&gt;     return isInterrupted(false);
-&gt; }
-&gt; ```
-&gt;
-&gt; **isInterrupted()** 检测当前线程是否已经中断，是则返回true，否则false。中断状态不受该方法的影响。如果中断调用时线程已经不处于活动状态，则返回false。
-
-&gt; **在java中有以下3种方法可以终止正在运行的线程：**
-&gt;
-&gt; - 使用stop方法强行终止，但是不推荐这个方法，因为stop和suspend及resume一样都是过期作废的方法
-&gt; - 使用interrupt()方法中断线程
-
-12. **线程池作用？Java 线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？线程池的工作机制？（非大厂会问：有哪些线程池）**
-
- &gt; - **降低资源消耗**。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
- &gt; - **提高响应速度**。当任务到达时，任务可以不需要的等到线程创建就能立即执行。
- &gt; - **提高线程的可管理性**。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源,还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。
-
-   &gt; **线程池通过 ThreadPoolExecutor 的方式进程创建**
-   &gt;
-   &gt; ```java
-   &gt; public ThreadPoolExecutor(int corePoolSize,
-   &gt;                            int maximumPoolSize,
-   &gt;                            long keepAliveTime,
-   &gt;                            TimeUnit unit,
-   &gt;                            BlockingQueue&lt;Runnable&gt; workQueue,
-   &gt;                            ThreadFactory threadFactory,
-   &gt;                            RejectedExecutionHandler handler) 
-   &gt; ```
-   &gt;
-   &gt; **`ThreadPoolExecutor` 3 个最重要的参数：**
-   &gt;
-   &gt; - **`corePoolSize` :** 核心线程数线程数定义了最小可以同时运行的线程数量。
-   &gt; - **`maximumPoolSize` :** 当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
-   &gt; - **`workQueue`:** 当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。
-   &gt;
-   &gt; `ThreadPoolExecutor`其他常见参数:
-   &gt;
-   &gt; 1. **`keepAliveTime`**:当线程池中的线程数量大于 `corePoolSize` 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了 `keepAliveTime`才会被回收销毁；
-   &gt; 2. **`unit`** : `keepAliveTime` 参数的时间单位。
-   &gt; 3. **`threadFactory`** :executor 创建新线程的时候会用到。
-   &gt; 4. **`handler`** :饱和策略。关于饱和策略下面单独介绍一下。
-
-   &gt; **阻塞队列有几种**
-   &gt;
-   &gt; 用来保存等待被执行的任务的阻塞队列，且任务必须实现Runable接口，在JDK中提供了如下阻塞队列：
-   &gt;
-   &gt; 1、ArrayBlockingQueue（有界队列）：基于数组结构的有界阻塞队列，按FIFO排序任务；
-   &gt;
-   &gt; 2、LinkedBlockingQuene（有/无界队列（基于链表的，传参就是有界，不传就是无界）：基于链表结构的阻塞队列，按FIFO排序任务，吞吐量通常要高于ArrayBlockingQuene；
-   &gt;
-   &gt; 3、SynchronousQuene（同步移交队列（需要一个线程调用put方法插入值，另一个线程调用take方法删除值））：一个不存储元素的阻塞队列，每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQuene；
-   &gt;
-   &gt; 4、PriorityBlockingQuene（具有优先级的、无限阻塞队列）：具有优先级的无界阻塞队列；
-
-   &gt; **`ThreadPoolExecutor` 饱和策略定义:**
-   &gt;
-   &gt; 如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任时，`ThreadPoolTaskExecutor` 定义一些策略:
-   &gt;
-   &gt; - **`ThreadPoolExecutor.AbortPolicy`**：抛出 `RejectedExecutionException`来拒绝新任务的处理。
-   &gt; - **`ThreadPoolExecutor.CallerRunsPolicy`**：调用执行自己的线程运行任务。也就是直接在调用`execute`方法的线程中运行(`run`)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果您的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。
-   &gt; - **`ThreadPoolExecutor.DiscardPolicy`：** 不处理新任务，直接丢弃掉。
-   &gt; - **`ThreadPoolExecutor.DiscardOldestPolicy`：** 此策略将丢弃最早的未处理的任务请求。
-
-   &gt; **线程池的工作过程**
-   &gt;
-   &gt; 1. 提交任务后，线程池先判断线程数是否达到了核心线程数（corePoolSize）。如果未达到线程数，则创建核心线程处理任务；否则，就执行下一步；
-   &gt;
-   &gt; 2. 接着线程池判断任务队列是否满了。如果没满，则将任务添加到任务队列中；否则，执行下一步；
-   &gt;
-   &gt; 3. 接着因为任务队列满了，线程池就判断线程数是否达到了最大线程数。如果未达到，则创建非核心线程处理任务；否则，就执行饱和策略，默认会抛出RejectedExecutionException异常。
-
-   &gt; **常见线程池**
-   &gt;
-   &gt; 1. newFixedThreadPool：最大线程和核心线程一致，用的是LinkedBlockingQueue，无限容量。
-   &gt;
-   &gt;    ```java
-   &gt;    public static ExecutorService newFixedThreadPool(int nThreads) {
-   &gt;        return new ThreadPoolExecutor(nThreads, nThreads,
-   &gt;                                      0L, TimeUnit.MILLISECONDS,
-   &gt;                                      new LinkedBlockingQueue&lt;Runnable&gt;());
-   &gt;    }
-   &gt;    ```
-   &gt;
-   &gt; 2. newSingleThreadExecutor：最大线程和核心线程一致，用的是LinkedBlockingQueue，无限容量。
-   &gt;
-   &gt;    ```java
-   &gt;    public static ExecutorService newSingleThreadExecutor() {
-   &gt;        return new FinalizableDelegatedExecutorService
-   &gt;            (new ThreadPoolExecutor(1, 1,
-   &gt;                                    0L, TimeUnit.MILLISECONDS,
-   &gt;                                    new LinkedBlockingQueue&lt;Runnable&gt;()));
-   &gt;    }
-   &gt;    ```
-   &gt;
-   &gt; 3. newCachedThreadPool：没有核心线程,直接向 SynchronousQueue 中提交任务，如果有空闲线程，就去取出任务执行。如果没有空闲线程，就新建一个。执行完任务的线程有 60 秒生存时间，如果在这个时间内可以接到新任务，才可以存活下去。
-   &gt;
-   &gt;    ```java
-   &gt;    public static ExecutorService newCachedThreadPool() {
-   &gt;        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-   &gt;                                      60L, TimeUnit.SECONDS,
-   &gt;                                      new SynchronousQueue&lt;Runnable&gt;());
-   &gt;    }
-   &gt;    ```
-   &gt;
-   &gt; 4. newScheduledThreadPool：核心线程和最大线程都有，采用DelayedWorkQueue 队列。
-   &gt;
-   &gt;    ```java
-   &gt;    public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
-   &gt;        return new ScheduledThreadPoolExecutor(corePoolSize);
-   &gt;    }
-   &gt;    public ScheduledThreadPoolExecutor(int corePoolSize) {
-   &gt;        super(corePoolSize, Integer.MAX_VALUE,
-   &gt;              DEFAULT_KEEPALIVE_MILLIS, MILLISECONDS,
-   &gt;              new DelayedWorkQueue());
-   &gt;    }
-   &gt;    private static final long DEFAULT_KEEPALIVE_MILLIS = 10L;
-   &gt;    ```
-   &gt;
-
-13. **线程池拒绝策略分别使用在什么场景?**
-
-&gt; 1. AbortPolicy中止策略：丢弃任务并抛出RejectedExecutionException异常。
-&gt;
-&gt;    使用场景：这个就没有特殊的场景了，但是有一点要正确处理抛出的异常。当自己自定义线程池实例时，使用这个策略一定要处理好触发策略时抛的异常，因为他会打断当前的执行流程。
-&gt;
-&gt; 2. DiscardPolicy丢弃策略：ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常。如果线程队列已满，则后续提交的任务都会被丢弃，且是静默丢弃。
-&gt;
-&gt;    使用场景：如果你提交的任务无关紧要，你就可以使用它 。
-&gt;
-&gt; 3. DiscardOldestPolicy弃老策略：丢弃队列最前面的任务，然后重新提交被拒绝的任务。
-&gt;
-&gt;    使用场景：这个策略还是会丢弃任务，丢弃时也是毫无声息，但是特点是丢弃的是老的未执行的任务，而且是待执行优先级较高的任务。基于这个特性，能想到的场景就是，发布消息和修改消息，当消息发布出去后，还未执行，此时更新的消息又来了，这个时候未执行的消息的版本比现在提交的消息版本要低就可以被丢弃了。
-&gt;
-&gt; 4. CallerRunsPolicy调用者运行策略：由调用线程处理该任务。
-&gt;
-&gt;    使用场景：一般在不允许失败的、对性能要求不高、并发量较小的场景下使用。
-
-14. **线程死锁，解除线程死锁有哪几种方式？(两次栽倒这题上了，时间太久又忘记了，如何解决很重要)**
-
-&gt; 线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。
-
-&gt; 如下图所示，线程 A 持有资源 2，线程 B 持有资源 1，他们同时都想申请对方的资源，所以这两个线程就会互相等待而进入死锁状态。
-&gt;
-&gt; ![img](https://mmbiz.qpic.cn/mmbiz_png/iaIdQfEric9Tyk3dODBkz5r5bJNlGsiaZZMwtRYk40nToD1zpdfevdj6AoHqU9UGE0M53DxU9rCuItuuObElMSGKQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1)
-&gt;
-&gt; 
-&gt;
-&gt; **解决死锁的策略**
-&gt;
-&gt; - 死锁预防
-&gt; - 死锁避免
-&gt; - 死锁检测
-&gt; - 死锁解除
-&gt;
-&gt; 1. **死锁预防：** 破坏导致死锁必要条件中的任意一个就可以预防死锁。
-&gt;    （1）**破坏占有和等待条件：** 一次性申请所有资源，之后不再申请资源，如果不满足资源条件则得不到资源分配。
-&gt;    （2）**破坏不可剥夺条件：** 当一个进程获得某个不可剥夺的资源时，提出新的资源申请，若不满足，则释放所有资源。
-&gt;    （3）**破坏循环等待条件：** 按某一顺序申请资源，释放资源则反序释放。
-&gt; 2. **死锁避免：** 进程在每次申请资源时判断这些操作是否安全。
-&gt; 3. **死锁检测：** 判断系统是否属于死锁的状态，如果是，则执行死锁解除策略。
-&gt; 4. **死锁解除：** 将某进程所占资源进行强制回收，然后分配给其他进程。（与死锁检测结合使用的）
-
-15. **ThreadLocal 是什么，应用场景是什么，原理是怎样的？**
-
-&gt; 通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。**如果想实现每一个线程都有自己的专属本地变量该如何解决呢？** JDK 中提供的`ThreadLocal`类正是为了解决这样的问题。**`ThreadLocal`类主要解决的就是让每个线程绑定自己的值，可以将`ThreadLocal`类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。**
-&gt;
-&gt; **如果你创建了一个`ThreadLocal`变量，那么访问这个变量的每个线程都会有这个变量的本地副本，这也是`ThreadLocal`变量名的由来。他们可以使用 `get()` 和 `set()`方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。**
-&gt;
-&gt; **`ThreadLocal`最终的变量是放在了当前线程的 `ThreadLocalMap` 中，并不是存在 `ThreadLocal` 上，`ThreadLocal` 可以理解为只是`ThreadLocalMap`的封装，传递了变量值。** 我们可以把 `ThreadLocalMap` 理解为`ThreadLocal` 类实现的定制化的 `HashMap`。`ThrealLocal` 类中可以通过`Thread.currentThread()`获取到当前线程对象后，直接通过`getMap(Thread t)`可以访问到该线程的`ThreadLocalMap`对象。
-&gt;
-&gt; **每个`Thread`中都具备一个`ThreadLocalMap`，而`ThreadLocalMap`可以存储以`ThreadLocal`为 key ，Object 对象为 value 的键值对。**
-&gt;
-&gt; ```
-&gt; ThreadLocalMap(ThreadLocal&lt;?&gt; firstKey, Object firstValue) {
-&gt; ......
-&gt; }
-&gt; ```
-&gt;
-&gt; 比如我们在同一个线程中声明了两个 `ThreadLocal` 对象的话，会使用 `Thread`内部都是使用仅有那个`ThreadLocalMap` 存放数据的，`ThreadLocalMap`的 key 就是 `ThreadLocal`对象，value 就是 `ThreadLocal` 对象调用`set`方法设置的值。
-
-16. **ThreadLocal类为什么要加上private static修饰**？
-
-&gt; 首先，private修饰与ThreadLocal本身没有关系，private更多是在安全方面进行考虑。static修饰这个变量，这个变量是针对一个线程内所有操作共享的，所以设置为静态变量，所有此类实例共享此静态变量，也就是说在类第一次被使用时装载，只分配一块存储空间，所有此类的对象(只要是这个线程内定义的)都可以操控这个变量。（设置为static可以避免每个线程从任务队列中获取task后重复创建ThreadLocal所关联的对象）
-&gt;
-&gt; **可以解决内存泄露问题（看下一问）。**
-
-17. **ThreadLocal 有什么缺陷？如果线程池的线程使用ThreadLocal 会有什么问题？**
-
-&gt; `采用线性探测的方式`。ThreadLocalMap如何解决冲突？
-
-&gt; ```java
-&gt; public class Thread implements Runnable {
-&gt; ......
-&gt; ThreadLocal.ThreadLocalMap threadLocals = null;
-&gt; ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
-&gt; ......
-&gt; }
-&gt; ```
-&gt;
-&gt; `ThreadLocalMap` 中使用的 key 为 `ThreadLocal` 的弱引用,而 value 是强引用。所以，如果 `ThreadLocal` 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。这样一来，`ThreadLocalMap` 中就会出现key为null的Entry。假如我们不做任何措施的话，value 永远无法被GC 回收，这个时候就可能会产生内存泄露。ThreadLocalMap实现中已经考虑了这种情况，在调用 `set()`、`get()`、`remove()` 方法的时候，会清理掉 key 为 null 的记录。使用完 `ThreadLocal`方法后 最好手动调用`remove()`方法。
-&gt;
-&gt; ```java
-&gt; static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {
-&gt;   /** The value associated with this ThreadLocal. */
-&gt;   Object value;
-&gt;   Entry(ThreadLocal&lt;?&gt; k, Object v) {
-&gt;       super(k);
-&gt;       value = v;
-&gt;   }
-&gt; }
-&gt; ```
-&gt;
-&gt; 在ThreadLocalMap中，也是用Entry来保存K-V结构数据的。但是Entry中key只能是ThreadLocal对象，这点被Entry的构造方法已经限定死了。**Entry继承自WeakReference（`弱引用，生命周期只能存活到下次GC前`），但只有Key是弱引用类型的，Value并非弱引用。**由于ThreadLocalMap的key是弱引用，而Value是强引用。这就导致了一个问题，ThreadLocal在没有外部对象强引用时，**发生GC时弱引用Key会被回收，而Value不会回收**。当线程没有结束，但是ThreadLocal已经被回收，则可能导致线程中存在ThreadLocalMap&lt;null, Object&gt;的键值对，**造成内存泄露。**（`ThreadLocal被回收，ThreadLocal关联的线程共享变量还存在`）。
-
-&gt; 为了防止此类情况的出现，我们有两种手段。
-&gt;
-&gt; - 1、使用完线程共享变量后，显示调用ThreadLocalMap.remove()方法清除线程共享变量；
-&gt;
-&gt; 既然Key是弱引用，那么我们要做的事，就是在调用ThreadLocal的get()、set()方法时完成后再**调用remove方法，将Entry节点和Map的引用关系移除**，这样整个Entry对象在GC Roots分析后就变成不可达了，下次GC的时候就可以被回收。
-&gt;
-&gt; - 2、JDK建议ThreadLocal定义为private static，这样ThreadLocal的弱引用问题则不存在了。
-
-18. **介绍一下 Java 有哪些锁**
-
-(synchronized、juc 提供的锁如 ReentrantLock、CountDownLatch、CyclicBarrier、Semaphore等)
-
-&gt; * 公平锁/非公平锁 (重要)
-&gt; * 可重入锁 
-&gt; * 独享锁/共享锁 (重要)
-&gt; * 互斥锁/读写锁 
-&gt; * 乐观锁/悲观锁 (重要)
-&gt; * 偏向锁/轻量级锁/重量级锁 (重要)
-&gt; * 自旋锁
-
-&gt; 1. 公平锁/非公平锁
-&gt;
-&gt;    公平锁是指多个线程按照申请锁的顺序来获取锁。
-&gt;    非公平锁是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。有可能，会造成优先级反转或者饥饿现象。
-&gt;
-&gt;    对于Java ReentrantLock而言，通过构造函数指定该锁是否是公平锁，默认是非公平锁。非公平锁的优点在于吞吐量比公平锁大。对于Synchronized而言，也是一种非公平锁。由于其并不像ReentrantLock是通过AQS的来实现线程调度，所以并没有任何办法使其变成公平锁。
-
-&gt; 2. 可重入锁
-&gt;
-&gt;    可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，在进入内层方法会自动获取锁。
-&gt;
-&gt;    对于Java ReentrantLock而言，是一个可重入锁，其名字是Re entrant Lock重新进入锁。
-&gt;    对于Synchronized而言，也是一个可重入锁。可重入锁的一个好处是可一定程度避免死锁。
-
-&gt; 3. 独享锁/共享锁 (互斥锁/读写锁)
-&gt;
-&gt;    独享锁是指该锁一次只能被一个线程所持有。
-&gt;    共享锁是指该锁可被多个线程所持有。
-&gt;
-&gt;    对于Java ReentrantLock而言，其是独享锁。但是对于Lock的另一个实现类ReadWriteLock，其读锁是共享锁，其写锁是独享锁。
-&gt;
-&gt;    上面讲的独享锁/共享锁就是一种广义的说法，互斥锁/读写锁就是具体的实现。
-&gt;
-&gt;    互斥锁在Java中的具体实现就是ReentrantLock
-&gt;    读写锁在Java中的具体实现就是ReadWriteLock
-
-&gt; 4. 乐观锁/悲观锁
-&gt;
-&gt;    乐观锁与悲观锁不是指具体的什么类型的锁，而是指**看待并发同步的角度**。
-&gt;
-&gt;    对于同一个数据的并发操作，悲观锁采取加锁的形式。悲观的认为，不加锁的并发操作一定会出问题。
-&gt;    乐观锁在更新数据的时候，主要就是两个步骤：冲突检测和数据更新。乐观的认为，不加锁的并发操作是没有事情的。当多个线程尝试使用CAS同时更新同一个变量时，只有其中一个线程能更新变量的值，而其它线程都失败，**失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次尝试。**
-&gt;
-&gt;    从上面的描述我们可以看出，悲观锁适合写操作非常多的场景，乐观锁适合读操作非常多的场景，不加锁会带来大量的性能提升。
-&gt;    悲观锁在Java中的使用，就是利用各种锁。
-&gt;    乐观锁在Java中的使用，是无锁编程，常常采用的是CAS算法，典型的例子就是原子类，通过CAS自旋实现原子操作的更新。
-&gt;    
-&gt;    &gt; CAS包含三个参数 CAS（V,E,N）。V表示要更新的变量，E表示预期的值，N表示新值。仅当要更新的变量值等于预期的值时，才会将要更新的变量值的值设置成新值，否则什么都不做。
-
-&gt; 5. 偏向锁/轻量级锁/重量级锁
-&gt;
-&gt;    这三种锁是指锁的状态，并且是针对Synchronized。
-&gt;
-&gt;    偏向锁是指一段同步代码一直被一个线程所访问，那么该线程会自动获取锁。降低获取锁的代价。
-&gt;    轻量级锁是指当锁是偏向锁的时候，被另一个线程所访问，偏向锁就会升级为轻量级锁，其他线程会通过自旋的形式尝试获取锁，不会阻塞，提高性能。
-&gt;    重量级锁是指当锁为轻量级锁的时候，另一个线程虽然是自旋，但自旋不会一直持续下去，当自旋一定次数的时候，还没有获取到锁，就会进入阻塞，该锁膨胀为重量级锁。重量级锁会让其他申请的线程进入阻塞，性能降低。
-
-&gt; 6. 自旋锁
-&gt;
-&gt;    自旋锁是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处是减少线程上下文切换的消耗，缺点是循环会消耗CPU。
-
-19. **乐观锁和悲观锁讲一下，哪些地方用到。**
-
-&gt; 乐观锁与悲观锁不是指具体的什么类型的锁，而是指**看待并发同步的角度**。
-&gt; 悲观锁对于同一个数据的并发操作，悲观锁采取加锁的形式。悲观的认为，不加锁的并发操作一定会出问题。
-&gt; 乐观锁在更新数据的时候，会采用尝试更新，不断重试的方式更新数据。乐观的认为，不加锁的并发操作是没有事情的。
-&gt;
-&gt; **共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程**，传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁，数据库的for update SQL语句。Java中`synchronized`和`ReentrantLock`等独占锁就是悲观锁思想的实现。
-&gt;
-&gt; **乐观锁适用于多读的应用类型，这样可以提高吞吐量**。在Java中`java.util.concurrent.atomic`包下面的原子变量类就是使用了乐观锁的一种实现方式**CAS**实现的。
-&gt;
-&gt; **乐观锁适用于写比较少的情况下（多读场景）**，**一般多写的场景下用悲观锁就比较合适**，一般会经常产生冲突，这就会导致上层应用会不断的进行retry，这样反倒是降低了性能。
-
------
-
-### 6. JVM
-
-1. **讲一下 JVM 的内存结构**
-
-&gt; 堆，方法区(元空间)，程序计数器，虚拟机栈，本地方法栈。
-
+<pre><code> int socket(int domain, int type, int protocal)
 </code></pre></li>
 </ol>
 
-<p>堆设置
+<p><strong>线程间的通信方式</strong>：</p>
+
+<ol>
+<li><strong>互斥量(Mutex)</strong>：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。比如 Java 中的 synchronized 关键词和各种 Lock 都是这种机制。</li>
+<li><strong>信号量(Semphares)</strong>: 它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件(Event)</strong>: Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</li>
+</ol>
+</blockquote>
+
+<ol>
+<li><strong>fork函数的作用？</strong></li>
+</ol>
+
+<blockquote>
+<p>在Linux中fork函数是非常重要的函数，它的作用是从已经存在的进程中创建一个子进程，而原进程称为父进程。</p>
+
+<p>调用fork(),当控制转移到内核中的fork代码后，内核开始做：
+1.分配新的内存块和内核数据结构给子进程。
+2.将父进程部分数据结构内容拷贝至子进程。
+3.将子进程添加到系统进程列表。
+4.fork返回，开始调度。</p>
+
+<p>特点：</p>
+
+<ul>
+<li>调用一次，返回两次</li>
+<li>并发执行</li>
+<li>相同但是独立的地址空间</li>
+<li>fork的返回值 : fock函数调用一次却返回两次；向父进程返回子进程的ID，向子进程中返回0，
+
+<ol>
+<li>fork的子进程返回为0；</li>
+<li>父进程返回的是子进程的pid。</li>
+</ol></li>
+<li>fokr调用失败的原因
+
+<ol>
+<li>系统中有太多进程。</li>
+<li>实际用户的进程数超过限制。</li>
+</ol></li>
+</ul>
+</blockquote>
+
+<ol>
+<li><strong>协程的概念？</strong></li>
+</ol>
+
+<blockquote>
+<p>协程是一种用户态的轻量级线程，协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
+
+<p>对操作系统而言，线程是最小的执行单元，进程是最小的资源管理单元。无论是进程还是线程，都是由操作系统所管理的。</p>
+
+<p>协程不是被操作系统内核所管理的，而是完全由程序所控制，也就是在用户态执行。这样带来的好处是性能大幅度的提升，因为不会像线程切换那样消耗资源。</p>
+
+<ul>
+<li><p>协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程它进程和进程不是一个维度的。</p></li>
+
+<li><p>一个进程可以包含多个线程，一个线程可以包含多个协程。</p></li>
+
+<li><p>一个线程内的多个协程虽然可以切换，但是多个协程是串行执行的，只能在一个线程内运行，没法利用CPU多核能力。</p></li>
+
+<li><p>协程与进程一样，切换是存在上下文切换问题的。</p></li>
+</ul>
+</blockquote>
+
+<ol>
+<li><strong>linux进程和线程？</strong></li>
+</ol>
+
+<blockquote>
+<p>进程通过fork()创建</p>
+
+<p>线程通过pthread_create()函数创建</p>
+</blockquote>
+
+<ol>
+<li><strong>僵尸进程产生的原因？</strong></li>
+</ol>
+
+<blockquote>
+<p>僵尸进程是指它的父进程没有等待(调用wait/waitpid)。</p>
+
+<p><strong>如果子进程先结束而父进程后结束，即子进程结束后，父进程还在继续运行但是并未调用wait/waitpid那子进程就会成为僵尸进程。</strong></p>
+
+<p>但如果子进程后结束，即父进程先结束了，但没有调用wait/waitpid来等待子进程的结束，此时子进程还在运行，父进程已经结束。那么并不会产生僵尸进程。应为每个进程结束时，系统都会扫描当前系统中运行的所有进程，看看有没有哪个进程时刚刚结束的这个进程的子进程，如果有，就有init来接管它，成为它的父进程。</p>
+
+<p>进程设置僵尸状态的目的是维护子进程的信息，以便父进程在以后某个时间获取。要在当前进程中生成一个子进程，一般需要调用fork这个系统调用，fork这个函数的特别之处在于一次调用，两次返回，一次返回到父进程中，一次返回到子进程中，可以通过返回值来判断其返回点。如果子进程先于父进程退出， 同时父进程又没有调用wait/waitpid，则该子进程将成为僵尸进程。</p>
+
+<p>在每个进程退出的时候，内核释放该进程所有的资源，包括打开的文件，占用的内存。但是仍然保留了一些信息（如进程号pid 退出状态 运行时间等）。这些保留的信息直到进程通过调用wait/waitpid时才会释放。这样就导致了一个问题，如果没有调用wait/waitpid的话，那么保留的信息就不会释放。比如进程号就会被一直占用了。但系统所能使用的进程号的有限的，如果产生大量的僵尸进程，将导致系统没有可用的进程号而导致系统不能创建进程。所以我们应该避免僵尸进程。</p>
+
+<p><strong>如果进程不调用wait / waitpid的话，</strong> <strong>那么保留的那段信息就不会释放，其进程号就会一直被占用，但是系统所能使用的进程号是有限的，如果大量的产生僵死进程，将因为没有可用的进程号而导致系统不能产生新的进程. 此即为僵尸进程的危害，应当避免。</strong></p>
+</blockquote>
+
+<ol>
+<li><p><strong>孤儿进程产生的原因？</strong></p>
+
+<blockquote>
+<p><strong>孤儿进程：一个父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</strong></p>
+
+<p><strong>孤儿进程是没有父进程的进程，孤儿进程这个重任就落到了init进程身上，因此孤儿进程并不会有什么危害。</strong></p>
+</blockquote></li>
+
+<li><p><strong>讲一下虚拟内存。虚拟内存和物理内存的关系是什么？</strong></p>
+
+<blockquote>
+<p>虚拟内存使得应用程序认为它拥有一个<strong>连续的地址空间，而实际上，它通常是被分隔成多个物理内存碎片，还有一部分存储在外部磁盘存储器上，在需要时进行数据交换。</strong></p>
+
+<p>虚拟内存可以让程序可以拥有超过系统物理内存大小的可用内存空间。虚拟内存让每个进程拥有一片连续完整的内存空间。</p>
+
+<p>局部性原理表现在以下两个方面：</p>
+
+<ol>
+<li><strong>时间局部性</strong> ：如果程序中的某条指令一旦执行，不久以后该指令可能再次执行；如果某数据被访问过，不久以后该数据可能再次被访问。</li>
+<li><strong>空间局部性</strong> ：一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问。</li>
+</ol>
+
+<p>操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，会将缺失的部分从磁盘装入物理内存。</p>
+
+<p>页面置换算法：</p>
+
+<p><strong>OPT 页面置换算法（最佳页面置换算法）</strong>：所选择的被换出的页面将是最长时间内不再被访问，通常可以保证获得最低的缺页率。</p>
+
+<p><strong>FIFO（First In First Out） 页面置换算法（先进先出页面置换算法）</strong> : 总是淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。</p>
+
+<p><strong>LRU （Least Currently Used）页面置换算法（最近最久未使用页面置换算法）</strong>：将最近最久未使用的页面换出。需要在内存中维护一个所有页面的链表。当一个页面被访问时，将这个页面移到链表表头。这样就能保证链表表尾的页面是最近最久未访问的。</p>
+
+<p><strong>LFU （Least Frequently Used）页面置换算法（最少使用页面置换算法）</strong>：该置换算法选择在之前时期使用最少的页面作为淘汰页。被使用次数最少的数据优先淘汰。每个数据块都有一个引用计数，按照引用计数排序，具有相同计数的数据块按时间排序。</p>
+</blockquote></li>
+
+<li><p><strong>分段和分页讲一下？以及对应的场景？</strong></p>
+
+<blockquote>
+<p><strong>操作系统的内存管理机制了解吗？内存管理有哪几种方式?</strong></p>
+
+<ol>
+<li><strong>块式管理</strong> ： 将内存分为几个固定大小的块，每个块中只包含一个进程。</li>
+<li><strong>页式管理</strong> ：把主存分为大小相等且固定的一页一页的形式，页较小，相对相比于块式管理的划分力度更大，提高了内存利用率，减少了碎片。页式管理通过页表对应逻辑地址和物理地址。</li>
+<li><strong>段式管理</strong> ： 页式管理虽然提高了内存利用率，但是页式管理其中的页实际并无任何实际意义。 段式管理把主存分为一段段的，最重要的是段是有实际意义的，每个段定义了一组逻辑信息。 段式管理通过段表对应逻辑地址和物理地址。例如,有主程序段 MAIN、子程序段 X、数据段 D 及栈段 S 等。 段式管理通过段表对应逻辑地址和物理地址。</li>
+<li><strong>段页式管理</strong>：段页式管理机制结合了段式管理和页式管理的优点。段页式管理机制就是把主存先分成若干段，每个段又分成若干页。</li>
+</ol>
+
+<p><strong>分段和分页</strong>：</p>
+
+<ol>
+<li>共同点
+
+<ul>
+<li>分页机制和分段机制都是为了提高内存利用率，较少内存碎片。</li>
+<li>页和段都是离散存储的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。</li>
+</ul></li>
+<li>区别
+
+<ul>
+<li>页的大小是固定的，由操作系统决定；而段的大小不固定，取决于我们当前运行的程序。</li>
+<li>分页仅仅是为了满足操作系统内存管理的需求，而段是逻辑信息的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。</li>
+</ul></li>
+</ol>
+</blockquote></li>
+
+<li><p><strong>讲一下用户态和内核态？所有的系统调用都会进入到内核态吗？</strong></p>
+
+<blockquote>
+<blockquote>
+<p>操作系统（Operating System，简称 OS）是管理计算机硬件与软件资源的程序。</p>
+
+<p>根据进程访问资源的特点，我们可以把进程在系统上的运行分为两个级别：</p>
+
+<ol>
+<li>用户态(user mode) : 用户态运行的进程或可以直接读取用户程序的数据。</li>
+<li>内核态(kernel mode):可以简单的理解系统态运行的进程或程序几乎可以访问计算机的任何资源，不受限制。</li>
+</ol>
+
+<p>运行的程序基本都是运行在用户态。如果我们调用操作系统提供的内核态级别的子功能那就需要系统调用了。</p>
+
+<p>系统调用：与系统态级别的资源有关的操作（如文件管理、进程控制、内存管理等)，都必须通过系统调用方式向操作系统提出服务请求，并由操作系统代为完成。</p>
+
+<p>系统调用是操作系统为应用程序提供能够访问到内核态的资源的接口。</p>
+</blockquote>
+
+<p>补充：</p>
+
+<blockquote>
+<p>用户态切换到内核态的几种方式</p>
+
+<ul>
+<li>系统调用: 系统调用是用户态主动要求切换到内核态的一种方式， 用户应用程序通过操作系统调用内核为上层应用程序开放的接口来执行程序。</li>
+<li>异常: 当cpu在执行用户态的应用程序时，发生了某些不可知的异常。 于是当前用户态的应用进程切换到处理此异常的内核的程序中去。</li>
+<li>硬件设备的中断: 当硬件设备完成用户请求后，会向cpu发出相应的中断信号， 这时cpu会暂停执行下一条即将要执行的指令，转而去执行与中断信号对应的应用程序， 如果先前执行的指令是用户态下程序的指令，那么这个转换过程也是用户态到内核台的转换。</li>
+</ul>
+</blockquote>
+</blockquote></li>
+
+<li><p><strong>如何查看占用内存比较多的进程？</strong></p>
+
+<blockquote>
+<p>ps aux | sort -k4nr | head -N</p>
+
+<p><code>head</code>：-N可以指定显示的行数，默认显示10行。</p>
+
+<p><code>ps</code>：a&mdash;指代所有的进程，u&mdash;userid&mdash;执行该进程的用户id，x&mdash;指代显示所有程序，不以终端机来区分。ps -aux的输出格式如下：</p>
+
+<p><code>sort -k4nr</code>中：k代表从根据哪一个关键词排序，后面的数字4表示按照第四列排序；n指代numberic sort，根据其数值排序；r指代reverse，这里是指反向比较结果，输出时默认从小到大，反向后从大到小。%MEM在第4个位置，-k4按照内存占用排序。%CPU在第三个位置，-k3表示按照cpu占用率排序。</p>
+</blockquote></li>
+
+<li><p><strong>通过进程id查看占用的端口，通过端口号查看占用的进程id？</strong></p>
+
+<blockquote>
+<p>通过进程id查看占用的端口 : <code>netstat -nap | grep 进程id</code></p>
+
+<p>通过端口号查看占用的进程id : <code>netstat -nap | grep 端口号</code></p>
+</blockquote></li>
+
+<li><p><strong>平常用什么linux命令比较多？如何打开文件并进行查找某个单词？怎么在某个目录下找到包含txt的文件？</strong></p>
+
+<blockquote>
+<ul>
+<li><p><strong><code>pwd</code>：</strong> 显示当前所在位置</p></li>
+
+<li><p><code>sudo + 其他命令</code>：以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。</p></li>
+
+<li><p><strong><code>grep 要搜索的字符串 要搜索的文件 --color</code>：</strong> 搜索命令，&ndash;color代表高亮显示</p></li>
+
+<li><p><strong><code>ps -ef</code>/<code>ps aux</code>：</strong> 这两个命令都是查看当前系统正在运行进程，两者的区别是展示格式不同。如果想要查看特定的进程可以使用这样的格式：<strong><code>ps aux|grep redis</code></strong> （查看包括redis字符串的进程），也可使用 <code>pgrep redis -a</code>。</p></li>
+</ul>
+
+<p>注意：如果直接用ps（（Process Status））命令，会显示所有进程的状态，通常结合grep命令查看某进程的状态。</p>
+
+<ul>
+<li><p><strong><code>kill -9 进程的pid</code>：</strong> 杀死进程（-9 表示强制终止），先用ps查找进程，然后用kill杀掉。</p></li>
+
+<li><p><code>find 目录 参数</code>： 寻找目录（查）。在/home目录下查找以<code>.txt</code>结尾的文件名:<code>find /home -name &quot;*.txt&quot;</code></p></li>
+
+<li><p><strong><code>ls或者ll</code></strong>:（ll是ls -l的别名，ll命令可以看到该目录下的所有目录和文件的详细信息）：查看目录信息。</p></li>
+
+<li><p><strong><code>free</code></strong> : 显示系统内存的使用情况，包括物理内存、交换内存(swap)和内核缓冲区内存。</p></li>
+
+<li><p><strong><code>tar -zcvf 打包压缩后的文件名 要打包压缩的文件</code></strong>: 打包并压缩文件，一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。c：压缩。</p></li>
+
+<li><p><strong><code>tar -xvf 压缩文件 -C 解压的位置</code></strong>: 解压压缩包。x: 解压。</p></li>
+
+<li><p><strong><code>wget</code></strong>: 是从远程下载的工具。</p></li>
+
+<li><p><strong><code>vmstat</code></strong>: 虚拟内存性能监控、CPU监控。</p></li>
+
+<li><p><strong><code>top</code></strong>: 常用来监控Linux的系统状况，比如CPU、内存的使用，显示系统上正在运行的进程。load average：系统负载，就是进程队列的长度。当这个值&gt;cpu核心数的时候就说明有进程在等待处理了，是负载过重。</p></li>
+</ul>
+
+<p><code>find /home -name &quot;*.txt&quot;</code></p>
+
+<p><code>cat a.txt | grep redis</code></p>
+</blockquote></li>
+
+<li><p><strong>用过Ping命令么？简单介绍一下。TTL是什么意思？</strong></p>
+
+<blockquote>
+<p><code>ping</code>: 查看与某台机器的连接情况。TTL：生存时间。数据报被路由器丢弃之前允许通过的网段数量。</p>
+</blockquote></li>
+
+<li><p><strong>怎么判断一个主机是不是开放某个端口？</strong></p>
+
+<blockquote>
+<p><code>telnet 127.0.0.1 3389</code> <code>telnet IP地址 端口</code></p>
+</blockquote></li>
+
+<li><p><strong>Linux文件系统？</strong></p>
+
+<blockquote>
+<p>inode 是 linux/unix 文件系统的基础。</p>
+
+<p>硬盘的最小存储单位是扇区(Sector)，块(block)由多个扇区组成。文件数据存储在块中。块的最常见的大小是 4kb，约为 8 个连续的扇区组成（每个扇区存储 512 字节）。一个文件可能会占用多个块，但是一个块只能存放一个文件。</p>
+
+<p>我们将文件存储在了块(block)中，但是我们还需要一个空间来存储文件的 <strong>元信息 metadata</strong> ：如某个文件被分成几块、每一块在的地址、文件拥有者，创建时间，权限，大小等。这种 <strong>存储文件元信息的区域就叫 inode</strong>，译为索引节点：<strong>i (index) + node</strong>。 每个文件都有一个 inode，存储文件的元信息。</p>
+
+<p>可以使用 <code>stat</code> 命令可以查看文件的 inode 信息。每个 inode 都有一个号码，Linux/Unix 操作系统不使用文件名来区分文件，而是使用 inode 号码区分不同的文件。</p>
+
+<p><strong>inode 就是用来维护某个文件被分成几块、每一块在的地址、文件拥有者，创建时间，权限，大小等信息。</strong></p>
+
+<ul>
+<li><strong>inode</strong> ：记录文件的属性信息，可以使用 stat 命令查看 inode 信息。</li>
+<li><strong>block</strong> ：实际文件的内容，如果一个文件大于一个块时候，那么将占用多个 block，但是一个块只能存放一个文件。（因为数据是由 inode 指向的，如果有两个文件的数据存放在同一个块中，就会乱套了）</li>
+</ul>
+</blockquote></li>
+
+<li><p><strong>硬链接和软链接？</strong></p>
+
+<blockquote>
+<ul>
+<li>硬链接： 硬连接指通过索引节点<code>inode</code>来进行的连接，即每一个硬链接都是一个指向对应区域的文件。</li>
+<li>软链接： 保存了其代表的文件的绝对路径，是另外一种文件，在硬盘上有独立的区块，访问时替换自身路径。</li>
+</ul>
+</blockquote></li>
+
+<li><p><strong>中断的分类？</strong></p>
+
+<blockquote>
+<ol>
+<li>中断可以分为同步中断（synchronous）和异步中断(asynchronous)。</li>
+<li>中断可分为硬中断和软中断。</li>
+<li>中断可分为可屏蔽中断（Maskable interrupt）和非屏蔽中断（Nomaskable interrupt）。</li>
+</ol>
+
+<p>同步中断是在指令执行时由CPU主动产生的，受到CPU控制，其执行点是可控的。</p>
+
+<p>异步中断是CPU被动接收到的，由外设发出的电信号引起，其发生时间不可预测。</p>
+</blockquote></li>
+
+<li><p><strong>软中断和硬中断？</strong></p>
+
+<blockquote>
+<p>从本质上讲，中断(硬)是一种电信号，当设备有某种事情发生的时候，他就会产生中断，通过总线把电信号发送给中断控制器。如果中断的线是激活的，中断控制器就把电信号发送给处理器的某个特定引脚。处理器于是立即停止自己正在做的事，跳到中断处理程序的入口点，进行中断处理。</p>
+
+<p>硬中断是由硬件产生的，比如，像磁盘，网卡，键盘，时钟等。每个设备或设备集都有它自己的IRQ（中断请求）。</p>
+
+<p>软中断是由当前正在运行的进程所产生的。</p>
+
+<p>软中断比硬中断少了一个硬件发送信号的步骤。产生软中断的进程一定是当前正在运行的进程，因此它们不会中断CPU。但是它们会中断调用代码的流程。如果硬件需要CPU去做一些事情，那么这个硬件会使CPU中断当前正在运行的代码。</p>
+</blockquote></li>
+</ol>
+
+<hr />
+
+<h3 id="3-java-基础">3. Java 基础</h3>
+
+<ol>
+<li><p><strong>StringBuilder 和 StringBuffer（StringBuffer 是线程安全的，StringBuilder 是不安全的）</strong></p></li>
+
+<li><p><strong>Java实现连续空间的内存分配? java的内存管理 对象的分配与释放</strong></p></li>
+</ol>
+
+<blockquote>
+<p>基本数据类型的数组，存放在栈内存里，连续分配</p>
+
+<p>对象数组,在栈内存里的引用是连续分配的，实际数据分配在堆内存，不是连续分配的;</p>
+
+<p>java的内存管理，对象的分配与释放</p>
+
+<p>分配:</p>
+
+<p>通过new为每个对象申请内存空间（基本类型除外）所有对象都在堆中分配空间;</p>
+
+<p>释放：</p>
+
+<p>对象的释放是由垃圾回收机制决定和执行的,这样极大的简化CG(垃圾处理装置)的负担,当然同时也为程序员带来便利(例如c语言需要手动的去处理已经不在使用的对象,如果遗忘内存就会被越占越多)。</p>
+
+<p>2大类:堆内存与栈内存</p>
+
+<p>（1）在<strong>函数中</strong>定义的基本类型变量（即基本类型的局部变量）和对象的<strong>引用变量</strong>（即对象的变量名指向该对象的内存地址）都在栈内存中分配；</p>
+
+<p>（2）堆内存用来存储由<strong>new创建的对象和数组</strong>以及<strong>对象的实例变量</strong>（即全局变量）</p>
+
+<p>（3）每个线程包含一个栈区，保存基础数据类型的对象和自定义对象的引用，每个栈中的数据（原始类型和对象引用）都是私有的，其他栈不能访问。还有一个方法区：存储所有对象数据共享区域，存储静态变量和普通方法、静态方法、常量、字符串常量等信息，又叫静态区，是所有线程共享的。</p>
+</blockquote>
+
+<ol>
+<li><strong>创建对象的方式有哪几种？</strong></li>
+</ol>
+
+<blockquote>
+<ol>
+<li><p>new Obj..()</p></li>
+
+<li><p>clone()：使用Object类的clone方法。</p></li>
+
+<li><p>反射</p></li>
+</ol>
+
+<blockquote>
+<ol>
+<li><p>调用public无参构造器 ，若是没有，则会报异常：Object o = clazz.newInstance();　</p></li>
+
+<li><p>有带参数的构造函数的类，先获取到其构造对象，再通过该构造方法类获取实例：</p></li>
+</ol>
+
+<p>/ /获取构造函数类的对象</p>
+
+<p>Constroctor constroctor = User.class.getConstructor(String.class);</p>
+
+<p>// 使用构造器对象的newInstance方法初始化对象</p>
+
+<p>Object obj = constroctor.newInstance(&ldquo;name&rdquo;);</p>
+</blockquote>
+
+<ol>
+<li>通过反序列化来创建对象： 实现Serializable接口。</li>
+</ol>
+</blockquote>
+
+<ol>
+<li><p><strong>接口和抽象类有什么区别？</strong></p></li>
+
+<li><p><strong>深拷贝和浅拷贝区别？</strong></p></li>
+
+<li><p><strong>讲一讲封装，继承，多态(重要)。</strong></p></li>
+</ol>
+
+<blockquote>
+<p>编译时多态</p>
+
+<p><strong>方法重载</strong>都是编译时多态。根据实际参数的数据类型、个数和次序，Java在编译时能够确定执行重载方法中的哪一个。</p>
+
+<p><strong>方法覆盖</strong>表现出两种多态性，当对象引用本类实例时，为编译时多态，否则为运行时多态。</p>
+
+<p>运行时多态</p>
+
+<p>通过父类对象引用变量引用子类对象来实现。当父类对象引用子类实例时。</p>
+
+<p>通过接口类型变量引用实现接口的类的对象来实现 。</p>
+
+<p>运行时多态主要是通过继承和接口实现的。</p>
+</blockquote>
+
+<ol>
+<li><strong>泛型是什么?类型擦除？</strong></li>
+</ol>
+
+<blockquote>
+<p>泛型：将类型当作参数传递给一个类或者是方法。</p>
+
+<p>类型擦除：<strong>Java的泛型是伪泛型，这是因为Java在编译期间，所有的泛型信息都会被擦掉，正确理解泛型概念的首要前提是理解类型擦除。</strong></p>
+
+<p>Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。</p>
+
+<p><strong>原始类型</strong> 就是擦除去了泛型信息，最后在字节码中的类型变量的真正类型，无论何时定义一个泛型，相应的原始类型都会被自动提供，类型变量擦除，并使用其限定类型（无限定的变量用Object）替换。</p>
+
+<p><strong>Java编译器是通过先检查代码中泛型的类型，然后在进行类型擦除，再进行编译。当具体的类型确定后，泛型提供了一种类型检测的机制，只有相匹配的数据才能正常的赋值，否则编译器就不通过。</strong></p>
+</blockquote>
+
+<ol>
+<li><strong>如何实现静态代理？有啥缺陷？</strong></li>
+</ol>
+
+<blockquote>
+<ol>
+<li>为现有的每一个类都编写一个<strong>对应的</strong>代理类，并且让它实现和目标类相同的接口。</li>
+<li>在创建代理对象时，通过构造器塞入一个目标对象，然后在代理对象的方法内部调用目标对象同名方法，并在调用前后增加一些其他方法。比如打印日志。代理对象 = 增强代码 + 目标对象。</li>
+</ol>
+
+<p>需要为每一个目标类编写对应的代理类，工作量太大了。</p>
+</blockquote>
+
+<ol>
+<li><strong>动态代理的作用？在哪些地方用到了？（*AOP、RPC 框架中都有用到*）</strong></li>
+</ol>
+
+<blockquote>
+<p>为其它对象提供一种代理以控制对这个对象的访问控制，在程序运行时，通过反射机制动态生成。</p>
+
+<p>动态代理的调用处理程序必须实现InvocationHandler接口，及使用Proxy类中的newProxyInstance方法动态的创建代理类。</p>
+</blockquote>
+
+<ol>
+<li><p><strong>JDK 的动态代理和 CGLIB 有什么区别？</strong></p>
+
+<blockquote>
+<p><strong>JDK 动态代理只能只能代理实现了接口的类，而 CGLIB 可以代理未实现任何接口的类。</strong> 另外， CGLIB 动态代理是通过生成一个被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为 final 类型的类和方法。就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK 版本的升级，这个优势更加明显。</p>
+</blockquote></li>
+
+<li><p><strong>谈谈对 Java 注解的理解，解决了什么问题？</strong></p>
+
+<blockquote>
+<p><strong>Java 语言中的类、方法、变量、参数和包等都可以注解标记，程序运行期间我们可以获取到相应的注解以及注解中定义的内容，这样可以帮助我们做一些事情。比如说 Spring 中如果检测到说你的类被 <code>@Component</code>注解标记的话，Spring 容器在启动的时候就会把这个类归为自己管理，这样你就可以通过 <code>@Autowired</code>注解注入这个对象了。</strong></p>
+</blockquote></li>
+
+<li><p><strong>Java 反射？反射有什么缺点？你是怎么理解反射的（为什么框架需要反射）？</strong></p>
+
+<blockquote>
+<blockquote>
+<p><strong>反射介绍：</strong></p>
+
+<p>JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 java 语言的反射机制。</p>
+
+<p><strong>反射的优缺点如下：</strong></p>
+
+<ul>
+<li><strong>优点：</strong> 运行期类型的判断，动态加载类，提高代码灵活度。</li>
+<li><strong>缺点：</strong> 1,性能瓶颈：反射相当于一系列解释操作，通知 JVM 要做的事情，性能比直接的 java 代码要慢很多。2,安全问题，让我们可以动态操作改变类的属性同时也增加了类的安全隐患。</li>
+</ul>
+
+<p><strong>为什么框架需要反射技术？</strong></p>
+
+<p>在我们平时的项目开发过程中，基本上很少会直接使用到反射机制，但这不能说明反射机制没有用，实际上有很多设计、开发都与反射机制有关。动态代理设计模式也采用了反射机制，还有我们日常使用的 Spring／Hibernate 等框架也大量使用到了反射机制。</p>
+
+<ol>
+<li>我们在使用 JDBC 连接数据库时使用 <code>Class.forName()</code>通过反射加载数据库的驱动程序；</li>
+<li>Spring 框架的 IOC（动态加载管理 Bean）创建对象以及 AOP（动态代理）功能都和反射有联系；</li>
+<li>动态配置实例的属性；</li>
+</ol>
+
+<p><strong>获取 Class 对象的两种方式</strong></p>
+
+<p>如果我们动态获取到这些信息，我们需要依靠 Class 对象。Class 类对象将一个类的方法、变量等信息告诉运行的程序。Java 提供了两种方式获取 Class 对象:</p>
+
+<p>1.知道具体类的情况下可以使用：</p>
+
+<pre><code class="language-java">Class alunbarClass = TargetObject.class;
+</code></pre>
+
+<p>但是我们一般是不知道具体类的，基本都是通过遍历包下面的类来获取 Class 对象</p>
+
+<p>2.通过 <code>Class.forName()</code>传入类的路径获取：</p>
+
+<pre><code class="language-java">Class alunbarClass1 = Class.forName(&quot;cn.javaguide.TargetObject&quot;);
+</code></pre>
+</blockquote>
+</blockquote></li>
+
+<li><p><strong>内存泄露和内存溢出的场景。</strong></p>
+
+<blockquote>
+<p>内存泄漏：内存泄漏是指无用对象（不再使用的对象）持续占有内存或无用对象的内存得不到及时释放，从而造成内存空间的浪费称为内存泄漏。</p>
+
+<p>Java内存泄漏的根本原因是长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄漏，尽管短生命周期对象已经不再需要，但是因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景。</p>
+
+<p>内存溢出：指程序运行过程中无法申请到足够的内存而导致的一种错误。内存溢出通常发生于OLD段或Perm段垃圾回收后，仍然无内存空间容纳新的Java对象的情况。</p>
+
+<p><strong>内存泄露的场景</strong></p>
+
+<ol>
+<li><strong>静态集合类引起内存泄漏</strong>：静态成员的生命周期是整个程序运行期间。比如：Map是在堆上动态分配的对象，正常情况下使用完毕后，会被gc回收。而如果Map被static修饰，且没有删除机制，静态成员是不会被回收的，所以会导致这个很大的Map一直停留在堆内存中。懒初始化<code>static</code>变量，且尽量避免使用。</li>
+<li><strong>当集合里面的对象属性被修改后，再调用remove()方法时不起作用</strong>：修改hashset中对象的参数值，且参数是计算哈希值的字段。当一个对象被存储进HashSet集合中以后，就不能修改这个对象中的那些参与计算哈希值的字段，否则对象修改后的哈希值与最初存储进HashSet集合中时的哈希值就不同了。</li>
+<li><strong>各种连接对象(IO流对象、数据库连接对象、网络连接对象)使用后未关闭</strong>：因为每个流在操作系统层面都对应了打开的文件句柄，流没有关闭，会导致操作系统的文件句柄一直处于打开状态，而jvm会消耗内存来跟踪操作系统打开的文件句柄。</li>
+<li><strong>监听器的使用</strong>：在释放对象的同时没有相应删除监听器的时候也可能导致内存泄露。</li>
+<li><strong>不正确使用单例模式是引起内存泄漏</strong>：单例对象在初始化后将在JVM的整个生命周期中存在（以静态变量的方式），如果<strong>单例对象持有外部的引用</strong>，那么这个对象将不能被JVM正常回收，导致内存泄漏。</li>
+</ol>
+
+<p>解决措施</p>
+
+<p>​	1.尽量减少使用静态变量，类的静态变量的生命周期和类同步的。</p>
+
+<p>​	2.声明对象引用之前，明确内存对象的有效作用域，尽量减小对象的作用域，将类的成员变量改写为方法内的局部变量；</p>
+
+<p>​	3.减少长生命周期的对象持有短生命周期的引用；</p>
+
+<p>​	4.使用StringBuilder和StringBuffer进行字符串连接，Sting和StringBuilder以及StringBuffer等都可以代表字符串，其中String字符串代表的是不可变的字符串，后两者表示可变的字符串。如果使用多个String对象进行字符串连接运算，在运行时可能产生大量临时字符串，这些字符串会保存在内存中从而导致程序性能下降。</p>
+
+<p>​	5.对于不需要使用的对象手动设置null值，不管GC何时会开始清理，我们都应及时的将无用的对象标记为可被清理的对象；</p>
+
+<p>​	6.各种连接（数据库连接，网络连接，IO连接）操作，务必显示调用close关闭。</p>
+
+<p><strong>内存溢出场景</strong></p>
+
+<ol>
+<li><strong>JVM Heap（堆）溢出：OutOfMemoryError: Java heap space</strong>： 发生这种问题的原因是java虚拟机创建的对象太多，在进行垃圾回收之间，虚拟机分配的到堆内存空间已经用满了。</li>
+</ol>
+
+<p>JVM在启动的时候会自动设置JVM Heap的值， 可以利用JVM提供的-Xmn -Xms -Xmx等选项可进行设置。Heap的大小是新生代和老年代之和。</p>
+
+<p>解决方法：1. 手动设置JVM Heap（堆）的大小。2. 检查程序，看是否有死循环或不必要地重复创建大量对象。</p>
+
+<ol>
+<li><strong>Metaspace溢出： java.lang.OutOfMemoryError: Metaspace</strong>：程序中使用了大量的jar或class，使java虚拟机装载类的空间不够，与metaspace大小有关。</li>
+</ol>
+
+<p>方法区用于存放Java类型的相关信息。在类装载器加载class文件到内存的过程中，虚拟机会提取其中的类型信息，并将这些信息存储到方法区。当需要存储类信息而方法区的内存占用又已经达到-XX:MaxMetaspaceSize设置的最大值，将会抛出OutOfMemoryError异常。对于这种情况的测试，基本的思路是运行时产生大量的类去填满方法区，直到溢出。</p>
+
+<p>解决方法:通过-XX:MetaspaceSize和-XX:MaxMetaspaceSize设置永久代大小即可。</p>
+
+<ol>
+<li><strong>栈溢出： java.lang.StackOverflowError : Thread Stack space</strong>：线程的方法嵌套调用层次太多(如递归调用)，以致于把栈区溢出了。</li>
+</ol>
+
+<p>解决方法：</p>
+
+<pre><code> 1：修改程序。2：通过 -Xss: 来设置每个线程的Stack大小即可。
+</code></pre>
+</blockquote></li>
+
+<li><p><strong>讲一下，强引用，弱引用，软引用，虚引用。</strong></p>
+
+<blockquote>
+<ol>
+<li><p>强引用：被强引用关联的对象不会被回收。使用 new 一个新对象的方式来创建强引用。</p>
+
+<pre><code class="language-java">Object obj = new Object();
+</code></pre></li>
+
+<li><p>软引用：被软引用关联的对象只有在内存不够的情况下才会被回收。使用 SoftReference 类来创建软引用。</p>
+
+<pre><code class="language-java">Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;  // 使对象只被软引用关联
+</code></pre></li>
+
+<li><p>弱引用：被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。</p></li>
+</ol>
+
+<p>使用 WeakReference 类来创建弱引用。</p>
+
+<pre><code class="language-java">Object obj = new Object();
+WeakReference&lt;Object&gt; wf = new WeakReference&lt;Object&gt;(obj);
+obj = null;
+</code></pre>
+
+<p><strong>4. 虚引用：一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。</strong></p>
+</blockquote></li>
+
+<li><p><strong>讲一下Java的NIO，AIO, BIO?</strong></p>
+
+<blockquote>
+<p><strong>BIO (Blocking I/O)</strong>：同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。</p>
+
+<p><strong>NIO (Non-blocking/New I/O):</strong> NIO 是一种同步非阻塞的 I/O 模型，对应 java.nio 包，提供了 Channel , Selector，Buffer 等抽象。Java NIO使我们可以进行非阻塞IO操作。比如说，单线程中从通道读取数据到buffer，同时可以继续做别的事情，当数据读取到buffer中后，线程再继续处理数据。写数据也是一样的。另外，非阻塞写也是如此。一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。JDK 的 NIO 底层由 epoll 实现。</p>
+
+<p>通常来说NIO中的所有IO都是从 Channel（通道） 开始的。</p>
+
+<ul>
+<li>从通道进行数据读取 ：创建一个缓冲区，然后请求通道读取数据。</li>
+<li>从通道进行数据写入 ：创建一个缓冲区，填充数据，并要求通道写入数据。</li>
+</ul>
+
+<p><strong>AIO (Asynchronous I/O)</strong>：异步非阻塞IO模型，异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。AIO 的应用还不是很广泛。</p>
+</blockquote></li>
+
+<li><p><strong>Java中finalize()方法的使用?</strong></p>
+
+<blockquote>
+<p>finalize()是Object的protected方法，子类可以覆盖该方法以实现资源清理工作，GC在回收对象之前调用该方法。</p>
+
+<p>finalize()方法中一般用于释放非Java 资源（如打开的文件资源、数据库连接等）,或是调用非Java方法（native方法）时分配的内存（比如C语言的malloc()系列函数）。</p>
+
+<p><strong>避免使用的原因：</strong></p>
+
+<p>首先，由于finalize()方法的调用时机具有不确定性，从一个对象变得不可到达开始，到finalize()方法被执行，所花费的时间这段时间是任意长的。我们并不能依赖finalize()方法能及时的回收占用的资源，可能出现的情况是在我们耗尽资源之前，gc却仍未触发，因而通常的做法是提供显示的close()方法供客户端手动调用。
+另外，重写finalize()方法意味着延长了回收对象时需要进行更多的操作，从而延长了对象回收的时间。</p>
+</blockquote></li>
+
+<li><p><strong>GC Root 对象有哪些</strong></p>
+
+<blockquote>
+<ul>
+<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
+<li>本地方法栈(Native方法)中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+</ul>
+</blockquote></li>
+
+<li><p><strong>Java中Class.forName和ClassLoader的区别？</strong></p>
+
+<blockquote>
+<p>类的加载：</p>
+
+<p>加载：通过类的全限定名获取二进制字节流，将二进制字节流转换成方法区中的运行时数据结构，在内存中生成Java.lang.class对象；</p>
+
+<p>链接：执行下面的校验、准备和解析步骤，其中解析步骤是可以选择的；</p>
+
+<p>　　校验：检查导入类或接口的二进制数据的正确性；（文件格式验证，元数据验证，字节码验证，符号引用验证）</p>
+
+<p>　　准备：给类的静态变量分配内存并初始化内存空间；</p>
+
+<p>　　解析：将常量池中的符号引用转成直接引用；</p>
+
+<p>初始化：激活类的静态变量的初始化Java代码和静态Java代码块，并初始化程序员设置的变量值。</p>
+
+<p>在java中Class.forName()和ClassLoader都可以对类进行加载。ClassLoader就是遵循<strong>双亲委派模型</strong>最终调用启动类加载器的类加载器，实现的功能是通过一个类的全限定名来获取描述此类的二进制字节流，获取到二进制流后放到JVM中。classloader只干一件事情，就是将.class文件加载到jvm中，不会执行static中的内容。</p>
+
+<p>Class.forName()方法实际上也是调用的CLassLoader来实现的。Class.forName()除了将类的.class文件加载到jvm中之外，还会对类进行初始化，执行类中的static块。</p>
+
+<pre><code class="language-java"> @CallerSensitive
+    public static Class&lt;?&gt; forName(String className)
+                throws ClassNotFoundException {
+        Class&lt;?&gt; caller = Reflection.getCallerClass();
+        return forName0(className, true, ClassLoader.getClassLoader(caller), caller);
+    }
+</code></pre>
+
+<p>最后调用的方法是forName0这个方法，在这个forName0方法中的第二个参数被默认设置为了true，这个参数代表是否对加载的类进行初始化，设置为true时会类进行初始化，代表会执行类中的静态代码块，以及对静态变量的赋值等操作。</p>
+</blockquote></li>
+
+<li><p><strong>讲一下CopyOnWriteArrayList和CopyOnWriteArraySet?</strong></p>
+
+<blockquote>
+<p><strong>CopyOnWrite容器</strong>：写时复制的容器。当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。</p>
+
+<p>以下代码是向ArrayList里添加元素，可以发现在添加的时候是需要加锁的，否则多线程写的时候会Copy出N个副本出来。</p>
+
+<pre><code class="language-java">public boolean add(T e) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        int len = elements.length;
+        // 复制出新数组
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        // 把新元素添加到新数组里
+        newElements[len] = e;
+        // 把原数组引用指向新数组
+        setArray(newElements);
+        return true;
+    } finally {
+        lock.unlock();
+    }
+}
+
+final void setArray(Object[] a) {
+    array = a;
+}
+</code></pre>
+
+<p>读的时候不需要加锁，如果读的时候有多个线程正在向ArrayList添加数据，读还是会读到旧的数据，因为写的时候不会锁住旧的ArrayList。</p>
+
+<pre><code class="language-java">public E get(int index) {
+    return get(getArray(), index);
+}
+</code></pre>
+
+<p>CopyOnWrite并发容器用于读多写少的并发场景。</p>
+
+<p><strong>CopyOnWrite的缺点</strong></p>
+
+<p>CopyOnWrite容器有很多优点，但是同时也存在两个问题，即<strong>内存占用问题</strong>和<strong>数据一致性问题</strong>。所以在开发的时候需要注意一下。</p>
+
+<p><strong>内存占用问题</strong>。因为CopyOnWrite的写时复制机制，所以在进行写操作的时候，内存里会同时驻扎两个对象的内存，旧的对象和新写入的对象（注意:在复制的时候只是复制容器里的引用，只是在写的时候会创建新对象添加到新容器里，而旧容器的对象还在使用，所以有两份对象内存）。如果这些对象占用的内存比较大，比如说200M左右，那么再写入100M数据进去，内存就会占用300M，那么这个时候很有可能造成频繁的Yong GC和Full GC。</p>
+
+<p>针对内存占用问题，可以通过压缩容器中的元素的方法来减少大对象的内存消耗，比如，如果元素全是10进制的数字，可以考虑把它压缩成36进制或64进制。或者不使用CopyOnWrite容器，而使用其他的并发容器，如ConcurrentHashMap。</p>
+
+<p><strong>数据一致性问题</strong>。CopyOnWrite容器只能保证数据的最终一致性，不能保证数据的实时一致性。所以如果你希望写入的的数据，马上能读到，请不要使用CopyOnWrite容器。</p>
+</blockquote></li>
+
+<li><p><strong>说一下你最用的比较多得模式（我说的工厂模式和观察者模式），再实现一个单例模式。 为什么要用voliate修饰? 出现synchronized为啥还需要voliate，以及synchronized能保证啥？</strong></p>
+
+<blockquote>
+<p>观察者模式：观察者模式定义了一系列对象之间的一对多关系。当一个对象改变状态, 其他依赖着都会受到通知。车辆的数据时不断更新的，需要监控数据的变化，当有新数据时就通知观测者observers。</p>
+
+<p>迭代器模式：提供一种顺序访问聚合对象元素的方法。 hasNext() 和 next() 方法。</p>
+
+<p>代理模式：代理模式给某一个对象提供一个代理对象，并由代理对象控制对原对象的引用。	</p>
+
+<p><strong>JDK 动态代理和 CGLIB 动态代理均是实现 Spring AOP 的基础</strong>。</p>
+
+<p>适配器模式：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作。</p>
+</blockquote></li>
+
+<li><p><strong>单例模式代码（重要）</strong></p>
+
+<blockquote>
+<pre><code class="language-java">// 线程安全，调用效率高，但是不能延时加载，单例未使用的时候便创建完成，可能造成资源浪费。
+class Singleton1 {
+    private static Singleton1 instance = new Singleton1();
+    private Singleton1() {}
+    public static Singleton1 getInstance() {
+        return instance;
+    }
+}
+
+// 线程安全，调用效率不高，但是能延时加载，线程安全通过synchronized实现
+class Singleton2 {
+    private static Singleton2 instance;
+    private Singleton2() {}
+    public static synchronized Singleton2 getSingleton() {
+        if (instance == null) {
+            instance = new Singleton2();
+        }
+        return instance;
+    }
+}
+
+// 双重校验锁，线程安全，延迟加载。
+// instance = new Singleton3(); 分为三个过程。
+// 1. 为instance分配内存空间
+// 2. 初始化instance
+// 3. 将instance指向分配的内存空间
+// 变量如果没有声明成volatile，多线程下会导致一个线程获得一个未初始化的实例。
+class Singleton3 {
+    private static volatile Singleton3 instance;
+    private Singleton3() {}
+    public static Singleton3 getSingleton() {
+        if (instance == null) {
+            synchronized (Singleton3.class) {
+                if (instance == null) {
+                    instance = new Singleton3();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+// 静态内部类可以不依赖外部类的实例而被实例化。只有调用getSingleton()才进行初始化。
+class Singleton4 {
+    private Singleton4() {}
+    private static class Inner {
+        private static Singleton4 instance = new Singleton4();
+    }
+    public static Singleton4 getSingleton() {
+        return Inner.instance;
+    }
+
+}
+</code></pre>
+</blockquote></li>
+</ol>
+
+<hr />
+
+<h3 id="4-集合框架">4. 集合框架</h3>
+
+<ol>
+<li><p><strong>ArrayList的扩容机制？</strong></p>
+
+<blockquote>
+<p>ArrayList扩容发生在add()方法调用的时候，下面是add()方法的源码：</p>
+
+<pre><code class="language-java">public boolean add(E e) {
+	//扩容
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    elementData[size++] = e;
+    return true;
+}
+</code></pre>
+
+<p>ArrayList扩容的关键方法grow():</p>
+
+<pre><code class="language-java">private void grow(int minCapacity) {
+	// 获取到ArrayList中elementData数组的内存空间长度
+    int oldCapacity = elementData.length;
+    // 扩容至原来的1.5倍
+    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+    // 再判断一下新数组的容量够不够，够了就直接使用这个长度创建新数组，
+    // 不够就将数组长度设置为需要的长度
+    if (newCapacity - minCapacity &lt; 0)
+    	newCapacity = minCapacity;
+    	//若预设值大于默认的最大值检查是否溢出
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // 调用Arrays.copyOf方法将elementData数组指向新的内存空间时newCapacity的连续空间
+    // 并将elementData的数据复制到新的内存空间
+     elementData = Arrays.copyOf(elementData, newCapacity);
+}
+</code></pre>
+
+<p>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</p>
+
+<p>oldCapacity &gt;&gt; 1  右移运算符  原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍</p>
+
+<p>之前的所有都是确定新数组的长度，确定之后就是把老数组copy到新数组中，这样数组的扩容就结束了</p>
+
+<p>以上的一切都是ArrayList扩容的第一步，第二步就没啥说的了，就是把需要添加的元素添加到数组的最后一位</p>
+</blockquote></li>
+
+<li><p><strong>HashMap 的底层实现、JDK 1.8 的时候为啥将链表转换成红黑树？HashMap 的负载因子、HashMap 和 Hashtable 的区别？HashMap如何实现扩容？</strong></p></li>
+</ol>
+
+<blockquote>
+<p><strong>HashMap是用数组+链表+红黑树进行实现的，当添加一个元素（key-value）时，就首先计算元素key的hash值，并根据hash值来确定插入数组中的位置，但是可能存在其他元素已经被放在数组同一位置了，这个时候便使用链表来解决哈希冲突，当链表长度太长的时候，便将链表转换为红黑树来提高搜索的效率。</strong></p>
+
+<p>HashMap是基于拉链法实现的一个散列表，内部由数组和链表和红黑树实现。</p>
+
+<ol>
+<li>数组的初始容量为16，而容量是以2的次方扩充的，一是为了提高性能使用足够大的数组，二是为了能使用位运算代替取模预算。</li>
+<li>数组是否需要扩充是通过负载因子判断的，如果当前元素个数为数组容量的0.75时，就会扩充数组。这个0.75就是默认的负载因子，可由构造传入。</li>
+<li>为了解决碰撞，数组中的元素是单向链表类型。当链表长度到达一个阈值时（&gt;=8），会将链表转换成红黑树提高性能。而当链表长度缩小到另一个阈值时（&lt;=6），又会将红黑树转换回单向链表提高性能，这里是一个平衡点。</li>
+</ol>
+
+<p>当个数不多的时候，直接链表遍历更方便，实现起来也简单。而红黑树的实现要复杂的多。</p>
+</blockquote>
+
+<ol>
+<li><strong>ConcurrentHashMap的底层实现。</strong></li>
+</ol>
+
+<blockquote>
+<p>底层数据结构： JDK1.7的 ConcurrentHashMap 底层采用 分段的数组+链表 实现，JDK1.8 采用的数据结构跟HashMap1.8的结构一样，数组+链表/红黑二叉树。Hashtable 和 JDK1.8 之前的 HashMap 的底层数据结构类似都是采用 数组+链表 的形式，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的；</p>
+
+<p>实现线程安全的方式（重要）：
+① 在JDK1.7的时候，ConcurrentHashMap（分段锁） 对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。 到了 JDK1.8 的时候已经摒弃了Segment的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 synchronized 和 CAS 来操作。（JDK1.6以后 对 synchronized锁做了很多优化） 整个看起来就像是优化过且线程安全的 HashMap，虽然在JDK1.8中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本；synchronized只锁定当前链表或红黑二叉树的首节点，这样只要hash不冲突，就不会产生并发，效率又提升N倍。(TreeBin: 红黑二叉树节点 Node: 链表节点)</p>
+
+<p>② Hashtable(同一把锁) :使用 synchronized 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。</p>
+
+<p><strong>为什么 ConcurrentHashMap 的读操作不需要加锁？</strong></p>
+
+<blockquote>
+<p>ConcurrentHashMap 在jdk1.7中是采用Segment + HashEntry + ReentrantLock的方式进行实现的，而1.8中放弃了Segment臃肿的设计，取而代之的是采用Node + CAS + Synchronized来保证并发安全进行实现。</p>
+
+<p>总结：定义成volatile的变量，能够在线程之间保持可见性，能够被多线程同时读，而不会读到过期的值。由于get操作中只需要读不需要写共享变量，所以可以不用加锁。之所以不会读到过期的值，依据Java内存模型的happen before原则，对volatile字段的写入操作先于读操作，get总能拿到最新的值。</p>
+
+<ul>
+<li>get操作全程不需要加锁是因为Node的成员val是用volatile修饰的和数组用volatile修饰没有关系。</li>
+<li>数组用volatile修饰主要是保证在数组扩容的时候保证可见性。</li>
+</ul>
+</blockquote>
+
+<p><strong>HashMap，LinkedHashMap，TreeMap 有什么区别？HashMap ，TreeMap，LinkedHashMap 使用场景？</strong></p>
+
+<p>LinkedHashMap 保存了记录的插入顺序，在用 Iterator 遍历时，先取到的记录肯定是先插入的；遍历比 HashMap 慢；</p>
+
+<p>TreeMap 实现 SortMap 接口，能够把它保存的记录根据键排序（默认按键值升序排序，也可以指定排序的比较器）</p>
+
+<p>一般情况下，使用最多的是 HashMap。</p>
+
+<p>HashMap：在 Map 中插入、删除和定位元素时；</p>
+
+<p>TreeMap：在需要按自然顺序或自定义顺序遍历键的情况下；</p>
+
+<p>LinkedHashMap：在需要输出的顺序和输入的顺序相同的情况下。</p>
+</blockquote>
+
+<ol>
+<li><strong>有哪些集合是线程不安全的，又有哪些集合是线程不安全的？怎么解决呢？</strong></li>
+</ol>
+
+<blockquote>
+<p><strong>线程安全的集合类</strong></p>
+
+<p>Vector</p>
+
+<p>Stack</p>
+
+<p>Hashtable</p>
+
+<p>java.util.concurrent包下所有的集合类（ConcurrentHashMap，CopyOnWriteArrayList和CopyOnWriteArraySet等）</p>
+</blockquote>
+
+<ol>
+<li><strong>什么是快速失败(fail-fast)、能举个例子吗？什么是安全失败(fail-safe)呢？</strong></li>
+</ol>
+
+<blockquote>
+<p><strong>快速失败(fail-fast)</strong></p>
+
+<p>快速失败(fail-fast)是 Java 集合的一种<strong>错误检测机制</strong>。<strong>在使用迭代器对集合进行遍历的时候</strong>，我们在多线程下操作非安全失败(fail-safe)的集合类可能就会触发 fail-fast 机制，导致抛出 <code>ConcurrentModificationException</code> 异常。另外，在单线程下，如果在遍历过程中对集合对象的内容进行了修改的话也会触发 fail-fast 机制。</p>
+
+<p>举个例子：多线程下，如果线程 1 正在对集合进行遍历，此时线程 2 对集合进行修改（增加、删除、修改），或者线程 1 在遍历过程中对集合进行修改，都会导致线程 1 抛出 <code>ConcurrentModificationException</code> 异常。</p>
+
+<p><strong>安全失败(fail-safe)</strong></p>
+
+<p>采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是<strong>先复制原有集合内容，在拷贝的集合上进行遍历</strong>。所以，在遍历过程中对原集合所作的修改并不能被迭代器检测到，故不会抛 <code>ConcurrentModificationException</code> 异常。</p>
+</blockquote>
+
+<ol>
+<li><strong>HashMap 多线程操作导致死循环问题</strong></li>
+</ol>
+
+<blockquote>
+<p>主要原因在于并发下的 rehash 会造成元素之间会形成一个循环链表。不过，jdk 1.8 后解决了这个问题，但是还是不建议在多线程下使用 HashMap，因为多线程下使用 HashMap 还是会存在其他问题比如数据丢失。</p>
+</blockquote>
+
+<hr />
+
+<h3 id="5-多线程">5. 多线程</h3>
+
+<ol>
+<li><strong>Java 怎么实现线程？</strong></li>
+</ol>
+
+<blockquote>
+<p>① 继承 Thread 类并重写 <code>run</code> 方法。实现简单，但不符合里氏替换原则，不可以继承其他类。</p>
+
+<p>② 实现 Runnable 接口并重写 <code>run</code> 方法。避免了单继承局限性，实现解耦。</p>
+
+<p>③实现 Callable 接口并重写 <code>call</code> 方法。可以获取线程执行结果的返回值，并且可以抛出异常。</p>
+</blockquote>
+
+<ol>
+<li><strong>Java 线程通信的方式？</strong></li>
+</ol>
+
+<blockquote>
+<p>Java 采用共享内存模型，线程间的通信总是隐式进行，整个通信过程对程序员完全透明。</p>
+
+<p>volatile 告知程序任何对变量的读需要从主内存中获取，写必须同步刷新回主内存，保证所有线程对变量访问的可见性。</p>
+
+<p>synchronized 确保多个线程在同一时刻只能有一个处于方法或同步块中，保证线程对变量访问的原子性、可见性和有序性。</p>
+
+<p>等待通知机制指一个线程 A 调用了对象的 <code>wait</code> 方法进入等待状态，另一线程 B 调用了对象的 <code>notify/notifyAll</code> 方法，线程 A 收到通知后结束阻塞并执行后序操作。对象上的 <code>wait</code> 和 <code>notify/notifyAll</code> 完成等待方和通知方的交互。</p>
+
+<p>如果一个线程执行了某个线程的 <code>join</code> 方法，这个线程就会阻塞等待执行了 <code>join</code> 方法的线程终止，这里涉及等待/通知机制。<code>join</code> 底层通过 <code>wait</code> 实现，线程终止时会调用自身的 <code>notifyAll</code> 方法，通知所有等待在该线程对象上的线程。</p>
+
+<p>管道 IO 流用于线程间数据传输，媒介为内存。PipedOutputStream 和 PipedWriter 是输出流，相当于生产者，PipedInputStream 和 PipedReader 是输入流，相当于消费者。管道流使用一个默认大小为 1KB 的循环缓冲数组。输入流从缓冲数组读数据，输出流往缓冲数组中写数据。当数组已满时，输出流所在线程阻塞；当数组首次为空时，输入流所在线程阻塞。</p>
+
+<p>ThreadLocal 是线程共享变量，但它可以为每个线程创建单独的副本，副本值是线程私有的，互相之间不影响。</p>
+</blockquote>
+
+<ol>
+<li><p><strong>在多线程情况下如何保证线程安全</strong>。</p></li>
+
+<li><p><strong>写一个死锁的例子</strong></p>
+
+<blockquote>
+<pre><code class="language-java">public class DeadLock implements Runnable {  
+    public int flag = 1;  
+    //静态对象是类的所有对象共享的  
+    private static Object o1 = new Object(), o2 = new Object();  
+    @Override  
+    public void run() {  
+        System.out.println(&quot;flag=&quot; + flag);  
+        if (flag == 1) {  
+            synchronized (o1) {  
+                try {  
+                    Thread.sleep(500);  
+                } catch (Exception e) {  
+                    e.printStackTrace();  
+                }  
+                synchronized (o2) {  
+                    System.out.println(&quot;1&quot;);  
+                }  
+            }  
+        }  
+        if (flag == 0) {  
+            synchronized (o2) {  
+                try {  
+                    Thread.sleep(500);  
+                } catch (Exception e) {  
+                    e.printStackTrace();  
+                }  
+                synchronized (o1) {  
+                    System.out.println(&quot;0&quot;);  
+                }  
+            }  
+        }  
+    }  
+  
+    public static void main(String[] args) {  
+          
+        DeadLock td1 = new DeadLock();  
+        DeadLock td2 = new DeadLock();  
+        td1.flag = 1;  
+        td2.flag = 0;  
+        //td1,td2都处于可执行状态，但JVM线程调度先执行哪个线程是不确定的。  
+        //td2的run()可能在td1的run()之前运行  
+        new Thread(td1).start();  
+        new Thread(td2).start();  
+  
+    }  
+}
+</code></pre>
+</blockquote></li>
+
+<li><p><strong>讲一下volatile关键字的作用。</strong></p></li>
+</ol>
+
+<blockquote>
+<ol>
+<li><strong>保证了不同线程对该变量操作的内存可见性。</strong></li>
+<li><strong>禁止指令重排序。</strong></li>
+</ol>
+
+<p><strong>当写一个volatile变量时，JMM将本地内存更改的变量写回到主内存中。</strong></p>
+
+<p><strong>当取一个volatile变量时，JMM将使线程对应的本地内存失效，然后线程将从主内存读取共享变量。</strong></p>
+
+<p>volatile 可以保证线程可见性且提供了一定的有序性，但是无法保证原子性。在 JVM 底层是基于内存屏障实现的。</p>
+
+<ul>
+<li>当对非 volatile 变量进行读写的时候，每个线程先从内存拷贝变量到 CPU 缓存中。如果计算机有多个CPU，每个线程可能在不同的 CPU 上被处理，这意味着每个线程可以拷贝到不同的本地内存中。</li>
+<li>而声明变量是 volatile 的，JVM 保证了每次读变量都从内存中读，跳过本地内存这一步，所以就不会有可见性问题
+
+<ul>
+<li><strong>对 volatile 变量进行写操作时，会在写操作后加一条 store 屏障指令，将工作内存中的共享变量刷新回主内存；</strong></li>
+<li><strong>对 volatile 变量进行读操作时，会在读操作前加一条 load 屏障指令，从主内存中读取共享变量；</strong></li>
+</ul></li>
+</ul>
+
+<p><strong>volatile可以通过内存屏障防止指令重排序问题。硬件层面的内存屏障分为读屏障和写屏障。</strong></p>
+
+<p><strong>对于读屏障来说，在指令前插入读屏障，可以让高速缓存中的数据失效，强制重新从主内存加载数据。</strong>
+<strong>对于写屏障来说，在指令后插入写屏障，能让写入缓存中的最新数据更新写入主内存，让其他线程可见。</strong></p>
+</blockquote>
+
+<ol>
+<li><strong>synchronized 作用，讲一讲底层实现。</strong></li>
+</ol>
+
+<blockquote>
+<p>synchronized关键字解决的是多个线程之间访问资源的同步性，调用操作系统内核态做同步，synchronized关键字可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。</p>
+
+<p>在 Java 早期版本中，synchronized属于重量级锁，效率低下，因为监视器锁（monitor）是依赖于底层的操作系统的 Mutex Lock 来实现的，Java 的线程是映射到操作系统的原生线程之上的。JDK1.6对锁的实现引入了大量的优化，如自旋锁、适应性自旋锁、锁消除、锁粗化、偏向锁、轻量级锁等技术来减少锁操作的开销。</p>
+
+<p><strong>synchronized关键字最主要的三种使用方式：</strong></p>
+
+<ul>
+<li><strong>修饰实例方法:</strong> 作用于当前对象实例加锁，进入同步代码前要获得当前对象实例的锁</li>
+<li><strong>修饰静态方法:</strong> 也就是给当前类加锁，会作用于类的所有对象实例。因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态 synchronized 方法占用的锁是当前实例对象锁。</li>
+<li><strong>修饰代码块:</strong> 指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。</li>
+</ul>
+
+<p><strong>synchronized 关键字底层原理属于 JVM 层面。</strong></p>
+
+<p><strong>① synchronized 同步语句块的情况</strong>：<strong>synchronized 同步语句块的实现使用的是 monitorenter 和 monitorexit 指令，其中 monitorenter 指令指向同步代码块的开始位置，monitorexit 指令则指明同步代码块的结束位置。</strong></p>
+
+<p><strong>② synchronized 修饰方法的的情况</strong>：<strong>JVM 通过该 ACC_SYNCHRONIZED 访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。</strong></p>
+</blockquote>
+
+<ol>
+<li><p><strong>ReetrantLock 和 synchronized 的区别</strong></p></li>
+
+<li><p><strong>说说 synchronized 关键字和 volatile 关键字的区别</strong></p></li>
+</ol>
+
+<blockquote>
+<ul>
+<li><strong>volatile关键字</strong>是线程同步的<strong>轻量级实现</strong>，所以<strong>volatile性能肯定比synchronized关键字要好</strong>。但是<strong>volatile关键字只能用于变量而synchronized关键字可以修饰方法以及代码块</strong>。synchronized关键字在JavaSE1.6之后进行了主要包括为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁以及其它各种优化之后执行效率有了显著提升，<strong>实际开发中使用 synchronized 关键字的场景还是更多一些</strong>。</li>
+<li><strong>多线程访问volatile关键字不会发生阻塞，而synchronized关键字可能会发生阻塞</strong></li>
+<li><strong>volatile关键字能保证数据的可见性，但不能保证数据的原子性。synchronized关键字两者都能保证。</strong></li>
+<li><strong>volatile关键字主要用于解决变量在多个线程之间的可见性，而 synchronized关键字解决的是多个线程之间访问资源的同步性。</strong></li>
+</ul>
+</blockquote>
+
+<ol>
+<li><strong>ReetrantLock实现方式</strong></li>
+</ol>
+
+<blockquote>
+<p>锁的获取过程：</p>
+
+<ol>
+<li><p>通过cas操作来修改state状态，表示争抢锁的操作，如果能够获取到锁，设置当前获得锁状态的线程。compareAndSetState(0, 1)</p></li>
+
+<li><p>如果没有获取到锁，尝试去获取锁。acquire(1)。</p></li>
+</ol>
+
+<p>（1）通过tryAcquire尝试获取独占锁，如果成功返回true，失败返回false。如果是同一个线程来获得锁，则直接增加重入次数，并返回true。</p>
+
+<p>（2）如果tryAcquire失败，则会通过addWaiter方法将当前线程封装成Node，添加到AQS队列尾部</p>
+
+<p>（3）acquireQueued，将Node作为参数，通过自旋去尝试获取锁。（如果前驱为head才有资格进行锁的抢夺。）</p>
+
+<p>（4）如果获取锁失败，则挂起线程。</p>
+
+<p>锁的释放过程：</p>
+
+<ol>
+<li>释放锁。</li>
+<li>如果锁能够被其他线程获取，唤醒后继节点中的线程。一般情况下只要唤醒后继结点的线程就行了，但是后继结点可能已经取消等待，所以从队列尾部往前回溯，找到离头结点最近的正常结点，并唤醒其线程。</li>
+</ol>
+
+<p>在获得同步锁时，同步器维护一个同步队列，获取状态失败的线程都会被加入到队列中并在队列中进行自旋；移出队列（或停止自旋）的条件是前驱节点为头节点且成功获取了同步状态。在释放同步状态时，同步器调用tryRelease(int arg)方法释放同步状态，然后唤醒头节点的后继节点。</p>
+</blockquote>
+
+<ol>
+<li><strong>AQS原理</strong></li>
+</ol>
+
+<blockquote>
+<p><strong>AQS是一个用来构建锁和同步器的框架</strong>。AQS核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就<strong>需要一套线程阻塞等待以及被唤醒时锁分配的机制</strong>，这个机制AQS是用CLH队列锁实现的，即将暂时获取不到锁的线程加入到队列中。</p>
+
+<p>CLH队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS是将每条请求共享资源的线程封装成一个CLH锁队列的一个结点（Node）来实现锁的分配。</p>
+
+<p>AQS使用一个int成员变量来表示同步状态，通过内置的FIFO队列来完成获取资源线程的排队工作。AQS使用CAS对该同步状态进行原子操作实现对其值的修改。</p>
+
+<p>状态信息通过protected类型的getState，setState，compareAndSetState进行操作。</p>
+
+<p><strong>AQS定义两种资源共享方式</strong></p>
+
+<p>Exclusive（独占）：只有一个线程能执行，如ReentrantLock。又可分为公平锁和非公平锁：</p>
+
+<p>Share（共享）：多个线程可同时执行。</p>
+
+<p>以ReentrantLock为例，state初始化为0，表示未锁定状态。A线程lock()时，会调用tryAcquire()独占该锁并将state+1。此后，其他线程再tryAcquire()时就会失败，直到A线程unlock()到state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A线程自己是可以重复获取此锁的（state会累加），这就是可重入的概念。但要注意，获取多少次就要释放多么次，这样才能保证state是能回到零态的。</p>
+
+<p>再以CountDownLatch以例，任务分为N个子线程去执行，state也初始化为N（注意N要与线程个数一致）。这N个子线程是并行执行的，每个子线程执行完后countDown()一次，state会CAS(Compare and Swap)减1。等到所有子线程都执行完后(即state=0)，会unpark()主调用线程，然后主调用线程就会从await()函数返回，继续后余动作。</p>
+</blockquote>
+
+<ol>
+<li><p><strong>interrupt，interrupted与isInterrupted方法的区别? 如何停止一个正在运行的线程</strong></p>
+
+<blockquote>
+<p>（1）interrupt()方法的作用实际上是：在线程受到阻塞时抛出一个中断信号，这样线程就得以退出阻塞状态。</p>
+
+<p>（2）interrupted()调用的是currentThread().isInterrupted(true)方法，即说明是返回当前线程的是否已经中断的状态值，而且有清理中断状态的机制。</p>
+
+<p>测试当前线程是否已经中断，线程的中断状态由该方法清除。即如果连续两次调用该方法，则第二次调用将返回false（在第一次调用已清除flag后以及第二次调用检查中断状态之前，当前线程再次中断的情况除外）所以，interrupted()方法具有清除状态flag的功能</p>
+
+<p>（3）isInterrupted()调用的是isInterrupted(false)方法，意思是返回线程是否已经中断的状态，它没有清理中断状态的机制。</p>
+
+<pre><code class="language-java">public void interrupt() {
+    if (this != Thread.currentThread())
+        checkAccess();
+    synchronized (blockerLock) {
+        Interruptible b = blocker;
+        if (b != null) {
+            interrupt0();        // Just to set the interrupt flag
+            b.interrupt(this);
+            return;
+        }
+    }
+    interrupt0();
+}
+</code></pre>
+
+<p><strong>interrupt()</strong> <strong>方法用于中断线程。调用该方法的线程的状态为将被置为&rdquo;中断&rdquo;状态。</strong>
+<strong>中断可以理解为线程的一个标识位属性，它表示一个运行中的线程是否被其他线程进行了中断操作。中断好比其他线程对该线程打了个招呼，其他线程通过调用该线程的interrupt()方法对其进行中断操作。</strong>
+注意：<strong>线程中断仅仅是置线程的中断状态位，不会停止线程。需要用户自己去监视线程的状态为并做处理。</strong></p>
+
+<pre><code>public static boolean interrupted() {
+    return currentThread().isInterrupted(true);
+}
+</code></pre>
+
+<p><strong>interrupted()</strong> 检测当前线程是否已经中断，是则返回true，否则false，并清除中断状态。换言之，如果该方法被连续调用两次，第二次必将返回false，除非在第一次与第二次的瞬间线程再次被中断。如果中断调用时线程已经不处于活动状态，则返回false。</p>
+
+<pre><code>public boolean isInterrupted() {
+    return isInterrupted(false);
+}
+</code></pre>
+
+<p><strong>isInterrupted()</strong> 检测当前线程是否已经中断，是则返回true，否则false。中断状态不受该方法的影响。如果中断调用时线程已经不处于活动状态，则返回false。</p>
+
+<p><strong>在java中有以下3种方法可以终止正在运行的线程：</strong></p>
+
+<ul>
+<li>使用stop方法强行终止，但是不推荐这个方法，因为stop和suspend及resume一样都是过期作废的方法</li>
+<li>使用interrupt()方法中断线程</li>
+</ul>
+</blockquote></li>
+
+<li><p><strong>线程池作用？Java 线程池有哪些参数？阻塞队列有几种？拒绝策略有几种？线程池的工作机制？（非大厂会问：有哪些线程池）</strong></p>
+
+<blockquote>
+<ul>
+<li><strong>降低资源消耗</strong>。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li><strong>提高响应速度</strong>。当任务到达时，任务可以不需要的等到线程创建就能立即执行。</li>
+<li><strong>提高线程的可管理性</strong>。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源,还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</li>
+</ul>
+
+<p><strong>线程池通过 ThreadPoolExecutor 的方式进程创建</strong></p>
+
+<pre><code class="language-java">public ThreadPoolExecutor(int corePoolSize,
+                           int maximumPoolSize,
+                           long keepAliveTime,
+                           TimeUnit unit,
+                           BlockingQueue&lt;Runnable&gt; workQueue,
+                           ThreadFactory threadFactory,
+                           RejectedExecutionHandler handler) 
+</code></pre>
+
+<p><strong><code>ThreadPoolExecutor</code> 3 个最重要的参数：</strong></p>
+
+<ul>
+<li><strong><code>corePoolSize</code> :</strong> 核心线程数线程数定义了最小可以同时运行的线程数量。</li>
+<li><strong><code>maximumPoolSize</code> :</strong> 当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。</li>
+<li><strong><code>workQueue</code>:</strong> 当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</li>
+</ul>
+
+<p><code>ThreadPoolExecutor</code>其他常见参数:</p>
+
+<ol>
+<li><strong><code>keepAliveTime</code></strong>:当线程池中的线程数量大于 <code>corePoolSize</code> 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了 <code>keepAliveTime</code>才会被回收销毁；</li>
+<li><strong><code>unit</code></strong> : <code>keepAliveTime</code> 参数的时间单位。</li>
+<li><strong><code>threadFactory</code></strong> :executor 创建新线程的时候会用到。</li>
+<li><strong><code>handler</code></strong> :饱和策略。关于饱和策略下面单独介绍一下。</li>
+</ol>
+
+<p><strong>阻塞队列有几种</strong></p>
+
+<p>用来保存等待被执行的任务的阻塞队列，且任务必须实现Runable接口，在JDK中提供了如下阻塞队列：</p>
+
+<p>1、ArrayBlockingQueue（有界队列）：基于数组结构的有界阻塞队列，按FIFO排序任务；</p>
+
+<p>2、LinkedBlockingQuene（有/无界队列（基于链表的，传参就是有界，不传就是无界）：基于链表结构的阻塞队列，按FIFO排序任务，吞吐量通常要高于ArrayBlockingQuene；</p>
+
+<p>3、SynchronousQuene（同步移交队列（需要一个线程调用put方法插入值，另一个线程调用take方法删除值））：一个不存储元素的阻塞队列，每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQuene；</p>
+
+<p>4、PriorityBlockingQuene（具有优先级的、无限阻塞队列）：具有优先级的无界阻塞队列；</p>
+
+<p><strong><code>ThreadPoolExecutor</code> 饱和策略定义:</strong></p>
+
+<p>如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任时，<code>ThreadPoolTaskExecutor</code> 定义一些策略:</p>
+
+<ul>
+<li><strong><code>ThreadPoolExecutor.AbortPolicy</code></strong>：抛出 <code>RejectedExecutionException</code>来拒绝新任务的处理。</li>
+<li><strong><code>ThreadPoolExecutor.CallerRunsPolicy</code></strong>：调用执行自己的线程运行任务。也就是直接在调用<code>execute</code>方法的线程中运行(<code>run</code>)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果您的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。</li>
+<li><strong><code>ThreadPoolExecutor.DiscardPolicy</code>：</strong> 不处理新任务，直接丢弃掉。</li>
+<li><strong><code>ThreadPoolExecutor.DiscardOldestPolicy</code>：</strong> 此策略将丢弃最早的未处理的任务请求。</li>
+</ul>
+
+<p><strong>线程池的工作过程</strong></p>
+
+<ol>
+<li><p>提交任务后，线程池先判断线程数是否达到了核心线程数（corePoolSize）。如果未达到线程数，则创建核心线程处理任务；否则，就执行下一步；</p></li>
+
+<li><p>接着线程池判断任务队列是否满了。如果没满，则将任务添加到任务队列中；否则，执行下一步；</p></li>
+
+<li><p>接着因为任务队列满了，线程池就判断线程数是否达到了最大线程数。如果未达到，则创建非核心线程处理任务；否则，就执行饱和策略，默认会抛出RejectedExecutionException异常。</p></li>
+</ol>
+
+<p><strong>常见线程池</strong></p>
+
+<ol>
+<li><p>newFixedThreadPool：最大线程和核心线程一致，用的是LinkedBlockingQueue，无限容量。</p>
+
+<pre><code class="language-java">public static ExecutorService newFixedThreadPool(int nThreads) {
+   return new ThreadPoolExecutor(nThreads, nThreads,
+                                 0L, TimeUnit.MILLISECONDS,
+                                 new LinkedBlockingQueue&lt;Runnable&gt;());
+}
+</code></pre></li>
+
+<li><p>newSingleThreadExecutor：最大线程和核心线程一致，用的是LinkedBlockingQueue，无限容量。</p>
+
+<pre><code class="language-java">public static ExecutorService newSingleThreadExecutor() {
+   return new FinalizableDelegatedExecutorService
+       (new ThreadPoolExecutor(1, 1,
+                               0L, TimeUnit.MILLISECONDS,
+                               new LinkedBlockingQueue&lt;Runnable&gt;()));
+}
+</code></pre></li>
+
+<li><p>newCachedThreadPool：没有核心线程,直接向 SynchronousQueue 中提交任务，如果有空闲线程，就去取出任务执行。如果没有空闲线程，就新建一个。执行完任务的线程有 60 秒生存时间，如果在这个时间内可以接到新任务，才可以存活下去。</p>
+
+<pre><code class="language-java">public static ExecutorService newCachedThreadPool() {
+   return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                 60L, TimeUnit.SECONDS,
+                                 new SynchronousQueue&lt;Runnable&gt;());
+}
+</code></pre></li>
+
+<li><p>newScheduledThreadPool：核心线程和最大线程都有，采用DelayedWorkQueue 队列。</p>
+
+<pre><code class="language-java">public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
+   return new ScheduledThreadPoolExecutor(corePoolSize);
+}
+public ScheduledThreadPoolExecutor(int corePoolSize) {
+   super(corePoolSize, Integer.MAX_VALUE,
+         DEFAULT_KEEPALIVE_MILLIS, MILLISECONDS,
+         new DelayedWorkQueue());
+}
+private static final long DEFAULT_KEEPALIVE_MILLIS = 10L;
+</code></pre></li>
+</ol>
+</blockquote></li>
+
+<li><p><strong>线程池拒绝策略分别使用在什么场景?</strong></p>
+
+<blockquote>
+<ol>
+<li>AbortPolicy中止策略：丢弃任务并抛出RejectedExecutionException异常。</li>
+</ol>
+
+<p>使用场景：这个就没有特殊的场景了，但是有一点要正确处理抛出的异常。当自己自定义线程池实例时，使用这个策略一定要处理好触发策略时抛的异常，因为他会打断当前的执行流程。</p>
+
+<ol>
+<li>DiscardPolicy丢弃策略：ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常。如果线程队列已满，则后续提交的任务都会被丢弃，且是静默丢弃。</li>
+</ol>
+
+<p>使用场景：如果你提交的任务无关紧要，你就可以使用它 。</p>
+
+<ol>
+<li>DiscardOldestPolicy弃老策略：丢弃队列最前面的任务，然后重新提交被拒绝的任务。</li>
+</ol>
+
+<p>使用场景：这个策略还是会丢弃任务，丢弃时也是毫无声息，但是特点是丢弃的是老的未执行的任务，而且是待执行优先级较高的任务。基于这个特性，能想到的场景就是，发布消息和修改消息，当消息发布出去后，还未执行，此时更新的消息又来了，这个时候未执行的消息的版本比现在提交的消息版本要低就可以被丢弃了。</p>
+
+<ol>
+<li>CallerRunsPolicy调用者运行策略：由调用线程处理该任务。</li>
+</ol>
+
+<p>使用场景：一般在不允许失败的、对性能要求不高、并发量较小的场景下使用。</p>
+</blockquote></li>
+
+<li><p><strong>线程死锁，解除线程死锁有哪几种方式？(两次栽倒这题上了，时间太久又忘记了，如何解决很重要)</strong></p>
+
+<blockquote>
+<p>线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
+
+<p>如下图所示，线程 A 持有资源 2，线程 B 持有资源 1，他们同时都想申请对方的资源，所以这两个线程就会互相等待而进入死锁状态。</p>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/iaIdQfEric9Tyk3dODBkz5r5bJNlGsiaZZMwtRYk40nToD1zpdfevdj6AoHqU9UGE0M53DxU9rCuItuuObElMSGKQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" /></p>
+
+<p><strong>解决死锁的策略</strong></p>
+
+<ul>
+<li>死锁预防</li>
+<li>死锁避免</li>
+<li>死锁检测</li>
+<li>死锁解除</li>
+</ul>
+
+<ol>
+<li><strong>死锁预防：</strong> 破坏导致死锁必要条件中的任意一个就可以预防死锁。
+（1）<strong>破坏占有和等待条件：</strong> 一次性申请所有资源，之后不再申请资源，如果不满足资源条件则得不到资源分配。
+（2）<strong>破坏不可剥夺条件：</strong> 当一个进程获得某个不可剥夺的资源时，提出新的资源申请，若不满足，则释放所有资源。
+（3）<strong>破坏循环等待条件：</strong> 按某一顺序申请资源，释放资源则反序释放。</li>
+<li><strong>死锁避免：</strong> 进程在每次申请资源时判断这些操作是否安全。</li>
+<li><strong>死锁检测：</strong> 判断系统是否属于死锁的状态，如果是，则执行死锁解除策略。</li>
+<li><strong>死锁解除：</strong> 将某进程所占资源进行强制回收，然后分配给其他进程。（与死锁检测结合使用的）</li>
+</ol>
+</blockquote></li>
+
+<li><p><strong>ThreadLocal 是什么，应用场景是什么，原理是怎样的？</strong></p>
+
+<blockquote>
+<p>通常情况下，我们创建的变量是可以被任何一个线程访问并修改的。<strong>如果想实现每一个线程都有自己的专属本地变量该如何解决呢？</strong> JDK 中提供的<code>ThreadLocal</code>类正是为了解决这样的问题。<strong><code>ThreadLocal</code>类主要解决的就是让每个线程绑定自己的值，可以将<code>ThreadLocal</code>类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。</strong></p>
+
+<p><strong>如果你创建了一个<code>ThreadLocal</code>变量，那么访问这个变量的每个线程都会有这个变量的本地副本，这也是<code>ThreadLocal</code>变量名的由来。他们可以使用 <code>get()</code> 和 <code>set()</code>方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。</strong></p>
+
+<p><strong><code>ThreadLocal</code>最终的变量是放在了当前线程的 <code>ThreadLocalMap</code> 中，并不是存在 <code>ThreadLocal</code> 上，<code>ThreadLocal</code> 可以理解为只是<code>ThreadLocalMap</code>的封装，传递了变量值。</strong> 我们可以把 <code>ThreadLocalMap</code> 理解为<code>ThreadLocal</code> 类实现的定制化的 <code>HashMap</code>。<code>ThrealLocal</code> 类中可以通过<code>Thread.currentThread()</code>获取到当前线程对象后，直接通过<code>getMap(Thread t)</code>可以访问到该线程的<code>ThreadLocalMap</code>对象。</p>
+
+<p><strong>每个<code>Thread</code>中都具备一个<code>ThreadLocalMap</code>，而<code>ThreadLocalMap</code>可以存储以<code>ThreadLocal</code>为 key ，Object 对象为 value 的键值对。</strong></p>
+
+<pre><code>ThreadLocalMap(ThreadLocal&lt;?&gt; firstKey, Object firstValue) {
+......
+}
+</code></pre>
+
+<p>比如我们在同一个线程中声明了两个 <code>ThreadLocal</code> 对象的话，会使用 <code>Thread</code>内部都是使用仅有那个<code>ThreadLocalMap</code> 存放数据的，<code>ThreadLocalMap</code>的 key 就是 <code>ThreadLocal</code>对象，value 就是 <code>ThreadLocal</code> 对象调用<code>set</code>方法设置的值。</p>
+</blockquote></li>
+
+<li><p><strong>ThreadLocal类为什么要加上private static修饰</strong>？</p>
+
+<blockquote>
+<p>首先，private修饰与ThreadLocal本身没有关系，private更多是在安全方面进行考虑。static修饰这个变量，这个变量是针对一个线程内所有操作共享的，所以设置为静态变量，所有此类实例共享此静态变量，也就是说在类第一次被使用时装载，只分配一块存储空间，所有此类的对象(只要是这个线程内定义的)都可以操控这个变量。（设置为static可以避免每个线程从任务队列中获取task后重复创建ThreadLocal所关联的对象）</p>
+
+<p><strong>可以解决内存泄露问题（看下一问）。</strong></p>
+</blockquote></li>
+
+<li><p><strong>ThreadLocal 有什么缺陷？如果线程池的线程使用ThreadLocal 会有什么问题？</strong></p>
+
+<blockquote>
+<p><code>采用线性探测的方式</code>。ThreadLocalMap如何解决冲突？</p>
+
+<pre><code class="language-java">public class Thread implements Runnable {
+......
+ThreadLocal.ThreadLocalMap threadLocals = null;
+ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
+......
+}
+</code></pre>
+
+<p><code>ThreadLocalMap</code> 中使用的 key 为 <code>ThreadLocal</code> 的弱引用,而 value 是强引用。所以，如果 <code>ThreadLocal</code> 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。这样一来，<code>ThreadLocalMap</code> 中就会出现key为null的Entry。假如我们不做任何措施的话，value 永远无法被GC 回收，这个时候就可能会产生内存泄露。ThreadLocalMap实现中已经考虑了这种情况，在调用 <code>set()</code>、<code>get()</code>、<code>remove()</code> 方法的时候，会清理掉 key 为 null 的记录。使用完 <code>ThreadLocal</code>方法后 最好手动调用<code>remove()</code>方法。</p>
+
+<pre><code class="language-java">static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {
+	/** The value associated with this ThreadLocal. */
+	Object value;
+	Entry(ThreadLocal&lt;?&gt; k, Object v) {
+		super(k);
+		value = v;
+	}
+}
+</code></pre>
+
+<p>在ThreadLocalMap中，也是用Entry来保存K-V结构数据的。但是Entry中key只能是ThreadLocal对象，这点被Entry的构造方法已经限定死了。<strong>Entry继承自WeakReference（<code>弱引用，生命周期只能存活到下次GC前</code>），但只有Key是弱引用类型的，Value并非弱引用。</strong>由于ThreadLocalMap的key是弱引用，而Value是强引用。这就导致了一个问题，ThreadLocal在没有外部对象强引用时，<strong>发生GC时弱引用Key会被回收，而Value不会回收</strong>。当线程没有结束，但是ThreadLocal已经被回收，则可能导致线程中存在ThreadLocalMap<null, Object>的键值对，<strong>造成内存泄露。</strong>（<code>ThreadLocal被回收，ThreadLocal关联的线程共享变量还存在</code>）。</p>
+
+<p>为了防止此类情况的出现，我们有两种手段。</p>
+
+<ul>
+<li>1、使用完线程共享变量后，显示调用ThreadLocalMap.remove()方法清除线程共享变量；</li>
+</ul>
+
+<p>既然Key是弱引用，那么我们要做的事，就是在调用ThreadLocal的get()、set()方法时完成后再<strong>调用remove方法，将Entry节点和Map的引用关系移除</strong>，这样整个Entry对象在GC Roots分析后就变成不可达了，下次GC的时候就可以被回收。</p>
+
+<ul>
+<li>2、JDK建议ThreadLocal定义为private static，这样ThreadLocal的弱引用问题则不存在了。</li>
+</ul>
+</blockquote></li>
+
+<li><p><strong>介绍一下 Java 有哪些锁</strong></p>
+
+<p>(synchronized、juc 提供的锁如 ReentrantLock、CountDownLatch、CyclicBarrier、Semaphore等)</p>
+
+<blockquote>
+<ul>
+<li>公平锁/非公平锁 (重要)</li>
+<li>可重入锁</li>
+<li>独享锁/共享锁 (重要)</li>
+<li>互斥锁/读写锁</li>
+<li>乐观锁/悲观锁 (重要)</li>
+<li>偏向锁/轻量级锁/重量级锁 (重要)</li>
+<li>自旋锁</li>
+</ul>
+
+<ol>
+<li>公平锁/非公平锁</li>
+</ol>
+
+<p>公平锁是指多个线程按照申请锁的顺序来获取锁。
+   非公平锁是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。有可能，会造成优先级反转或者饥饿现象。</p>
+
+<p>对于Java ReentrantLock而言，通过构造函数指定该锁是否是公平锁，默认是非公平锁。非公平锁的优点在于吞吐量比公平锁大。对于Synchronized而言，也是一种非公平锁。由于其并不像ReentrantLock是通过AQS的来实现线程调度，所以并没有任何办法使其变成公平锁。</p>
+
+<ol>
+<li>可重入锁</li>
+</ol>
+
+<p>可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，在进入内层方法会自动获取锁。</p>
+
+<p>对于Java ReentrantLock而言，是一个可重入锁，其名字是Re entrant Lock重新进入锁。
+   对于Synchronized而言，也是一个可重入锁。可重入锁的一个好处是可一定程度避免死锁。</p>
+
+<ol>
+<li>独享锁/共享锁 (互斥锁/读写锁)</li>
+</ol>
+
+<p>独享锁是指该锁一次只能被一个线程所持有。
+   共享锁是指该锁可被多个线程所持有。</p>
+
+<p>对于Java ReentrantLock而言，其是独享锁。但是对于Lock的另一个实现类ReadWriteLock，其读锁是共享锁，其写锁是独享锁。</p>
+
+<p>上面讲的独享锁/共享锁就是一种广义的说法，互斥锁/读写锁就是具体的实现。</p>
+
+<p>互斥锁在Java中的具体实现就是ReentrantLock
+   读写锁在Java中的具体实现就是ReadWriteLock</p>
+
+<ol>
+<li>乐观锁/悲观锁</li>
+</ol>
+
+<p>乐观锁与悲观锁不是指具体的什么类型的锁，而是指<strong>看待并发同步的角度</strong>。</p>
+
+<p>对于同一个数据的并发操作，悲观锁采取加锁的形式。悲观的认为，不加锁的并发操作一定会出问题。
+   乐观锁在更新数据的时候，主要就是两个步骤：冲突检测和数据更新。乐观的认为，不加锁的并发操作是没有事情的。当多个线程尝试使用CAS同时更新同一个变量时，只有其中一个线程能更新变量的值，而其它线程都失败，<strong>失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次尝试。</strong></p>
+
+<p>从上面的描述我们可以看出，悲观锁适合写操作非常多的场景，乐观锁适合读操作非常多的场景，不加锁会带来大量的性能提升。
+   悲观锁在Java中的使用，就是利用各种锁。
+   乐观锁在Java中的使用，是无锁编程，常常采用的是CAS算法，典型的例子就是原子类，通过CAS自旋实现原子操作的更新。</p>
+
+<blockquote>
+<p>CAS包含三个参数 CAS（V,E,N）。V表示要更新的变量，E表示预期的值，N表示新值。仅当要更新的变量值等于预期的值时，才会将要更新的变量值的值设置成新值，否则什么都不做。</p>
+</blockquote>
+
+<ol>
+<li>偏向锁/轻量级锁/重量级锁</li>
+</ol>
+
+<p>这三种锁是指锁的状态，并且是针对Synchronized。</p>
+
+<p>偏向锁是指一段同步代码一直被一个线程所访问，那么该线程会自动获取锁。降低获取锁的代价。
+   轻量级锁是指当锁是偏向锁的时候，被另一个线程所访问，偏向锁就会升级为轻量级锁，其他线程会通过自旋的形式尝试获取锁，不会阻塞，提高性能。
+   重量级锁是指当锁为轻量级锁的时候，另一个线程虽然是自旋，但自旋不会一直持续下去，当自旋一定次数的时候，还没有获取到锁，就会进入阻塞，该锁膨胀为重量级锁。重量级锁会让其他申请的线程进入阻塞，性能降低。</p>
+
+<ol>
+<li>自旋锁</li>
+</ol>
+
+<p>自旋锁是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处是减少线程上下文切换的消耗，缺点是循环会消耗CPU。</p>
+</blockquote></li>
+
+<li><p><strong>乐观锁和悲观锁讲一下，哪些地方用到。</strong></p>
+
+<blockquote>
+<p>乐观锁与悲观锁不是指具体的什么类型的锁，而是指<strong>看待并发同步的角度</strong>。
+悲观锁对于同一个数据的并发操作，悲观锁采取加锁的形式。悲观的认为，不加锁的并发操作一定会出问题。
+乐观锁在更新数据的时候，会采用尝试更新，不断重试的方式更新数据。乐观的认为，不加锁的并发操作是没有事情的。</p>
+
+<p><strong>共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程</strong>，传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁，数据库的for update SQL语句。Java中<code>synchronized</code>和<code>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>
+
+<p><strong>乐观锁适用于多读的应用类型，这样可以提高吞吐量</strong>。在Java中<code>java.util.concurrent.atomic</code>包下面的原子变量类就是使用了乐观锁的一种实现方式<strong>CAS</strong>实现的。</p>
+
+<p><strong>乐观锁适用于写比较少的情况下（多读场景）</strong>，<strong>一般多写的场景下用悲观锁就比较合适</strong>，一般会经常产生冲突，这就会导致上层应用会不断的进行retry，这样反倒是降低了性能。</p>
+</blockquote></li>
+</ol>
+
+<hr />
+
+<h3 id="6-jvm">6. JVM</h3>
+
+<ol>
+<li><strong>讲一下 JVM 的内存结构</strong></li>
+</ol>
+
+<blockquote>
+<p>堆，方法区(元空间)，程序计数器，虚拟机栈，本地方法栈。</p>
+</blockquote>
+
+<pre><code>   堆设置
    -Xms:初始堆大小
    -Xmx:最大堆大小
    -Xmn:新生代堆最大可用值
    -XX:PermSize：表示非堆区初始内存分配大小，其缩写为permanent size（持久化内存）
    -XX:MaxPermSize：表示对非堆区分配的内存的最大上限。
    备注：在Java8中永久代的参数-XX:PermSize 和-XX：MaxPermSize已经失效。
-   ```</p>
-</blockquote>
+</code></pre>
 
 <ol>
 <li><strong>Minor gc 和 Full gc 的区别，详细介绍。</strong></li>
