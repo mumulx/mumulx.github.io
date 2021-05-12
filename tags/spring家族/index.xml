@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/</link>
     <description>Recent content in Spring家族 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Cloud Alibaba自学笔记</title>
+      <link>https://mumulx.github.io/2021/05/readme/</link>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2021/05/readme/</guid>
+      <description>Nacos Nacos 服务注册与发现 github地址 直接下载解压，启动 startup.cmd -m standalone 访问 http://192.168.1.4:8848/nacos/index.html 功能 服务发现与管理 配置管理 服务注册 添加依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-alibaba-nacos-discovery&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 配置 spring: application: name: nacos-discovery-consumer cloud: nacos: discovery: server-addr: 127.0.0.1:8848 metadata: name:</description>
+    </item>
     
     <item>
       <title>面经整理</title>
