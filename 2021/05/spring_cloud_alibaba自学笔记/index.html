@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Spring Cloud Alibaba自学笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Spring Cloud Alibaba自学笔记." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Spring Cloud Alibaba自学笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Spring Cloud Alibaba自学笔记" />
+<meta property="og:description" content="Spring Cloud Alibaba自学笔记." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2021-05-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-12T00:00:00+00:00" />
+
+<meta itemprop="name" content="Spring Cloud Alibaba自学笔记">
+<meta itemprop="description" content="Spring Cloud Alibaba自学笔记.">
+
+
+<meta itemprop="datePublished" content="2021-05-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5104">
+
+
+
+<meta itemprop="keywords" content="Spring家族," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Cloud Alibaba自学笔记"/>
+<meta name="twitter:description" content="Spring Cloud Alibaba自学笔记."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">31</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-12</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/" class="title">面经整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-15</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/11/fastdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">FastDFS学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-11-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-03</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#nacos">Nacos</a>
+<ul>
+<li><a href="#nacos-服务注册与发现">Nacos 服务注册与发现</a>
+<ul>
+<li><a href="#服务注册">服务注册</a></li>
+<li><a href="#远程方法调用">远程方法调用</a></li>
+</ul></li>
+<li><a href="#nacos负载均衡-服务上下线-权重信息">Nacos负载均衡、服务上下线、权重信息</a>
+<ul>
+<li><a href="#服务上下线">服务上下线</a></li>
+<li><a href="#负载均衡">负载均衡</a></li>
+<li><a href="#权重">权重</a></li>
+<li><a href="#元数据">元数据</a></li>
+</ul></li>
+<li><a href="#nacos整合feign-webflux">Nacos整合Feign、Webflux</a>
+<ul>
+<li><a href="#feign">Feign</a></li>
+<li><a href="#webflux">Webflux</a></li>
+</ul></li>
+<li><a href="#nacos整合gateway">Nacos整合gateway</a>
+<ul>
+<li><a href="#配置">配置</a></li>
+</ul></li>
+<li><a href="#nacos配置中心">Nacos配置中心</a></li>
+<li><a href="#配置文件加载">配置文件加载</a>
+<ul>
+<li><a href="#profile">profile</a></li>
+<li><a href="#group">GROUP</a></li>
+<li><a href="#namespace">namespace</a></li>
+</ul></li>
+<li><a href="#共享配置文件">共享配置文件</a></li>
+<li><a href="#数据持久">数据持久</a></li>
+<li><a href="#集群">集群</a></li>
+</ul></li>
+<li><a href="#sentinel">Sentinel</a>
+<ul>
+<li><a href="#连接">连接</a></li>
+<li><a href="#限流">限流</a>
+<ul>
+<li><a href="#方式一-根据url限流">方式一  根据URL限流</a></li>
+<li><a href="#方式二-通过资源名限流">方式二 通过资源名限流</a></li>
+</ul></li>
+<li><a href="#黑白名单控制">黑白名单控制</a></li>
+<li><a href="#热点限流">热点限流</a></li>
+<li><a href="#自适应限流">自适应限流</a></li>
+<li><a href="#规则持久化">规则持久化</a>
+<ul>
+<li><a href="#file">file</a></li>
+<li><a href="#nacos-1">Nacos</a></li>
+</ul></li>
+<li><a href="#整合feign">整合Feign</a></li>
+<li><a href="#整合gateway">整合gateway</a></li>
+</ul></li>
+<li><a href="#seata分布式事务">Seata分布式事务</a></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/"
+    >Spring Cloud Alibaba自学笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-05-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-12</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/spring%E5%AE%B6%E6%97%8F/"> Spring家族 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:5104字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:11分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="nacos">Nacos</h1>
+
+<h2 id="nacos-服务注册与发现">Nacos 服务注册与发现</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512203457657.png" alt="image-20210512203457657" /></p>
+
+<p><a href="https://github.com/alibaba/nacos">github地址</a></p>
+
+<p>直接下载解压，启动</p>
+
+<pre><code class="language-shell">startup.cmd -m standalone
+</code></pre>
+
+<p>访问</p>
+
+<pre><code>http://192.168.1.4:8848/nacos/index.html
+</code></pre>
+
+<p>功能</p>
+
+<ul>
+<li>服务发现与管理</li>
+<li>配置管理</li>
+</ul>
+
+<h3 id="服务注册">服务注册</h3>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: nacos-discovery-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+           name: lengleng
+
+server:
+  port: 8050
+</code></pre>
+
+<p>开启服务</p>
+
+<pre><code class="language-java">@EnableDiscoveryClient //启用服务注册与发现
+@SpringBootApplication
+public class NacosDiscoveryConsumerApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(NacosDiscoveryConsumerApplication.class, args);
+    }
+}
+</code></pre>
+
+<p>观察nacos控制台查看是否被注册进去</p>
+
+<h3 id="远程方法调用">远程方法调用</h3>
+
+<p>注册RestTemplate</p>
+
+<pre><code class="language-java">    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+</code></pre>
+
+<p>使用</p>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+    @Autowired
+    private RestTemplate restTemplate;
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
+
+    @GetMapping(&quot;/demo&quot;)
+    public String test01(String name) {
+        ServiceInstance choose = loadBalancerClient.choose(&quot;nacos-discovery-provider&quot;);
+        URI uri = choose.getUri();
+        return restTemplate.getForObject(uri+&quot;/demo?name=&quot; + name, String.class);
+    }
+
+
+}
+</code></pre>
+
+<h2 id="nacos负载均衡-服务上下线-权重信息">Nacos负载均衡、服务上下线、权重信息</h2>
+
+<h3 id="服务上下线">服务上下线</h3>
+
+<p>通过在控制面版进行控制</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512205246141.png" alt="image-20210512205246141" /></p>
+
+<h3 id="负载均衡">负载均衡</h3>
+
+<pre><code class="language-java">@Bean
+@LoadBalanced  //默认集成了ribbon  可以实现负载均衡
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+</code></pre>
+
+<p>直接使用服务名去调用</p>
+
+<pre><code class="language-java">
+@GetMapping(&quot;/demo&quot;)
+public String test01(String name) {
+    //nacos默认集成了 rabbion  因此可以直接使用服务名去调用  来实现负载均衡
+    return restTemplate.getForObject(&quot;http://nacos-discovery-provider/demo?name=&quot; + name, String.class);
+}
+
+</code></pre>
+
+<h3 id="权重">权重</h3>
+
+<p>管理台进行设置，通过编辑按钮进行设置</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512205638203.png" alt="image-20210512205638203" /></p>
+
+<h3 id="元数据">元数据</h3>
+
+<p>上图可以看到有元数据一列，来区分不同的服务节点</p>
+
+<p>获取元数据</p>
+
+<pre><code class="language-java">@GetMapping(&quot;/test&quot;)
+public String test(String name) {
+    //获取元数据   感知节点信息
+
+    RibbonLoadBalancerClient.RibbonServer ribbonServer = (RibbonLoadBalancerClient.RibbonServer) loadBalancerClient.choose(&quot;nacos-discovery-provider&quot;);
+    NacosServer nacosServer = (NacosServer) ribbonServer.getServer();
+
+    //第一次 使用rabbion选择了一个provider  获取它的元数据
+    System.out.println(&quot;--&gt;&quot; + nacosServer.getMetadata());
+    // 这里选择了两次的  provider服务
+
+    //第二次又通过rabbion 调用了一次provider  进行具体业务处理
+    return restTemplate.getForObject( &quot;http://nacos-discovery-provider/demo?name=&quot; + name, String.class);
+    // 灰度  灰度发布
+}
+</code></pre>
+
+<h2 id="nacos整合feign-webflux">Nacos整合Feign、Webflux</h2>
+
+<h3 id="feign">Feign</h3>
+
+<p>Feign是从Netflix中分离出来的轻量级项目，能够在类接口上添加注释,成为一个REST API客户端。</p>
+
+<p>通常使用的是open feign</p>
+
+<p>Spring Cloud在netflix fegn的基础上扩展了支持SpringMVC注释，并通过自动配置为Spring Boot应用程序提供集成。</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: nacos-discovery-consumer-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+           name: lengleng
+
+server:
+  port: 8052
+
+</code></pre>
+
+<p>启用feign</p>
+
+<pre><code class="language-java">@EnableFeignClients  //feign注解
+@EnableDiscoveryClient
+@SpringBootApplication
+public class NacosDiscoveryConsumerFeignApplication {
+
+    public static void main(String[] args) {
+
+
+        SpringApplication.run(NacosDiscoveryConsumerFeignApplication.class, args);
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+    @Autowired
+    private DemoFeignService demoFeignService;
+
+    @GetMapping(&quot;/test&quot;)
+    public String test(String name) {
+        return demoFeignService.demo(name);
+    }
+}
+
+</code></pre>
+
+<p>远程接口</p>
+
+<pre><code class="language-java">@FeignClient(&quot;nacos-discovery-provider&quot;)
+public interface DemoFeignService {
+    @GetMapping(&quot;/demo&quot;)
+    String demo(@RequestParam(&quot;name&quot;) String name);
+}
+
+</code></pre>
+
+<h3 id="webflux">Webflux</h3>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512210340827.png" alt="image-20210512210340827" /></p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">
+spring:
+  application:
+    name: nacos-discovery-consumer-webflux
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+           name: lengleng
+
+server:
+  port: 8053
+
+</code></pre>
+
+<p>使用</p>
+
+<pre><code class="language-java">    @Bean
+    @LoadBalanced
+    public WebClient.Builder webClientBuilder() {
+        return WebClient.builder();
+    }
+
+
+</code></pre>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+    @Autowired
+    private WebClient.Builder webclientBuilder;
+
+    @GetMapping(&quot;/test&quot;)
+    public Mono&lt;String&gt; test(String name) {
+        return webclientBuilder.build()
+                .get()
+                .uri(&quot;http://nacos-discovery-provider/demo?name=&quot; + name)
+                .retrieve()
+                .bodyToMono(String.class);
+    }
+}
+</code></pre>
+
+<h2 id="nacos整合gateway">Nacos整合gateway</h2>
+
+<p>Spring Cloud Gateway是Spring Cloud 的一个全新项目，该项目是基于Spring 5.0，Spring Boot 2.0和ProjectReactor等技术开发的网关，它旨在为微服务架构提供—种简单有效的统一的API路由管理方式。</p>
+
+<p>Spring Cloud Gateway 作为Spring Cloud生态系统中的网关，目标是替代Netflix Zuul，其不仅提供统一的路由方式，并且基于Filter 链的方式提供了网关基本的功能，例如︰安全、监控、埋点和限流等。</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512210547992.png" alt="image-20210512210547992" /></p>
+
+<h3 id="配置">配置</h3>
+
+<p>添加依赖</p>
+
+<p>不需要引用web模块</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: nacos-discovery-gateway-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+          name: lengleng
+    gateway:
+      routes:
+        - id: nacos-discovery-provider   #provider服务的名称
+          uri: lb://nacos-discovery-provider #nacos注册名称
+          predicates: #谓词：
+            - Path=/provider/** #接收的请求
+          filters:
+            - StripPrefix=1 # 去掉前缀
+
+server:
+  port: 8054
+
+</code></pre>
+
+<h2 id="nacos配置中心">Nacos配置中心</h2>
+
+<p>配置中心的功能</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置bootstrap.yml</p>
+
+<pre><code class="language-yml"># 需要在bootstrap.yml 中进行配置server-addr  由他的声明周期来决定  而不能使用application.yml文件进行配置
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml # 指定文件类型 nacos-config-client.yml   默认是properties
+  profiles:
+    active: dev #指定文件后缀来指定环境  nacos-config-client-dev.yml
+server:
+  port: 8055
+
+# 要去加载nacos-config-client-dev.yml文件  读取其中的属性  可以由配置中心进行配置
+
+</code></pre>
+
+<p>使用</p>
+
+<pre><code class="language-java">@RefreshScope  //声明是可以进行刷新的  也就是配置文件发生了更改 它可以感知的到
+@RestController
+public class DemoController {
+    @Value(&quot;${test:空test}&quot;)
+    public String str;
+
+    @GetMapping(&quot;/test/config&quot;)
+    public String test() {
+        return str;
+    }
+}
+
+</code></pre>
+
+<p>动态配置服务可以让您以中心化、外部化和动态化的方式管理所有环境的应用配置和服务配置。动态配置消除了配置变更时重新部署应用和服务的需要，让配置管理变得更加高效和敏捷。</p>
+
+<p>配置中心化管理让实现无状态服务变得更简单，让服务按需弹性扩展变得更容易。</p>
+
+<p>Nacos提供了一个简洁易用的UI(控制台样例Demo)帮助您管理所有的服务和应用的配置。Nacos还提供包括配置版本踪、金丝雀发布、一键回滚配置以及客户端配置更新状态跟踪在内的一系列开箱即用的配置管理特性，帮助您更安全地在生产环境中管理配置变更和降低配置变更带来的风险。</p>
+
+<p>服务id即dataId生成的策略</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512211301646.png" alt="image-20210512211301646" /></p>
+
+<p>即</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512211357592.png" alt="image-20210512211357592" /></p>
+
+<h2 id="配置文件加载">配置文件加载</h2>
+
+<h3 id="profile">profile</h3>
+
+<p>读取日志</p>
+
+<pre><code>2019-03-03 12:44:29.040  INFO 23952 --- [-127.0.0.1_8848] o.s.c.a.n.c.NacosPropertySourceBuilder   : Loading nacos data, dataId: 'nacos-config-client-load.yml', group: 'DEFAULT_GROUP'
+
+2019-03-03 12:44:29.044  INFO 23952 --- [-127.0.0.1_8848] o.s.c.a.n.c.NacosPropertySourceBuilder   : Loading nacos data, dataId: 'nacos-config-client-load-dev.yml', group: 'DEFAULT_GROUP'
+</code></pre>
+
+<p>后加载的会覆盖掉前面的配置信息</p>
+
+<ul>
+<li>优先使用配置是 applicationname-profile</li>
+
+<li><p>不存在时读取 applicationname</p>
+
+<pre><code class="language-yml"># 需要在bootstrap.yml 中进行配置server-addr  由他的声明周期来决定  而不能使用application.yml文件进行配置
+spring:
+application:
+name: nacos-config-client
+cloud:
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    file-extension: yml # 指定文件类型 nacos-config-client.yml   默认是properties
+    group: PIGX #组
+profiles:
+active: dev #指定文件后缀来指定环境  nacos-config-client-dev.yml
+server:
+port: 8055
+
+# 要去加载nacos-config-client-dev.yml文件  读取其中的属性  可以由配置中心进行配置
+
+</code></pre></li>
+</ul>
+
+<h3 id="group">GROUP</h3>
+
+<ul>
+<li>默认没有组 都是放在DEFAULT_GROUP（即DEFAULT_GROUP 是默认的组）</li>
+</ul>
+
+<p>会在新建配置时指定组</p>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512211925041.png" alt="image-20210512211925041" /></p>
+
+<p>匹配顺序</p>
+
+<p>组&mdash;-profile</p>
+
+<h3 id="namespace">namespace</h3>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512212121371.png" alt="image-20210512212121371" /></p>
+
+<pre><code class="language-yml"># 需要在bootstrap.yml 中进行配置server-addr  由他的声明周期来决定  而不能使用application.yml文件进行配置
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml # 指定文件类型 nacos-config-client.yml   默认是properties
+        group: PIGX #组
+        namespace: b47c4714-f86e-4234-ad21-1e7fe654f5d5
+
+  profiles:
+    active: dev #指定文件后缀来指定环境  nacos-config-client-dev.yml
+server:
+  port: 8055
+
+# 要去加载nacos-config-client-dev.yml文件  读取其中的属性  可以由配置中心进行配置
+
+</code></pre>
+
+<p>namespace需要通过命名空间ID进行指定</p>
+
+<p>加载顺序</p>
+
+<p>namespace&mdash;-组&mdash;-profile</p>
+
+<h2 id="共享配置文件">共享配置文件</h2>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: nacos-config-client-load
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: b47c4714-f86e-4234-ad21-1e7fe654f5d5
+        group: PIGX
+        # 方式一 常用
+        ext-config:
+          - data-id: common.yml
+        	group: PIGX
+        	refresh: true
+        # 方式二   只会加载DEFAULT_GROUP中的配置文件  不会传递group  会传递namespace
+        shared-dataids: common.yml
+        refreshable-dataids: common.yml #支持刷新
+
+
+server:
+  port: 8056
+
+</code></pre>
+
+<p>加载顺序</p>
+
+<ul>
+<li>common.yml   group:DEFAULT_GROUP   shared配置的</li>
+<li>commom.yml  group:PIGX    ext-config配置的</li>
+<li>nacos-config-client-load.yml   group:PIGX   默认的</li>
+</ul>
+
+<p>后加载的文件属性会覆盖掉前面加载的</p>
+
+<h2 id="数据持久">数据持久</h2>
+
+<p>修改conf/application.properties文件，增加支持mysql数据源配置（目前只支持mysql），添加mysql数据源的url、用户名和密码。</p>
+
+<pre><code>spring.datasource.platform=mysql
+
+db.num=1
+db.url.0=jdbc:mysql://11.162.196.16:3306/nacos_devtest?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true
+db.user=nacos_devtest
+db.password=youdontknow
+</code></pre>
+
+<p>初始化mysql数据库，数据库初始化文件：nacos-mysql.sql</p>
+
+<p>常用表格说明</p>
+
+<ul>
+<li>config_info:存储配置文件信息  xx.yml</li>
+<li>his_config_info:保存配置文件的修改记录  历史信息</li>
+<li>users: 登录用户信息</li>
+<li>tenant_info: namespace信息</li>
+</ul>
+
+<h2 id="集群">集群</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512105310286.png" alt="image-20210512105310286" /></p>
+
+<p>通过Nginx进行请求转发</p>
+
+<p>在nacos的解压目录nacos/的conf目录下，有配置文件cluster.conf，请每行配置成ip:port。（请配置3个或3个以上节点）</p>
+
+<pre><code class="language-plain"># ip:port
+127.0.0.1：13333
+127.0.0.1：14444
+127.0.0.1：15555
+</code></pre>
+
+<p>启动</p>
+
+<pre><code>./startup.sh -p 13333
+./startup.sh -p 14444
+./startup.sh -p 15555
+</code></pre>
+
+<p>通过-p指定端口</p>
+
+<p>配置nginx</p>
+
+<p>nacos.conf</p>
+
+<pre><code>upstream cluster{
+	server 127.0.0.1:13333;
+	server 127.0.0.1:14444;
+	server 127.0.0.1:15555;
+}
+server{
+	listen 11111;
+	server_name localhost;
+	
+	location / {
+		proxy_pass http://cluster;
+	}
+}
+</code></pre>
+
+<p>启动nginx</p>
+
+<p>集群已经搭建好了</p>
+
+<p>访问</p>
+
+<pre><code>localhost:11111/nacos
+</code></pre>
+
+<p>然后在项目中配置</p>
+
+<pre><code class="language-yml">spring:
+  application:
+    name: nacos-config-client-load
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:11111
+        file-extension: yml
+server:
+  port: 8056
+</code></pre>
+
+<h1 id="sentinel">Sentinel</h1>
+
+<blockquote>
+<p>注意：启动 Sentinel 控制台需要 JDK 版本为 1.8 及以上版本。</p>
+</blockquote>
+
+<ul>
+<li>Windows平台安装包下载</li>
+</ul>
+
+<p>可以从<code>https://github.com/alibaba/Sentinel/releases</code>下载<code>sentinel-dashboard-$version.jar</code>包。</p>
+
+<p>使用如下命令启动控制台：</p>
+
+<pre><code class="language-sh">java -Dserver.port=8718 -Dcsp.sentinel.dashboard.server=localhost:8718 -Dproject.name=sentinel-dashboard -Dcsp.sentinel.api.port=8719 -jar D:\sentinel\sentinel-dashboard-1.8.0.jar
+</code></pre>
+
+<p>1</p>
+
+<p>其中<code>-Dserver.port=8718</code>用于指定<code>Sentinel</code>控制台端口为<code>8718</code>，<code>F:\software\sentinel\sentinel-dashboard-1.8.0.jar</code>为下载的包路径地址。</p>
+
+<p><img src="/resources/技术框架/Spring家族/up-d3e4965511f73cee8ec905740129e7f063a.png" alt="up-d3e4965511f73cee8ec905740129e7f063a" /></p>
+
+<p>打开控制台</p>
+
+<p><code>Sentinel</code>提供了一个可视化的操作平台，安装好之后，在浏览器中输入(<a href="http://localhost:8718/">http://localhost:8718 (opens new window)</a>)就可以访问了，默认的用户名和密码都是<code>sentinel</code>（我使用的是1.8.0版本）</p>
+
+<p><img src="/resources/技术框架/Spring家族/up-82f61a6c9e327ede41d7101a27f559a9702.png" alt="sentinel" /></p>
+
+<p>懒加载的只有当有流量访问的时候才会工作</p>
+
+<h2 id="连接">连接</h2>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
+    &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 18080
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      datasource:
+        ds1:
+          file:
+            file: classpath:flowrule.json
+            data-type: json
+            rule-type: flow
+        ds2:
+          nacos:
+            server-addr: localhost:8848
+            dataId: sentinel-core-example
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+  application:
+    name: sentinel-core-example
+</code></pre>
+
+<h2 id="限流">限流</h2>
+
+<h3 id="方式一-根据url限流">方式一  根据URL限流</h3>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+    // 设置阈值为1   每秒只能访问1次
+    //流量多的时候会报错Blocked by Sentinel(flow limiting) 
+    @GetMapping(&quot;/hello&quot;)
+    public String hello() {
+        return &quot;hello sentinel&quot;;
+    }
+}
+</code></pre>
+
+<p>对hello请求进行限流</p>
+
+<p>自定义降级策略</p>
+
+<pre><code class="language-java">public class DemoUrlBlockHandler implements UrlBlockHandler {
+    @Override
+    public void blocked(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, BlockException e) throws IOException {
+        httpServletResponse.getWriter().println(&quot;error url&quot;);
+    }
+}
+</code></pre>
+
+<p>配置类</p>
+
+<p>通过配置类进行绑定</p>
+
+<pre><code class="language-java">@Configuration
+public class SentinelConfig {
+    @PostConstruct
+    public void init() {
+        WebCallbackManager.setUrlBlockHandler(new DemoUrlBlockHandler());
+        WebCallbackManager.setRequestOriginParser(new IpRequestOriginParser());
+    }
+}
+
+</code></pre>
+
+<h3 id="方式二-通过资源名限流">方式二 通过资源名限流</h3>
+
+<p>resource下面挂了一个resource资源  对资源进行限流</p>
+
+<pre><code class="language-java">/*
+@GetMapping(&quot;/resource&quot;)
+//通过@SentinelResource指定资源名
+@SentinelResource(&quot;resource&quot;)  //需指定具体的资源  否则会报错500
+public String resource() {
+    return &quot;hello resource&quot;;
+}
+*/
+// 方式一
+@GetMapping(&quot;/resource&quot;)
+@SentinelResource(value = &quot;resource&quot;, blockHandler = &quot;exHandler&quot;) //默认找本类下的方法
+public String resource() {
+    return &quot;hello resource&quot;;
+}
+public String exHandler(BlockException ex) {
+    return &quot;exHandeler error&quot;;
+}
+// 方式二   通过blockHandlerClass指定类  通过blockHandler指定方法
+@GetMapping(&quot;/resource1&quot;)
+@SentinelResource(value = &quot;resource1&quot;, blockHandler = &quot;exHandler&quot;, blockHandlerClass = {ExceptionUtil.class})
+public String resource1() {
+    return &quot;hello resource&quot;;
+}
+</code></pre>
+
+<p>处理异常的类</p>
+
+<pre><code class="language-java">public class ExceptionUtil {
+    public static String exHandler(BlockException ex) {
+        return &quot;exHandler error&quot;;
+    }
+}
+</code></pre>
+
+<h2 id="黑白名单控制">黑白名单控制</h2>
+
+<p>配置类</p>
+
+<pre><code class="language-java">@Configuration
+public class SentinelConfig {
+    @PostConstruct
+    public void init() {
+        WebCallbackManager.setUrlBlockHandler(new DemoUrlBlockHandler());
+        WebCallbackManager.setRequestOriginParser(new IpRequestOriginParser());//定义判断标准是什么
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">public class IpRequestOriginParser implements RequestOriginParser {
+    /** 根据IP
+     * Parse the origin from given HTTP request.
+     *
+     * @param request HTTP request
+     * @return parsed origin
+     */
+    @Override
+    public String parseOrigin(HttpServletRequest request) {
+        return request.getRemoteAddr();  //生产上不要这么使用
+    }
+}
+</code></pre>
+
+<p>接口</p>
+
+<pre><code class="language-java">@RestController
+public class SecurityController {
+    @GetMapping(&quot;/white&quot;)
+    public String white() {
+        return &quot;hello white&quot;;
+    }
+    @GetMapping(&quot;/black&quot;)
+    public String black() {
+        return &quot;hello black&quot;;
+    }
+}
+</code></pre>
+
+<p>再sentinel面板中的授权规则进行设置</p>
+
+<p>不符合规则的会触发降级操作</p>
+
+<h2 id="热点限流">热点限流</h2>
+
+<p><img src="/resources/技术框架/Spring家族/image-20210512133245207.png" alt="image-20210512133245207" /></p>
+
+<p>按照不同的参数进行划分</p>
+
+<pre><code class="language-java">@RestController
+public class ParamController {
+    @GetMapping(&quot;/param&quot;)
+    @SentinelResource(value=&quot;/param&quot;,blockHandler = &quot;exHandler&quot;)
+    public String param(String type) {
+        return &quot;success&quot;;
+    }
+    public String exHandler(String type, BlockException ex) {
+        return &quot;exHandler error&quot;;
+    }
+}
+</code></pre>
+
+<p>热点限流只对resource生效，对普通的请求路径是不生效的，因此要使用热点限流的功能一定要使用@SentinelResource功能进行标注</p>
+
+<p>在sentinel面板中的簇点链路中的/param请求下的param资源进行热点操作</p>
+
+<p>其中参数索引以0开始，type参数的参数索引为0</p>
+
+<p>当不带参数的时候进行访问，一切正常</p>
+
+<p>带param参数访问的时候，会触发降级，执行降级策略。带其他的参数也不会触发降级</p>
+
+<h2 id="自适应限流">自适应限流</h2>
+
+<p>超过阈值进行处理，所有请求服务挂起block掉，不超过不进行处理</p>
+
+<p>在sentinel控制台系统规则面板进行设置。新增系统规则</p>
+
+<p>阈值类型</p>
+
+<ul>
+<li>LOAD：瞬间处理的进程数，一般设置为CPU个数*0.7</li>
+<li>RT：服务的平均响应时间，单位为毫秒。超过指定时间的服务都被挂起</li>
+<li>线程数：</li>
+<li>入口QPS：</li>
+<li>CPU使用率：0.7</li>
+</ul>
+
+<h2 id="规则持久化">规则持久化</h2>
+
+<p>重启应用后我们设置的规则就没了。</p>
+
+<p>目前支持file,nacos,zk,apollo,redis这五种类型</p>
+
+<h3 id="file">file</h3>
+
+<p>在resource文件夹设置规则</p>
+
+<p>flowrule.json</p>
+
+<pre><code class="language-json">[
+  {
+    &quot;resource&quot;: &quot;hello&quot;,
+    &quot;count&quot;: 1,
+    &quot;grade&quot;: 1,
+    &quot;limitApp&quot;: &quot;default&quot;,
+    &quot;strategy&quot;: 0,
+    &quot;controlBehavior&quot;: 0
+  }
+]
+</code></pre>
+
+<p>一条限流规则主要由下面的几个因素构成，我们可以组成这些元素来实现不同的限流效果</p>
+
+<ul>
+<li>resource：资源名，即限流规则的作用对象</li>
+<li>count：限流阈值</li>
+<li>grade：限流阈值类型(QPS或并发线程数)1:QPS  0：线程数</li>
+<li>limitApp：流控针对的调用来源，若为default则不区分调用来源</li>
+<li>strategy：调用关系限流策略。接口是链路的一直往后调用，是否整个链路都限流</li>
+<li>controlBehavior：流量控制效果（直接拒绝、WarmUP、均速排队）</li>
+</ul>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 18080
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      datasource:
+        ds1:
+          file:
+            file: classpath:flowrule.json
+            data-type: json
+            rule-type: flow
+  application:
+    name: sentinel-core-example
+
+</code></pre>
+
+<h3 id="nacos-1">Nacos</h3>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-datasource-nacos&lt;/artifactId&gt;
+    &lt;version&gt;1.7.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 18080
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      datasource:
+        ds2:
+          nacos:
+            server-addr: localhost:8848
+            dataId: sentinel-core-example
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+  application:
+    name: sentinel-core-example
+
+</code></pre>
+
+<h2 id="整合feign">整合Feign</h2>
+
+<p><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel">https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel</a></p>
+
+<p>提供方</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+
+    @GetMapping(&quot;/feign&quot;)
+    public String feign() {
+        return &quot;hello sentinel feign&quot;;
+    }
+}
+</code></pre>
+
+<p>配置</p>
+
+<pre><code class="language-yml">server:
+  port: 18082
+
+spring:
+  application:
+    name: sentinel-feign-provider
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+</code></pre>
+
+<p>消费方</p>
+
+<pre><code class="language-java">@RestController
+public class DemoController {
+    @Autowired
+    private DemoFeignClient feignClient;
+
+    @GetMapping(&quot;/hello&quot;)
+    public String hello() {
+        return feignClient.feign();
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-java">@Component
+public class DemoFeginClientFallback implements DemoFeignClient {
+    @Override
+    public String feign() {
+        return &quot;error&quot;;
+    }
+}
+
+</code></pre>
+
+<pre><code class="language-java">@FeignClient(value = &quot;sentinel-feign-provider&quot;, fallback = DemoFeginClientFallback.class)
+public interface DemoFeignClient {
+    @GetMapping(&quot;/feign&quot;)
+    String feign();
+}
+</code></pre>
+
+<pre><code class="language-yml">server:
+  port: 18081
+
+spring:
+  application:
+    name: sentinel-feign-comsumer
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+</code></pre>
+
+<pre><code class="language-java">@EnableFeignClients
+@SpringCloudApplication
+public class SentinelFeignProvierApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SentinelFeignProvierApplication.class, args);
+    }
+
+}
+
+</code></pre>
+
+<h2 id="整合gateway">整合gateway</h2>
+
+<p><a href="https://github.com/alibaba/Sentinel/wiki/%E7%BD%91%E5%85%B3%E9%99%90%E6%B5%81">官网</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/9434884/58381714-266d7980-7ff3-11e9-8617-d0d7c325d703.png" alt="sentinel-api-gateway-common-arch" /></p>
+
+<ul>
+<li><code>GatewayFlowRule</code>：网关限流规则，针对 API Gateway 的场景定制的限流规则，可以针对不同 route 或自定义的 API 分组进行限流，支持针对请求中的参数、Header、来源 IP 等进行定制化的限流。</li>
+<li><code>ApiDefinition</code>：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。比如我们可以定义一个 API 叫 <code>my_api</code>，请求 path 模式为 <code>/foo/**</code> 和 <code>/baz/**</code> 的都归到 <code>my_api</code> 这个 API 分组下面。限流的时候可以针对这个自定义的 API 分组维度进行限流。</li>
+</ul>
+
+<h1 id="seata分布式事务">Seata分布式事务</h1>
+
+<p><a href="http://seata.io/zh-cn/docs/overview/what-is-seata.html">官方文档地址</a></p>
+
+<p>Seata是阿里开源的一个分布式事务框架。
+ Seata主要有两种分布式事务实现方案，AT及TCC</p>
+
+<ul>
+<li>AT模式主要关注多 DB 访问的数据一致性，当然也包括多服务下的多 DB 数据访问一致性问题</li>
+<li>TCC 模式主要关注业务拆分，在按照业务横向扩展资源时，解决微服务间调用的一致性问题</li>
+</ul>
+
+<ol>
+<li><p>下载seata-server并运行，<a href="https://github.com/seata/seata/releases">下载地址</a></p></li>
+
+<li><p>每个服务加上seata的依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-seata&lt;/artifactId&gt;
+    &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<ol>
+<li>加上file.conf,并修改service的vgroup</li>
+<li>指明配置中心&mdash;&ndash;加上registry.conf配置</li>
+</ol></li>
+
+<li><p>数据库导入表</p></li>
+</ol>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Spring Cloud Alibaba自学笔记" target="_blank" rel="external">https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/" title="面经整理"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2021
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
