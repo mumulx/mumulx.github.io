@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Kafka学习笔记</title>
+      <link>https://mumulx.github.io/2021/05/kafka/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2021/05/kafka/</guid>
+      <description>第 1 章 初识Kafka Kafka最初是由LinkedIn公司采用Scala语言开发的一个多分区、多副本并且基于ZooKeeper协调的分布式消</description>
+    </item>
+    
+    <item>
       <title>Spring Cloud Alibaba自学笔记</title>
       <link>https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
