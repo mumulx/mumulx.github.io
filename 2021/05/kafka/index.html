@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2021-05-14T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-05-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="48587">
+<meta itemprop="wordCount" content="48573">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">32</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">14</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">15</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
         </ul>
     </div>
@@ -191,7 +191,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
-                    class="tag-list-count">13</span></li>
+                    class="tag-list-count">14</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
@@ -251,6 +251,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记02</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记</a>
                     </p>
                     <p class="item-date">
@@ -275,16 +285,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2020/11/java_jvm%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="title">Java底层JVM知识整理</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-11-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-11-18</time>
                     </p>
                 </div>
             </li>
@@ -537,7 +537,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/kafka/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:48587字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:48573字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:97分 </span>
       </div>
     </div>
@@ -676,7 +676,7 @@
 
 <p>​   在/etc/profile文件中配置如下变量</p>
 
-<pre><code>export JAVA_HOME=/java/jdk-12.0.1
+<pre><code class="language-shell">export JAVA_HOME=/java/jdk-12.0.1
 export JRE_HOME=$JAVA_HOME/jre
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
 export PATH=.:$JAVA_HOME/bin:$JRE_HOME/bin:$KE_HOME/bin:${MAVEN_HOME}/bin:$PATH
@@ -684,7 +684,7 @@ export PATH=.:$JAVA_HOME/bin:$JRE_HOME/bin:$KE_HOME/bin:${MAVEN_HOME}/bin:$PATH
 
 <li><p>测试jdk</p>
 
-<pre><code>which java
+<pre><code class="language-shell">which java
 java -version
 </code></pre></li>
 </ul>
@@ -705,7 +705,7 @@ java -version
 <p>首先进入安装路径conf目录，并将zoo_sample.cfg文件修改为zoo.cfg，并对核心参数进行配置。
 文件内容如下：</p>
 
-<pre><code># The number of milliseconds of each tick
+<pre><code class="language-properties"># The number of milliseconds of each tick
 # zk服务器的心跳时间
 tickTime=2000
 # The number of ticks that the initial
@@ -727,7 +727,7 @@ clientPort=2181
 
 <li><p>启动Zookeeper命令：bin/zkServer.sh start</p>
 
-<pre><code>itcast@Server-node:/mnt/d/zookeeper-3.4.14$ bin/zkServer.sh start
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/zookeeper-3.4.14$ bin/zkServer.sh start
 ZooKeeper JMX enabled by default
 Using config: /mnt/d/zookeeper-3.4.14/bin/../conf/zoo.cfg
 //启动成功
@@ -778,7 +778,7 @@ zookeeper.connect=localhost:2181 Kafka所需Zookeeper集群地址，教学中Zoo
 
 <p>命令如下：</p>
 
-<pre><code>bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic mumu --partitions 2 --replication-factor 1
+<pre><code class="language-shell">bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic mumu --partitions 2 --replication-factor 1
 </code></pre>
 
 <blockquote>
@@ -789,7 +789,7 @@ replication-factor：指定了副本因子
 create：创建主题的动作指令</p>
 </blockquote>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic mumu --partitions 2 --replication-factor 1
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic mumu --partitions 2 --replication-factor 1
 //主题创建成功
 Created topic mumu.
 itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
@@ -801,11 +801,10 @@ itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
 
 <p>命令：</p>
 
-<pre><code>bin/kafka-topics.sh --zookeeper localhost:2181 --list
+<pre><code class="language-shell">bin/kafka-topics.sh --zookeeper localhost:2181 --list
 </code></pre>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper
-localhost:2181 --list
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper localhost:2181 --list
 mumu
 itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
 </code></pre>
@@ -816,14 +815,14 @@ itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
 
 <p>命令：</p>
 
-<pre><code>bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic mumu
+<pre><code class="language-shell">bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic mumu
 </code></pre>
 
 <blockquote>
 <p>describe 查看详情动作指令</p>
 </blockquote>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic mumu
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic mumu
 Topic:mumu PartitionCount:2 ReplicationFactor:1 Configs:
 Topic: mumu Partition: 0 Leader: 0 Replicas: 0 Isr: 0
 Topic: mumu Partition: 1 Leader: 0 Replicas: 0 Isr: 0
@@ -834,7 +833,7 @@ itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
 
 <p>命令：</p>
 
-<pre><code>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mumu
+<pre><code class="language-shell">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mumu
 </code></pre>
 
 <blockquote>
@@ -842,7 +841,7 @@ itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$
 &ndash;topic 指定了消费端订阅的主题</p>
 </blockquote>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mumu
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mumu
 Hello,Kafka!
 </code></pre>
 
@@ -850,15 +849,14 @@ Hello,Kafka!
 
 <p>命令：</p>
 
-<pre><code>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mumu
+<pre><code class="language-shell">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mumu
 </code></pre>
 
 <pre><code>--broker-list 指定了连接的Kafka集群的地址
 --topic 指定了发送消息时的主题
 </code></pre>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-console-producer.sh --
-broker-list localhost:9092 --topic mumu
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mumu
 &gt;Hello,Kafka!
 &gt;
 </code></pre>
@@ -985,7 +983,7 @@ public class ProducerFastStart {
 
 <p>参数配置：config/server.properties</p>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ egrep
+<pre><code class="language-properties">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ egrep
 'zookeeper|listeners|broker.id|log.dir|log.dirs' config/server.properties
 broker.id=0
 listeners=PLAINTEXT://:9092
@@ -3866,16 +3864,15 @@ kafka client or server; this will all browsing all metrics with JMX.
 
 <p>在使用jmx之前需要确保kafka开启了jmx监控，kafka启动时要添加JMX_PORT=9999这一项，也就是：</p>
 
-<pre><code>itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ JMX_PORT=9999 bin/kafka-serverstart.
-sh config/server.properties
+<pre><code class="language-shell">itcast@Server-node:/mnt/d/kafka_2.12-2.2.1$ JMX_PORT=9999 bin/kafka-serverstart.sh config/server.properties
 </code></pre>
 
 <p><img src="/resources/技术收录/中间件/Kafka/image-20210513110436842.png" alt="image-20210513110436842" /></p>
 
-<pre><code>{&quot;listener_security_protocol_map&quot;:{&quot;PLAINTEXT&quot;:&quot;PLAINTEXT&quot;},
-&quot;endpoints&quot;:[&quot;PLAINTEXT://Server-node.localdomain:9092&quot;],
-&quot;jmx_port&quot;:-1,&quot;host&quot;:&quot;Server-node.localdomain&quot;,&quot;timestamp&quot;:&quot;1567042701998&quot;,
-&quot;port&quot;:9092,&quot;version&quot;:4}
+<pre><code class="language-json">{&quot;listener_security_protocol_map&quot;:{&quot;PLAINTEXT&quot;:&quot;PLAINTEXT&quot;},
+ &quot;endpoints&quot;:[&quot;PLAINTEXT://Server-node.localdomain:9092&quot;],
+ &quot;jmx_port&quot;:-1,&quot;host&quot;:&quot;Server-node.localdomain&quot;,&quot;timestamp&quot;:&quot;1567042701998&quot;,
+ &quot;port&quot;:9092,&quot;version&quot;:4}
 </code></pre>
 
 <h3 id="10-1-2-jconsole">10.1.2 JConsole</h3>
@@ -3886,15 +3883,7 @@ sh config/server.properties
 
 <p>详情查看代码：com.mumu.kafka.chapter10.JmxConnectionDemo</p>
 
-<pre><code class="language-java">package com.mumu.kafka.chapter10;
-
-import javax.management.*;
-import javax.management.remote.JMXConnector;
-import javax.management.remote.JMXConnectorFactory;
-import javax.management.remote.JMXServiceURL;
-import java.io.IOException;
-
-/**
+<pre><code class="language-java">/**
  * JMX Connection
  */
 public class JmxConnectionDemo {
@@ -3921,9 +3910,6 @@ public class JmxConnectionDemo {
         }
         return true;
     }
-
-
-
     public double getMsgInPerSec() {
         String objectName = &quot;kafka.server:type=BrokerTopicMetrics,&quot; +
                 &quot;name=MessagesInPerSec&quot;;
@@ -4062,7 +4048,7 @@ Kafka Eagle <a href="https://docs.kafka-eagle.org/">使用文档</a></p>
 
 <p>D:\kafka-eagle-web-1.3.6\conf\system-config.properties</p>
 
-<pre><code>######################################
+<pre><code class="language-properties">######################################
 # multi zookeeper&amp;kafka cluster list
 ######################################
 #如果只有一个集群的话，就写一个cluster1就行了
@@ -4745,7 +4731,7 @@ most once、更不是exactly only once</p>
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="Spring Cloud Alibaba自学笔记"><i
+                <a href="https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/" title="Spring Cloud Alibaba自学笔记02"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>

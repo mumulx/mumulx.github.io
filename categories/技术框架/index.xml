@@ -5,7 +5,7 @@
     <link>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/</link>
     <description>Recent content in 技术框架 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 May 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,15 @@
       
       <guid>https://mumulx.github.io/2021/05/kafka/</guid>
       <description>第 1 章 初识Kafka Kafka最初是由LinkedIn公司采用Scala语言开发的一个多分区、多副本并且基于ZooKeeper协调的分布式消</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Alibaba自学笔记02</title>
+      <link>https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/</guid>
+      <description>第一章 微服务介绍 1.1 系统架构演变 随着互联网的发展，网站应用的规模也在不断的扩大，进而导致系统架构也在不断的进行变化。从互联网早起到现在，系统架</description>
     </item>
     
     <item>
