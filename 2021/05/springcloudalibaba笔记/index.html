@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2021-05-14T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-05-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="48142">
+<meta itemprop="wordCount" content="48131">
 
 
 
@@ -623,7 +623,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:48142字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:48131字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:97分 </span>
       </div>
     </div>
@@ -5873,20 +5873,12 @@ public class NacosConfigController {
 
 <p>4 添加测试方法</p>
 
-<p>@RestController
-@RefreshScope
-public class NacosConfigController {
-    @Value(&ldquo;${config.env}&rdquo;)
-    private String env;</p>
-
 <pre><code class="language-java">//3 同一微服务的不同环境下共享配置
 @GetMapping(&quot;/nacos-config-test3&quot;)
 public String nacosConfingTest3() {
     return env;
 }
 </code></pre>
-
-<p>}</p>
 
 <p>5 访问测试</p>
 
