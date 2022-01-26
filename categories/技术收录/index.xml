@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</link>
     <description>Recent content in 技术收录 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 14 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ShardingShpere笔记</title>
+      <link>https://mumulx.github.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/</guid>
+      <description>ShardingShpere数据库中间件 ShardingJdbc是属于我们中间件里面的一个知识点，它主要应用在我们项目的数据层这部分，也就是</description>
+    </item>
     
     <item>
       <title>Kafka学习笔记</title>

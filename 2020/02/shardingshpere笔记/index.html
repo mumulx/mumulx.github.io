@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ShardingShpere笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="ShardingShpere笔记" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>ShardingShpere笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="ShardingShpere笔记" />
+<meta property="og:description" content="ShardingShpere笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-02-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="ShardingShpere笔记">
+<meta itemprop="description" content="ShardingShpere笔记">
+
+
+<meta itemprop="datePublished" content="2020-02-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="23555">
+
+
+
+<meta itemprop="keywords" content="中间件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ShardingShpere笔记"/>
+<meta name="twitter:description" content="ShardingShpere笔记"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">33</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/kafka/" class="title">Kafka学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记02</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/spring_cloud_alibaba%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-12</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/" class="title">面经整理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-15</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2020/12/%E9%9D%A2%E8%AF%95%E9%A2%98_%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C/" class="title">Java面试准备二</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-12-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-12-21</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#shardingshpere数据库中间件">ShardingShpere数据库中间件</a></li>
+<li><a href="#01-shardingjdbc的概述">01、 ShardingJdbc的概述</a>
+<ul>
+<li><a href="#1-概述">1、概述</a></li>
+<li><a href="#2-关于改名问题">2、关于改名问题</a></li>
+<li><a href="#3-认识shardingjdbc">3、认识shardingjdbc</a></li>
+<li><a href="#4-认识shardingjdbc功能架构图">4、认识shardingjdbc功能架构图</a></li>
+<li><a href="#5-认识sharding-proxy">5、认识Sharding-Proxy</a></li>
+<li><a href="#6-三个组件的比较">6、三个组件的比较</a></li>
+<li><a href="#7-shardingjdbc混合架构">7、ShardingJdbc混合架构</a></li>
+<li><a href="#8-shardingshpere的功能清单">8、ShardingShpere的功能清单</a></li>
+<li><a href="#9-shardingsphere数据分片内核剖析">9、 ShardingSphere数据分片内核剖析</a>
+<ul>
+<li><a href="#sql-解析">SQL 解析</a></li>
+<li><a href="#执行器优化">执行器优化</a></li>
+<li><a href="#sql-路由">SQL 路由</a></li>
+<li><a href="#sql-改写">SQL 改写</a></li>
+<li><a href="#sql-执行">SQL 执行</a></li>
+<li><a href="#结果归并">结果归并</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#02-shardingjdbc准备-linux安装mysql5-7">02、 ShardingJdbc准备 - Linux安装MySQL5.7</a>
+<ul>
+<li><a href="#1-yum安装mysql">1、yum安装mysql</a>
+<ul>
+<li><a href="#1-1-下载mysql的rpm地址">1-1、下载mysql的rpm地址</a></li>
+<li><a href="#1-2-配置mysql扩展源">1-2、配置Mysql扩展源</a></li>
+<li><a href="#1-3-yum安装mysql">1-3、yum安装mysql</a></li>
+<li><a href="#1-4-启动mysql-并加入开机自启">1-4、启动Mysql，并加入开机自启</a></li>
+<li><a href="#1-5-使用mysq初始密码登录数据库">1-5、使用Mysq初始密码登录数据库</a></li>
+<li><a href="#1-6-修改数据库密码">1-6、修改数据库密码</a></li>
+<li><a href="#1-7-修改密码">1-7、修改密码</a></li>
+<li><a href="#1-8-登录测试">1-8、登录测试</a></li>
+<li><a href="#1-9-可视化工具的登录授权-如果授权不成功-请查看防火墙">1-9、可视化工具的登录授权：(如果授权不成功，请查看防火墙)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#03-shardingjdbc准备-mysql完成主从复制">03、 ShardingJdbc准备 - MySql完成主从复制</a>
+<ul>
+<li><a href="#概述">概述</a></li>
+<li><a href="#01-mysql中复制的优点包括">01、MySQL中复制的优点包括：</a></li>
+<li><a href="#02-replication-的原理">02、Replication 的原理</a>
+<ul>
+<li><a href="#02-1-前提是作为主服务器角色的数据库服务器必须开启二进制日志">02-1、前提是作为主服务器角色的数据库服务器必须开启二进制日志</a></li>
+</ul></li>
+<li><a href="#03-具体配置如下">03、具体配置如下</a>
+<ul>
+<li><a href="#03-01-master节点配置-etc-my-cnf-master节点执行">03-01、Master节点配置<code>/etc/my.cnf</code> (master节点执行)</a></li>
+<li><a href="#03-02-slave节点配置-etc-my-cnf-slave节点执行">03-02、Slave节点配置<code>/etc/my.cnf</code> (slave节点执行)</a></li>
+<li><a href="#03-03-在master服务器授权slave服务器可以同步权限-master节点执行">03-03、在master服务器授权slave服务器可以同步权限(master节点执行)</a></li>
+<li><a href="#03-04-查询master服务的binlog文件名和位置-master节点执行">03-04、查询master服务的binlog文件名和位置(master节点执行)</a></li>
+<li><a href="#03-05-slave进行关联master节点-slave节点执行">03-05、slave进行关联master节点(slave节点执行)</a></li>
+<li><a href="#03-06-在slave节点上查看主从同步状态-slave节点执行">03-06、在slave节点上查看主从同步状态(slave节点执行)</a>
+<ul>
+<li><a href="#启动主从复制">启动主从复制</a></li>
+<li><a href="#再查看主从同步状态">再查看主从同步状态</a></li>
+</ul></li>
+<li><a href="#03-07-主从复制测试">03-07、主从复制测试</a></li>
+<li><a href="#03-08-切记">03-08、切记</a></li>
+</ul></li>
+<li><a href="#04-主从复制相关问题排查">04、主从复制相关问题排查</a>
+<ul>
+<li><a href="#04-01-主从复制connecting问题">04-01、主从复制Connecting问题</a></li>
+<li><a href="#04-02-mysql镜像服务器因错误停止的恢复-slave-sql-running-no">04-02、MYSQL镜像服务器因错误停止的恢复 —Slave_SQL_Running: No</a></li>
+<li><a href="#04-03-从mysql服务器slave-io-running-no的解决2">04-03、从MYSQL服务器Slave_IO_Running: No的解决2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#04-shardingjdbc的配置及读写分离">04、 ShardingJdbc的配置及读写分离</a>
+<ul>
+<li><a href="#01-内容大纲">01、内容大纲</a></li>
+<li><a href="#02-具体实现步骤">02、具体实现步骤</a>
+<ul>
+<li><a href="#02-01-新建一个springboot工程">02-01、 新建一个springboot工程</a></li>
+<li><a href="#02-02-引入相关sharding依赖-ssm依赖-数据库驱动">02-02、 引入相关sharding依赖、ssm依赖、数据库驱动</a></li>
+<li><a href="#02-03-定义配置application-yml">02-03、 定义配置application.yml</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#整合mybatis的配置xxxxx">整合mybatis的配置XXXXX</a></li>
+<li><a href="#整合mybatis的配置xxxxx-1">整合mybatis的配置XXXXX</a></li>
+<li><a href="#inline">inline:</a></li>
+<li><a href="#shardingcolumn-yearmonth">shardingColumn: yearmonth</a></li>
+<li><a href="#algorithmexpression-ksd-user-order-yearmonth">algorithmExpression: ksd_user<em>order</em>$-&gt;{yearmonth}</a></li>
+<li><a href="#整合mybatis的配置xxxxx-2">整合mybatis的配置XXXXX</a></li>
+<li><a href="#shardingjdbc分库分表">shardingjdbc分库分表</a></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/"
+    >ShardingShpere笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-02-25</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:23555字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:48分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="shardingshpere数据库中间件">ShardingShpere数据库中间件</h1>
+
+<p>ShardingJdbc是属于我们中间件里面的一个知识点，它主要应用在我们项目的数据层这部分，也就是我们后面大家可能经常会听到的一个知识点分库和分表，因为随着我们项目的不断发展和递进，那么你的项目的可能达到一定量级时候，你的数据量也会越来越大。那在数据量越来越大的情况下，你可能就会牵涉到一些数据的分库和分表的操作，我们如何去做到这种分库和分表的操作呢？其中我们现在的次面上主流的两款框架有两个。</p>
+
+<p>一个是我们的ShardingJdbc，由我们的当当公司组织和联合我们的各现在国内的一些大场一起开发的一款数据库中间件ShardingJdbc。还一款呢，就是我们大家可能未来会接触到的mycat。这两款的现在其实都在不断的完善中，而且旗鼓相当，但是记住一个点的是ShardingJdbc现在更名为我们的ShardingSphere也就是说，它的3.x之后，把名字更名成为我们的ShardingSphere，我们的ShardingJdbc是属于ShardingSphere里面的一个分支。ShardingSphere是由JDBC、Proxy 和 Sidecar（规划中）这三个东西一起构成一个完整体，也就是专门为我们的这种数据库的水平扩扩容和分布式治理以及分布事务治理提供了一个最基础的一个组件。你记住一点，他就做这样的事情的，随着项目的发展，你的项目的数量会暴增到一个很大的量级，那这个时候的话，分库和分表的话是势在必行。</p>
+
+<p>Apache ShardingSphere 是一套开源的分布式数据库解决方案组成的生态圈，它由 JDBC、Proxy 和 Sidecar（规划中）这 3 款既能够独立部署，又支持混合部署配合使用的产品组成。 它们均提供标准化的数据水平扩展、分布式事务和分布式治理等功能，可适用于如 Java 同构、异构语言、云原生等各种多样化的应用场景。</p>
+
+<h1 id="01-shardingjdbc的概述">01、 ShardingJdbc的概述</h1>
+
+<h2 id="1-概述">1、概述</h2>
+
+<blockquote>
+<p>官网：<a href="http://shardingsphere.apache.org/index_zh.html">http://shardingsphere.apache.org/index_zh.html</a>
+下载地址：<a href="https://shardingsphere.apache.org/document/current/cn/downloads/">https://shardingsphere.apache.org/document/current/cn/downloads/</a>
+快速入门：<a href="https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/">https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/</a></p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy4cf69216-f9c9-485d-860b-d392346cc2eb.png" alt="img" /></p>
+
+<p>以下来自官网的原话：
+Apache ShardingSphere 是一套开源的分布式数据库解决方案组成的生态圈，它由 JDBC、Proxy 和 Sidecar（规划中）这 3 款既能够独立部署，又支持混合部署配合使用的产品组成。 它们均提供标准化的数据水平扩展、分布式事务和分布式治理等功能，可适用于如 Java 同构、异构语言、云原生等各种多样化的应用场景。</p>
+
+<p>Apache ShardingSphere 旨在充分合理地在分布式的场景下利用关系型数据库的计算和存储能力，而并非实现一个全新的关系型数据库。 关系型数据库当今依然占有巨大市场份额，是企业核心系统的基石，未来也难于撼动，我们更加注重在原有基础上提供增量，而非颠覆。</p>
+
+<p>Apache ShardingSphere 5.x 版本开始致力于可插拔架构，项目的功能组件能够灵活的以可插拔的方式进行扩展。 目前，数据分片、读写分离、数据加密、影子库压测等功能，以及 MySQL、PostgreSQL、SQLServer、Oracle 等 SQL 与协议的支持，均通过插件的方式织入项目。 开发者能够像使用积木一样定制属于自己的独特系统。Apache ShardingSphere 目前已提供数十个 SPI 作为系统的扩展点，仍在不断增加中。</p>
+
+<p>ShardingSphere 已于2020年4月16日成为 Apache 软件基金会的顶级项目。</p>
+
+<h2 id="2-关于改名问题">2、关于改名问题</h2>
+
+<p>在3.0以后就更改成了ShardingSphere。</p>
+
+<h2 id="3-认识shardingjdbc">3、认识shardingjdbc</h2>
+
+<p>然后我们来看一下，这是来自官网的一张图片，在图片里面就告诉我们了啊，我们在未来的项目开发里面的话，我们肯定会有很多的一些核心一些功能，而这个功能的话，我们可能会通过ShardingJdbc和下面ShardingProxy和ShardingSidecar这三个东西来完成和接入我们的数据库。</p>
+
+<p>现在的这个项目的话也被托管到了我们Apache基金会了，也说他现在也是属于一种开放的一个状态，你可以大胆使用在你的公司的一些项目和业务里面。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyceb16308-74c6-473c-8b2e-7518c3a33666.png" alt="img" /></p>
+
+<p>定位为轻量级 Java 框架，在 Java 的 JDBC 层提供的额外服务。（他是以jar包形式服务，就说白了你在项目的ShardingJdbc应用他其实就是以jar包耦合在我们的这个源码里面，所以说，待会我们在构建项目的时候，你接下来会依赖一个ShardingSphere 的一个jar包。然后其他的东西你就不需要做了） 它使用客户端直连数据库，以 jar 包形式提供服务，无需额外部署和依赖(MyCat的方式是以服务的形式)，可理解为增强版的 JDBC 驱动，完全兼容 JDBC 和各种 ORM 框架。</p>
+
+<p>而且它可以完全融合我们现在市面上比较主流的一些orm框架，适用于任何基于 JDBC 的 ORM 框架，如：JPA, Hibernate, Mybatis, Spring JDBC Template 或直接使用 JDBC。</p>
+
+<p>支持任何第三方的数据库连接池，如：DBCP, C3P0, BoneCP, Druid, HikariCP 等。
+支持任意实现 JDBC 规范的数据库，目前支持 MySQL，Oracle，SQLServer，PostgreSQL 以及任何遵循 SQL92 标准的数据库。</p>
+
+<p>所以说这个东西的话是非常好的一个东西。但他一个缺点，他就是融合在我们的代码里面的，而他跟Mycat不一样。Mycat是剥离在我们的项目之外，ShardingJdbc跟他是同一类的东西，这两个东西做的事情都差不多，但是的有一点的是mycat他是一个独立的服务。mycat就和tomcat一样，我需要再起一个mycat服务，你会通过一个连接去连接我们mycat，而我们的ShardingJdbc和我们的用程序呢是把这个东西了融合在一起。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/image-20220126204337621.png" alt="image-20220126204337621" /></p>
+
+<h2 id="4-认识shardingjdbc功能架构图">4、认识shardingjdbc功能架构图</h2>
+
+<p>ShardingJdbc现在的功能的体系呢还是非常完善了的，我们来看一下怎么去认识他，这个也是官网的一张图片。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy8da2693f-33f7-480e-a56a-ce853abe5721.png" alt="img" /></p>
+
+<p>从这个里面的话可以看出来，ShardingJdbc它的作用是什么啊？中间是我们的Java应用程序，里面包含我们的业务代码。我们的业务代码会和ShardingJdbc来进行融合，像上面所说它是以我们的jar包的方式融合在我的应用程序里面，来实现我们的分库分表。</p>
+
+<p>那么底层架构的话就是我们数据库，database就是我们的数据库和数据表，它其实所谓的这种分库分表的概念其实说白了就是管理我们一个东西。因为我们大家知道。在代码里面能够操作数据库的对象是cannection。我们以前用mybatis，jdbc或者我们自去写一个jdbc连接无外乎就是定义一个连接对象，连接对象的话就可以操作数据库。ShardingJdbc加进来以后你自己想想看。他做了件什么事情？他是不是就把我们的这个连接对象接管了。ShardingJdbc是把我们的连接对象接管了。</p>
+
+<p>那么为什么还要去有连接池呢？因为连接池是管理连接的，我们用连接池的性能会比直接用连接的对象要高，因为频繁的开闭连接会建立我们的tcp连接，tcp连接的话是非常消耗性能的，所以说这个时候的话。我们就连接池的一个技术，连接对象就可以不用频繁开辟，比如说像我们的druid，c3p0的，它可以把我们的连接对象,很好的进行一个管理和分配，然后节约机器的内存空间，让我们JVM能够更高效的运行和运转。</p>
+
+<p>ShardingJdbc接下来在我们的这些数据源和数据库底层的这个基础上。再去做了一层，而这一层的话就是专门去管理这些连接，就是你把你的这些连接对象通过ShardingJdbc来管理，ShardingJdbc会定义一些规则来定义你这个链接是进这个数据库，还是进这个数据库，所以说这就是我们今天要介绍的一个东西。</p>
+
+<p>ShardingJdbc里面肯定会定义一些规则，这规则的话无外乎其实就是取余，或者根据哪一个字段进哪个连接啊。这规则定好了以后，那么他就会跟你的规则来进行匹配，一旦匹配上，他就会跟这个数据库进行通信。ShardingJdbc说白了就做这两件事情了。</p>
+
+<p>项目越来越庞大，这个配置文件会越来越多，在我们的ShardingJdbc里面，它有一个东西叫做注册中心，在我们3.x，他提出一个战略概念，注册中心的概念。</p>
+
+<p>他会把我的配置文件的全部会通过一个注册中心来进行注册，它就类似于我们的微服务中的配置中心的概念是一模一样的，也是它没有任何的差异啊，其实它也是一个独立的项目。然后把你这些配置文件全部剥离在一个配一个项目里面，然后呢，你通过这些东西，他可以去连接它，他还可以通过连接它。他就可以能达到一个共享的一个目的，这个配这就是配置中心的一个作用。</p>
+
+<h2 id="5-认识sharding-proxy">5、认识Sharding-Proxy</h2>
+
+<p>在之前的ShardingJdbc是耦合在我们的代码里面的，那么它为了去达到类似于我们MyCat的一个功能。你自己想想看，现在ShardingJdbc全部偶合，他是会占用很大的内存空间，那怎么办呢。他就会用到一个中间件一样东西，就是把这个真正剥离出来了，就是现在把ShardingJdbc这个东西了剥离出来和mycat一样，就是说你用ShardingProxy，它可以达到类似Mycat的一个功能。</p>
+
+<p>这个东西里已经慢慢成熟了，他说白了就是把你的应用程序，定义在上面，但你发现现在ShardingJdbc不见了。它是通过一个Sharding的代理来进行数据的一个分发和指派，那么这个ShardingProxy的话也可以去进行一个注册中心的一个注册。这就是他的一个作用，那么这个东西呢，也会变成一个独立的一个服务，他可以去连接我们的这些数据库产品。这就是我们的ShardingProxy，如果大家学过MyCat的话，这个东西应该是不会很难的</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy29854668-36e3-4792-bf90-522d628e2f2c.png" alt="img" />
+定位为透明化的数据库代理端，提供封装了数据库二进制协议的服务端版本，用于完成对异构语言的支持。 目前提供 MySQL 和 PostgreSQL 版本，它可以使用任何兼容 MySQL/PostgreSQL 协议的访问客户端(如：MySQL Command Client, MySQL Workbench, Navicat 等)操作数据，对 DBA 更加友好。</p>
+
+<ul>
+<li>向应用程序完全透明，可直接当做 MySQL/PostgreSQL 使用。</li>
+<li>适用于任何兼容 MySQL/PostgreSQL 协议的的客户端。</li>
+</ul>
+
+<h2 id="6-三个组件的比较">6、三个组件的比较</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sharding-Jdbc</th>
+<th>Sharding-Proxy</th>
+<th>Sharding-Sidecar</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>数据库</td>
+<td>任意</td>
+<td>MYSQL</td>
+<td>MYSQL</td>
+</tr>
+
+<tr>
+<td>连接消耗数</td>
+<td>高</td>
+<td>低</td>
+<td>低</td>
+</tr>
+
+<tr>
+<td>异构语言</td>
+<td>仅Java</td>
+<td>任意</td>
+<td>任意</td>
+</tr>
+
+<tr>
+<td>性能</td>
+<td>损耗低</td>
+<td>损耗高</td>
+<td>损耗低</td>
+</tr>
+
+<tr>
+<td>中心化</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+</tr>
+
+<tr>
+<td>静态入口</td>
+<td>无</td>
+<td>有</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="7-shardingjdbc混合架构">7、ShardingJdbc混合架构</h2>
+
+<p>未来真正的架构</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy8c2fd79c-fd1e-48c3-aeee-d7164de4bdc9.png" alt="img" /></p>
+
+<p>ShardingSphere-JDBC 采用无中心化架构，适用于 Java 开发的高性能的轻量级 OLTP（连接事务处理） 应用；ShardingSphere-Proxy 提供静态入口以及异构语言的支持，适用于 OLAP（连接数据分析） 应用以及对分片数据库进行管理和运维的场景。</p>
+
+<p>Apache ShardingSphere 是多接入端共同组成的生态圈。 通过混合使用 ShardingSphere-JDBC 和 ShardingSphere-Proxy，并采用同一注册中心统一配置分片策略，能够灵活的搭建适用于各种场景的应用系统，使得架构师更加自由地调整适合与当前业务的最佳系统架构。</p>
+
+<h2 id="8-shardingshpere的功能清单">8、ShardingShpere的功能清单</h2>
+
+<ul>
+<li>功能列表
+
+<ul>
+<li>数据分片</li>
+<li>分库 &amp; 分表</li>
+<li>读写分离</li>
+<li>分片策略定制化</li>
+<li>无中心化分布式主键</li>
+</ul></li>
+<li>分布式事务
+
+<ul>
+<li>标准化事务接口</li>
+<li>XA 强一致事务</li>
+<li>柔性事务</li>
+<li>数据库治理</li>
+</ul></li>
+<li>分布式治理
+
+<ul>
+<li>弹性伸缩</li>
+<li>可视化链路追踪</li>
+<li>数据加密</li>
+</ul></li>
+</ul>
+
+<h2 id="9-shardingsphere数据分片内核剖析">9、 ShardingSphere数据分片内核剖析</h2>
+
+<p>以查询为例，你比如说，我写了一个 <code>select * from user</code> 这个时候我们就会对这个sql能进行分配，我要去到哪里他接下来通过路由以后会确定你的数据源在这个位置的话，会把你的数据源和数据表进行一个改写，改写以后再执行，执行以后呢，再把那个到数据库里面去做处理。</p>
+
+<p>还一点呢就是说如果你是分库分表的话，你可能会牵扯到一个问题就是结果的归并，因为你的数据是离散存储的嘛。</p>
+
+<p>我这里面把数据打散了100万存到我们的10张表里面去，那么这个时候，你这10张表的数据肯定接下来就会要进行一个融合。</p>
+
+<p>融合的过程也一样，先sql解析，然后再查询，再sql路由，再把你的sql路由找到你的数据源，数据源再找到表。接下就会开一个多线程，用nio的一个技术，进行分发的抓取数据，之后会对结果进行归并，在进行返回。</p>
+
+<p>ShardingSphere 的 3 个产品的数据分片主要流程是完全一致的。 核心由 SQL 解析 =&gt; 执行器优化 =&gt; SQL 路由 =&gt; SQL 改写 =&gt; SQL 执行 =&gt; 结果归并的流程组成。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyba1895c5-7d85-421d-86c8-57c1f727a290.png" alt="img" /></p>
+
+<h3 id="sql-解析">SQL 解析</h3>
+
+<p>分为词法解析和语法解析。 先通过词法解析器将 SQL 拆分为一个个不可再分的单词。再使用语法解析器对 SQL 进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。</p>
+
+<h3 id="执行器优化">执行器优化</h3>
+
+<p>合并和优化分片条件，如 OR 等。</p>
+
+<h3 id="sql-路由">SQL 路由</h3>
+
+<p>根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。</p>
+
+<h3 id="sql-改写">SQL 改写</h3>
+
+<p>将 SQL 改写为在真实数据库中可以正确执行的语句。SQL 改写分为正确性改写和优化改写。</p>
+
+<h3 id="sql-执行">SQL 执行</h3>
+
+<p>通过多线程执行器异步执行。</p>
+
+<h3 id="结果归并">结果归并</h3>
+
+<p>将多个执行结果集归并以便于通过统一的 JDBC 接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。</p>
+
+<h1 id="02-shardingjdbc准备-linux安装mysql5-7">02、 ShardingJdbc准备 - Linux安装MySQL5.7</h1>
+
+<h2 id="1-yum安装mysql">1、yum安装mysql</h2>
+
+<h3 id="1-1-下载mysql的rpm地址">1-1、下载mysql的rpm地址</h3>
+
+<p><a href="http://repo.mysql.com/yum/mysql-5.7-community/el/7/x86_64/">http://repo.mysql.com/yum/mysql-5.7-community/el/7/x86_64/</a></p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy72d617eb-4da8-4b80-92c8-ea1ba5621495.png" alt="img" /></p>
+
+<h3 id="1-2-配置mysql扩展源">1-2、配置Mysql扩展源</h3>
+
+<pre><code class="language-shell">rpm -ivh http://repo.mysql.com/yum/mysql-5.7-community/el/7/x86_64/mysql57-community-release-el7-10.noarch.rpm
+</code></pre>
+
+<h3 id="1-3-yum安装mysql">1-3、yum安装mysql</h3>
+
+<pre><code class="language-shell">yum install mysql-community-server -y
+</code></pre>
+
+<h3 id="1-4-启动mysql-并加入开机自启">1-4、启动Mysql，并加入开机自启</h3>
+
+<pre><code class="language-shell">systemctl start mysqld
+systemctl stop mysqld
+systemctl enable mysqld
+</code></pre>
+
+<h3 id="1-5-使用mysq初始密码登录数据库">1-5、使用Mysq初始密码登录数据库</h3>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyfc43526e-311a-49d1-b0c4-c601f569c2e8.png" alt="img" /></p>
+
+<pre><code class="language-shell">&gt;grep &quot;password&quot; /var/log/mysqld.log
+&gt; mysql -uroot -pma1S8xjuEA/F
+或者一步到位的做法如下
+&gt;mysql -uroot -p$(awk '/temporary password/{print $NF}' /var/log/mysqld.log)
+</code></pre>
+
+<h3 id="1-6-修改数据库密码">1-6、修改数据库密码</h3>
+
+<p>数据库默认密码规则必须携带大小写字母、特殊符号，字符长度大于8否则会报错。
+因此设定较为简单的密码时需要首先修改set global validate_password_policy和_length参数值。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyd1f011fa-b894-4400-bbff-002db26e817c.png" alt="img" /></p>
+
+<pre><code class="language-shell">mysql&gt; set global validate_password_policy=0;
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; set global validate_password_length=1;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre>
+
+<h3 id="1-7-修改密码">1-7、修改密码</h3>
+
+<pre><code class="language-shell">mysql&gt; set password for root@localhost = password('mkxiaoer');
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+或者
+mysql&gt;ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+</code></pre>
+
+<h3 id="1-8-登录测试">1-8、登录测试</h3>
+
+<pre><code class="language-shell">[root@http-server ~]# mysql -uroot -pmkxiaoer
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+mysql&gt; exit
+</code></pre>
+
+<h3 id="1-9-可视化工具的登录授权-如果授权不成功-请查看防火墙">1-9、可视化工具的登录授权：(如果授权不成功，请查看防火墙)</h3>
+
+<p>操作完成上面的，现在还不能用可视化的客户端进行连接，需要我们进行授权：</p>
+
+<pre><code class="language-shell">mysql &gt; grant all on *.* to root@'%' identified by '数据库密码';
+mysql &gt; flush privileges;
+</code></pre>
+
+<p>操作完毕，接下来可以使用navicat或者sqlylog进行远程连接了.</p>
+
+<blockquote>
+<p>sqlylog的下载：<a href="https://sqlyog.en.softonic.com/">https://sqlyog.en.softonic.com/</a></p>
+</blockquote>
+
+<h1 id="03-shardingjdbc准备-mysql完成主从复制">03、 ShardingJdbc准备 - MySql完成主从复制</h1>
+
+<h2 id="概述">概述</h2>
+
+<p>主从复制（也称 AB 复制）允许将来自一个MySQL数据库服务器（主服务器）的数据复制到一个或多个MySQL数据库服务器（从服务器）。</p>
+
+<blockquote>
+<p>复制是异步的 从站不需要永久连接以接收来自主站的更新。</p>
+</blockquote>
+
+<p>根据配置，您可以复制数据库中的所有数据库，所选数据库甚至选定的表。</p>
+
+<h2 id="01-mysql中复制的优点包括">01、MySQL中复制的优点包括：</h2>
+
+<ul>
+<li>横向扩展解决方案 - 在多个从站之间分配负载以提高性能。在此环境中，所有写入和更新都必须在主服务器上进行。但是，读取可以在一个或多个从设备上进行。该模型可以提高写入性能（因为主设备专用于更新），同时显着提高了越来越多的从设备的读取速度。</li>
+<li>数据安全性 - 因为数据被复制到从站，并且从站可以暂停复制过程，所以可以在从站上运行备份服务而不会破坏相应的主数据。</li>
+<li>分析 - 可以在主服务器上创建实时数据，而信息分析可以在从服务器上进行，而不会影响主服务器的性能。</li>
+<li>远程数据分发 - 您可以使用复制为远程站点创建数据的本地副本，而无需永久访问主服务器。</li>
+</ul>
+
+<h2 id="02-replication-的原理">02、Replication 的原理</h2>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy59a193fc-3fa2-4aa9-9ccd-c53f0fe2717b.png" alt="img" /></p>
+
+<h3 id="02-1-前提是作为主服务器角色的数据库服务器必须开启二进制日志">02-1、前提是作为主服务器角色的数据库服务器必须开启二进制日志</h3>
+
+<p>主服务器上面的任何修改都会通过自己的 I/O tread(I/O 线程)保存在二进制日志 Binary log 里面。</p>
+
+<ul>
+<li>从服务器上面也启动一个 I/O thread，通过配置好的用户名和密码, 连接到主服务器上面请求读取二进制日志，然后把读取到的二进制日志写到本地的一个Realy log（中继日志）里面。</li>
+<li>从服务器上面同时开启一个 SQL thread 定时检查 Realy log(这个文件也是二进制的)，如果发现有更新立即把更新的内容在本机的数据库上面执行一遍。
+每个从服务器都会收到主服务器二进制日志的全部内容的副本。</li>
+<li>从服务器设备负责决定应该执行二进制日志中的哪些语句。
+除非另行指定，否则主从二进制日志中的所有事件都在从站上执行。
+如果需要，您可以将从服务器配置为仅处理一些特定数据库或表的事件。</li>
+</ul>
+
+<h2 id="03-具体配置如下">03、具体配置如下</h2>
+
+<h3 id="03-01-master节点配置-etc-my-cnf-master节点执行">03-01、Master节点配置<code>/etc/my.cnf</code> (master节点执行)</h3>
+
+<pre><code class="language-shell">&gt; vim /etc/my.cnf
+[mysqld]
+## 同一局域网内注意要唯一
+server-id=100  
+## 开启二进制日志功能，可以随便取（关键）
+log-bin=mysql-bin
+## 复制过滤：不需要备份的数据库，不输出（mysql库一般不同步）
+binlog-ignore-db=mysql
+## 为每个session 分配的内存，在事务过程中用来存储二进制日志的缓存
+binlog_cache_size=1M
+## 主从复制的格式（mixed,statement,row，默认格式是statement）
+binlog_format=mixed
+</code></pre>
+
+<h3 id="03-02-slave节点配置-etc-my-cnf-slave节点执行">03-02、Slave节点配置<code>/etc/my.cnf</code> (slave节点执行)</h3>
+
+<pre><code class="language-shell">&gt; vim /etc/my.cnf
+[mysqld]
+## 设置server_id,注意要唯一
+server-id=102
+## 开启二进制日志功能，以备Slave作为其它Slave的Master时使用
+log-bin=mysql-slave-bin
+## relay_log配置中继日志
+relay_log=edu-mysql-relay-bin
+##复制过滤：不需要备份的数据库，不输出（mysql库一般不同步）
+binlog-ignore-db=mysql
+## 如果需要同步函数或者存储过程
+log_bin_trust_function_creators=true
+## 为每个session 分配的内存，在事务过程中用来存储二进制日志的缓存
+binlog_cache_size=1M
+## 主从复制的格式（mixed,statement,row，默认格式是statement）
+binlog_format=mixed
+## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。
+## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致
+slave_skip_errors=1062
+</code></pre>
+
+<h3 id="03-03-在master服务器授权slave服务器可以同步权限-master节点执行">03-03、在master服务器授权slave服务器可以同步权限(master节点执行)</h3>
+
+<blockquote>
+<p>注意：在master服务器上执行</p>
+</blockquote>
+
+<pre><code class="language-shell">mysql &gt; mysql -uroot -pmaster的密码
+# 授予slave服务器可以同步master服务
+mysql &gt; grant replication slave, replication client on *.* to 'root'@'slave服务的ip' identified by 'slave服务器的密码';
+mysql &gt; flush privileges;
+# 查看MySQL现在有哪些用户及对应的IP权限(可以不执行，只是一个查看)
+mysql &gt; select user,host from mysql.user;
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudye8ea6e0c-59ed-4838-89ad-c92b218ca967.png" alt="img" /></p>
+
+<h3 id="03-04-查询master服务的binlog文件名和位置-master节点执行">03-04、查询master服务的binlog文件名和位置(master节点执行)</h3>
+
+<pre><code>mysql &gt; show master status;
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudye89bada3-4763-4243-9711-55e6dd816c3f.png" alt="img" /></p>
+
+<blockquote>
+<ul>
+<li>日志文件名：mysql-bin.000002</li>
+<li>复制的位置：2079</li>
+</ul>
+</blockquote>
+
+<h3 id="03-05-slave进行关联master节点-slave节点执行">03-05、slave进行关联master节点(slave节点执行)</h3>
+
+<ul>
+<li><p>进入到slave节点：</p>
+
+<pre><code class="language-shell">mysql &gt; mysql -uroot -p你slave的密码
+</code></pre></li>
+
+<li><p>开始绑定</p>
+
+<pre><code class="language-shell">mysql&gt; change master to master_host='master服务器ip', master_user='root', master_password='master密码', master_port=3306, master_log_file='mysql-bin.000002',master_log_pos=2079;
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>这里注意一下 master_log_file 和 master_log_pos 都是通过 master服务器通过show master status获得。</p>
+</blockquote>
+
+<h3 id="03-06-在slave节点上查看主从同步状态-slave节点执行">03-06、在slave节点上查看主从同步状态(slave节点执行)</h3>
+
+<h4 id="启动主从复制">启动主从复制</h4>
+
+<pre><code class="language-shell">mysql&gt; start slave;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre>
+
+<h4 id="再查看主从同步状态">再查看主从同步状态</h4>
+
+<pre><code class="language-shell">mysql&gt; show slave status\G;
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyfefcec6e-2f17-4e47-b368-c386edcbd635.png" alt="img" /></p>
+
+<blockquote>
+<p>其他命令 (slave节点执行)</p>
+</blockquote>
+
+<pre><code class="language-shell"># 停止复制
+mysql&gt; stop slave;
+</code></pre>
+
+<h3 id="03-07-主从复制测试">03-07、主从复制测试</h3>
+
+<p>1：在master下创建数据库和表，或者修改和新增，删除记录都会进行同步(master节点执行)
+2：点击查看slave节点信息(slave节点执行)</p>
+
+<h3 id="03-08-切记">03-08、切记</h3>
+
+<p>在主从复制操作的时候，不要基于去创建数据库或者相关操作。然后又去删除。这样会造成主从复制的pos改变，而造成复制失败，如果出现此类问题，查看<code>04-03</code>的常见问题排查。</p>
+
+<h2 id="04-主从复制相关问题排查">04、主从复制相关问题排查</h2>
+
+<h3 id="04-01-主从复制connecting问题">04-01、主从复制Connecting问题</h3>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy0fc88348-3a6d-4937-8343-a2b5df90b457.png" alt="img" /></p>
+
+<blockquote>
+<p>使用<code>start slave</code>开启主从复制过程后，如果SlaveIORunning一直是Connecting，则说明主从复制一直处于连接状态，这种情况一般是下面几种原因造成的，我们可以根据 Last_IO_Error提示予以排除。</p>
+
+<ol>
+<li>网络不通
+检查ip,端口</li>
+<li>密码不对
+检查是否创建用于同步的用户和用户密码是否正确</li>
+<li>pos不对
+检查Master的 Position</li>
+</ol>
+</blockquote>
+
+<h3 id="04-02-mysql镜像服务器因错误停止的恢复-slave-sql-running-no">04-02、MYSQL镜像服务器因错误停止的恢复 —Slave_SQL_Running: No</h3>
+
+<pre><code class="language-shell">先stop slave，然后执行了一下提示的语句，再
+ &gt; stop slave;
+ &gt; set global sql_slave_skip_counter=1;
+ &gt; start slave; 
+ &gt; show slave status\G ;
+</code></pre>
+
+<h3 id="04-03-从mysql服务器slave-io-running-no的解决2">04-03、从MYSQL服务器Slave_IO_Running: No的解决2</h3>
+
+<ul>
+<li><p>master节点执行，获取日志文件和post</p>
+
+<pre><code class="language-shell">mysql &gt; show master status;
+</code></pre></li>
+
+<li><p>slave节点进行重新绑定</p>
+
+<pre><code class="language-shell">mysql &gt; stop slave;
+mysql &gt; CHANGE MASTER TO MASTER_LOG_FILE='mysql-bin.000008', MASTER_LOG_POS=519086591; 
+mysql &gt; start slave;
+</code></pre></li>
+</ul>
+
+<p>造成这类问题的原因一般是在主从复制的时候，基于创建表，然后又去删除和操作了数据表或者表。</p>
+
+<h1 id="04-shardingjdbc的配置及读写分离">04、 ShardingJdbc的配置及读写分离</h1>
+
+<h2 id="01-内容大纲">01、内容大纲</h2>
+
+<ul>
+<li>新建一个springboot工程</li>
+<li>引入相关sharding依赖、ssm依赖、数据库驱动</li>
+<li>定义配置application.yml</li>
+<li>定义entity、mapper、controller</li>
+<li>访问测试查看效果</li>
+<li>小结</li>
+</ul>
+
+<h2 id="02-具体实现步骤">02、具体实现步骤</h2>
+
+<h3 id="02-01-新建一个springboot工程">02-01、 新建一个springboot工程</h3>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy603417b2-eba5-433b-9fef-0bcb2eb5e18e.png" alt="img" /></p>
+
+<h3 id="02-02-引入相关sharding依赖-ssm依赖-数据库驱动">02-02、 引入相关sharding依赖、ssm依赖、数据库驱动</h3>
+
+<pre><code class="language-xml"> &lt;properties&gt;
+     &lt;java.version&gt;1.8&lt;/java.version&gt;
+     &lt;sharding-sphere.version&gt;4.0.0-RC1&lt;/sharding-sphere.version&gt;
+ &lt;/properties&gt;
+ &lt;!-- 依赖web --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!-- 依赖mybatis和mysql驱动 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;2.1.4&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!--依赖lombok--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!--依赖sharding--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-jdbc-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;${sharding-sphere.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-core-common&lt;/artifactId&gt;
+    &lt;version&gt;${sharding-sphere.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!--依赖数据源druid--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;1.1.21&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="02-03-定义配置application-yml">02-03、 定义配置application.yml</h3>
+
+<pre><code class="language-yml">server:
+  port: 8085
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    # 参数配置，显示sql
+    props:
+      sql:
+        show: true
+    # 配置数据源
+    datasource:
+      # 给每个数据源取别名，下面的ds1,ds2,ds3任意取名字
+      names: ds1,ds2,ds3
+      # 给master-ds1每个数据源配置数据库连接信息
+      ds1:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.115.94.78:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds2-slave
+      ds2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds3-slave
+      ds3:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+    # 配置默认数据源ds1
+    sharding:
+     # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+      default-data-source-name: ds1
+    # 配置数据源的读写分离，但是数据库一定要做主从复制
+    masterslave:
+      # 配置主从名称，可以任意取名字
+      name: ms
+      # 配置主库master，负责数据的写入
+      master-data-source-name: ds1
+      # 配置从库slave节点
+      slave-data-source-names: ds2,ds3
+      # 配置slave节点的负载均衡均衡策略，采用轮询机制
+      load-balance-algorithm-type: round_robin
+# 整合mybatis的配置XXXXX
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xuexiangban.shardingjdbc.entity
+</code></pre>
+
+<blockquote>
+<p>注意问题：</p>
+
+<pre><code class="language-yml">&gt;  # 配置默认数据源ds1
+&gt;     sharding:
+&gt;       # 默认数据源，主要用于写，注意一定要配置读写分离
+&gt;       # 注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+&gt;       default-data-source-name: ds1
+&gt;     # 配置数据源的读写分离，但是数据库一定要做主从复制
+&gt;     masterslave:
+&gt;       # 配置主从名称，可以任意取名字
+&gt;       name: ms
+&gt;       # 配置主库master，负责数据的写入
+&gt;       master-data-source-name: ds1
+&gt;       # 配置从库slave节点
+&gt;       slave-data-source-names: ds2,ds3
+&gt;       # 配置slave节点的负载均衡均衡策略，采用轮询机制
+&gt;       load-balance-algorithm-type: round_robin
+&gt; ```
+&gt;
+&gt; 如果上面的，那么shardingjdbc会采用随机的方式进行选择数据源。如果不配置default-data-source-name，那么就会把三个节点都当做从slave节点，那么新增，修改和删除会出错。
+
+### 02-04、 定义mapper、controller,entity
+
+#### entity
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.entity;
+import lombok.Data;
+/**
+ * @description: User
+ * @Date : 2021/3/10
+ */
+@Data
+public class User {
+    // 主键
+    private Integer id;
+    // 昵称
+    private String nickname;
+    // 密码
+    private String password;
+    // 性
+    private Integer sex;
+    // 性
+    private String birthday;
+}</p>
+
+<pre><code>
+#### mapper
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.mapper;
+import com.xuexiangban.shardingjdbc.entity.User;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+/**
+ * @description: UserMapper
+ * @Date : 2021/3/10
+ */
+public interface UserMapper {
+    /**
+     * @description 保存用户
+     * @params [user]
+     * @date 2021/3/10 17:14
+     */
+    @Insert(&ldquo;insert into ksd_user(nickname,password,sex,birthday) values(#{nickname},#{password},#{sex},#{birthday})&ldquo;)
+    void addUser(User user);
+    /**
+     * @description 保存用户
+     * @params [user]
+     * @date 2021/3/10 17:14
+     */
+    @Select(&ldquo;select * from ksd_user&rdquo;)
+    List<User> findUsers();
+}</p>
+
+<pre><code>
+#### controller
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.controller;
+import com.xuexiangban.shardingjdbc.entity.User;
+import com.xuexiangban.shardingjdbc.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import java.util.Random;
+/**
+ * @description: UserController
+ * @Date : 2021/3/10
+ */
+@RestController
+@RequestMapping(&ldquo;/user&rdquo;)
+public class UserController {
+    @Autowired
+    private UserMapper userMapper;
+    @GetMapping(&ldquo;/save&rdquo;)
+    public String insert() {
+        User user = new User();
+        user.setNickname(&ldquo;zhangsan&rdquo;+ new Random().nextInt());
+        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setSex(1);
+        user.setBirthday(&ldquo;1988-12-03&rdquo;);
+        userMapper.addUser(user);
+        return &ldquo;success&rdquo;;
+    }
+    @GetMapping(&ldquo;/listuser&rdquo;)
+    public List<User> listuser() {
+        return userMapper.findUsers();
+    }
+}</p>
+
+<pre><code>
+### 02-05、 访问测试查看效果
+
+1：访问 `http://localhost:8085/user/save` 一直进入到ds1主节点
+2：访问 `http://localhost:8085/user/listuser` 一直进入到ds2、ds3节点，并且轮询进入。
+
+### 02-06、 日志查看
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudya68d24d6-5202-402f-9e96-26ca7e1fdb71.png)
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy74b869c7-cd20-48c7-859a-be1d8aa045a4.png)
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy3f30c0e6-d81c-483a-96df-d7e15ef5ccac.png)
+
+### 02-07、 小结
+
+#### 回顾流程
+
+ShardingSphere 的 3 个产品的数据分片主要流程是完全一致的。 核心由 SQL 解析 =&gt; 执行器优化 =&gt; SQL 路由 =&gt; SQL 改写 =&gt; SQL 执行 =&gt; 结果归并的流程组成。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyba1895c5-7d85-421d-86c8-57c1f727a290-164319468323719.png)
+
+### SQL 解析
+
+分为词法解析和语法解析。 先通过词法解析器将 SQL 拆分为一个个不可再分的单词。再使用语法解析器对 SQL 进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。
+
+### 执行器优化
+
+合并和优化分片条件，如 OR 等。
+
+### SQL 路由
+
+根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。
+
+### SQL 改写
+
+将 SQL 改写为在真实数据库中可以正确执行的语句。SQL 改写分为正确性改写和优化改写。
+
+### SQL 执行
+
+通过多线程执行器异步执行。
+
+### 结果归并
+
+将多个执行结果集归并以便于通过统一的 JDBC 接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。
+
+## 3、Props的其他相关配置
+
+</code></pre>
+
+<p>properties
+acceptor.size: # accept连接的线程数量,默认为cpu核数2倍
+executor.size: #工作线程数量最大，默认值: 无限制
+max.connections.size.per.query: # 每个查询可以打开的最大连接数量,默认为1
+check.table.metadata.enabled: #是否在启动时检查分表元数据一致性，默认值: false
+proxy.frontend.flush.threshold: # proxy的服务时候,对于单个大查询,每多少个网络包返回一次
+proxy.transaction.type: # 默认LOCAL,proxy的事务模型 允许LOCAL,XA,BASE三个值,LOCAL无分布式事务,XA则是采用atomikos实现的分布式事务 BASE目前尚未实现
+proxy.opentracing.enabled: # 是否启用opentracing
+proxy.backend.use.nio: # 是否采用netty的NIO机制连接后端数据库,默认False ,使用epoll机制
+proxy.backend.max.connections: # 使用NIO而非epoll的话,proxy后台连接每个netty客户端允许的最大连接数量(注意不是数据库连接限制) 默认为8
+proxy.backend.connection.timeout.seconds: #使用nio而非epoll的话,proxy后台连接的超时时间,默认60s</p>
+
+<pre><code>
+# 05、 MySQL分 库分表原理
+
+## 01、为什么要分库分表
+
+一般的机器（4核16G），单库的MySQL并发（QPS+TPS）超过了2k，系统基本就完蛋了。最好是并发量控制在1k左右。这里就引出一个问题，为什么要分库分表？
+
+&gt; 分库分表目的：解决高并发，和数据量大的问题。
+
+1、高并发情况下，会造成IO读写频繁，自然就会造成读写缓慢，甚至是宕机。一般单库不要超过2k并发，NB的机器除外。
+2、数据量大的问题。主要由于底层索引实现导致，MySQL的索引实现为B+TREE，数据量其他，会导致索引树十分庞大，造成查询缓慢。第二，innodb的最大存储限制64TB。
+
+&gt; 要解决上述问题。最常见做法，就是分库分表。
+&gt; 分库分表的目的，是将一个表拆成N个表，就是让每个表的数据量控制在一定范围内，保证SQL的性能。 一个表数据建议不要超过500W。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy4ea3641b-9165-4c9c-9328-4946902519ab.png)
+
+## 02、分库分表
+
+&gt; 又分为垂直拆分和水平拆分。
+
+**水平拆分：**统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。
+
+**垂直拆分：**就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudycbec6d11-6626-41d1-bb3f-a81e9f05c794.png)
+
+## 03、不停机分库分表数据迁移
+
+一般数据库的拆分也是有一个过程的，一开始是单表，后面慢慢拆成多表。那么我们就看下如何平滑的从MySQL单表过度到MySQL的分库分表架构。
+1、利用mysql+canal做增量数据同步，利用分库分表中间件，将数据路由到对应的新表中。
+2、利用分库分表中间件，全量数据导入到对应的新表中。
+3、通过单表数据和分库分表数据两两比较，更新不匹配的数据到新表中。
+4、数据稳定后，将单表的配置切换到分库分表配置上。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudye19131bc-e09e-44eb-8e24-f4966960b3ab.png)
+
+## 04、小结
+
+垂直拆分：业务模块拆分、商品库，用户库，订单库
+水平拆分：对表进行水平拆分（也就是我们说的：分表）
+表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）
+
+# 06、 ShardingJdbc的分库和分表
+
+## 01、分库分表的方式
+
+**水平拆分：**统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。
+
+**垂直拆分：**就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。
+
+## 02、逻辑表
+
+逻辑表是指：水平拆分的数据库或者数据表的相同路基和数据结构表的总称。比如用户数据根据用户id%2拆分为2个表，分别是：ksd_user0和ksd_user1。他们的逻辑表名是：ksd_user。
+在shardingjdbc中的定义方式如下：
+
+</code></pre>
+
+<p>yml
+spring:
+  shardingsphere:
+    sharding:
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:</p>
+
+<pre><code>
+## 03、分库分表数据节点 - actual-data-nodes
+
+</code></pre>
+
+<p>yml
+     tables:
+            # ksd_user 逻辑表名
+            ksd_user:
+              # 数据节点：多数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N} 相同表
+              actual-data-nodes: ds$-&gt;{0..2}.ksd_user$-&gt;{0..1}
+               # 数据节点：多数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N} 不同表
+              actual-data-nodes: ds0.ksd_user$-&gt;{0..1},ds1.ksd_user$-&gt;{2..4}
+              # 指定单数据源的配置方式
+              actual-data-nodes: ds0.ksd_user$-&gt;{0..4}
+              # 全部手动指定
+              actual-data-nodes: ds0.ksd_user0,ds1.ksd_user0,ds0.ksd_user1,ds1.ksd_user1,</p>
+
+<pre><code>
+数据分片是最小单元。由数据源名称和数据表组成，比如：ds0.ksd_user0。
+
+寻找规则如下：
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudye9efb3fb-3eca-4575-89b4-7a60f45dcb8e.png)
+
+## 04、分库分表5种分片策略
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy0b8f0684-3028-40e6-8a99-6cfe14fa4e11.png)
+
+#### 数据源分片分为两种：
+
+- 数据源分片
+- 表分片
+
+这两个是不同维度的分片规则，但是它们额能用的分片策略和规则是一样的。它们由两部分构成：
+
+- 分片键
+- 分片算法
+
+#### 第一种：none
+
+对应NoneShardingStragey,不分片策略，SQL会被发给所有节点去执行，这个规则没有子项目可以配置。
+
+#### 第二种：inline 行表达时分片策略(核心，必须要掌握)
+
+对应InlineShardingStragey。使用Groovy的表达时，提供对SQL语句种的=和in的分片操作支持，只支持单分片键。对于简单的分片算法，可以通过简单的配置使用，从而避免繁琐的Java代码开放，如：ksd_user${分片键（数据表字段）userid % 5} 表示ksd_user表根据某字段（userid）模 5.从而分为5张表，表名称为：ksd_user0到ksd_user4 。如果库也是如此。
+
+</code></pre>
+
+<p>yml
+server:
+  port: 8085
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    # 参数配置，显示sql
+    props:
+      sql:
+        show: true
+    sharding:
+      # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+      default-data-source-name: ds0
+      # 配置分表的规则
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          database-strategy:
+            inline:
+              sharding-column: sex    # 分片字段（分片键）
+              algorithm-expression: ds$-&gt;{sex % 2} # 分片算法表达式
+          # 拆分表策略，也就是什么样子的数据放入放到哪个数据表中。
+          table-strategy:
+            inline:
+              sharding-column: age    # 分片字段（分片键）
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
+
+<pre><code>
+##### algorithm-expression行表达式：
+
+- ${begin..end} 表示区间范围。
+- ${[unit1,unit2,….,unitn]} 表示枚举值。
+- 行表达式种如果出现连续多个${expresssion}或$-&gt;{expression}表达式，整个表达时最终的结果将会根据每个子表达式的结果进行笛卡尔组合。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyd17a99ad-1bf5-48fe-b769-b2794edbea7b.png)
+
+### 04-1、完整案例和配置如下
+
+- 准备两个数据库ksd_sharding-db。名字相同，两个数据源ds0和ds1
+- 每个数据库下方ksd_user0和ksd_user1即可。
+- 数据库规则，性别为偶数的放入ds0库，奇数的放入ds1库。
+- 数据表规则：年龄为偶数的放入ksd_user0库，奇数的放入ksd_user1库。
+
+</code></pre>
+
+<p>yml
+server:
+  port: 8085
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    # 参数配置，显示sql
+    props:
+      sql:
+        show: true
+    # 配置数据源
+    datasource:
+      # 给每个数据源取别名，下面的ds1,ds1任意取名字
+      names: ds0,ds1
+      # 给master-ds1每个数据源配置数据库连接信息
+      ds0:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.115.94.78:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds1-slave
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+    # 配置默认数据源ds0
+    sharding:
+      # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+      default-data-source-name: ds0
+      # 配置分表的规则
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          database-strategy:
+            inline:
+              sharding-column: sex    # 分片字段（分片键）
+              algorithm-expression: ds$-&gt;{sex % 2} # 分片算法表达式
+          # 拆分表策略，也就是什么样子的数据放入放到哪个数据表中。
+          table-strategy:
+            inline:
+              sharding-column: age    # 分片字段（分片键）
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
+
+<h1 id="整合mybatis的配置xxxxx">整合mybatis的配置XXXXX</h1>
+
+<p>mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+
+<pre><code>
+结果如下图：
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyf4a54f62-0def-405e-9cfb-a2026f384002.png)
+
+## 05、第三种：根据实时间日期 - 按照标准规则分库分表
+
+#### 05-1、 标准分片 - Standard(了解)
+
+- 对应StrandardShardingStrategy.提供对SQL语句中的=，in和恶between and 的分片操作支持。
+- StrandardShardingStrategy只支持但分片键。提供PreciseShardingAlgorithm和RangeShardingAlgorithm两个分片算法。
+- PreciseShardingAlgorithm是必选的呃，用于处理=和IN的分片
+- 和RangeShardingAlgorithm是可选的，是用于处理Betwwen and分片，如果不配置和RangeShardingAlgorithm,SQL的Between AND 将按照全库路由处理。
+
+#### 05-02、定义分片的日期规则配置
+
+</code></pre>
+
+<p>yml
+server:
+  port: 8085
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    # 参数配置，显示sql
+    props:
+      sql:
+        show: true
+    # 配置数据源
+    datasource:
+      # 给每个数据源取别名，下面的ds1,ds1任意取名字
+      names: ds0,ds1
+      # 给master-ds1每个数据源配置数据库连接信息
+      ds0:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.115.94.78:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT%2b8
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds1-slave
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT%2b8
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+    # 配置默认数据源ds0
+    sharding:
+      # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+      default-data-source-name: ds0
+      # 配置分表的规则
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          database-strategy:
+            standard:
+              shardingColumn: birthday
+              preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.BirthdayAlgorithm
+          table-strategy:
+            inline:
+              sharding-column: age    # 分片字段（分片键）
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
+
+<h1 id="整合mybatis的配置xxxxx-1">整合mybatis的配置XXXXX</h1>
+
+<p>mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+
+<pre><code>
+#### 05-03、定义分片的日期规则
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.algorithm;
+import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
+import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
+import sun.util.resources.cldr.CalendarData;
+import java.util.*;
+/**</p>
+</blockquote>
+
+<ul>
+<li>@description: BirthdayAlgorithm</li>
+
+<li><p>@Date : 2021/3/11
+*/
+public class BirthdayAlgorithm implements PreciseShardingAlgorithm<Date> {
+List<Date> dateList = new ArrayList&lt;&gt;();
+{
+    Calendar calendar1 = Calendar.getInstance();
+    calendar1.set(2020, 1, 1, 0, 0, 0);
+    Calendar calendar2 = Calendar.getInstance();
+    calendar2.set(2021, 1, 1, 0, 0, 0);
+    Calendar calendar3 = Calendar.getInstance();
+    calendar3.set(2022, 1, 1, 0, 0, 0);
+    dateList.add(calendar1.getTime());
+    dateList.add(calendar2.getTime());
+    dateList.add(calendar3.getTime());
+}
+@Override
+public String doSharding(Collection<String> collection, PreciseShardingValue<Date> preciseShardingValue) {
+    // 获取属性数据库的值
+    Date date = preciseShardingValue.getValue();
+    // 获取数据源的名称信息列表
+    Iterator<String> iterator = collection.iterator();
+    String target = null;
+    for (Date s : dateList) {
+        target = iterator.next();
+        // 如果数据晚于指定的日期直接返回
+        if (date.before(s)) {
+            break;
+        }
+    }
+    return target;
+}
+}</p>
+
+<pre><code>
+#### 05-04、测试查看结果
+
+&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09 —- ds1
+&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2021-03-09 —- ds0
+
+## 06、第四种：ShardingSphere - 符合分片策略（了解）
+
+- 对应接口：HintShardingStrategy。通过Hint而非SQL解析的方式分片的策略。
+- 对于分片字段非SQL决定，而是由其他外置条件决定的场景，克使用SQL hint灵活的注入分片字段。例如：按照用户登录的时间，主键等进行分库，而数据库中并无此字段。SQL hint支持通过Java API和SQL注解两种方式使用。让后分库分表更加灵活。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy7e8dbf42-7c2a-43c9-b2a0-6065143a48aa.png)
+
+## 07、第五种：ShardingSphere - hint分片策略（了解）
+
+- 对应ComplexShardingStrategy。符合分片策略提供对SQL语句中的-，in和between and的分片操作支持。
+- ComplexShardingStrategy支持多分片键，由于多分片键之间的关系复杂，因此并未进行过多的封装，而是直接将分片键组合以及分片操作符透传至分片算法，完全由开发者自己实现，提供最大的灵活度。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy9b0671d8-50ad-4774-9296-98bd0e6555bb.png)
+
+# 07、 ShardingSphere - 分布式主键配置
+
+## 1、ShardingSphere - 分布式主键配置
+
+ShardingSphere提供灵活的配置分布式主键生成策略方式。在分片规则配置模块克配置每个表的主键生成策略。默认使用雪花算法。（snowflake）生成64bit的长整型数据。支持两种方式配置
+
+- SNOWFLAKE
+- UUID
+
+&gt; 这里切记：主键列不能自增长。数据类型是：bigint(20)
+
+</code></pre>
+
+<p>yml</p></li>
+</ul>
+
+<p>spring:
+  shardingsphere:
+    sharding:
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:
+          key-generator:
+              # 主键的列明，
+            column: userid
+            type: SNOWFLAKE</p>
+
+<pre><code>
+执行
+
+&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09
+&gt; 可以查看到新增的语句多了一个userid为576906137413091329的唯一值。这个值是通过雪花算法计算出来的唯一值
+
+</code></pre>
+
+<p>2021-03-11 22:59:01.605  INFO 4900 &mdash; [nio-8085-exec-1] ShardingSphere-SQL                       : Actual SQL: ds1 ::: insert into ksd_user1 (nickname, password, sex, age, birthday, userid) VALUES (?, ?, ?, ?, ?, ?) ::: [zhangsan-70137485, 1234567, 3, 3, 2020-03-09 00:00:00.0, 576906137413091329]</p>
+
+<pre><code>
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy49f490ae-20bf-4d3c-bb60-a0fb33d953bb.png)
+
+# 08、 ShardingSphere - 分库分表 - 年月案例
+
+&gt; 实战完成按照年月分库分表。
+
+### 策略类
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.algorithm;
+import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
+import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
+import java.util.Collection;
+public class YearMonthShardingAlgorithm implements PreciseShardingAlgorithm<String> {
+    private static final String SPLITTER = &ldquo;<em>&rdquo;;
+    @Override
+    public String doSharding(Collection availableTargetNames, PreciseShardingValue shardingValue) {
+        String tbName = shardingValue.getLogicTableName() + &ldquo;</em>&rdquo; + shardingValue.getValue();
+        System.out.println(&ldquo;Sharding input:&rdquo; + shardingValue.getValue() + &ldquo;, output:{}&rdquo; + tbName);
+        return tbName;
+    }
+}</p>
+
+<pre><code>
+### entity
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.entity;
+import lombok.Data;
+import java.util.Date;
+/**
+ * @description: User
+ * @Date : 2021/3/10
+ */
+@Data
+public class Order {
+    // 主键
+    private Long orderid;
+    // 订单编号
+    private String ordernumber;
+    // 用户ID
+    private Long userid;
+    // 产品id
+    private Long productid;
+    // 创建时间
+    private Date createTime;
+}</p>
+
+<pre><code>
+### Mapper
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.mapper;
+import com.xuexiangban.shardingjdbc.entity.Order;
+import com.xuexiangban.shardingjdbc.entity.UserOrder;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.springframework.stereotype.Repository;
+/**</p>
+
+<ul>
+<li>@description: UserMapper</li>
+
+<li><p>@Date : 2021/3/10
+*/
+@Mapper
+@Repository
+public interface UserOrderMapper {
+/**</p>
+
+<ul>
+<li>@description 保存订单</li>
+<li>@params [user]</li>
+
+<li><p>@date 2021/3/10 17:14
+*/
+@Insert(&ldquo;insert into ksd_user_order(ordernumber,userid,create_time,yearmonth) values(#{ordernumber},#{userid},#{createTime},#{yearmonth})&ldquo;)
+@Options(useGeneratedKeys = true,keyColumn = &ldquo;orderid&rdquo;,keyProperty = &ldquo;orderid&rdquo;)
+void addUserOrder(UserOrder userOrder);
+}</p>
+
+<pre><code>
+### 配置如下：
+
+</code></pre>
+
+<p>yml</p></li>
+</ul></li>
+</ul>
+
+<p>server:
+  port: 8085
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    # 参数配置，显示sql
+    props:
+      sql:
+        show: true
+    # 配置数据源
+    datasource:
+      # 给每个数据源取别名，下面的ds1,ds1任意取名字
+      names: ds0,ds1
+      # 给master-ds1每个数据源配置数据库连接信息
+      ds0:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.115.94.78:3306/ksd_order_db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT%2b8
+        username: root
+        password: mkxiaoer1986.
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds1-slave
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.215.145.201:3306/ksd_order_db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT%2b8
+        username: root
+        password: mkxiaoer
+        maxPoolSize: 100
+        minPoolSize: 5
+    # 配置默认数据源ds0
+    sharding:
+      # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+      default-data-source-name: ds0
+      # 配置分表的规则
+      tables:
+        # ksd_user 逻辑表名
+        ksd_user:
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          database-strategy:
+            standard:
+              shardingColumn: birthday
+              preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.BirthdayAlgorithm
+          table-strategy:
+            inline:
+              sharding-column: age    # 分片字段（分片键）
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式
+        ksd_order:
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds0.ksd_order$-&gt;{0..1}
+          key-generator:
+            column: orderid
+            type: SNOWFLAKE
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          table-strategy:
+            inline:
+              sharding-column: orderid    # 分片字段（分片键）
+              algorithm-expression: ksd_order$-&gt;{orderid % 2} # 分片算法表达式
+        ksd_user_order:
+          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+          actual-data-nodes: ds0.ksd_user<em>order</em>$-&gt;{2021..2022}${(1..3).collect{t -&gt;t.toString().padLeft(2,&lsquo;0&rsquo;)} }
+          key-generator:
+            column: orderid
+            type: SNOWFLAKE
+          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+          table-strategy:</p>
+
+<h1 id="inline">inline:</h1>
+
+<h1 id="shardingcolumn-yearmonth">shardingColumn: yearmonth</h1>
+
+<h1 id="algorithmexpression-ksd-user-order-yearmonth">algorithmExpression: ksd_user<em>order</em>$-&gt;{yearmonth}</h1>
+
+<pre><code>        standard:
+          shardingColumn: yearmonth
+          preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.YearMonthShardingAlgorithm
+</code></pre>
+
+<h1 id="整合mybatis的配置xxxxx-2">整合mybatis的配置XXXXX</h1>
+
+<p>mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+
+<pre><code>
+### test
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc;
+import com.xuexiangban.shardingjdbc.entity.Order;
+import com.xuexiangban.shardingjdbc.entity.User;
+import com.xuexiangban.shardingjdbc.entity.UserOrder;
+import com.xuexiangban.shardingjdbc.mapper.UserOrderMapper;
+import com.xuexiangban.shardingjdbc.service.UserOrderService;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+@SpringBootTest
+class ShardingJdbcApplicationTests {
+    @Autowired
+    private UserOrderService userOrderService;
+    @Test
+    void contextLoads() throws Exception {
+        User user = new User();
+        user.setNickname(&ldquo;zhangsan&rdquo; + new Random().nextInt());
+        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setSex(1);
+        user.setAge(2);
+        user.setBirthday(new Date());
+        Order order = new Order();
+        order.setCreateTime(new Date());
+        order.setOrdernumber(&ldquo;133455678&rdquo;);
+        order.setProductid(1234L);
+        userOrderService.saveUserOrder(user, order);
+    }
+    @Autowired
+    private UserOrderMapper userOrderMapper;
+    @Test
+    public void orderyearMaster() {
+        UserOrder userOrder = new UserOrder();
+        userOrder.setOrderid(10000L);
+        userOrder.setCreateTime(new Date());
+        userOrder.setOrdernumber(&ldquo;133455678&rdquo;);
+        userOrder.setYearmonth(&ldquo;202103&rdquo;);
+        userOrder.setUserid(1L);
+        userOrderMapper.addUserOrder(userOrder);
+    }
+}</p>
+
+<pre><code>
+# 09、 ShardingJdbc的事务管理
+
+## 1、分布式式事务的应用和实践
+
+官方地址：https://shardingsphere.apache.org/document/legacy/4.x/document/cn/features/transaction/function/base-transaction-seata/
+
+https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/usage/transaction/
+
+### 数据库事务需要满足ACID（原子性、一致性、隔离性、持久性）四个特性。
+
+- 原子性（Atomicity）指事务作为整体来执行，要么全部执行，要么全不执行。
+- 一致性（Consistency）指事务应确保数据从一个一致的状态转变为另一个一致的状态。
+- 隔离性（Isolation）指多个事务并发执行时，一个事务的执行不应影响其他事务的执行。
+- 持久性（Durability）指已提交的事务修改数据会被持久保存。
+
+在单一数据节点中，事务仅限于对单一数据库资源的访问控制，称之为本地事务。几乎所有的成熟的关系型数据库都提供了对本地事务的原生支持。 但是在基于微服务的分布式应用环境下，越来越多的应用场景要求对多个服务的访问及其相对应的多个数据库资源能纳入到同一个事务当中，分布式事务应运而生。
+
+关系型数据库虽然对本地事务提供了完美的ACID原生支持。 但在分布式的场景下，它却成为系统性能的桎梏。如何让数据库在分布式场景下满足ACID的特性或找寻相应的替代方案，是分布式事务的重点工作。
+
+### 本地事务
+
+在不开启任何分布式事务管理器的前提下，让每个数据节点各自管理自己的事务。 它们之间没有协调以及通信的能力，也并不互相知晓其他数据节点事务的成功与否。 本地事务在性能方面无任何损耗，但在强一致性以及最终一致性方面则力不从心。
+
+### 两阶段提交
+
+XA协议最早的分布式事务模型是由X/Open国际联盟提出的X/Open Distributed Transaction Processing（DTP）模型，简称XA协议。
+
+基于XA协议实现的分布式事务对业务侵入很小。 它最大的优势就是对使用方透明，用户可以像使用本地事务一样使用基于XA协议的分布式事务。 XA协议能够严格保障事务ACID特性。
+
+严格保障事务ACID特性是一把双刃剑。 事务执行在过程中需要将所需资源全部锁定，它更加适用于执行时间确定的短事务。 对于长事务来说，整个事务进行期间对数据的独占，将导致对热点数据依赖的业务系统并发性能衰退明显。 因此，在高并发的性能至上场景中，基于XA协议的分布式事务并不是最佳选择。
+
+### 柔性事务
+
+如果将实现了ACID的事务要素的事务称为刚性事务的话，那么基于BASE事务要素的事务则称为柔性事务。 BASE是基本可用、柔性状态和最终一致性这三个要素的缩写。
+
+基本可用（Basically Available）保证分布式事务参与方不一定同时在线。
+柔性状态（Soft state）则允许系统状态更新有一定的延时，这个延时对客户来说不一定能够察觉。
+而最终一致性（Eventually consistent）通常是通过消息传递的方式保证系统的最终一致性。
+
+在ACID事务中对隔离性的要求很高，在事务执行过程中，必须将所有的资源锁定。 柔性事务的理念则是通过业务逻辑将互斥锁操作从资源层面上移至业务层面。通过放宽对强一致性要求，来换取系统吞吐量的提升。
+
+基于ACID的强一致性事务和基于BASE的最终一致性事务都不是银弹，只有在最适合的场景中才能发挥它们的最大长处。 可通过下表详细对比它们之间的区别，以帮助开发者进行技术选型。
+
+![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy6162780a-979a-47d4-aa80-620f1ab3aada.png)
+
+### 1-1：导入分布式事务的依赖
+
+</code></pre>
+
+<p>xml
+ <!--依赖sharding-->
+ <dependency>
+     <groupId>io.shardingsphere</groupId>
+     <artifactId>sharding-transaction-spring-boot-starter</artifactId>
+     <version>3.1.0</version>
+ </dependency></p>
+
+<pre><code>
+### 1-2：事务的几种类型
+
+#### - 本地事务
+
+- 完全支持非跨库事务，例如：仅分表，或分库但是路由的结果在单库中。
+- 完全支持因逻辑异常导致的跨库事务。例如：同一事务中，跨两个库更新。更新完毕后，抛出空指针，则两个库的内容都能回滚。
+- 不支持因网络、硬件异常导致的跨库事务。例如：同一事务中，跨两个库更新，更新完毕后、未提交之前，第一个库宕机，则只有第二个库数据提交。
+
+#### - 两阶段XA事务
+
+- 支持数据分片后的跨库XA事务
+- 两阶段提交保证操作的原子性和数据的强一致性
+- 服务宕机重启后，提交/回滚中的事务可自动恢复
+- SPI机制整合主流的XA事务管理器，默认Atomikos，可以选择使用Narayana和Bitronix
+- 同时支持XA和非XA的连接池
+- 提供spring-boot和namespace的接入端
+
+不支持：
+
+- 服务宕机后，在其它机器上恢复提交/回滚中的数据
+
+#### - Seata柔性事务
+
+- 完全支持跨库分布式事务
+- 支持RC隔离级别
+- 通过undo快照进行事务回滚
+- 支持服务宕机后的，自动恢复提交中的事务
+
+依赖：
+
+- 需要额外部署Seata-server服务进行分支事务的协调
+    待优化项
+- ShardingSphere和Seata会对SQL进行重复解析
+
+### 1-3：导入分布式事务的依赖
+
+</code></pre>
+
+<p>java
+package com.xuexiangban.shardingjdbc.service;
+import com.xuexiangban.shardingjdbc.entity.Order;
+import com.xuexiangban.shardingjdbc.entity.User;
+import com.xuexiangban.shardingjdbc.mapper.OrderMapper;
+import com.xuexiangban.shardingjdbc.mapper.UserMapper;
+import io.shardingsphere.transaction.annotation.ShardingTransactionType;
+import io.shardingsphere.transaction.api.TransactionType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+/**</p>
+
+<ul>
+<li>@description: UserService</li>
+
+<li><p>@Date : 2021/3/14
+*/
+@Service
+public class UserOrderService {
+@Autowired
+private UserMapper userMapper;
+@Autowired
+private OrderMapper orderMapper;
+@ShardingTransactionType(TransactionType.XA)
+@Transactional(rollbackFor = Exception.class)
+public int saveUserOrder(User user, Order order) {
+    userMapper.addUser(user);
+    order.setUserid(user.getId());
+    orderMapper.addOrder(order);
+    //int a = <sup>1</sup>&frasl;<sub>0</sub>; //测试回滚，统一提交的话，将这行注释掉就行
+    return 1;
+}
+}</p>
+
+<pre><code>
+测试
+
+</code></pre>
+
+<p>java</p></li>
+</ul>
+
+<p>package com.xuexiangban.shardingjdbc;
+import com.xuexiangban.shardingjdbc.entity.Order;
+import com.xuexiangban.shardingjdbc.entity.User;
+import com.xuexiangban.shardingjdbc.entity.UserOrder;
+import com.xuexiangban.shardingjdbc.mapper.UserOrderMapper;
+import com.xuexiangban.shardingjdbc.service.UserOrderService;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+@SpringBootTest
+class ShardingJdbcApplicationTests {
+    @Autowired
+    private UserOrderService userOrderService;
+    @Test
+    void contextLoads() throws Exception {
+        User user = new User();
+        user.setNickname(&ldquo;zhangsan&rdquo; + new Random().nextInt());
+        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setSex(1);
+        user.setAge(2);
+        user.setBirthday(new Date());
+        Order order = new Order();
+        order.setCreateTime(new Date());
+        order.setOrdernumber(&ldquo;133455678&rdquo;);
+        order.setProductid(1234L);
+        userOrderService.saveUserOrder(user, order);
+    }
+}</p>
+
+<pre><code>
+# 10、 ShardingJdbc的总结
+
+## 基础规范
+
+- 表必须有主键，建议使用整型作为主键
+- 禁止使用外键，表之间的关联性和完整性通过应用层来控制
+- 表在设计之初，应该考虑到大致的数据级，若表记录小于1000W，尽量使用单表，不建议分表。
+- 建议将大字段，访问频率低，或者不需要作为筛选条件的字段拆分到拓展表中，（做好表垂直拆分）
+- 控制单实例表的总数，单个表分表数控制在1024以内。
+
+## 列设计规范
+
+- 正确区分tinyint、int、bigint的范围
+- 使用varchar(20)存储手机号，不要使用整数
+- 使用int存储ipv4 不要使用char(15)
+- 涉及金额使用decimal/varchar，并制定精度
+- 不要设计为null的字段，而是用空字符，因为null需要更多的空间，并且使得索引和统计变得更复杂。
+
+## 索引规范
+
+- 唯一索引使用uniq_[字段名]来命名
+- 非唯一索引使用idx_[字段名]来命名
+- 不建议在频繁更新的字段上建立索引
+- 非必要不要进行JOIN,如果要进行join查询，被join的字段必须类型相同，并建立索引。
+- 单张表的索引数量建议控制在5个以内，索引过多，不仅会导致插入更新性能下降，还可能导致MYSQL的索引出错和性能下降
+- 组合索引字段数量不建议超过5个，理解组合索引的最左匹配原则，避免重复建设索引。比如你建立了
+    (x,y,z) 相当于你建立了(x),(x,y),(x,y,z)
+
+## SQL规范
+
+- 禁止使用selet *，只获取必要字段，select* 会增加cpu/i0/内存、带宽的消耗。
+- insert 必须指定字段，禁止使用insert into Table values().指定字段插入，在表结果变更时，能保证对应应用程序无影响。
+- 隐私类型转换会使索引失效，导致全表扫描。（比如：手机号码搜索时未转换成字符串）
+- 禁止在where后面查询列使用内置函数或者表达式，导致不能命中索引，导致全表扫描
+- 禁止负向查询（!=,not like ,no in等）以及%开头的模糊查询，造成不能命中索引，导致全表扫描
+- 避免直接返回大结果集造成内存溢出，可采用分段和游标方式。
+- 返回结果集时尽量使用limit分页显示。
+- 尽量在order by/group by的列上创建索引。
+- 大表扫描尽量放在镜像库上去做
+- 禁止大表join查询和子查询
+- 尽量避免数据库内置函数作为查询条件
+- 应用程序尽量捕获SQL异常
+
+## 表的垂直拆分
+
+垂直拆分：业务模块拆分、商品库，用户库，订单库
+水平拆分：对表进行水平拆分（也就是我们说的：分表）
+表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）
+
+- 将一个属性过多的表，一行数据较大的表，将不同的属性分割到不同的数据库表中。以降低单库表的大小。
+    特点：
+- 每个表的结构不一致
+- 每个表的数量都是全量
+- 表和表之间一定会有一列会进行关联，一般都是主键
+
+原则：
+
+- 将长度较短，访问频率较高的字段放在一个表中，主表
+- 将长度较长、访问频率比较低的字段放一个表中
+- 将经常访问字段放一个表中。
+- 所有表的并集是全量数据。
+
+## 如何平滑添加字段
+
+场景：在开发时，有时需要给表加字段，在大数据量且分表的情况下，怎么样平滑添加。
+1：直接alter table add column,数据量大时不建议，（会产生写锁）
+
+</code></pre>
+
+<p>sql
+alter table ksd_user add column api_pay_no varchar(32) not null  comment &lsquo;用户扩展订单号&rsquo;
+alter table ksd_user add column api_pay_no varchar(32) not null unique comment &lsquo;用户扩展订单号&rsquo;</p>
+
+<pre><code>
+2：提前预留字段（不优雅：造成空间浪费，预留多少很难控制，拓展性差）
+3：新增一张表，（增加字段），迁移原表数据，在重新命名新表作为原表。
+4：放入extinfo（无法使用索引）
+5:提前设计，使用key/value方法存储，新增字段时 ，直接加一个key就好了（优雅）
+
+# 11、 Springboot整合ShardingJdbc3.0和案例分析
+
+**目标**
+
+使用Sharding-JDBC 分库分表,掌握什么是Sharding-JDBC.
+
+**分析**
+
+**什么是Sharding-JDBC**
+
+Sharding-JDBC提供标准化的数据分片、分布式事务和数据库治理功能，定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。适用于任何基于Java的ORM框架，如：JPA, Hibernate, Mybatis, Spring JDBC Template或直接使用JDBC。
+基于任何第三方的数据库连接池，如：DBCP, C3P0, BoneCP, Druid, HikariCP等。
+支持任意实现JDBC规范的数据库。目前支持MySQL，Oracle，SQLServer和PostgreSQL。
+
+**2. 为什么要分片？**
+
+- 传统的将数据集中存储至单一数据节点的解决方案，在性能、可用性和运维成本这三方面已经难于满足互联网的海量数据场景。
+- 从性能方面来说，由于关系型数据库大多采用B+树类型的索引，在数据量超过阈值的情况下，索引深度的增加也将使得磁盘访问的IO次数增加，进而导致查询性能的下降；同时，高并发访问请求也使得集中式数据库成为系统的最大瓶颈。
+- 从可用性的方面来讲，服务化的无状态型，能够达到较小成本的随意扩容，这必然导致系统的最终压力都落在数据库之上。而单一的数据节点，或者简单的主从架构，已经越来越难以承担。数据库的可用性，已成为整个系统的关键。
+- 从运维成本方面考虑，当一个数据库实例中的数据达到阈值以上，对于DBA的运维压力就会增大。数据备份和恢复的时间成本都将随着数据量的大小而愈发不可控。一般来讲，单一数据库实例的数据的阈值在1TB之内，是比较合理的范围。
+- 在传统的关系型数据库无法满足互联网场景需要的情况下，将数据存储至原生支持分布式的NoSQL的尝试越来越多。 但NoSQL对SQL的不兼容性以及生态圈的不完善，使得它们在与关系型数据库的博弈中始终无法完成致命一击，而关系型数据库的地位却依然不可撼动。
+- 据分片指按照某个维度将存放在单一数据库中的数据分散地存放至多个数据库或表中以达到提升性能瓶颈以及可用性的效果。 数据分片的有效手段是对关系型数据库进行分库和分表。分库和分表均可以有效的避免由数据量超过可承受阈值而产生的查询瓶颈。 除此之外，分库还能够用于有效的分散对数据库单点的访问量；分表虽然无法缓解数据库压力，但却能够提供尽量将分布式事务转化为本地事务的可能，一旦涉及到跨库的更新操作，分布式事务往往会使问题变得复杂。 使用多主多从的分片方式，可以有效的避免数据单点，从而提升数据架构的可用性。
+- 通过分库和分表进行数据的拆分来使得各个表的数据量保持在阈值以下，以及对流量进行疏导应对高访问量，是应对高并发和海量数据系统的有效手段。
+
+**3. 分片的方式**
+
+数据分片的拆分方式又分为垂直分片和水平分片。
+
+**垂直拆分**是把不同的表拆到不同的数据库中，‘而**水平拆分**是把同一个表拆到不同的数据库中（或者是把一张表数据拆分成n多个小表）。相对于垂直拆分，水平拆分==不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库中==，==每个表中包含一部分数据==。简单来说，我们可以将数据的水平切分理解为是**==按照数据行的切分==**，就是将表中的某些行切分到一个数据库，而另外某些行又切分到其他的数据库中，主要有分表，分库两种模式 该方式提高了系统的稳定性跟负载能力，但是跨库join性能较差。
+
+**4：Sharding-JDBC的核心/工原理**
+
+Sharding-JDBC数据分片主要流程是由SQL解析 **→**执行器优化 **→** SQL路由 **→**SQL改写 **→**SQL执行 **→**结果归并的流程组成。
+
+**SQL解析**
+分为词法解析和语法解析。 先通过词法解析器将SQL拆分为一个个不可再分的单词。再使用语法解析器对SQL进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。
+
+SQL解析分为两步， 第一步为 词法解析， 词法解析的意思是就是将SQL进行拆分。
+例：
+select *from t_user where id = 1
+词法解析：
+[select] [*] [from] [t_user] [where] [id=1]
+第二步语法解析,语法解析器将SQL转换为抽象语法树。
+
+![img](/resources/技术收录/中间件/ShardingShpere/webp.webp)
+
+**执行器优化**
+合并和优化分片条件，如OR等。
+
+**SQL路由**
+根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。
+
+举例说明，如果按照order_id的奇数和偶数进行数据分片，一个单表查询的SQL如下：
+SELECT *FROM t_order WHERE order_id IN (1, 2);
+那么路由的结果应为：
+SELECT* FROM t_order_0 WHERE order_id IN (1, 2);
+SELECT * FROM t_order_1 WHERE order_id IN (1, 2);
+
+**SQL改写**
+将SQL改写为在真实数据库中可以正确执行的语句，SQL改写分为正确性改写和优化改写。
+
+</code></pre>
+
+<p>从一个最简单的例子开始，若逻辑SQL为： SELECT order_id FROM t_order WHERE order_id=1; 假设该SQL配置分片键order_id，并且order_id=1的情况，将路由至分片表1。那么改写之后的SQL应该为： SELECT order_id FROM t_order_1 WHERE order_id=1;</p>
+
+<pre><code>
+**SQL执行**
+通过多线程执行器异步执行。
+结果归并
+将多个执行结果集归并以便于通过统一的JDBC接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。
+
+### 15：SharedingJdbc完成数据的读写分离
+
+**目标**
+
+使用sharedingjdbc完成数据库的分库分表业务
+
+**步骤**
+
+**1：新建一个springboot工程**
+
+**2：创建两个数据库order1，order2，分别创建t_address表如下：**
+
+</code></pre>
+
+<p>shell
+DROP TABLE IF EXISTS <code>t_address</code>;
+CREATE TABLE <code>t_address</code> (
+  <code>id</code> bigint(20) NOT NULL,
+  <code>code</code> varchar(64) DEFAULT NULL COMMENT &lsquo;编码&rsquo;,
+  <code>name</code> varchar(64) DEFAULT NULL COMMENT &lsquo;名称&rsquo;,
+  <code>pid</code> varchar(64) NOT NULL DEFAULT &lsquo;0&rsquo; COMMENT &lsquo;父id&rsquo;,
+  <code>type</code> int(11) DEFAULT NULL COMMENT &lsquo;1国家2省3市4县区&rsquo;,
+  <code>lit</code> int(11) DEFAULT NULL,
+  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+
+<pre><code>
+**3： 开始整合SpringBoot，**这种方式比较简单只要加入sharding-jdbc-spring-boot-starter依赖，在application.yml中配置数据源，分片策略即可使用，这种方式简单，方便。pom.xml
+
+</code></pre>
+
+<p>xml
+<dependency>
+    <groupId>io.shardingsphere</groupId>
+    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+    <version>3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>io.shardingsphere</groupId>
+    <artifactId>sharding-jdbc-spring-namespace</artifactId>
+    <version>3.0.0</version>
+</dependency></p>
+
+<pre><code>
+appplication.yml
+
+</code></pre>
+
+<p>yml
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+spring:
+  main:
+    allow-bean-definition-overriding: true</p>
+
+<h1 id="shardingjdbc分库分表">shardingjdbc分库分表</h1>
+
+<p>sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/order1?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+        username: root
+        password: root
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/order2?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;useSSL=false
+        username: root
+        password: root
+    config:
+      sharding:
+        props:
+          sql.show: true
+        tables:
+          t_user: #t_user表【即分库，又分表】
+            key-generator-column-name: id # 主键
+            actual-data-nodes: ds${0..1}.t_user${0..1} #数据节点
+            database-strategy: #分库策略
+              inline:
+                sharding-column: city_id
+                algorithm-expression: ds${city_id % 2}
+            table-strategy: #分表策略
+              inline:
+                shardingColumn: sex
+                algorithm-expression: t_user${sex % 2}
+          t_address: #t_address表【只分库】
+            key-generator-column-name: id
+            actual-data-nodes: ds${0..1}.t_address
+            database-strategy:
+              inline:
+                shardingColumn: lit
+                algorithm-expression: ds${lit % 2}</p>
+
+<pre><code>
+**4：编写Vo**
+
+</code></pre>
+
+<p>java
+package com.itheima.springbootshardingpro.vo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class AddressVo {
+    private Long id;
+    private String code;
+    private String name;
+    private String pid;
+    private Integer type;
+    private Integer lit;
+}</p>
+
+<pre><code>
+**5：编写Dao**
+
+</code></pre>
+
+<p>java
+package com.itheima.springbootshardingpro.dao;
+import com.itheima.springbootshardingpro.vo.AddressVo;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+@Mapper
+public interface IndexDao {
+    @Options(useGeneratedKeys = true)
+    @Insert(&ldquo;insert into t_address (code,name,pid,type,lit)values(#{code},#{name},#{pid},#{type},#{lit})&ldquo;)
+    int insertAddress(AddressVo addressVo);
+    @Select(&ldquo;select * from t_address order by lit&rdquo;)
+    List<AddressVo> listAddress();
+}</p>
+
+<pre><code>
+**6： 编写controller**
+
+</code></pre>
+
+<p>java
+package com.itheima.springbootshardingpro.web;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.itheima.springbootshardingpro.dao.IndexDao;
+import com.itheima.springbootshardingpro.vo.AddressVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+@RestController
+public class IndexController {
+    @Autowired
+    private IndexDao indexDao;
+    @PostMapping(&ldquo;/addAddress&rdquo;)
+    public int addAddress(AddressVo addressVo){
+        int row = indexDao.insertAddress(addressVo);
+        return row;
+    }
+    @GetMapping(&ldquo;/listAddress&rdquo;)
+    public PageInfo<AddressVo> listAddress(@RequestParam(required=false,defaultValue=&ldquo;1&rdquo;)Integer pageNum,
+                                @RequestParam(required=false,defaultValue=&ldquo;5&rdquo;)Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        List<AddressVo> list =  indexDao.listAddress();
+        PageInfo<AddressVo> info = new PageInfo&lt;&gt;(list);
+        return info;
+    }
+}
+```</p>
+
+<p>此时，启动项目，用postman访问插入接口：</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/" title="ShardingShpere笔记" target="_blank" rel="external">https://mumulx.github.io/2020/02/shardingshpere%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2020/02/nx%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/" title="NX二次开发"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2020/02/redis%E7%AC%94%E8%AE%B0/"
+                    title="Redis笔记"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
