@@ -441,9 +441,11 @@
 <h2 id="1-概述">1、概述</h2>
 
 <blockquote>
-<p>官网：<a href="http://shardingsphere.apache.org/index_zh.html">http://shardingsphere.apache.org/index_zh.html</a>
-下载地址：<a href="https://shardingsphere.apache.org/document/current/cn/downloads/">https://shardingsphere.apache.org/document/current/cn/downloads/</a>
-快速入门：<a href="https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/">https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/</a></p>
+<p>官网：<a href="http://shardingsphere.apache.org/index_zh.html">http://shardingsphere.apache.org/index_zh.html</a></p>
+
+<p>下载地址：<a href="https://shardingsphere.apache.org/document/current/cn/downloads/">https://shardingsphere.apache.org/document/current/cn/downloads/</a></p>
+
+<p>快速入门：<a href="https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/">https://shardingsphere.apache.org/document/current/cn/quick-start/shardingsphere-jdbc-quick-start/</a></p>
 </blockquote>
 
 <p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy4cf69216-f9c9-485d-860b-d392346cc2eb.png" alt="img" /></p>
@@ -1073,7 +1075,7 @@ spring:
 # 整合mybatis的配置XXXXX
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.xuexiangban.shardingjdbc.entity
+  type-aliases-package: com.mumu.shardingjdbc.entity
 </code></pre>
 
 <blockquote>
@@ -1105,7 +1107,7 @@ mybatis:
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.entity;
+package com.mumu.shardingjdbc.entity;
 import lombok.Data;
 /**
  * @description: User
@@ -1131,8 +1133,8 @@ public class User {
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.mapper;
-import com.xuexiangban.shardingjdbc.entity.User;
+package com.mumu.shardingjdbc.mapper;
+import com.mumu.shardingjdbc.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -1164,9 +1166,9 @@ public interface UserMapper {
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.controller;
-import com.xuexiangban.shardingjdbc.entity.User;
-import com.xuexiangban.shardingjdbc.mapper.UserMapper;
+package com.mumu.shardingjdbc.controller;
+import com.mumu.shardingjdbc.entity.User;
+import com.mumu.shardingjdbc.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -1483,7 +1485,7 @@ spring:
 
 <p>mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+  type-aliases-package: com.mumu.shardingjdbc.entity</p>
 
 <pre><code>
 结果如下图：
@@ -1551,7 +1553,7 @@ spring:
           database-strategy:
             standard:
               shardingColumn: birthday
-              preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.BirthdayAlgorithm
+              preciseAlgorithmClassName: com.mumu.shardingjdbc.algorithm.BirthdayAlgorithm
           table-strategy:
             inline:
               sharding-column: age    # 分片字段（分片键）
@@ -1561,7 +1563,7 @@ spring:
 
 <p>mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+  type-aliases-package: com.mumu.shardingjdbc.entity</p>
 
 <pre><code>
 #### 05-03、定义分片的日期规则
@@ -1569,7 +1571,7 @@ spring:
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.algorithm;
+package com.mumu.shardingjdbc.algorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 import sun.util.resources.cldr.CalendarData;
@@ -1682,7 +1684,7 @@ ShardingSphere提供灵活的配置分布式主键生成策略方式。在分片
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.algorithm;
+package com.mumu.shardingjdbc.algorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 import java.util.Collection;
@@ -1702,7 +1704,7 @@ public class YearMonthShardingAlgorithm implements PreciseShardingAlgorithm<Stri
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.entity;
+package com.mumu.shardingjdbc.entity;
 import lombok.Data;
 import java.util.Date;
 /**
@@ -1729,9 +1731,9 @@ public class Order {
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.mapper;
-import com.xuexiangban.shardingjdbc.entity.Order;
-import com.xuexiangban.shardingjdbc.entity.UserOrder;
+package com.mumu.shardingjdbc.mapper;
+import com.mumu.shardingjdbc.entity.Order;
+import com.mumu.shardingjdbc.entity.UserOrder;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -1818,7 +1820,7 @@ spring:
           database-strategy:
             standard:
               shardingColumn: birthday
-              preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.BirthdayAlgorithm
+              preciseAlgorithmClassName: com.mumu.shardingjdbc.algorithm.BirthdayAlgorithm
           table-strategy:
             inline:
               sharding-column: age    # 分片字段（分片键）
@@ -1851,14 +1853,14 @@ spring:
 
 <pre><code>        standard:
           shardingColumn: yearmonth
-          preciseAlgorithmClassName: com.xuexiangban.shardingjdbc.algorithm.YearMonthShardingAlgorithm
+          preciseAlgorithmClassName: com.mumu.shardingjdbc.algorithm.YearMonthShardingAlgorithm
 </code></pre>
 
 <h1 id="整合mybatis的配置xxxxx-2">整合mybatis的配置XXXXX</h1>
 
 <p>mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.xuexiangban.shardingjdbc.entity</p>
+  type-aliases-package: com.mumu.shardingjdbc.entity</p>
 
 <pre><code>
 ### test
@@ -1866,12 +1868,12 @@ spring:
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc;
-import com.xuexiangban.shardingjdbc.entity.Order;
-import com.xuexiangban.shardingjdbc.entity.User;
-import com.xuexiangban.shardingjdbc.entity.UserOrder;
-import com.xuexiangban.shardingjdbc.mapper.UserOrderMapper;
-import com.xuexiangban.shardingjdbc.service.UserOrderService;
+package com.mumu.shardingjdbc;
+import com.mumu.shardingjdbc.entity.Order;
+import com.mumu.shardingjdbc.entity.User;
+import com.mumu.shardingjdbc.entity.UserOrder;
+import com.mumu.shardingjdbc.mapper.UserOrderMapper;
+import com.mumu.shardingjdbc.service.UserOrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -2008,11 +2010,11 @@ XA协议最早的分布式事务模型是由X/Open国际联盟提出的X/Open Di
 </code></pre>
 
 <p>java
-package com.xuexiangban.shardingjdbc.service;
-import com.xuexiangban.shardingjdbc.entity.Order;
-import com.xuexiangban.shardingjdbc.entity.User;
-import com.xuexiangban.shardingjdbc.mapper.OrderMapper;
-import com.xuexiangban.shardingjdbc.mapper.UserMapper;
+package com.mumu.shardingjdbc.service;
+import com.mumu.shardingjdbc.entity.Order;
+import com.mumu.shardingjdbc.entity.User;
+import com.mumu.shardingjdbc.mapper.OrderMapper;
+import com.mumu.shardingjdbc.mapper.UserMapper;
 import io.shardingsphere.transaction.annotation.ShardingTransactionType;
 import io.shardingsphere.transaction.api.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -2050,12 +2052,12 @@ public int saveUserOrder(User user, Order order) {
 <p>java</p></li>
 </ul>
 
-<p>package com.xuexiangban.shardingjdbc;
-import com.xuexiangban.shardingjdbc.entity.Order;
-import com.xuexiangban.shardingjdbc.entity.User;
-import com.xuexiangban.shardingjdbc.entity.UserOrder;
-import com.xuexiangban.shardingjdbc.mapper.UserOrderMapper;
-import com.xuexiangban.shardingjdbc.service.UserOrderService;
+<p>package com.mumu.shardingjdbc;
+import com.mumu.shardingjdbc.entity.Order;
+import com.mumu.shardingjdbc.entity.User;
+import com.mumu.shardingjdbc.entity.UserOrder;
+import com.mumu.shardingjdbc.mapper.UserOrderMapper;
+import com.mumu.shardingjdbc.service.UserOrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
