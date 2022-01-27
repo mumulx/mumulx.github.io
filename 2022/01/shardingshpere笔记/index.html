@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-01-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="23555">
+<meta itemprop="wordCount" content="21737">
 
 
 
@@ -376,15 +376,114 @@
 <li><a href="#02-01-新建一个springboot工程">02-01、 新建一个springboot工程</a></li>
 <li><a href="#02-02-引入相关sharding依赖-ssm依赖-数据库驱动">02-02、 引入相关sharding依赖、ssm依赖、数据库驱动</a></li>
 <li><a href="#02-03-定义配置application-yml">02-03、 定义配置application.yml</a></li>
+<li><a href="#02-04-定义mapper-controller-entity">02-04、 定义mapper、controller,entity</a>
+<ul>
+<li><a href="#entity">entity</a></li>
+<li><a href="#mapper">mapper</a></li>
+<li><a href="#controller">controller</a></li>
+</ul></li>
+<li><a href="#02-05-访问测试查看效果">02-05、 访问测试查看效果</a></li>
+<li><a href="#02-06-日志查看">02-06、 日志查看</a></li>
+<li><a href="#02-07-小结">02-07、 小结</a>
+<ul>
+<li><a href="#回顾流程">回顾流程</a></li>
+</ul></li>
+<li><a href="#sql-解析-1">SQL 解析</a></li>
+<li><a href="#执行器优化-1">执行器优化</a></li>
+<li><a href="#sql-路由-1">SQL 路由</a></li>
+<li><a href="#sql-改写-1">SQL 改写</a></li>
+<li><a href="#sql-执行-1">SQL 执行</a></li>
+<li><a href="#结果归并-1">结果归并</a></li>
+</ul></li>
+<li><a href="#3-props的其他相关配置">3、Props的其他相关配置</a></li>
+</ul></li>
+<li><a href="#05-mysql分-库分表原理">05、 MySQL分 库分表原理</a>
+<ul>
+<li><a href="#01-为什么要分库分表">01、为什么要分库分表</a></li>
+<li><a href="#02-分库分表">02、分库分表</a></li>
+<li><a href="#03-不停机分库分表数据迁移">03、不停机分库分表数据迁移</a></li>
+<li><a href="#04-小结">04、小结</a></li>
+</ul></li>
+<li><a href="#06-shardingjdbc的分库和分表">06、 ShardingJdbc的分库和分表</a>
+<ul>
+<li><a href="#01-分库分表的方式">01、分库分表的方式</a></li>
+<li><a href="#02-逻辑表">02、逻辑表</a></li>
+<li><a href="#03-分库分表数据节点-actual-data-nodes">03、分库分表数据节点 - actual-data-nodes</a></li>
+<li><a href="#04-分库分表5种分片策略">04、分库分表5种分片策略</a>
+<ul>
+<li>
+<ul>
+<li><a href="#数据源分片分为两种">数据源分片分为两种：</a></li>
+<li><a href="#第一种-none">第一种：none</a></li>
+<li><a href="#第二种-inline-行表达时分片策略-核心-必须要掌握">第二种：inline 行表达时分片策略(核心，必须要掌握)</a>
+<ul>
+<li><a href="#algorithm-expression行表达式">algorithm-expression行表达式：</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#整合mybatis的配置xxxxx">整合mybatis的配置XXXXX</a></li>
-<li><a href="#整合mybatis的配置xxxxx-1">整合mybatis的配置XXXXX</a></li>
-<li><a href="#inline">inline:</a></li>
-<li><a href="#shardingcolumn-yearmonth">shardingColumn: yearmonth</a></li>
-<li><a href="#algorithmexpression-ksd-user-order-yearmonth">algorithmExpression: ksd_user<em>order</em>$-&gt;{yearmonth}</a></li>
-<li><a href="#整合mybatis的配置xxxxx-2">整合mybatis的配置XXXXX</a></li>
-<li><a href="#shardingjdbc分库分表">shardingjdbc分库分表</a></li>
+<li><a href="#04-1-完整案例和配置如下">04-1、完整案例和配置如下</a></li>
+</ul></li>
+<li><a href="#05-第三种-根据实时间日期-按照标准规则分库分表">05、第三种：根据实时间日期 - 按照标准规则分库分表</a>
+<ul>
+<li>
+<ul>
+<li><a href="#05-1-标准分片-standard-了解">05-1、 标准分片 - Standard(了解)</a></li>
+<li><a href="#05-02-定义分片的日期规则配置">05-02、定义分片的日期规则配置</a></li>
+<li><a href="#05-03-定义分片的日期规则">05-03、定义分片的日期规则</a></li>
+<li><a href="#05-04-测试查看结果">05-04、测试查看结果</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#06-第四种-shardingsphere-符合分片策略-了解">06、第四种：ShardingSphere - 符合分片策略（了解）</a></li>
+<li><a href="#07-第五种-shardingsphere-hint分片策略-了解">07、第五种：ShardingSphere - hint分片策略（了解）</a></li>
+</ul></li>
+<li><a href="#07-shardingsphere-分布式主键配置">07、 ShardingSphere - 分布式主键配置</a>
+<ul>
+<li><a href="#1-shardingsphere-分布式主键配置">1、ShardingSphere - 分布式主键配置</a></li>
+</ul></li>
+<li><a href="#08-shardingsphere-分库分表-年月案例">08、 ShardingSphere - 分库分表 - 年月案例</a>
+<ul>
+<li>
+<ul>
+<li><a href="#策略类">策略类</a></li>
+<li><a href="#entity-1">entity</a></li>
+<li><a href="#mapper-1">Mapper</a></li>
+<li><a href="#配置如下">配置如下：</a></li>
+<li><a href="#test">test</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#09-shardingjdbc的事务管理">09、 ShardingJdbc的事务管理</a>
+<ul>
+<li><a href="#1-分布式式事务的应用和实践">1、分布式式事务的应用和实践</a>
+<ul>
+<li><a href="#数据库事务需要满足acid-原子性-一致性-隔离性-持久性-四个特性">数据库事务需要满足ACID（原子性、一致性、隔离性、持久性）四个特性。</a></li>
+<li><a href="#本地事务">本地事务</a></li>
+<li><a href="#两阶段提交">两阶段提交</a></li>
+<li><a href="#柔性事务">柔性事务</a></li>
+<li><a href="#1-1-导入分布式事务的依赖">1-1：导入分布式事务的依赖</a></li>
+<li><a href="#1-2-事务的几种类型">1-2：事务的几种类型</a>
+<ul>
+<li><a href="#本地事务-1">- 本地事务</a></li>
+<li><a href="#两阶段xa事务">- 两阶段XA事务</a></li>
+<li><a href="#seata柔性事务">- Seata柔性事务</a></li>
+</ul></li>
+<li><a href="#1-3-导入分布式事务的依赖">1-3：导入分布式事务的依赖</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#10-shardingjdbc的总结">10、 ShardingJdbc的总结</a>
+<ul>
+<li><a href="#基础规范">基础规范</a></li>
+<li><a href="#列设计规范">列设计规范</a></li>
+<li><a href="#索引规范">索引规范</a></li>
+<li><a href="#sql规范">SQL规范</a></li>
+<li><a href="#表的垂直拆分">表的垂直拆分</a></li>
+<li><a href="#如何平滑添加字段">如何平滑添加字段</a></li>
+</ul></li>
+<li><a href="#11-springboot整合shardingjdbc3-0和案例分析">11、 Springboot整合ShardingJdbc3.0和案例分析</a>
+<ul>
+<li>
+<ul>
+<li><a href="#15-sharedingjdbc完成数据的读写分离">15：SharedingJdbc完成数据的读写分离</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
         </div>
@@ -421,8 +520,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:23555字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:48分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:21737字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:44分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -1078,36 +1177,34 @@ mybatis:
   type-aliases-package: com.mumu.shardingjdbc.entity
 </code></pre>
 
-<blockquote>
 <p>注意问题：</p>
 
-<pre><code class="language-yml">&gt;  # 配置默认数据源ds1
-&gt;     sharding:
-&gt;       # 默认数据源，主要用于写，注意一定要配置读写分离
-&gt;       # 注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
-&gt;       default-data-source-name: ds1
-&gt;     # 配置数据源的读写分离，但是数据库一定要做主从复制
-&gt;     masterslave:
-&gt;       # 配置主从名称，可以任意取名字
-&gt;       name: ms
-&gt;       # 配置主库master，负责数据的写入
-&gt;       master-data-source-name: ds1
-&gt;       # 配置从库slave节点
-&gt;       slave-data-source-names: ds2,ds3
-&gt;       # 配置slave节点的负载均衡均衡策略，采用轮询机制
-&gt;       load-balance-algorithm-type: round_robin
-&gt; ```
-&gt;
-&gt; 如果上面的，那么shardingjdbc会采用随机的方式进行选择数据源。如果不配置default-data-source-name，那么就会把三个节点都当做从slave节点，那么新增，修改和删除会出错。
-
-### 02-04、 定义mapper、controller,entity
-
-#### entity
-
+<pre><code class="language-yml"># 配置默认数据源ds1
+sharding:
+  # 默认数据源，主要用于写，注意一定要配置读写分离
+  # 注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+  default-data-source-name: ds1
+# 配置数据源的读写分离，但是数据库一定要做主从复制
+masterslave:
+  # 配置主从名称，可以任意取名字
+  name: ms
+  # 配置主库master，负责数据的写入
+  master-data-source-name: ds1
+  # 配置从库slave节点
+  slave-data-source-names: ds2,ds3
+  # 配置slave节点的负载均衡均衡策略，采用轮询机制
+  load-balance-algorithm-type: round_robin
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.entity;
+<blockquote>
+<p>如果上面的，那么shardingjdbc会采用随机的方式进行选择数据源。如果不配置default-data-source-name，那么就会把三个节点都当做从slave节点，那么新增，修改和删除会出错。</p>
+</blockquote>
+
+<h3 id="02-04-定义mapper-controller-entity">02-04、 定义mapper、controller,entity</h3>
+
+<h4 id="entity">entity</h4>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.entity;
 import lombok.Data;
 /**
  * @description: User
@@ -1125,15 +1222,12 @@ public class User {
     private Integer sex;
     // 性
     private String birthday;
-}</p>
-
-<pre><code>
-#### mapper
-
+}
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.mapper;
+<h4 id="mapper">mapper</h4>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.mapper;
 import com.mumu.shardingjdbc.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -1149,24 +1243,21 @@ public interface UserMapper {
      * @params [user]
      * @date 2021/3/10 17:14
      */
-    @Insert(&ldquo;insert into ksd_user(nickname,password,sex,birthday) values(#{nickname},#{password},#{sex},#{birthday})&ldquo;)
+    @Insert(&quot;insert into ksd_user(nickname,password,sex,birthday) values(#{nickname},#{password},#{sex},#{birthday})&quot;)
     void addUser(User user);
     /**
      * @description 保存用户
      * @params [user]
      * @date 2021/3/10 17:14
      */
-    @Select(&ldquo;select * from ksd_user&rdquo;)
-    List<User> findUsers();
-}</p>
-
-<pre><code>
-#### controller
-
+    @Select(&quot;select * from ksd_user&quot;)
+    List&lt;User&gt; findUsers();
+}
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.controller;
+<h4 id="controller">controller</h4>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.controller;
 import com.mumu.shardingjdbc.entity.User;
 import com.mumu.shardingjdbc.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -1180,78 +1271,75 @@ import java.util.Random;
  * @Date : 2021/3/10
  */
 @RestController
-@RequestMapping(&ldquo;/user&rdquo;)
+@RequestMapping(&quot;/user&quot;)
 public class UserController {
     @Autowired
     private UserMapper userMapper;
-    @GetMapping(&ldquo;/save&rdquo;)
+    @GetMapping(&quot;/save&quot;)
     public String insert() {
         User user = new User();
-        user.setNickname(&ldquo;zhangsan&rdquo;+ new Random().nextInt());
-        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setNickname(&quot;zhangsan&quot;+ new Random().nextInt());
+        user.setPassword(&quot;1234567&quot;);
         user.setSex(1);
-        user.setBirthday(&ldquo;1988-12-03&rdquo;);
+        user.setBirthday(&quot;1988-12-03&quot;);
         userMapper.addUser(user);
-        return &ldquo;success&rdquo;;
+        return &quot;success&quot;;
     }
-    @GetMapping(&ldquo;/listuser&rdquo;)
-    public List<User> listuser() {
+    @GetMapping(&quot;/listuser&quot;)
+    public List&lt;User&gt; listuser() {
         return userMapper.findUsers();
     }
-}</p>
-
-<pre><code>
-### 02-05、 访问测试查看效果
-
-1：访问 `http://localhost:8085/user/save` 一直进入到ds1主节点
-2：访问 `http://localhost:8085/user/listuser` 一直进入到ds2、ds3节点，并且轮询进入。
-
-### 02-06、 日志查看
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudya68d24d6-5202-402f-9e96-26ca7e1fdb71.png)
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy74b869c7-cd20-48c7-859a-be1d8aa045a4.png)
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy3f30c0e6-d81c-483a-96df-d7e15ef5ccac.png)
-
-### 02-07、 小结
-
-#### 回顾流程
-
-ShardingSphere 的 3 个产品的数据分片主要流程是完全一致的。 核心由 SQL 解析 =&gt; 执行器优化 =&gt; SQL 路由 =&gt; SQL 改写 =&gt; SQL 执行 =&gt; 结果归并的流程组成。
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyba1895c5-7d85-421d-86c8-57c1f727a290-164319468323719.png)
-
-### SQL 解析
-
-分为词法解析和语法解析。 先通过词法解析器将 SQL 拆分为一个个不可再分的单词。再使用语法解析器对 SQL 进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。
-
-### 执行器优化
-
-合并和优化分片条件，如 OR 等。
-
-### SQL 路由
-
-根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。
-
-### SQL 改写
-
-将 SQL 改写为在真实数据库中可以正确执行的语句。SQL 改写分为正确性改写和优化改写。
-
-### SQL 执行
-
-通过多线程执行器异步执行。
-
-### 结果归并
-
-将多个执行结果集归并以便于通过统一的 JDBC 接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。
-
-## 3、Props的其他相关配置
-
+}
 </code></pre>
 
-<p>properties
-acceptor.size: # accept连接的线程数量,默认为cpu核数2倍
+<h3 id="02-05-访问测试查看效果">02-05、 访问测试查看效果</h3>
+
+<p>1：访问 <code>http://localhost:8085/user/save</code> 一直进入到ds1主节点
+2：访问 <code>http://localhost:8085/user/listuser</code> 一直进入到ds2、ds3节点，并且轮询进入。</p>
+
+<h3 id="02-06-日志查看">02-06、 日志查看</h3>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudya68d24d6-5202-402f-9e96-26ca7e1fdb71.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy74b869c7-cd20-48c7-859a-be1d8aa045a4.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy3f30c0e6-d81c-483a-96df-d7e15ef5ccac.png" alt="img" /></p>
+
+<h3 id="02-07-小结">02-07、 小结</h3>
+
+<h4 id="回顾流程">回顾流程</h4>
+
+<p>ShardingSphere 的 3 个产品的数据分片主要流程是完全一致的。 核心由 SQL 解析 =&gt; 执行器优化 =&gt; SQL 路由 =&gt; SQL 改写 =&gt; SQL 执行 =&gt; 结果归并的流程组成。</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyba1895c5-7d85-421d-86c8-57c1f727a290-164319468323719.png" alt="img" /></p>
+
+<h3 id="sql-解析-1">SQL 解析</h3>
+
+<p>分为词法解析和语法解析。 先通过词法解析器将 SQL 拆分为一个个不可再分的单词。再使用语法解析器对 SQL 进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。</p>
+
+<h3 id="执行器优化-1">执行器优化</h3>
+
+<p>合并和优化分片条件，如 OR 等。</p>
+
+<h3 id="sql-路由-1">SQL 路由</h3>
+
+<p>根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。</p>
+
+<h3 id="sql-改写-1">SQL 改写</h3>
+
+<p>将 SQL 改写为在真实数据库中可以正确执行的语句。SQL 改写分为正确性改写和优化改写。</p>
+
+<h3 id="sql-执行-1">SQL 执行</h3>
+
+<p>通过多线程执行器异步执行。</p>
+
+<h3 id="结果归并-1">结果归并</h3>
+
+<p>将多个执行结果集归并以便于通过统一的 JDBC 接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。</p>
+
+<h2 id="3-props的其他相关配置">3、Props的其他相关配置</h2>
+
+<pre><code class="language-properties">acceptor.size: # accept连接的线程数量,默认为cpu核数2倍
 executor.size: #工作线程数量最大，默认值: 无限制
 max.connections.size.per.query: # 每个查询可以打开的最大连接数量,默认为1
 check.table.metadata.enabled: #是否在启动时检查分表元数据一致性，默认值: false
@@ -1260,81 +1348,81 @@ proxy.transaction.type: # 默认LOCAL,proxy的事务模型 允许LOCAL,XA,BASE�
 proxy.opentracing.enabled: # 是否启用opentracing
 proxy.backend.use.nio: # 是否采用netty的NIO机制连接后端数据库,默认False ,使用epoll机制
 proxy.backend.max.connections: # 使用NIO而非epoll的话,proxy后台连接每个netty客户端允许的最大连接数量(注意不是数据库连接限制) 默认为8
-proxy.backend.connection.timeout.seconds: #使用nio而非epoll的话,proxy后台连接的超时时间,默认60s</p>
+proxy.backend.connection.timeout.seconds: #使用nio而非epoll的话,proxy后台连接的超时时间,默认60s
+</code></pre>
 
-<pre><code>
-# 05、 MySQL分 库分表原理
+<h1 id="05-mysql分-库分表原理">05、 MySQL分 库分表原理</h1>
 
-## 01、为什么要分库分表
+<h2 id="01-为什么要分库分表">01、为什么要分库分表</h2>
 
-一般的机器（4核16G），单库的MySQL并发（QPS+TPS）超过了2k，系统基本就完蛋了。最好是并发量控制在1k左右。这里就引出一个问题，为什么要分库分表？
+<p>一般的机器（4核16G），单库的MySQL并发（QPS+TPS）超过了2k，系统基本就完蛋了。最好是并发量控制在1k左右。这里就引出一个问题，为什么要分库分表？</p>
 
-&gt; 分库分表目的：解决高并发，和数据量大的问题。
+<blockquote>
+<p>分库分表目的：解决高并发，和数据量大的问题。</p>
+</blockquote>
 
-1、高并发情况下，会造成IO读写频繁，自然就会造成读写缓慢，甚至是宕机。一般单库不要超过2k并发，NB的机器除外。
-2、数据量大的问题。主要由于底层索引实现导致，MySQL的索引实现为B+TREE，数据量其他，会导致索引树十分庞大，造成查询缓慢。第二，innodb的最大存储限制64TB。
+<p>1、高并发情况下，会造成IO读写频繁，自然就会造成读写缓慢，甚至是宕机。一般单库不要超过2k并发，NB的机器除外。
+2、数据量大的问题。主要由于底层索引实现导致，MySQL的索引实现为B+TREE，数据量其他，会导致索引树十分庞大，造成查询缓慢。第二，innodb的最大存储限制64TB。</p>
 
-&gt; 要解决上述问题。最常见做法，就是分库分表。
-&gt; 分库分表的目的，是将一个表拆成N个表，就是让每个表的数据量控制在一定范围内，保证SQL的性能。 一个表数据建议不要超过500W。
+<blockquote>
+<p>要解决上述问题。最常见做法，就是分库分表。
+分库分表的目的，是将一个表拆成N个表，就是让每个表的数据量控制在一定范围内，保证SQL的性能。 一个表数据建议不要超过500W。</p>
+</blockquote>
 
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy4ea3641b-9165-4c9c-9328-4946902519ab.png)
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy4ea3641b-9165-4c9c-9328-4946902519ab.png" alt="img" /></p>
 
-## 02、分库分表
+<h2 id="02-分库分表">02、分库分表</h2>
 
-&gt; 又分为垂直拆分和水平拆分。
+<blockquote>
+<p>又分为垂直拆分和水平拆分。</p>
+</blockquote>
 
-**水平拆分：**统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。
+<p><strong>水平拆分：</strong>统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。</p>
 
-**垂直拆分：**就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。
+<p><strong>垂直拆分：</strong>就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。</p>
 
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudycbec6d11-6626-41d1-bb3f-a81e9f05c794.png)
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudycbec6d11-6626-41d1-bb3f-a81e9f05c794.png" alt="img" /></p>
 
-## 03、不停机分库分表数据迁移
+<h2 id="03-不停机分库分表数据迁移">03、不停机分库分表数据迁移</h2>
 
-一般数据库的拆分也是有一个过程的，一开始是单表，后面慢慢拆成多表。那么我们就看下如何平滑的从MySQL单表过度到MySQL的分库分表架构。
+<p>一般数据库的拆分也是有一个过程的，一开始是单表，后面慢慢拆成多表。那么我们就看下如何平滑的从MySQL单表过度到MySQL的分库分表架构。
 1、利用mysql+canal做增量数据同步，利用分库分表中间件，将数据路由到对应的新表中。
 2、利用分库分表中间件，全量数据导入到对应的新表中。
 3、通过单表数据和分库分表数据两两比较，更新不匹配的数据到新表中。
-4、数据稳定后，将单表的配置切换到分库分表配置上。
+4、数据稳定后，将单表的配置切换到分库分表配置上。</p>
 
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudye19131bc-e09e-44eb-8e24-f4966960b3ab.png)
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudye19131bc-e09e-44eb-8e24-f4966960b3ab.png" alt="img" /></p>
 
-## 04、小结
+<h2 id="04-小结">04、小结</h2>
 
-垂直拆分：业务模块拆分、商品库，用户库，订单库
+<p>垂直拆分：业务模块拆分、商品库，用户库，订单库
 水平拆分：对表进行水平拆分（也就是我们说的：分表）
-表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）
+表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）</p>
 
-# 06、 ShardingJdbc的分库和分表
+<h1 id="06-shardingjdbc的分库和分表">06、 ShardingJdbc的分库和分表</h1>
 
-## 01、分库分表的方式
+<h2 id="01-分库分表的方式">01、分库分表的方式</h2>
 
-**水平拆分：**统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。
+<p><strong>水平拆分：</strong>统一个表的数据拆到不同的库不同的表中。可以根据时间、地区、或某个业务键维度，也可以通过hash进行拆分，最后通过路由访问到具体的数据。拆分后的每个表结构保持一致。</p>
 
-**垂直拆分：**就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。
+<p><strong>垂直拆分：</strong>就是把一个有很多字段的表给拆分成多个表，或者是多个库上去。每个库表的结构都不一样，每个库表都包含部分字段。一般来说，可以根据业务维度进行拆分，如订单表可以拆分为订单、订单支持、订单地址、订单商品、订单扩展等表；也可以，根据数据冷热程度拆分，20%的热点字段拆到一个表，80%的冷字段拆到另外一个表。</p>
 
-## 02、逻辑表
+<h2 id="02-逻辑表">02、逻辑表</h2>
 
-逻辑表是指：水平拆分的数据库或者数据表的相同路基和数据结构表的总称。比如用户数据根据用户id%2拆分为2个表，分别是：ksd_user0和ksd_user1。他们的逻辑表名是：ksd_user。
-在shardingjdbc中的定义方式如下：
+<p>逻辑表是指：水平拆分的数据库或者数据表的相同路基和数据结构表的总称。比如用户数据根据用户id%2拆分为2个表，分别是：ksd_user0和ksd_user1。他们的逻辑表名是：ksd_user。
+在shardingjdbc中的定义方式如下：</p>
 
-</code></pre>
-
-<p>yml
-spring:
+<pre><code class="language-yml">spring:
   shardingsphere:
     sharding:
       tables:
         # ksd_user 逻辑表名
-        ksd_user:</p>
-
-<pre><code>
-## 03、分库分表数据节点 - actual-data-nodes
-
+        ksd_user:
 </code></pre>
 
-<p>yml
-     tables:
+<h2 id="03-分库分表数据节点-actual-data-nodes">03、分库分表数据节点 - actual-data-nodes</h2>
+
+<pre><code class="language-yml">     tables:
             # ksd_user 逻辑表名
             ksd_user:
               # 数据节点：多数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N} 相同表
@@ -1344,41 +1432,42 @@ spring:
               # 指定单数据源的配置方式
               actual-data-nodes: ds0.ksd_user$-&gt;{0..4}
               # 全部手动指定
-              actual-data-nodes: ds0.ksd_user0,ds1.ksd_user0,ds0.ksd_user1,ds1.ksd_user1,</p>
-
-<pre><code>
-数据分片是最小单元。由数据源名称和数据表组成，比如：ds0.ksd_user0。
-
-寻找规则如下：
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudye9efb3fb-3eca-4575-89b4-7a60f45dcb8e.png)
-
-## 04、分库分表5种分片策略
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy0b8f0684-3028-40e6-8a99-6cfe14fa4e11.png)
-
-#### 数据源分片分为两种：
-
-- 数据源分片
-- 表分片
-
-这两个是不同维度的分片规则，但是它们额能用的分片策略和规则是一样的。它们由两部分构成：
-
-- 分片键
-- 分片算法
-
-#### 第一种：none
-
-对应NoneShardingStragey,不分片策略，SQL会被发给所有节点去执行，这个规则没有子项目可以配置。
-
-#### 第二种：inline 行表达时分片策略(核心，必须要掌握)
-
-对应InlineShardingStragey。使用Groovy的表达时，提供对SQL语句种的=和in的分片操作支持，只支持单分片键。对于简单的分片算法，可以通过简单的配置使用，从而避免繁琐的Java代码开放，如：ksd_user${分片键（数据表字段）userid % 5} 表示ksd_user表根据某字段（userid）模 5.从而分为5张表，表名称为：ksd_user0到ksd_user4 。如果库也是如此。
-
+              actual-data-nodes: ds0.ksd_user0,ds1.ksd_user0,ds0.ksd_user1,ds1.ksd_user1,
 </code></pre>
 
-<p>yml
-server:
+<p>数据分片是最小单元。由数据源名称和数据表组成，比如：ds0.ksd_user0。</p>
+
+<p>寻找规则如下：</p>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudye9efb3fb-3eca-4575-89b4-7a60f45dcb8e.png" alt="img" /></p>
+
+<h2 id="04-分库分表5种分片策略">04、分库分表5种分片策略</h2>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy0b8f0684-3028-40e6-8a99-6cfe14fa4e11.png" alt="img" /></p>
+
+<h4 id="数据源分片分为两种">数据源分片分为两种：</h4>
+
+<ul>
+<li>数据源分片</li>
+<li>表分片</li>
+</ul>
+
+<p>这两个是不同维度的分片规则，但是它们额能用的分片策略和规则是一样的。它们由两部分构成：</p>
+
+<ul>
+<li>分片键</li>
+<li>分片算法</li>
+</ul>
+
+<h4 id="第一种-none">第一种：none</h4>
+
+<p>对应NoneShardingStragey,不分片策略，SQL会被发给所有节点去执行，这个规则没有子项目可以配置。</p>
+
+<h4 id="第二种-inline-行表达时分片策略-核心-必须要掌握">第二种：inline 行表达时分片策略(核心，必须要掌握)</h4>
+
+<p>对应InlineShardingStragey。使用Groovy的表达时，提供对SQL语句种的=和in的分片操作支持，只支持单分片键。对于简单的分片算法，可以通过简单的配置使用，从而避免繁琐的Java代码开放，如：ksd_user${分片键（数据表字段）userid % 5} 表示ksd_user表根据某字段（userid）模 5.从而分为5张表，表名称为：ksd_user0到ksd_user4 。如果库也是如此。</p>
+
+<pre><code class="language-yml">server:
   port: 8085
 spring:
   main:
@@ -1406,107 +1495,106 @@ spring:
           table-strategy:
             inline:
               sharding-column: age    # 分片字段（分片键）
-              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
-
-<pre><code>
-##### algorithm-expression行表达式：
-
-- ${begin..end} 表示区间范围。
-- ${[unit1,unit2,….,unitn]} 表示枚举值。
-- 行表达式种如果出现连续多个${expresssion}或$-&gt;{expression}表达式，整个表达时最终的结果将会根据每个子表达式的结果进行笛卡尔组合。
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyd17a99ad-1bf5-48fe-b769-b2794edbea7b.png)
-
-### 04-1、完整案例和配置如下
-
-- 准备两个数据库ksd_sharding-db。名字相同，两个数据源ds0和ds1
-- 每个数据库下方ksd_user0和ksd_user1即可。
-- 数据库规则，性别为偶数的放入ds0库，奇数的放入ds1库。
-- 数据表规则：年龄为偶数的放入ksd_user0库，奇数的放入ksd_user1库。
-
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式
 </code></pre>
 
-<p>yml
-server:
-  port: 8085
+<h5 id="algorithm-expression行表达式">algorithm-expression行表达式：</h5>
+
+<ul>
+<li>${begin..end} 表示区间范围。</li>
+<li>${[unit1,unit2,….,unitn]} 表示枚举值。</li>
+<li>行表达式种如果出现连续多个${expresssion}或$-&gt;{expression}表达式，整个表达时最终的结果将会根据每个子表达式的结果进行笛卡尔组合。</li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyd17a99ad-1bf5-48fe-b769-b2794edbea7b.png" alt="img" /></p>
+
+<h3 id="04-1-完整案例和配置如下">04-1、完整案例和配置如下</h3>
+
+<ul>
+<li>准备两个数据库ksd_sharding-db。名字相同，两个数据源ds0和ds1</li>
+<li>每个数据库下方ksd_user0和ksd_user1即可。</li>
+<li>数据库规则，性别为偶数的放入ds0库，奇数的放入ds1库。</li>
+
+<li><p>数据表规则：年龄为偶数的放入ksd_user0库，奇数的放入ksd_user1库。</p>
+
+<pre><code class="language-yml">server:
+port: 8085
 spring:
-  main:
-    allow-bean-definition-overriding: true
-  shardingsphere:
-    # 参数配置，显示sql
-    props:
-      sql:
-        show: true
-    # 配置数据源
-    datasource:
-      # 给每个数据源取别名，下面的ds1,ds1任意取名字
-      names: ds0,ds1
-      # 给master-ds1每个数据源配置数据库连接信息
-      ds0:
-        # 配置druid数据源
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://47.115.94.78:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
-        username: root
-        password: mkxiaoer1986.
-        maxPoolSize: 100
-        minPoolSize: 5
-      # 配置ds1-slave
-      ds1:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
-        username: root
-        password: mkxiaoer1986.
-        maxPoolSize: 100
-        minPoolSize: 5
-    # 配置默认数据源ds0
-    sharding:
-      # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
-      default-data-source-name: ds0
-      # 配置分表的规则
-      tables:
-        # ksd_user 逻辑表名
-        ksd_user:
-          # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
-          actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
-          # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
-          database-strategy:
-            inline:
-              sharding-column: sex    # 分片字段（分片键）
-              algorithm-expression: ds$-&gt;{sex % 2} # 分片算法表达式
-          # 拆分表策略，也就是什么样子的数据放入放到哪个数据表中。
-          table-strategy:
-            inline:
-              sharding-column: age    # 分片字段（分片键）
-              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
+main:
+allow-bean-definition-overriding: true
+shardingsphere:
+# 参数配置，显示sql
+props:
+  sql:
+    show: true
+# 配置数据源
+datasource:
+  # 给每个数据源取别名，下面的ds1,ds1任意取名字
+  names: ds0,ds1
+  # 给master-ds1每个数据源配置数据库连接信息
+  ds0:
+    # 配置druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.115.94.78:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+    username: root
+    password: mkxiaoer1986.
+    maxPoolSize: 100
+    minPoolSize: 5
+  # 配置ds1-slave
+  ds1:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://114.215.145.201:3306/ksd-sharding-db?useUnicode=true&amp;characterEncoding=utf8&amp;tinyInt1isBit=false&amp;useSSL=false&amp;serverTimezone=GMT
+    username: root
+    password: mkxiaoer1986.
+    maxPoolSize: 100
+    minPoolSize: 5
+# 配置默认数据源ds0
+sharding:
+  # 默认数据源，主要用于写，注意一定要配置读写分离 ,注意：如果不配置，那么就会把三个节点都当做从slave节点，新增，修改和删除会出错。
+  default-data-source-name: ds0
+  # 配置分表的规则
+  tables:
+    # ksd_user 逻辑表名
+    ksd_user:
+      # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
+      actual-data-nodes: ds$-&gt;{0..1}.ksd_user$-&gt;{0..1}
+      # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
+      database-strategy:
+        inline:
+          sharding-column: sex    # 分片字段（分片键）
+          algorithm-expression: ds$-&gt;{sex % 2} # 分片算法表达式
+      # 拆分表策略，也就是什么样子的数据放入放到哪个数据表中。
+      table-strategy:
+        inline:
+          sharding-column: age    # 分片字段（分片键）
+          algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式
+# 整合mybatis的配置XXXXX
+mybatis:
+mapper-locations: classpath:mapper/*.xml
+type-aliases-package: com.mumu.shardingjdbc.entity
+</code></pre></li>
+</ul>
 
-<h1 id="整合mybatis的配置xxxxx">整合mybatis的配置XXXXX</h1>
+<p>结果如下图：</p>
 
-<p>mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.mumu.shardingjdbc.entity</p>
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudyf4a54f62-0def-405e-9cfb-a2026f384002.png" alt="img" /></p>
 
-<pre><code>
-结果如下图：
+<h2 id="05-第三种-根据实时间日期-按照标准规则分库分表">05、第三种：根据实时间日期 - 按照标准规则分库分表</h2>
 
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudyf4a54f62-0def-405e-9cfb-a2026f384002.png)
+<h4 id="05-1-标准分片-standard-了解">05-1、 标准分片 - Standard(了解)</h4>
 
-## 05、第三种：根据实时间日期 - 按照标准规则分库分表
+<ul>
+<li>对应StrandardShardingStrategy.提供对SQL语句中的=，in和恶between and 的分片操作支持。</li>
+<li>StrandardShardingStrategy只支持但分片键。提供PreciseShardingAlgorithm和RangeShardingAlgorithm两个分片算法。</li>
+<li>PreciseShardingAlgorithm是必选的呃，用于处理=和IN的分片</li>
+<li>和RangeShardingAlgorithm是可选的，是用于处理Betwwen and分片，如果不配置和RangeShardingAlgorithm,SQL的Between AND 将按照全库路由处理。</li>
+</ul>
 
-#### 05-1、 标准分片 - Standard(了解)
+<h4 id="05-02-定义分片的日期规则配置">05-02、定义分片的日期规则配置</h4>
 
-- 对应StrandardShardingStrategy.提供对SQL语句中的=，in和恶between and 的分片操作支持。
-- StrandardShardingStrategy只支持但分片键。提供PreciseShardingAlgorithm和RangeShardingAlgorithm两个分片算法。
-- PreciseShardingAlgorithm是必选的呃，用于处理=和IN的分片
-- 和RangeShardingAlgorithm是可选的，是用于处理Betwwen and分片，如果不配置和RangeShardingAlgorithm,SQL的Between AND 将按照全库路由处理。
-
-#### 05-02、定义分片的日期规则配置
-
-</code></pre>
-
-<p>yml
-server:
+<pre><code class="language-yml">server:
   port: 8085
 spring:
   main:
@@ -1557,101 +1645,98 @@ spring:
           table-strategy:
             inline:
               sharding-column: age    # 分片字段（分片键）
-              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式</p>
-
-<h1 id="整合mybatis的配置xxxxx-1">整合mybatis的配置XXXXX</h1>
-
-<p>mybatis:
+              algorithm-expression: ksd_user$-&gt;{age % 2} # 分片算法表达式
+# 整合mybatis的配置XXXXX
+mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.mumu.shardingjdbc.entity</p>
-
-<pre><code>
-#### 05-03、定义分片的日期规则
-
+  type-aliases-package: com.mumu.shardingjdbc.entity
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.algorithm;
+<h4 id="05-03-定义分片的日期规则">05-03、定义分片的日期规则</h4>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.algorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 import sun.util.resources.cldr.CalendarData;
 import java.util.*;
-/**</p>
-</blockquote>
+/**
 
-<ul>
-<li>@description: BirthdayAlgorithm</li>
-
-<li><p>@Date : 2021/3/11
-*/
-public class BirthdayAlgorithm implements PreciseShardingAlgorithm<Date> {
-List<Date> dateList = new ArrayList&lt;&gt;();
-{
-    Calendar calendar1 = Calendar.getInstance();
-    calendar1.set(2020, 1, 1, 0, 0, 0);
-    Calendar calendar2 = Calendar.getInstance();
-    calendar2.set(2021, 1, 1, 0, 0, 0);
-    Calendar calendar3 = Calendar.getInstance();
-    calendar3.set(2022, 1, 1, 0, 0, 0);
-    dateList.add(calendar1.getTime());
-    dateList.add(calendar2.getTime());
-    dateList.add(calendar3.getTime());
-}
-@Override
-public String doSharding(Collection<String> collection, PreciseShardingValue<Date> preciseShardingValue) {
-    // 获取属性数据库的值
-    Date date = preciseShardingValue.getValue();
-    // 获取数据源的名称信息列表
-    Iterator<String> iterator = collection.iterator();
-    String target = null;
-    for (Date s : dateList) {
-        target = iterator.next();
-        // 如果数据晚于指定的日期直接返回
-        if (date.before(s)) {
-            break;
-        }
+ * @description: BirthdayAlgorithm
+ * @Date : 2021/3/11
+ */
+public class BirthdayAlgorithm implements PreciseShardingAlgorithm&lt;Date&gt; {
+    List&lt;Date&gt; dateList = new ArrayList&lt;&gt;();
+    {
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.set(2020, 1, 1, 0, 0, 0);
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.set(2021, 1, 1, 0, 0, 0);
+        Calendar calendar3 = Calendar.getInstance();
+        calendar3.set(2022, 1, 1, 0, 0, 0);
+        dateList.add(calendar1.getTime());
+        dateList.add(calendar2.getTime());
+        dateList.add(calendar3.getTime());
     }
-    return target;
+    @Override
+    public String doSharding(Collection&lt;String&gt; collection, PreciseShardingValue&lt;Date&gt; preciseShardingValue) {
+        // 获取属性数据库的值
+        Date date = preciseShardingValue.getValue();
+        // 获取数据源的名称信息列表
+        Iterator&lt;String&gt; iterator = collection.iterator();
+        String target = null;
+        for (Date s : dateList) {
+            target = iterator.next();
+            // 如果数据晚于指定的日期直接返回
+            if (date.before(s)) {
+                break;
+            }
+        }
+        return target;
+    }
 }
-}</p>
-
-<pre><code>
-#### 05-04、测试查看结果
-
-&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09 —- ds1
-&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2021-03-09 —- ds0
-
-## 06、第四种：ShardingSphere - 符合分片策略（了解）
-
-- 对应接口：HintShardingStrategy。通过Hint而非SQL解析的方式分片的策略。
-- 对于分片字段非SQL决定，而是由其他外置条件决定的场景，克使用SQL hint灵活的注入分片字段。例如：按照用户登录的时间，主键等进行分库，而数据库中并无此字段。SQL hint支持通过Java API和SQL注解两种方式使用。让后分库分表更加灵活。
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy7e8dbf42-7c2a-43c9-b2a0-6065143a48aa.png)
-
-## 07、第五种：ShardingSphere - hint分片策略（了解）
-
-- 对应ComplexShardingStrategy。符合分片策略提供对SQL语句中的-，in和between and的分片操作支持。
-- ComplexShardingStrategy支持多分片键，由于多分片键之间的关系复杂，因此并未进行过多的封装，而是直接将分片键组合以及分片操作符透传至分片算法，完全由开发者自己实现，提供最大的灵活度。
-
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy9b0671d8-50ad-4774-9296-98bd0e6555bb.png)
-
-# 07、 ShardingSphere - 分布式主键配置
-
-## 1、ShardingSphere - 分布式主键配置
-
-ShardingSphere提供灵活的配置分布式主键生成策略方式。在分片规则配置模块克配置每个表的主键生成策略。默认使用雪花算法。（snowflake）生成64bit的长整型数据。支持两种方式配置
-
-- SNOWFLAKE
-- UUID
-
-&gt; 这里切记：主键列不能自增长。数据类型是：bigint(20)
-
 </code></pre>
 
-<p>yml</p></li>
+<h4 id="05-04-测试查看结果">05-04、测试查看结果</h4>
+
+<blockquote>
+<p><a href="http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09">http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09</a> —- ds1
+<a href="http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2021-03-09">http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2021-03-09</a> —- ds0</p>
+</blockquote>
+
+<h2 id="06-第四种-shardingsphere-符合分片策略-了解">06、第四种：ShardingSphere - 符合分片策略（了解）</h2>
+
+<ul>
+<li>对应接口：HintShardingStrategy。通过Hint而非SQL解析的方式分片的策略。</li>
+<li>对于分片字段非SQL决定，而是由其他外置条件决定的场景，克使用SQL hint灵活的注入分片字段。例如：按照用户登录的时间，主键等进行分库，而数据库中并无此字段。SQL hint支持通过Java API和SQL注解两种方式使用。让后分库分表更加灵活。</li>
 </ul>
 
-<p>spring:
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy7e8dbf42-7c2a-43c9-b2a0-6065143a48aa.png" alt="img" /></p>
+
+<h2 id="07-第五种-shardingsphere-hint分片策略-了解">07、第五种：ShardingSphere - hint分片策略（了解）</h2>
+
+<ul>
+<li>对应ComplexShardingStrategy。符合分片策略提供对SQL语句中的-，in和between and的分片操作支持。</li>
+<li>ComplexShardingStrategy支持多分片键，由于多分片键之间的关系复杂，因此并未进行过多的封装，而是直接将分片键组合以及分片操作符透传至分片算法，完全由开发者自己实现，提供最大的灵活度。</li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy9b0671d8-50ad-4774-9296-98bd0e6555bb.png" alt="img" /></p>
+
+<h1 id="07-shardingsphere-分布式主键配置">07、 ShardingSphere - 分布式主键配置</h1>
+
+<h2 id="1-shardingsphere-分布式主键配置">1、ShardingSphere - 分布式主键配置</h2>
+
+<p>ShardingSphere提供灵活的配置分布式主键生成策略方式。在分片规则配置模块克配置每个表的主键生成策略。默认使用雪花算法。（snowflake）生成64bit的长整型数据。支持两种方式配置</p>
+
+<ul>
+<li>SNOWFLAKE</li>
+<li>UUID</li>
+</ul>
+
+<blockquote>
+<p>这里切记：主键列不能自增长。数据类型是：bigint(20)</p>
+</blockquote>
+
+<pre><code class="language-yml">spring:
   shardingsphere:
     sharding:
       tables:
@@ -1660,51 +1745,47 @@ ShardingSphere提供灵活的配置分布式主键生成策略方式。在分片
           key-generator:
               # 主键的列明，
             column: userid
-            type: SNOWFLAKE</p>
-
-<pre><code>
-执行
-
-&gt; http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09
-&gt; 可以查看到新增的语句多了一个userid为576906137413091329的唯一值。这个值是通过雪花算法计算出来的唯一值
-
+            type: SNOWFLAKE
 </code></pre>
 
-<p>2021-03-11 22:59:01.605  INFO 4900 &mdash; [nio-8085-exec-1] ShardingSphere-SQL                       : Actual SQL: ds1 ::: insert into ksd_user1 (nickname, password, sex, age, birthday, userid) VALUES (?, ?, ?, ?, ?, ?) ::: [zhangsan-70137485, 1234567, 3, 3, 2020-03-09 00:00:00.0, 576906137413091329]</p>
+<p>执行</p>
 
-<pre><code>
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy49f490ae-20bf-4d3c-bb60-a0fb33d953bb.png)
+<blockquote>
+<p><a href="http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09">http://localhost:8085/user/save?sex=3&amp;age=3&amp;birthday=2020-03-09</a>
+可以查看到新增的语句多了一个userid为576906137413091329的唯一值。这个值是通过雪花算法计算出来的唯一值</p>
+</blockquote>
 
-# 08、 ShardingSphere - 分库分表 - 年月案例
-
-&gt; 实战完成按照年月分库分表。
-
-### 策略类
-
+<pre><code>2021-03-11 22:59:01.605  INFO 4900 --- [nio-8085-exec-1] ShardingSphere-SQL                       : Actual SQL: ds1 ::: insert into ksd_user1 (nickname, password, sex, age, birthday, userid) VALUES (?, ?, ?, ?, ?, ?) ::: [zhangsan-70137485, 1234567, 3, 3, 2020-03-09 00:00:00.0, 576906137413091329]
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.algorithm;
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy49f490ae-20bf-4d3c-bb60-a0fb33d953bb.png" alt="img" /></p>
+
+<h1 id="08-shardingsphere-分库分表-年月案例">08、 ShardingSphere - 分库分表 - 年月案例</h1>
+
+<blockquote>
+<p>实战完成按照年月分库分表。</p>
+</blockquote>
+
+<h3 id="策略类">策略类</h3>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.algorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 import java.util.Collection;
-public class YearMonthShardingAlgorithm implements PreciseShardingAlgorithm<String> {
-    private static final String SPLITTER = &ldquo;<em>&rdquo;;
+public class YearMonthShardingAlgorithm implements PreciseShardingAlgorithm&lt;String&gt; {
+    private static final String SPLITTER = &quot;_&quot;;
     @Override
     public String doSharding(Collection availableTargetNames, PreciseShardingValue shardingValue) {
-        String tbName = shardingValue.getLogicTableName() + &ldquo;</em>&rdquo; + shardingValue.getValue();
-        System.out.println(&ldquo;Sharding input:&rdquo; + shardingValue.getValue() + &ldquo;, output:{}&rdquo; + tbName);
+        String tbName = shardingValue.getLogicTableName() + &quot;_&quot; + shardingValue.getValue();
+        System.out.println(&quot;Sharding input:&quot; + shardingValue.getValue() + &quot;, output:{}&quot; + tbName);
         return tbName;
     }
-}</p>
-
-<pre><code>
-### entity
-
+}
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.entity;
+<h3 id="entity-1">entity</h3>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.entity;
 import lombok.Data;
 import java.util.Date;
 /**
@@ -1723,54 +1804,40 @@ public class Order {
     private Long productid;
     // 创建时间
     private Date createTime;
-}</p>
-
-<pre><code>
-### Mapper
-
+}
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc.mapper;
+<h3 id="mapper-1">Mapper</h3>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc.mapper;
 import com.mumu.shardingjdbc.entity.Order;
 import com.mumu.shardingjdbc.entity.UserOrder;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.springframework.stereotype.Repository;
-/**</p>
+/**
 
-<ul>
-<li>@description: UserMapper</li>
-
-<li><p>@Date : 2021/3/10
-*/
+ * @description: UserMapper
+ * @Date : 2021/3/10
+ */
 @Mapper
 @Repository
 public interface UserOrderMapper {
-/**</p>
-
-<ul>
-<li>@description 保存订单</li>
-<li>@params [user]</li>
-
-<li><p>@date 2021/3/10 17:14
-*/
-@Insert(&ldquo;insert into ksd_user_order(ordernumber,userid,create_time,yearmonth) values(#{ordernumber},#{userid},#{createTime},#{yearmonth})&ldquo;)
-@Options(useGeneratedKeys = true,keyColumn = &ldquo;orderid&rdquo;,keyProperty = &ldquo;orderid&rdquo;)
-void addUserOrder(UserOrder userOrder);
-}</p>
-
-<pre><code>
-### 配置如下：
-
+    /**
+     * @description 保存订单
+     * @params [user]
+     * @date 2021/3/10 17:14
+     */
+    @Insert(&quot;insert into ksd_user_order(ordernumber,userid,create_time,yearmonth) values(#{ordernumber},#{userid},#{createTime},#{yearmonth})&quot;)
+    @Options(useGeneratedKeys = true,keyColumn = &quot;orderid&quot;,keyProperty = &quot;orderid&quot;)
+    void addUserOrder(UserOrder userOrder);
+}
 </code></pre>
 
-<p>yml</p></li>
-</ul></li>
-</ul>
+<h3 id="配置如下">配置如下：</h3>
 
-<p>server:
+<pre><code class="language-yml">server:
   port: 8085
 spring:
   main:
@@ -1838,37 +1905,27 @@ spring:
               algorithm-expression: ksd_order$-&gt;{orderid % 2} # 分片算法表达式
         ksd_user_order:
           # 数据节点：数据源$-&gt;{0..N}.逻辑表名$-&gt;{0..N}
-          actual-data-nodes: ds0.ksd_user<em>order</em>$-&gt;{2021..2022}${(1..3).collect{t -&gt;t.toString().padLeft(2,&lsquo;0&rsquo;)} }
+          actual-data-nodes: ds0.ksd_user_order_$-&gt;{2021..2022}${(1..3).collect{t -&gt;t.toString().padLeft(2,'0')} }
           key-generator:
             column: orderid
             type: SNOWFLAKE
           # 拆分库策略，也就是什么样子的数据放入放到哪个数据库中。
-          table-strategy:</p>
-
-<h1 id="inline">inline:</h1>
-
-<h1 id="shardingcolumn-yearmonth">shardingColumn: yearmonth</h1>
-
-<h1 id="algorithmexpression-ksd-user-order-yearmonth">algorithmExpression: ksd_user<em>order</em>$-&gt;{yearmonth}</h1>
-
-<pre><code>        standard:
-          shardingColumn: yearmonth
-          preciseAlgorithmClassName: com.mumu.shardingjdbc.algorithm.YearMonthShardingAlgorithm
-</code></pre>
-
-<h1 id="整合mybatis的配置xxxxx-2">整合mybatis的配置XXXXX</h1>
-
-<p>mybatis:
+          table-strategy:
+#            inline:
+#              shardingColumn: yearmonth
+#              algorithmExpression: ksd_user_order_$-&gt;{yearmonth}
+            standard:
+              shardingColumn: yearmonth
+              preciseAlgorithmClassName: com.mumu.shardingjdbc.algorithm.YearMonthShardingAlgorithm
+# 整合mybatis的配置XXXXX
+mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.mumu.shardingjdbc.entity</p>
-
-<pre><code>
-### test
-
+  type-aliases-package: com.mumu.shardingjdbc.entity
 </code></pre>
 
-<p>java
-package com.mumu.shardingjdbc;
+<h3 id="test">test</h3>
+
+<pre><code class="language-java">package com.mumu.shardingjdbc;
 import com.mumu.shardingjdbc.entity.Order;
 import com.mumu.shardingjdbc.entity.User;
 import com.mumu.shardingjdbc.entity.UserOrder;
@@ -1887,14 +1944,14 @@ class ShardingJdbcApplicationTests {
     @Test
     void contextLoads() throws Exception {
         User user = new User();
-        user.setNickname(&ldquo;zhangsan&rdquo; + new Random().nextInt());
-        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setNickname(&quot;zhangsan&quot; + new Random().nextInt());
+        user.setPassword(&quot;1234567&quot;);
         user.setSex(1);
         user.setAge(2);
         user.setBirthday(new Date());
         Order order = new Order();
         order.setCreateTime(new Date());
-        order.setOrdernumber(&ldquo;133455678&rdquo;);
+        order.setOrdernumber(&quot;133455678&quot;);
         order.setProductid(1234L);
         userOrderService.saveUserOrder(user, order);
     }
@@ -1905,112 +1962,118 @@ class ShardingJdbcApplicationTests {
         UserOrder userOrder = new UserOrder();
         userOrder.setOrderid(10000L);
         userOrder.setCreateTime(new Date());
-        userOrder.setOrdernumber(&ldquo;133455678&rdquo;);
-        userOrder.setYearmonth(&ldquo;202103&rdquo;);
+        userOrder.setOrdernumber(&quot;133455678&quot;);
+        userOrder.setYearmonth(&quot;202103&quot;);
         userOrder.setUserid(1L);
         userOrderMapper.addUserOrder(userOrder);
     }
-}</p>
+}
+</code></pre>
 
-<pre><code>
-# 09、 ShardingJdbc的事务管理
+<h1 id="09-shardingjdbc的事务管理">09、 ShardingJdbc的事务管理</h1>
 
-## 1、分布式式事务的应用和实践
+<h2 id="1-分布式式事务的应用和实践">1、分布式式事务的应用和实践</h2>
 
-官方地址：https://shardingsphere.apache.org/document/legacy/4.x/document/cn/features/transaction/function/base-transaction-seata/
+<p>官方地址：<a href="https://shardingsphere.apache.org/document/legacy/4.x/document/cn/features/transaction/function/base-transaction-seata/">https://shardingsphere.apache.org/document/legacy/4.x/document/cn/features/transaction/function/base-transaction-seata/</a></p>
 
-https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/usage/transaction/
+<p><a href="https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/usage/transaction/">https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/usage/transaction/</a></p>
 
-### 数据库事务需要满足ACID（原子性、一致性、隔离性、持久性）四个特性。
+<h3 id="数据库事务需要满足acid-原子性-一致性-隔离性-持久性-四个特性">数据库事务需要满足ACID（原子性、一致性、隔离性、持久性）四个特性。</h3>
 
-- 原子性（Atomicity）指事务作为整体来执行，要么全部执行，要么全不执行。
-- 一致性（Consistency）指事务应确保数据从一个一致的状态转变为另一个一致的状态。
-- 隔离性（Isolation）指多个事务并发执行时，一个事务的执行不应影响其他事务的执行。
-- 持久性（Durability）指已提交的事务修改数据会被持久保存。
+<ul>
+<li>原子性（Atomicity）指事务作为整体来执行，要么全部执行，要么全不执行。</li>
+<li>一致性（Consistency）指事务应确保数据从一个一致的状态转变为另一个一致的状态。</li>
+<li>隔离性（Isolation）指多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li>持久性（Durability）指已提交的事务修改数据会被持久保存。</li>
+</ul>
 
-在单一数据节点中，事务仅限于对单一数据库资源的访问控制，称之为本地事务。几乎所有的成熟的关系型数据库都提供了对本地事务的原生支持。 但是在基于微服务的分布式应用环境下，越来越多的应用场景要求对多个服务的访问及其相对应的多个数据库资源能纳入到同一个事务当中，分布式事务应运而生。
+<p>在单一数据节点中，事务仅限于对单一数据库资源的访问控制，称之为本地事务。几乎所有的成熟的关系型数据库都提供了对本地事务的原生支持。 但是在基于微服务的分布式应用环境下，越来越多的应用场景要求对多个服务的访问及其相对应的多个数据库资源能纳入到同一个事务当中，分布式事务应运而生。</p>
 
-关系型数据库虽然对本地事务提供了完美的ACID原生支持。 但在分布式的场景下，它却成为系统性能的桎梏。如何让数据库在分布式场景下满足ACID的特性或找寻相应的替代方案，是分布式事务的重点工作。
+<p>关系型数据库虽然对本地事务提供了完美的ACID原生支持。 但在分布式的场景下，它却成为系统性能的桎梏。如何让数据库在分布式场景下满足ACID的特性或找寻相应的替代方案，是分布式事务的重点工作。</p>
 
-### 本地事务
+<h3 id="本地事务">本地事务</h3>
 
-在不开启任何分布式事务管理器的前提下，让每个数据节点各自管理自己的事务。 它们之间没有协调以及通信的能力，也并不互相知晓其他数据节点事务的成功与否。 本地事务在性能方面无任何损耗，但在强一致性以及最终一致性方面则力不从心。
+<p>在不开启任何分布式事务管理器的前提下，让每个数据节点各自管理自己的事务。 它们之间没有协调以及通信的能力，也并不互相知晓其他数据节点事务的成功与否。 本地事务在性能方面无任何损耗，但在强一致性以及最终一致性方面则力不从心。</p>
 
-### 两阶段提交
+<h3 id="两阶段提交">两阶段提交</h3>
 
-XA协议最早的分布式事务模型是由X/Open国际联盟提出的X/Open Distributed Transaction Processing（DTP）模型，简称XA协议。
+<p>XA协议最早的分布式事务模型是由X/Open国际联盟提出的X/Open Distributed Transaction Processing（DTP）模型，简称XA协议。</p>
 
-基于XA协议实现的分布式事务对业务侵入很小。 它最大的优势就是对使用方透明，用户可以像使用本地事务一样使用基于XA协议的分布式事务。 XA协议能够严格保障事务ACID特性。
+<p>基于XA协议实现的分布式事务对业务侵入很小。 它最大的优势就是对使用方透明，用户可以像使用本地事务一样使用基于XA协议的分布式事务。 XA协议能够严格保障事务ACID特性。</p>
 
-严格保障事务ACID特性是一把双刃剑。 事务执行在过程中需要将所需资源全部锁定，它更加适用于执行时间确定的短事务。 对于长事务来说，整个事务进行期间对数据的独占，将导致对热点数据依赖的业务系统并发性能衰退明显。 因此，在高并发的性能至上场景中，基于XA协议的分布式事务并不是最佳选择。
+<p>严格保障事务ACID特性是一把双刃剑。 事务执行在过程中需要将所需资源全部锁定，它更加适用于执行时间确定的短事务。 对于长事务来说，整个事务进行期间对数据的独占，将导致对热点数据依赖的业务系统并发性能衰退明显。 因此，在高并发的性能至上场景中，基于XA协议的分布式事务并不是最佳选择。</p>
 
-### 柔性事务
+<h3 id="柔性事务">柔性事务</h3>
 
-如果将实现了ACID的事务要素的事务称为刚性事务的话，那么基于BASE事务要素的事务则称为柔性事务。 BASE是基本可用、柔性状态和最终一致性这三个要素的缩写。
+<p>如果将实现了ACID的事务要素的事务称为刚性事务的话，那么基于BASE事务要素的事务则称为柔性事务。 BASE是基本可用、柔性状态和最终一致性这三个要素的缩写。</p>
 
-基本可用（Basically Available）保证分布式事务参与方不一定同时在线。
+<p>基本可用（Basically Available）保证分布式事务参与方不一定同时在线。
 柔性状态（Soft state）则允许系统状态更新有一定的延时，这个延时对客户来说不一定能够察觉。
-而最终一致性（Eventually consistent）通常是通过消息传递的方式保证系统的最终一致性。
+而最终一致性（Eventually consistent）通常是通过消息传递的方式保证系统的最终一致性。</p>
 
-在ACID事务中对隔离性的要求很高，在事务执行过程中，必须将所有的资源锁定。 柔性事务的理念则是通过业务逻辑将互斥锁操作从资源层面上移至业务层面。通过放宽对强一致性要求，来换取系统吞吐量的提升。
+<p>在ACID事务中对隔离性的要求很高，在事务执行过程中，必须将所有的资源锁定。 柔性事务的理念则是通过业务逻辑将互斥锁操作从资源层面上移至业务层面。通过放宽对强一致性要求，来换取系统吞吐量的提升。</p>
 
-基于ACID的强一致性事务和基于BASE的最终一致性事务都不是银弹，只有在最适合的场景中才能发挥它们的最大长处。 可通过下表详细对比它们之间的区别，以帮助开发者进行技术选型。
+<p>基于ACID的强一致性事务和基于BASE的最终一致性事务都不是银弹，只有在最适合的场景中才能发挥它们的最大长处。 可通过下表详细对比它们之间的区别，以帮助开发者进行技术选型。</p>
 
-![img](/resources/技术收录/中间件/ShardingShpere/kuangstudy6162780a-979a-47d4-aa80-620f1ab3aada.png)
+<p><img src="/resources/技术收录/中间件/ShardingShpere/kuangstudy6162780a-979a-47d4-aa80-620f1ab3aada.png" alt="img" /></p>
 
-### 1-1：导入分布式事务的依赖
+<h3 id="1-1-导入分布式事务的依赖">1-1：导入分布式事务的依赖</h3>
 
+<pre><code class="language-xml"> &lt;!--依赖sharding--&gt;
+ &lt;dependency&gt;
+     &lt;groupId&gt;io.shardingsphere&lt;/groupId&gt;
+     &lt;artifactId&gt;sharding-transaction-spring-boot-starter&lt;/artifactId&gt;
+     &lt;version&gt;3.1.0&lt;/version&gt;
+ &lt;/dependency&gt;
 </code></pre>
 
-<p>xml
- <!--依赖sharding-->
- <dependency>
-     <groupId>io.shardingsphere</groupId>
-     <artifactId>sharding-transaction-spring-boot-starter</artifactId>
-     <version>3.1.0</version>
- </dependency></p>
+<h3 id="1-2-事务的几种类型">1-2：事务的几种类型</h3>
 
-<pre><code>
-### 1-2：事务的几种类型
+<h4 id="本地事务-1">- 本地事务</h4>
 
-#### - 本地事务
+<ul>
+<li>完全支持非跨库事务，例如：仅分表，或分库但是路由的结果在单库中。</li>
+<li>完全支持因逻辑异常导致的跨库事务。例如：同一事务中，跨两个库更新。更新完毕后，抛出空指针，则两个库的内容都能回滚。</li>
+<li>不支持因网络、硬件异常导致的跨库事务。例如：同一事务中，跨两个库更新，更新完毕后、未提交之前，第一个库宕机，则只有第二个库数据提交。</li>
+</ul>
 
-- 完全支持非跨库事务，例如：仅分表，或分库但是路由的结果在单库中。
-- 完全支持因逻辑异常导致的跨库事务。例如：同一事务中，跨两个库更新。更新完毕后，抛出空指针，则两个库的内容都能回滚。
-- 不支持因网络、硬件异常导致的跨库事务。例如：同一事务中，跨两个库更新，更新完毕后、未提交之前，第一个库宕机，则只有第二个库数据提交。
+<h4 id="两阶段xa事务">- 两阶段XA事务</h4>
 
-#### - 两阶段XA事务
+<ul>
+<li>支持数据分片后的跨库XA事务</li>
+<li>两阶段提交保证操作的原子性和数据的强一致性</li>
+<li>服务宕机重启后，提交/回滚中的事务可自动恢复</li>
+<li>SPI机制整合主流的XA事务管理器，默认Atomikos，可以选择使用Narayana和Bitronix</li>
+<li>同时支持XA和非XA的连接池</li>
+<li>提供spring-boot和namespace的接入端</li>
+</ul>
 
-- 支持数据分片后的跨库XA事务
-- 两阶段提交保证操作的原子性和数据的强一致性
-- 服务宕机重启后，提交/回滚中的事务可自动恢复
-- SPI机制整合主流的XA事务管理器，默认Atomikos，可以选择使用Narayana和Bitronix
-- 同时支持XA和非XA的连接池
-- 提供spring-boot和namespace的接入端
+<p>不支持：</p>
 
-不支持：
+<ul>
+<li>服务宕机后，在其它机器上恢复提交/回滚中的数据</li>
+</ul>
 
-- 服务宕机后，在其它机器上恢复提交/回滚中的数据
+<h4 id="seata柔性事务">- Seata柔性事务</h4>
 
-#### - Seata柔性事务
+<ul>
+<li>完全支持跨库分布式事务</li>
+<li>支持RC隔离级别</li>
+<li>通过undo快照进行事务回滚</li>
+<li>支持服务宕机后的，自动恢复提交中的事务</li>
+</ul>
 
-- 完全支持跨库分布式事务
-- 支持RC隔离级别
-- 通过undo快照进行事务回滚
-- 支持服务宕机后的，自动恢复提交中的事务
+<p>依赖：</p>
 
-依赖：
+<ul>
+<li>需要额外部署Seata-server服务进行分支事务的协调
+待优化项</li>
+<li>ShardingSphere和Seata会对SQL进行重复解析</li>
+</ul>
 
-- 需要额外部署Seata-server服务进行分支事务的协调
-    待优化项
-- ShardingSphere和Seata会对SQL进行重复解析
+<h3 id="1-3-导入分布式事务的依赖">1-3：导入分布式事务的依赖</h3>
 
-### 1-3：导入分布式事务的依赖
-
-</code></pre>
-
-<p>java
-package com.mumu.shardingjdbc.service;
+<pre><code class="language-java">package com.mumu.shardingjdbc.service;
 import com.mumu.shardingjdbc.entity.Order;
 import com.mumu.shardingjdbc.entity.User;
 import com.mumu.shardingjdbc.mapper.OrderMapper;
@@ -2020,39 +2083,32 @@ import io.shardingsphere.transaction.api.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-/**</p>
+/**
 
-<ul>
-<li>@description: UserService</li>
-
-<li><p>@Date : 2021/3/14
-*/
+ * @description: UserService
+ * @Date : 2021/3/14
+ */
 @Service
 public class UserOrderService {
-@Autowired
-private UserMapper userMapper;
-@Autowired
-private OrderMapper orderMapper;
-@ShardingTransactionType(TransactionType.XA)
-@Transactional(rollbackFor = Exception.class)
-public int saveUserOrder(User user, Order order) {
-    userMapper.addUser(user);
-    order.setUserid(user.getId());
-    orderMapper.addOrder(order);
-    //int a = <sup>1</sup>&frasl;<sub>0</sub>; //测试回滚，统一提交的话，将这行注释掉就行
-    return 1;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private OrderMapper orderMapper;
+    @ShardingTransactionType(TransactionType.XA)
+    @Transactional(rollbackFor = Exception.class)
+    public int saveUserOrder(User user, Order order) {
+        userMapper.addUser(user);
+        order.setUserid(user.getId());
+        orderMapper.addOrder(order);
+        //int a = 1/0; //测试回滚，统一提交的话，将这行注释掉就行
+        return 1;
+    }
 }
-}</p>
-
-<pre><code>
-测试
-
 </code></pre>
 
-<p>java</p></li>
-</ul>
+<p>测试</p>
 
-<p>package com.mumu.shardingjdbc;
+<pre><code class="language-java">package com.mumu.shardingjdbc;
 import com.mumu.shardingjdbc.entity.Order;
 import com.mumu.shardingjdbc.entity.User;
 import com.mumu.shardingjdbc.entity.UserOrder;
@@ -2071,229 +2127,227 @@ class ShardingJdbcApplicationTests {
     @Test
     void contextLoads() throws Exception {
         User user = new User();
-        user.setNickname(&ldquo;zhangsan&rdquo; + new Random().nextInt());
-        user.setPassword(&ldquo;1234567&rdquo;);
+        user.setNickname(&quot;zhangsan&quot; + new Random().nextInt());
+        user.setPassword(&quot;1234567&quot;);
         user.setSex(1);
         user.setAge(2);
         user.setBirthday(new Date());
         Order order = new Order();
         order.setCreateTime(new Date());
-        order.setOrdernumber(&ldquo;133455678&rdquo;);
+        order.setOrdernumber(&quot;133455678&quot;);
         order.setProductid(1234L);
         userOrderService.saveUserOrder(user, order);
     }
-}</p>
-
-<pre><code>
-# 10、 ShardingJdbc的总结
-
-## 基础规范
-
-- 表必须有主键，建议使用整型作为主键
-- 禁止使用外键，表之间的关联性和完整性通过应用层来控制
-- 表在设计之初，应该考虑到大致的数据级，若表记录小于1000W，尽量使用单表，不建议分表。
-- 建议将大字段，访问频率低，或者不需要作为筛选条件的字段拆分到拓展表中，（做好表垂直拆分）
-- 控制单实例表的总数，单个表分表数控制在1024以内。
-
-## 列设计规范
-
-- 正确区分tinyint、int、bigint的范围
-- 使用varchar(20)存储手机号，不要使用整数
-- 使用int存储ipv4 不要使用char(15)
-- 涉及金额使用decimal/varchar，并制定精度
-- 不要设计为null的字段，而是用空字符，因为null需要更多的空间，并且使得索引和统计变得更复杂。
-
-## 索引规范
-
-- 唯一索引使用uniq_[字段名]来命名
-- 非唯一索引使用idx_[字段名]来命名
-- 不建议在频繁更新的字段上建立索引
-- 非必要不要进行JOIN,如果要进行join查询，被join的字段必须类型相同，并建立索引。
-- 单张表的索引数量建议控制在5个以内，索引过多，不仅会导致插入更新性能下降，还可能导致MYSQL的索引出错和性能下降
-- 组合索引字段数量不建议超过5个，理解组合索引的最左匹配原则，避免重复建设索引。比如你建立了
-    (x,y,z) 相当于你建立了(x),(x,y),(x,y,z)
-
-## SQL规范
-
-- 禁止使用selet *，只获取必要字段，select* 会增加cpu/i0/内存、带宽的消耗。
-- insert 必须指定字段，禁止使用insert into Table values().指定字段插入，在表结果变更时，能保证对应应用程序无影响。
-- 隐私类型转换会使索引失效，导致全表扫描。（比如：手机号码搜索时未转换成字符串）
-- 禁止在where后面查询列使用内置函数或者表达式，导致不能命中索引，导致全表扫描
-- 禁止负向查询（!=,not like ,no in等）以及%开头的模糊查询，造成不能命中索引，导致全表扫描
-- 避免直接返回大结果集造成内存溢出，可采用分段和游标方式。
-- 返回结果集时尽量使用limit分页显示。
-- 尽量在order by/group by的列上创建索引。
-- 大表扫描尽量放在镜像库上去做
-- 禁止大表join查询和子查询
-- 尽量避免数据库内置函数作为查询条件
-- 应用程序尽量捕获SQL异常
-
-## 表的垂直拆分
-
-垂直拆分：业务模块拆分、商品库，用户库，订单库
-水平拆分：对表进行水平拆分（也就是我们说的：分表）
-表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）
-
-- 将一个属性过多的表，一行数据较大的表，将不同的属性分割到不同的数据库表中。以降低单库表的大小。
-    特点：
-- 每个表的结构不一致
-- 每个表的数量都是全量
-- 表和表之间一定会有一列会进行关联，一般都是主键
-
-原则：
-
-- 将长度较短，访问频率较高的字段放在一个表中，主表
-- 将长度较长、访问频率比较低的字段放一个表中
-- 将经常访问字段放一个表中。
-- 所有表的并集是全量数据。
-
-## 如何平滑添加字段
-
-场景：在开发时，有时需要给表加字段，在大数据量且分表的情况下，怎么样平滑添加。
-1：直接alter table add column,数据量大时不建议，（会产生写锁）
-
+}
 </code></pre>
 
-<p>sql
-alter table ksd_user add column api_pay_no varchar(32) not null  comment &lsquo;用户扩展订单号&rsquo;
-alter table ksd_user add column api_pay_no varchar(32) not null unique comment &lsquo;用户扩展订单号&rsquo;</p>
+<h1 id="10-shardingjdbc的总结">10、 ShardingJdbc的总结</h1>
 
-<pre><code>
-2：提前预留字段（不优雅：造成空间浪费，预留多少很难控制，拓展性差）
+<h2 id="基础规范">基础规范</h2>
+
+<ul>
+<li>表必须有主键，建议使用整型作为主键</li>
+<li>禁止使用外键，表之间的关联性和完整性通过应用层来控制</li>
+<li>表在设计之初，应该考虑到大致的数据级，若表记录小于1000W，尽量使用单表，不建议分表。</li>
+<li>建议将大字段，访问频率低，或者不需要作为筛选条件的字段拆分到拓展表中，（做好表垂直拆分）</li>
+<li>控制单实例表的总数，单个表分表数控制在1024以内。</li>
+</ul>
+
+<h2 id="列设计规范">列设计规范</h2>
+
+<ul>
+<li>正确区分tinyint、int、bigint的范围</li>
+<li>使用varchar(20)存储手机号，不要使用整数</li>
+<li>使用int存储ipv4 不要使用char(15)</li>
+<li>涉及金额使用decimal/varchar，并制定精度</li>
+<li>不要设计为null的字段，而是用空字符，因为null需要更多的空间，并且使得索引和统计变得更复杂。</li>
+</ul>
+
+<h2 id="索引规范">索引规范</h2>
+
+<ul>
+<li>唯一索引使用uniq_[字段名]来命名</li>
+<li>非唯一索引使用idx_[字段名]来命名</li>
+<li>不建议在频繁更新的字段上建立索引</li>
+<li>非必要不要进行JOIN,如果要进行join查询，被join的字段必须类型相同，并建立索引。</li>
+<li>单张表的索引数量建议控制在5个以内，索引过多，不仅会导致插入更新性能下降，还可能导致MYSQL的索引出错和性能下降</li>
+<li>组合索引字段数量不建议超过5个，理解组合索引的最左匹配原则，避免重复建设索引。比如你建立了
+(x,y,z) 相当于你建立了(x),(x,y),(x,y,z)</li>
+</ul>
+
+<h2 id="sql规范">SQL规范</h2>
+
+<ul>
+<li>禁止使用selet <em>，只获取必要字段，select</em> 会增加cpu/i0/内存、带宽的消耗。</li>
+<li>insert 必须指定字段，禁止使用insert into Table values().指定字段插入，在表结果变更时，能保证对应应用程序无影响。</li>
+<li>隐私类型转换会使索引失效，导致全表扫描。（比如：手机号码搜索时未转换成字符串）</li>
+<li>禁止在where后面查询列使用内置函数或者表达式，导致不能命中索引，导致全表扫描</li>
+<li>禁止负向查询（!=,not like ,no in等）以及%开头的模糊查询，造成不能命中索引，导致全表扫描</li>
+<li>避免直接返回大结果集造成内存溢出，可采用分段和游标方式。</li>
+<li>返回结果集时尽量使用limit分页显示。</li>
+<li>尽量在order by/group by的列上创建索引。</li>
+<li>大表扫描尽量放在镜像库上去做</li>
+<li>禁止大表join查询和子查询</li>
+<li>尽量避免数据库内置函数作为查询条件</li>
+<li>应用程序尽量捕获SQL异常</li>
+</ul>
+
+<h2 id="表的垂直拆分">表的垂直拆分</h2>
+
+<p>垂直拆分：业务模块拆分、商品库，用户库，订单库
+水平拆分：对表进行水平拆分（也就是我们说的：分表）
+表进行垂直拆分：表的字段过多，字段使用的频率不一。（可以拆分两个表建立1:1关系）</p>
+
+<ul>
+<li>将一个属性过多的表，一行数据较大的表，将不同的属性分割到不同的数据库表中。以降低单库表的大小。
+特点：</li>
+<li>每个表的结构不一致</li>
+<li>每个表的数量都是全量</li>
+<li>表和表之间一定会有一列会进行关联，一般都是主键</li>
+</ul>
+
+<p>原则：</p>
+
+<ul>
+<li>将长度较短，访问频率较高的字段放在一个表中，主表</li>
+<li>将长度较长、访问频率比较低的字段放一个表中</li>
+<li>将经常访问字段放一个表中。</li>
+<li>所有表的并集是全量数据。</li>
+</ul>
+
+<h2 id="如何平滑添加字段">如何平滑添加字段</h2>
+
+<p>场景：在开发时，有时需要给表加字段，在大数据量且分表的情况下，怎么样平滑添加。
+1：直接alter table add column,数据量大时不建议，（会产生写锁）</p>
+
+<pre><code class="language-sql">alter table ksd_user add column api_pay_no varchar(32) not null  comment '用户扩展订单号'
+alter table ksd_user add column api_pay_no varchar(32) not null unique comment '用户扩展订单号'
+</code></pre>
+
+<p>2：提前预留字段（不优雅：造成空间浪费，预留多少很难控制，拓展性差）
 3：新增一张表，（增加字段），迁移原表数据，在重新命名新表作为原表。
 4：放入extinfo（无法使用索引）
-5:提前设计，使用key/value方法存储，新增字段时 ，直接加一个key就好了（优雅）
+5:提前设计，使用key/value方法存储，新增字段时 ，直接加一个key就好了（优雅）</p>
 
-# 11、 Springboot整合ShardingJdbc3.0和案例分析
+<h1 id="11-springboot整合shardingjdbc3-0和案例分析">11、 Springboot整合ShardingJdbc3.0和案例分析</h1>
 
-**目标**
+<p><strong>目标</strong></p>
 
-使用Sharding-JDBC 分库分表,掌握什么是Sharding-JDBC.
+<p>使用Sharding-JDBC 分库分表,掌握什么是Sharding-JDBC.</p>
 
-**分析**
+<p><strong>分析</strong></p>
 
-**什么是Sharding-JDBC**
+<p><strong>什么是Sharding-JDBC</strong></p>
 
-Sharding-JDBC提供标准化的数据分片、分布式事务和数据库治理功能，定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。适用于任何基于Java的ORM框架，如：JPA, Hibernate, Mybatis, Spring JDBC Template或直接使用JDBC。
+<p>Sharding-JDBC提供标准化的数据分片、分布式事务和数据库治理功能，定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。适用于任何基于Java的ORM框架，如：JPA, Hibernate, Mybatis, Spring JDBC Template或直接使用JDBC。
 基于任何第三方的数据库连接池，如：DBCP, C3P0, BoneCP, Druid, HikariCP等。
-支持任意实现JDBC规范的数据库。目前支持MySQL，Oracle，SQLServer和PostgreSQL。
+支持任意实现JDBC规范的数据库。目前支持MySQL，Oracle，SQLServer和PostgreSQL。</p>
 
-**2. 为什么要分片？**
+<p><strong>2. 为什么要分片？</strong></p>
 
-- 传统的将数据集中存储至单一数据节点的解决方案，在性能、可用性和运维成本这三方面已经难于满足互联网的海量数据场景。
-- 从性能方面来说，由于关系型数据库大多采用B+树类型的索引，在数据量超过阈值的情况下，索引深度的增加也将使得磁盘访问的IO次数增加，进而导致查询性能的下降；同时，高并发访问请求也使得集中式数据库成为系统的最大瓶颈。
-- 从可用性的方面来讲，服务化的无状态型，能够达到较小成本的随意扩容，这必然导致系统的最终压力都落在数据库之上。而单一的数据节点，或者简单的主从架构，已经越来越难以承担。数据库的可用性，已成为整个系统的关键。
-- 从运维成本方面考虑，当一个数据库实例中的数据达到阈值以上，对于DBA的运维压力就会增大。数据备份和恢复的时间成本都将随着数据量的大小而愈发不可控。一般来讲，单一数据库实例的数据的阈值在1TB之内，是比较合理的范围。
-- 在传统的关系型数据库无法满足互联网场景需要的情况下，将数据存储至原生支持分布式的NoSQL的尝试越来越多。 但NoSQL对SQL的不兼容性以及生态圈的不完善，使得它们在与关系型数据库的博弈中始终无法完成致命一击，而关系型数据库的地位却依然不可撼动。
-- 据分片指按照某个维度将存放在单一数据库中的数据分散地存放至多个数据库或表中以达到提升性能瓶颈以及可用性的效果。 数据分片的有效手段是对关系型数据库进行分库和分表。分库和分表均可以有效的避免由数据量超过可承受阈值而产生的查询瓶颈。 除此之外，分库还能够用于有效的分散对数据库单点的访问量；分表虽然无法缓解数据库压力，但却能够提供尽量将分布式事务转化为本地事务的可能，一旦涉及到跨库的更新操作，分布式事务往往会使问题变得复杂。 使用多主多从的分片方式，可以有效的避免数据单点，从而提升数据架构的可用性。
-- 通过分库和分表进行数据的拆分来使得各个表的数据量保持在阈值以下，以及对流量进行疏导应对高访问量，是应对高并发和海量数据系统的有效手段。
+<ul>
+<li>传统的将数据集中存储至单一数据节点的解决方案，在性能、可用性和运维成本这三方面已经难于满足互联网的海量数据场景。</li>
+<li>从性能方面来说，由于关系型数据库大多采用B+树类型的索引，在数据量超过阈值的情况下，索引深度的增加也将使得磁盘访问的IO次数增加，进而导致查询性能的下降；同时，高并发访问请求也使得集中式数据库成为系统的最大瓶颈。</li>
+<li>从可用性的方面来讲，服务化的无状态型，能够达到较小成本的随意扩容，这必然导致系统的最终压力都落在数据库之上。而单一的数据节点，或者简单的主从架构，已经越来越难以承担。数据库的可用性，已成为整个系统的关键。</li>
+<li>从运维成本方面考虑，当一个数据库实例中的数据达到阈值以上，对于DBA的运维压力就会增大。数据备份和恢复的时间成本都将随着数据量的大小而愈发不可控。一般来讲，单一数据库实例的数据的阈值在1TB之内，是比较合理的范围。</li>
+<li>在传统的关系型数据库无法满足互联网场景需要的情况下，将数据存储至原生支持分布式的NoSQL的尝试越来越多。 但NoSQL对SQL的不兼容性以及生态圈的不完善，使得它们在与关系型数据库的博弈中始终无法完成致命一击，而关系型数据库的地位却依然不可撼动。</li>
+<li>据分片指按照某个维度将存放在单一数据库中的数据分散地存放至多个数据库或表中以达到提升性能瓶颈以及可用性的效果。 数据分片的有效手段是对关系型数据库进行分库和分表。分库和分表均可以有效的避免由数据量超过可承受阈值而产生的查询瓶颈。 除此之外，分库还能够用于有效的分散对数据库单点的访问量；分表虽然无法缓解数据库压力，但却能够提供尽量将分布式事务转化为本地事务的可能，一旦涉及到跨库的更新操作，分布式事务往往会使问题变得复杂。 使用多主多从的分片方式，可以有效的避免数据单点，从而提升数据架构的可用性。</li>
+<li>通过分库和分表进行数据的拆分来使得各个表的数据量保持在阈值以下，以及对流量进行疏导应对高访问量，是应对高并发和海量数据系统的有效手段。</li>
+</ul>
 
-**3. 分片的方式**
+<p><strong>3. 分片的方式</strong></p>
 
-数据分片的拆分方式又分为垂直分片和水平分片。
+<p>数据分片的拆分方式又分为垂直分片和水平分片。</p>
 
-**垂直拆分**是把不同的表拆到不同的数据库中，‘而**水平拆分**是把同一个表拆到不同的数据库中（或者是把一张表数据拆分成n多个小表）。相对于垂直拆分，水平拆分==不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库中==，==每个表中包含一部分数据==。简单来说，我们可以将数据的水平切分理解为是**==按照数据行的切分==**，就是将表中的某些行切分到一个数据库，而另外某些行又切分到其他的数据库中，主要有分表，分库两种模式 该方式提高了系统的稳定性跟负载能力，但是跨库join性能较差。
+<p><strong>垂直拆分</strong>是把不同的表拆到不同的数据库中，‘而<strong>水平拆分</strong>是把同一个表拆到不同的数据库中（或者是把一张表数据拆分成n多个小表）。相对于垂直拆分，水平拆分==不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库中==，==每个表中包含一部分数据==。简单来说，我们可以将数据的水平切分理解为是<strong>==按照数据行的切分==</strong>，就是将表中的某些行切分到一个数据库，而另外某些行又切分到其他的数据库中，主要有分表，分库两种模式 该方式提高了系统的稳定性跟负载能力，但是跨库join性能较差。</p>
 
-**4：Sharding-JDBC的核心/工原理**
+<p><strong>4：Sharding-JDBC的核心/工原理</strong></p>
 
-Sharding-JDBC数据分片主要流程是由SQL解析 **→**执行器优化 **→** SQL路由 **→**SQL改写 **→**SQL执行 **→**结果归并的流程组成。
+<p>Sharding-JDBC数据分片主要流程是由SQL解析 <strong>→</strong>执行器优化 <strong>→</strong> SQL路由 <strong>→</strong>SQL改写 <strong>→</strong>SQL执行 <strong>→</strong>结果归并的流程组成。</p>
 
-**SQL解析**
-分为词法解析和语法解析。 先通过词法解析器将SQL拆分为一个个不可再分的单词。再使用语法解析器对SQL进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。
+<p><strong>SQL解析</strong>
+分为词法解析和语法解析。 先通过词法解析器将SQL拆分为一个个不可再分的单词。再使用语法解析器对SQL进行理解，并最终提炼出解析上下文。 解析上下文包括表、选择项、排序项、分组项、聚合函数、分页信息、查询条件以及可能需要修改的占位符的标记。</p>
 
-SQL解析分为两步， 第一步为 词法解析， 词法解析的意思是就是将SQL进行拆分。
+<p>SQL解析分为两步， 第一步为 词法解析， 词法解析的意思是就是将SQL进行拆分。
 例：
-select *from t_user where id = 1
+select <em>from t_user where id = 1
 词法解析：
-[select] [*] [from] [t_user] [where] [id=1]
-第二步语法解析,语法解析器将SQL转换为抽象语法树。
+[select] [</em>] [from] [t_user] [where] [id=1]
+第二步语法解析,语法解析器将SQL转换为抽象语法树。</p>
 
-![img](/resources/技术收录/中间件/ShardingShpere/webp.webp)
+<p><img src="/resources/技术收录/中间件/ShardingShpere/webp.webp" alt="img" /></p>
 
-**执行器优化**
-合并和优化分片条件，如OR等。
+<p><strong>执行器优化</strong>
+合并和优化分片条件，如OR等。</p>
 
-**SQL路由**
-根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。
+<p><strong>SQL路由</strong>
+根据解析上下文匹配用户配置的分片策略，并生成路由路径。目前支持分片路由和广播路由。</p>
 
-举例说明，如果按照order_id的奇数和偶数进行数据分片，一个单表查询的SQL如下：
-SELECT *FROM t_order WHERE order_id IN (1, 2);
+<p>举例说明，如果按照order_id的奇数和偶数进行数据分片，一个单表查询的SQL如下：
+SELECT <em>FROM t_order WHERE order_id IN (1, 2);
 那么路由的结果应为：
-SELECT* FROM t_order_0 WHERE order_id IN (1, 2);
-SELECT * FROM t_order_1 WHERE order_id IN (1, 2);
+SELECT</em> FROM t_order_0 WHERE order_id IN (1, 2);
+SELECT * FROM t_order_1 WHERE order_id IN (1, 2);</p>
 
-**SQL改写**
-将SQL改写为在真实数据库中可以正确执行的语句，SQL改写分为正确性改写和优化改写。
+<p><strong>SQL改写</strong>
+将SQL改写为在真实数据库中可以正确执行的语句，SQL改写分为正确性改写和优化改写。</p>
 
+<pre><code> 从一个最简单的例子开始，若逻辑SQL为： SELECT order_id FROM t_order WHERE order_id=1; 假设该SQL配置分片键order_id，并且order_id=1的情况，将路由至分片表1。那么改写之后的SQL应该为： SELECT order_id FROM t_order_1 WHERE order_id=1;
 </code></pre>
 
-<p>从一个最简单的例子开始，若逻辑SQL为： SELECT order_id FROM t_order WHERE order_id=1; 假设该SQL配置分片键order_id，并且order_id=1的情况，将路由至分片表1。那么改写之后的SQL应该为： SELECT order_id FROM t_order_1 WHERE order_id=1;</p>
-
-<pre><code>
-**SQL执行**
+<p><strong>SQL执行</strong>
 通过多线程执行器异步执行。
 结果归并
-将多个执行结果集归并以便于通过统一的JDBC接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。
+将多个执行结果集归并以便于通过统一的JDBC接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。</p>
 
-### 15：SharedingJdbc完成数据的读写分离
+<h3 id="15-sharedingjdbc完成数据的读写分离">15：SharedingJdbc完成数据的读写分离</h3>
 
-**目标**
+<p><strong>目标</strong></p>
 
-使用sharedingjdbc完成数据库的分库分表业务
+<p>使用sharedingjdbc完成数据库的分库分表业务</p>
 
-**步骤**
+<p><strong>步骤</strong></p>
 
-**1：新建一个springboot工程**
+<p><strong>1：新建一个springboot工程</strong></p>
 
-**2：创建两个数据库order1，order2，分别创建t_address表如下：**
+<p><strong>2：创建两个数据库order1，order2，分别创建t_address表如下：</strong></p>
 
+<pre><code class="language-shell">DROP TABLE IF EXISTS `t_address`;
+CREATE TABLE `t_address` (
+  `id` bigint(20) NOT NULL,
+  `code` varchar(64) DEFAULT NULL COMMENT '编码',
+  `name` varchar(64) DEFAULT NULL COMMENT '名称',
+  `pid` varchar(64) NOT NULL DEFAULT '0' COMMENT '父id',
+  `type` int(11) DEFAULT NULL COMMENT '1国家2省3市4县区',
+  `lit` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 </code></pre>
 
-<p>shell
-DROP TABLE IF EXISTS <code>t_address</code>;
-CREATE TABLE <code>t_address</code> (
-  <code>id</code> bigint(20) NOT NULL,
-  <code>code</code> varchar(64) DEFAULT NULL COMMENT &lsquo;编码&rsquo;,
-  <code>name</code> varchar(64) DEFAULT NULL COMMENT &lsquo;名称&rsquo;,
-  <code>pid</code> varchar(64) NOT NULL DEFAULT &lsquo;0&rsquo; COMMENT &lsquo;父id&rsquo;,
-  <code>type</code> int(11) DEFAULT NULL COMMENT &lsquo;1国家2省3市4县区&rsquo;,
-  <code>lit</code> int(11) DEFAULT NULL,
-  PRIMARY KEY (<code>id</code>)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p><strong>3： 开始整合SpringBoot，</strong>这种方式比较简单只要加入sharding-jdbc-spring-boot-starter依赖，在application.yml中配置数据源，分片策略即可使用，这种方式简单，方便。pom.xml</p>
 
-<pre><code>
-**3： 开始整合SpringBoot，**这种方式比较简单只要加入sharding-jdbc-spring-boot-starter依赖，在application.yml中配置数据源，分片策略即可使用，这种方式简单，方便。pom.xml
-
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-jdbc-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-jdbc-spring-namespace&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
 </code></pre>
 
-<p>xml
-<dependency>
-    <groupId>io.shardingsphere</groupId>
-    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-    <version>3.0.0</version>
-</dependency>
-<dependency>
-    <groupId>io.shardingsphere</groupId>
-    <artifactId>sharding-jdbc-spring-namespace</artifactId>
-    <version>3.0.0</version>
-</dependency></p>
+<p>appplication.yml</p>
 
-<pre><code>
-appplication.yml
-
-</code></pre>
-
-<p>yml
-mybatis:
+<pre><code class="language-yml">mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
 spring:
   main:
-    allow-bean-definition-overriding: true</p>
-
-<h1 id="shardingjdbc分库分表">shardingjdbc分库分表</h1>
-
-<p>sharding:
+    allow-bean-definition-overriding: true
+# shardingjdbc分库分表
+sharding:
   jdbc:
     datasource:
       names: ds0,ds1
@@ -2331,15 +2385,12 @@ spring:
             database-strategy:
               inline:
                 shardingColumn: lit
-                algorithm-expression: ds${lit % 2}</p>
-
-<pre><code>
-**4：编写Vo**
-
+                algorithm-expression: ds${lit % 2}
 </code></pre>
 
-<p>java
-package com.itheima.springbootshardingpro.vo;
+<p><strong>4：编写Vo</strong></p>
+
+<pre><code class="language-java">package com.itheima.springbootshardingpro.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -2355,15 +2406,12 @@ public class AddressVo {
     private String pid;
     private Integer type;
     private Integer lit;
-}</p>
-
-<pre><code>
-**5：编写Dao**
-
+}
 </code></pre>
 
-<p>java
-package com.itheima.springbootshardingpro.dao;
+<p><strong>5：编写Dao</strong></p>
+
+<pre><code class="language-java">package com.itheima.springbootshardingpro.dao;
 import com.itheima.springbootshardingpro.vo.AddressVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -2373,19 +2421,16 @@ import java.util.List;
 @Mapper
 public interface IndexDao {
     @Options(useGeneratedKeys = true)
-    @Insert(&ldquo;insert into t_address (code,name,pid,type,lit)values(#{code},#{name},#{pid},#{type},#{lit})&ldquo;)
+    @Insert(&quot;insert into t_address (code,name,pid,type,lit)values(#{code},#{name},#{pid},#{type},#{lit})&quot;)
     int insertAddress(AddressVo addressVo);
-    @Select(&ldquo;select * from t_address order by lit&rdquo;)
-    List<AddressVo> listAddress();
-}</p>
-
-<pre><code>
-**6： 编写controller**
-
+    @Select(&quot;select * from t_address order by lit&quot;)
+    List&lt;AddressVo&gt; listAddress();
+}
 </code></pre>
 
-<p>java
-package com.itheima.springbootshardingpro.web;
+<p><strong>6： 编写controller</strong></p>
+
+<pre><code class="language-java">package com.itheima.springbootshardingpro.web;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.itheima.springbootshardingpro.dao.IndexDao;
@@ -2400,21 +2445,21 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private IndexDao indexDao;
-    @PostMapping(&ldquo;/addAddress&rdquo;)
+    @PostMapping(&quot;/addAddress&quot;)
     public int addAddress(AddressVo addressVo){
         int row = indexDao.insertAddress(addressVo);
         return row;
     }
-    @GetMapping(&ldquo;/listAddress&rdquo;)
-    public PageInfo<AddressVo> listAddress(@RequestParam(required=false,defaultValue=&ldquo;1&rdquo;)Integer pageNum,
-                                @RequestParam(required=false,defaultValue=&ldquo;5&rdquo;)Integer pageSize){
+    @GetMapping(&quot;/listAddress&quot;)
+    public PageInfo&lt;AddressVo&gt; listAddress(@RequestParam(required=false,defaultValue=&quot;1&quot;)Integer pageNum,
+                                @RequestParam(required=false,defaultValue=&quot;5&quot;)Integer pageSize){
         PageHelper.startPage(pageNum,pageSize);
-        List<AddressVo> list =  indexDao.listAddress();
-        PageInfo<AddressVo> info = new PageInfo&lt;&gt;(list);
+        List&lt;AddressVo&gt; list =  indexDao.listAddress();
+        PageInfo&lt;AddressVo&gt; info = new PageInfo&lt;&gt;(list);
         return info;
     }
 }
-```</p>
+</code></pre>
 
 <p>此时，启动项目，用postman访问插入接口：</p>
 
