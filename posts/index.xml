@@ -5,10 +5,28 @@
     <link>https://mumulx.github.io/posts/</link>
     <description>Recent content in Posts on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java知识点Java17</title>
+      <link>https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/</guid>
+      <description>在并发量比较高的系统，在部署的时候，它的RT会突然升高一下，就会有类似这种FullGC卡顿的现象。但是在这之后，它的RT会变得比原先更小，这</description>
+    </item>
+    
+    <item>
+      <title>shiro学习笔记</title>
+      <link>https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>课程知识点 1、权限系统的整体概念 2、shiro权限框架的核心组件 3、springboot下shiro的使用 4、shiro认证鉴权的缓存机制 5</description>
+    </item>
     
     <item>
       <title>ShardingShpere笔记</title>

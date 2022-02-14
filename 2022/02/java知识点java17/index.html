@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java知识点Java17 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Java知识点Java17" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Java知识点Java17 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Java知识点Java17" />
+<meta property="og:description" content="Java知识点Java17" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" />
+<meta property="article:published_time" content="2022-02-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-14T00:00:00+00:00" />
+
+<meta itemprop="name" content="Java知识点Java17">
+<meta itemprop="description" content="Java知识点Java17">
+
+
+<meta itemprop="datePublished" content="2022-02-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2628">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java知识点Java17"/>
+<meta name="twitter:description" content="Java知识点Java17"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">34</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="title">Java知识点Java17</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/" class="title">ShardingShpere笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-01-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-01-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/kafka/" class="title">Kafka学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/" class="title">Spring Cloud Alibaba自学笔记02</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active">
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/"
+    >Java知识点Java17</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="article-date">
+  <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2628字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <p>在并发量比较高的系统，在部署的时候，它的RT会突然升高一下，就会有类似这种FullGC卡顿的现象。但是在这之后，它的RT会变得比原先更小，这就是我们这一期来讲的Java即时编译JIT(just in time)技术。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214194615526.png" alt="image-20220214194615526" /></p>
+
+<p>在整个Java应用，在启动的过程当中包含很多的步骤，包括vm的一个初始化，应用的一个初始化，包括类加载，还有一些即时编译，还有他的一个稳定期，最后再到他的一个关闭。我们平时学习Java，可能更多只是main函数启动，然后类加载，可能了解一下。很多一些底层的知识其实并没有涉及到。为什么是SpringBoot3.0他是强依赖这个JDK17的啊？</p>
+
+<p>先问一个问题，Java是编译性语言还是解释性语言，其实他是半编译半解释的。Java是一门跨平台的语言，他的跨平台主要就是基于它的Java虚拟机。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214194918392.png" alt="image-20220214194918392" /></p>
+
+<p>它是屏蔽了底层硬件的一些细节，就因为有这个中间层，所以能够达到一个跨平台执行的一个效果。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214195200644.png" alt="image-20220214195200644" /></p>
+
+<p>Java其实是分两个步骤，第一个过程就是把你的Java源代码变译成字节码，然后再解释性的执行。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214195328748.png" alt="image-20220214195328748" /></p>
+
+<p>在JVM层面，其实在字节码这一层，其实还是跨平台的设计，这样两个步骤主要就是为了满足这个跨平台的特性。</p>
+
+<p>但是在很多时候，我们一旦确定了平台之后，我们部署了之后，更多强调的是它的性能，那解释执行的性能肯定是比不上本地代码的。因为你去做很多系统性的优化，包括你的连接，动态编译，甚至跟操作系统底层的一些强绑定。本地化成机器码，这样你的执行效率才是最高的。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214195501697.png" alt="image-20220214195501697" /></p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214195552012.png" alt="image-20220214195552012" />这就是JIT技术的一个由来，其实在jdk1.3的时候，都已经引入了这种即时编译的技术，它主要是有两个编译器。</p>
+
+<p>就是c1跟c2。c1就是client，然后c2的话就是server。从字面意思大家也能感觉到这两个侧重点是不一样。clinet编译器他主要强调启动速度比较快，他不会对你的代码做过分的一些优化。那c2就是server端的这个编译器，他就会去给你的代码做大量的优化，跟你的机器做强绑定，这样的话你的代码通过这种编译就能够达到最好的一个执行的性能。JDK自己也有两种运行模式，Client模式跟Server模式，这两个也是有这种差异的。</p>
+
+<p>为什么不在启动的时候都把它编译好，编译成成最底层的代码效率最高，因为我们在线上执行的代码也是满足28定律的。就是20%的代码执行80%的请求，所以说如果你去全部编译，占用了这个内存，还有启动的时间都会大大的增加。所以这个其实是得不偿失的，现阶段主要采用的是JDK8，主要还是采用动态编译的这种技术。</p>
+
+<p>它触发c1跟c2主要是根据它的一个执行次数，还有它的一些其他的一些算法去捕捉你的热点代码。主要是通过这两个阈值去触发它的一个编译，但是这样就会有我们最开始提到那个问题。他可能会卡顿，所以当时为了去解决这种卡顿的问题，甚至想过用流量重放的方式。去在应用注册到服务中心的时候，去先给它做一个预热，当时只是有这样一个构想，并没有实际去实践。当时主要遇到了一些问题是你的流量怎么去重放，然后你的外部的io怎么去熔断，然后你怎么去确定你有没有触发这两个即时编译。所以我们大部分的系统其实并没有去专门针对这个事情去做很多优化，但是我觉得如果真的是这种c端的大流量的这种高并发的系统，这是值得去做的一件事情。</p>
+
+<p>不过最近JDK的一些新版本发版了之后对这一块有一些优化，这就是接下来讲的GraalVM编译器，刚才也讲到c2编译器，它虽然对性能是一种极限的优化。甚至说它可以超越c++的一个性能，但是它这种优化很多时候是不可控的，甚至可能会导致你的虚拟机崩溃，再加上这两个编译器，它早期跟jvm的耦合性是比较强的。所以说这几年一直没有大的突破。那么Graal编译器，就是为了去解决这个事情的，它也是甲骨文牵头去做的，它主要就是从这种动态编译转化成静态编译，就是你在应用还没有启动，还没有部署之前帮你把很多东西给编译做好了。跟你的机器环境去做强绑定了，甚至说你编译好了这个代码之后，你JVM都不需要了。</p>
+
+<p>当然，他还是遵循整个jvm的一些规范的，所以说你是JVM体系这种语言，他还是能保留多语言 ，跨平台这些特性，</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214200405854.png" alt="image-20220214200405854" /></p>
+
+<p>而且它的编译是可控的，它不会造成你虚拟机的一个崩溃。并且他的实现跟vm本身其实是一个解耦的，所以说他两个是可以单独去进行迭代的。这种静态编译了之后，它JVM占的内存也减少了，因为它甚至不需要JVM虚拟机了。然后也解决掉了像我们最开始提到了那个卡顿的问题，因为它根本就不需要动态编译了，就从根本上解决了预热的这个问题。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214200549247.png" alt="image-20220214200549247" /></p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214200601930.png" alt="image-20220214200601930" /></p>
+
+<p>它的代码执行从你部署完应用启动了之后就非常的稳定，至于他的一个工作原理，其实还设计了一个很好的数据结构，图形的数据结构。大家感兴趣的话也可以去了解一下，这里就不展开讲了。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214200840454.png" alt="image-20220214200840454" /></p>
+
+<p>所以最新的Spring6,SpringBoot3.0他们设计的初衷就是为了Java整个生态系统，下一步的一个云原生的一个发展趋势，所以它采用了这种native AOT的技术。</p>
+
+<p><img src="/resources/技术收录/Java/Java知识点/image-20220214201010842.png" alt="image-20220214201010842" /></p>
+
+<p>它就是依赖Graal这种编译器。我们再回答另外一个问题啊，就是Spring6,SpringBoot3他为什么必须要求JDK17.其实在JDK8之后,11是一个长期维护的版本。11之后就是17但是在官网看来给8的维护的时间其实比11要长，所以11它并不是严格的一个长期支持版本。Spring他做这样的一个选择其实也冒了一定的风险的，作为框架的开发者，他是希望引领整个潮流。 把整个生态朝更好的方向去发展，但是由于历史的一些原因，比如说兼容性啊。</p>
+
+<p>Log4j的作者，他就是因为一些兼容性的代码考虑到以前的兼容性，导致了去年那个比较重大的bug。他自己也不喜欢这个特性，但是由于一些历史原因，兼容性的原因，他没办法，他改不动，所以很多人觉得Java语言很臃肿，这也是其中的一个重要原因。像Spring他本身就是为了追求这种轻量化的，所以他敢去做这种尝试啊，但是大家也不用过于担心，Spring2.7之后他可能就不一定会出新版本了，但是2.7之前这个时间他跟SpringBoot3.0的开发是处于一个并行的一个时间， 他可能会并行的去开发，有几年的时间周期。让我们去慢慢的去切换，有一个切换的过程，他会给我们留好缓冲的时间，我也不建议大家盲目的去升级jdk的高版本。我们还是要再观察一下整个Spring它后面的版本的一些新特性是不是真的能够让我们的系统运行的更好，更高效，更稳定或者更省资源，我们到时候经过充分论证，然后再去做这个升级，这才是整个切换的一个最佳实践。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" title="Java知识点Java17" target="_blank" rel="external">https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="shiro学习笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
