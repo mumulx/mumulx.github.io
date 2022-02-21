@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ElasticSearch笔记 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="ElasticSearch笔记" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>ElasticSearch笔记 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="ElasticSearch笔记" />
+<meta property="og:description" content="ElasticSearch笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2022-02-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-19T00:00:00+00:00" />
+
+<meta itemprop="name" content="ElasticSearch笔记">
+<meta itemprop="description" content="ElasticSearch笔记">
+
+
+<meta itemprop="datePublished" content="2022-02-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="14699">
+
+
+
+<meta itemprop="keywords" content="中间件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ElasticSearch笔记"/>
+<meta name="twitter:description" content="ElasticSearch笔记"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">35</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" class="title">ElasticSearch笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="title">Java知识点Java17</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/" class="title">ShardingShpere笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-01-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-01-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2021/05/kafka/" class="title">Kafka学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-14</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#一-elasticsearch概述">一、ElasticSearch概述</a>
+<ul>
+<li>
+<ul>
+<li><a href="#历史">历史</a></li>
+</ul></li>
+<li><a href="#es和solr">ES和Solr</a>
+<ul>
+<li><a href="#elasticsearch简介">ElasticSearch简介</a></li>
+<li><a href="#solr简介">Solr简介</a></li>
+<li><a href="#elasticsearch与solr比较">ElasticSearch与Solr比较</a>
+<ul>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#二-elasticsearch安装">二、ElasticSearch安装</a>
+<ul>
+<li>
+<ul>
+<li><a href="#windows下安装">Windows下安装</a>
+<ul>
+<li><a href="#1-安装">1、安装</a></li>
+<li><a href="#2-熟悉目录">2、熟悉目录</a></li>
+<li><a href="#3-启动">3、启动</a></li>
+</ul></li>
+<li><a href="#安装可视化界面">安装可视化界面</a>
+<ul>
+<li><a href="#1-下载地址">1、下载地址</a></li>
+<li><a href="#2-安装">2、安装</a></li>
+<li><a href="#3-启动-1">3、启动</a></li>
+</ul></li>
+<li><a href="#安装kibana">安装kibana</a>
+<ul>
+<li><a href="#1-下载地址-1">1、下载地址:</a></li>
+<li><a href="#2-安装-1">2、安装</a></li>
+<li><a href="#3-启动-2">3、启动</a></li>
+<li><a href="#4-开发工具">4、开发工具</a></li>
+<li><a href="#5-kibana汉化">5、kibana汉化</a></li>
+</ul></li>
+<li><a href="#了解elk"><strong>了解ELK</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#三-elasticsearch核心概念">三、ElasticSearch核心概念</a>
+<ul>
+<li><a href="#概述">概述</a>
+<ul>
+<li><a href="#物理设计">物理设计:</a></li>
+<li><a href="#逻辑设计">逻辑设计:</a>
+<ul>
+<li><a href="#文档-行">文档（”行“）</a></li>
+<li><a href="#类型-表">类型（“表”）</a></li>
+<li><a href="#索引-库">索引（“库”）</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#四-ik分词器-elasticsearch插件">四、IK分词器(elasticsearch插件)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#1-下载">1、下载</a></li>
+<li><a href="#2-安装-2">2、安装</a></li>
+<li><a href="#3-重启elasticsearch">3、重启ElasticSearch</a></li>
+<li><a href="#4-使用-elasticsearch安装补录-bin-elasticsearch-plugin-可以查看插件">4、使用 <code>ElasticSearch安装补录/bin/elasticsearch-plugin</code> 可以查看插件</a></li>
+<li><a href="#5-使用kibana测试">5、使用kibana测试</a></li>
+<li><a href="#6-添加自定义的词添加到扩展字典中">6、添加自定义的词添加到扩展字典中</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#五-rest风格说明">五、Rest风格说明</a>
+<ul>
+<li>
+<ul>
+<li><a href="#基本rest命令说明"><strong>基本Rest命令说明：</strong></a></li>
+<li><a href="#测试">测试</a>
+<ul>
+<li><a href="#1-创建一个索引-添加">1、创建一个索引，添加</a></li>
+<li><a href="#2-字段数据类型">2、字段数据类型</a></li>
+<li><a href="#3-指定字段的类型-使用put">3、指定字段的类型（使用PUT）</a></li>
+<li><a href="#4-获取3建立的规则">4、获取3建立的规则</a></li>
+<li><a href="#5-获取默认信息">5、获取默认信息</a></li>
+<li><a href="#6-修改">6、修改</a></li>
+<li><a href="#7-删除">7、删除</a></li>
+<li><a href="#8-查询-简单条件">8、查询（简单条件）</a></li>
+<li><a href="#9-复杂查询">9、复杂查询</a>
+<ul>
+<li><a href="#①查询匹配">①查询匹配</a></li>
+<li><a href="#②多条件查询-bool">②多条件查询（bool）</a></li>
+<li><a href="#③匹配数组">③匹配数组</a></li>
+<li><a href="#④精确查询">④精确查询</a></li>
+<li><a href="#⑤text和keyword">⑤text和keyword</a></li>
+<li><a href="#⑥高亮查询">⑥高亮查询</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#六-springboot整合">六、SpringBoot整合</a>
+<ul>
+<li>
+<ul>
+<li><a href="#1-创建工程">1、创建工程</a></li>
+<li><a href="#2-导入依赖">2、导入依赖</a></li>
+<li><a href="#3-创建并编写配置类">3、创建并编写配置类</a></li>
+<li><a href="#4-创建并编写实体类">4、创建并编写实体类</a></li>
+<li><a href="#5-测试">5、测试</a>
+<ul>
+<li><a href="#注入-resthighlevelclient">注入 <code>RestHighLevelClient</code></a></li>
+<li><a href="#索引的操作">索引的操作</a>
+<ul>
+<li><a href="#1-索引的创建">1、索引的创建</a></li>
+<li><a href="#2-索引的获取-并判断其是否存在">2、索引的获取，并判断其是否存在</a></li>
+<li><a href="#3-索引的删除">3、索引的删除</a></li>
+</ul></li>
+<li><a href="#文档的操作">文档的操作</a>
+<ul>
+<li><a href="#1-文档的添加">1、文档的添加</a></li>
+<li><a href="#2-文档信息的获取">2、文档信息的获取</a></li>
+<li><a href="#3-文档的获取-并判断其是否存在">3、文档的获取，并判断其是否存在</a></li>
+<li><a href="#4-文档的更新">4、文档的更新</a></li>
+<li><a href="#5-文档的删除">5、文档的删除</a></li>
+<li><a href="#6-文档的查询">6、文档的查询</a></li>
+<li><a href="#前面的操作都无法批量添加数据">前面的操作都无法批量添加数据</a></li>
+<li><a href="#7-批量添加数据">7、批量添加数据</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#elasticsearch实战">ElasticSearch实战</a>
+<ul>
+<li><a href="#防京东商城搜索-高亮">防京东商城搜索（高亮）</a>
+<ul>
+<li><a href="#1-工程创建-springboot">1、工程创建（springboot）</a></li>
+<li><a href="#2-基本编码">2、基本编码</a>
+<ul>
+<li><a href="#①导入依赖">①导入依赖</a></li>
+<li><a href="#②导入前端素材">②导入前端素材</a></li>
+<li><a href="#③编写-application-preperties-配置文件">③编写 <code>application.preperties</code>配置文件</a></li>
+<li><a href="#④测试controller和view">④测试controller和view</a></li>
+<li><a href="#⑤编写config">⑤编写Config</a></li>
+<li><a href="#⑥编写service">⑥编写service</a></li>
+<li><a href="#⑦编写controller">⑦编写controller</a></li>
+<li><a href="#⑧测试结果">⑧测试结果</a>
+<ul>
+<li><a href="#1-解析数据放入-es-索引中">1、解析数据放入 es 索引中</a></li>
+<li><a href="#2-根据keyword分页查询结果">2、根据keyword分页查询结果</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-爬虫-jsoup">3、爬虫（jsoup）</a>
+<ul>
+<li><a href="#①搜索京东搜索页面-并分析页面">①搜索京东搜索页面，并分析页面</a>
+<ul>
+<li><a href="#页面如下">页面如下</a></li>
+<li><a href="#审查页面元素">审查页面元素</a></li>
+</ul></li>
+<li><a href="#②爬取数据-获取请求返回的页面信息-筛选出可用的">②爬取数据（获取请求返回的页面信息，筛选出可用的）</a>
+<ul>
+<li><a href="#创建htmlparseutil-并简单编写">创建HtmlParseUtil，并简单编写</a></li>
+<li><a href="#创建htmlparseutil-改写">创建HtmlParseUtil、改写</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-搜索高亮">4、搜索高亮</a>
+<ul>
+<li><a href="#①contentservice">①ContentService</a></li>
+<li><a href="#②contentcontroller">②ContentController</a></li>
+<li><a href="#③结果展示">③结果展示</a></li>
+</ul></li>
+<li><a href="#5-前后端分离-简单使用vue">5、前后端分离（简单使用Vue）</a>
+<ul>
+<li><a href="#①下载并引入vue-min-js和axios-js">①下载并引入Vue.min.js和axios.js</a></li>
+<li><a href="#②修改静态页面">②修改静态页面</a>
+<ul>
+<li><a href="#引入js">引入js</a></li>
+<li><a href="#修改后的index-html">修改后的index.html</a></li>
+<li><a href="#测试-1">测试</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#安装包及前端素材">安装包及前端素材</a></li>
+<li><a href="#疑惑">疑惑：</a>
+<ul>
+<li><a href="#1-使用term-精确查询-时-我发现三个问题-问题如下">1、使用term（精确查询）时，我发现三个问题，问题如下：</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/"
+    >ElasticSearch笔记</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2022-02-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-19</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:14699字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:30分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p>在学习ElasticSearch之前，先简单了解一下<strong>Lucene</strong>：</p>
+
+<ul>
+<li><strong>Doug Cutting开发</strong></li>
+<li>是<strong>apache软件基金会</strong>4 jakarta项目组的一个子项目</li>
+<li>是一个<strong>开放源代码</strong>的<strong>全文检索引擎工具包</strong></li>
+<li><strong>不是一个完整的全文检索引擎，而是一个全文检索引擎的架构</strong>，提供了完整的查询引擎和索引引擎，部分<a href="https://baike.baidu.com/item/文本分析/11046544">文本分析</a>引擎（英文与德文两种西方语言）</li>
+<li>当前以及最近几年最受欢迎的<strong>免费Java信息检索程序库</strong>。</li>
+</ul>
+
+<p><strong>Lucene和ElasticSearch的关系：</strong></p>
+
+<ul>
+<li>ElasticSearch是基于Lucene 做了一下封装和增强</li>
+</ul>
+
+<h1 id="一-elasticsearch概述">一、ElasticSearch概述</h1>
+
+<blockquote>
+<p>官网：<a href="https://www.elastic.co/cn/downloads/elasticsearch">https://www.elastic.co/cn/downloads/elasticsearch</a></p>
+</blockquote>
+
+<p><strong>Elaticsearch</strong>，简称为es，es是一个开源的<strong>高扩展</strong>的<strong>分布式全文检索引擎</strong>，它可以近乎<strong>实时的存储</strong>、<strong>检索数据;</strong>本身扩展性很好，可以扩展到上百台服务器，处理PB级别(大数据时代）的数据。es也使用java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的<strong>目的</strong>是<mark>通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性，从而让全文搜索变得简单</mark>。</p>
+
+<p>据国际权威的数据库产品评测机构DB Engines的统计，在2016年1月，ElasticSearch已超过Solr等，成为<strong>排名第一的搜索引擎类应用</strong>。</p>
+
+<blockquote>
+<h3 id="历史">历史</h3>
+</blockquote>
+
+<p>多年前，一个叫做Shay Banon的刚结婚不久的失业开发者，由于妻子要去伦敦学习厨师，他便跟着也去了。在他找工作的过程中，为了给妻子构建一个食谱的搜索引擎，他开始构建一个早期版本的Lucene。</p>
+
+<p>直接基于Lucene工作会比较困难，所以Shay开始抽象Lucene代码以便lava程序员可以在应用中添加搜索功能。他发布了他的第一个开源项目，叫做“Compass”。</p>
+
+<p>后来Shay找到一份工作，这份工作处在高性能和内存数据网格的分布式环境中，因此高性能的、实时的、分布式的搜索引擎也是理所当然需要的。然后他决定重写Compass库使其成为一个独立的服务叫做Elasticsearch。</p>
+
+<p>第一个公开版本出现在2010年2月，在那之后Elasticsearch已经成为Github上最受欢迎的项目之一，代码贡献者超过300人。一家主营Elasticsearch的公司就此成立，他们一边提供商业支持一边开发新功能，不过Elasticsearch将永远开源且对所有人可用。</p>
+
+<p>Shay的妻子依旧等待着她的食谱搜索…..</p>
+
+<p><strong>谁在使用：</strong></p>
+
+<p>1、维基百科,类似百度百科，全文检索,高亮,搜索推荐/2
+2、The Guardian (国外新闻网站) ,类似搜狐新闻,用户行为日志(点击,浏览,收藏,评论) +社交网络数据(对某某新闻的相关看法) ,数据分析,给到每篇新闻文章的作者,让他知道他的文章的公众反馈(好,坏,热门，垃圾,鄙视，崇拜)
+3、Stack Overflow (国外的程序异常讨论论坛) , IT问题,程序的报错,提交上去,有人会跟你讨论和回答,全文检索,搜索相关问题和答案,程序报错了,就会将报错信息粘贴到里面去,搜索有没有对应的答案
+4、GitHub (开源代码管理),搜索 上千亿行代码
+5、电商网站,检索商品
+6、日志数据分析, logstash采集日志, ES进行复杂的数据分析, <strong>ELK技术, elasticsearch+logstash+kibana</strong>
+7、商品价格监控网站,用户设定某商品的价格阈值,当低于该阈值的时候,发送通知消息给用户,比如说订阅牙膏的监控,如果高露洁牙膏的家庭套装低于50块钱,就通知我,我就去买
+8、BI系统,商业智能, Business Intelligence。比如说有个大型商场集团，BI ,分析一下某某区域最近3年的用户消费 金额的趋势以及用户群体的组成构成,产出相关的数张报表, **区,最近3年,每年消费金额呈现100%的增长,而且用户群体85%是高级白领，开-个新商场。ES执行数据分析和挖掘, Kibana进行数据可视化
+9、国内:站内搜索(电商,招聘,门户,等等),IT系统搜索(OA,CRM,ERP,等等),数据分析(ES热门
+的一一个使用场景)</p>
+
+<h2 id="es和solr">ES和Solr</h2>
+
+<h3 id="elasticsearch简介">ElasticSearch简介</h3>
+
+<ul>
+<li>Elasticsearch是一个<strong>实时分布式搜索和分析引擎</strong>。 它让你以前所未有的速度处理大数据成为可能。</li>
+<li>它用于<mark><strong>全文搜索、结构化搜索、分析</strong></mark>以及将这三者混合使用:</li>
+<li><code>维基百科</code>使用Elasticsearch提供<strong>全文搜索</strong>并<strong>高亮关键字</strong>,以及输入<strong>实时搜索</strong>(search-asyou-type)和<strong>搜索纠错</strong>(did-you-mean)等搜索建议功能。</li>
+<li><code>英国卫报</code>使用Elasticsearch结合用户日志和社交网络数据提供给他们的编辑以实时的反馈,以便及时了解公众对新发表的文章的回应。</li>
+<li><code>StackOverflow</code>结合全文搜索与地理位置查询,以及more-like-this功能来找到相关的问题和答案。</li>
+<li><code>Github</code>使用Elasticsearch检索1300亿行的代码。</li>
+<li>但是Elasticsearch不仅用于大型企业，它还让像<code>DataDog</code>以及<code>Klout</code>这样的创业公司将最初的想法变成可扩展的解决方案。</li>
+<li>Elasticsearch可以在你的笔记本上运行,也可以在数以百计的服务器上处理PB级别的数据。</li>
+<li>Elasticsearch是一个基于Apache Lucene&trade;的开源搜索引擎。无论在开源还是专有领域, Lucene可被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库。
+
+<ul>
+<li>但是, <strong>Lucene只是一个库</strong>。 想要使用它,你必须使用Java来作为开发语言并将其直接集成到你的应用中,更糟糕的是, Lucene非常复杂,你需要深入了解检索的相关知识来理解它是如何工作的。</li>
+</ul></li>
+<li>Elasticsearch也使用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能,但是它的<strong>目的</strong>是<mark>通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性,从而让全文搜索变得简单。</mark></li>
+</ul>
+
+<h3 id="solr简介">Solr简介</h3>
+
+<ul>
+<li>Solr是Apache下的一个顶级开源项目,采用Java开发,它是<strong>基于Lucene的全文搜索服务器</strong>。Solr提供了比Lucene更为<strong>丰富的查询语言</strong>,同时实现了<strong>可配置</strong>、<strong>可扩展</strong>，并<strong>对索引、搜索性能进行了优化</strong></li>
+<li>Solr可以<strong>独立运行</strong>,运行在letty. Tomcat等这些Selrvlet容器中 , Solr 索引的实现方法很简单,<mark>用POST方法向Solr服务器发送一个描述Field及其内容的XML文档, Solr根据xml文档<strong>添加、删除、更新</strong>索引</mark>。Solr 搜索只需要发送HTTP GET请求,然后对Solr返回xml、json等格式的查询结果进行解析,组织页面布局。</li>
+<li>Solr不提供构建UI的功能, <strong>Solr提供了一个管理界面,通过管理界面可以查询Solr的配置和运行情况。</strong></li>
+<li>Solr是基于lucene开发企业级搜索服务器,实际上就是封装了lucene.</li>
+<li>Solr是一个独立的企业级搜索应用服务器,它<strong>对外提供类似于Web-service的API接口</strong>。用户可以通过http请求,向搜索引擎服务器提交-定格式的文件,生成索引;也可以通过提出查找请求,并得到返回结果。</li>
+</ul>
+
+<h3 id="elasticsearch与solr比较">ElasticSearch与Solr比较</h3>
+
+<pre><code>当单纯的对已有数据进行搜索时，Solr更快
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124201341.png" alt="img" /></p>
+
+<pre><code>当实时建立索引时，Solr会产生io阻塞，查询性能较差，ElasticSearch具有明显的优势
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124201508.png" alt="img" /></p>
+
+<pre><code>随着数据量的增加，Solr的搜索效率会变得更低，而ElasticSearch却没有明显的变化
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124201629.png" alt="img" /></p>
+
+<pre><code>转变我们的搜索基础设施后从Solr ElasticSearch，我们看见一个即时~ 50x提高搜索性能！
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124201712.png" alt="img" /></p>
+
+<h4 id="总结">总结</h4>
+
+<p>1、<strong>es</strong>基本是<strong>开箱即用</strong>(解压就可以用!) ,非常简单。Solr安装略微复杂一丢丢!
+2、<strong>Solr 利用Zookeeper进行分布式管理</strong>,而<strong>Elasticsearch<mark>自身带有分布式协调管理功能</mark>。</strong>
+3、Solr 支持更多格式的数据,比如JSON、XML、 CSV ,而<strong>Elasticsearch仅支持json文件格式</strong>。
+4、Solr 官方提供的功能更多,而Elasticsearch本身更注重于核心功能，高级功能多有第三方插件提供，例如图形化界面需要kibana友好支撑
+<mark>5、</mark><strong>Solr 查询快,但更新索引时慢(即插入删除慢)</strong> ，用于电商等查询多的应用;</p>
+
+<ul>
+<li><strong>ES建立索引快(即查询慢)</strong> ，即<strong>实时性查询快</strong>，用于facebook新浪等搜索。</li>
+<li>Solr是传统搜索应用的有力解决方案，但Elasticsearch更适用于新兴的实时搜索应用。</li>
+</ul>
+
+<p>6、Solr比较成熟，有一个更大，更成熟的用户、开发和贡献者社区，而Elasticsearch相对开发维护者较少,更新太快,学习使用成本较高。</p>
+
+<h1 id="二-elasticsearch安装">二、ElasticSearch安装</h1>
+
+<pre><code>JDK8，最低要求
+</code></pre>
+
+<p>使用Java开发，必须保证<code>ElasticSearch</code>的版本与Java的核心jar包版本对应！（Java环境保证没错）</p>
+
+<blockquote>
+<p>这里在windows上进行安装</p>
+
+<h3 id="windows下安装">Windows下安装</h3>
+</blockquote>
+
+<h4 id="1-安装">1、安装</h4>
+
+<p>下载地址：<a href="https://www.elastic.co/cn/downloads/">https://www.elastic.co/cn/downloads/</a></p>
+
+<p>历史版本下载：<a href="https://www.elastic.co/cn/downloads/past-releases/">https://www.elastic.co/cn/downloads/past-releases/</a></p>
+
+<p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+
+<h4 id="2-熟悉目录">2、熟悉目录</h4>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124211311.png" alt="img" /></p>
+
+<pre><code>bin 启动文件目录
+config 配置文件目录
+    1og4j2 日志配置文件
+    jvm.options java 虚拟机相关的配置(默认启动占1g内存，内容不够需要自己调整)
+    elasticsearch.ym1 elasticsearch 的配置文件! 默认9200端口!跨域!
+1ib 
+    相关jar包
+modules 功能模块目录
+plugins 插件目录
+    ik分词器
+</code></pre>
+
+<h4 id="3-启动">3、启动</h4>
+
+<blockquote>
+<p>一定要检查自己的java环境是否配置好</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124212858.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124212847.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124212841.png" alt="img" /></p>
+
+<blockquote>
+<h3 id="安装可视化界面">安装可视化界面</h3>
+</blockquote>
+
+<pre><code>elasticsearch-head
+</code></pre>
+
+<p><strong>使用前提</strong>：需要安装nodejs</p>
+
+<h4 id="1-下载地址">1、下载地址</h4>
+
+<p><a href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a></p>
+
+<h4 id="2-安装">2、安装</h4>
+
+<p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+
+<h4 id="3-启动-1">3、启动</h4>
+
+<pre><code class="language-shell">cd elasticsearch-head
+# 安装依赖
+npm install
+# 启动
+npm run start
+# 访问
+http://localhost:9100/
+</code></pre>
+
+<p><strong>安装依赖</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124214341.png" alt="安装" /></p>
+
+<p><strong>运行</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124220457.png" alt="运行" /></p>
+
+<p><strong>访问</strong></p>
+
+<blockquote>
+<p>存在跨域问题（只有当两个页面同源，才能交互）</p>
+
+<p>同源（端口，主机，协议三者都相同）</p>
+
+<p><a href="https://blog.csdn.net/qq_38128179/article/details/84956552">https://blog.csdn.net/qq_38128179/article/details/84956552</a></p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124220501.png" alt="存在跨域问题" /></p>
+
+<p><strong>开启跨域（在elasticsearch解压目录config下elasticsearch.yml中添加）</strong></p>
+
+<pre><code class="language-yml"># 开启跨域
+http.cors.enabled: true
+# 所有人访问
+http.cors.allow-origin: &quot;*&quot;
+</code></pre>
+
+<blockquote>
+<p>重启elasticsearch</p>
+</blockquote>
+
+<p><strong>再次连接</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124221100.png" alt="img" /></p>
+
+<p><strong>如何理解上图：</strong></p>
+
+<ul>
+<li><p>如果你是初学者</p>
+
+<ul>
+<li>索引 可以看做 “数据库”</li>
+<li>类型 可以看做 “表”</li>
+<li>文档 可以看做 “库中的数据（表中的行）”</li>
+</ul></li>
+
+<li><p>这个head，我们只是把它</p>
+
+<p>当做可视化数据展示工具</p>
+
+<p>，之后</p>
+
+<p>所有的查询都在kibana中进行</p>
+
+<ul>
+<li>因为不支持json格式化，不方便</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<h3 id="安装kibana">安装kibana</h3>
+</blockquote>
+
+<p>Kibana是一个针对ElasticSearch的开源分析及可视化平台,用来搜索、查看交互存储在Elasticsearch索引中的数据。使用Kibana ,可以通过各种图表进行高级数据分析及展示。Kibana让海量数据更容易理解。它操作简单,基于浏览器的用户界面可以快速创建仪表板( dashboard )实时显示Elasticsearch查询动态。设置Kibana非常简单。无需编码或者额外的基础架构,几分钟内就可以完成Kibana安装并启动Elasticsearch索引监测。</p>
+
+<h4 id="1-下载地址-1">1、下载地址:</h4>
+
+<blockquote>
+<p>下载的版本需要与ElasticSearch版本对应</p>
+</blockquote>
+
+<p><a href="https://www.elastic.co/cn/downloads/">https://www.elastic.co/cn/downloads/</a></p>
+
+<p>历史版本下载：<a href="https://www.elastic.co/cn/downloads/past-releases/">https://www.elastic.co/cn/downloads/past-releases/</a></p>
+
+<h4 id="2-安装-1">2、安装</h4>
+
+<p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124224049.png" alt="img" /></p>
+
+<h4 id="3-启动-2">3、启动</h4>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124224155.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124224502.png" alt="img" /></p>
+
+<p><strong>访问</strong></p>
+
+<pre><code>localhost:5601
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124224629.png" alt="img" /></p>
+
+<h4 id="4-开发工具">4、开发工具</h4>
+
+<p>（Postman、curl、head、谷歌浏览器插件）</p>
+
+<blockquote>
+<p>可以使用 <code>Kibana</code>进行测试</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124225557.png" alt="img" /></p>
+
+<blockquote>
+<p>如果说，你在英文方面不太擅长，kibana是支持汉化的</p>
+</blockquote>
+
+<h4 id="5-kibana汉化">5、kibana汉化</h4>
+
+<p>编辑器打开<code>kibana解压目录/config/kibana.yml</code>，添加</p>
+
+<pre><code>i18n.locale: &quot;zh-CN&quot;
+</code></pre>
+
+<blockquote>
+<p>重启kibana</p>
+</blockquote>
+
+<p><strong>汉化成功</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124230434.png" alt="汉化成功" /></p>
+
+<h3 id="了解elk"><strong>了解ELK</strong></h3>
+
+<ul>
+<li><p>ELK是</p>
+
+<p>Elasticsearch、Logstash、 Kibana三大开源框架首字母大写简称</p>
+
+<p>。市面上也被成为Elastic Stack。</p>
+
+<ul>
+<li>其中Elasticsearch是一个基于Lucene、分布式、通过Restful方式进行交互的近实时搜索平台框架。
+
+<ul>
+<li>像类似百度、谷歌这种大数据全文搜索引擎的场景都可以使用Elasticsearch作为底层支持框架，可见Elasticsearch提供的搜索能力确实强大,市面上很多时候我们简称Elasticsearch为es。</li>
+</ul></li>
+<li>Logstash是ELK的中央数据流引擎,用于从不同目标(文件/数据存储/MQ )收集的不同格式数据,经过过滤后支持输出到不同目的地(文件/MQ/redis/elasticsearch/kafka等)。</li>
+<li>Kibana可以将elasticsearch的数据通过友好的页面展示出来 ,提供实时分析的功能。</li>
+</ul></li>
+
+<li><p>市面上很多开发只要提到ELK能够一致说出它是一个日志分析架构技术栈总称 ,但实际上ELK不仅仅适用于日志分析,它还可以支持其它任何数据分析和收集的场景,日志分析和收集只是更具有代表性。并非唯一性。</p>
+
+<pre><code>收集清洗数据(Logstash) ==&gt; 搜索、存储(ElasticSearch) ==&gt; 展示(Kibana)
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124224044.png" alt="img" /></p>
+
+<h1 id="三-elasticsearch核心概念">三、ElasticSearch核心概念</h1>
+
+<blockquote>
+<h2 id="概述">概述</h2>
+</blockquote>
+
+<p>1、索引（ElasticSearch）</p>
+
+<ul>
+<li>包多个分片</li>
+</ul>
+
+<p>2、字段类型（映射）</p>
+
+<ul>
+<li>字段类型映射（字段是整型，还是字符型…）</li>
+</ul>
+
+<p>3、文档</p>
+
+<p>4、分片（Lucene索引，倒排索引）</p>
+
+<blockquote>
+<p>ElasticSearch是面向文档，关系行数据库和ElasticSearch客观对比！一切都是JSON！</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>Relational DB</th>
+<th>ElasticSearch</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>数据库（database）</td>
+<td>索引（indices）</td>
+</tr>
+
+<tr>
+<td>表（tables）</td>
+<td>types &lt;慢慢会被弃用!&gt;</td>
+</tr>
+
+<tr>
+<td>行（rows）</td>
+<td>documents</td>
+</tr>
+
+<tr>
+<td>字段（columns）</td>
+<td>fields</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>elasticsearch（集群）</strong>中可以包含多个<strong>索引（数据库）</strong> ,每个索引中可以包含多个<strong>类型（表）</strong> ,每个类型下又包含多个<strong>文档（行）</strong> ,每个文档中又包含多个<strong>字段（列）</strong>。</p>
+
+<h3 id="物理设计">物理设计:</h3>
+
+<p>elasticsearch在后台把<strong>每个索引划分成多个分片</strong>，每分分片可以在集群中的不同服务器间迁移</p>
+
+<p>一个人就是一个集群! ，即<strong>启动的ElasticSearch服务，默认就是一个集群，且默认集群名为elasticsearch</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124232258.png" alt="img" /></p>
+
+<h3 id="逻辑设计">逻辑设计:</h3>
+
+<p>一个索引类型中，包含多个文档，比如说文档1，文档2。当我们索引一篇文档时，可以通过这样的顺序找到它：索引 =&gt; 类型 =&gt; 文档ID ，通过这个组合我们就能索引到某个具体的文档。 注意：ID不必是整数，实际上它是个字符串。</p>
+
+<blockquote>
+<h4 id="文档-行">文档（”行“）</h4>
+</blockquote>
+
+<p>之前说elasticsearch是面向文档的，那么就意味着<strong>索引和搜索数据的最小单位是文档</strong>，elasticsearch中，文档有几个重要属性:</p>
+
+<ul>
+<li>自我包含，一篇文档同时包含字段和对应的值，也就是同时包含key:value !</li>
+<li>可以是层次型的，一个文档中包含自文档，复杂的逻辑实体就是这么来的! {就是一个json对象 ! fastjson进行自动转换 !}</li>
+<li>灵活的结构，文档不依赖预先定义的模式，我们知道关系型数据库中，要提前定义字段才能使用，在elasticsearch中，对于字段是非常灵活的，有时候,我们可以忽略该字段，或者动态的添加一个新的字段。</li>
+</ul>
+
+<p>尽管我们可以随意的新增或者忽略某个字段，但是，每个字段的类型非常重要，比如一个年龄字段类型，可以是字符串也可以是整形。因为elasticsearch会保存字段和类型之间的映射及其他的设置。这种映射具体到每个映射的每种类型，这也是为什么在elasticsearch中，类型有时候也称为映射类型。</p>
+
+<blockquote>
+<h4 id="类型-表">类型（“表”）</h4>
+</blockquote>
+
+<p>类型是文档的逻辑容器，就像关系型数据库一样，表格是行的容器。类型中对于字段的定义称为映射，比如name映射为字符串类型。我们说文档是无模式的，它们不需要拥有映射中所定义的所有字段，比如新增一个字段，那么elasticsearch是怎么做的呢?</p>
+
+<ul>
+<li>elasticsearch会自动的将新字段加入映射，但是这个字段的不确定它是什么类型，elasticsearch就开始猜，如果这个值是18，那么elasticsearch会认为它是整形。但是elasticsearch也可能猜不对，所以最安全的方式就是提前定义好所需要的映射，这点跟关系型数据库殊途同归了，先定义好字段，然后再使用，别整什么幺蛾子。</li>
+</ul>
+
+<blockquote>
+<h4 id="索引-库">索引（“库”）</h4>
+</blockquote>
+
+<p>索引是映射类型的容器， elasticsearch中的索引是一个非常大的文档集合。 索引存储了映射类型的字段和其他设置。然后它们被存储到了各个分片上了。我们来研究下分片是如何工作的。</p>
+
+<p><strong>物理设计：节点和分片 如何工作</strong></p>
+
+<p>创建新索引</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125003116.png" alt="创建新索引" /></p>
+
+<p>一个集群至少有一个节点，而一个节点就是一个elasricsearch进程，节点可以有多个索引默认的，如果你创建索引，那么索引将会有个5个分片(primary shard ,又称主分片)构成的，每一个主分片会有一个副本(replica shard，又称复制分片)</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201124234946.png" alt="img" /></p>
+
+<p>上图是一个有3个节点的集群，可以看到主分片和对应的复制分片都不会在同一个节点内，这样有利于某个节点挂掉了，数据也不至于失。实际上，<strong>一个分片是一个Lucene索引（<mark>一个ElasticSearch索引包含多个Lucene索引</mark>）</strong> ，<strong>一个包含倒排索引的文件目录，倒排索引的结构使得elasticsearch在不扫描全部文档的情况下，就能告诉你哪些文档包含特定的关键字</strong>。不过，等等，倒排索引是什么鬼?</p>
+
+<p><strong>倒排索引（Lucene索引底层）</strong></p>
+
+<blockquote>
+<p>简单说就是 按（文章关键字，对应的文档&lt;0个或多个&gt;）形式建立索引，根据关键字就可直接查询对应的文档（含关键字的），无需查询每一个文档，如下图</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125003531.png" alt="img" /></p>
+
+<h1 id="四-ik分词器-elasticsearch插件">四、IK分词器(elasticsearch插件)</h1>
+
+<blockquote>
+<p><strong>IK分词器：中文分词器</strong></p>
+</blockquote>
+
+<p>分词：即把一段中文或者别的划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一一个匹配操作，<strong>默认的中文分词是将每个字看成一个词</strong>（<mark>不使用用IK分词器的情况下</mark>），比如“我爱狂神”会被分为”我”，”爱”，”狂”，”神” ，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。</p>
+
+<p><strong>IK提供了两个分词算法</strong>: <code>ik_smart</code>和<code>ik_max_word</code> ,其中<code>ik_smart</code>为<strong>最少切分</strong>, <code>ik_max_word</code>为<strong>最细粒度划分</strong>!</p>
+
+<h3 id="1-下载">1、下载</h3>
+
+<blockquote>
+<p>版本要与ElasticSearch版本对应</p>
+</blockquote>
+
+<p>下载地址：<a href="https://github.com/medcl/elasticsearch-analysis-ik/releases">https://github.com/medcl/elasticsearch-analysis-ik/releases</a></p>
+
+<h3 id="2-安装-2">2、安装</h3>
+
+<blockquote>
+<p>ik文件夹是自己创建的</p>
+</blockquote>
+
+<p>加压即可（但是我们需要解压到ElasticSearch的plugins目录ik文件夹下）</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125005908.png" alt="img" /></p>
+
+<h3 id="3-重启elasticsearch">3、重启ElasticSearch</h3>
+
+<blockquote>
+<p>加载了IK分词器</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125010232.png" alt="img" /></p>
+
+<h3 id="4-使用-elasticsearch安装补录-bin-elasticsearch-plugin-可以查看插件">4、使用 <code>ElasticSearch安装补录/bin/elasticsearch-plugin</code> 可以查看插件</h3>
+
+<pre><code>E:\ElasticSearch\elasticsearch-7.6.1\bin&gt;elasticsearch-plugin list
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201144846.png" alt="img" /></p>
+
+<h3 id="5-使用kibana测试">5、使用kibana测试</h3>
+
+<p><code>ik_smart</code>：最少切分</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125013948.png" alt="img" /></p>
+
+<p><code>ik_max_word</code>：最细粒度划分（穷尽词库的可能）</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125014210.png" alt="img" /></p>
+
+<blockquote>
+<p>从上面看，感觉分词都比较正常，但是大多数，分词都满足不了我们的想法，如下例</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125015809.png" alt="img" /></p>
+
+<blockquote>
+<p>那么，我们需要手动将该词添加到分词器的词典当中</p>
+</blockquote>
+
+<h3 id="6-添加自定义的词添加到扩展字典中">6、添加自定义的词添加到扩展字典中</h3>
+
+<pre><code>elasticsearch目录/plugins/ik/config/IKAnalyzer.cfg.xml
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125020139.png" alt="img" /></p>
+
+<p>打开 <code>IKAnalyzer.cfg.xml</code> 文件，扩展字典</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125020519.png" alt="img" /></p>
+
+<p>创建字典文件，添加字典内容</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125020802.png" alt="img" /></p>
+
+<p>重启ElasticSearch，再次使用kibana测试</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201125021137.png" alt="smart" /></p>
+
+<h1 id="五-rest风格说明">五、Rest风格说明</h1>
+
+<p><strong>一种软件架构风格</strong>,而不是标准,只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以<strong>更简洁</strong>，<strong>更有层次</strong>，<strong>更易于实现缓存</strong>等机制。</p>
+
+<h3 id="基本rest命令说明"><strong>基本Rest命令说明：</strong></h3>
+
+<table>
+<thead>
+<tr>
+<th align="center">method</th>
+<th align="center">url地址</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">PUT（创建,修改）</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">创建文档（指定文档id）</td>
+</tr>
+
+<tr>
+<td align="center">POST（创建）</td>
+<td align="center">localhost:9200/索引名称/类型名称</td>
+<td align="center">创建文档（随机文档id）</td>
+</tr>
+
+<tr>
+<td align="center">POST（修改）</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id/_update</td>
+<td align="center">修改文档</td>
+</tr>
+
+<tr>
+<td align="center">DELETE（删除）</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">删除文档</td>
+</tr>
+
+<tr>
+<td align="center">GET（查询）</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">查询文档通过文档ID</td>
+</tr>
+
+<tr>
+<td align="center">POST（查询）</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id/_search</td>
+<td align="center">查询所有数据</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="测试">测试</h3>
+
+<h4 id="1-创建一个索引-添加">1、创建一个索引，添加</h4>
+
+<pre><code class="language-shell">PUT /test1/type1/1
+{
+  &quot;name&quot; : &quot;流柚&quot;,
+  &quot;age&quot; : 18
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201144937.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201144942.png" alt="img" /></p>
+
+<h4 id="2-字段数据类型">2、字段数据类型</h4>
+
+<ul>
+<li><p>字符串类型</p>
+
+<ul>
+<li><p>text、</p>
+
+<p>keyword</p>
+
+<ul>
+<li>text：支持分词，全文检索,支持模糊、精确查询,不支持聚合,排序操作;text类型的最大支持的字符长度无限制,适合大字段存储；</li>
+<li>keyword：不进行分词，直接索引、支持模糊、支持精确匹配，支持聚合、排序操作。keyword类型的最大支持的长度为——32766个UTF-8类型的字符,可以通过设置ignore_above指定自持字符长度，超过给定长度后的数据将不被索引，无法通过term精确匹配检索返回结果。</li>
+</ul></li>
+</ul></li>
+
+<li><p>数值型</p>
+
+<ul>
+<li>long、Integer、short、byte、double、float、<strong>half float</strong>、<strong>scaled float</strong></li>
+</ul></li>
+
+<li><p>日期类型</p>
+
+<ul>
+<li>date</li>
+</ul></li>
+
+<li><p>te布尔类型</p>
+
+<ul>
+<li>boolean</li>
+</ul></li>
+
+<li><p>二进制类型</p>
+
+<ul>
+<li>binary</li>
+</ul></li>
+
+<li><p>等等…</p></li>
+</ul>
+
+<h4 id="3-指定字段的类型-使用put">3、指定字段的类型（使用PUT）</h4>
+
+<blockquote>
+<p>类似于建库（建立索引和字段对应类型），也可看做规则的建立</p>
+</blockquote>
+
+<pre><code class="language-apl">PUT /test2
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;name&quot;: {
+        &quot;type&quot;: &quot;text&quot;
+      },
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;long&quot;
+      },
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;date&quot;
+      }
+    }
+  }
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201144947.png" alt="img" /></p>
+
+<h4 id="4-获取3建立的规则">4、获取3建立的规则</h4>
+
+<pre><code class="language-apl">GET test2
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201144955.png" alt="img" /></p>
+
+<h4 id="5-获取默认信息">5、获取默认信息</h4>
+
+<blockquote>
+<p><code>_doc</code> 默认类型（default type），type 在未来的版本中会逐渐弃用，因此产生一个默认类型进行代替</p>
+</blockquote>
+
+<pre><code class="language-apl">PUT /test3/_doc/1
+{
+  &quot;name&quot;: &quot;流柚&quot;,
+  &quot;age&quot;: 18,
+  &quot;birth&quot;: &quot;1999-10-10&quot;
+}
+GET test3
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201145002.png" alt="img" /></p>
+
+<blockquote>
+<p>如果自己的文档字段没有被指定，那么ElasticSearch就会给我们默认配置字段类型</p>
+</blockquote>
+
+<p>扩展：通过<code>get _cat/</code> 可以获取ElasticSearch的当前的很多信息！</p>
+
+<pre><code class="language-apl">GET _cat/indices
+GET _cat/aliases
+GET _cat/allocation
+GET _cat/count
+GET _cat/fielddata
+GET _cat/health
+GET _cat/indices
+GET _cat/master
+GET _cat/nodeattrs
+GET _cat/nodes
+GET _cat/pending_tasks
+GET _cat/plugins
+GET _cat/recovery
+GET _cat/repositories
+GET _cat/segments
+GET _cat/shards
+GET _cat/snapshots
+GET _cat/tasks
+GET _cat/templates
+GET _cat/thread_pool
+</code></pre>
+
+<h4 id="6-修改">6、修改</h4>
+
+<blockquote>
+<p>两种方案</p>
+</blockquote>
+
+<p>①旧的（使用put覆盖原来的值）</p>
+
+<ul>
+<li>版本+1（_version）</li>
+
+<li><p>但是如果漏掉某个字段没有写，那么更新是没有写的字段 ，会消失</p>
+
+<pre><code class="language-apl">PUT /test3/_doc/1
+{
+&quot;name&quot; : &quot;流柚是我的大哥&quot;,
+&quot;age&quot; : 18,
+&quot;birth&quot; : &quot;1999-10-10&quot;
+}
+GET /test3/_doc/1
+// 修改会有字段丢失
+PUT /test3/_doc/1
+{
+&quot;name&quot; : &quot;流柚&quot;
+}
+GET /test3/_doc/1
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201145010.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201160911.png" alt="img" /></p>
+
+<p>②新的（使用post的update）</p>
+
+<ul>
+<li>version不会改变</li>
+<li>需要注意doc</li>
+
+<li><p>不会丢失字段</p>
+
+<pre><code class="language-apl">POST /test3/_doc/1/_update
+{
+&quot;doc&quot;:{
+&quot;name&quot; : &quot;post修改，version不会加一&quot;,
+&quot;age&quot; : 2
+}
+}
+GET /test3/_doc/1
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201201163030.png" alt="img" /></p>
+
+<h4 id="7-删除">7、删除</h4>
+
+<pre><code class="language-apl">GET /test1
+DELETE /test1
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150602.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150557.png" alt="img" /></p>
+
+<h4 id="8-查询-简单条件">8、查询（简单条件）</h4>
+
+<pre><code class="language-apl">GET /test3/_doc/_search?q=name:流柚
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201202204347.png" alt="img" /></p>
+
+<h4 id="9-复杂查询">9、复杂查询</h4>
+
+<blockquote>
+<p>test3索引中的内容</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150547.png" alt="img" /></p>
+
+<h5 id="①查询匹配">①查询匹配</h5>
+
+<ul>
+<li><code>match</code>：匹配（会使用分词器解析（先分析文档，然后进行查询））</li>
+<li><code>_source</code>：过滤字段</li>
+<li><code>sort</code>：排序</li>
+
+<li><p><code>form</code>、<code>size</code> 分页</p>
+
+<pre><code class="language-apl">// 查询匹配
+GET /blog/user/_search
+{
+&quot;query&quot;:{
+  &quot;match&quot;:{
+    &quot;name&quot;:&quot;流&quot;
+  }
+}
+,
+&quot;_source&quot;: [&quot;name&quot;,&quot;desc&quot;]
+,
+&quot;sort&quot;: [
+  {
+    &quot;age&quot;: {
+      &quot;order&quot;: &quot;asc&quot;
+    }
+  }
+]
+,
+&quot;from&quot;: 0
+,
+&quot;size&quot;: 1
+}
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203002017.png" alt="img" /></p>
+
+<h5 id="②多条件查询-bool">②多条件查询（bool）</h5>
+
+<ul>
+<li><code>must</code> 相当于 <code>and</code></li>
+<li><code>should</code> 相当于 <code>or</code></li>
+<li><code>must_not</code> 相当于 <code>not (... and ...)</code></li>
+
+<li><p><code>filter</code> 过滤</p>
+
+<pre><code class="language-apl">/// bool 多条件查询
+//// must &lt;==&gt; and
+//// should &lt;==&gt; or
+//// must_not &lt;==&gt; not (... and ...)
+//// filter数据过滤
+//// boost
+//// minimum_should_match
+GET /blog/user/_search
+{
+&quot;query&quot;:{
+&quot;bool&quot;: {
+  &quot;must&quot;: [
+    {
+      &quot;match&quot;:{
+        &quot;age&quot;:3
+      }
+    },
+    {
+      &quot;match&quot;: {
+        &quot;name&quot;: &quot;流&quot;
+      }
+    }
+  ],
+  &quot;filter&quot;: {
+    &quot;range&quot;: {
+      &quot;age&quot;: {
+        &quot;gte&quot;: 1,
+        &quot;lte&quot;: 3
+      }
+    }
+  }
+}
+}
+}
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150628.png" alt="img" /></p>
+
+<h5 id="③匹配数组">③匹配数组</h5>
+
+<ul>
+<li>貌似不能与其它字段一起使用</li>
+<li>可以多关键字查（空格隔开）— 匹配字段也是符合的</li>
+<li><code>match</code> 会使用分词器解析（先分析文档，然后进行查询）</li>
+
+<li><p>搜词</p>
+
+<pre><code class="language-apl">// 匹配数组 貌似不能与其它字段一起使用
+// 可以多关键字查（空格隔开）
+// match 会使用分词器解析（先分析文档，然后进行查询）
+GET /blog/user/_search
+{
+&quot;query&quot;:{
+&quot;match&quot;:{
+  &quot;desc&quot;:&quot;年龄 牛 大&quot;
+}
+}
+}
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150635.png" alt="img" /></p>
+
+<h5 id="④精确查询">④精确查询</h5>
+
+<ul>
+<li><code>term</code> 直接通过 倒排索引 指定<strong>词条</strong>查询</li>
+
+<li><p>适合查询 number、date、keyword ，不适合text</p>
+
+<pre><code class="language-apl">// 精确查询（必须全部都有，而且不可分，即按一个完整的词查询）
+// term 直接通过 倒排索引 指定的词条 进行精确查找的
+GET /blog/user/_search
+{
+&quot;query&quot;:{
+&quot;term&quot;:{
+  &quot;desc&quot;:&quot;年 &quot;
+}
+}
+}
+</code></pre></li>
+</ul>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150641.png" alt="img" /></p>
+
+<h5 id="⑤text和keyword">⑤text和keyword</h5>
+
+<ul>
+<li>text：
+
+<ul>
+<li><strong>支持分词</strong>，<strong>全文检索</strong>、支持模糊、精确查询,不支持聚合,排序操作;</li>
+<li>text类型的最大支持的字符长度无限制,适合大字段存储；</li>
+</ul></li>
+
+<li><p>keyword：</p>
+
+<ul>
+<li><strong>不进行分词</strong>，<strong>直接索引</strong>、支持模糊、支持精确匹配，支持聚合、排序操作。</li>
+
+<li><p>keyword类型的最大支持的长度为——32766个UTF-8类型的字符,可以通过设置ignore_above指定自持字符长度，超过给定长度后的数据将不被索引，<strong>无法通过term精确匹配检索返回结果</strong>。</p>
+
+<pre><code class="language-apl">// 测试keyword和text是否支持分词
+// 设置索引类型
+PUT /test
+{
+&quot;mappings&quot;: {
+&quot;properties&quot;: {
+&quot;text&quot;:{
+&quot;type&quot;:&quot;text&quot;
+},
+&quot;keyword&quot;:{
+&quot;type&quot;:&quot;keyword&quot;
+}
+}
+}
+}
+// 设置字段数据
+PUT /test/_doc/1
+{
+&quot;text&quot;:&quot;测试keyword和text是否支持分词&quot;,
+&quot;keyword&quot;:&quot;测试keyword和text是否支持分词&quot;
+}
+// text 支持分词
+// keyword 不支持分词
+GET /test/_doc/_search
+{
+&quot;query&quot;:{
+&quot;match&quot;:{
+&quot;text&quot;:&quot;测试&quot;
+}
+}
+}// 查的到
+GET /test/_doc/_search
+{
+&quot;query&quot;:{
+&quot;match&quot;:{
+&quot;keyword&quot;:&quot;测试&quot;
+}
+}
+}// 查不到，必须是 &quot;测试keyword和text是否支持分词&quot; 才能查到
+GET _analyze
+{
+&quot;analyzer&quot;: &quot;keyword&quot;,
+&quot;text&quot;: [&quot;测试liu&quot;]
+}// 不会分词，即 测试liu
+GET _analyze
+{
+&quot;analyzer&quot;: &quot;standard&quot;,
+&quot;text&quot;: [&quot;测试liu&quot;]
+}// 分为 测 试 liu
+GET _analyze
+{
+&quot;analyzer&quot;:&quot;ik_max_word&quot;,
+&quot;text&quot;: [&quot;测试liu&quot;]
+}// 分为 测试 liu
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h5 id="⑥高亮查询">⑥高亮查询</h5>
+
+<pre><code class="language-apl">/// 高亮查询
+GET blog/user/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;name&quot;:&quot;流&quot;
+    }
+  }
+  ,
+  &quot;highlight&quot;: {
+    &quot;fields&quot;: {
+      &quot;name&quot;: {}
+    }
+  }
+}
+// 自定义前缀和后缀
+GET blog/user/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;name&quot;:&quot;流&quot;
+    }
+  }
+  ,
+  &quot;highlight&quot;: {
+    &quot;pre_tags&quot;: &quot;&lt;p class='key' style='color:red'&gt;&quot;,
+    &quot;post_tags&quot;: &quot;&lt;/p&gt;&quot;, 
+    &quot;fields&quot;: {
+      &quot;name&quot;: {}
+    }
+  }
+}
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150652.png" alt="img" /></p>
+
+<h1 id="六-springboot整合">六、SpringBoot整合</h1>
+
+<h3 id="1-创建工程">1、创建工程</h3>
+
+<p>略</p>
+
+<p><strong>目录结构</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150700.png" alt="目录结构" /></p>
+
+<h3 id="2-导入依赖">2、导入依赖</h3>
+
+<blockquote>
+<p>注意依赖版本和安装的版本一致</p>
+</blockquote>
+
+<pre><code class="language-xml">&lt;properties&gt;
+    &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;!-- 统一版本 --&gt;
+    &lt;elasticsearch.version&gt;7.6.1&lt;/elasticsearch.version&gt;
+&lt;/properties&gt;
+</code></pre>
+
+<p><strong>导入elasticsearch</strong></p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p><strong>提前导入fastjson、lombok</strong></p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;1.2.70&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- lombok需要安装插件 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="3-创建并编写配置类">3、创建并编写配置类</h3>
+
+<pre><code class="language-java">@Configuration
+public class ElasticSearchConfig {
+    // 注册 rest高级客户端 
+    @Bean
+    public RestHighLevelClient restHighLevelClient(){
+        RestHighLevelClient client = new RestHighLevelClient(
+                RestClient.builder(
+                        new HttpHost(&quot;127.0.0.1&quot;,9200,&quot;http&quot;)
+                )
+        );
+        return client;
+    }
+}
+</code></pre>
+
+<h3 id="4-创建并编写实体类">4、创建并编写实体类</h3>
+
+<pre><code class="language-java">@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
+    private static final long serialVersionUID = -3843548915035470817L;
+    private String name;
+    private Integer age;
+}
+</code></pre>
+
+<h3 id="5-测试">5、测试</h3>
+
+<blockquote>
+<p>所有测试均在 <code>SpringbootElasticsearchApplicationTests</code>中编写</p>
+</blockquote>
+
+<h4 id="注入-resthighlevelclient">注入 <code>RestHighLevelClient</code></h4>
+
+<pre><code class="language-java">@Autowired
+public RestHighLevelClient restHighLevelClient;
+</code></pre>
+
+<h4 id="索引的操作">索引的操作</h4>
+
+<h5 id="1-索引的创建">1、索引的创建</h5>
+
+<pre><code class="language-java">// 测试索引的创建， Request PUT liuyou_index
+@Test
+public void testCreateIndex() throws IOException {
+    CreateIndexRequest request = new CreateIndexRequest(&quot;liuyou_index&quot;);
+    CreateIndexResponse response = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
+    System.out.println(response.isAcknowledged());// 查看是否创建成功
+    System.out.println(response);// 查看返回对象
+    restHighLevelClient.close();
+}
+</code></pre>
+
+<h5 id="2-索引的获取-并判断其是否存在">2、索引的获取，并判断其是否存在</h5>
+
+<pre><code class="language-java">// 测试获取索引，并判断其是否存在
+@Test
+public void testIndexIsExists() throws IOException {
+    GetIndexRequest request = new GetIndexRequest(&quot;index&quot;);
+    boolean exists = restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT);
+    System.out.println(exists);// 索引是否存在
+    restHighLevelClient.close();
+}
+</code></pre>
+
+<h5 id="3-索引的删除">3、索引的删除</h5>
+
+<pre><code class="language-java">// 测试索引删除
+@Test
+public void testDeleteIndex() throws IOException {
+    DeleteIndexRequest request = new DeleteIndexRequest(&quot;liuyou_index&quot;);
+    AcknowledgedResponse response = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
+    System.out.println(response.isAcknowledged());// 是否删除成功
+    restHighLevelClient.close();
+}
+</code></pre>
+
+<h4 id="文档的操作">文档的操作</h4>
+
+<h5 id="1-文档的添加">1、文档的添加</h5>
+
+<pre><code class="language-java">// 测试添加文档(先创建一个User实体类，添加fastjson依赖)
+@Test
+public void testAddDocument() throws IOException {
+    // 创建一个User对象
+    User liuyou = new User(&quot;liuyou&quot;, 18);
+    // 创建请求
+    IndexRequest request = new IndexRequest(&quot;liuyou_index&quot;);
+    // 制定规则 PUT /liuyou_index/_doc/1
+    request.id(&quot;1&quot;);// 设置文档ID
+    request.timeout(TimeValue.timeValueMillis(1000));// request.timeout(&quot;1s&quot;)
+    // 将我们的数据放入请求中
+    request.source(JSON.toJSONString(liuyou), XContentType.JSON);
+    // 客户端发送请求，获取响应的结果
+    IndexResponse response = restHighLevelClient.index(request, RequestOptions.DEFAULT);
+    System.out.println(response.status());// 获取建立索引的状态信息 CREATED
+    System.out.println(response);// 查看返回内容 IndexResponse[index=liuyou_index,type=_doc,id=1,version=1,result=created,seqNo=0,primaryTerm=1,shards={&quot;total&quot;:2,&quot;successful&quot;:1,&quot;failed&quot;:0}]
+}
+</code></pre>
+
+<h5 id="2-文档信息的获取">2、文档信息的获取</h5>
+
+<pre><code class="language-java">// 测试获得文档信息
+@Test
+public void testGetDocument() throws IOException {
+    GetRequest request = new GetRequest(&quot;liuyou_index&quot;,&quot;1&quot;);
+    GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
+    System.out.println(response.getSourceAsString());// 打印文档内容
+    System.out.println(request);// 返回的全部内容和命令是一样的
+    restHighLevelClient.close();
+}
+</code></pre>
+
+<h5 id="3-文档的获取-并判断其是否存在">3、文档的获取，并判断其是否存在</h5>
+
+<pre><code class="language-java">// 获取文档，判断是否存在 get /liuyou_index/_doc/1
+@Test
+public void testDocumentIsExists() throws IOException {
+    GetRequest request = new GetRequest(&quot;liuyou_index&quot;, &quot;1&quot;);
+    // 不获取返回的 _source的上下文了
+    request.fetchSourceContext(new FetchSourceContext(false));
+    request.storedFields(&quot;_none_&quot;);
+    boolean exists = restHighLevelClient.exists(request, RequestOptions.DEFAULT);
+    System.out.println(exists);
+}
+</code></pre>
+
+<h5 id="4-文档的更新">4、文档的更新</h5>
+
+<pre><code class="language-java">// 测试更新文档内容
+@Test
+public void testUpdateDocument() throws IOException {
+    UpdateRequest request = new UpdateRequest(&quot;liuyou_index&quot;, &quot;1&quot;);
+    User user = new User(&quot;lmk&quot;,11);
+    request.doc(JSON.toJSONString(user),XContentType.JSON);
+    UpdateResponse response = restHighLevelClient.update(request, RequestOptions.DEFAULT);
+    System.out.println(response.status()); // OK
+    restHighLevelClient.close();
+}
+</code></pre>
+
+<h5 id="5-文档的删除">5、文档的删除</h5>
+
+<pre><code class="language-java">// 测试删除文档
+@Test
+public void testDeleteDocument() throws IOException {
+    DeleteRequest request = new DeleteRequest(&quot;liuyou_index&quot;, &quot;1&quot;);
+    request.timeout(&quot;1s&quot;);
+    DeleteResponse response = restHighLevelClient.delete(request, RequestOptions.DEFAULT);
+    System.out.println(response.status());// OK
+}
+</code></pre>
+
+<h5 id="6-文档的查询">6、文档的查询</h5>
+
+<pre><code class="language-java">// 查询
+// SearchRequest 搜索请求
+// SearchSourceBuilder 条件构造
+// HighlightBuilder 高亮
+// TermQueryBuilder 精确查询
+// MatchAllQueryBuilder
+// xxxQueryBuilder ...
+@Test
+public void testSearch() throws IOException {
+    // 1.创建查询请求对象
+    SearchRequest searchRequest = new SearchRequest();
+    // 2.构建搜索条件
+    SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+    // (1)查询条件 使用QueryBuilders工具类创建
+    // 精确查询
+    TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(&quot;name&quot;, &quot;liuyou&quot;);
+    //        // 匹配查询
+    //        MatchAllQueryBuilder matchAllQueryBuilder = QueryBuilders.matchAllQuery();
+    // (2)其他&lt;可有可无&gt;：（可以参考 SearchSourceBuilder 的字段部分）
+    // 设置高亮
+    searchSourceBuilder.highlighter(new HighlightBuilder());
+    //        // 分页
+    //        searchSourceBuilder.from();
+    //        searchSourceBuilder.size();
+    searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+    // (3)条件投入
+    searchSourceBuilder.query(termQueryBuilder);
+    // 3.添加条件到请求
+    searchRequest.source(searchSourceBuilder);
+    // 4.客户端查询请求
+    SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+    // 5.查看返回结果
+    SearchHits hits = search.getHits();
+    System.out.println(JSON.toJSONString(hits));
+    System.out.println(&quot;=======================&quot;);
+    for (SearchHit documentFields : hits.getHits()) {
+        System.out.println(documentFields.getSourceAsMap());
+    }
+}
+</code></pre>
+
+<h5 id="前面的操作都无法批量添加数据">前面的操作都无法批量添加数据</h5>
+
+<pre><code class="language-java">// 上面的这些api无法批量增加数据（只会保留最后一个source）
+@Test
+public void test() throws IOException {
+    IndexRequest request = new IndexRequest(&quot;bulk&quot;);// 没有id会自动生成一个随机ID
+    request.source(JSON.toJSONString(new User(&quot;liu&quot;,1)),XContentType.JSON);
+    request.source(JSON.toJSONString(new User(&quot;min&quot;,2)),XContentType.JSON);
+    request.source(JSON.toJSONString(new User(&quot;kai&quot;,3)),XContentType.JSON);
+    IndexResponse index = restHighLevelClient.index(request, RequestOptions.DEFAULT);
+    System.out.println(index.status());// created
+}
+</code></pre>
+
+<h5 id="7-批量添加数据">7、批量添加数据</h5>
+
+<pre><code class="language-java">// 特殊的，真的项目一般会 批量插入数据
+@Test
+public void testBulk() throws IOException {
+    BulkRequest bulkRequest = new BulkRequest();
+    bulkRequest.timeout(&quot;10s&quot;);
+    ArrayList&lt;User&gt; users = new ArrayList&lt;&gt;();
+    users.add(new User(&quot;liuyou-1&quot;,1));
+    users.add(new User(&quot;liuyou-2&quot;,2));
+    users.add(new User(&quot;liuyou-3&quot;,3));
+    users.add(new User(&quot;liuyou-4&quot;,4));
+    users.add(new User(&quot;liuyou-5&quot;,5));
+    users.add(new User(&quot;liuyou-6&quot;,6));
+    // 批量请求处理
+    for (int i = 0; i &lt; users.size(); i++) {
+        bulkRequest.add(
+                // 这里是数据信息
+                new IndexRequest(&quot;bulk&quot;)
+                        .id(&quot;&quot;+(i + 1)) // 没有设置id 会自定生成一个随机id
+                        .source(JSON.toJSONString(users.get(i)),XContentType.JSON)
+        );
+    }
+    BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
+    System.out.println(bulk.status());// ok
+}
+</code></pre>
+
+<h1 id="elasticsearch实战">ElasticSearch实战</h1>
+
+<h2 id="防京东商城搜索-高亮">防京东商城搜索（高亮）</h2>
+
+<h3 id="1-工程创建-springboot">1、工程创建（springboot）</h3>
+
+<p>创建过程略</p>
+
+<p><strong>目录结构</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170119.png" alt="img" /></p>
+
+<h3 id="2-基本编码">2、基本编码</h3>
+
+<h4 id="①导入依赖">①导入依赖</h4>
+
+<pre><code class="language-xml">&lt;properties&gt;
+    &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;elasticsearch.version&gt;7.6.1&lt;/elasticsearch.version&gt;
+&lt;/properties&gt;
+&lt;dependencies&gt;
+    &lt;!-- jsoup解析页面 --&gt;
+    &lt;!-- 解析网页 爬视频可 研究tiko --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.jsoup&lt;/groupId&gt;
+        &lt;artifactId&gt;jsoup&lt;/artifactId&gt;
+        &lt;version&gt;1.10.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- fastjson --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+        &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+        &lt;version&gt;1.2.70&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- ElasticSearch --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- thymeleaf --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- web --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- devtools热部署 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;!--  --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;!-- lombok 需要安装插件 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;!-- test --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h4 id="②导入前端素材">②导入前端素材</h4>
+
+<p>略</p>
+
+<h4 id="③编写-application-preperties-配置文件">③编写 <code>application.preperties</code>配置文件</h4>
+
+<pre><code class="language-properties"># 更改端口，防止冲突
+server.port=9999
+# 关闭thymeleaf缓存
+spring.thymeleaf.cache=false
+</code></pre>
+
+<h4 id="④测试controller和view">④测试controller和view</h4>
+
+<pre><code class="language-java">@Controller
+public class IndexController {
+    @GetMapping({&quot;/&quot;,&quot;index&quot;})
+    public String index(){
+        return &quot;index&quot;;
+    }
+}
+</code></pre>
+
+<p>访问 localhost:9999</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203150717.png" alt="img" /></p>
+
+<blockquote>
+<p>到这里可以先去编写爬虫，编写之后，回到这里</p>
+</blockquote>
+
+<h4 id="⑤编写config">⑤编写Config</h4>
+
+<pre><code class="language-java">@Configuration
+public class ElasticSearchConfig {
+    @Bean
+    public RestHighLevelClient restHighLevelClient(){
+        RestHighLevelClient client = new RestHighLevelClient(
+                RestClient.builder(
+                        new HttpHost(&quot;127.0.0.1&quot;,9200,&quot;http&quot;)
+                )
+        );
+        return client;
+    }
+}
+</code></pre>
+
+<h4 id="⑥编写service">⑥编写service</h4>
+
+<blockquote>
+<p>因为是爬取的数据，那么就不走Dao，以下编写都不会编写接口，开发中必须严格要求编写</p>
+</blockquote>
+
+<p><strong>ContentService</strong></p>
+
+<pre><code class="language-java">@Service
+public class ContentService {
+    @Autowired
+    private RestHighLevelClient restHighLevelClient;
+    // 1、解析数据放入 es 索引中
+    public Boolean parseContent(String keyword) throws IOException {
+        // 获取内容
+        List&lt;Content&gt; contents = HtmlParseUtil.parseJD(keyword);
+        // 内容放入 es 中
+        BulkRequest bulkRequest = new BulkRequest();
+        bulkRequest.timeout(&quot;2m&quot;); // 可更具实际业务是指
+        for (int i = 0; i &lt; contents.size(); i++) {
+            bulkRequest.add(
+                    new IndexRequest(&quot;jd_goods&quot;)
+                            .id(&quot;&quot;+(i+1))
+                            .source(JSON.toJSONString(contents.get(i)), XContentType.JSON)
+            );
+        }
+        BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
+        restHighLevelClient.close();
+        return !bulk.hasFailures();
+    }
+        // 2、根据keyword分页查询结果
+    public List&lt;Map&lt;String, Object&gt;&gt; search(String keyword, Integer pageIndex, Integer pageSize) throws IOException {
+        if (pageIndex &lt; 0){
+            pageIndex = 0;
+        }
+        SearchRequest jd_goods = new SearchRequest(&quot;jd_goods&quot;);
+        // 创建搜索源建造者对象
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        // 条件采用：精确查询 通过keyword查字段name
+        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(&quot;name&quot;, keyword);
+        searchSourceBuilder.query(termQueryBuilder);
+        searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));// 60s
+        // 分页
+        searchSourceBuilder.from(pageIndex);
+        searchSourceBuilder.size(pageSize);
+        // 高亮
+        // ....
+        // 搜索源放入搜索请求中
+        jd_goods.source(searchSourceBuilder);
+        // 执行查询，返回结果
+        SearchResponse searchResponse = restHighLevelClient.search(jd_goods, RequestOptions.DEFAULT);
+        restHighLevelClient.close();
+        // 解析结果
+        SearchHits hits = searchResponse.getHits();
+        List&lt;Map&lt;String,Object&gt;&gt; results = new ArrayList&lt;&gt;();
+        for (SearchHit documentFields : hits.getHits()) {
+            Map&lt;String, Object&gt; sourceAsMap = documentFields.getSourceAsMap();
+            results.add(sourceAsMap);
+        }
+        // 返回查询的结果
+        return results;
+    }
+}
+</code></pre>
+
+<h4 id="⑦编写controller">⑦编写controller</h4>
+
+<pre><code class="language-java">@Controller
+public class ContentController {
+    @Autowired
+    private ContentService contentService;
+    @ResponseBody
+    @GetMapping(&quot;/parse/{keyword}&quot;)
+    public Boolean parse(@PathVariable(&quot;keyword&quot;) String keyword) throws IOException {
+        return contentService.parseContent(keyword);
+    }
+    @ResponseBody
+    @GetMapping(&quot;/search/{keyword}/{pageIndex}/{pageSize}&quot;)
+    public List&lt;Map&lt;String, Object&gt;&gt; parse(@PathVariable(&quot;keyword&quot;) String keyword,
+                                           @PathVariable(&quot;pageIndex&quot;) Integer pageIndex,
+                                           @PathVariable(&quot;pageSize&quot;) Integer pageSize) throws IOException {
+        return contentService.search(keyword,pageIndex,pageSize);
+    }
+}
+</code></pre>
+
+<h4 id="⑧测试结果">⑧测试结果</h4>
+
+<h5 id="1-解析数据放入-es-索引中">1、解析数据放入 es 索引中</h5>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170216.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170220.png" alt="img" /></p>
+
+<h5 id="2-根据keyword分页查询结果">2、根据keyword分页查询结果</h5>
+
+<p><img src="https://www.kuangstudy.com/bbs/2020-11-24-ElasticSearch7.x%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201203180102264.png" alt="img" /></p>
+
+<h3 id="3-爬虫-jsoup">3、爬虫（jsoup）</h3>
+
+<blockquote>
+<p>数据获取：数据库、消息队列、爬虫、…</p>
+</blockquote>
+
+<h4 id="①搜索京东搜索页面-并分析页面">①搜索京东搜索页面，并分析页面</h4>
+
+<pre><code>http://search.jd.com/search?keyword=java
+</code></pre>
+
+<h5 id="页面如下">页面如下</h5>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204171043.png" alt="img" /></p>
+
+<h5 id="审查页面元素">审查页面元素</h5>
+
+<p><strong>页面列表id：J_goodsList</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170253.png" alt="img" /></p>
+
+<p><strong>目标元素：img、price、name</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170300.png" alt="img" /></p>
+
+<h4 id="②爬取数据-获取请求返回的页面信息-筛选出可用的">②爬取数据（获取请求返回的页面信息，筛选出可用的）</h4>
+
+<h5 id="创建htmlparseutil-并简单编写">创建HtmlParseUtil，并简单编写</h5>
+
+<pre><code class="language-java">public class HtmlParseUtil {
+    public static void main(String[] args) throws IOException {
+        /// 使用前需要联网
+        // 请求url
+        String url = &quot;http://search.jd.com/search?keyword=java&quot;;
+        // 1.解析网页(jsoup 解析返回的对象是浏览器Document对象)
+        Document document = Jsoup.parse(new URL(url), 30000);
+        // 使用document可以使用在js对document的所有操作
+        // 2.获取元素（通过id）
+        Element j_goodsList = document.getElementById(&quot;J_goodsList&quot;);
+        // 3.获取J_goodsList ul 每一个 li
+        Elements lis = j_goodsList.getElementsByTag(&quot;li&quot;);
+        // 4.获取li下的 img、price、name
+        for (Element li : lis) {
+            String img = li.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;src&quot;);// 获取li下 第一张图片
+            String name = li.getElementsByClass(&quot;p-name&quot;).eq(0).text();
+            String price = li.getElementsByClass(&quot;p-price&quot;).eq(0).text();
+            System.out.println(&quot;=======================&quot;);
+            System.out.println(&quot;img : &quot; + img);
+            System.out.println(&quot;name : &quot; + name);
+            System.out.println(&quot;price : &quot; + price);
+        }
+    }
+}
+</code></pre>
+
+<p><strong>运行结果</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170307.png" alt="img" /></p>
+
+<p><strong>原因是啥？</strong></p>
+
+<blockquote>
+<p>一般图片特别多的网站，所有的图片都是通过延迟加载的</p>
+</blockquote>
+
+<pre><code class="language-java">// 打印标签内容
+Elements lis = j_goodsList.getElementsByTag(&quot;li&quot;);
+System.out.println(lis);
+</code></pre>
+
+<p>打印所有li标签，发现img标签中并没有属性src的设置，只是data-lazy-ing设置图片加载的地址</p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170313.png" alt="img" /></p>
+
+<h5 id="创建htmlparseutil-改写">创建HtmlParseUtil、改写</h5>
+
+<ul>
+<li><p>更改图片获取属性为 <code>data-lazy-img</code></p></li>
+
+<li><p>与实体类结合，实体类如下</p>
+
+<pre><code class="language-java">@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Content implements Serializable {
+    private static final long serialVersionUID = -8049497962627482693L;
+    private String name;
+    private String img;
+    private String price;
+}
+</code></pre></li>
+
+<li><p>封装为方法</p>
+
+<pre><code class="language-java">public class HtmlParseUtil {
+public static void main(String[] args) throws IOException {
+    System.out.println(parseJD(&quot;java&quot;));
+}
+public static List&lt;Content&gt; parseJD(String keyword) throws IOException {
+    /// 使用前需要联网
+    // 请求url
+    String url = &quot;http://search.jd.com/search?keyword=&quot; + keyword;
+    // 1.解析网页(jsoup 解析返回的对象是浏览器Document对象)
+    Document document = Jsoup.parse(new URL(url), 30000);
+    // 使用document可以使用在js对document的所有操作
+    // 2.获取元素（通过id）
+    Element j_goodsList = document.getElementById(&quot;J_goodsList&quot;);
+    // 3.获取J_goodsList ul 每一个 li
+    Elements lis = j_goodsList.getElementsByTag(&quot;li&quot;);
+//        System.out.println(lis);
+    // 4.获取li下的 img、price、name
+    // list存储所有li下的内容
+    List&lt;Content&gt; contents = new ArrayList&lt;Content&gt;();
+    for (Element li : lis) {
+        // 由于网站图片使用懒加载，将src属性替换为data-lazy-img
+        String img = li.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;data-lazy-img&quot;);// 获取li下 第一张图片
+        String name = li.getElementsByClass(&quot;p-name&quot;).eq(0).text();
+        String price = li.getElementsByClass(&quot;p-price&quot;).eq(0).text();
+        // 封装为对象
+        Content content = new Content(name,img,price);
+        // 添加到list中
+        contents.add(content);
+    }
+//        System.out.println(contents);
+    // 5.返回 list
+    return contents;
+}
+}
+</code></pre></li>
+</ul>
+
+<p><strong>结果展示</strong></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170321.png" alt="img" /></p>
+
+<h3 id="4-搜索高亮">4、搜索高亮</h3>
+
+<blockquote>
+<p>在3、的基础上添加内容</p>
+</blockquote>
+
+<h4 id="①contentservice">①ContentService</h4>
+
+<pre><code class="language-java">// 3、 在2的基础上进行高亮查询
+public List&lt;Map&lt;String, Object&gt;&gt; highlightSearch(String keyword, Integer pageIndex, Integer pageSize) throws IOException {
+    SearchRequest searchRequest = new SearchRequest(&quot;jd_goods&quot;);
+    SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+    // 精确查询，添加查询条件
+    TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(&quot;name&quot;, keyword);
+    searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+    searchSourceBuilder.query(termQueryBuilder);
+    // 分页
+    searchSourceBuilder.from(pageIndex);
+    searchSourceBuilder.size(pageSize);
+    // 高亮 =========
+    HighlightBuilder highlightBuilder = new HighlightBuilder();
+    highlightBuilder.field(&quot;name&quot;);
+    highlightBuilder.preTags(&quot;&lt;span style='color:red'&gt;&quot;);
+    highlightBuilder.postTags(&quot;&lt;/span&gt;&quot;);
+    searchSourceBuilder.highlighter(highlightBuilder);
+    // 执行查询
+    searchRequest.source(searchSourceBuilder);
+    SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+    // 解析结果 ==========
+    SearchHits hits = searchResponse.getHits();
+    List&lt;Map&lt;String, Object&gt;&gt; results = new ArrayList&lt;&gt;();
+    for (SearchHit documentFields : hits.getHits()) {
+        // 使用新的字段值（高亮），覆盖旧的字段值
+        Map&lt;String, Object&gt; sourceAsMap = documentFields.getSourceAsMap();
+        // 高亮字段
+        Map&lt;String, HighlightField&gt; highlightFields = documentFields.getHighlightFields();
+        HighlightField name = highlightFields.get(&quot;name&quot;);
+        // 替换
+        if (name != null){
+            Text[] fragments = name.fragments();
+            StringBuilder new_name = new StringBuilder();
+            for (Text text : fragments) {
+                new_name.append(text);
+            }
+            sourceAsMap.put(&quot;name&quot;,new_name.toString());
+        }
+        results.add(sourceAsMap);
+    }
+    return results;
+}
+</code></pre>
+
+<h4 id="②contentcontroller">②ContentController</h4>
+
+<pre><code class="language-java">@ResponseBody
+@GetMapping(&quot;/h_search/{keyword}/{pageIndex}/{pageSize}&quot;)
+public List&lt;Map&lt;String, Object&gt;&gt; highlightParse(@PathVariable(&quot;keyword&quot;) String keyword,
+                                       @PathVariable(&quot;pageIndex&quot;) Integer pageIndex,
+                                       @PathVariable(&quot;pageSize&quot;) Integer pageSize) throws IOException {
+    return contentService.highlightSearch(keyword,pageIndex,pageSize);
+}
+</code></pre>
+
+<h4 id="③结果展示">③结果展示</h4>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170329.png" alt="img" /></p>
+
+<h3 id="5-前后端分离-简单使用vue">5、前后端分离（简单使用Vue）</h3>
+
+<blockquote>
+<p>删除Controller 方法上的 <a href="https://github.com/ResponseBody">@ResponseBody</a>注解</p>
+</blockquote>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170338.png" alt="img" /></p>
+
+<h4 id="①下载并引入vue-min-js和axios-js">①下载并引入Vue.min.js和axios.js</h4>
+
+<blockquote>
+<p>如果安装了nodejs，可以按如下步骤，没有可以到后面素材处下载</p>
+</blockquote>
+
+<pre><code class="language-shell">npm install vue
+npm install axios
+</code></pre>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201203190117.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170354.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170401.png" alt="img" /></p>
+
+<h4 id="②修改静态页面">②修改静态页面</h4>
+
+<h5 id="引入js">引入js</h5>
+
+<pre><code class="language-js">&lt;script th:src=&quot;@{/js/vue.min.js}&quot;&gt;&lt;/script&gt;
+&lt;script th:src=&quot;@{/js/axios.min.js}&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h5 id="修改后的index-html">修改后的index.html</h5>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;title&gt;狂神说Java-ES仿京东实战&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@{/css/style.css}&quot;/&gt;
+    &lt;script th:src=&quot;@{/js/jquery.min.js}&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;pg&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+    &lt;div id=&quot;app&quot; class=&quot; mallist tmall- page-not-market &quot;&gt;
+        &lt;!-- 头部搜索 --&gt;
+        &lt;div id=&quot;header&quot; class=&quot; header-list-app&quot;&gt;
+            &lt;div class=&quot;headerLayout&quot;&gt;
+                &lt;div class=&quot;headerCon &quot;&gt;
+                    &lt;!-- Logo--&gt;
+                    &lt;h1 id=&quot;mallLogo&quot;&gt;
+                        &lt;img th:src=&quot;@{/images/jdlogo.png}&quot; alt=&quot;&quot;&gt;
+                    &lt;/h1&gt;
+                    &lt;div class=&quot;header-extra&quot;&gt;
+                        &lt;!--搜索--&gt;
+                        &lt;div id=&quot;mallSearch&quot; class=&quot;mall-search&quot;&gt;
+                            &lt;form name=&quot;searchTop&quot; class=&quot;mallSearch-form clearfix&quot;&gt;
+                                &lt;fieldset&gt;
+                                    &lt;legend&gt;天猫搜索&lt;/legend&gt;
+                                    &lt;div class=&quot;mallSearch-input clearfix&quot;&gt;
+                                        &lt;div class=&quot;s-combobox&quot; id=&quot;s-combobox-685&quot;&gt;
+                                            &lt;div class=&quot;s-combobox-input-wrap&quot;&gt;
+                                                &lt;input v-model=&quot;keyword&quot;  type=&quot;text&quot; autocomplete=&quot;off&quot; id=&quot;mq&quot;
+                                                       class=&quot;s-combobox-input&quot;  aria-haspopup=&quot;true&quot;&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;button type=&quot;submit&quot; @click.prevent=&quot;searchKey&quot; id=&quot;searchbtn&quot;&gt;搜索&lt;/button&gt;
+                                    &lt;/div&gt;
+                                &lt;/fieldset&gt;
+                            &lt;/form&gt;
+                            &lt;ul class=&quot;relKeyTop&quot;&gt;
+                                &lt;li&gt;&lt;a&gt;狂神说Java&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a&gt;狂神说前端&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a&gt;狂神说Linux&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a&gt;狂神说大数据&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a&gt;狂神聊理财&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- 商品详情页面 --&gt;
+        &lt;div id=&quot;content&quot;&gt;
+            &lt;div class=&quot;main&quot;&gt;
+                &lt;!-- 品牌分类 --&gt;
+                &lt;form class=&quot;navAttrsForm&quot;&gt;
+                    &lt;div class=&quot;attrs j_NavAttrs&quot; style=&quot;display:block&quot;&gt;
+                        &lt;div class=&quot;brandAttr j_nav_brand&quot;&gt;
+                            &lt;div class=&quot;j_Brand attr&quot;&gt;
+                                &lt;div class=&quot;attrKey&quot;&gt;
+                                    品牌
+                                &lt;/div&gt;
+                                &lt;div class=&quot;attrValues&quot;&gt;
+                                    &lt;ul class=&quot;av-collapse row-2&quot;&gt;
+                                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt; 狂神说 &lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt; Java &lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+                &lt;!-- 排序规则 --&gt;
+                &lt;div class=&quot;filter clearfix&quot;&gt;
+                    &lt;a class=&quot;fSort fSort-cur&quot;&gt;综合&lt;i class=&quot;f-ico-arrow-d&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a class=&quot;fSort&quot;&gt;人气&lt;i class=&quot;f-ico-arrow-d&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a class=&quot;fSort&quot;&gt;新品&lt;i class=&quot;f-ico-arrow-d&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a class=&quot;fSort&quot;&gt;销量&lt;i class=&quot;f-ico-arrow-d&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a class=&quot;fSort&quot;&gt;价格&lt;i class=&quot;f-ico-triangle-mt&quot;&gt;&lt;/i&gt;&lt;i class=&quot;f-ico-triangle-mb&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;!-- 商品详情 --&gt;
+                &lt;div class=&quot;view grid-nosku&quot; &gt;
+                    &lt;div class=&quot;product&quot; v-for=&quot;result in results&quot;&gt;
+                        &lt;div class=&quot;product-iWrap&quot;&gt;
+                            &lt;!--商品封面--&gt;
+                            &lt;div class=&quot;productImg-wrap&quot;&gt;
+                                &lt;a class=&quot;productImg&quot;&gt;
+                                    &lt;img :src=&quot;result.img&quot;&gt;
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;!--价格--&gt;
+                            &lt;p class=&quot;productPrice&quot;&gt;
+                                &lt;em v-text=&quot;result.price&quot;&gt;&lt;/em&gt;
+                            &lt;/p&gt;
+                            &lt;!--标题--&gt;
+                            &lt;p class=&quot;productTitle&quot;&gt;
+                                &lt;a v-html=&quot;result.name&quot;&gt;&lt;/a&gt;
+                            &lt;/p&gt;
+                            &lt;!-- 店铺名 --&gt;
+                            &lt;div class=&quot;productShop&quot;&gt;
+                                &lt;span&gt;店铺： 狂神说Java &lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;!-- 成交信息 --&gt;
+                            &lt;p class=&quot;productStatus&quot;&gt;
+                                &lt;span&gt;月成交&lt;em&gt;999笔&lt;/em&gt;&lt;/span&gt;
+                                &lt;span&gt;评价 &lt;a&gt;3&lt;/a&gt;&lt;/span&gt;
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script th:src=&quot;@{/js/vue.min.js}&quot;&gt;&lt;/script&gt;
+&lt;script th:src=&quot;@{/js/axios.min.js}&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue({
+        el:&quot;#app&quot;,
+        data:{
+            &quot;keyword&quot;: '', // 搜索的关键字
+            &quot;results&quot;:[] // 后端返回的结果
+        },
+        methods:{
+            searchKey(){
+                var keyword = this.keyword;
+                console.log(keyword);
+                axios.get('h_search/'+keyword+'/0/20').then(response=&gt;{
+                    console.log(response.data);
+                    this.results=response.data;
+                })
+            }
+        }
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h5 id="测试-1">测试</h5>
+
+<p><img src="/resources/技术收录/中间件/ElasticSearch//20201204170413.png" alt="img" /></p>
+
+<h1 id="安装包及前端素材">安装包及前端素材</h1>
+
+<p>链接：<a href="https://pan.baidu.com/s/1M5uWdYsCZyzIAOcgcRkA_A">https://pan.baidu.com/s/1M5uWdYsCZyzIAOcgcRkA_A</a>
+提取码：qk8p
+复制这段内容后打开百度网盘手机App，操作更方便哦</p>
+
+<h1 id="疑惑">疑惑：</h1>
+
+<h2 id="1-使用term-精确查询-时-我发现三个问题-问题如下">1、使用term（精确查询）时，我发现三个问题，问题如下：</h2>
+
+<ul>
+<li><p>字段值必须是一个词（索引中存在的词），才能匹配</p>
+
+<ul>
+<li><p>问题：中文字符串，term查询时无法查询到数据（比如，“编程”两字在文档中存在，但是搜索不到）</p></li>
+
+<li><p>原因：索引为配置中文分词器（默认使用standard，即所有中文字符串都会被切分为单个中文汉字作为单词），所以没有超过1个汉字的词，也就无法匹配，进而查不到数据</p></li>
+
+<li><p>解决：创建索引时配置中文分词器，如</p>
+
+<pre><code>PUT example{  &quot;mappings&quot;: {    &quot;properties&quot;: {      &quot;name&quot;:{        &quot;type&quot;: &quot;text&quot;,        &quot;analyzer&quot;: &quot;ik_max_word&quot;  // ik分词器      }    }  }}
+</code></pre></li>
+</ul></li>
+
+<li><p>查询的英文字符只能是小写，大写都无效</p></li>
+
+<li><p>查询时英文单词必须是完整的</p></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" title="ElasticSearch笔记" target="_blank" rel="external">https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" title="Java知识点Java17"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
