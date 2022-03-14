@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        微前端qiankun自动部署 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="微前端qiankun自动部署" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>微前端qiankun自动部署 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="微前端qiankun自动部署" />
+<meta property="og:description" content="微前端qiankun自动部署" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" />
+<meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="微前端qiankun自动部署">
+<meta itemprop="description" content="微前端qiankun自动部署">
+
+
+<meta itemprop="datePublished" content="2022-03-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-03-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4492">
+
+
+
+<meta itemprop="keywords" content="前端框架," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="微前端qiankun自动部署"/>
+<meta name="twitter:description" content="微前端qiankun自动部署"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="title">微前端qiankun自动部署</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" class="title">ElasticSearch笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="title">Java知识点Java17</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/" class="title">ShardingShpere笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-01-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-01-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#技术栈简介">技术栈简介</a>
+<ul>
+<li><a href="#什么是微前端">什么是微前端</a></li>
+<li><a href="#什么是qiankun">什么是qiankun</a></li>
+<li><a href="#qiankun-的核心设计理念">qiankun 的核心设计理念</a></li>
+<li><a href="#为什么不用iframe">为什么不用Iframe</a></li>
+<li><a href="#微前端的核心价值">微前端的核心价值</a></li>
+</ul></li>
+<li><a href="#项目的构想">项目的构想</a>
+<ul>
+<li><a href="#微前端示意图">微前端示意图</a></li>
+<li><a href="#部署逻辑">部署逻辑</a></li>
+</ul></li>
+<li><a href="#qiankun">qiankun</a>
+<ul>
+<li><a href="#安装qiankun">安装qiankun</a></li>
+<li><a href="#在主应用中注册微应用">在主应用中注册微应用</a></li>
+<li><a href="#微应用">微应用</a>
+<ul>
+<li><a href="#1-导出相应的生命周期钩子">1. 导出相应的生命周期钩子</a></li>
+<li><a href="#2-配置微应用的打包工具">2. 配置微应用的打包工具</a></li>
+<li><a href="#关键点总结">关键点总结</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#生产环境nginx配置">生产环境Nginx配置</a></li>
+<li><a href="#dockerfile配置">dockerfile配置</a></li>
+<li><a href="#gitlab-ci-cd配置">gitlab-ci/cd配置</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"
+    >微前端qiankun自动部署</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"> 前端框架 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:4492字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:9分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h2 id="技术栈简介">技术栈简介</h2>
+
+<ul>
+<li>微前端</li>
+<li>qiankun</li>
+<li><a href="https://juejin.cn/post/6976222927742042119#heading-2">docker</a> 不了解的建议先看一下我之前的介绍，一看就明白</li>
+<li><a href="https://juejin.cn/post/6976222927742042119#heading-4">gitlab-ci/cd</a> 这里是自动化部署的知识，可以了解一下</li>
+<li>nginx</li>
+</ul>
+
+<p>建议配合<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Qg411u7C9">视频解说</a>更快理解</p>
+
+<h3 id="什么是微前端">什么是微前端</h3>
+
+<p>微前端是一种多个团队通过独立发布功能的方式来共同构建现代化 web 应用的技术手段及方法策略。</p>
+
+<p>微前端架构具备以下几个核心价值：</p>
+
+<ul>
+<li><p>技术栈无关 主框架不限制接入应用的技术栈，微应用具备完全自主权</p></li>
+
+<li><p>独立开发、独立部署 微应用仓库独立，前后端可独立开发，部署完成后主框架自动完成同步更新</p></li>
+
+<li><p>增量升级</p>
+
+<p>在面对各种复杂场景时，我们通常很难对一个已经存在的系统做全量的技术栈升级或重构，而微前端是一种非常好的实施渐进式重构的手段和策略</p></li>
+
+<li><p>独立运行时 每个微应用之间状态隔离，运行时状态不共享</p></li>
+</ul>
+
+<h3 id="什么是qiankun">什么是qiankun</h3>
+
+<p>qiankun 是一个生产可用的微前端框架，它基于 single-spa，具备 js 沙箱、样式隔离、HTML Loader、预加载 等微前端系统所需的能力。qiankun 可以用于任意 js 框架，微应用接入像嵌入一个 iframe 系统一样简单。</p>
+
+<h3 id="qiankun-的核心设计理念">qiankun 的核心设计理念</h3>
+
+<p>引用地址：<a href="https://link.juejin.cn?target=https%3A%2F%2Fqiankun.umijs.org%2Fzh%2Fguide">qiankun.umijs.org/zh/guide</a></p>
+
+<ul>
+<li><p>简单</p>
+
+<p>由于主应用微应用都能做到技术栈无关，qiankun 对于用户而言只是一个类似 jQuery 的库，你需要调用几个 qiankun 的 API 即可完成应用的微前端改造。同时由于 qiankun 的 HTML entry 及沙箱的设计，使得微应用的接入像使用 iframe 一样简单。</p></li>
+
+<li><p>解耦/技术栈无关</p>
+
+<p>微前端的核心目标是将巨石应用拆解成若干可以自治的松耦合微应用，而 qiankun 的诸多设计均是秉持这一原则，如 HTML entry、沙箱、应用间通信等。这样才能确保微应用真正具备 独立开发、独立运行 的能力。</p></li>
+</ul>
+
+<h3 id="为什么不用iframe">为什么不用Iframe</h3>
+
+<p>引用地址：<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.yuque.com%2Fkuitos%2Fgky7yw%2Fgesexv">www.yuque.com/kuitos/gky7…</a></p>
+
+<p><em>如果不考虑体验问题，iframe 几乎是最完美的微前端解决方案了。</em></p>
+
+<p>iframe 最大的特性就是提供了浏览器原生的硬隔离方案，不论是样式隔离、js 隔离这类问题统统都能被完美解决。但他的最大问题也在于他的隔离性无法被突破，导致应用间上下文无法被共享，随之带来的开发体验、产品体验的问题。</p>
+
+<ol>
+<li>url 不同步。浏览器刷新 iframe url 状态丢失、后退前进按钮无法使用。</li>
+<li>UI 不同步，DOM 结构不共享。想象一下屏幕右下角 <sup>1</sup>&frasl;<sub>4</sub> 的 iframe 里来一个带遮罩层的弹框，同时我们要求这个弹框要浏览器居中显示，还要浏览器 resize 时自动居中。</li>
+<li>全局上下文完全隔离，内存变量不共享。iframe 内外系统的通信、数据同步等需求，主应用的 cookie 要透传到根域名都不同的子应用中实现免登效果。</li>
+<li>慢。每次子应用进入都是一次浏览器上下文重建、资源重新加载的过程。</li>
+</ol>
+
+<p>其中有的问题比较好解决(问题1)，有的问题我们可以睁一只眼闭一只眼(问题4)，但有的问题我们则很难解决(问题3)甚至无法解决(问题2)，而这些无法解决的问题恰恰又会给产品带来非常严重的体验问题， 最终导致我们舍弃了 iframe 方案。</p>
+
+<h3 id="微前端的核心价值">微前端的核心价值</h3>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.yuque.com%2Fkuitos%2Fgky7yw%2Frhduwc">www.yuque.com/kuitos/gky7…</a></p>
+
+<h2 id="项目的构想">项目的构想</h2>
+
+<p>在说具体技术实现前，我们先来看下我们想要实现个什么东西。</p>
+
+<h3 id="微前端示意图">微前端示意图</h3>
+
+<p><img src="/resources/技术收录/qiankuan/Snipaste_2022-03-14_22-18-48.png" alt="image-20210705141310079.png" /></p>
+
+<p>主应用负责登录状态的管理和导航的显示</p>
+
+<p>子应用会根据主应用导航的点击而动态加载</p>
+
+<h3 id="部署逻辑">部署逻辑</h3>
+
+<p>部署的思路有很多，我这里说说我尝试过的方式：</p>
+
+<ul>
+<li><p>只使用一个nginx容器，通过监听不同端口，部署多个应用，再在主应用的端口里面添加对应路由代理到子应用</p>
+
+<p>这种方式最简单但是不适合 gitlab-ci/cd 的自动化部署，所以我只是最初测试一下nginx部署微前端的实现</p></li>
+
+<li><p>使用多个nginx容器，每个容器暴露一个端口，再通过主应用添加对应路由代理到子应用</p>
+
+<p>这种方式可以实现，但是会在服务器暴露多个端口，安全性会降低，而且外部也可以通过端口直接访问子应用</p></li>
+
+<li><p>使用多个nginx容器，只暴露主应用的端口，主应用去连通子应用，然后通过nginx代理访问</p>
+
+<p>这种方式最理想，只需要暴露一个端口，所有代理都在容器间，对外是无感的，下面是实现的图示</p></li>
+</ul>
+
+<p><img src="/resources/技术收录/qiankuan/Snipaste_2022-03-14_22-19-55.png" alt="image-20210705142948593.png" /></p>
+
+<h2 id="qiankun">qiankun</h2>
+
+<h3 id="安装qiankun">安装qiankun</h3>
+
+<pre><code class="language-bash">$ yarn add qiankun # 或者 npm i qiankun -S
+复制代码
+</code></pre>
+
+<h3 id="在主应用中注册微应用">在主应用中注册微应用</h3>
+
+<pre><code class="language-ts">import { registerMicroApps, addGlobalUncaughtErrorHandler, start } from 'qiankun';
+
+const apps = [
+  {
+    name: 'ManageMicroApp',
+    entry: '/system/', // 本地开发的时候使用 //localhost:子应用端口
+    container: '#frame',
+    activeRule: '/manage',
+  },
+]
+
+/**
+ * 注册微应用
+ * 第一个参数 - 微应用的注册信息
+ * 第二个参数 - 全局生命周期钩子
+ */
+registerMicroApps(apps,{
+  // qiankun 生命周期钩子 - 微应用加载前
+  beforeLoad: (app: any) =&gt; {
+    console.log(&quot;before load&quot;, app.name);
+    return Promise.resolve();
+  },
+  // qiankun 生命周期钩子 - 微应用挂载后
+  afterMount: (app: any) =&gt; {
+    console.log(&quot;after mount&quot;, app.name);
+    return Promise.resolve();
+  },
+});
+
+/**
+ * 添加全局的未捕获异常处理器
+ */
+addGlobalUncaughtErrorHandler((event: Event | string) =&gt; {
+  console.error(event);
+  const { message: msg } = event as any;
+  // 加载失败时提示
+  if (msg &amp;&amp; msg.includes(&quot;died in status LOADING_SOURCE_CODE&quot;)) {
+    console.error(&quot;微应用加载失败，请检查应用是否可运行&quot;);
+  }
+});
+
+start();
+复制代码
+</code></pre>
+
+<p>当微应用信息注册完之后，一旦浏览器的 url 发生变化，便会自动触发 qiankun 的匹配逻辑，所有 activeRule 规则匹配上的微应用就会被插入到指定的 container 中，同时依次调用微应用暴露出的生命周期钩子。</p>
+
+<p>如果微应用不是直接跟路由关联的时候，你也可以选择手动加载微应用的方式：</p>
+
+<pre><code class="language-ts">import { loadMicroApp } from 'qiankun';
+
+
+loadMicroApp({
+  name: 'app',
+  entry: '//localhost:7100',
+  container: '#yourContainer',
+});
+复制代码
+</code></pre>
+
+<h3 id="微应用">微应用</h3>
+
+<p>微应用不需要额外安装任何其他依赖即可接入 qiankun 主应用。</p>
+
+<h4 id="1-导出相应的生命周期钩子">1. 导出相应的生命周期钩子</h4>
+
+<p>微应用需要在自己的入口 js (通常就是你配置的 webpack 的 entry js) 导出 <code>bootstrap</code>、<code>mount</code>、<code>unmount</code> 三个生命周期钩子，以供主应用在适当的时机调用。</p>
+
+<pre><code class="language-ts">import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import './public-path';
+import App from './App.vue';
+import routes from './routes';
+import SharedModule from '@/shared'; 
+
+Vue.config.productionTip = false;
+
+let instance = null;
+let router = null;
+// 如果子应用独立运行则直接执行render
+if (!window.__POWERED_BY_QIANKUN__) {
+  render();
+}
+
+/**
+ * 渲染函数
+ * 主应用生命周期钩子中运行/子应用单独启动时运行
+ */
+function render(props = {}) {
+  // SharedModule用于主应用于子应用的通讯
+  // 当传入的 shared 为空时，使用子应用自身的 shared
+  // 当传入的 shared 不为空时，主应用传入的 shared 将会重载子应用的 shared
+  const { shared = SharedModule.getShared() } = props;
+  SharedModule.overloadShared(shared);
+
+  router = new VueRouter({
+    base: window.__POWERED_BY_QIANKUN__ ? '/manage/' : '/',
+    mode: 'history',
+    routes
+  });
+
+  // 挂载应用
+  instance = new Vue({
+    router,
+    render: (h) =&gt; h(App)
+  }).$mount('#app');
+}
+
+/**
+ * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
+ * 通常我们可以在这里做一些全局变量的初始化，比如不会在 unmount 阶段被销毁的应用级别的缓存等。
+ */
+export async function bootstrap() {
+  console.log('vue app bootstraped');
+}
+/**
+ * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
+ */
+export async function mount(props) {
+  console.log('vue mount', props);
+  render(props);
+}
+/**
+ * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
+ */
+export async function unmount() {
+  console.log('vue unmount');
+  instance.$destroy();
+  instance = null;
+  router = null;
+}
+/**
+ * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
+ */
+export async function update(props) {
+  console.log('update props', props);
+}
+复制代码
+</code></pre>
+
+<p>上述代码中还引用了一个<code>public-path</code>的文件：</p>
+
+<pre><code class="language-ts">if (window.__POWERED_BY_QIANKUN__) {
+  // eslint-disable-next-line no-undef
+  __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
+}
+复制代码
+</code></pre>
+
+<p>这个主要解决的是微应用动态载入的 脚本、样式、图片 等地址不正确的问题。</p>
+
+<h4 id="2-配置微应用的打包工具">2. 配置微应用的打包工具</h4>
+
+<p>除了代码中暴露出相应的生命周期钩子之外，为了让主应用能正确识别微应用暴露出来的一些信息，微应用的打包工具需要增加如下配置：</p>
+
+<p><strong>webpack：</strong></p>
+
+<pre><code class="language-js">const packageName = require('./package.json').name;
+
+
+module.exports = {
+  publicPath: '/system/', //这里打包地址都要基于主应用的中注册的entry值
+  output: {
+    library: 'ManageMicroApp', // 库名，与主应用注册的微应用的name一致
+    libraryTarget: 'umd', // 这个选项会尝试把库暴露给前使用的模块定义系统，这使其和CommonJS、AMD兼容或者暴露为全局变量。
+    jsonpFunction: `webpackJsonp_${packageName}`,
+  },
+};
+复制代码
+</code></pre>
+
+<h4 id="关键点总结">关键点总结</h4>
+
+<ul>
+<li><p>主应用注册时的配置</p>
+
+<pre><code class="language-ts">const apps = [
+  {
+    name: 'ManageMicroApp',
+    entry: '/system/',  // http://localhost/system/ 这里会通过nginx代理指向对应的子应用地址
+    container: '#frame',
+    activeRule: '/manage',
+  },
+]
+复制代码
+</code></pre>
+
+<p><strong>主应用注册微应用时，<code>entry</code> 可以为相对路径，<code>activeRule</code> 不可以和 <code>entry</code> 一样（否则主应用页面刷新就变成微应用）</strong></p></li>
+
+<li><p>vue路由的base</p>
+
+<pre><code class="language-js">router = new VueRouter({
+  base: window.__POWERED_BY_QIANKUN__ ? '/manage/' : '/',
+  mode: 'history',
+  routes
+});
+复制代码
+</code></pre>
+
+<p><strong>如果是主应用调用的那么路由的base为<code>/manage/</code></strong></p></li>
+
+<li><p>webpack打包配置</p>
+
+<pre><code class="language-js">module.exports = {
+  publicPath: '/system/',
+};
+复制代码
+</code></pre>
+
+<p><strong>对于 <code>webpack</code> 构建的微应用，微应用的 <code>webpack</code> 打包的 <code>publicPath</code> 需要配置成 <code>/system/</code>，否则微应用的 <code>index.html</code> 能正确请求，但是微应用 <code>index.html</code> 里面的 <code>js/css</code> 路径不会带上 <code>/system/</code>。</strong></p></li>
+</ul>
+
+<p>到这里我们把微前端的配置做好了，接下来就是nginx的配置。</p>
+
+<h2 id="生产环境nginx配置">生产环境Nginx配置</h2>
+
+<p>先把主应用的nginx配置挂一下</p>
+
+<pre><code class="language-nginx">    server {
+        listen       80;
+        listen       [::]:80 default_server;
+        server_name  localhost;
+        root         /usr/share/nginx/html;
+
+        location / {
+            try_files $uri $uri/ /index.html;
+            index index.html;
+        }
+				# 前面我们配置的子应用entry是/system/，所以会触发这里的代理，代理到对应的子应用
+        location /system/ {
+    				 # -e表示只要filename存在，则为真，不管filename是什么类型，当然这里加了!就取反
+             if (!-e $request_filename) {
+                proxy_pass http://192.168.1.2; # 这里的ip是子应用docker容器的ip
+             }
+    				 # -f filename 如果 filename为常规文件，则为真
+             if (!-f $request_filename) {
+                proxy_pass http://192.168.1.2;
+             }
+             # docker运行的nginx不识别localhost的 所以这种写法会报502
+             # proxy_pass  http://localhost:10200/;
+             proxy_set_header Host $host;
+         }
+
+        location /api/ {
+            proxy_pass http://后台地址IP/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header REMOTE-HOST $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+复制代码
+</code></pre>
+
+<p>再看一下子应用的</p>
+
+<pre><code class="language-nginx">server {
+    listen       80;
+    listen       [::]:80 default_server;
+    server_name  _2;
+    root         /usr/share/nginx/html;
+
+    # 这里必须加上允许跨域，否则主应用无法访问
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+    add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+
+    location / {
+        try_files $uri $uri/ /index.html;
+        index index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://后台地址IP/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+}
+复制代码
+</code></pre>
+
+<h2 id="dockerfile配置">dockerfile配置</h2>
+
+<p>这里先看一下子应用的</p>
+
+<pre><code class="language-dockerfile"># 直接使用nginx镜像
+FROM nginx
+# 把上面配置的conf文件替换一下默认的
+COPY nginx.conf /etc/nginx/nginx.conf
+# nginx默认目录下需要能看见index.html文件
+COPY dist/index.html /usr/share/nginx/html/index.html
+# 再回头看一下部署逻辑图和qiankun注意点，必须要把所有的资源文件放到system文件下index.html才能正确加载
+COPY dist /usr/share/nginx/html/system
+复制代码
+</code></pre>
+
+<p>再看一下主应用的</p>
+
+<pre><code class="language-dockerfile"># 这里主应用没有直接使用nginx，因为nginx反向代理的/api/会出现404的问题，原因未知！
+FROM centos
+# 安装nginx
+RUN yum install -y nginx
+# 跳转到/etc/nginx
+WORKDIR /etc/nginx
+# 替换配置文件
+COPY nginx.conf nginx.conf
+# 跳转到/usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+# 主应用正常打包，所以直接把包放进去就行
+COPY dist .
+# 暴露80端口
+EXPOSE 80
+# 运行nginx
+CMD nginx -g &quot;daemon off;&quot;
+复制代码
+</code></pre>
+
+<h2 id="gitlab-ci-cd配置">gitlab-ci/cd配置</h2>
+
+<p>先看一下子应用的，<strong>只说重点的</strong></p>
+
+<pre><code class="language-yaml">image: node
+
+stages:
+  - install
+  - build
+  - deploy
+  - clear
+
+cache:
+  key: modules-cache
+  paths:
+    - node_modules
+    - dist
+
+安装环境:
+  stage: install
+  tags:
+    - vue
+  script:
+    - npm install yarn
+    - yarn install
+
+打包项目:
+  stage: build
+  tags:
+    - vue
+  script:
+    - yarn build
+
+部署项目:
+  stage: deploy
+  image: docker
+  tags:
+    - vue
+  script:
+  	# 通过dockerfile构建项目的镜像
+    - docker build -t rainbow-system .
+    # 如果存在之前创建的容器先删除
+    - if [ $(docker ps -aq --filter name=rainbow-admin-system) ];then docker rm -f rainbow-admin-system;fi
+    # 通过刚刚的镜像创建一个容器 给容器指定一个网卡rainbow-net，这个网卡是我们自定义，创建方式后面会说，然后给定一个ip
+    - docker run -d --net rainbow-net --ip 192.168.1.2 --name rainbow-admin-system rainbow-system
+
+清理docker:
+  stage: clear
+  image: docker
+  tags:
+    - vue
+  script:
+    - if [ $(docker ps -aq | grep &quot;Exited&quot; | awk '{print $1 }') ]; then docker stop $(docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }');fi
+    - if [ $(docker ps -aq | grep &quot;Exited&quot; | awk '{print $1 }') ]; then docker rm $(docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }');fi
+    - if [ $(docker images | grep &quot;none&quot; | awk '{print $3}') ]; then docker rmi $(docker images | grep &quot;none&quot; | awk '{print $3}');fi
+复制代码
+</code></pre>
+
+<p>再看一下主应用的，省略重复的，直接看重点</p>
+
+<pre><code class="language-yaml">部署项目:
+  stage: deploy
+  image: docker
+  tags:
+    - vue3
+  script:
+    - docker build -t rainbow-admin .
+    - if [ $(docker ps -aq --filter name=rainbow-admin-main) ];then docker rm -f rainbow-admin-main;fi
+    # 给容器指定一个网卡rainbow-net，然后给定一个ip，然后通过--link与之前创建的子应用连通，重点！
+    - docker run -d -p 80:80 --net rainbow-net --ip 192.168.1.1 --link 192.168.1.2 --name rainbow-admin-main rainbow-admin
+复制代码
+</code></pre>
+
+<p>上面说到了docker的自定义网卡，生成的命令如下：</p>
+
+<pre><code class="language-bash">$ docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 rainbow-net
+复制代码
+</code></pre>
+
+<h2 id="总结">总结</h2>
+
+<p>到这里我们已经实现了qiankun+docker配合gitlab-ci/cd的自动化部署，中间遇到很多坑，然后走出了一条相对合理的解决方案，有问题欢迎讨论。</p>
+
+<p>作者：纸上的彩虹
+链接：<a href="https://juejin.cn/post/6981339862901194759">https://juejin.cn/post/6981339862901194759</a>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="微前端qiankun自动部署" target="_blank" rel="external">https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" title="ElasticSearch笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
