@@ -1,0 +1,3003 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Docker - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Docker." />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Docker - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Docker" />
+<meta property="og:description" content="Docker." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.github.io/2022/03/docker/" />
+<meta property="article:published_time" content="2022-03-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-07T00:00:00+00:00" />
+
+<meta itemprop="name" content="Docker">
+<meta itemprop="description" content="Docker.">
+
+
+<meta itemprop="datePublished" content="2022-03-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-03-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="17285">
+
+
+
+<meta itemprop="keywords" content="中间件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="Docker."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%97%A5%E8%AE%B0/" class="tag-list-link">日记</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="title">微前端qiankun自动部署</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/03/docker/" class="title">Docker</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" class="title">ElasticSearch笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="title">Java知识点Java17</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#docker">Docker</a>
+<ul>
+<li><a href="#docker简介">Docker简介</a></li>
+<li><a href="#常用指令">常用指令</a></li>
+<li><a href="#新建容器并启动">新建容器并启动</a></li>
+<li><a href="#列出所有运行的容器">列出所有运行的容器</a></li>
+<li><a href="#退出容器">退出容器</a></li>
+<li><a href="#删除容器">删除容器</a></li>
+<li><a href="#启动重启和停止关闭">启动重启和停止关闭</a></li>
+<li><a href="#查看日志">查看日志</a></li>
+<li><a href="#查看容器中进程信息">查看容器中进程信息</a></li>
+<li><a href="#查看镜像元数据">查看镜像元数据</a></li>
+<li><a href="#进入当前正在运行的容器">进入当前正在运行的容器</a></li>
+<li><a href="#从容器内拷贝文件到主机">从容器内拷贝文件到主机</a></li>
+<li><a href="#查看cpu状态">查看CPU状态</a></li>
+<li><a href="#可视化-protainer">可视化（protainer）</a></li>
+<li><a href="#commit镜像">commit镜像</a></li>
+<li><a href="#容器数据卷">容器数据卷</a></li>
+<li><a href="#容器和镜像的区别">容器和镜像的区别</a></li>
+<li><a href="#具名挂载和匿名挂载">具名挂载和匿名挂载</a></li>
+<li><a href="#查看卷列表">查看卷列表</a></li>
+<li><a href="#查看卷信息">查看卷信息</a></li>
+<li><a href="#数据卷容器">数据卷容器</a></li>
+<li><a href="#dockerfile">DockerFile</a></li>
+<li><a href="#dockerfile指令">DockerFile指令</a></li>
+<li><a href="#dockerfile例子">DockerFile例子</a></li>
+<li><a href="#运行dockerfile文件">运行DockerFile文件</a></li>
+<li><a href="#cmd和entrypoint">CMD和ENTRYPOINT</a></li>
+<li><a href="#发布自己的镜像">发布自己的镜像</a></li>
+<li><a href="#docker网络">Docker网络</a></li>
+<li><a href="#容器访问外网">容器访问外网</a></li>
+<li><a href="#link">&ndash;link</a></li>
+<li><a href="#查看网络信息">查看网络信息</a></li>
+<li><a href="#网络模式">网络模式</a></li>
+<li><a href="#网络连通">网络连通</a></li>
+<li><a href="#docker底层实现和网络实现">Docker底层实现和网络实现</a></li>
+<li><a href="#一张图总结docker的命令">一张图总结Docker的命令</a></li>
+</ul></li>
+<li><a href="#docker进阶">Docker进阶</a>
+<ul>
+<li><a href="#docker-compose">Docker Compose</a>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#体验">体验</a></li>
+<li><a href="#yaml规则">yaml规则</a></li>
+<li><a href="#开源项目">开源项目</a></li>
+<li><a href="#实战">实战</a></li>
+</ul></li>
+<li><a href="#docker-swarm">Docker Swarm</a>
+<ul>
+<li><a href="#4台服务器安装docker">4台服务器安装docker</a></li>
+<li><a href="#官方文档">官方文档</a></li>
+<li><a href="#raft协议-一致性协议">Raft协议（一致性协议）</a></li>
+<li><a href="#搭建集群">搭建集群</a></li>
+<li><a href="#部署服务">部署服务</a>
+<ul>
+<li><a href="#向swarm部署服务"><strong>向swarm部署服务</strong></a></li>
+<li><a href="#在swarm上检查服务"><strong>在swarm上检查服务</strong></a></li>
+<li><a href="#动态扩缩容器"><strong>动态扩缩容器</strong></a></li>
+<li><a href="#移除服务"><strong>移除服务</strong></a></li>
+<li><a href="#服务应用滚动更新"><strong>服务应用滚动更新</strong></a></li>
+<li><a href="#在集群上维护节点">在集群上维护节点</a></li>
+<li><a href="#使用swarm模式路由网格">使用swarm模式路由网格</a></li>
+</ul></li>
+<li><a href="#概念总结">概念总结</a></li>
+</ul></li>
+<li><a href="#docker-stack">Docker Stack</a>
+<ul>
+<li><a href="#简介-1">简介</a></li>
+<li><a href="#docker-stack-yml文件详解">Docker-stack.yml文件详解</a>
+<ul>
+<li><a href="#网络">网络</a></li>
+<li><a href="#密钥">密钥</a></li>
+<li><a href="#服务">服务</a></li>
+</ul></li>
+<li><a href="#部署docker-stack">部署docker stack</a>
+<ul>
+<li><a href="#准备工作">准备工作</a></li>
+<li><a href="#开始部署">开始部署</a></li>
+<li><a href="#管理stack">管理Stack</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#docker-secret">Docker Secret</a>
+<ul>
+<li><a href="#什么是docker-secret">什么是Docker Secret</a></li>
+<li><a href="#docker-secret的创建与使用">Docker Secret的创建与使用</a>
+<ul>
+<li><a href="#创建">创建</a></li>
+<li><a href="#其他操作">其他操作</a></li>
+<li><a href="#secret在单容器中的使用">Secret在单容器中的使用</a></li>
+<li><a href="#secret在stack中的使用">Secret在Stack中的使用</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#docker-config">Docker Config</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/03/docker/"
+    >Docker</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.github.io/2022/03/docker/" class="article-date">
+  <time datetime="2022-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-07</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/docker/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:17285字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:35分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="docker">Docker</h1>
+
+<h2 id="docker简介">Docker简介</h2>
+
+<p>容器化技术：一个不完整的操作系统。</p>
+
+<p><img src="/resources/技术收录/Docker/9db4260d0aeb428ca17c5726820d668atplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210504174158226.png" /></p>
+
+<p><strong>Docker为什么比虚拟机快？</strong></p>
+
+<ol>
+<li>Docker有着比虚拟机更少的抽象层</li>
+<li>Docker利用的是宿主机的内核</li>
+</ol>
+
+<p>所以说，新建容器时，docker不需要像虚拟机一样重新加载一个操作系统，避免引导。</p>
+
+<p>VM是硬件虚拟化，Docker是OS虚拟化。</p>
+
+<p>VM会有5-20%的性能损耗，Docker是物理机性能。</p>
+
+<h2 id="常用指令">常用指令</h2>
+
+<p>docker version</p>
+
+<p>docker info</p>
+
+<p>docker &ndash;help</p>
+
+<p>docker pull [] <code>下载镜像</code></p>
+
+<p>docker search [] <code>搜索镜像</code></p>
+
+<p>docker rmi [] <code>删除镜像</code></p>
+
+<p>docker rmi -f $(docker images -aq) <code>删除所有镜像</code></p>
+
+<p>docker images <code>查看镜像</code></p>
+
+<h2 id="新建容器并启动">新建容器并启动</h2>
+
+<p>docker run [可选参数] [image]</p>
+
+<p>&ndash;name=&ldquo;name01&rdquo; <code>容器名字</code></p>
+
+<p>-d <code>后台方式运行</code></p>
+
+<p>-it <code>使用交互式运行，进入容器查看内容</code></p>
+
+<p>-p <code>指定容器端口，-p 8080:8080（主机端口:容器端口）</code></p>
+
+<p>-P <code>随机端口</code></p>
+
+<p>利用 <code>docker run</code>来创建容器时，Docker在后台运行的标准操作包括：</p>
+
+<ul>
+<li>检查本地是否存在指定镜像，不存在就从共有仓库下载</li>
+<li>利用镜像创建并启动一个容器</li>
+<li>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层</li>
+<li>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去</li>
+<li>从地址池配置一个ip地址给容器</li>
+<li>执行用户指定的应用程序</li>
+<li>执行完毕后容器被终止</li>
+</ul>
+
+<h2 id="列出所有运行的容器">列出所有运行的容器</h2>
+
+<p>docker ps [-a] <code>带出历史运行过的，[-n=?]最近运行的n个</code></p>
+
+<p>-q <code>只显示容器编号</code></p>
+
+<h2 id="退出容器">退出容器</h2>
+
+<p>exit <code>退出容器</code></p>
+
+<p>ctrl+P+Q <code>退出不停止</code></p>
+
+<h2 id="删除容器">删除容器</h2>
+
+<p>docker rm 容器id <code>删除容器</code></p>
+
+<p>docker rm -f $(docker ps -aq) <code>删除所有容器</code></p>
+
+<h2 id="启动重启和停止关闭">启动重启和停止关闭</h2>
+
+<p>docker start 容器id</p>
+
+<p>docker restart 容器id</p>
+
+<p>docker stop 容器id</p>
+
+<p>docker kill 容器id</p>
+
+<p><strong>docker容器使用后台运行时（docker run -d [镜像名]），如果没有前台进程，就会立即停止。例如nginx，容器启动后，发现自己没有提供服务就会立即停止，就是没有程序了。</strong></p>
+
+<h2 id="查看日志">查看日志</h2>
+
+<p>docker logs [-tf] <code>显示全部带时间戳</code></p>
+
+<p>&ndash;tail + num <code>查看日志数量</code></p>
+
+<h2 id="查看容器中进程信息">查看容器中进程信息</h2>
+
+<p>docker top 容器id</p>
+
+<h2 id="查看镜像元数据">查看镜像元数据</h2>
+
+<p>docker inspect 容器id</p>
+
+<h2 id="进入当前正在运行的容器">进入当前正在运行的容器</h2>
+
+<p>我们通常容器都使用后台运行，需要进入容器，修改一些配置。</p>
+
+<p>docker exec -it 容器id bashshell</p>
+
+<p>docker attach 容器id</p>
+
+<p>exec <code>进入容器后开启新的终端，可进行操作</code></p>
+
+<p>attach <code>进入容器正在执行的终端，不开启新进程</code></p>
+
+<h2 id="从容器内拷贝文件到主机">从容器内拷贝文件到主机</h2>
+
+<p>docker cp 容器id:容器内路径 目的的主机路径</p>
+
+<h2 id="查看cpu状态">查看CPU状态</h2>
+
+<p>docker stats</p>
+
+<h2 id="可视化-protainer">可视化（protainer）</h2>
+
+<p>Docker图形化界面</p>
+
+<pre><code>docker run -d -p 8088:9000  --restart=always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+复制代码
+</code></pre>
+
+<p>访问方式：<a href="https://link.juejin.cn?target=http%3A%2F%2FIP%3A8088">http://IP:8088</a></p>
+
+<h2 id="commit镜像">commit镜像</h2>
+
+<p>docker commit <code>提交镜像成为一个新的副本</code></p>
+
+<p>docker commit -m=&ldquo;提交内容&rdquo; -a=&ldquo;作者名&rdquo; 容器id 目标镜像名:[TAG]</p>
+
+<h2 id="容器数据卷">容器数据卷</h2>
+
+<p>容器间可以有一个数据共享的数据。Docker容器中产生的数据同步到本地。</p>
+
+<p>数据卷是一个可供一个或多个容器使用的特殊目录，它绕过UFS，可以提供很多有用的特性：</p>
+
+<ul>
+<li>数据卷可以在容器之间共享和重用</li>
+<li>对数据卷的修改会立马生效</li>
+<li>对数据卷的更新，不会影响到镜像</li>
+<li>卷会一直存在，直到没有容器使用</li>
+</ul>
+
+<p>总结：容器持久化和同步操作，容器间也可以共享数据。</p>
+
+<p>使用：docker run -it -v 主机目录:容器目录 bashshell<code>主机目录必须是绝对路径，如果不存在docker自动创建</code></p>
+
+<p>docker挂载数据卷的默认权限是读写，用户也可以通过<code>:ro</code>指定为只读</p>
+
+<p>举例：MySql数据持久化</p>
+
+<pre><code>docker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
+复制代码
+</code></pre>
+
+<p>docker run 后台运行 端口映射 卷挂载 环境配置 容器命名 镜像名</p>
+
+<h2 id="容器和镜像的区别">容器和镜像的区别</h2>
+
+<p>镜像是只读的不能被保存或修改，一个镜像可以构建在另一个镜像之上，这种层叠关系是多层的。</p>
+
+<p>容器就是在所有的镜像层之上增加一个可写层。这个可写层有运行在CPU上的进程，而且有两个不同的状态：运行态和停止态。从运行态到停止态，我们对它所做的一切都会永久地写到容器的文件系统中，注意不是镜像中。可以用一个镜像启动多个容器，各个容器间相互隔离。</p>
+
+<p><img src="/resources/技术收录/Docker/f032169e67144dee9a96a5c4f0e4f310tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210505172410099.png" /></p>
+
+<h2 id="具名挂载和匿名挂载">具名挂载和匿名挂载</h2>
+
+<ul>
+<li>匿名挂载：docker run -d -P -v /etc/nginx</li>
+<li>具名挂载：docker run -d -P -v name01:/etc/nginx</li>
+</ul>
+
+<h2 id="查看卷列表">查看卷列表</h2>
+
+<pre><code>docker volume ls
+复制代码
+</code></pre>
+
+<h2 id="查看卷信息">查看卷信息</h2>
+
+<p>docker volume inspect 卷名</p>
+
+<p>-v 容器内路径 <code>匿名挂载</code></p>
+
+<p>-v 卷名:容器内路径 <code>具名挂载</code></p>
+
+<p>-v 宿主机路径:容器内路径 <code>指定路径挂载</code></p>
+
+<p>-v 容器内路径:ro(只读) rw(可读可写)</p>
+
+<h2 id="数据卷容器">数据卷容器</h2>
+
+<p>数据卷容器，其实就是一个正常的容器，专门用来提供数据卷为其他容器挂载的。</p>
+
+<p>首先，创建一个命名的数据卷容器dbdata：</p>
+
+<pre><code class="language-shell">docker run -d -v /dbdata --name dbdata training/postgres echo Data-only container
+复制代码
+</code></pre>
+
+<p>然后，在其他容器中使用<code>--volumes-from 容器名</code>来挂载dbdata容器中的数据卷</p>
+
+<pre><code class="language-shell">docker run -d --volumes-from dbdata --name db1 training/postgres
+docker run -d --volumes-from dbdata --name db2 training/postgres
+复制代码
+</code></pre>
+
+<p>还可以使用多个<code>--volumes-from</code>参数来从多个容器挂载多个数据卷。也可以从其他已经挂载了数据卷的容器来挂载数据卷。</p>
+
+<p>如果删除了挂载的容器(包括 dbdata、db1 和 db2)，数据卷并不会被自动删除。如果要删除一个数据 卷，必须在删除最后一个还挂载着它的容器时使用 <code>docker rm -v</code> 命令来指定同时删除关联的容器。 这可以让用户在容器之间升级和移动数据卷。</p>
+
+<h2 id="dockerfile">DockerFile</h2>
+
+<p>用来构建docker镜像的构建文件，命令脚本。通过这个脚本可以生成镜像，镜像是一层层的，脚本是一个个的命令，每个命令都是一层。</p>
+
+<p><strong>Docker构建步骤</strong></p>
+
+<ol>
+<li>编写一个dockerfile文件</li>
+<li>docker build构建成一个镜像</li>
+<li>docker run运行镜像</li>
+<li>docker push发布镜像（DockerHub，阿里云……）</li>
+</ol>
+
+<h2 id="dockerfile指令">DockerFile指令</h2>
+
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>FROM</td>
+<td>基础镜像，一切从这里开始</td>
+</tr>
+
+<tr>
+<td>MAINTAINER</td>
+<td>镜像是谁写的，姓名+邮箱</td>
+</tr>
+
+<tr>
+<td>RUN</td>
+<td>运行命令</td>
+</tr>
+
+<tr>
+<td>ADD</td>
+<td>添加内容，可解压tar包（不同于COPY的地方）</td>
+</tr>
+
+<tr>
+<td>WORKDIR</td>
+<td>镜像工作目录</td>
+</tr>
+
+<tr>
+<td>VOLUME</td>
+<td>挂载的目录</td>
+</tr>
+
+<tr>
+<td>EXPOSE</td>
+<td>指定暴露端口（同-P指令）</td>
+</tr>
+
+<tr>
+<td>CMD</td>
+<td>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行，可被替代。</td>
+</tr>
+
+<tr>
+<td>ENTRYPOINT</td>
+<td>如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。ENTRYPOINT可追加命令。每个 Dockerfile 中只能有一个 ENTRYPOINT ，当指定多个时，只有最后一个起效。</td>
+</tr>
+
+<tr>
+<td>ONBUILD</td>
+<td>当构建一个被继承DockerFile这个时候就会运行ONBUILD指令。触发指令</td>
+</tr>
+
+<tr>
+<td>COPY</td>
+<td>类似ADD，将我们的文件拷贝到镜像中</td>
+</tr>
+
+<tr>
+<td>ENV</td>
+<td>构建时设置环境变量</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>DockerHub中99%的镜像都是FROM scratch</strong></p>
+
+<h2 id="dockerfile例子">DockerFile例子</h2>
+
+<p>创建一个自己的centos</p>
+
+<pre><code>FROM centos
+MAINTAINER jy&lt;jy@test.com&gt;
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+RUN yum -y install vim
+RUN yum -y install net-tools
+EXPOSE 80
+CMD echo $MYPATH
+CMD echo &quot;---end---&quot;
+CMD /bin/bash
+复制代码
+</code></pre>
+
+<h2 id="运行dockerfile文件">运行DockerFile文件</h2>
+
+<p>docker build -f 文件路径 -t 镜像名:[TAG] . <code>最后要加一个.</code></p>
+
+<p>docker history 镜像id <code>可以看镜像的构建过程</code></p>
+
+<p><strong>编写dockerfile文件，官方命名Dockerfile，build就会自动找，不需要-f指定文件了</strong></p>
+
+<p><strong>注意：一个镜像不能超过127层</strong></p>
+
+<h2 id="cmd和entrypoint">CMD和ENTRYPOINT</h2>
+
+<pre><code>CMD [&quot;ls&quot;,&quot;-a&quot;]
+复制代码
+</code></pre>
+
+<p>run时执行 ls -a</p>
+
+<p>当Dockerfile中有CMD命令时</p>
+
+<p>docker run 镜像id ls -al</p>
+
+<p>追加的命令会替换CMD语句，所以如果追加-l会出错，相当于CMD [&ldquo;-l&rdquo;]</p>
+
+<p>但如果是</p>
+
+<pre><code>ENTRYPOINT [&quot;ls&quot;,&quot;-a&quot;]
+复制代码
+</code></pre>
+
+<p>docker run 镜像id -l</p>
+
+<p>就不会出错，会追加在ENTRYPOINT指令上</p>
+
+<h2 id="发布自己的镜像">发布自己的镜像</h2>
+
+<pre><code>docker login -u xx -p xx
+docker push 镜像id:[TAG]
+复制代码
+</code></pre>
+
+<p>阿里云的镜像容器，可参考阿里云官网</p>
+
+<h2 id="docker网络">Docker网络</h2>
+
+<p><strong>理解Docker0（使用ip addr查看网卡信息）</strong></p>
+
+<p>当 Docker 启动时，会自动在主机上创建一个 docker0 虚拟网桥，实际上是 Linux 的一个 bridge，可以理 解为一个软件交换机。它会在挂载到它的网口之间进行转发。</p>
+
+<p>当创建一个 Docker 容器的时候，同时会创建了一对 veth pair 接口(当数据包发送到一个接口时，另外 一个接口也可以收到相同的数据包)。这对接口一端在容器内，即 eth0 ;另一端在本地并被挂载到</p>
+
+<p>docker0 网桥，名称以 veth 开头(例如 vethAQI2QT )。通过这种方式，主机可以跟容器通信，容器 之间也可以相互通信。Docker 就创建了在主机和所有容器之间一个虚拟共享网络。</p>
+
+<p><img src="/resources/技术收录/Docker/e9af4a4b780b448c9cb86b7acf3a4d40tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210528225349265.png" /></p>
+
+<p>原理：</p>
+
+<ol>
+<li>我们每启动一个docker容器，docker就会给容器分配一个ip，我们只要安装了docker，就会有一个网卡docker0。</li>
+<li>桥接模式，使用的技术是veth-pair技术。</li>
+<li>这个容器带来的网卡都是一一对应的。</li>
+<li>veth-pair就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。</li>
+<li>正因为有这个特性，veth-pair充当一个桥梁，连接各种虚拟网络设备的。</li>
+</ol>
+
+<p><img src="/resources/技术收录/Docker/e5700583f62b46ae9a750b4267ea43ebtplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210507205851773.png" /></p>
+
+<p>如图，tomcat01和tomcat02是公用的一个路由器，docker0所有的容器不指定网络的情况下，都是docker0路由的，docker会给我们的容器分配一个默认的可用IP。</p>
+
+<p>Docker中的所有网络接口都是虚拟的。虚拟的转发效率高！只要删除容器，对应的一对网桥就没了。</p>
+
+<h2 id="容器访问外网">容器访问外网</h2>
+
+<p>容器要想访问外部网络，需要本地系统的转发支持。</p>
+
+<p>在Linux 系统中，检查转发是否打开。</p>
+
+<pre><code class="language-shell"> $sysctl net.ipv4.ip_forward
+ net.ipv4.ip_forward = 1
+复制代码
+</code></pre>
+
+<p>如果为 0，说明没有开启转发，则需要手动打开。</p>
+
+<pre><code class="language-shell">$sysctl -w net.ipv4.ip_forward=1
+复制代码
+</code></pre>
+
+<p>如果在启动 Docker 服务的时候设定 <code>--ip-forward=true</code>, Docker 就会自动设定系统的 ip_forward 参数 为 1。</p>
+
+<h2 id="link">&ndash;link</h2>
+
+<p><strong>不需要用ip直接用容器名（服务名）ping</strong></p>
+
+<pre><code>docker exec -it tomcat02 ping tomcat01
+复制代码
+</code></pre>
+
+<p>上面的无法ping通！</p>
+
+<pre><code>docker run -d -P --name tomcat03 --link tomcat02 tomcatdocker exec -it tomcat03 ping tomcat02
+复制代码
+</code></pre>
+
+<p>此时就可以ping同通</p>
+
+<p>原理：</p>
+
+<pre><code>docker exec -it tomcat03 cat /etc/hosts
+复制代码
+</code></pre>
+
+<p>总结：</p>
+
+<p>&ndash;link就是在hosts配置中增加一个映射</p>
+
+<h2 id="查看网络信息">查看网络信息</h2>
+
+<pre><code>docker network lsdocker network inspect 网络ID
+复制代码
+</code></pre>
+
+<h2 id="网络模式">网络模式</h2>
+
+<p>bridge：桥接模式（默认）</p>
+
+<p>none：不配置网络</p>
+
+<p>host：和宿主机共享网络</p>
+
+<p>container：容器网络连通（用得少，局限大）</p>
+
+<pre><code>docker run -d -P --name tomcat01 --net bridge tomcat
+复制代码
+</code></pre>
+
+<p>docker0特点：默认，域名不能访问，&ndash;link可以打通</p>
+
+<pre><code>docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet
+复制代码
+</code></pre>
+
+<p>解释：docker network create 桥接的网络模式 子网 网关 名称</p>
+
+<pre><code>docker run -d -P --name tomcat01 --net mynet tomcat
+复制代码
+</code></pre>
+
+<p>可以直接互相ping通</p>
+
+<pre><code>docker exec -it tomcat01 ping tomcat02
+复制代码
+</code></pre>
+
+<h2 id="网络连通">网络连通</h2>
+
+<pre><code>docker network connect mynet tomcat00
+复制代码
+</code></pre>
+
+<p>不同网络下的容器也能互相连通，tomcat00是其他网络下的容器</p>
+
+<h2 id="docker底层实现和网络实现">Docker底层实现和网络实现</h2>
+
+<p>Docker 底层的核心技术包括 Linux 上的名字空间(Namespaces)、控制组(Control groups)、Union 文</p>
+
+<p>件系统(Union file systems)和容器格式(Container format)。</p>
+
+<p>Docker 的网络实现其实就是利用了 Linux 上的网络名字空间和虚拟网络设备(特别是 veth pair)。</p>
+
+<h2 id="一张图总结docker的命令">一张图总结Docker的命令</h2>
+
+<p><img src="/resources/技术收录/Docker/96dd8046ab99422d954f18a08dd2c741tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210529113037532.png" /></p>
+
+<p>作者：纸上的彩虹
+链接：<a href="https://juejin.cn/post/6964289384845672478">https://juejin.cn/post/6964289384845672478</a>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+<h1 id="docker进阶">Docker进阶</h1>
+
+<h2 id="docker-compose">Docker Compose</h2>
+
+<h3 id="简介">简介</h3>
+
+<p>Docker Compose 是 Docker 官方编排(Orchestration)项目之一，负责快速在集群中部署分布式应用。该项目由 Python 编写，实际上调用了 Docker 提供的 API 来实现。</p>
+
+<p>Dockerfile 可以让用户管理一个单独的应用容器;而 Compose 则允许用户在一个模板(YAML 格式)中定 义一组相关联的应用容器(被称为一个 project ，即项目)，例如一个 Web 服务容器再加上后端的数据 库服务容器等。</p>
+
+<p>定义运行多个容器来轻松高效的管理容器。</p>
+
+<ul>
+<li>定义、运行多个容器</li>
+<li>YAML file配置文件</li>
+<li>单一指令</li>
+<li>所有环境都可以使用Compose</li>
+<li>三个步骤
+
+<ol>
+<li>Dockerfile</li>
+<li>docker-compose.yml</li>
+<li>启动项目 docker-compose up</li>
+</ol></li>
+</ul>
+
+<blockquote>
+<p>官方说明</p>
+
+<p>Compose是一个用于定义和运行多容器Docker应用程序的工具。使用Compose，可以使用YAML文件来配置应用程序的服务。然后，使用一个命令，从配置中创建并启动所有服务。</p>
+
+<p>Compose适用于所有环境：生产、暂存、开发、测试以及CI工作流。</p>
+
+<p>使用Compose基本上分为三个步骤：</p>
+
+<ol>
+<li>使用“Dockerfile”定义应用程序的环境，以便可以在任何地方复制。</li>
+<li>在“docker compose.yml”中定义组成应用程序的服务，以便它们可以在隔离的环境中一起运行。</li>
+<li>运行“docker compose up”和启动并运行整个应用程序。</li>
+</ol>
+</blockquote>
+
+<p><strong>为什么不在一个单一的容器里运行多个程序?</strong></p>
+
+<ol>
+<li>透明化。为了使容器组中的容器保持一致的基础设施和服务，比如进程管理和资源监控。这样设计是 为了用户的便利性。</li>
+<li>解耦软件之间的依赖。每个容器都可能重新构建和发布。</li>
+<li>方便使用。用户不必运行独立的程序管理，也不用担心每个运用程序的退出状态。</li>
+<li>高效。考虑到基础设施有更多的职责，容器必须要轻量化。</li>
+</ol>
+
+<p>作用：<strong>批量容器编排</strong></p>
+
+<p>Compose是Docker官方的开源项目，需要安装。</p>
+
+<p>Docker desktop自带compose。</p>
+
+<blockquote>
+<p>docker-compose.yml文件如下结构</p>
+</blockquote>
+
+<pre><code class="language-yaml">version: &quot;3.9&quot;  # optional since v1.27.0
+services:
+  web:
+    build: .
+    ports:
+      - &quot;5000:5000&quot;
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    links:
+      - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
+复制代码
+</code></pre>
+
+<p>假如有100个服务，利用docker-compose up可以一键启动</p>
+
+<p><strong>Compose重要的概念：</strong></p>
+
+<ul>
+<li><strong>服务services。一个应用容器，实际上可以运行多个相同镜像的实例。容器。应用（web、redis、mysql……）</strong></li>
+<li><strong>项目project。由一组关联的应用容器组成的一个完整业务单元。例如：博客（web、mysql、wp……）</strong></li>
+</ul>
+
+<h3 id="安装">安装</h3>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fcompose%2Finstall%2F">docs.docker.com/compose/ins…</a></p>
+
+<h3 id="体验">体验</h3>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fcompose%2Fgettingstarted%2F">docs.docker.com/compose/get…</a></p>
+
+<ol>
+<li><p>第一步，创建应用app.py</p>
+
+<pre><code class="language-shell">mkdir composetest
+cd composetest
+vim app.py
+复制代码
+</code></pre>
+
+<p>app.py</p>
+
+<pre><code class="language-python">import time
+    
+import redis
+from flask import Flask
+    
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+    
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
+    
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return 'Hello World! I have been seen {} times.\n'.format(count)
+复制代码
+</code></pre>
+
+<pre><code class="language-shell">vim requirements.txt
+复制代码
+</code></pre>
+
+<p>requirements.txt</p>
+
+<pre><code>flask
+redis
+复制代码
+</code></pre></li>
+
+<li><p>创建一个Dockerfile，应用打包为镜像</p>
+
+<pre><code class="language-shell">vim Dockerfile
+复制代码
+</code></pre>
+
+<p>Dockerfile</p>
+
+<pre><code class="language-dockerfile">FROM python:3.7-alpine
+WORKDIR /code
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
+CMD [&quot;flask&quot;, &quot;run&quot;]
+复制代码
+</code></pre>
+
+<blockquote>
+<p>官方解释</p>
+
+<p>This tells Docker to:</p>
+
+<ul>
+<li>Build an image starting with the Python 3.7 image.</li>
+<li>Set the working directory to <code>/code</code>.</li>
+<li>Set environment variables used by the <code>flask</code> command.</li>
+<li>Install gcc and other dependencies</li>
+<li>Copy <code>requirements.txt</code> and install the Python dependencies.</li>
+<li>Add metadata to the image to describe that the container is listening on port 5000</li>
+<li>Copy the current directory <code>.</code> in the project to the workdir <code>.</code> in the image.</li>
+<li>Set the default command for the container to <code>flask run</code>.</li>
+</ul>
+</blockquote></li>
+
+<li><p>第三步，创建docker-compose.yml文件（定义整个服务，需要的环境。web、redis）</p>
+
+<pre><code class="language-shell">vim docker-compose.yml
+复制代码
+</code></pre>
+
+<p>docker-compose.yml</p>
+
+<pre><code class="language-yaml">version: &quot;3.9&quot;
+services:
+  web:
+    build: .
+    ports:
+      - &quot;5000:5000&quot;
+  redis:
+    image: &quot;redis:alpine&quot;
+复制代码
+</code></pre></li>
+
+<li><p>第四步，启动compose项目（docker-compose up）</p>
+
+<pre><code class="language-shell">docker-compose up
+复制代码
+</code></pre></li>
+</ol>
+
+<p><strong>流程</strong></p>
+
+<ol>
+<li><p>创建网络（项目中的内容都在同个网络下。域名访问）</p></li>
+
+<li><p>执行docker-compose.yml</p></li>
+
+<li><p>启动服务</p>
+
+<p>docker-compose.yml</p>
+
+<p>Creating composetest_web_1 &hellip;done</p>
+
+<p>Creating composetest_redis_1 &hellip;done</p>
+
+<ol>
+<li>文件名 conposetest</li>
+<li>服务 web</li>
+<li>副本数量 1</li>
+</ol></li>
+</ol>
+
+<p><strong>停止</strong></p>
+
+<pre><code class="language-shell">docker-compose down
+docker-compose stop
+复制代码
+</code></pre>
+
+<h3 id="yaml规则">yaml规则</h3>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fcompose%2Fcompose-file%2Fcompose-file-v3%2F">docs.docker.com/compose/com…</a></p>
+
+<pre><code class="language-yaml"># 3层
+
+version:'' #版本
+service: #服务
+	服务1:web
+		#服务配置
+		images
+		build
+		network
+		depends_on #依赖 先启动依赖
+			-redis
+		...
+	服务2:redis
+	服务3...
+#其他配置 网络/卷、全局规则
+volumes:
+networks:
+configs:
+复制代码
+</code></pre>
+
+<h3 id="开源项目">开源项目</h3>
+
+<p><strong>wordpress博客</strong></p>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fsamples%2Fwordpress%2F">docs.docker.com/samples/wor…</a></p>
+
+<pre><code class="language-yaml">version: &quot;3.9&quot;
+    
+services:
+  db:
+  	platform: linux/x86_64
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - &quot;8000:80&quot;
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+volumes:
+  db_data: {}
+复制代码
+</code></pre>
+
+<p>在此yaml文件下运行<code>docker-compose up/docker-compose up -d</code>，然后访问<code>localhost:8000</code>就可以看到wordpress操作页面。</p>
+
+<h3 id="实战">实战</h3>
+
+<ol>
+<li>编写项目微服务，打包jar</li>
+<li>dockerfile构建镜像</li>
+<li>docker-compose.yml编排项目</li>
+<li>三个文件放到服务器同一目录下执行<code>docker-compose up</code></li>
+</ol>
+
+<h2 id="docker-swarm">Docker Swarm</h2>
+
+<ol>
+<li>准备4台1核2G的服务器用于构建集群，1主3从！</li>
+<li>服务器镜像使用centOS7及以上版本</li>
+</ol>
+
+<h3 id="4台服务器安装docker">4台服务器安装docker</h3>
+
+<ol>
+<li><p>yum安装gcc相关环境</p>
+
+<pre><code class="language-shell">yum -y install gcc
+yum -y install gcc-c++
+复制代码
+</code></pre></li>
+
+<li><p>卸载旧版本</p>
+
+<pre><code class="language-shell">yum remove docker \
+                                    docker-client \
+                                    docker-client-latest \
+                                    docker-common \
+                                    docker-latest \
+                                    docker-latest-logrotate \
+                                    docker-logrotate \
+                                    docker-engine
+复制代码
+</code></pre></li>
+
+<li><p>安装需要的软件包</p>
+
+<pre><code class="language-shell">yum install -y yum-utils
+复制代码
+</code></pre></li>
+
+<li><p>设置镜像仓库</p>
+
+<pre><code class="language-shell">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+复制代码
+</code></pre></li>
+
+<li><p>更新yum软件包索引</p>
+
+<pre><code class="language-shell">yum makecache fast
+复制代码
+</code></pre></li>
+
+<li><p>安装Docker CE</p>
+
+<pre><code class="language-shell">yum install -y docker-ce docker-ce-cli containerd.io
+复制代码
+</code></pre></li>
+
+<li><p>启动Docker</p>
+
+<pre><code class="language-shell">systemctl start docker
+复制代码
+</code></pre></li>
+
+<li><p>测试命令</p>
+
+<pre><code class="language-shell">docker version
+复制代码
+</code></pre></li>
+
+<li><p>配置镜像加速</p>
+
+<pre><code class="language-shell">sudo mkdir -p /etc/docker
+    
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+    &quot;registry-mirrors&quot;:[&quot;https://qiyb9988.mirror.aliyuncs.com&quot;]
+}
+EOF
+    
+sudo systemctl daemon-reload
+    
+sudo systemctl restart docker
+复制代码
+</code></pre></li>
+</ol>
+
+<h3 id="官方文档">官方文档</h3>
+
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fengine%2Fswarm%2F">docs.docker.com/engine/swar…</a></p>
+
+<h3 id="raft协议-一致性协议">Raft协议（一致性协议）</h3>
+
+<p><img src="/resources/技术收录/Docker/5a02fd35af1c410e9dd6a91f7a925a2atplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="swarm-diagram.png" /></p>
+
+<p>双主双从：如果一个manager节点挂了，另外一个就不能用了。</p>
+
+<p>Raft协议：保证大多数节点存活才可用，高可用。普通的需要大于一个节点，集群需要大于3个节点。</p>
+
+<h3 id="搭建集群">搭建集群</h3>
+
+<ol>
+<li><p><strong>在第一台服务器初始化一个Swarm</strong></p>
+
+<pre><code class="language-shell">docker swarm init --advertise-addr 当前内网ip
+复制代码
+</code></pre>
+
+<p>如果使用Docker Desktop for Mac或Docker Desktop for Windows来测试单节点swarm，只需运行<code>docker swarm init</code>而不带任何参数</p></li>
+</ol>
+
+<p><img src="/resources/技术收录/Docker/2051c5acae2f44eebe12369deec3011ftplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210518223315143.png" /></p>
+
+<p>运行<code>docker info</code>查看群集的当前状态:</p>
+
+<pre><code class="language-shell">$ docker info
+
+Containers: 2
+Running: 0
+Paused: 0
+Stopped: 2
+  ...snip...
+Swarm: active
+  NodeID: dxn1zf6l61qsb1josjja83ngz
+  Is Manager: true
+  Managers: 1
+  Nodes: 1
+  ...snip...
+复制代码
+</code></pre>
+
+<p>运行<code>docker node ls</code>命令以查看有关节点的信息：</p>
+
+<pre><code class="language-shell">$ docker node ls
+
+ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
+复制代码
+</code></pre>
+
+<p>节点ID旁边的*表示您当前已连接到此节点。</p>
+
+<p>Docker Engine swarm模式自动为机器主机名命名节点。</p>
+
+<ol>
+<li><p><strong>加入节点</strong></p>
+
+<p>一旦创建了一个带有管理器节点的swarm，就可以添加worker节点了。</p>
+
+<pre><code class="language-shell"># 加入一个节点
+docker swarm join
+# 获取令牌
+docker swarm join-token manager
+docker swarm join-token worker
+复制代码
+</code></pre>
+
+<pre><code class="language-shell">$ docker swarm join \
+  --token  SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+  192.168.99.100:2377
+    
+This node joined a swarm as a worker.
+复制代码
+</code></pre>
+
+<pre><code class="language-shell">$ docker swarm join-token worker
+    
+To add a worker to this swarm, run the following command:
+    
+    docker swarm join \
+    --token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+    192.168.99.100:2377
+复制代码
+</code></pre>
+
+<p>打开一个终端，ssh到manager节点运行的机器中，运行<code>docker node ls</code>命令查看工作节点：</p>
+
+<pre><code class="language-shell">ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+03g1y59jwfg7cf99w4lt0f662    worker2   Ready   Active
+9j68exjopxe7wfl6yuxml7a7j    worker1   Ready   Active
+dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
+复制代码
+</code></pre>
+
+<p>MANAGER列标识群中的管理器节点。worker1和worker2的此列中的空状态将它们标识为工作节点。</p>
+
+<p>docker node ls等群管理命令只在管理器节点上工作。</p></li>
+</ol>
+
+<h3 id="部署服务">部署服务</h3>
+
+<h4 id="向swarm部署服务"><strong>向swarm部署服务</strong></h4>
+
+<p>创建集群之后，可以将服务部署到集群。运行以下命令：</p>
+
+<pre><code class="language-shell">$ docker service create --replicas 1 --name helloworld alpine ping docker.com
+
+9uk4639qpg7npwf3fn2aasksr
+复制代码
+</code></pre>
+
+<ul>
+<li><code>docker service create</code>命令创建服务。</li>
+<li><code>--name</code> 将服务命名为helloworld。</li>
+<li><code>--replicas</code> 指定1个运行实例的所需状态。</li>
+
+<li><p>参数<code>alpine ping docker.com</code>将服务定义为执行命令ping docker.com的alpine Linux容器。</p>
+
+<pre><code class="language-shell">docker run 容器启动！不具有扩缩容器
+docker service 服务！具有扩缩容器，滚动更新
+复制代码
+</code></pre></li>
+</ul>
+
+<p>运行 <code>docker service ls</code> 查看正在运行的服务列表：</p>
+
+<pre><code class="language-shell">$ docker service ls
+
+ID            NAME        SCALE  IMAGE   COMMAND
+9uk4639qpg7n  helloworld  1/1    alpine  ping docker.com
+复制代码
+</code></pre>
+
+<h4 id="在swarm上检查服务"><strong>在swarm上检查服务</strong></h4>
+
+<p>运行<code>docker service inspect --pretty &lt;service-ID&gt;</code>以易于阅读的格式显示有关服务的详细信息。查看helloworld服务的详细信息：</p>
+
+<pre><code class="language-shell">[manager1]$ docker service inspect --pretty helloworld
+
+ID:		9uk4639qpg7npwf3fn2aasksr
+Name:		helloworld
+Service Mode:	REPLICATED
+ Replicas:		1
+Placement:
+UpdateConfig:
+ Parallelism:	1
+ContainerSpec:
+ Image:		alpine
+ Args:	ping docker.com
+Resources:
+Endpoint Mode:  vip
+复制代码
+</code></pre>
+
+<blockquote>
+<p>要以json格式返回服务详细信息，运行不带&ndash;pretty标志的相同命令。</p>
+</blockquote>
+
+<pre><code class="language-shell">[manager1]$ docker service inspect helloworld
+[
+{
+    &quot;ID&quot;: &quot;9uk4639qpg7npwf3fn2aasksr&quot;,
+    &quot;Version&quot;: {
+        &quot;Index&quot;: 418
+    },
+    &quot;CreatedAt&quot;: &quot;2016-06-16T21:57:11.622222327Z&quot;,
+    &quot;UpdatedAt&quot;: &quot;2016-06-16T21:57:11.622222327Z&quot;,
+    &quot;Spec&quot;: {
+        &quot;Name&quot;: &quot;helloworld&quot;,
+        &quot;TaskTemplate&quot;: {
+            &quot;ContainerSpec&quot;: {
+                &quot;Image&quot;: &quot;alpine&quot;,
+                &quot;Args&quot;: [
+                    &quot;ping&quot;,
+                    &quot;docker.com&quot;
+                ]
+            },
+            &quot;Resources&quot;: {
+                &quot;Limits&quot;: {},
+                &quot;Reservations&quot;: {}
+            },
+            &quot;RestartPolicy&quot;: {
+                &quot;Condition&quot;: &quot;any&quot;,
+                &quot;MaxAttempts&quot;: 0
+            },
+            &quot;Placement&quot;: {}
+        },
+        &quot;Mode&quot;: {
+            &quot;Replicated&quot;: {
+                &quot;Replicas&quot;: 1
+            }
+        },
+        &quot;UpdateConfig&quot;: {
+            &quot;Parallelism&quot;: 1
+        },
+        &quot;EndpointSpec&quot;: {
+            &quot;Mode&quot;: &quot;vip&quot;
+        }
+    },
+    &quot;Endpoint&quot;: {
+        &quot;Spec&quot;: {}
+    }
+}
+]
+复制代码
+</code></pre>
+
+<p>运行<code>docker service ps &lt;service-ID&gt;</code>查看哪些节点正在运行服务：</p>
+
+<pre><code class="language-shell">[manager1]$ docker service ps helloworld
+
+NAME             IMAGE   NODE     DESIRED STATE  CURRENT STATE     ERROR PORTS
+helloworld.1...  alpine  worker2  Running        Running 3 minutes
+复制代码
+</code></pre>
+
+<p>在本例中，helloworld服务的一个实例正在worker2节点上运行。也可能会看到服务正在manager节点上运行。默认情况下，群中的管理节点可以像工作节点一样执行任务。</p>
+
+<p>Swarm还显示服务任务的所需状态和当前状态，以便查看任务是否根据服务定义运行。</p>
+
+<p>在运行任务的节点上运行<code>docker ps</code>以查看有关任务容器的详细信息。</p>
+
+<blockquote>
+<p>如果helloworld运行在管理器节点以外的节点上，则必须将ssh连接到该节点。</p>
+</blockquote>
+
+<pre><code class="language-shell">[worker2]$ docker ps
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+e609dde94e47        alpine:latest       &quot;ping docker.com&quot;   3 minutes ago       Up 3 minutes     
+复制代码
+</code></pre>
+
+<h4 id="动态扩缩容器"><strong>动态扩缩容器</strong></h4>
+
+<pre><code class="language-shell">docker service update --replicas 3 helloworld
+复制代码
+</code></pre>
+
+<p>创建三个helloworld副本，随机部署到集群里面的服务器中，不管访问哪个节点都能访问到。</p>
+
+<pre><code class="language-shell">docker service update --replicas 1 helloworld
+复制代码
+</code></pre>
+
+<p>将集群中的helloworld副本降到1个。服务可以有多个副本动态扩缩容实现高可用！</p>
+
+<pre><code class="language-shell">docker service scale helloworld=5
+docker service scale helloworld=2
+复制代码
+</code></pre>
+
+<p>scale命令与update &ndash;replicas效果相同</p>
+
+<p>运行<code>docker service ps &lt;SERVICE-ID&gt;</code>查看更新的任务列表：</p>
+
+<pre><code class="language-shell">$ docker service ps helloworldNAME                                    IMAGE   NODE      DESIRED STATE  CURRENT STATEhelloworld.1.8p1vev3fq5zm0mi8g0as41w35  alpine  worker2   Running        Running 7 minuteshelloworld.2.c7a7tcdq5s0uk3qr88mf8xco6  alpine  worker1   Running        Running 24 secondshelloworld.3.6crl09vdcalvtfehfh69ogfb1  alpine  worker1   Running        Running 24 secondshelloworld.4.auky6trawmdlcne8ad8phb0f1  alpine  manager1  Running        Running 24 secondshelloworld.5.ba19kca06l18zujfwxyc5lkyn  alpine  worker2   Running        Running 24 seconds
+复制代码
+</code></pre>
+
+<p>swarm创建了4个新任务，以扩展到总共5个运行Alpine Linux的实例。任务分布在群的三个节点之间。一个在manager1上运行。</p>
+
+<p>运行<code>docker ps</code>以查看在连接的节点上运行的容器。以下示例显示在manager1上运行的任务：</p>
+
+<pre><code class="language-shell">$ docker ps
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+528d68040f95        alpine:latest       &quot;ping docker.com&quot;   About a minute ago   Up About a minute                       helloworld.4.auky6trawmdlcne8ad8phb0f1
+复制代码
+</code></pre>
+
+<h4 id="移除服务"><strong>移除服务</strong></h4>
+
+<pre><code class="language-shell">docker service rm helloworld
+复制代码
+</code></pre>
+
+<p>运行<code>docker service inspect&lt;service-ID&gt;</code>验证swarm manager是否删除了服务。CLI返回一条消息，指出找不到服务：</p>
+
+<pre><code class="language-shell">$ docker service inspect helloworld
+[]
+Error: no such service: helloworld
+复制代码
+</code></pre>
+
+<p>即使服务不再存在，任务容器也需要几秒钟的时间来清理。可以在节点上使用docker ps来验证任务何时被删除。</p>
+
+<pre><code class="language-shell">$ docker ps
+
+    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+    db1651f50347        alpine:latest       &quot;ping docker.com&quot;        44 minutes ago      Up 46 seconds                           helloworld.5.9lkmos2beppihw95vdwxy1j3w
+    43bf6e532a92        alpine:latest       &quot;ping docker.com&quot;        44 minutes ago      Up 46 seconds                           helloworld.3.a71i8rp6fua79ad43ycocl4t2
+    5a0fb65d8fa7        alpine:latest       &quot;ping docker.com&quot;        44 minutes ago      Up 45 seconds                           helloworld.2.2jpgensh7d935qdc857pxulfr
+    afb0ba67076f        alpine:latest       &quot;ping docker.com&quot;        44 minutes ago      Up 46 seconds                           helloworld.4.1c47o7tluz7drve4vkm2m5olx
+    688172d3bfaa        alpine:latest       &quot;ping docker.com&quot;        45 minutes ago      Up About a minute                       helloworld.1.74nbhb3fhud8jfrhigd7s29we
+
+$ docker ps
+   CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS  
+复制代码
+</code></pre>
+
+<h4 id="服务应用滚动更新"><strong>服务应用滚动更新</strong></h4>
+
+<p>部署一个基于redis3.0.6容器标记的服务。然后使用滚动更新将服务升级为使用redis3.0.7容器映像。</p>
+
+<p><strong>将Redis标签部署到swarm，并以10秒的更新延迟配置swarm。下面的示例显示了一个旧的Redis标记：</strong></p>
+
+<pre><code class="language-shell">$ docker service create \
+  --replicas 3 \
+  --name redis \
+  --update-delay 10s \
+  redis:3.0.6
+
+0u6a4s31ybk7yw2wyvtikmu50
+复制代码
+</code></pre>
+
+<p>在服务部署时配置滚动更新策略。</p>
+
+<p><code>--update delay</code>标志配置服务任务或任务集更新之间的时间延迟。可以将时间<code>T</code>描述为秒数<code>Ts</code>、分钟<code>Tm</code>或小时<code>Th</code>的组合。所以10m30s表示10分30秒的延迟。</p>
+
+<p>默认情况下，计划程序一次更新一个任务。可以传递<code>--update parallelism</code>标志来配置调度器同时更新的最大服务任务数。</p>
+
+<p>默认情况下，当对单个任务的更新返回运行状态时，调度程序会安排另一个任务进行更新，直到所有任务都更新为止。如果在更新过程中的任何时候任务返回失败，调度程序将暂停更新。可以使用<code>docker service create</code>或<code>docker service update</code>的<code>--update failure action</code>标志来控制行为。</p>
+
+<p><strong>检查redis服务：</strong></p>
+
+<pre><code class="language-shell">$ docker service inspect --pretty redis
+
+ID:             0u6a4s31ybk7yw2wyvtikmu50
+Name:           redis
+Service Mode:   Replicated
+ Replicas:      3
+Placement:
+ Strategy:	    Spread
+UpdateConfig:
+ Parallelism:   1
+ Delay:         10s
+ContainerSpec:
+ Image:         redis:3.0.6
+Resources:
+Endpoint Mode:  vip
+复制代码
+</code></pre>
+
+<p><strong>现在可以为redis更新容器镜像了。swarm manager根据UpdateConfig策略将更新应用于节点：</strong></p>
+
+<pre><code class="language-shell">$ docker service update --image redis:3.0.7 redis
+redis
+复制代码
+</code></pre>
+
+<p>默认情况下，计划程序应用滚动更新，如下所示：</p>
+
+<ul>
+<li>停止第一项任务。</li>
+<li>已停止任务的计划更新。</li>
+<li>启动更新任务的容器。</li>
+<li>如果对任务的更新返回RUNNING，请等待指定的延迟时间，然后启动下一个任务。</li>
+<li>如果在更新过程中的任何时候，任务返回失败，暂停更新。</li>
+</ul>
+
+<p><strong>运行<code>docker service inspect--pretty redis</code>以查看处于运行状态的新镜像：</strong></p>
+
+<pre><code class="language-shell">$ docker service inspect --pretty redis
+
+ID:             0u6a4s31ybk7yw2wyvtikmu50
+Name:           redis
+Service Mode:   Replicated
+ Replicas:      3
+Placement:
+ Strategy:	    Spread
+UpdateConfig:
+ Parallelism:   1
+ Delay:         10s
+ContainerSpec:
+ Image:         redis:3.0.7
+Resources:
+Endpoint Mode:  vip
+复制代码
+</code></pre>
+
+<p><strong><code>service inspect</code>的输出显示更新是否因失败而暂停：</strong></p>
+
+<pre><code class="language-shell">$ docker service inspect --pretty redis
+
+ID:             0u6a4s31ybk7yw2wyvtikmu50
+Name:           redis
+...snip...
+Update status:
+ State:      paused
+ Started:    11 seconds ago
+ Message:    update paused due to failure or early termination of task 9p7ith557h8ndf0ui9s0q951b
+...snip...
+复制代码
+</code></pre>
+
+<p><strong>要重新启动暂停的更新，运行<code>docker service update&lt;service-ID&gt;</code>。例如：</strong></p>
+
+<pre><code class="language-shell">docker service update redis
+复制代码
+</code></pre>
+
+<p>为了避免重复某些更新失败，也可能需要向<code>docker service update</code>传递标志来重新配置服务。</p>
+
+<p><strong>运行<code>docker service ps&lt;service-ID&gt;</code>以查看滚动更新：</strong></p>
+
+<pre><code class="language-shell">$ docker service ps redis
+
+NAME                                   IMAGE        NODE       DESIRED STATE  CURRENT STATE            ERROR
+redis.1.dos1zffgeofhagnve8w864fco      redis:3.0.7  worker1    Running        Running 37 seconds
+ \_ redis.1.88rdo6pa52ki8oqx6dogf04fh  redis:3.0.6  worker2    Shutdown       Shutdown 56 seconds ago
+redis.2.9l3i4j85517skba5o7tn5m8g0      redis:3.0.7  worker2    Running        Running About a minute
+ \_ redis.2.66k185wilg8ele7ntu8f6nj6i  redis:3.0.6  worker1    Shutdown       Shutdown 2 minutes ago
+redis.3.egiuiqpzrdbxks3wxgn8qib1g      redis:3.0.7  worker1    Running        Running 48 seconds
+ \_ redis.3.ctzktfddb2tepkr45qcmqln04  redis:3.0.6  mmanager1  Shutdown       Shutdown 2 minutes ago
+复制代码
+</code></pre>
+
+<p>在Swarm更新所有任务之前，可以看到一些任务正在运行redis:3.0.6 ，而其他服务正在运行redis:3.0.7，上面的输出显示了滚动更新完成后的状态。</p>
+
+<h4 id="在集群上维护节点">在集群上维护节点</h4>
+
+<p>在之前的小节，所有的节点的状态都是运行着的可用状态。swarm manager 可以分配任务给任意可用的节点。</p>
+
+<p>有时候，你可能需要对某台服务器进行维护，你需要配置某个节点为drain状态，即排干该节点上面的所有运行的容器。drain状态可以防止维护节点再收到 管理节点的指令。</p>
+
+<p>它也意味着管理节点停止在该服务器上面运行任务，并把复制任务放到别的可用节点上面。</p>
+
+<blockquote>
+<p>重要提示：将节点设置为DRAIN不会从该节点中移除独立容器，例如使用docker run、docker compose up或docker Engine API创建的容器。节点的状态（包括DRAIN）只影响节点调度swarm服务工作负载的能力。</p>
+</blockquote>
+
+<ol>
+<li><p>验证所有节点都处于活动可用状态。</p>
+
+<pre><code class="language-shell">$ docker node ls
+    
+ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+1bcef6utixb0l0ca7gxuivsj0    worker2   Ready   Active
+38ciaotwjuritcdtn9npbnkuz    worker1   Ready   Active
+e216jshn25ckzbvmwlnh5jr3g *  manager1  Ready   Active        Leader
+复制代码
+</code></pre></li>
+
+<li><p>运行<code>docker service ps redis</code>查看swarm manager如何将任务分配给不同的节点：</p>
+
+<pre><code class="language-shell">$ docker service ps redis
+    
+NAME                               IMAGE        NODE     DESIRED STATE  CURRENT STATE
+redis.1.7q92v0nr1hcgts2amcjyqg3pq  redis:3.0.6  manager1 Running        Running 26 seconds
+redis.2.7h2l8h3q3wqy5f66hlv9ddmi6  redis:3.0.6  worker1  Running        Running 26 seconds
+redis.3.9bg7cezvedmkgg6c8yzvbhwsd  redis:3.0.6  worker2  Running        Running 26 seconds
+复制代码
+</code></pre></li>
+
+<li><p>运行<code>docker node update--availability drain&lt;node-ID&gt;</code>以排出已分配任务的节点：</p>
+
+<pre><code class="language-shell">docker node update --availability drain worker1
+    
+worker1
+复制代码
+</code></pre></li>
+
+<li><p>检查节点以检查其可用性：</p>
+
+<pre><code class="language-shell">$ docker node inspect --pretty worker1
+    
+ID:         38ciaotwjuritcdtn9npbnkuz
+Hostname:       worker1
+Status:
+ State:         Ready
+ Availability:      Drain
+...snip...
+复制代码
+</code></pre></li>
+
+<li><p>运行<code>docker service ps redis</code>查看swarm manager如何更新redis服务的任务分配：</p>
+
+<pre><code class="language-shell">$ docker service ps redis
+    
+NAME                                    IMAGE        NODE      DESIRED STATE  CURRENT STATE           ERROR
+redis.1.7q92v0nr1hcgts2amcjyqg3pq       redis:3.0.6  manager1  Running        Running 4 minutes
+redis.2.b4hovzed7id8irg1to42egue8       redis:3.0.6  worker2   Running        Running About a minute
+ \_ redis.2.7h2l8h3q3wqy5f66hlv9ddmi6   redis:3.0.6  worker1   Shutdown       Shutdown 2 minutes ago
+redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Running 4 minutes
+复制代码
+</code></pre>
+
+<p>swarm manager通过在具有耗尽可用性的节点上结束任务并在具有活动可用性的节点上创建新任务来维持所需的状态。</p></li>
+
+<li><p>运行<code>docker node update--availability active&lt;node-ID&gt;</code>以将已耗尽的节点返回到活动状态：</p>
+
+<pre><code class="language-shell">$ docker node update --availability active worker1worker1
+复制代码
+</code></pre></li>
+
+<li><p>检查节点以查看更新的状态：</p>
+
+<pre><code class="language-shell">$ docker node inspect --pretty worker1ID:           38ciaotwjuritcdtn9npbnkuzHostname:      worker1Status: State:           Ready Availability:     Active...snip...
+复制代码
+</code></pre>
+
+<p>将节点设置回活动可用性时，它可以接收新任务：</p>
+
+<ul>
+<li>在服务更新期间进行扩展</li>
+<li>在滚动更新期间</li>
+<li>当您将另一个节点设置为耗尽可用性时</li>
+<li>当任务在另一个活动节点上失败时</li>
+</ul></li>
+</ol>
+
+<h4 id="使用swarm模式路由网格">使用swarm模式路由网格</h4>
+
+<p>Docker Engine swarm模式使得为服务发布端口变得容易，从而使这些端口可供swarm之外的资源使用。所有节点都参与一个入口路由网。<strong>路由网格允许群中的每个节点接受群中运行的任何服务的已发布端口上的连接，即使节点上没有运行任何任务。</strong>路由网格将所有传入请求路由到可用节点上的已发布端口，并将其路由到活动容器。</p>
+
+<p>要在swarm中使用入口网络，在启用swarm模式之前，需要在swarm节点之间打开以下端口：</p>
+
+<ul>
+<li>Port <code>7946</code> TCP/UDP 用于容器网络的端口</li>
+<li>Port <code>4789</code> UDP 用于容器入口网络的端口</li>
+</ul>
+
+<p>除此之外，还必须打开swarm节点和任何需要访问端口的外部资源（如外部负载平衡器）之间的已发布端口。</p>
+
+<p>也可以绕过给定服务的路由网格。</p>
+
+<p><strong>发布服务的端口</strong></p>
+
+<p>创建服务时，使用<code>--publish</code>标志发布端口。<code>target</code>用于指定容器内的端口，<code>published</code>用于指定要在路由网格上绑定的端口。如果不使用已发布的端口，则会为每个服务任务绑定一个随机的高编号端口。需要先检查任务以确定端口。</p>
+
+<pre><code class="language-shell">$ docker service create \
+  --name &lt;SERVICE-NAME&gt; \
+  --publish published=&lt;PUBLISHED-PORT&gt;,target=&lt;CONTAINER-PORT&gt; \
+  &lt;IMAGE&gt;
+复制代码
+</code></pre>
+
+<blockquote>
+<p>注意：这种语法的旧形式是冒号分隔的字符串，其中发布的端口是第一个，目标端口是第二个，例如-p 8080:80。首选新语法，因为它更易于阅读，并且允许更大的灵活性。</p>
+</blockquote>
+
+<p><code>&lt;PUBLISHED-PORT&gt;</code>是swarm提供服务的端口。如果忽略它，则会绑定一个随机的高位端口。<code>&lt;CONTAINER-PORT&gt;</code>是容器侦听的端口。此参数是必需的。</p>
+
+<p>例如，以下命令将nginx容器中的端口80发布到swarm中任何节点的端口8080：</p>
+
+<pre><code class="language-shell">$ docker service create \
+  --name my-web \
+  --publish published=8080,target=80 \
+  --replicas 2 \
+  nginx
+复制代码
+</code></pre>
+
+<p>当访问任何节点上的端口8080时，Docker会将请求路由到活动容器。在swarm节点本身上，端口8080实际上可能没有被绑定，但是路由网格知道如何路由通行并防止任何端口冲突的发生。</p>
+
+<p>路由网格在发布的端口上侦听分配给节点的任何IP地址。对于外部可路由的IP地址，端口可从主机外部获得。对于所有其他IP地址，只能从主机内部访问。</p>
+
+<p><img src="/resources/技术收录/Docker/f6538fe3c5404e73bde09f2d2f964f66tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="img" /></p>
+
+<p>可以使用以下命令发布现有服务的端口：</p>
+
+<pre><code class="language-shell">$ docker service update \
+  --publish-add published=&lt;PUBLISHED-PORT&gt;,target=&lt;CONTAINER-PORT&gt; \
+  &lt;SERVICE&gt;
+复制代码
+</code></pre>
+
+<p>您可以使用<code>docker service inspect</code>查看服务的已发布端口。例如：</p>
+
+<pre><code class="language-shell">$ docker service inspect --format=&quot;{{json .Endpoint.Spec.Ports}}&quot; my-web
+
+[{&quot;Protocol&quot;:&quot;tcp&quot;,&quot;TargetPort&quot;:80,&quot;PublishedPort&quot;:8080}]
+复制代码
+</code></pre>
+
+<p>输出显示来自容器的<code>&lt;CONTAINER-PORT&gt;</code>（标记为TargetPort）和节点侦听服务请求的<code>&lt;PUBLISHED-PORT&gt;</code>（标记为PublishedPort）。</p>
+
+<p><strong>仅为TCP或UDP发布端口</strong></p>
+
+<p>默认情况下，发布端口时，它是TCP端口。可以专门发布UDP端口而不是TCP端口，也可以在TCP端口之外发布。发布TCP和UDP端口时，如果省略协议说明符，则该端口将发布为TCP端口。如果使用较长的语法（推荐），请将协议密钥设置为tcp或udp。</p>
+
+<p><strong>仅为TCP</strong></p>
+
+<p>长语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  --publish published=53,target=53 \
+  dns-cache
+复制代码
+</code></pre>
+
+<p>短语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  -p 53:53 \
+  dns-cache
+复制代码
+</code></pre>
+
+<p><strong>TCP和UDP</strong></p>
+
+<p>长语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  --publish published=53,target=53 \
+  --publish published=53,target=53,protocol=udp \
+  dns-cache
+复制代码
+</code></pre>
+
+<p>短语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  -p 53:53 \
+  -p 53:53/udp \
+  dns-cache
+复制代码
+</code></pre>
+
+<p><strong>仅为UDP</strong></p>
+
+<p>长语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  --publish published=53,target=53,protocol=udp \
+  dns-cache
+复制代码
+</code></pre>
+
+<p>短语法：</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \
+  -p 53:53/udp \
+  dns-cache
+复制代码
+</code></pre>
+
+<p><strong>绕过路由网格</strong></p>
+
+<p>可以绕过路由网格，以便在访问给定节点上的绑定端口时，始终访问该节点上运行的服务实例。这称为主机模式。有几件事要记住。</p>
+
+<ul>
+<li>如果访问的节点未运行服务任务，则服务不会侦听该端口。有可能是什么都没有在侦听，或者是一个完全不同的应用程序正在侦听。</li>
+<li>如果希望在每个节点上运行多个服务任务（例如当有5个节点但运行10个副本时），则不能指定静态目标端口。允许Docker分配一个随机的高编号端口（不使用已发布的端口），或者通过使用全局服务而不是复制的服务，或者通过使用放置约束，确保只有一个服务实例在给定节点上运行。</li>
+</ul>
+
+<p>要绕过路由网格，必须使用长语法<code>--publish</code>服务并将<code>mode</code>设置为<code>host</code>。如果省略<code>mode</code>键值或将其设置为<code>ingress</code>，则使用路由网格。下面的命令使用主机模式创建全局服务并绕过路由网格。</p>
+
+<pre><code class="language-shell">$ docker service create --name dns-cache \  --publish published=53,target=53,protocol=udp,mode=host \  --mode global \  dns-cache
+复制代码
+</code></pre>
+
+<p><strong>配置外部负载平衡器</strong></p>
+
+<p>可以为swarm服务配置外部负载均衡器，可以与路由网格结合使用，也可以完全不使用路由网格。</p>
+
+<ul>
+<li><p>使用路由网格</p>
+
+<p>可以配置外部负载平衡器将请求路由到swarm服务。例如，可以配置HAProxy来平衡对发布到端口8080的nginx服务的请求。</p>
+
+<p><img src="/resources/技术收录/Docker/2aabb0e09caf47ddac05f6830a84bcf0tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="img" /></p></li>
+</ul>
+
+<p>在这种情况下，端口8080必须在负载平衡器和群中的节点之间打开。swarm节点可以驻留在代理服务器可访问但不可公开访问的专用网络上。</p>
+
+<p>您可以将负载均衡器配置为在集群中的每个节点之间平衡请求，即使节点上没有计划任务。例如，您可以在<code>/etc/HAProxy/HAProxy.cfg</code>中具有以下HAProxy配置：</p>
+
+<pre><code class="language-shell">global
+        log /dev/log    local0
+        log /dev/log    local1 notice
+...snip...
+
+# Configure HAProxy to listen on port 80
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+# Configure HAProxy to route requests to swarm nodes on port 8080
+backend http_back
+   balance roundrobin
+   server node1 192.168.99.100:8080 check
+   server node2 192.168.99.101:8080 check
+   server node3 192.168.99.102:8080 check
+复制代码
+</code></pre>
+
+<p>当访问端口80上的HAProxy负载平衡器时，它会将请求转发给swarm中的节点。swarm路由网格将请求路由到活动任务。如果swarm调度器出于任何原因将任务分派到不同的节点，则不需要重新配置负载平衡器。</p>
+
+<p>您可以配置任何类型的负载平衡器将请求路由到swarm节点。要了解有关HAProxy的更多信息，请参阅 <a href="https://link.juejin.cn?target=https%3A%2F%2Fcbonte.github.io%2Fhaproxy-dconv%2F">HAProxy documentation</a>。</p>
+
+<p><strong>没有路由网格</strong></p>
+
+<p>要使用没有路由网格的外部负载平衡器，将<code>--endpoint mode</code>设置为<code>dnsrr</code>，而不是<code>vip</code>的默认值。在这种情况下，没有单个虚拟IP。相反，Docker为服务设置DNS条目，以便对服务名称的DNS查询返回IP地址列表，并且客户端直接连接到其中一个。您负责向负载平衡器提供IP地址和端口的列表。请参阅<a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fengine%2Fswarm%2Fnetworking%2F%23configure-service-discovery">Configure service discovery</a>。</p>
+
+<h3 id="概念总结">概念总结</h3>
+
+<ul>
+<li><p><strong>swarm</strong></p>
+
+<p>集群的管理和编号。docker可以初始化一个swarm集群，其他节点可以加入。（管理者、工作者）</p></li>
+
+<li><p><strong>Node</strong></p>
+
+<p>就是一个docker节点。多个节点就组成了一个网络集群。（管理者、工作者）</p></li>
+
+<li><p><strong>Service</strong></p>
+
+<p>任务，可以在管理节点或者工作节点来运行。核心，用户访问的服务。</p></li>
+
+<li><p><strong>Task</strong></p>
+
+<p>容器内的命令，细节任务。</p></li>
+</ul>
+
+<p><img src="/resources/技术收录/Docker/b1f0bab3948c416f9071a1dea5bfeb1dtplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image-20210520230135055.png" /></p>
+
+<h2 id="docker-stack">Docker Stack</h2>
+
+<p>Docker Stack学习笔记引用地址：<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.cnblogs.com%2Fhhhhuanzi%2Fp%2F12273249.html">www.cnblogs.com/hhhhuanzi/p…</a></p>
+
+<h3 id="简介-1">简介</h3>
+
+<p>Docker Stack 是为了解决大规模场景下的多服务部署和管理，提供了<code>期望状态</code>，<code>滚动升级</code>，<code>简单易用</code>，<code>扩缩容</code>，<code>健康检查</code>等特性，并且都封装在一个声明式模型当中。</p>
+
+<ul>
+<li>Docker Stack 部署应用的生命周期：<code>初始化部署 &gt; 健康检查 &gt; 扩容 &gt; 更新 &gt; 回滚</code>。</li>
+<li>使用单一声明式文件即可完成部署，即只需要<code>docker-stack.yml</code>文件，使用<code>docker stack deploy</code>命令即可完成部署。</li>
+<li>stack 文件其实就是 Docker compose 文件，唯一的要求就是 version 需要为 3.0 或者更高的值。</li>
+<li>Stack 完全集成到了 Docker 中，不像 compose 还需要单独安装。</li>
+</ul>
+
+<p><strong>Docker 适用于开发和测试，而 Docker Stack 则适用于大规模场景和生产环境</strong></p>
+
+<h3 id="docker-stack-yml文件详解">Docker-stack.yml文件详解</h3>
+
+<p>从 GitHub 中拉取示例代码，分析其中的 <code>docker-stack.yml</code> 文件</p>
+
+<pre><code class="language-shell">git clone https://github.com/dockersamples/atsea-sample-shop-app.git
+复制代码
+</code></pre>
+
+<p>可以看到有 5 个服务，3 个网络，4 个秘钥，3 组端口映射；</p>
+
+<pre><code class="language-yaml">services:
+  reverse_proxy:
+  database:
+  appserver:
+  visualizer:
+  payment_gateway:
+networks:
+  front-tier:
+  back-tier:
+  payment:
+secrets:
+  postgres_password:
+  staging_token:
+  revprox_key:
+  revprox_cert:
+复制代码
+</code></pre>
+
+<h4 id="网络">网络</h4>
+
+<p>Docker 根据 stack 文件部署的时候，第一步会检查并创建 <code>networks：关键字</code>对应的网络。默认会创建覆盖网络（overlay），并且控制层会加密，如果需要对数据层加密，可以在 stack 文件的 driver_opts 之下指定 encrypted:&lsquo;yes&rsquo;，数据层加密会导致额外开销，但是一般不会超过10%。</p>
+
+<pre><code class="language-yaml">networks:
+  front-tier:
+  back-tier:
+  payment:
+    driver: overlay
+    driver_opts:
+      encrypted: 'yes'
+复制代码
+</code></pre>
+
+<p><strong>3 个网络都会先于秘钥和服务被创建</strong></p>
+
+<h4 id="密钥">密钥</h4>
+
+<p>当前 Stack 文件中定义了 4 个秘钥，并且都是<code>external</code>，这表示在 Stack 部署前，这些秘钥必须已存在</p>
+
+<pre><code class="language-yaml">secrets:
+  postgres_password:
+    external: true
+  staging_token:
+    external: true
+  revprox_key:
+    external: true
+  revprox_cert:
+    external: true
+复制代码
+</code></pre>
+
+<h4 id="服务">服务</h4>
+
+<p>总共有 5 个服务，我们依次进行分析</p>
+
+<ol>
+<li><p><code>reverse_proxy</code> 服务</p>
+
+<pre><code class="language-yaml">reverse_proxy:
+    image: dockersamples/atseasampleshopapp_reverse_proxy
+    ports:
+      - &quot;80:80&quot;
+      - &quot;443:443&quot;
+    secrets:
+      - source: revprox_cert
+        target: revprox_cert
+      - source: revprox_key
+        target: revprox_key
+    networks:
+      - front-tier
+复制代码
+</code></pre>
+
+<ul>
+<li><code>image</code>：必填项，指定了用于构建服务副本的 Docker 镜像</li>
+<li><code>ports</code>：Swarm 节点的 80 端口映射到副本的 80 端口，443 端口映射到副本的 443 端口</li>
+<li><code>secrets</code>：2 个秘钥以普通文件形式挂载至服务副本中，文件名称就是 target 属性的值，路径为<code>/run/secrets</code></li>
+<li><code>networks</code>：所有副本都会连接到 front-tier 网络，如果定义的网络不存在，Docker 会以 Overlay 的网络方式新建一个</li>
+</ul></li>
+
+<li><p><code>database</code> 服务</p>
+
+<pre><code class="language-yaml">database:    image: dockersamples/atsea_db    environment:      POSTGRES_USER: gordonuser      POSTGRES_DB_PASSWORD_FILE: /run/secrets/postgres_password      POSTGRES_DB: atsea    networks:      - back-tier    secrets:      - postgres_password    deploy:      placement:        constraints:          - 'node.role == worker'
+复制代码
+</code></pre>
+
+<p>多了以下几项：</p>
+
+<ul>
+<li><code>environment</code>：环境变量，定义了数据库用户，密码位置，数据库名称</li>
+<li><code>deploy</code>：部署约束，服务只运行在 Swarm 集群的 Worker 节点上</li>
+</ul>
+
+<p>Swarm 目前允许以下几种部署约束方式：</p>
+
+<ul>
+<li>节点 ID ：<code>node.id == 85v90bioyy4s2fst4fa5vrlvf</code></li>
+<li>节点名称：<code>node.hostname == huanzi-002</code></li>
+<li>节点角色：<code>node.role != manager</code></li>
+<li>节点引擎标签：<code>engine.labels.operatingsystem == Centos 7.5</code></li>
+<li>节点自定义标签：<code>node.labels.zone == test01</code></li>
+</ul>
+
+<p>支持<code>==</code>和<code>!=</code>操作。</p></li>
+
+<li><p><code>appserver</code> 服务</p>
+
+<pre><code class="language-yaml">appserver:
+    image: dockersamples/atsea_app
+    networks:
+      - front-tier
+      - back-tier
+      - payment
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        failure_action: rollback
+      placement:
+        constraints:
+          - 'node.role == worker'
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    secrets:
+      - postgres_password
+复制代码
+</code></pre>
+
+<ul>
+<li><code>deploy-replicas</code>：部署的服务副本数量</li>
+<li><code>deploy-update_config</code>：滚动升级时的操作，每次更新 2 个副本（parallelism：2），升级失败以后回滚（failure_action: rollback）</li>
+<li><code>failure_action</code>默认为 pause ，即服务升级失败后阻止其它副本的升级，还支持 continue</li>
+<li><code>restart_policy</code>：容器异常退出的重启策略，当前策略为：如果某个副本以非 0 返回值退出（condition: on-failure），会立即重启当前副本，重启最多重试 3 次，每次最多等待 120s，每次重启间隔是 5s。</li>
+</ul></li>
+
+<li><p><code>visualizer</code> 服务</p>
+
+<pre><code class="language-yaml">visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - &quot;8001:8080&quot;
+    stop_grace_period: 1m30s
+    volumes:
+      - &quot;/var/run/docker.sock:/var/run/docker.sock&quot;
+    deploy:
+      update_config:
+        failure_action: rollback
+      placement:
+        constraints:
+          - 'node.role == manager'
+复制代码
+</code></pre>
+
+<ul>
+<li><code>stop_grace_period</code>：设置容器优雅停止时长（Docker 停止某个容器时，会给容器内 PID 为 1 的进程发送一个 SIGTERM 信号，容器内 PID 为 1 的进程有 10s 的优雅停止时长来执行清理操作）</li>
+<li><code>volumes</code>：挂载提前创建的卷或者主机目录至某个服务副本中，本例中<code>/var/run/docker.sock</code>为Docker 的 IPC 套接字，Docker daemon 通过该套接字对其它进程暴露 API 终端，如果某个容器有该文件的访问权限，即允许该容器访问所有的 API 终端，并且可以查询及管理 Docker daemon。<strong>生产环境严禁使用该操作</strong></li>
+</ul></li>
+
+<li><p><code>payment_gateway</code> 服务</p>
+
+<pre><code class="language-yaml">payment_gateway:
+    image: dockersamples/atseasampleshopapp_payment_gateway
+    secrets:
+      - source: staging_token
+        target: payment_token
+    networks:
+      - payment
+    deploy:
+      update_config:
+        failure_action: rollback
+      placement:
+        constraints:
+          - 'node.role == worker'
+          - 'node.labels.pcidss == yes'
+复制代码
+</code></pre>
+
+<p><code>node.labels</code>：自定义节点标签，可以通过<code>docker node update</code>自定义，并添加至 Swarm 集群的指定节点。这说明，node.labels 配置只适用于 Swarm 集群中指定的节点。</p></li>
+</ol>
+
+<h3 id="部署docker-stack">部署docker stack</h3>
+
+<h4 id="准备工作">准备工作</h4>
+
+<ul>
+<li>自定义标签（payment_gateway 服务需要用到）</li>
+<li>密钥（提前创建 4 个）</li>
+</ul>
+
+<p>给工作节点 huanzi-002 新建一个自定义标签，在管理节点上操作</p>
+
+<pre><code class="language-shell">[root@huanzi-001 atsea-sample-shop-app]# docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
+8bet9fg0tnoqlfp0ebrrqdapn *   huanzi-001          Ready               Active              Leader              19.03.5
+85v90bioyy4s2fst4fa5vrlvf     huanzi-002          Ready               Active                                  19.03.5
+8hxs2p5iblj19xg9uqpu8ar8g     huanzi-003          Ready               Active                                  19.03.5
+[root@huanzi-001 atsea-sample-shop-app]# docker node update --label-add pcidss=yes huanzi-002
+huanzi-002
+[root@huanzi-001 atsea-sample-shop-app]# docker node inspect huanzi-002
+[
+    {
+        &quot;ID&quot;: &quot;85v90bioyy4s2fst4fa5vrlvf&quot;,
+        &quot;Version&quot;: {
+            &quot;Index&quot;: 726
+        },
+        &quot;CreatedAt&quot;: &quot;2020-02-02T08:11:34.982719258Z&quot;,
+        &quot;UpdatedAt&quot;: &quot;2020-02-06T10:22:25.44331302Z&quot;,
+        &quot;Spec&quot;: {
+            &quot;Labels&quot;: {
+                &quot;pcidss&quot;: &quot;yes&quot;
+        &lt;...&gt;
+复制代码
+</code></pre>
+
+<p>可以看到自定义标签已经成功创建。</p>
+
+<p>接下来创建密钥，先创建加密 key</p>
+
+<pre><code class="language-shell">[root@huanzi-001 daemon]# openssl req -newkey rsa:4096 -nodes -sha256 -keyout damain.key -x509 -days 365 -out domain.crt
+Generating a 4096 bit RSA private key
+....................................++
+...........................................++
+writing new private key to 'damain.key'
+-----
+&lt;...&gt;
+Country Name (2 letter code) [XX]:
+State or Province Name (full name) []:
+Locality Name (eg, city) [Default City]:
+Organization Name (eg, company) [Default Company Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (eg, your name or your server's hostname) []:
+Email Address []:
+[root@huanzi-001 daemon]# ls
+atsea-sample-shop-app  damain.key  domain.crt
+复制代码
+</code></pre>
+
+<p>创建需要加密 key 的<code>revprox_cert</code>，<code>revprox_key</code>，<code>postgres_password</code>这 3 个密钥</p>
+
+<pre><code class="language-shell">[root@huanzi-001 daemon]# docker secret create revprox_cert domain.crt 
+lue5qk6ophxrr6aspyhnkhvsv
+[root@huanzi-001 daemon]# docker secret create revprox_key damain.key 
+glvfk78kn6665lmkci7tslrw6
+[root@huanzi-001 daemon]# docker secret create postgres_password damain.key 
+pxdfs28hb2897xuu7f3bub7ex
+复制代码
+</code></pre>
+
+<p>创建不需要加密 key 的<code>staging_token</code>密钥</p>
+
+<pre><code class="language-shell">[root@huanzi-001 daemon]# echo staging | docker secret create staging_token -
+cyqfn9jocvnxd2vr57gn5pioj
+[root@huanzi-001 daemon]# docker secret ls
+ID                          NAME                DRIVER              CREATED              UPDATED
+pxdfs28hb2897xuu7f3bub7ex   postgres_password                       15 minutes ago       15 minutes ago
+lue5qk6ophxrr6aspyhnkhvsv   revprox_cert                            16 minutes ago       16 minutes ago
+glvfk78kn6665lmkci7tslrw6   revprox_key                             16 minutes ago       16 minutes ago
+cyqfn9jocvnxd2vr57gn5pioj   staging_token                           About a minute ago   About a minute ago
+复制代码
+</code></pre>
+
+<p>现在自定义标签，及密钥全部创建完毕。</p>
+
+<h4 id="开始部署">开始部署</h4>
+
+<p>命令：<code>docker stack deploy -c &lt;docker-stack.yml&gt; &lt;stack name&gt;</code></p>
+
+<pre><code class="language-shell">[root@huanzi-001 atsea-sample-shop-app]# docker stack deploy -c docker-stack.yml huanzi-stack
+Creating network huanzi-stack_front-tier
+Creating network huanzi-stack_back-tier
+Creating network huanzi-stack_default
+Creating network huanzi-stack_payment
+Creating service huanzi-stack_payment_gateway
+Creating service huanzi-stack_reverse_proxy
+Creating service huanzi-stack_database
+Creating service huanzi-stack_appserver
+Creating service huanzi-stack_visualizer
+复制代码
+</code></pre>
+
+<p>可以看出，先创建了 4 个网络，再创建的服务，我们验证一下网络是否创建了</p>
+
+<pre><code class="language-bash">[root@huanzi-001 atsea-sample-shop-app]# docker network ls
+NETWORK ID          NAME                      DRIVER              SCOPE
+34306420befb        bridge                    bridge              local
+ac57c15024c7        docker_gwbridge           bridge              local
+e863472805b3        host                      host                local
+ojt9cxg2qsxe        huanzi-net                overlay             swarm
+o74roe621idx        huanzi-stack_back-tier    overlay             swarm
+k55m237m11ct        huanzi-stack_default      overlay             swarm
+idpvc5xg2g2t        huanzi-stack_front-tier   overlay             swarm
+uvphcut0a825        huanzi-stack_payment      overlay             swarm
+7d6iv5ilwbcn        ingress                   overlay             swarm
+d302c895b455        lovehuanzi                bridge              local
+eefd134326c4        none                      null                local
+复制代码
+</code></pre>
+
+<p>看到了 4 个 <code>huanzi-stack</code> 前缀的网络。为什么多了一个<code>huanzi-stack-default</code>,因为<code>visualizer</code> 服务没有指定网络，因此 Docker 创建了一个 defalut 的网络给它用。</p>
+
+<p>再验证下服务</p>
+
+<pre><code class="language-shell">root@huanzi-001 atsea-sample-shop-app]# docker stack ls
+NAME                SERVICES            ORCHESTRATOR
+huanzi-stack        5                   Swarm
+复制代码
+[root@huanzi-001 atsea-sample-shop-app]# docker stack ps huanzi-stack 
+ID                  NAME                             IMAGE                                                     NODE                DESIRED STATE       CURRENT STATE             ERROR               PORTS
+ex55yaz21mra        huanzi-stack_appserver.1         dockersamples/atsea_app:latest                            huanzi-003          Running             Preparing 2 minutes ago                       
+jshmzquzxi8p        huanzi-stack_database.1          dockersamples/atsea_db:latest                             huanzi-002          Running             Preparing 2 minutes ago                       
+k7mi1419ahwd        huanzi-stack_reverse_proxy.1     dockersamples/atseasampleshopapp_reverse_proxy:latest     huanzi-003          Running             Preparing 2 minutes ago                       
+09ocoutjfc70        huanzi-stack_payment_gateway.1   dockersamples/atseasampleshopapp_payment_gateway:latest   huanzi-002          Running             Preparing 2 minutes ago                       
+y6lftn8g95b8        huanzi-stack_visualizer.1        dockersamples/visualizer:stable                           huanzi-001          Running             Preparing 2 minutes ago                       
+5twm1k4uj5ps        huanzi-stack_appserver.2         dockersamples/atsea_app:latest                            huanzi-002          Running             Preparing 2 minutes ago    
+复制代码
+</code></pre>
+
+<p>可以看到满足 stack 文件的要求：</p>
+
+<ul>
+<li><code>reverse_proxy</code>：副本数量 <code>1</code></li>
+<li><code>database</code>：副本数量 <code>1</code>，位于<code>worker</code></li>
+<li><code>appserver</code>：副本数量 <code>2</code>，位于<code>worker</code></li>
+<li><code>visualizer</code>：副本数量 <code>1</code>，位于<code>manager</code></li>
+<li><code>payment_gateway</code>：副本数量 <code>1</code>，位于<code>worker</code>，自定义标签<code>pcidss == yes</code>（即 huanzi-002 ）</li>
+</ul>
+
+<h4 id="管理stack">管理Stack</h4>
+
+<ol>
+<li><p>扩容</p>
+
+<p>将<code>appserver</code>的副本数从 2 扩至 10，有 2 种方式：</p>
+
+<ul>
+<li>通过<code>docker service scale appserver=10</code></li>
+<li>直接修改<code>docker-stack.yml</code>文件，再通过<code>docker stack deploy</code>重新部署</li>
+</ul>
+
+<p><strong>所有的变更都应该通过 Stack 文件进行声明，然后通过 docker stack deploy 进行部署</strong></p>
+
+<p>修改<code>docker-stack.yml</code>文件</p>
+
+<pre><code class="language-yaml">appserver:
+    image: dockersamples/atsea_app
+    networks:
+      - front-tier
+      - back-tier
+      - payment
+    deploy:
+      replicas: 10
+复制代码
+</code></pre>
+
+<p>重新部署</p>
+
+<pre><code class="language-bash">[root@huanzi-001 atsea-sample-shop-app]# docker stack deploy -c docker-stack.yml huanzi-stack 
+Updating service huanzi-stack_reverse_proxy (id: i2yn8l50ofnmbx0a55mum1dw0)
+Updating service huanzi-stack_database (id: ubrtixblmj685pnc97wql42cm)
+Updating service huanzi-stack_appserver (id: yy447jdp1eiwb03ljdsqtyg1g)
+Updating service huanzi-stack_visualizer (id: rhzzxov0jh1y38rxcj6bwe89y)
+Updating service huanzi-stack_payment_gateway (id: niobpxv5vr1njoo37vnje8zic)
+复制代码
+</code></pre>
+
+<p>查看重新部署的stack</p>
+
+<pre><code class="language-shell">docker stack ps huanzi-stack 
+复制代码
+</code></pre>
+
+<p>扩容完成。</p></li>
+
+<li><p>删除</p>
+
+<p>命令：<code>docker stack rm &lt;stack name&gt;</code></p>
+
+<pre><code class="language-bash">[root@huanzi-001 atsea-sample-shop-app]# docker stack rm huanzi-stack 
+Removing service huanzi-stack_appserver
+Removing service huanzi-stack_database
+Removing service huanzi-stack_payment_gateway
+Removing service huanzi-stack_reverse_proxy
+Removing service huanzi-stack_visualizer
+Removing network huanzi-stack_front-tier
+Removing network huanzi-stack_default
+Removing network huanzi-stack_back-tier
+Removing network huanzi-stack_payment
+复制代码
+</code></pre>
+
+<p>可以看出，<code>rm</code>会删除服务及网络，但是密钥和卷不会删除</p>
+
+<pre><code class="language-shell">root@huanzi-001 atsea-sample-shop-app]# docker secret lsID                          NAME                DRIVER              CREATED             UPDATEDpxdfs28hb2897xuu7f3bub7ex   postgres_password                       53 minutes ago      53 minutes agolue5qk6ophxrr6aspyhnkhvsv   revprox_cert                            55 minutes ago      55 minutes agoglvfk78kn6665lmkci7tslrw6   revprox_key                             54 minutes ago      54 minutes agocyqfn9jocvnxd2vr57gn5pioj   staging_token                           40 minutes ago      40 minutes ago
+复制代码
+</code></pre>
+
+<p>一般一个环境需要一个stack文件。比如dev，test，prod。</p></li>
+</ol>
+
+<h2 id="docker-secret">Docker Secret</h2>
+
+<p>文章引用：<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.cnblogs.com%2Fshenjianping%2Fp%2F12272847.html">www.cnblogs.com/shenjianpin…</a></p>
+
+<h3 id="什么是docker-secret">什么是Docker Secret</h3>
+
+<ol>
+<li><p>情景展现</p>
+
+<p>我们知道有的service是需要设置密码的，比如mysql服务是需要设置密码的：</p>
+
+<pre><code class="language-yaml">version: '3'
+services:
+  web:
+    image: wordpress
+    ports:
+      - 8080:80
+    volumes:
+      - ./www:/var/www/html
+    environment:
+      WORDPRESS_DB_NAME=wordpress
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_PASSWORD: root
+    networks:
+      - my-network
+    depends_on:
+      - mysql
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-network
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+volumes:
+  mysql-data:
+networks:
+  my-network:
+    driver: overlay
+复制代码
+</code></pre>
+
+<p>可以看到在这个docker-compose.yml中的两个service密码都是明文，这样就导致了不是很安全，那么究竟什么是Docker secret以及能否解决上面的问题呢？</p></li>
+
+<li><p>Docker Secret</p>
+
+<p><img src="/resources/技术收录/Docker/5c68870b13554d35aa28815d37d4db9dtplv-k3u1fbpfcp-zoom-in-crop-mark1304000.png" alt="image" /></p>
+
+<p>​   我们知道manager节点保持状态的一致是通过Raft Database这个分布式存储的数据库，它本身就是将信息进行了secret，所以可以利用这个数据库将一些敏感信息，例如账号、密码等信息保存在这里，然后通过给service授权的方式允许它进行访问，这样达到避免密码明文显示的效果。</p>
+
+<p>​   总之，secret的Swarm中secret的管理通过以下步骤完成：</p>
+
+<ul>
+<li>secret存在于Swarm Manager节点的的Raft Database里</li>
+<li>secret可以assign给一个service，然后这个service就可以看到这个secret</li>
+<li>在container内部secret看起来像文件，实际上就是内存</li>
+</ul></li>
+</ol>
+
+<h3 id="docker-secret的创建与使用">Docker Secret的创建与使用</h3>
+
+<h4 id="创建">创建</h4>
+
+<p>Secret的创建有两种方式，分别是：</p>
+
+<ul>
+<li>基于文件的创建</li>
+<li>基于命令行创建</li>
+</ul>
+
+<ol>
+<li><p>基于文件创建</p>
+
+<p>首先先创建一个文件用于存放密码</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# vim mysql-password
+root
+复制代码
+</code></pre>
+
+<p>然后再进行创建secret</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker secret create mysql-pass mysql-password 
+texcct9ojqcz6n40woe97dd7k
+复制代码
+</code></pre>
+
+<p>　　其中，mysql-pass是secret的名称，mysql-password是我们建立存储密码的文件，这样执行后就相当于将文件中的密码存储在Swarm中manager节点的Raft Database中了。为了安全起见，现在可以直接将这个文件删掉，因为Swarm中已经有这个密码了。</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# rm -f mysql-password 
+复制代码
+</code></pre>
+
+<p>现在可以查看一下secret列表：</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker secret ls
+ID                          NAME                DRIVER              CREATED             UPDATED
+texcct9ojqcz6n40woe97dd7k   mysql-pass                              4 minutes ago       4 minutes ago
+复制代码
+</code></pre>
+
+<p>已经存在了。</p></li>
+
+<li><p>基于命令行创建</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# echo &quot;root&quot; | docker secret create mysql-pass2 -hrtmn5yr3r3k66o39ba91r2e4[root@centos-7 ~]# docker secret lsID                          NAME                DRIVER              CREATED             UPDATEDtexcct9ojqcz6n40woe97dd7k   mysql-pass                              6 minutes ago       6 minutes agohrtmn5yr3r3k66o39ba91r2e4   mysql-pass2                             5 seconds ago       5 seconds ago
+复制代码
+</code></pre>
+
+<p>这种方式还是很简单的就创建成功了</p></li>
+</ol>
+
+<h4 id="其他操作">其他操作</h4>
+
+<ol>
+<li><p>inspect</p>
+
+<p>展示secret的一些详情信息</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker secret inspect mysql-pass2
+[
+    {
+        &quot;ID&quot;: &quot;hrtmn5yr3r3k66o39ba91r2e4&quot;,
+        &quot;Version&quot;: {
+            &quot;Index&quot;: 4061
+        },
+        &quot;CreatedAt&quot;: &quot;2020-02-07T08:39:25.630341396Z&quot;,
+        &quot;UpdatedAt&quot;: &quot;2020-02-07T08:39:25.630341396Z&quot;,
+        &quot;Spec&quot;: {
+            &quot;Name&quot;: &quot;mysql-pass2&quot;,
+            &quot;Labels&quot;: {}
+        }
+    }
+]
+复制代码
+</code></pre></li>
+
+<li><p>rm</p>
+
+<p>删除一个secret</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker secret rm  mysql-pass2
+mysql-pass2
+[root@centos-7 ~]# docker secret ls
+ID                          NAME                DRIVER              CREATED             UPDATED
+texcct9ojqcz6n40woe97dd7k   mysql-pass                              12 minutes ago      12 minutes ago
+复制代码
+</code></pre></li>
+</ol>
+
+<h4 id="secret在单容器中的使用">Secret在单容器中的使用</h4>
+
+<ol>
+<li><p>容器中查看secret</p>
+
+<p>我们创建了一个secret，如何在启动一个服务后，将其授权给特定的服务然后它才可以看到呢？先看看创建服务的命令中是否有类似的命令或者参数：</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker service create --help
+    
+Usage:    docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
+    
+Create a new service
+    
+Options:
+      --config config                      Specify configurations to expose to the service
+...
+ --secret secret                      Specify secrets to expose to the service
+...
+...
+复制代码
+</code></pre>
+
+<p>确实是有这样的命令，在创建服务时可以给服务暴露出secret。</p></li>
+
+<li><p>创建服务</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker service create --name demo --secret mysql-pass busybox sh -c &quot;while true; do sleep 3600; done&quot;
+zwgk5w0rpf17hn77axz6cn8di
+overall progress: 1 out of 1 tasks 
+1/1: running   
+verify: Service converged 
+复制代码
+</code></pre>
+
+<p>查看这个服务运行在那个节点上：</p>
+
+<pre><code class="language-shell">[root@centos-7 ~]# docker service ls
+ID                  NAME           MODE                REPLICAS            IMAGE               PORTS
+zwgk5w0rpf17        demo           replicated          1/1                 busybox:latest      
+[root@centos-7 ~]# docker service ps demo
+ID                  NAME           IMAGE    NODE         DESIRED STATE       CURRENT STATE     ERROR  PORTS
+yvr9lwvg8oca        demo.1        busybox:latest      localhost.localdomain   Running   Running 51 seconds ago  
+复制代码
+</code></pre>
+
+<p>可以看到这个服务运行在localhost.localdomain主机的节点上，我们去这个节点上进入到容器内部，看是否能查看secret：</p>
+
+<pre><code class="language-shell">[root@localhost ~]# docker ps
+CONTAINER ID    IMAGE               COMMAND           CREATED             STATUS    PORTS               NAMES
+36573adf21f6  busybox:latest   &quot;sh -c 'while true; …&quot;4 minutes ago   Up 4 minutes  demo.1.yvr9lwvg8ocatym20hdfublhd
+[root@localhost ~]# docker exec -it 36573adf21f6 /bin/sh
+/ # ls
+bin   dev   etc   home  proc  root  run   sys   tmp   usr   var
+/ # cd /run/secrets
+/run/secrets # ls
+mysql-pass
+/run/secrets # cat mysql-pass 
+root
+/run/secrets # 
+复制代码
+</code></pre>
+
+<p>可以看到确实是可行的。</p></li>
+</ol>
+
+<h4 id="secret在stack中的使用">Secret在Stack中的使用</h4>
+
+<p>Stack利用的就是docker-compose.yml文件来部署stack，那么如何在docker-compose.yml中来定义secret呢？</p>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+
+  web:
+    image: wordpress
+    ports:
+      - 8080:80
+    secrets:
+      - my-pw
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/wordpress-pass
+    networks:
+      - my-network
+    depends_on:
+      - mysql
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+
+  mysql:
+    image: mysql
+    secrets:
+      - my-pw
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-pass
+      MYSQL_DATABASE: wordpress
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-network
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+
+volumes:
+  mysql-data:
+
+networks:
+  my-network:
+    driver: overlay
+复制代码
+</code></pre>
+
+<p>上面通过在environment中定义WORDPRESS_DB_PASSWORD_FILE以及MYSQL_ROOT_PASSWORD_FILE来制定secret，显然我们在运行这个docker-compose.yml文件之前必须先要进行对应的secret文件的创建。然后就可以通过docker stack deploy命令来部署这个stack了。</p>
+
+<h2 id="docker-config">Docker Config</h2>
+
+<p>官方文档：<a href="https://link.juejin.cn?target=https%3A%2F%2Fdocs.docker.com%2Fengine%2Freference%2Fcommandline%2Fconfig%2F">docs.docker.com/engine/refe…</a></p>
+
+<p>作者：纸上的彩虹
+链接：<a href="https://juejin.cn/post/6967598675820281870">https://juejin.cn/post/6967598675820281870</a>
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.github.io/2022/03/docker/" title="Docker" target="_blank" rel="external">https://mumulx.github.io/2022/03/docker/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.github.io/2022/02/elasticsearch%E7%AC%94%E8%AE%B0/" title="ElasticSearch笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"
+                    title="微前端qiankun自动部署"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.github.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.github.io/js/insight.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
