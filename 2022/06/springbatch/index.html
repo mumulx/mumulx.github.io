@@ -797,7 +797,7 @@
 
 <p>Spring Batch 设计时考虑了可扩展性，并考虑了不同的最终用户群体。下图显示了分层体系结构的草图，该结构支持最终用户开发人员的可扩展性和易用性。</p>
 
-<p><img src="SpringBatch.assets/spring-batch-layers.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/spring-batch-layers.png" alt="img" /></p>
 
 <p>图 1.1：Spring Batch 分层架构</p>
 
@@ -906,7 +906,7 @@
 
 <p>此外，已分区的进程必须设计为仅处理其分配的数据集。分区体系结构必须与数据库设计和数据库分区策略紧密联系在一起。请注意，数据库分区不一定意味着数据库的物理分区，尽管在大多数情况下这是可取的。下图说明了分区方法：</p>
 
-<p><img src="SpringBatch.assets/partitioned.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/partitioned.png" alt="img" /></p>
 
 <p>图 1.2：分区过程</p>
 
@@ -1360,7 +1360,7 @@ public FlatFileItemWriter&lt;Item&gt; itemWriter(Resource resource) {
 
 <p>下图是已使用了数十年的批处理参考体系结构的简化版本。它概述了组成批处理领域语言的组件。该体系结构框架是一个蓝图，已经在最后几代平台(COBOL/Mainframe，C/Unix 和现在的 Java /任何地方)上数十年的实现中得到了证明。 JCL 和 COBOL 开发人员可能像 C，C#和 Java 开发人员一样熟悉这些概念。 Spring Batch 提供了层，组件和技术服务的物理实现，这些层，组件和技术服务通常用于强大，可维护的系统中，这些系统用于解决从简单到复杂的批处理应用程序的创建，其基础结构和扩展可以满足非常复杂的处理需求。</p>
 
-<p><img src="SpringBatch.assets/spring-batch-reference-model.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/spring-batch-reference-model.png" alt="img" /></p>
 
 <p>图 2.1：批量定型</p>
 
@@ -1370,7 +1370,7 @@ public FlatFileItemWriter&lt;Item&gt; itemWriter(Resource resource) {
 
 <p>本节描述与批处理作业的概念有关的构造型。 <code>Job</code>是封装整个批处理过程的实体。与其他 SpringItem 一样，<code>Job</code>将通过 XML 配置文件或基于 Java 的配置连接在一起。该配置可以被称为“作业配置”。但是，<code>Job</code>只是整体层次结构的顶部：</p>
 
-<p><img src="SpringBatch.assets/job-heirarchy.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-heirarchy.png" alt="img" /></p>
 
 <p>在 Spring Batch 中，作业只是“步骤”的容器。它组合了逻辑上属于流程的多个步骤，并允许配置所有步骤全局的属性，例如可重新启动性。作业配置包含：</p>
 
@@ -1399,7 +1399,7 @@ public FlatFileItemWriter&lt;Item&gt; itemWriter(Resource resource) {
 
 <p>在讨论了<code>JobInstance</code>及其与<code>Job</code>的区别之后，自然要问的问题是：“一个<code>JobInstance</code>与另一个<code>JobInstance</code>有什么区别？”答案是：<code>JobParameters</code>。 <code>JobParameters</code>是用于启动批处理作业的一组参数。在运行期间，它们可以用于标识甚至用作参考数据：</p>
 
-<p><img src="SpringBatch.assets/job-stereotypes-parameters.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-stereotypes-parameters.png" alt="img" /></p>
 
 <p>在上面的示例中，有两个实例，一个实例是 1 月 1 日，另一个实例是 1 月 2 日，实际上只有一个 Job，一个实例的工作参数为 01-01-2008，另一个实例的工作参数为。参数 01-02-2008.因此，Contract 可以定义为：<code>JobInstance</code> = <code>Job</code>标识<code>JobParameters</code>。这使开发人员可以有效地控制<code>JobInstance</code>的定义方式，因为他们可以控制传入的参数。</p>
 
@@ -1646,7 +1646,7 @@ public FlatFileItemWriter&lt;Item&gt; itemWriter(Resource resource) {
 
 <p><code>Step</code>是一个域对象，它封装了批处理作业的一个独立的 Sequences 阶段。因此，每个<code>Job</code>完全由一个或多个步骤组成。 <code>Step</code>包含定义和控制实际批处理所需的所有信息。这是一个模糊的描述，因为任何给定<code>Step</code>的内容都由开发人员自行编写<code>Job</code>来决定。步骤可以像开发人员所希望的那样简单或复杂。一个简单的<code>Step</code>可能会将文件中的数据加载到数据库中，几乎不需要代码。 (取决于所使用的实现方式)较复杂的<code>Step</code>可能具有复杂的业务规则，这些规则将在处理过程中应用。与<code>Job</code>一样，<code>Step</code>的个人<code>StepExecution</code>与唯一的<code>JobExecution</code>相对应：</p>
 
-<p><img src="SpringBatch.assets/jobHeirarchyWithSteps.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/jobHeirarchyWithSteps.png" alt="img" /></p>
 
 <h3 id="3-2-1-stepexecution">3.2.1 StepExecution</h3>
 
@@ -1933,7 +1933,7 @@ ExecutionContext ecJob = jobExecution.getExecutionContext();
 
 <p>在<a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/domain.html">domain section</a>中，使用下图作为指南讨论了总体体系结构设计：</p>
 
-<p><img src="SpringBatch.assets/spring-batch-reference-model-16546079589757.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/spring-batch-reference-model-16546079589757.png" alt="img" /></p>
 
 <p>尽管<code>Job</code>对象似乎是简单的步骤容器，但是开发人员必须了解许多配置选项。此外，对于<code>Job</code>将如何运行以及在此运行期间如何存储其元数据有许多考虑因素。本章将解释<code>Job</code>的各种配置选项和运行时问题。</p>
 
@@ -2221,11 +2221,11 @@ public class AppConfig {
 
 <p>一旦获得<a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/domain.html#jobExecution">JobExecution</a>，它将被传递给<code>Job</code>的 execute 方法，最终将<code>JobExecution</code>返回给调用者：</p>
 
-<p><img src="SpringBatch.assets/job-launcher-sequence-sync.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-launcher-sequence-sync.png" alt="img" /></p>
 
 <p>该序列很简单，从调度程序启动时效果很好。但是，尝试从 HTTP 请求启动时会出现问题。在这种情况下，启动需要异步完成，以便<code>SimpleJobLauncher</code>立即返回到其调用方。这是因为在长时间运行的进程(例如批处理)所需的时间内保持 HTTP 请求处于打开状态是一种不好的做法。下面是一个示例序列：</p>
 
-<p><img src="SpringBatch.assets/job-launcher-sequence-async.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-launcher-sequence-async.png" alt="img" /></p>
 
 <p>可以通过配置<code>TaskExecutor</code>轻松地将<code>SimpleJobLauncher</code>配置为允许这种情况：</p>
 
@@ -2314,7 +2314,7 @@ public class AppConfig {
 
 <p>从历史上 Watch，如上所述，已从命令行启动了诸如批处理作业之类的脱机处理。但是，在许多情况下，从<code>HttpRequest</code>启动是更好的选择。许多此类用例包括报告，临时作业运行和 Web 应用程序支持。因为按定义，批处理作业是长期运行的，所以最重要的问题是确保异步启动该作业：</p>
 
-<p><img src="SpringBatch.assets/launch-from-request.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/launch-from-request.png" alt="img" /></p>
 
 <p>在这种情况下，该控制器是 Spring MVC 控制器。有关 Spring MVC 的更多信息，请参见<a href="https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/mvc.html">http://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/mvc.html</a>。控制器使用已配置为启动<a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/configureJob.html#">asynchronously</a>的<code>JobLauncher</code>来启动<code>Job</code>，它会立即返回<code>JobExecution</code>。 <code>Job</code>可能仍在运行，但是，这种非阻塞行为允许控制器立即返回，这在处理<code>HttpRequest</code>时是必需的。下面是一个示例：</p>
 
@@ -2338,11 +2338,11 @@ public class JobLauncherController {
 
 <p>到目前为止，已经讨论了 JobLauncher 和 JobRepository 接口。它们一起代表了作业的简单启动和批处理域对象的基本 CRUD 操作：</p>
 
-<p><img src="SpringBatch.assets/job-repository.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-repository.png" alt="img" /></p>
 
 <p><code>JobLauncher</code>使用<code>JobRepository</code>创建新的<code>JobExecution</code>对象并运行它们。 <code>Job</code>和<code>Step</code>实现稍后在运行<code>Job</code>的过程中使用相同的<code>JobRepository</code>进行相同执行的基本更新。基本操作足以满足简单的场景，但是在具有成百上千个批处理作业和复杂的调度要求的大型批处理环境中，需要对元数据进行更高级的访问：</p>
 
-<p><img src="SpringBatch.assets/job-repository-advanced.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/job-repository-advanced.png" alt="img" /></p>
 
 <p><code>JobExplorer</code>和<code>JobOperator</code>接口(将在下面进行讨论)添加了用于查询和控制元数据的其他功能。</p>
 
@@ -2530,13 +2530,13 @@ jobOperator.stop(executions.iterator().next());
 
 <p>如<a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/domain.html">批处理域语言</a>所讨论的，<code>Step</code>是一个域对象，该域对象封装了批处理作业的一个独立的 Sequences 阶段，并包含定义和控制实际批处理所需的所有信息。这是一个模糊的描述，因为任何给定<code>Step</code>的内容都由开发人员自行编写<code>Job</code>来决定。步骤可以像开发人员所希望的那样简单或复杂。简单的<code>Step</code>可能会将文件中的数据加载到数据库中，几乎不需要代码。 (取决于所使用的实现方式)较复杂的<code>Step</code>可能具有复杂的业务规则，这些规则将在处理过程中应用。</p>
 
-<p><img src="SpringBatch.assets/step.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/step.png" alt="img" /></p>
 
 <h2 id="5-1-块处理">5.1 块处理</h2>
 
 <p>Spring Batch 在其最常见的实现中使用“面向块的”处理风格。面向块的处理是指一次读取一个数据，并在事务边界内创建要写出的“块”。从<code>ItemReader</code>读取一项，将其交给<code>ItemProcessor</code>并进行汇总。一旦读取的 Item 数等于提交间隔，就通过 ItemWriter 写入整个块，然后提交事务。</p>
 
-<p><img src="SpringBatch.assets/chunk-oriented-processing.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/chunk-oriented-processing.png" alt="img" /></p>
 
 <p>下面是上述相同概念的代码表示：</p>
 
@@ -3117,7 +3117,7 @@ itemWriter.write(items);
 
 <p>最简单的流程场景是一项工作，其中所有步骤都按 Sequences 执行：</p>
 
-<p><img src="SpringBatch.assets/sequential-flow.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/sequential-flow.png" alt="img" /></p>
 
 <p>这可以使用 step 元素的&rsquo;next&rsquo;属性来实现：</p>
 
@@ -3145,7 +3145,7 @@ itemWriter.write(items);
 
 <p>在许多情况下，这可能就足够了。但是，如果<code>Step</code>的故障应触发一个不同的<code>Step</code>而不是引起故障的情况呢？</p>
 
-<p><img src="SpringBatch.assets/conditional-flow.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/conditional-flow.png" alt="img" /></p>
 
 <p>为了处理更复杂的场景，Spring Batch 名称空间允许在 step 元素内定义转换元素。一种这样的过渡是“下一个”元素。与“ next”属性类似，“ next”元素将告诉<code>Job</code>接下来执行哪个<code>Step</code>。但是，与该属性不同，给定<code>Step</code>允许任何数量的“ next”元素，并且在失败的情况下没有默认行为。这意味着，如果使用过渡元素，则必须明确定义<code>Step</code>过渡的所有行为。还要注意，单个步骤不能同时具有“下一个”属性和过渡元素。</p>
 
@@ -4290,13 +4290,13 @@ assertEquals(born, values[2]);
 
 <p>让我们仔细 WatchWatchSpring Batch 中 XMLImporting 和输出的工作方式。首先，有一些概念与文件读写不同，但在 Spring Batch XML 处理中很常见。通过 XML 处理，而不是需要标记的记录行(FieldSets)，假定 XML 资源是与各个记录相对应的“片段”的集合：</p>
 
-<p><img src="SpringBatch.assets/xmlinput.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/xmlinput.png" alt="img" /></p>
 
 <p>图 3.1：XMLImporting</p>
 
 <p>在上述方案中，“贸易”标签被定义为“根元素”。 &lsquo; &lsquo;和&rsquo; &lsquo;之间的所有内容均被视为一个“片段”。 Spring Batch 使用对象/ XMLMap(OXM)将片段绑定到对象。但是，Spring Batch 不与任何特定的 XML 绑定技术绑定。典型的用法是委托<a href="https://docs.spring.io/spring-ws/site/reference/html/oxm.html">Spring OXM</a>，它为最流行的 OXM 技术提供统一的抽象。对 Spring OXM 的依赖关系是可选的，如果需要，您可以选择实现特定于 Spring Batch 的接口。与 OXM 支持的技术的关系可以显示如下：</p>
 
-<p><img src="SpringBatch.assets/oxm-fragments.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/oxm-fragments.png" alt="img" /></p>
 
 <p>图 3.2：OXM 绑定</p>
 
@@ -4470,7 +4470,7 @@ staxItemWriter.write(trade);
 
 <p>通常，使用数据库游标是大多数批处理开发人员的默认方法，因为它是数据库解决“流式”关系数据问题的方法。 Java <code>ResultSet</code>类本质上是用于操纵游标的面向对象的机制。 <code>ResultSet</code>将光标保留到当前数据行。在<code>ResultSet</code>上调用<code>next</code>会将光标移到下一行。基于 Spring Batch 游标的 ItemReaders 在初始化时打开游标，并针对每次对<code>read</code>的调用将游标向前移动一行，从而返回可用于处理的 Map 对象。然后将调用<code>close</code>方法以确保释放所有资源。 Spring 核心<code>JdbcTemplate</code>通过使用回调模式完全 Map<code>ResultSet</code>中的所有行并在将控制权返回给方法调用者之前关闭来解决此问题。但是，必须分批完成，直到步骤完成。下面是基于游标的<code>ItemReader</code>的工作原理的一般示意图，虽然以 SQL 语句为例，因为它广为人知，但是任何技术都可以实现基本方法：</p>
 
-<p><img src="SpringBatch.assets/cursorExample.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/cursorExample.png" alt="img" /></p>
 
 <p>本示例说明了基本模式。给定一个&rsquo;FOO&rsquo;表，该表具有三列：ID，NAME 和 BAR，选择 ID 大于 1 但小于 7 的所有行。这会将光标的开始(行 1)放在 ID 2 上。结果该行的内容应该是完全 Map 的 Foo 对象。再次调用<code>read</code>()将光标移动到下一行，即 ID 为 3 的 Foo。这些读取的结果将在每个<code>read</code>之后写出，从而允许对对象进行垃圾回收(假设没有实例变量是维护对它们的引用)。</p>
 
@@ -4802,11 +4802,11 @@ itemReader.close(executionContext);
 
 <p>虽然平面文件和 XML 都有特定的 ItemWriter，但在数据库世界中没有确切的等效项。这是因为事务提供了所需的所有功能。 ItemWriters 对于文件来说是必需的，因为它们必须像处理事务一样工作，跟踪已写入的 Item 并在适当的时间进行刷新或清除。数据库不需要此功能，因为写入已包含在事务中。用户可以创建自己的 DAO 来实现<code>ItemWriter</code>接口，也可以使用自定义<code>ItemWriter</code>中的 DAO 来处理通用的处理问题，无论哪种方式，他们都应该可以正常工作。需要注意的一件事是批处理输出所提供的性能和错误处理功能。这在将 hibernate 用作<code>ItemWriter</code>时最常见，但在使用 Jdbc 批处理模式时可能会有相同的问题。假设我们要小心刷新并且数据中没有错误，则批处理数据库输出没有任何固有的缺陷。但是，写出时发生的任何错误都可能引起混乱，因为无法知道哪个单个 Item 导致了异常，或者甚至没有任何单个 Item 负责，如下所示：</p>
 
-<p><img src="SpringBatch.assets/errorOnFlush.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/errorOnFlush.png" alt="img" /></p>
 
 <p>如果项在被写出之前被缓冲，则遇到的任何错误都不会被抛出，直到在提交之前刷新缓冲区为止。例如，假设每个块将写入 20 个 Item，第 15 个 Item 将引发 DataIntegrityViolationException。就“步骤”而言，所有 20 个 Item 都将成功写出，因为在实际写出之前没有办法知道会发生错误。调用<code>Session#</code> <code>flush</code>()后，缓冲区将被清空，并且将触发异常。此时，<code>Step</code>无能为力，必须回滚该事务。通常，此异常可能导致 Item 被跳过(取决于跳过/重试策略)，然后将不会再次将其写出。但是，在批处理方案中，无法知道是哪个 Item 导致了问题，故障发生时整个缓冲区都被写了出来。解决此问题的唯一方法是在每个 Item 之后冲洗：</p>
 
-<p><img src="SpringBatch.assets/errorOnWrite.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/errorOnWrite.png" alt="img" /></p>
 
 <p>这是一个常见的用例，尤其是在使用 Hibernate 时，实现<code>ItemWriter</code>的简单准则是在每次调用<code>write()</code>时刷新。这样做可以使 Item 可靠地被跳过，Spring Batch 在内部会在发生错误后对<code>ItemWriter</code>的调用粒度进行内部维护。</p>
 
@@ -5098,7 +5098,7 @@ assertEquals(&quot;2&quot;, itemReader.read());
 
 <p>在远程分块中，分步处理被划分为多个进程，并通过某种中间件相互通信。这是实际模式的图片：</p>
 
-<p><img src="SpringBatch.assets/remote-chunking.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/remote-chunking.png" alt="img" /></p>
 
 <p>主组件是单个进程，从组件是多个远程进程。显然，如果母版不是瓶颈，则此模式最有效，因此处理必须比读取 Item 更昂贵(在实践中通常是这种情况)。</p>
 
@@ -5110,13 +5110,13 @@ assertEquals(&quot;2&quot;, itemReader.read());
 
 <p>Spring Batch 还提供了一个 SPI，用于对 Step 执行进行分区并远程执行。在这种情况下，远程参与者只是 Step 实例，可以轻松地对其进行配置并将其用于本地处理。这是实际模式的图片：</p>
 
-<p><img src="SpringBatch.assets/partitioning-overview.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/partitioning-overview.png" alt="img" /></p>
 
 <p>作业作为一系列步骤在左侧执行，并且其中一个步骤标记为“主要”。此图中的从属都是一个步骤的所有相同实例，实际上可以代替主从，从而为工作带来相同的结果。从站通常将是远程服务，但也可能是本地执行线程。主服务器以这种模式发送到从属服务器的消息不需要持久或不需要保证传递：<code>JobRepository</code>中的 Spring Batch 元数据将确保每个从属服务器执行一次，并且每次执行作业仅一次。</p>
 
 <p>Spring Batch 中的 SPI 包含步骤(<code>PartitionStep</code>)的特殊实现，以及针对特定环境需要实现的两个策略接口。策略接口是<code>PartitionHandler</code>和<code>StepExecutionSplitter</code>，它们的作用在下面的序列图中显示：</p>
 
-<p><img src="SpringBatch.assets/partitioning-spi.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/partitioning-spi.png" alt="img" /></p>
 
 <p>在这种情况下，右侧的步骤是“远程”从设备，因此可能有许多对象和/或进程在扮演该角色，并且显示了 PartitionStep 驱动执行。 PartitionStep 配置如下所示：</p>
 
@@ -5924,11 +5924,11 @@ public void update(ExecutionContext executionContext) {
 
 <p>在有关读写器的章节中，讨论了使用分页的数据库 Importing。许多数据库供应商，例如 DB2，都具有极其悲观的锁定策略，如果正在读取的表也需要由联机应用程序的其他部分使用，则会导致问题。此外，在非常大的数据集上打开游标可能会导致某些供应商出现问题。因此，许多 Item 更喜欢使用“驱动查询”方法来读取数据。这种方法的工作方式是遍历键，而不是遍历需要返回的整个对象，如以下示例所示：</p>
 
-<p><img src="SpringBatch.assets/drivingQueryExample.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/drivingQueryExample.png" alt="img" /></p>
 
 <p>如您所见，该示例使用与基于游标的示例相同的“ FOO”表。但是，不是选择整个行，而是在 SQL 语句中仅选择了 ID。因此，不是从<code>read</code>返回 FOO 对象，而是将返回 Integer。然后可以使用该数字查询“详细信息”，它是完整的 Foo 对象：</p>
 
-<p><img src="SpringBatch.assets/drivingQueryJob.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/drivingQueryJob.png" alt="img" /></p>
 
 <p>应该使用 ItemProcessor 将从驾驶查询中获得的键转换为完整的“ Foo”对象。现有的 DAO 可以用于根据密钥查询完整的对象。</p>
 
@@ -6130,7 +6130,7 @@ public Trade read() throws Exception {
 
 <tr>
 <td>Badge</td>
-<td><a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/patterns.html#"><img src="SpringBatch.assets/Spring ...-3.0.x-brightgreen" alt="img" /></a></td>
+<td><a href="https://www.docs4dev.com/docs/zh/spring-batch/3.0.x/reference/patterns.html#"><img src="/resources/技术框架/Spring家族/SpringBatch/Spring ...-3.0.x-brightgreen" alt="img" /></a></td>
 </tr>
 
 <tr>
@@ -6574,7 +6574,7 @@ JobContext jobContext;
 
 <p>下图说明了用于启动批处理作业的典型 Spring Integration 消息流。 <a href="http://www.eaipatterns.com/toc.html">EIP(企业集成模式)网站</a>提供了消息图标及其描述的完整概述。</p>
 
-<p><img src="SpringBatch.assets/launch-batch-job.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/launch-batch-job.png" alt="img" /></p>
 
 <h4 id="将文件转换为-joblaunchrequest">将文件转换为 JobLaunchRequest</h4>
 
@@ -6719,7 +6719,7 @@ public class FileMessageToJobRequest {
 
 <p>在以下示例中，使用<code>StepExecutionListener</code>配置了 Spring Batch 作业。因此，Spring Integration 将接收并处理步骤之前/之后的任何事件。例如，可以使用<code>Router</code>检查接收到的<code>StepExecution</code>。根据检查的结果，可能会发生各种事情，例如将邮件路由到邮件出站通道适配器，以便可以根据某种条件发送电子邮件通知。</p>
 
-<p><img src="SpringBatch.assets/handling-informational-messages.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/handling-informational-messages.png" alt="img" /></p>
 
 <p>以下是如何配置侦听器以针对<code>StepExecution</code>事件向<code>Gateway</code>发送消息并将其输出记录到<code>logging-channel-adapter</code>的示例：</p>
 
@@ -6793,7 +6793,7 @@ public class FileMessageToJobRequest {
 
 <h4 id="remote-chunking">Remote Chunking</h4>
 
-<p><img src="SpringBatch.assets/remote-chunking-sbi.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/remote-chunking-sbi.png" alt="img" /></p>
 
 <p>更进一步，人们还可以使用 Spring Batch Integration 提供的<code>ChunkMessageChannelItemWriter</code>来外部化块处理，它将发送 Item 并收集结果。发送后，Spring Batch 将 continue 读取和分组 Item，而无需 await 结果。而是由<code>ChunkMessageChannelItemWriter</code>负责收集结果并将其重新集成到 Spring Batch 流程中。</p>
 
@@ -6894,7 +6894,7 @@ public class FileMessageToJobRequest {
 
 <h4 id="remote-partitioning">Remote Partitioning</h4>
 
-<p><img src="SpringBatch.assets/remote-partitioning.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/remote-partitioning.png" alt="img" /></p>
 
 <p>另一方面，当问题不是 Item 处理，而是相关的 I/O 成为瓶颈时，远程分区很有用。使用远程分区，可以将工作分配给执行完整 Spring Batch 步骤的从属服务器。因此，每个从站都有自己的<code>ItemReader</code>，<code>ItemProcessor</code>和<code>ItemWriter</code>。为此，Spring Batch Integration 提供了<code>MessageChannelPartitionHandler</code>。</p>
 
@@ -7181,7 +7181,7 @@ public class FileMessageToJobRequest {
 
 <p>Spring Batch 元数据表与 Java 中表示它们的 Domain 对象非常匹配。例如，<code>JobInstance</code>，<code>JobExecution</code>，<code>JobParameters</code>和<code>StepExecution</code>分别 Map 到 BATCH_JOB_INSTANCE，BATCH_JOB_EXECUTION，BATCH_JOB_EXECUTION_PARAMS 和 BATCH_STEP_EXECUTION。 <code>ExecutionContext</code>同时 Map 到 BATCH_JOB_EXECUTION_CONTEXT 和 BATCH_STEP_EXECUTION_CONTEXT。 <code>JobRepository</code>负责将每个 Java 对象保存并存储到正确的表中。以下附录详细描述了元数据表，以及创建元数据表时做出的许多设计决策。查 Watch 下面的各种表创建语句时，重要的是要意识到所使用的数据类型应尽可能通用。 Spring Batch 提供了许多模式作为示例，由于各个数据库供应商对数据类型的处理方式不同，所有模式都有不同的数据类型。以下是所有 6 个表格及其相互关系的 ERD 模型：</p>
 
-<p><img src="SpringBatch.assets/meta-data-erd.png" alt="img" /></p>
+<p><img src="/resources/技术框架/Spring家族/SpringBatch/meta-data-erd.png" alt="img" /></p>
 
 <h3 id="b-1-1-ddl-脚本示例">B.1.1 DDL 脚本示例</h3>
 
