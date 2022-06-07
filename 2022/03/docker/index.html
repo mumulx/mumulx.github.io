@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2022-03-07T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-03-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="17285">
+<meta itemprop="wordCount" content="16785">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
         </ul>
     </div>
@@ -191,7 +191,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
-                    class="tag-list-count">14</span></li>
+                    class="tag-list-count">15</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
@@ -245,6 +245,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/06/springbatch/" class="title">SpringBatch中文文档</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="title">微前端qiankun自动部署</a>
                     </p>
                     <p class="item-date">
@@ -279,16 +289,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
                     </p>
                 </div>
             </li>
@@ -438,8 +438,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/docker/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:17285字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:35分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:16785字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:34分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -579,7 +579,7 @@
 <p>Docker图形化界面</p>
 
 <pre><code>docker run -d -p 8088:9000  --restart=always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
-复制代码
+
 </code></pre>
 
 <p>访问方式：<a href="https://link.juejin.cn?target=http%3A%2F%2FIP%3A8088">http://IP:8088</a></p>
@@ -612,7 +612,7 @@
 <p>举例：MySql数据持久化</p>
 
 <pre><code>docker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7
-复制代码
+
 </code></pre>
 
 <p>docker run 后台运行 端口映射 卷挂载 环境配置 容器命名 镜像名</p>
@@ -635,7 +635,7 @@
 <h2 id="查看卷列表">查看卷列表</h2>
 
 <pre><code>docker volume ls
-复制代码
+
 </code></pre>
 
 <h2 id="查看卷信息">查看卷信息</h2>
@@ -657,14 +657,14 @@
 <p>首先，创建一个命名的数据卷容器dbdata：</p>
 
 <pre><code class="language-shell">docker run -d -v /dbdata --name dbdata training/postgres echo Data-only container
-复制代码
+
 </code></pre>
 
 <p>然后，在其他容器中使用<code>--volumes-from 容器名</code>来挂载dbdata容器中的数据卷</p>
 
 <pre><code class="language-shell">docker run -d --volumes-from dbdata --name db1 training/postgres
 docker run -d --volumes-from dbdata --name db2 training/postgres
-复制代码
+
 </code></pre>
 
 <p>还可以使用多个<code>--volumes-from</code>参数来从多个容器挂载多个数据卷。也可以从其他已经挂载了数据卷的容器来挂载数据卷。</p>
@@ -773,7 +773,7 @@ EXPOSE 80
 CMD echo $MYPATH
 CMD echo &quot;---end---&quot;
 CMD /bin/bash
-复制代码
+
 </code></pre>
 
 <h2 id="运行dockerfile文件">运行DockerFile文件</h2>
@@ -789,7 +789,7 @@ CMD /bin/bash
 <h2 id="cmd和entrypoint">CMD和ENTRYPOINT</h2>
 
 <pre><code>CMD [&quot;ls&quot;,&quot;-a&quot;]
-复制代码
+
 </code></pre>
 
 <p>run时执行 ls -a</p>
@@ -803,7 +803,7 @@ CMD /bin/bash
 <p>但如果是</p>
 
 <pre><code>ENTRYPOINT [&quot;ls&quot;,&quot;-a&quot;]
-复制代码
+
 </code></pre>
 
 <p>docker run 镜像id -l</p>
@@ -814,7 +814,7 @@ CMD /bin/bash
 
 <pre><code>docker login -u xx -p xx
 docker push 镜像id:[TAG]
-复制代码
+
 </code></pre>
 
 <p>阿里云的镜像容器，可参考阿里云官网</p>
@@ -855,13 +855,13 @@ docker push 镜像id:[TAG]
 
 <pre><code class="language-shell"> $sysctl net.ipv4.ip_forward
  net.ipv4.ip_forward = 1
-复制代码
+
 </code></pre>
 
 <p>如果为 0，说明没有开启转发，则需要手动打开。</p>
 
 <pre><code class="language-shell">$sysctl -w net.ipv4.ip_forward=1
-复制代码
+
 </code></pre>
 
 <p>如果在启动 Docker 服务的时候设定 <code>--ip-forward=true</code>, Docker 就会自动设定系统的 ip_forward 参数 为 1。</p>
@@ -871,13 +871,13 @@ docker push 镜像id:[TAG]
 <p><strong>不需要用ip直接用容器名（服务名）ping</strong></p>
 
 <pre><code>docker exec -it tomcat02 ping tomcat01
-复制代码
+
 </code></pre>
 
 <p>上面的无法ping通！</p>
 
 <pre><code>docker run -d -P --name tomcat03 --link tomcat02 tomcatdocker exec -it tomcat03 ping tomcat02
-复制代码
+
 </code></pre>
 
 <p>此时就可以ping同通</p>
@@ -885,7 +885,7 @@ docker push 镜像id:[TAG]
 <p>原理：</p>
 
 <pre><code>docker exec -it tomcat03 cat /etc/hosts
-复制代码
+
 </code></pre>
 
 <p>总结：</p>
@@ -895,7 +895,7 @@ docker push 镜像id:[TAG]
 <h2 id="查看网络信息">查看网络信息</h2>
 
 <pre><code>docker network lsdocker network inspect 网络ID
-复制代码
+
 </code></pre>
 
 <h2 id="网络模式">网络模式</h2>
@@ -909,31 +909,31 @@ docker push 镜像id:[TAG]
 <p>container：容器网络连通（用得少，局限大）</p>
 
 <pre><code>docker run -d -P --name tomcat01 --net bridge tomcat
-复制代码
+
 </code></pre>
 
 <p>docker0特点：默认，域名不能访问，&ndash;link可以打通</p>
 
 <pre><code>docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet
-复制代码
+
 </code></pre>
 
 <p>解释：docker network create 桥接的网络模式 子网 网关 名称</p>
 
 <pre><code>docker run -d -P --name tomcat01 --net mynet tomcat
-复制代码
+
 </code></pre>
 
 <p>可以直接互相ping通</p>
 
 <pre><code>docker exec -it tomcat01 ping tomcat02
-复制代码
+
 </code></pre>
 
 <h2 id="网络连通">网络连通</h2>
 
 <pre><code>docker network connect mynet tomcat00
-复制代码
+
 </code></pre>
 
 <p>不同网络下的容器也能互相连通，tomcat00是其他网络下的容器</p>
@@ -1031,7 +1031,7 @@ services:
     image: redis
 volumes:
   logvolume01: {}
-复制代码
+
 </code></pre>
 
 <p>假如有100个服务，利用docker-compose up可以一键启动</p>
@@ -1057,7 +1057,7 @@ volumes:
 <pre><code class="language-shell">mkdir composetest
 cd composetest
 vim app.py
-复制代码
+    
 </code></pre>
 
 <p>app.py</p>
@@ -1085,24 +1085,24 @@ def get_hit_count():
 def hello():
     count = get_hit_count()
     return 'Hello World! I have been seen {} times.\n'.format(count)
-复制代码
+    
 </code></pre>
 
 <pre><code class="language-shell">vim requirements.txt
-复制代码
+    
 </code></pre>
 
 <p>requirements.txt</p>
 
 <pre><code>flask
 redis
-复制代码
+    
 </code></pre></li>
 
 <li><p>创建一个Dockerfile，应用打包为镜像</p>
 
 <pre><code class="language-shell">vim Dockerfile
-复制代码
+    
 </code></pre>
 
 <p>Dockerfile</p>
@@ -1118,7 +1118,7 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
 CMD [&quot;flask&quot;, &quot;run&quot;]
-复制代码
+    
 </code></pre>
 
 <blockquote>
@@ -1141,7 +1141,7 @@ CMD [&quot;flask&quot;, &quot;run&quot;]
 <li><p>第三步，创建docker-compose.yml文件（定义整个服务，需要的环境。web、redis）</p>
 
 <pre><code class="language-shell">vim docker-compose.yml
-复制代码
+    
 </code></pre>
 
 <p>docker-compose.yml</p>
@@ -1154,13 +1154,13 @@ services:
       - &quot;5000:5000&quot;
   redis:
     image: &quot;redis:alpine&quot;
-复制代码
+    
 </code></pre></li>
 
 <li><p>第四步，启动compose项目（docker-compose up）</p>
 
 <pre><code class="language-shell">docker-compose up
-复制代码
+    
 </code></pre></li>
 </ol>
 
@@ -1190,7 +1190,7 @@ services:
 
 <pre><code class="language-shell">docker-compose down
 docker-compose stop
-复制代码
+
 </code></pre>
 
 <h3 id="yaml规则">yaml规则</h3>
@@ -1215,7 +1215,7 @@ service: #服务
 volumes:
 networks:
 configs:
-复制代码
+
 </code></pre>
 
 <h3 id="开源项目">开源项目</h3>
@@ -1253,7 +1253,7 @@ services:
       WORDPRESS_DB_NAME: wordpress
 volumes:
   db_data: {}
-复制代码
+
 </code></pre>
 
 <p>在此yaml文件下运行<code>docker-compose up/docker-compose up -d</code>，然后访问<code>localhost:8000</code>就可以看到wordpress操作页面。</p>
@@ -1281,7 +1281,7 @@ volumes:
 
 <pre><code class="language-shell">yum -y install gcc
 yum -y install gcc-c++
-复制代码
+    
 </code></pre></li>
 
 <li><p>卸载旧版本</p>
@@ -1294,43 +1294,43 @@ yum -y install gcc-c++
                                     docker-latest-logrotate \
                                     docker-logrotate \
                                     docker-engine
-复制代码
+    
 </code></pre></li>
 
 <li><p>安装需要的软件包</p>
 
 <pre><code class="language-shell">yum install -y yum-utils
-复制代码
+    
 </code></pre></li>
 
 <li><p>设置镜像仓库</p>
 
 <pre><code class="language-shell">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-复制代码
+    
 </code></pre></li>
 
 <li><p>更新yum软件包索引</p>
 
 <pre><code class="language-shell">yum makecache fast
-复制代码
+    
 </code></pre></li>
 
 <li><p>安装Docker CE</p>
 
 <pre><code class="language-shell">yum install -y docker-ce docker-ce-cli containerd.io
-复制代码
+    
 </code></pre></li>
 
 <li><p>启动Docker</p>
 
 <pre><code class="language-shell">systemctl start docker
-复制代码
+    
 </code></pre></li>
 
 <li><p>测试命令</p>
 
 <pre><code class="language-shell">docker version
-复制代码
+    
 </code></pre></li>
 
 <li><p>配置镜像加速</p>
@@ -1346,7 +1346,7 @@ EOF
 sudo systemctl daemon-reload
     
 sudo systemctl restart docker
-复制代码
+    
 </code></pre></li>
 </ol>
 
@@ -1368,7 +1368,7 @@ sudo systemctl restart docker
 <li><p><strong>在第一台服务器初始化一个Swarm</strong></p>
 
 <pre><code class="language-shell">docker swarm init --advertise-addr 当前内网ip
-复制代码
+    
 </code></pre>
 
 <p>如果使用Docker Desktop for Mac或Docker Desktop for Windows来测试单节点swarm，只需运行<code>docker swarm init</code>而不带任何参数</p></li>
@@ -1391,7 +1391,7 @@ Swarm: active
   Managers: 1
   Nodes: 1
   ...snip...
-复制代码
+
 </code></pre>
 
 <p>运行<code>docker node ls</code>命令以查看有关节点的信息：</p>
@@ -1400,7 +1400,7 @@ Swarm: active
 
 ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
-复制代码
+
 </code></pre>
 
 <p>节点ID旁边的*表示您当前已连接到此节点。</p>
@@ -1417,7 +1417,7 @@ docker swarm join
 # 获取令牌
 docker swarm join-token manager
 docker swarm join-token worker
-复制代码
+    
 </code></pre>
 
 <pre><code class="language-shell">$ docker swarm join \
@@ -1425,7 +1425,7 @@ docker swarm join-token worker
   192.168.99.100:2377
     
 This node joined a swarm as a worker.
-复制代码
+    
 </code></pre>
 
 <pre><code class="language-shell">$ docker swarm join-token worker
@@ -1435,7 +1435,7 @@ To add a worker to this swarm, run the following command:
     docker swarm join \
     --token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
     192.168.99.100:2377
-复制代码
+    
 </code></pre>
 
 <p>打开一个终端，ssh到manager节点运行的机器中，运行<code>docker node ls</code>命令查看工作节点：</p>
@@ -1444,7 +1444,7 @@ To add a worker to this swarm, run the following command:
 03g1y59jwfg7cf99w4lt0f662    worker2   Ready   Active
 9j68exjopxe7wfl6yuxml7a7j    worker1   Ready   Active
 dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
-复制代码
+    
 </code></pre>
 
 <p>MANAGER列标识群中的管理器节点。worker1和worker2的此列中的空状态将它们标识为工作节点。</p>
@@ -1461,7 +1461,7 @@ dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
 <pre><code class="language-shell">$ docker service create --replicas 1 --name helloworld alpine ping docker.com
 
 9uk4639qpg7npwf3fn2aasksr
-复制代码
+
 </code></pre>
 
 <ul>
@@ -1473,7 +1473,7 @@ dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
 
 <pre><code class="language-shell">docker run 容器启动！不具有扩缩容器
 docker service 服务！具有扩缩容器，滚动更新
-复制代码
+
 </code></pre></li>
 </ul>
 
@@ -1483,7 +1483,7 @@ docker service 服务！具有扩缩容器，滚动更新
 
 ID            NAME        SCALE  IMAGE   COMMAND
 9uk4639qpg7n  helloworld  1/1    alpine  ping docker.com
-复制代码
+
 </code></pre>
 
 <h4 id="在swarm上检查服务"><strong>在swarm上检查服务</strong></h4>
@@ -1504,7 +1504,7 @@ ContainerSpec:
  Args:	ping docker.com
 Resources:
 Endpoint Mode:  vip
-复制代码
+
 </code></pre>
 
 <blockquote>
@@ -1557,7 +1557,7 @@ Endpoint Mode:  vip
     }
 }
 ]
-复制代码
+
 </code></pre>
 
 <p>运行<code>docker service ps &lt;service-ID&gt;</code>查看哪些节点正在运行服务：</p>
@@ -1566,7 +1566,7 @@ Endpoint Mode:  vip
 
 NAME             IMAGE   NODE     DESIRED STATE  CURRENT STATE     ERROR PORTS
 helloworld.1...  alpine  worker2  Running        Running 3 minutes
-复制代码
+
 </code></pre>
 
 <p>在本例中，helloworld服务的一个实例正在worker2节点上运行。也可能会看到服务正在manager节点上运行。默认情况下，群中的管理节点可以像工作节点一样执行任务。</p>
@@ -1583,26 +1583,26 @@ helloworld.1...  alpine  worker2  Running        Running 3 minutes
 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 e609dde94e47        alpine:latest       &quot;ping docker.com&quot;   3 minutes ago       Up 3 minutes     
-复制代码
+
 </code></pre>
 
 <h4 id="动态扩缩容器"><strong>动态扩缩容器</strong></h4>
 
 <pre><code class="language-shell">docker service update --replicas 3 helloworld
-复制代码
+
 </code></pre>
 
 <p>创建三个helloworld副本，随机部署到集群里面的服务器中，不管访问哪个节点都能访问到。</p>
 
 <pre><code class="language-shell">docker service update --replicas 1 helloworld
-复制代码
+
 </code></pre>
 
 <p>将集群中的helloworld副本降到1个。服务可以有多个副本动态扩缩容实现高可用！</p>
 
 <pre><code class="language-shell">docker service scale helloworld=5
 docker service scale helloworld=2
-复制代码
+
 </code></pre>
 
 <p>scale命令与update &ndash;replicas效果相同</p>
@@ -1610,7 +1610,7 @@ docker service scale helloworld=2
 <p>运行<code>docker service ps &lt;SERVICE-ID&gt;</code>查看更新的任务列表：</p>
 
 <pre><code class="language-shell">$ docker service ps helloworldNAME                                    IMAGE   NODE      DESIRED STATE  CURRENT STATEhelloworld.1.8p1vev3fq5zm0mi8g0as41w35  alpine  worker2   Running        Running 7 minuteshelloworld.2.c7a7tcdq5s0uk3qr88mf8xco6  alpine  worker1   Running        Running 24 secondshelloworld.3.6crl09vdcalvtfehfh69ogfb1  alpine  worker1   Running        Running 24 secondshelloworld.4.auky6trawmdlcne8ad8phb0f1  alpine  manager1  Running        Running 24 secondshelloworld.5.ba19kca06l18zujfwxyc5lkyn  alpine  worker2   Running        Running 24 seconds
-复制代码
+
 </code></pre>
 
 <p>swarm创建了4个新任务，以扩展到总共5个运行Alpine Linux的实例。任务分布在群的三个节点之间。一个在manager1上运行。</p>
@@ -1621,13 +1621,13 @@ docker service scale helloworld=2
 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 528d68040f95        alpine:latest       &quot;ping docker.com&quot;   About a minute ago   Up About a minute                       helloworld.4.auky6trawmdlcne8ad8phb0f1
-复制代码
+
 </code></pre>
 
 <h4 id="移除服务"><strong>移除服务</strong></h4>
 
 <pre><code class="language-shell">docker service rm helloworld
-复制代码
+
 </code></pre>
 
 <p>运行<code>docker service inspect&lt;service-ID&gt;</code>验证swarm manager是否删除了服务。CLI返回一条消息，指出找不到服务：</p>
@@ -1635,7 +1635,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 <pre><code class="language-shell">$ docker service inspect helloworld
 []
 Error: no such service: helloworld
-复制代码
+
 </code></pre>
 
 <p>即使服务不再存在，任务容器也需要几秒钟的时间来清理。可以在节点上使用docker ps来验证任务何时被删除。</p>
@@ -1651,7 +1651,7 @@ Error: no such service: helloworld
 
 $ docker ps
    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS  
-复制代码
+
 </code></pre>
 
 <h4 id="服务应用滚动更新"><strong>服务应用滚动更新</strong></h4>
@@ -1667,7 +1667,7 @@ $ docker ps
   redis:3.0.6
 
 0u6a4s31ybk7yw2wyvtikmu50
-复制代码
+
 </code></pre>
 
 <p>在服务部署时配置滚动更新策略。</p>
@@ -1695,14 +1695,14 @@ ContainerSpec:
  Image:         redis:3.0.6
 Resources:
 Endpoint Mode:  vip
-复制代码
+
 </code></pre>
 
 <p><strong>现在可以为redis更新容器镜像了。swarm manager根据UpdateConfig策略将更新应用于节点：</strong></p>
 
 <pre><code class="language-shell">$ docker service update --image redis:3.0.7 redis
 redis
-复制代码
+
 </code></pre>
 
 <p>默认情况下，计划程序应用滚动更新，如下所示：</p>
@@ -1732,7 +1732,7 @@ ContainerSpec:
  Image:         redis:3.0.7
 Resources:
 Endpoint Mode:  vip
-复制代码
+
 </code></pre>
 
 <p><strong><code>service inspect</code>的输出显示更新是否因失败而暂停：</strong></p>
@@ -1747,13 +1747,13 @@ Update status:
  Started:    11 seconds ago
  Message:    update paused due to failure or early termination of task 9p7ith557h8ndf0ui9s0q951b
 ...snip...
-复制代码
+
 </code></pre>
 
 <p><strong>要重新启动暂停的更新，运行<code>docker service update&lt;service-ID&gt;</code>。例如：</strong></p>
 
 <pre><code class="language-shell">docker service update redis
-复制代码
+
 </code></pre>
 
 <p>为了避免重复某些更新失败，也可能需要向<code>docker service update</code>传递标志来重新配置服务。</p>
@@ -1769,7 +1769,7 @@ redis.2.9l3i4j85517skba5o7tn5m8g0      redis:3.0.7  worker2    Running        Ru
  \_ redis.2.66k185wilg8ele7ntu8f6nj6i  redis:3.0.6  worker1    Shutdown       Shutdown 2 minutes ago
 redis.3.egiuiqpzrdbxks3wxgn8qib1g      redis:3.0.7  worker1    Running        Running 48 seconds
  \_ redis.3.ctzktfddb2tepkr45qcmqln04  redis:3.0.6  mmanager1  Shutdown       Shutdown 2 minutes ago
-复制代码
+
 </code></pre>
 
 <p>在Swarm更新所有任务之前，可以看到一些任务正在运行redis:3.0.6 ，而其他服务正在运行redis:3.0.7，上面的输出显示了滚动更新完成后的状态。</p>
@@ -1795,7 +1795,7 @@ ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 1bcef6utixb0l0ca7gxuivsj0    worker2   Ready   Active
 38ciaotwjuritcdtn9npbnkuz    worker1   Ready   Active
 e216jshn25ckzbvmwlnh5jr3g *  manager1  Ready   Active        Leader
-复制代码
+    
 </code></pre></li>
 
 <li><p>运行<code>docker service ps redis</code>查看swarm manager如何将任务分配给不同的节点：</p>
@@ -1806,7 +1806,7 @@ NAME                               IMAGE        NODE     DESIRED STATE  CURRENT 
 redis.1.7q92v0nr1hcgts2amcjyqg3pq  redis:3.0.6  manager1 Running        Running 26 seconds
 redis.2.7h2l8h3q3wqy5f66hlv9ddmi6  redis:3.0.6  worker1  Running        Running 26 seconds
 redis.3.9bg7cezvedmkgg6c8yzvbhwsd  redis:3.0.6  worker2  Running        Running 26 seconds
-复制代码
+    
 </code></pre></li>
 
 <li><p>运行<code>docker node update--availability drain&lt;node-ID&gt;</code>以排出已分配任务的节点：</p>
@@ -1814,7 +1814,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd  redis:3.0.6  worker2  Running        Running 
 <pre><code class="language-shell">docker node update --availability drain worker1
     
 worker1
-复制代码
+    
 </code></pre></li>
 
 <li><p>检查节点以检查其可用性：</p>
@@ -1827,7 +1827,7 @@ Status:
  State:         Ready
  Availability:      Drain
 ...snip...
-复制代码
+    
 </code></pre></li>
 
 <li><p>运行<code>docker service ps redis</code>查看swarm manager如何更新redis服务的任务分配：</p>
@@ -1839,7 +1839,7 @@ redis.1.7q92v0nr1hcgts2amcjyqg3pq       redis:3.0.6  manager1  Running        Ru
 redis.2.b4hovzed7id8irg1to42egue8       redis:3.0.6  worker2   Running        Running About a minute
  \_ redis.2.7h2l8h3q3wqy5f66hlv9ddmi6   redis:3.0.6  worker1   Shutdown       Shutdown 2 minutes ago
 redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Running 4 minutes
-复制代码
+    
 </code></pre>
 
 <p>swarm manager通过在具有耗尽可用性的节点上结束任务并在具有活动可用性的节点上创建新任务来维持所需的状态。</p></li>
@@ -1847,13 +1847,13 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <li><p>运行<code>docker node update--availability active&lt;node-ID&gt;</code>以将已耗尽的节点返回到活动状态：</p>
 
 <pre><code class="language-shell">$ docker node update --availability active worker1worker1
-复制代码
+    
 </code></pre></li>
 
 <li><p>检查节点以查看更新的状态：</p>
 
 <pre><code class="language-shell">$ docker node inspect --pretty worker1ID:           38ciaotwjuritcdtn9npbnkuzHostname:      worker1Status: State:           Ready Availability:     Active...snip...
-复制代码
+    
 </code></pre>
 
 <p>将节点设置回活动可用性时，它可以接收新任务：</p>
@@ -1889,7 +1889,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
   --name &lt;SERVICE-NAME&gt; \
   --publish published=&lt;PUBLISHED-PORT&gt;,target=&lt;CONTAINER-PORT&gt; \
   &lt;IMAGE&gt;
-复制代码
+
 </code></pre>
 
 <blockquote>
@@ -1905,7 +1905,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
   --publish published=8080,target=80 \
   --replicas 2 \
   nginx
-复制代码
+
 </code></pre>
 
 <p>当访问任何节点上的端口8080时，Docker会将请求路由到活动容器。在swarm节点本身上，端口8080实际上可能没有被绑定，但是路由网格知道如何路由通行并防止任何端口冲突的发生。</p>
@@ -1919,7 +1919,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service update \
   --publish-add published=&lt;PUBLISHED-PORT&gt;,target=&lt;CONTAINER-PORT&gt; \
   &lt;SERVICE&gt;
-复制代码
+
 </code></pre>
 
 <p>您可以使用<code>docker service inspect</code>查看服务的已发布端口。例如：</p>
@@ -1927,7 +1927,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service inspect --format=&quot;{{json .Endpoint.Spec.Ports}}&quot; my-web
 
 [{&quot;Protocol&quot;:&quot;tcp&quot;,&quot;TargetPort&quot;:80,&quot;PublishedPort&quot;:8080}]
-复制代码
+
 </code></pre>
 
 <p>输出显示来自容器的<code>&lt;CONTAINER-PORT&gt;</code>（标记为TargetPort）和节点侦听服务请求的<code>&lt;PUBLISHED-PORT&gt;</code>（标记为PublishedPort）。</p>
@@ -1943,7 +1943,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service create --name dns-cache \
   --publish published=53,target=53 \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p>短语法：</p>
@@ -1951,7 +1951,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service create --name dns-cache \
   -p 53:53 \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p><strong>TCP和UDP</strong></p>
@@ -1962,7 +1962,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
   --publish published=53,target=53 \
   --publish published=53,target=53,protocol=udp \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p>短语法：</p>
@@ -1971,7 +1971,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
   -p 53:53 \
   -p 53:53/udp \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p><strong>仅为UDP</strong></p>
@@ -1981,7 +1981,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service create --name dns-cache \
   --publish published=53,target=53,protocol=udp \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p>短语法：</p>
@@ -1989,7 +1989,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <pre><code class="language-shell">$ docker service create --name dns-cache \
   -p 53:53/udp \
   dns-cache
-复制代码
+
 </code></pre>
 
 <p><strong>绕过路由网格</strong></p>
@@ -2004,7 +2004,7 @@ redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Ru
 <p>要绕过路由网格，必须使用长语法<code>--publish</code>服务并将<code>mode</code>设置为<code>host</code>。如果省略<code>mode</code>键值或将其设置为<code>ingress</code>，则使用路由网格。下面的命令使用主机模式创建全局服务并绕过路由网格。</p>
 
 <pre><code class="language-shell">$ docker service create --name dns-cache \  --publish published=53,target=53,protocol=udp,mode=host \  --mode global \  dns-cache
-复制代码
+
 </code></pre>
 
 <p><strong>配置外部负载平衡器</strong></p>
@@ -2040,7 +2040,7 @@ backend http_back
    server node1 192.168.99.100:8080 check
    server node2 192.168.99.101:8080 check
    server node3 192.168.99.102:8080 check
-复制代码
+
 </code></pre>
 
 <p>当访问端口80上的HAProxy负载平衡器时，它会将请求转发给swarm中的节点。swarm路由网格将请求路由到活动任务。如果swarm调度器出于任何原因将任务分派到不同的节点，则不需要重新配置负载平衡器。</p>
@@ -2095,7 +2095,7 @@ backend http_back
 <p>从 GitHub 中拉取示例代码，分析其中的 <code>docker-stack.yml</code> 文件</p>
 
 <pre><code class="language-shell">git clone https://github.com/dockersamples/atsea-sample-shop-app.git
-复制代码
+
 </code></pre>
 
 <p>可以看到有 5 个服务，3 个网络，4 个秘钥，3 组端口映射；</p>
@@ -2115,7 +2115,7 @@ secrets:
   staging_token:
   revprox_key:
   revprox_cert:
-复制代码
+
 </code></pre>
 
 <h4 id="网络">网络</h4>
@@ -2129,7 +2129,7 @@ secrets:
     driver: overlay
     driver_opts:
       encrypted: 'yes'
-复制代码
+
 </code></pre>
 
 <p><strong>3 个网络都会先于秘钥和服务被创建</strong></p>
@@ -2147,7 +2147,7 @@ secrets:
     external: true
   revprox_cert:
     external: true
-复制代码
+
 </code></pre>
 
 <h4 id="服务">服务</h4>
@@ -2169,7 +2169,7 @@ secrets:
         target: revprox_key
     networks:
       - front-tier
-复制代码
+    
 </code></pre>
 
 <ul>
@@ -2182,7 +2182,7 @@ secrets:
 <li><p><code>database</code> 服务</p>
 
 <pre><code class="language-yaml">database:    image: dockersamples/atsea_db    environment:      POSTGRES_USER: gordonuser      POSTGRES_DB_PASSWORD_FILE: /run/secrets/postgres_password      POSTGRES_DB: atsea    networks:      - back-tier    secrets:      - postgres_password    deploy:      placement:        constraints:          - 'node.role == worker'
-复制代码
+    
 </code></pre>
 
 <p>多了以下几项：</p>
@@ -2227,7 +2227,7 @@ secrets:
         window: 120s
     secrets:
       - postgres_password
-复制代码
+    
 </code></pre>
 
 <ul>
@@ -2252,7 +2252,7 @@ secrets:
       placement:
         constraints:
           - 'node.role == manager'
-复制代码
+    
 </code></pre>
 
 <ul>
@@ -2276,7 +2276,7 @@ secrets:
         constraints:
           - 'node.role == worker'
           - 'node.labels.pcidss == yes'
-复制代码
+    
 </code></pre>
 
 <p><code>node.labels</code>：自定义节点标签，可以通过<code>docker node update</code>自定义，并添加至 Swarm 集群的指定节点。这说明，node.labels 配置只适用于 Swarm 集群中指定的节点。</p></li>
@@ -2313,7 +2313,7 @@ huanzi-002
             &quot;Labels&quot;: {
                 &quot;pcidss&quot;: &quot;yes&quot;
         &lt;...&gt;
-复制代码
+
 </code></pre>
 
 <p>可以看到自定义标签已经成功创建。</p>
@@ -2336,7 +2336,7 @@ Common Name (eg, your name or your server's hostname) []:
 Email Address []:
 [root@huanzi-001 daemon]# ls
 atsea-sample-shop-app  damain.key  domain.crt
-复制代码
+
 </code></pre>
 
 <p>创建需要加密 key 的<code>revprox_cert</code>，<code>revprox_key</code>，<code>postgres_password</code>这 3 个密钥</p>
@@ -2347,7 +2347,7 @@ lue5qk6ophxrr6aspyhnkhvsv
 glvfk78kn6665lmkci7tslrw6
 [root@huanzi-001 daemon]# docker secret create postgres_password damain.key 
 pxdfs28hb2897xuu7f3bub7ex
-复制代码
+
 </code></pre>
 
 <p>创建不需要加密 key 的<code>staging_token</code>密钥</p>
@@ -2360,7 +2360,7 @@ pxdfs28hb2897xuu7f3bub7ex   postgres_password                       15 minutes a
 lue5qk6ophxrr6aspyhnkhvsv   revprox_cert                            16 minutes ago       16 minutes ago
 glvfk78kn6665lmkci7tslrw6   revprox_key                             16 minutes ago       16 minutes ago
 cyqfn9jocvnxd2vr57gn5pioj   staging_token                           About a minute ago   About a minute ago
-复制代码
+
 </code></pre>
 
 <p>现在自定义标签，及密钥全部创建完毕。</p>
@@ -2379,7 +2379,7 @@ Creating service huanzi-stack_reverse_proxy
 Creating service huanzi-stack_database
 Creating service huanzi-stack_appserver
 Creating service huanzi-stack_visualizer
-复制代码
+
 </code></pre>
 
 <p>可以看出，先创建了 4 个网络，再创建的服务，我们验证一下网络是否创建了</p>
@@ -2397,7 +2397,7 @@ uvphcut0a825        huanzi-stack_payment      overlay             swarm
 7d6iv5ilwbcn        ingress                   overlay             swarm
 d302c895b455        lovehuanzi                bridge              local
 eefd134326c4        none                      null                local
-复制代码
+
 </code></pre>
 
 <p>看到了 4 个 <code>huanzi-stack</code> 前缀的网络。为什么多了一个<code>huanzi-stack-default</code>,因为<code>visualizer</code> 服务没有指定网络，因此 Docker 创建了一个 defalut 的网络给它用。</p>
@@ -2407,7 +2407,7 @@ eefd134326c4        none                      null                local
 <pre><code class="language-shell">root@huanzi-001 atsea-sample-shop-app]# docker stack ls
 NAME                SERVICES            ORCHESTRATOR
 huanzi-stack        5                   Swarm
-复制代码
+
 [root@huanzi-001 atsea-sample-shop-app]# docker stack ps huanzi-stack 
 ID                  NAME                             IMAGE                                                     NODE                DESIRED STATE       CURRENT STATE             ERROR               PORTS
 ex55yaz21mra        huanzi-stack_appserver.1         dockersamples/atsea_app:latest                            huanzi-003          Running             Preparing 2 minutes ago                       
@@ -2416,7 +2416,7 @@ k7mi1419ahwd        huanzi-stack_reverse_proxy.1     dockersamples/atseasamplesh
 09ocoutjfc70        huanzi-stack_payment_gateway.1   dockersamples/atseasampleshopapp_payment_gateway:latest   huanzi-002          Running             Preparing 2 minutes ago                       
 y6lftn8g95b8        huanzi-stack_visualizer.1        dockersamples/visualizer:stable                           huanzi-001          Running             Preparing 2 minutes ago                       
 5twm1k4uj5ps        huanzi-stack_appserver.2         dockersamples/atsea_app:latest                            huanzi-002          Running             Preparing 2 minutes ago    
-复制代码
+
 </code></pre>
 
 <p>可以看到满足 stack 文件的要求：</p>
@@ -2453,7 +2453,7 @@ y6lftn8g95b8        huanzi-stack_visualizer.1        dockersamples/visualizer:st
       - payment
     deploy:
       replicas: 10
-复制代码
+    
 </code></pre>
 
 <p>重新部署</p>
@@ -2464,13 +2464,13 @@ Updating service huanzi-stack_database (id: ubrtixblmj685pnc97wql42cm)
 Updating service huanzi-stack_appserver (id: yy447jdp1eiwb03ljdsqtyg1g)
 Updating service huanzi-stack_visualizer (id: rhzzxov0jh1y38rxcj6bwe89y)
 Updating service huanzi-stack_payment_gateway (id: niobpxv5vr1njoo37vnje8zic)
-复制代码
+    
 </code></pre>
 
 <p>查看重新部署的stack</p>
 
 <pre><code class="language-shell">docker stack ps huanzi-stack 
-复制代码
+    
 </code></pre>
 
 <p>扩容完成。</p></li>
@@ -2489,13 +2489,13 @@ Removing network huanzi-stack_front-tier
 Removing network huanzi-stack_default
 Removing network huanzi-stack_back-tier
 Removing network huanzi-stack_payment
-复制代码
+    
 </code></pre>
 
 <p>可以看出，<code>rm</code>会删除服务及网络，但是密钥和卷不会删除</p>
 
 <pre><code class="language-shell">root@huanzi-001 atsea-sample-shop-app]# docker secret lsID                          NAME                DRIVER              CREATED             UPDATEDpxdfs28hb2897xuu7f3bub7ex   postgres_password                       53 minutes ago      53 minutes agolue5qk6ophxrr6aspyhnkhvsv   revprox_cert                            55 minutes ago      55 minutes agoglvfk78kn6665lmkci7tslrw6   revprox_key                             54 minutes ago      54 minutes agocyqfn9jocvnxd2vr57gn5pioj   staging_token                           40 minutes ago      40 minutes ago
-复制代码
+    
 </code></pre>
 
 <p>一般一个环境需要一个stack文件。比如dev，test，prod。</p></li>
@@ -2557,7 +2557,7 @@ volumes:
 networks:
   my-network:
     driver: overlay
-复制代码
+    
 </code></pre>
 
 <p>可以看到在这个docker-compose.yml中的两个service密码都是明文，这样就导致了不是很安全，那么究竟什么是Docker secret以及能否解决上面的问题呢？</p></li>
@@ -2595,20 +2595,20 @@ networks:
 
 <pre><code class="language-shell">[root@centos-7 ~]# vim mysql-password
 root
-复制代码
+    
 </code></pre>
 
 <p>然后再进行创建secret</p>
 
 <pre><code class="language-shell">[root@centos-7 ~]# docker secret create mysql-pass mysql-password 
 texcct9ojqcz6n40woe97dd7k
-复制代码
+    
 </code></pre>
 
 <p>　　其中，mysql-pass是secret的名称，mysql-password是我们建立存储密码的文件，这样执行后就相当于将文件中的密码存储在Swarm中manager节点的Raft Database中了。为了安全起见，现在可以直接将这个文件删掉，因为Swarm中已经有这个密码了。</p>
 
 <pre><code class="language-shell">[root@centos-7 ~]# rm -f mysql-password 
-复制代码
+    
 </code></pre>
 
 <p>现在可以查看一下secret列表：</p>
@@ -2616,7 +2616,7 @@ texcct9ojqcz6n40woe97dd7k
 <pre><code class="language-shell">[root@centos-7 ~]# docker secret ls
 ID                          NAME                DRIVER              CREATED             UPDATED
 texcct9ojqcz6n40woe97dd7k   mysql-pass                              4 minutes ago       4 minutes ago
-复制代码
+    
 </code></pre>
 
 <p>已经存在了。</p></li>
@@ -2624,7 +2624,7 @@ texcct9ojqcz6n40woe97dd7k   mysql-pass                              4 minutes ag
 <li><p>基于命令行创建</p>
 
 <pre><code class="language-shell">[root@centos-7 ~]# echo &quot;root&quot; | docker secret create mysql-pass2 -hrtmn5yr3r3k66o39ba91r2e4[root@centos-7 ~]# docker secret lsID                          NAME                DRIVER              CREATED             UPDATEDtexcct9ojqcz6n40woe97dd7k   mysql-pass                              6 minutes ago       6 minutes agohrtmn5yr3r3k66o39ba91r2e4   mysql-pass2                             5 seconds ago       5 seconds ago
-复制代码
+    
 </code></pre>
 
 <p>这种方式还是很简单的就创建成功了</p></li>
@@ -2652,7 +2652,7 @@ texcct9ojqcz6n40woe97dd7k   mysql-pass                              4 minutes ag
         }
     }
 ]
-复制代码
+    
 </code></pre></li>
 
 <li><p>rm</p>
@@ -2664,7 +2664,7 @@ mysql-pass2
 [root@centos-7 ~]# docker secret ls
 ID                          NAME                DRIVER              CREATED             UPDATED
 texcct9ojqcz6n40woe97dd7k   mysql-pass                              12 minutes ago      12 minutes ago
-复制代码
+    
 </code></pre></li>
 </ol>
 
@@ -2687,7 +2687,7 @@ Options:
  --secret secret                      Specify secrets to expose to the service
 ...
 ...
-复制代码
+    
 </code></pre>
 
 <p>确实是有这样的命令，在创建服务时可以给服务暴露出secret。</p></li>
@@ -2699,7 +2699,7 @@ zwgk5w0rpf17hn77axz6cn8di
 overall progress: 1 out of 1 tasks 
 1/1: running   
 verify: Service converged 
-复制代码
+    
 </code></pre>
 
 <p>查看这个服务运行在那个节点上：</p>
@@ -2710,7 +2710,7 @@ zwgk5w0rpf17        demo           replicated          1/1                 busyb
 [root@centos-7 ~]# docker service ps demo
 ID                  NAME           IMAGE    NODE         DESIRED STATE       CURRENT STATE     ERROR  PORTS
 yvr9lwvg8oca        demo.1        busybox:latest      localhost.localdomain   Running   Running 51 seconds ago  
-复制代码
+    
 </code></pre>
 
 <p>可以看到这个服务运行在localhost.localdomain主机的节点上，我们去这个节点上进入到容器内部，看是否能查看secret：</p>
@@ -2727,7 +2727,7 @@ mysql-pass
 /run/secrets # cat mysql-pass 
 root
 /run/secrets # 
-复制代码
+    
 </code></pre>
 
 <p>可以看到确实是可行的。</p></li>
@@ -2788,7 +2788,7 @@ volumes:
 networks:
   my-network:
     driver: overlay
-复制代码
+
 </code></pre>
 
 <p>上面通过在environment中定义WORDPRESS_DB_PASSWORD_FILE以及MYSQL_ROOT_PASSWORD_FILE来制定secret，显然我们在运行这个docker-compose.yml文件之前必须先要进行对应的secret文件的创建。然后就可以通过docker stack deploy命令来部署这个stack了。</p>

@@ -4,35 +4,63 @@
   
   <url>
     <loc>https://mumulx.github.io/categories/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/posts/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/series/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/2022/06/springbatch/</loc>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/</loc>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/tags/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mumulx.github.io/series/themes-guide/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mumulx.github.io/</loc>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -53,13 +81,6 @@
   
   <url>
     <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -108,13 +129,6 @@
   </url>
   
   <url>
-    <loc>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://mumulx.github.io/tags/%E6%9D%83%E9%99%90/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -137,13 +151,6 @@
   
   <url>
     <loc>https://mumulx.github.io/2021/05/springcloudalibaba%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/</loc>
     <lastmod>2021-05-14T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

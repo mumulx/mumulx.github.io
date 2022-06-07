@@ -5,10 +5,19 @@
     <link>https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/</link>
     <description>Recent content in 技术框架 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringBatch中文文档</title>
+      <link>https://mumulx.github.io/2022/06/springbatch/</link>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.github.io/2022/06/springbatch/</guid>
+      <description>Spring Batch 中文文档 1. Spring Batch 介绍 企业域内的许多应用程序都需要批量处理才能在关键任务环境中执行业务操作。这些业务操作包括自动化，复杂的海量信息处理，无需</description>
+    </item>
     
     <item>
       <title>微前端qiankun自动部署</title>

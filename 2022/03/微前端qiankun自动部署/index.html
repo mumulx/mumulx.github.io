@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2022-03-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-03-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4492">
+<meta itemprop="wordCount" content="4428">
 
 
 
@@ -163,7 +163,7 @@
         <ul class="category-list">
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
-            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
             <li class="category-list-item"><a href="https://mumulx.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">8</span></li>
         </ul>
     </div>
@@ -191,7 +191,7 @@
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
-                    class="tag-list-count">14</span></li>
+                    class="tag-list-count">15</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
@@ -245,6 +245,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.github.io/2022/06/springbatch/" class="title">SpringBatch中文文档</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.github.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="title">微前端qiankun自动部署</a>
                     </p>
                     <p class="item-date">
@@ -279,16 +289,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.github.io/2022/02/shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title">shiro学习笔记</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-02-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-06</time>
                     </p>
                 </div>
             </li>
@@ -373,7 +373,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:4492字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:4428字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:9分 </span>
       </div>
     </div>
@@ -486,7 +486,6 @@
 <h3 id="安装qiankun">安装qiankun</h3>
 
 <pre><code class="language-bash">$ yarn add qiankun # 或者 npm i qiankun -S
-复制代码
 </code></pre>
 
 <h3 id="在主应用中注册微应用">在主应用中注册微应用</h3>
@@ -533,7 +532,6 @@ addGlobalUncaughtErrorHandler((event: Event | string) =&gt; {
 });
 
 start();
-复制代码
 </code></pre>
 
 <p>当微应用信息注册完之后，一旦浏览器的 url 发生变化，便会自动触发 qiankun 的匹配逻辑，所有 activeRule 规则匹配上的微应用就会被插入到指定的 container 中，同时依次调用微应用暴露出的生命周期钩子。</p>
@@ -548,7 +546,7 @@ loadMicroApp({
   entry: '//localhost:7100',
   container: '#yourContainer',
 });
-复制代码
+
 </code></pre>
 
 <h3 id="微应用">微应用</h3>
@@ -629,7 +627,7 @@ export async function unmount() {
 export async function update(props) {
   console.log('update props', props);
 }
-复制代码
+
 </code></pre>
 
 <p>上述代码中还引用了一个<code>public-path</code>的文件：</p>
@@ -638,7 +636,7 @@ export async function update(props) {
   // eslint-disable-next-line no-undef
   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
 }
-复制代码
+
 </code></pre>
 
 <p>这个主要解决的是微应用动态载入的 脚本、样式、图片 等地址不正确的问题。</p>
@@ -660,7 +658,7 @@ module.exports = {
     jsonpFunction: `webpackJsonp_${packageName}`,
   },
 };
-复制代码
+
 </code></pre>
 
 <h4 id="关键点总结">关键点总结</h4>
@@ -676,7 +674,7 @@ module.exports = {
     activeRule: '/manage',
   },
 ]
-复制代码
+    
 </code></pre>
 
 <p><strong>主应用注册微应用时，<code>entry</code> 可以为相对路径，<code>activeRule</code> 不可以和 <code>entry</code> 一样（否则主应用页面刷新就变成微应用）</strong></p></li>
@@ -688,7 +686,7 @@ module.exports = {
   mode: 'history',
   routes
 });
-复制代码
+    
 </code></pre>
 
 <p><strong>如果是主应用调用的那么路由的base为<code>/manage/</code></strong></p></li>
@@ -698,7 +696,7 @@ module.exports = {
 <pre><code class="language-js">module.exports = {
   publicPath: '/system/',
 };
-复制代码
+    
 </code></pre>
 
 <p><strong>对于 <code>webpack</code> 构建的微应用，微应用的 <code>webpack</code> 打包的 <code>publicPath</code> 需要配置成 <code>/system/</code>，否则微应用的 <code>index.html</code> 能正确请求，但是微应用 <code>index.html</code> 里面的 <code>js/css</code> 路径不会带上 <code>/system/</code>。</strong></p></li>
@@ -751,7 +749,7 @@ module.exports = {
             location = /50x.html {
         }
     }
-复制代码
+
 </code></pre>
 
 <p>再看一下子应用的</p>
@@ -788,7 +786,7 @@ module.exports = {
         location = /50x.html {
     }
 }
-复制代码
+
 </code></pre>
 
 <h2 id="dockerfile配置">dockerfile配置</h2>
@@ -803,7 +801,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY dist/index.html /usr/share/nginx/html/index.html
 # 再回头看一下部署逻辑图和qiankun注意点，必须要把所有的资源文件放到system文件下index.html才能正确加载
 COPY dist /usr/share/nginx/html/system
-复制代码
+
 </code></pre>
 
 <p>再看一下主应用的</p>
@@ -824,7 +822,7 @@ COPY dist .
 EXPOSE 80
 # 运行nginx
 CMD nginx -g &quot;daemon off;&quot;
-复制代码
+
 </code></pre>
 
 <h2 id="gitlab-ci-cd配置">gitlab-ci/cd配置</h2>
@@ -882,7 +880,7 @@ cache:
     - if [ $(docker ps -aq | grep &quot;Exited&quot; | awk '{print $1 }') ]; then docker stop $(docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }');fi
     - if [ $(docker ps -aq | grep &quot;Exited&quot; | awk '{print $1 }') ]; then docker rm $(docker ps -a | grep &quot;Exited&quot; | awk '{print $1 }');fi
     - if [ $(docker images | grep &quot;none&quot; | awk '{print $3}') ]; then docker rmi $(docker images | grep &quot;none&quot; | awk '{print $3}');fi
-复制代码
+
 </code></pre>
 
 <p>再看一下主应用的，省略重复的，直接看重点</p>
@@ -897,13 +895,13 @@ cache:
     - if [ $(docker ps -aq --filter name=rainbow-admin-main) ];then docker rm -f rainbow-admin-main;fi
     # 给容器指定一个网卡rainbow-net，然后给定一个ip，然后通过--link与之前创建的子应用连通，重点！
     - docker run -d -p 80:80 --net rainbow-net --ip 192.168.1.1 --link 192.168.1.2 --name rainbow-admin-main rainbow-admin
-复制代码
+
 </code></pre>
 
 <p>上面说到了docker的自定义网卡，生成的命令如下：</p>
 
 <pre><code class="language-bash">$ docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 rainbow-net
-复制代码
+
 </code></pre>
 
 <h2 id="总结">总结</h2>
@@ -956,6 +954,11 @@ cache:
                 <a href="https://mumulx.github.io/2022/03/docker/" title="Docker"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://mumulx.github.io/2022/06/springbatch/"
+                    title="SpringBatch中文文档"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
