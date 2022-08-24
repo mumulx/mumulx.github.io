@@ -20,7 +20,6 @@ $(function() {
       $(".sidebar .slimContent").slimScroll().on('slimscroll');
     }
   });
-
   // geopattern 背景生成
   $(".geopattern").each(function() {
     $(this).geopattern($(this).data('pattern-id'));
