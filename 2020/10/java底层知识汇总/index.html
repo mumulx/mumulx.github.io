@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-10-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-10-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="21405">
+<meta itemprop="wordCount" content="22088">
 
 
 
@@ -312,6 +312,7 @@
 <li><a href="#解决循环依赖思路分析">解决循环依赖思路分析</a></li>
 <li><a href="#spring到底解决了哪种情况下的循环依赖">Spring到底解决了哪种情况下的循环依赖</a></li>
 <li><a href="#总结">总结</a></li>
+<li><a href="#源码解读">源码解读</a></li>
 </ul></li>
 <li><a href="#spring中一些概念的总结">Spring中一些概念的总结</a>
 <ul>
@@ -412,8 +413,8 @@
 	</span>
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:21405字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:43分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:22088字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:45分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -684,6 +685,111 @@ public Object getEarlyBeanReference(Object bean, String beanName) {
 <li><strong>singletonFactories</strong>：缓存的是一个ObjectFactory，主要用来去生成原始对象进行了AOP之后得到的代理对象，在每个Bean的生成过程中，都会提前暴露一个工厂，这个<strong>工厂可能用到，也可能用不到</strong>，如果没有出现循环依赖依赖本bean，那么这个工厂无用，本bean按照自己的生命周期执行，执行完后直接把本bean放入singletonObjects中即可，如果出现了循环依赖依赖了本bean，则另外那个bean执行ObjectFactory提交得到一个AOP之后的代理对象(如果有AOP的话，如果无需AOP，则直接得到一个原始对象)。</li>
 <li>其实还要一个缓存，就是<strong>earlyProxyReferences</strong>，它用来记录某个原始对象是否进行过AOP了。</li>
 </ol>
+
+<h3 id="源码解读">源码解读</h3>
+
+<p>bean的初始化方法</p>
+
+<pre><code>org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#doCreateBean
+</code></pre>
+
+<pre><code class="language-java">...............
+// Eagerly cache singletons to be able to resolve circular references
+// even when triggered by lifecycle interfaces like BeanFactoryAware.
+boolean earlySingletonExposure = (mbd.isSingleton() &amp;&amp; this.allowCircularReferences &amp;&amp;
+                                  isSingletonCurrentlyInCreation(beanName));
+if (earlySingletonExposure) {
+    if (logger.isTraceEnabled()) {
+        logger.trace(&quot;Eagerly caching bean '&quot; + beanName +
+                     &quot;' to allow for resolving potential circular references&quot;);
+    }
+    addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean)); //存放到SingletonFactorys中
+}
+..............
+    if (earlySingletonExposure) {
+        Object earlySingletonReference = getSingleton(beanName, false);
+        if (earlySingletonReference != null) {
+            if (exposedObject == bean) {
+                exposedObject = earlySingletonReference;
+            }
+            ...........
+        }
+    }
+</code></pre>
+
+<pre><code class="language-java">protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
+    Object exposedObject = bean;
+    if (!mbd.isSynthetic() &amp;&amp; hasInstantiationAwareBeanPostProcessors()) {
+        for (SmartInstantiationAwareBeanPostProcessor bp : getBeanPostProcessorCache().smartInstantiationAware) {
+            exposedObject = bp.getEarlyBeanReference(exposedObject, beanName);
+        }
+    }
+    return exposedObject;
+}
+</code></pre>
+
+<pre><code class="language-java">@Override
+public Object getEarlyBeanReference(Object bean, String beanName) {
+    Object cacheKey = getCacheKey(bean.getClass(), beanName);
+    this.earlyProxyReferences.put(cacheKey, bean);
+    return wrapIfNecessary(bean, beanName, cacheKey);
+}
+</code></pre>
+
+<pre><code class="language-java">protected void addSingletonFactory(String beanName, ObjectFactory&lt;?&gt; singletonFactory) {
+		Assert.notNull(singletonFactory, &quot;Singleton factory must not be null&quot;);
+		synchronized (this.singletonObjects) {
+			if (!this.singletonObjects.containsKey(beanName)) {
+				this.singletonFactories.put(beanName, singletonFactory);
+				this.earlySingletonObjects.remove(beanName);
+				this.registeredSingletons.add(beanName);
+			}
+		}
+	}
+</code></pre>
+
+<pre><code class="language-java">@Nullable
+protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+    // Quick check for existing instance without full singleton lock
+    // 先从singletonObjects中找
+    Object singletonObject = this.singletonObjects.get(beanName);
+    // singletonObjects中没有，并且是正在创建的bean
+    if (singletonObject == null &amp;&amp; isSingletonCurrentlyInCreation(beanName)) {
+        // 从earlySingletonObjects中获取
+        singletonObject = this.earlySingletonObjects.get(beanName);
+        if (singletonObject == null &amp;&amp; allowEarlyReference) {
+            synchronized (this.singletonObjects) {
+                // Consistent creation of early reference within full singleton lock
+                singletonObject = this.singletonObjects.get(beanName);
+                if (singletonObject == null) {
+                    singletonObject = this.earlySingletonObjects.get(beanName);
+                    if (singletonObject == null) {
+                        // 从 singletonFactories中获取执行getObject方法获取早期经过aop的代理对象
+                        ObjectFactory&lt;?&gt; singletonFactory = this.singletonFactories.get(beanName);
+                        if (singletonFactory != null) {
+                            singletonObject = singletonFactory.getObject();
+                            this.earlySingletonObjects.put(beanName, singletonObject);
+                            this.singletonFactories.remove(beanName);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return singletonObject;
+}
+</code></pre>
+
+<p>正在创建的bean</p>
+
+<pre><code class="language-java">public boolean isSingletonCurrentlyInCreation(String beanName) {
+	return this.singletonsCurrentlyInCreation.contains(beanName);
+}
+</code></pre>
+
+<blockquote>
+<p>在属性注入的时候，会先从singletonObject中获取，如果里面没有，并且这个bean正在创建（有一个map中存放了所有正在创建的bean），表示发生了循环依赖。然后会从earlySingletonObjects中获取，如果这里也没有，并且允许创建早期对象的话，会从singletonFactories中获取，如果有旧调用getObject方法，创建一个早期的并且经过aop的对象，并把它加到earlySingletonObjects中，移出singletonFactories</p>
+</blockquote>
 
 <h2 id="spring中一些概念的总结">Spring中一些概念的总结</h2>
 
