@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2021-03-15T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="84976">
+<meta itemprop="wordCount" content="85876">
 
 
 
@@ -161,8 +161,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
         </ul>
@@ -586,8 +586,8 @@
 	</span>
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:84976字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:170分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:85876字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:172分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -1867,6 +1867,39 @@ class Singleton4 {
 <p>以ReentrantLock为例，state初始化为0，表示未锁定状态。A线程lock()时，会调用tryAcquire()独占该锁并将state+1。此后，其他线程再tryAcquire()时就会失败，直到A线程unlock()到state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A线程自己是可以重复获取此锁的（state会累加），这就是可重入的概念。但要注意，获取多少次就要释放多么次，这样才能保证state是能回到零态的。</p>
 
 <p>再以CountDownLatch以例，任务分为N个子线程去执行，state也初始化为N（注意N要与线程个数一致）。这N个子线程是并行执行的，每个子线程执行完后countDown()一次，state会CAS(Compare and Swap)减1。等到所有子线程都执行完后(即state=0)，会unpark()主调用线程，然后主调用线程就会从await()函数返回，继续后余动作。</p>
+</blockquote>
+
+<p>加锁（非公平锁）</p>
+
+<blockquote>
+<p>ReentrantLock.NonfairSync # lock</p>
+
+<ol>
+<li>尝试 cas 将0赋值给 state ，如果成功，说明获取锁，将线程拥有者设置为当前线程</li>
+<li>没有的话，尝试获取锁</li>
+<li>如果 state 是 o的话，在尝试获取一下锁</li>
+<li>判断线程拥有者是不是当前线程，是的话发生锁重入， state +1，获取锁成功</li>
+<li>没有没有获取到锁，将当前线程封装成 Node 节点添加加到等待队列中</li>
+<li>在等待队列中等待获取锁（一个死循环），如果前置节点是头节点并且尝试获取锁成功，则 return</li>
+<li>否则判断下是否要 park ，根据前置节点的状态来判断，-1标识前置节点也在阻塞，&gt;0说明前置节点已经取消，删除所有已经取消的节点，否则的话将自己节点状态 cas 为﹣1</li>
+<li>然后调用 LockSupport park 阻塞住</li>
+</ol>
+</blockquote>
+
+<p>解锁</p>
+
+<blockquote>
+<ol>
+<li>获取 state 的值，计算﹣1的值</li>
+<li>判断线程拥有者和当前线程是否相等，不是的话报错</li>
+<li>如果值为0，则释放锁，线程拥有者为null, state 设为0</li>
+<li>如果解锁成功，拿到等待队列的头节点，如果头节点不为空并且状态为不等于0, unpark 线程</li>
+<li>如果状态＜0将状态 cas 为0</li>
+<li>拿到头节点的下一个节点，如果下一个节点为空或状态大 FO （说明不需要解锁），将下一个节点置为 nul .</li>
+<li>从尾节点找到第一个状态小于0的节点，将下一个节点赋值为它，</li>
+<li>如果下一个节点不为空， LockSupportunpark 进行解锁</li>
+<li>解锁后在 for 循环中再尝试获取锁，获取到就持有锁，获取不到就继续阻塞住</li>
+</ol>
 </blockquote>
 
 <h4 id="interrupt-interrupted与isinterrupted方法的区别-如何停止一个正在运行的线程"><strong>interrupt，interrupted与isInterrupted方法的区别? 如何停止一个正在运行的线程</strong></h4>
@@ -4238,6 +4271,20 @@ HTTP劫持：你DNS解析的域名的IP地址不变。在和网站交互过程�
 <p>（7）DispaterServlet 把返回的 Model 传给 View（视图渲染）。</p>
 
 <p>（8）把 View 返回给请求者（浏览器）</p>
+
+<p>DispatcherServlet 继承了 FrameworkServlet （抽象类）, FrameworkServlet 又继承了 HtpServietBean 抽象类， HtpServletBean 继承了 HtpServlet , DispatcherServlet 能够处理 http 请求的原因就是继承了 HtpServlet ，所有请求都交由 FrameworkServlet#processRequest 进行处理，最终交由
+  FrameworkServlet#doService 方法进行处理，这个方法是一个抽象方法， DispatcherServle 实现了该方法。调用 DispatcherServlet#doDispatch 方法进行处理</p>
+
+<ol>
+<li>DispatcherServlet#getHandler 方法找到对应的 Handlerapping</li>
+<li>DispatcherServiet#getHandlerAdapter 方法找到对应的 HandlerAdapter</li>
+<li>HandlerAdapler#handle 方法处理请求，返回 ModeWndView</li>
+<li>DispatcherServlet#applyDefaultViewName 方法拿到默认 ViewName</li>
+<li>DispatcherServlet#processDispatchResult 方法处理返回ModeAndViow</li>
+<li>DispatcherServiot#render 方法处理 View</li>
+<li>DispatcherServlet#resolveViewName 方法调用 ViewResolver 处理 View</li>
+<li>View#render 方法将结果返回</li>
+</ol>
 </blockquote>
 
 <hr />
@@ -4456,6 +4503,20 @@ WHERE Employee.DepartmentId = Department.Id
 </code></pre>
 
 <h4 id="b-tree和b-tree"><strong>B-Tree和B+Tree</strong></h4>
+
+<p>B-Tree</p>
+
+<ul>
+<li><strong>每个节点都存储key和data</strong>，所有节点组成这棵树，并且叶子节点指针为null，叶子结点不包含任何关键字信息</li>
+</ul>
+
+<p>B+Tree</p>
+
+<ul>
+<li>所有的<strong>叶子结点中包含了全部关键字的信息</strong>，<strong>非叶子节点只存储键值信息</strong>，及指向含有这些关键字记录的指针，且叶子结点本身依关键字的大小自小而大的顺序链接，所有的非终端结点可以看成是索引部分，结点中仅含有其子树根结点中最大（或最小）关键字。 (而B树的非终节点也包含需要查找的有效信息)</li>
+<li>所有叶子节点之间都有一个链指针。</li>
+<li>数据记录都存放在叶子节点中。</li>
+</ul>
 
 <h4 id="如何实现lru算法"><strong>如何实现LRU算法？</strong></h4>
 

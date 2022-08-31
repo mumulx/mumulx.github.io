@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2020-10-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-10-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="22088">
+<meta itemprop="wordCount" content="23051">
 
 
 
@@ -161,8 +161,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
         </ul>
@@ -399,6 +399,7 @@
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
   <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+  <a class="article-category-link" href="/categories/java%E9%9D%A2%E8%AF%95/"> java面试 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
@@ -413,8 +414,8 @@
 	</span>
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/java%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:22088字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:45分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:23051字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:47分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -687,6 +688,35 @@ public Object getEarlyBeanReference(Object bean, String beanName) {
 </ol>
 
 <h3 id="源码解读">源码解读</h3>
+
+<p>首先，有两种Bean的注入方式，构造器注入和属性注入，对于构造器注入的循环依赖，Spring处理不了，会直接抛出BeanCurrentlyCreationException异常，对于属性注入的循环依赖（单例模式下）是通过三级缓存来处理循环依赖的。而非单例对象的循环依赖则无法处理，下面分析单例模式下属性注入的循环依赖怎么处理的。首先bean单例对象的初始化大致分为三步；</p>
+
+<ol>
+<li>createBeanInstance：实例化bean，使用构造方法创建对象，为对象分配内存</li>
+<li>populateBean：进行依赖注入</li>
+<li>initializeBean：初始化bean</li>
+</ol>
+
+<p>Spring为了解决单例的循环依赖的问题，使用了三级缓存：</p>
+
+<ol>
+<li>singletonObjects：完成了初始化的单例对象map</li>
+<li>earlySingletonObjects：完成实例化未初始化的单例对象map</li>
+<li>singletonFactories：单例对象工厂map，单例对象实例化完成后加入singletonFactories。</li>
+</ol>
+
+<p>在调用createBeanInstance进行实例化后，会调用addSingletonFactories，将单例对象放到singletonFactories中。假如A依赖了B的实例对象，同时B也依赖了A的实例对象。</p>
+
+<ol>
+<li>A首先完成了实例化，并且将自己添加到singletonFactories中</li>
+<li>接着继续宁依赖注入，发现自己依赖对象B，此时就会尝试去get(B)</li>
+<li>发现B还没有被实例化，对B进行实例化</li>
+<li>然后B在初始化时发现自己依赖了对象A于是调用get(A)，在一级缓存singletonObjects和二级缓存earlySingletonObjects中进行查找找不到尝试从三级缓存singletonFactories中查找，由于A初始化的时候把自己加到singletonFactories中了，所以B可以拿到A对象，然后将A从三级缓存移动到二级缓存中</li>
+<li>B拿到A的对象后顺利完成了初始化，然后将自己放到一级缓存中，</li>
+<li>此时返回A，A此时能拿到B的对象，顺利完成初始化</li>
+</ol>
+
+<p>所以属性注入的循环依赖主要是通过将实例化完成的bean添加到singletonFactories中来实现的，而使用构造器依赖注入的bean在实例化的时候进行依赖注入，不会被添加到singletonFactories中</p>
 
 <p>bean的初始化方法</p>
 
@@ -1024,14 +1054,14 @@ public class UserService {
 
 <p>一个A类：</p>
 
-<pre><code>@Component
+<pre><code class="language-java">@Component
 public class A {
 }
 </code></pre>
 
 <p>一个B类，不存在@Component注解</p>
 
-<pre><code>public class B {
+<pre><code class="language-java">public class B {
 }
 </code></pre>
 

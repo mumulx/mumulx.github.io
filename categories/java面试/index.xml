@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
   <channel>
-    <title>Java面试 on 木木的个人博客</title>
+    <title>java面试 on 木木的个人博客</title>
     <link>https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/</link>
-    <description>Recent content in Java面试 on 木木的个人博客</description>
+    <description>Recent content in java面试 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 15 Mar 2021 00:00:00 +0000</lastBuildDate>
     
@@ -65,11 +65,11 @@
     </item>
     
     <item>
-      <title>ShardingShpere笔记</title>
-      <link>https://mumulx.gitee.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/</link>
+      <title>ShardingSphere笔记</title>
+      <link>https://mumulx.gitee.io/2022/01/shardingsphere%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mumulx.gitee.io/2022/01/shardingshpere%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://mumulx.gitee.io/2022/01/shardingsphere%E7%AC%94%E8%AE%B0/</guid>
       <description>ShardingShpere数据库中间件 ShardingJdbc是属于我们中间件里面的一个知识点，它主要应用在我们项目的数据层这部分，也就是</description>
     </item>
     
