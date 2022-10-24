@@ -5,10 +5,19 @@
     <link>https://mumulx.gitee.io/</link>
     <description>Recent content on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang</title>
+      <link>https://mumulx.gitee.io/2022/10/golang/</link>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2022/10/golang/</guid>
+      <description>Golang 李文周的博客 为什么你应该学习Go语言？ 终于等到你！Go语言——让你用写Python代码的开发效率编写C语言代码。 为什么互联网世界需要Go语</description>
+    </item>
     
     <item>
       <title>SpringBatch中文文档</title>

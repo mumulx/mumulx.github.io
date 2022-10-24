@@ -44,7 +44,7 @@
 
 <meta itemprop="datePublished" content="2021-03-15T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="85876">
+<meta itemprop="wordCount" content="85797">
 
 
 
@@ -161,6 +161,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
             <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
@@ -172,6 +173,10 @@
     <h3 class="widget-title"> 标签</h3>
     <div class="widget-body">
         <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/golang/" class="tag-list-link">golang</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java/" class="tag-list-link">java</a><span
@@ -241,6 +246,16 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/golang/" class="title">Golang</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://mumulx.gitee.io/2022/06/springbatch/" class="title">SpringBatch中文文档</a>
                     </p>
                     <p class="item-date">
@@ -275,16 +290,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2022-02-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-20</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://mumulx.gitee.io/2022/02/java%E7%9F%A5%E8%AF%86%E7%82%B9java17/" class="title">Java知识点Java17</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-02-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-02-14</time>
                     </p>
                 </div>
             </li>
@@ -586,7 +591,7 @@
 	</span>
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/%E9%9D%A2%E7%BB%8F%E6%95%B4%E7%90%86/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:85876字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:85797字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:172分 </span>
       </div>
     </div>
@@ -1526,48 +1531,47 @@ class Singleton4 {
 
 <h4 id="arraylist的扩容机制"><strong>ArrayList的扩容机制？</strong></h4>
 
-<p>​    &gt; ArrayList扩容发生在add()方法调用的时候，下面是add()方法的源码：
-​    &gt;<code>java
-​    &gt; public boolean add(E e) {
-​    &gt;    //扩容
-​    &gt;     ensureCapacityInternal(size + 1);  // Increments modCount!!
-​    &gt;     elementData[size++] = e;
-​    &gt;     return true;
-​    &gt; }
-​    &gt;</code>
-​    &gt;
-​    &gt; ArrayList扩容的关键方法grow():
-​    &gt;
-​    &gt; <code>java
-​    &gt; private void grow(int minCapacity) {
-​    &gt;    // 获取到ArrayList中elementData数组的内存空间长度
-​    &gt;     int oldCapacity = elementData.length;
-​    &gt;     // 扩容至原来的1.5倍
-​    &gt;     int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
-​    &gt;     // 再判断一下新数组的容量够不够，够了就直接使用这个长度创建新数组，
-​    &gt;     // 不够就将数组长度设置为需要的长度
-​    &gt;     if (newCapacity - minCapacity &lt; 0)
-​    &gt;       newCapacity = minCapacity;
-​    &gt;       //若预设值大于默认的最大值检查是否溢出
-​    &gt;     if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
-​    &gt;         newCapacity = hugeCapacity(minCapacity);
-​    &gt;     // 调用Arrays.copyOf方法将elementData数组指向新的内存空间时newCapacity的连续空间
-​    &gt;     // 并将elementData的数据复制到新的内存空间
-​    &gt;      elementData = Arrays.copyOf(elementData, newCapacity);
-​    &gt; }
-​    &gt;</code>
-​    &gt;
-​    &gt; int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
-​    &gt;
-​    &gt; oldCapacity &gt;&gt; 1  右移运算符  原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍
-​    &gt;
-​    &gt; 之前的所有都是确定新数组的长度，确定之后就是把老数组copy到新数组中，这样数组的扩容就结束了
-​    &gt;
-​    &gt; 以上的一切都是ArrayList扩容的第一步，第二步就没啥说的了，就是把需要添加的元素添加到数组的最后一位</p>
+<blockquote>
+<p>ArrayList扩容发生在add()方法调用的时候，下面是add()方法的源码：</p>
+
+<pre><code class="language-java"> public boolean add(E e) {
+    //扩容
+     ensureCapacityInternal(size + 1);  // Increments modCount!!
+     elementData[size++] = e;
+     return true;
+ }
+</code></pre>
+
+<p>ArrayList扩容的关键方法grow():</p>
+
+<pre><code class="language-java"> private void grow(int minCapacity) {
+    // 获取到ArrayList中elementData数组的内存空间长度
+     int oldCapacity = elementData.length;
+     // 扩容至原来的1.5倍
+     int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+ // 再判断一下新数组的容量够不够，够了就直接使用这个长度创建新数组，
+     // 不够就将数组长度设置为需要的长度
+     if (newCapacity - minCapacity &lt; 0)
+       newCapacity = minCapacity;
+       //若预设值大于默认的最大值检查是否溢出
+     if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+         newCapacity = hugeCapacity(minCapacity);
+     // 调用Arrays.copyOf方法将elementData数组指向新的内存空间时newCapacity的连续空间
+     // 并将elementData的数据复制到新的内存空间
+      elementData = Arrays.copyOf(elementData, newCapacity);
+ }
+</code></pre>
+
+<p>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</p>
+
+<p>oldCapacity &gt;&gt; 1  右移运算符  原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍</p>
+
+<p>之前的所有都是确定新数组的长度，确定之后就是把老数组copy到新数组中，这样数组的扩容就结束了</p>
+
+<p>以上的一切都是ArrayList扩容的第一步，第二步就没啥说的了，就是把需要添加的元素添加到数&gt;</p>
 
 <h4 id="hashmap-的底层实现-jdk-1-8-的时候为啥将链表转换成红黑树-hashmap-的负载因子-hashmap-和-hashtable-的区别-hashmap如何实现扩容"><strong>HashMap 的底层实现、JDK 1.8 的时候为啥将链表转换成红黑树？HashMap 的负载因子、HashMap 和 Hashtable 的区别？HashMap如何实现扩容？</strong></h4>
 
-<blockquote>
 <p><strong>HashMap是用数组+链表+红黑树进行实现的，当添加一个元素（key-value）时，就首先计算元素key的hash值，并根据hash值来确定插入数组中的位置，但是可能存在其他元素已经被放在数组同一位置了，这个时候便使用链表来解决哈希冲突，当链表长度太长的时候，便将链表转换为红黑树来提高搜索的效率。</strong></p>
 
 <p>HashMap是基于拉链法实现的一个散列表，内部由数组和链表和红黑树实现。</p>
