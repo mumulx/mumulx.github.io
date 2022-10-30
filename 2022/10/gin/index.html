@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Gin - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Gin框架介绍及使用" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Gin - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.gitee.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Gin" />
+<meta property="og:description" content="Gin框架介绍及使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.gitee.io/2022/10/gin/" />
+<meta property="article:published_time" content="2022-10-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-30T00:00:00+00:00" />
+
+<meta itemprop="name" content="Gin">
+<meta itemprop="description" content="Gin框架介绍及使用">
+
+
+<meta itemprop="datePublished" content="2022-10-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-10-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5771">
+
+
+
+<meta itemprop="keywords" content="Golang," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gin"/>
+<meta name="twitter:description" content="Gin框架介绍及使用"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://gitee.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.gitee.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">主页</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">归档</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分类</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">标签</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">关于</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/golang/" class="tag-list-link">golang</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gin/" class="title">Gin</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gorm/" class="title">GORM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/golang/" class="title">Golang</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/06/springbatch/" class="title">SpringBatch中文文档</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/03/%E5%BE%AE%E5%89%8D%E7%AB%AFqiankun%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="title">微前端qiankun自动部署</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#gin框架介绍及使用">Gin框架介绍及使用</a>
+<ul>
+<li><a href="#gin框架介绍">Gin框架介绍</a></li>
+<li><a href="#gin框架安装与使用">Gin框架安装与使用</a>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#第一个gin示例">第一个Gin示例：</a></li>
+</ul></li>
+<li><a href="#restful-api">RESTful API</a></li>
+<li><a href="#gin渲染">Gin渲染</a>
+<ul>
+<li><a href="#html渲染">HTML渲染</a></li>
+<li><a href="#自定义模板函数">自定义模板函数</a></li>
+<li><a href="#静态文件处理">静态文件处理</a></li>
+<li><a href="#使用模板继承">使用模板继承</a></li>
+<li><a href="#补充文件路径处理">补充文件路径处理</a></li>
+<li><a href="#json渲染">JSON渲染</a></li>
+<li><a href="#xml渲染">XML渲染</a></li>
+<li><a href="#ymal渲染">YMAL渲染</a></li>
+<li><a href="#protobuf渲染">protobuf渲染</a></li>
+</ul></li>
+<li><a href="#获取参数">获取参数</a>
+<ul>
+<li><a href="#获取querystring参数">获取querystring参数</a></li>
+<li><a href="#获取form参数">获取form参数</a></li>
+<li><a href="#获取json参数">获取json参数</a></li>
+<li><a href="#获取path参数">获取path参数</a></li>
+<li><a href="#参数绑定">参数绑定</a></li>
+</ul></li>
+<li><a href="#文件上传">文件上传</a>
+<ul>
+<li><a href="#单个文件上传">单个文件上传</a></li>
+<li><a href="#多个文件上传">多个文件上传</a></li>
+</ul></li>
+<li><a href="#重定向">重定向</a>
+<ul>
+<li><a href="#http重定向">HTTP重定向</a></li>
+<li><a href="#路由重定向">路由重定向</a></li>
+</ul></li>
+<li><a href="#gin路由">Gin路由</a>
+<ul>
+<li><a href="#普通路由">普通路由</a></li>
+<li><a href="#路由组">路由组</a></li>
+<li><a href="#路由原理">路由原理</a></li>
+</ul></li>
+<li><a href="#gin中间件">Gin中间件</a>
+<ul>
+<li><a href="#定义中间件">定义中间件</a>
+<ul>
+<li><a href="#记录接口耗时的中间件">记录接口耗时的中间件</a></li>
+<li><a href="#记录响应体的中间件">记录响应体的中间件</a></li>
+<li><a href="#跨域中间件cors">跨域中间件cors</a></li>
+</ul></li>
+<li><a href="#注册中间件">注册中间件</a>
+<ul>
+<li><a href="#为全局路由注册">为全局路由注册</a></li>
+<li><a href="#为某个路由单独注册">为某个路由单独注册</a></li>
+<li><a href="#为路由组注册中间件">为路由组注册中间件</a></li>
+</ul></li>
+<li><a href="#中间件注意事项">中间件注意事项</a>
+<ul>
+<li><a href="#gin默认中间件">gin默认中间件</a></li>
+<li><a href="#gin中间件中使用goroutine">gin中间件中使用goroutine</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#运行多个服务">运行多个服务</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/10/gin/"
+    >Gin</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.gitee.io/2022/10/gin/" class="article-date">
+  <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/golang/"> Golang </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/golang/"> Golang </a>
+  </span>
+
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/gin/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:5771字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:12分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="gin框架介绍及使用">Gin框架介绍及使用</h1>
+
+<p><code>Gin</code>是一个用Go语言编写的web框架。它是一个类似于<code>martini</code>但拥有更好性能的API框架, 由于使用了<code>httprouter</code>，速度提高了近40倍。 如果你是性能和高效的追求者, 你会爱上<code>Gin</code>。</p>
+
+<h2 id="gin框架介绍">Gin框架介绍</h2>
+
+<p>Go世界里最流行的Web框架，<a href="https://github.com/gin-gonic/gin">Github</a>上有<code>32K+</code>star。 基于<a href="https://github.com/julienschmidt/httprouter">httprouter</a>开发的Web框架。 <a href="https://gin-gonic.com/zh-cn/docs/">中文文档</a>齐全，简单易用的轻量级框架。</p>
+
+<h2 id="gin框架安装与使用">Gin框架安装与使用</h2>
+
+<h3 id="安装">安装</h3>
+
+<p>下载并安装<code>Gin</code>:</p>
+
+<pre><code class="language-bash">go get -u github.com/gin-gonic/gin
+</code></pre>
+
+<h3 id="第一个gin示例">第一个Gin示例：</h3>
+
+<pre><code class="language-golang">package main
+
+import (
+	&quot;github.com/gin-gonic/gin&quot;
+)
+
+func main() {
+	// 创建一个默认的路由引擎
+	r := gin.Default()
+	// GET：请求方式；/hello：请求的路径
+	// 当客户端以GET方法请求/hello路径时，会执行后面的匿名函数
+	r.GET(&quot;/hello&quot;, func(c *gin.Context) {
+		// c.JSON：返回JSON格式的数据
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;Hello world!&quot;,
+		})
+	})
+	// 启动HTTP服务，默认在0.0.0.0:8080启动服务
+	r.Run()
+}
+</code></pre>
+
+<p>将上面的代码保存并编译执行，然后使用浏览器打开<code>127.0.0.1:8080/hello</code>就能看到一串JSON字符串。</p>
+
+<h2 id="restful-api">RESTful API</h2>
+
+<p>REST与技术无关，代表的是一种软件架构风格，REST是Representational State Transfer的简称，中文翻译为“表征状态转移”或“表现层状态转化”。</p>
+
+<p>推荐阅读<a href="http://www.ruanyifeng.com/blog/2011/09/restful.html">阮一峰 理解RESTful架构</a></p>
+
+<p>简单来说，REST的含义就是客户端与Web服务器之间进行交互的时候，使用HTTP协议中的4个请求方法代表不同的动作。</p>
+
+<ul>
+<li><code>GET</code>用来获取资源</li>
+<li><code>POST</code>用来新建资源</li>
+<li><code>PUT</code>用来更新资源</li>
+<li><code>DELETE</code>用来删除资源。</li>
+</ul>
+
+<p>只要API程序遵循了REST风格，那就可以称其为RESTful API。目前在前后端分离的架构中，前后端基本都是通过RESTful API来进行交互。</p>
+
+<p>例如，我们现在要编写一个管理书籍的系统，我们可以查询对一本书进行查询、创建、更新和删除等操作，我们在编写程序的时候就要设计客户端浏览器与我们Web服务端交互的方式和路径。按照经验我们通常会设计成如下模式：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">请求方法</th>
+<th align="center">URL</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">GET</td>
+<td align="center">/book</td>
+<td align="center">查询书籍信息</td>
+</tr>
+
+<tr>
+<td align="center">POST</td>
+<td align="center">/create_book</td>
+<td align="center">创建书籍记录</td>
+</tr>
+
+<tr>
+<td align="center">POST</td>
+<td align="center">/update_book</td>
+<td align="center">更新书籍信息</td>
+</tr>
+
+<tr>
+<td align="center">POST</td>
+<td align="center">/delete_book</td>
+<td align="center">删除书籍信息</td>
+</tr>
+</tbody>
+</table>
+
+<p>同样的需求我们按照RESTful API设计如下：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">请求方法</th>
+<th align="center">URL</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">GET</td>
+<td align="center">/book</td>
+<td align="center">查询书籍信息</td>
+</tr>
+
+<tr>
+<td align="center">POST</td>
+<td align="center">/book</td>
+<td align="center">创建书籍记录</td>
+</tr>
+
+<tr>
+<td align="center">PUT</td>
+<td align="center">/book</td>
+<td align="center">更新书籍信息</td>
+</tr>
+
+<tr>
+<td align="center">DELETE</td>
+<td align="center">/book</td>
+<td align="center">删除书籍信息</td>
+</tr>
+</tbody>
+</table>
+
+<p>Gin框架支持开发RESTful API的开发。</p>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+	r.GET(&quot;/book&quot;, func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;GET&quot;,
+		})
+	})
+
+	r.POST(&quot;/book&quot;, func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;POST&quot;,
+		})
+	})
+
+	r.PUT(&quot;/book&quot;, func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;PUT&quot;,
+		})
+	})
+
+	r.DELETE(&quot;/book&quot;, func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;DELETE&quot;,
+		})
+	})
+}
+</code></pre>
+
+<p>开发RESTful API的时候我们通常使用<a href="https://www.getpostman.com/">Postman</a>来作为客户端的测试工具。</p>
+
+<h2 id="gin渲染">Gin渲染</h2>
+
+<h3 id="html渲染">HTML渲染</h3>
+
+<p>我们首先定义一个存放模板文件的<code>templates</code>文件夹，然后在其内部按照业务分别定义一个<code>posts</code>文件夹和一个<code>users</code>文件夹。 <code>posts/index.html</code>文件的内容如下：</p>
+
+<pre><code class="language-template">{{define &quot;posts/index.html&quot;}}
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;posts/index&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    {{.title}}
+&lt;/body&gt;
+&lt;/html&gt;
+{{end}}
+</code></pre>
+
+<p><code>users/index.html</code>文件的内容如下：</p>
+
+<pre><code class="language-template">{{define &quot;users/index.html&quot;}}
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;users/index&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    {{.title}}
+&lt;/body&gt;
+&lt;/html&gt;
+{{end}}
+</code></pre>
+
+<p>Gin框架中使用<code>LoadHTMLGlob()</code>或者<code>LoadHTMLFiles()</code>方法进行HTML模板渲染。</p>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+	r.LoadHTMLGlob(&quot;templates/**/*&quot;)
+	//r.LoadHTMLFiles(&quot;templates/posts/index.html&quot;, &quot;templates/users/index.html&quot;)
+	r.GET(&quot;/posts/index&quot;, func(c *gin.Context) {
+		c.HTML(http.StatusOK, &quot;posts/index.html&quot;, gin.H{
+			&quot;title&quot;: &quot;posts/index&quot;,
+		})
+	})
+
+	r.GET(&quot;users/index&quot;, func(c *gin.Context) {
+		c.HTML(http.StatusOK, &quot;users/index.html&quot;, gin.H{
+			&quot;title&quot;: &quot;users/index&quot;,
+		})
+	})
+
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="自定义模板函数">自定义模板函数</h3>
+
+<p>定义一个不转义相应内容的<code>safe</code>模板函数如下：</p>
+
+<pre><code class="language-go">func main() {
+	router := gin.Default()
+	router.SetFuncMap(template.FuncMap{
+		&quot;safe&quot;: func(str string) template.HTML{
+			return template.HTML(str)
+		},
+	})
+	router.LoadHTMLFiles(&quot;./index.tmpl&quot;)
+
+	router.GET(&quot;/index&quot;, func(c *gin.Context) {
+		c.HTML(http.StatusOK, &quot;index.tmpl&quot;, &quot;&lt;a href='https://liwenzhou.com'&gt;李文周的博客&lt;/a&gt;&quot;)
+	})
+
+	router.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<p>在<code>index.tmpl</code>中使用定义好的<code>safe</code>模板函数：</p>
+
+<pre><code class="language-template">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;修改模板引擎的标识符&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;{{ . | safe }}&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="静态文件处理">静态文件处理</h3>
+
+<p>当我们渲染的HTML文件中引用了静态文件时，我们只需要按照以下方式在渲染页面前调用<code>gin.Static</code>方法即可。</p>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+	r.Static(&quot;/static&quot;, &quot;./static&quot;)
+	r.LoadHTMLGlob(&quot;templates/**/*&quot;)
+   // ...
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="使用模板继承">使用模板继承</h3>
+
+<p>Gin框架默认都是使用单模板，如果需要使用<code>block template</code>功能，可以通过<code>&quot;github.com/gin-contrib/multitemplate&quot;</code>库实现，具体示例如下：</p>
+
+<p>首先，假设我们项目目录下的templates文件夹下有以下模板文件，其中<code>home.tmpl</code>和<code>index.tmpl</code>继承了<code>base.tmpl</code>：</p>
+
+<pre><code class="language-bash">templates
+├── includes
+│   ├── home.tmpl
+│   └── index.tmpl
+├── layouts
+│   └── base.tmpl
+└── scripts.tmpl
+</code></pre>
+
+<p>然后我们定义一个<code>loadTemplates</code>函数如下：</p>
+
+<pre><code class="language-go">func loadTemplates(templatesDir string) multitemplate.Renderer {
+	r := multitemplate.NewRenderer()
+	layouts, err := filepath.Glob(templatesDir + &quot;/layouts/*.tmpl&quot;)
+	if err != nil {
+		panic(err.Error())
+	}
+	includes, err := filepath.Glob(templatesDir + &quot;/includes/*.tmpl&quot;)
+	if err != nil {
+		panic(err.Error())
+	}
+	// 为layouts/和includes/目录生成 templates map
+	for _, include := range includes {
+		layoutCopy := make([]string, len(layouts))
+		copy(layoutCopy, layouts)
+		files := append(layoutCopy, include)
+		r.AddFromFiles(filepath.Base(include), files...)
+	}
+	return r
+}
+</code></pre>
+
+<p>我们在<code>main</code>函数中</p>
+
+<pre><code class="language-go">func indexFunc(c *gin.Context){
+	c.HTML(http.StatusOK, &quot;index.tmpl&quot;, nil)
+}
+
+func homeFunc(c *gin.Context){
+	c.HTML(http.StatusOK, &quot;home.tmpl&quot;, nil)
+}
+
+func main(){
+	r := gin.Default()
+	r.HTMLRender = loadTemplates(&quot;./templates&quot;)
+	r.GET(&quot;/index&quot;, indexFunc)
+	r.GET(&quot;/home&quot;, homeFunc)
+	r.Run()
+}
+</code></pre>
+
+<h3 id="补充文件路径处理">补充文件路径处理</h3>
+
+<p>关于模板文件和静态文件的路径，我们需要根据公司/项目的要求进行设置。可以使用下面的函数获取当前执行程序的路径。</p>
+
+<pre><code class="language-go">func getCurrentPath() string {
+	if ex, err := os.Executable(); err == nil {
+		return filepath.Dir(ex)
+	}
+	return &quot;./&quot;
+}
+</code></pre>
+
+<h3 id="json渲染">JSON渲染</h3>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+
+	// gin.H 是map[string]interface{}的缩写
+	r.GET(&quot;/someJSON&quot;, func(c *gin.Context) {
+		// 方式一：自己拼接JSON
+		c.JSON(http.StatusOK, gin.H{&quot;message&quot;: &quot;Hello world!&quot;})
+	})
+	r.GET(&quot;/moreJSON&quot;, func(c *gin.Context) {
+		// 方法二：使用结构体
+		var msg struct {
+			Name    string `json:&quot;user&quot;`
+			Message string
+			Age     int
+		}
+		msg.Name = &quot;小王子&quot;
+		msg.Message = &quot;Hello world!&quot;
+		msg.Age = 18
+		c.JSON(http.StatusOK, msg)
+	})
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="xml渲染">XML渲染</h3>
+
+<p>注意需要使用具名的结构体类型。</p>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+	// gin.H 是map[string]interface{}的缩写
+	r.GET(&quot;/someXML&quot;, func(c *gin.Context) {
+		// 方式一：自己拼接JSON
+		c.XML(http.StatusOK, gin.H{&quot;message&quot;: &quot;Hello world!&quot;})
+	})
+	r.GET(&quot;/moreXML&quot;, func(c *gin.Context) {
+		// 方法二：使用结构体
+		type MessageRecord struct {
+			Name    string
+			Message string
+			Age     int
+		}
+		var msg MessageRecord
+		msg.Name = &quot;小王子&quot;
+		msg.Message = &quot;Hello world!&quot;
+		msg.Age = 18
+		c.XML(http.StatusOK, msg)
+	})
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="ymal渲染">YMAL渲染</h3>
+
+<pre><code class="language-go">r.GET(&quot;/someYAML&quot;, func(c *gin.Context) {
+	c.YAML(http.StatusOK, gin.H{&quot;message&quot;: &quot;ok&quot;, &quot;status&quot;: http.StatusOK})
+})
+</code></pre>
+
+<h3 id="protobuf渲染">protobuf渲染</h3>
+
+<pre><code class="language-go">r.GET(&quot;/someProtoBuf&quot;, func(c *gin.Context) {
+	reps := []int64{int64(1), int64(2)}
+	label := &quot;test&quot;
+	// protobuf 的具体定义写在 testdata/protoexample 文件中。
+	data := &amp;protoexample.Test{
+		Label: &amp;label,
+		Reps:  reps,
+	}
+	// 请注意，数据在响应中变为二进制数据
+	// 将输出被 protoexample.Test protobuf 序列化了的数据
+	c.ProtoBuf(http.StatusOK, data)
+})
+</code></pre>
+
+<h2 id="获取参数">获取参数</h2>
+
+<h3 id="获取querystring参数">获取querystring参数</h3>
+
+<p><code>querystring</code>指的是URL中<code>?</code>后面携带的参数，例如：<code>/user/search?username=小王子&amp;address=沙河</code>。 获取请求的querystring参数的方法如下：</p>
+
+<pre><code class="language-go">func main() {
+	//Default返回一个默认的路由引擎
+	r := gin.Default()
+	r.GET(&quot;/user/search&quot;, func(c *gin.Context) {
+		username := c.DefaultQuery(&quot;username&quot;, &quot;小王子&quot;)
+		//username := c.Query(&quot;username&quot;)
+		address := c.Query(&quot;address&quot;)
+		//输出json结果给调用方
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;:  &quot;ok&quot;,
+			&quot;username&quot;: username,
+			&quot;address&quot;:  address,
+		})
+	})
+	r.Run()
+}
+</code></pre>
+
+<h3 id="获取form参数">获取form参数</h3>
+
+<p>当前端请求的数据通过form表单提交时，例如向<code>/user/search</code>发送一个POST请求，获取请求数据的方式如下：</p>
+
+<pre><code class="language-go">func main() {
+	//Default返回一个默认的路由引擎
+	r := gin.Default()
+	r.POST(&quot;/user/search&quot;, func(c *gin.Context) {
+		// DefaultPostForm取不到值时会返回指定的默认值
+		//username := c.DefaultPostForm(&quot;username&quot;, &quot;小王子&quot;)
+		username := c.PostForm(&quot;username&quot;)
+		address := c.PostForm(&quot;address&quot;)
+		//输出json结果给调用方
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;:  &quot;ok&quot;,
+			&quot;username&quot;: username,
+			&quot;address&quot;:  address,
+		})
+	})
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="获取json参数">获取json参数</h3>
+
+<p>当前端请求的数据通过JSON提交时，例如向<code>/json</code>发送一个POST请求，则获取请求参数的方式如下：</p>
+
+<pre><code class="language-go">r.POST(&quot;/json&quot;, func(c *gin.Context) {
+	// 注意：下面为了举例子方便，暂时忽略了错误处理
+	b, _ := c.GetRawData()  // 从c.Request.Body读取请求数据
+	// 定义map或结构体
+	var m map[string]interface{}
+	// 反序列化
+	_ = json.Unmarshal(b, &amp;m)
+
+	c.JSON(http.StatusOK, m)
+})
+</code></pre>
+
+<p>更便利的获取请求参数的方式，参见下面的 <strong>参数绑定</strong> 小节。</p>
+
+<h3 id="获取path参数">获取path参数</h3>
+
+<p>请求的参数通过URL路径传递，例如：<code>/user/search/小王子/沙河</code>。 获取请求URL路径中的参数的方式如下。</p>
+
+<pre><code class="language-go">func main() {
+	//Default返回一个默认的路由引擎
+	r := gin.Default()
+	r.GET(&quot;/user/search/:username/:address&quot;, func(c *gin.Context) {
+		username := c.Param(&quot;username&quot;)
+		address := c.Param(&quot;address&quot;)
+		//输出json结果给调用方
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;:  &quot;ok&quot;,
+			&quot;username&quot;: username,
+			&quot;address&quot;:  address,
+		})
+	})
+
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<h3 id="参数绑定">参数绑定</h3>
+
+<p>为了能够更方便的获取请求相关参数，提高开发效率，我们可以基于请求的<code>Content-Type</code>识别请求数据类型并利用反射机制自动提取请求中<code>QueryString</code>、<code>form表单</code>、<code>JSON</code>、<code>XML</code>等参数到结构体中。 下面的示例代码演示了<code>.ShouldBind()</code>强大的功能，它能够基于请求自动提取<code>JSON</code>、<code>form表单</code>和<code>QueryString</code>类型的数据，并把值绑定到指定的结构体对象。</p>
+
+<pre><code class="language-go">// Binding from JSON
+type Login struct {
+	User     string `form:&quot;user&quot; json:&quot;user&quot; binding:&quot;required&quot;`
+	Password string `form:&quot;password&quot; json:&quot;password&quot; binding:&quot;required&quot;`
+}
+
+func main() {
+	router := gin.Default()
+
+	// 绑定JSON的示例 ({&quot;user&quot;: &quot;q1mi&quot;, &quot;password&quot;: &quot;123456&quot;})
+	router.POST(&quot;/loginJSON&quot;, func(c *gin.Context) {
+		var login Login
+
+		if err := c.ShouldBind(&amp;login); err == nil {
+			fmt.Printf(&quot;login info:%#v\n&quot;, login)
+			c.JSON(http.StatusOK, gin.H{
+				&quot;user&quot;:     login.User,
+				&quot;password&quot;: login.Password,
+			})
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{&quot;error&quot;: err.Error()})
+		}
+	})
+
+	// 绑定form表单示例 (user=q1mi&amp;password=123456)
+	router.POST(&quot;/loginForm&quot;, func(c *gin.Context) {
+		var login Login
+		// ShouldBind()会根据请求的Content-Type自行选择绑定器
+		if err := c.ShouldBind(&amp;login); err == nil {
+			c.JSON(http.StatusOK, gin.H{
+				&quot;user&quot;:     login.User,
+				&quot;password&quot;: login.Password,
+			})
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{&quot;error&quot;: err.Error()})
+		}
+	})
+
+	// 绑定QueryString示例 (/loginQuery?user=q1mi&amp;password=123456)
+	router.GET(&quot;/loginForm&quot;, func(c *gin.Context) {
+		var login Login
+		// ShouldBind()会根据请求的Content-Type自行选择绑定器
+		if err := c.ShouldBind(&amp;login); err == nil {
+			c.JSON(http.StatusOK, gin.H{
+				&quot;user&quot;:     login.User,
+				&quot;password&quot;: login.Password,
+			})
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{&quot;error&quot;: err.Error()})
+		}
+	})
+
+	// Listen and serve on 0.0.0.0:8080
+	router.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<p><code>ShouldBind</code>会按照下面的顺序解析请求中的数据完成绑定：</p>
+
+<ol>
+<li>如果是 <code>GET</code> 请求，只使用 <code>Form</code> 绑定引擎（<code>query</code>）。</li>
+<li>如果是 <code>POST</code> 请求，首先检查 <code>content-type</code> 是否为 <code>JSON</code> 或 <code>XML</code>，然后再使用 <code>Form</code>（<code>form-data</code>）。</li>
+</ol>
+
+<h2 id="文件上传">文件上传</h2>
+
+<h3 id="单个文件上传">单个文件上传</h3>
+
+<p>文件上传前端页面代码：</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;上传文件示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;input type=&quot;file&quot; name=&quot;f1&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>后端gin框架部分代码：</p>
+
+<pre><code class="language-go">func main() {
+	router := gin.Default()
+	// 处理multipart forms提交文件时默认的内存限制是32 MiB
+	// 可以通过下面的方式修改
+	// router.MaxMultipartMemory = 8 &lt;&lt; 20  // 8 MiB
+	router.POST(&quot;/upload&quot;, func(c *gin.Context) {
+		// 单个文件
+		file, err := c.FormFile(&quot;f1&quot;)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{
+				&quot;message&quot;: err.Error(),
+			})
+			return
+		}
+
+		log.Println(file.Filename)
+		dst := fmt.Sprintf(&quot;C:/tmp/%s&quot;, file.Filename)
+		// 上传文件到指定的目录
+		c.SaveUploadedFile(file, dst)
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;: fmt.Sprintf(&quot;'%s' uploaded!&quot;, file.Filename),
+		})
+	})
+	router.Run()
+}
+</code></pre>
+
+<h3 id="多个文件上传">多个文件上传</h3>
+
+<pre><code class="language-go">func main() {
+	router := gin.Default()
+	// 处理multipart forms提交文件时默认的内存限制是32 MiB
+	// 可以通过下面的方式修改
+	// router.MaxMultipartMemory = 8 &lt;&lt; 20  // 8 MiB
+	router.POST(&quot;/upload&quot;, func(c *gin.Context) {
+		// Multipart form
+		form, _ := c.MultipartForm()
+		files := form.File[&quot;file&quot;]
+
+		for index, file := range files {
+			log.Println(file.Filename)
+			dst := fmt.Sprintf(&quot;C:/tmp/%s_%d&quot;, file.Filename, index)
+			// 上传文件到指定的目录
+			c.SaveUploadedFile(file, dst)
+		}
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;: fmt.Sprintf(&quot;%d files uploaded!&quot;, len(files)),
+		})
+	})
+	router.Run()
+}
+</code></pre>
+
+<h2 id="重定向">重定向</h2>
+
+<h3 id="http重定向">HTTP重定向</h3>
+
+<p>HTTP 重定向很容易。 内部、外部重定向均支持。</p>
+
+<pre><code class="language-go">r.GET(&quot;/test&quot;, func(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, &quot;http://www.sogo.com/&quot;)
+})
+</code></pre>
+
+<h3 id="路由重定向">路由重定向</h3>
+
+<p>路由重定向，使用<code>HandleContext</code>：</p>
+
+<pre><code class="language-go">r.GET(&quot;/test&quot;, func(c *gin.Context) {
+    // 指定重定向的URL
+    c.Request.URL.Path = &quot;/test2&quot;
+    r.HandleContext(c)
+})
+r.GET(&quot;/test2&quot;, func(c *gin.Context) {
+    c.JSON(http.StatusOK, gin.H{&quot;hello&quot;: &quot;world&quot;})
+})
+</code></pre>
+
+<h2 id="gin路由">Gin路由</h2>
+
+<h3 id="普通路由">普通路由</h3>
+
+<pre><code class="language-go">r.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+r.GET(&quot;/login&quot;, func(c *gin.Context) {...})
+r.POST(&quot;/login&quot;, func(c *gin.Context) {...})
+</code></pre>
+
+<p>此外，还有一个可以匹配所有请求方法的<code>Any</code>方法如下：</p>
+
+<pre><code class="language-go">r.Any(&quot;/test&quot;, func(c *gin.Context) {...})
+</code></pre>
+
+<p>为没有配置处理函数的路由添加处理程序，默认情况下它返回404代码，下面的代码为没有匹配到路由的请求都返回<code>views/404.html</code>页面。</p>
+
+<pre><code class="language-go">r.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusNotFound, &quot;views/404.html&quot;, nil)
+	})
+</code></pre>
+
+<h3 id="路由组">路由组</h3>
+
+<p>我们可以将拥有共同URL前缀的路由划分为一个路由组。习惯性一对<code>{}</code>包裹同组的路由，这只是为了看着清晰，你用不用<code>{}</code>包裹功能上没什么区别。</p>
+
+<pre><code class="language-go">func main() {
+	r := gin.Default()
+	userGroup := r.Group(&quot;/user&quot;)
+	{
+		userGroup.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+		userGroup.GET(&quot;/login&quot;, func(c *gin.Context) {...})
+		userGroup.POST(&quot;/login&quot;, func(c *gin.Context) {...})
+
+	}
+	shopGroup := r.Group(&quot;/shop&quot;)
+	{
+		shopGroup.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+		shopGroup.GET(&quot;/cart&quot;, func(c *gin.Context) {...})
+		shopGroup.POST(&quot;/checkout&quot;, func(c *gin.Context) {...})
+	}
+	r.Run()
+}
+</code></pre>
+
+<p>路由组也是支持嵌套的，例如：</p>
+
+<pre><code class="language-go">shopGroup := r.Group(&quot;/shop&quot;)
+	{
+		shopGroup.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+		shopGroup.GET(&quot;/cart&quot;, func(c *gin.Context) {...})
+		shopGroup.POST(&quot;/checkout&quot;, func(c *gin.Context) {...})
+		// 嵌套路由组
+		xx := shopGroup.Group(&quot;xx&quot;)
+		xx.GET(&quot;/oo&quot;, func(c *gin.Context) {...})
+	}
+</code></pre>
+
+<p>通常我们将路由分组用在划分业务逻辑或划分API版本时。</p>
+
+<h3 id="路由原理">路由原理</h3>
+
+<p>Gin框架中的路由使用的是<a href="https://github.com/julienschmidt/httprouter">httprouter</a>这个库。</p>
+
+<p>其基本原理就是构造一个路由地址的前缀树。</p>
+
+<h2 id="gin中间件">Gin中间件</h2>
+
+<p>Gin框架允许开发者在处理请求的过程中，加入用户自己的钩子（Hook）函数。这个钩子函数就叫中间件，中间件适合处理一些公共的业务逻辑，比如登录认证、权限校验、数据分页、记录日志、耗时统计等。</p>
+
+<h3 id="定义中间件">定义中间件</h3>
+
+<p>Gin中的中间件必须是一个<code>gin.HandlerFunc</code>类型。</p>
+
+<h4 id="记录接口耗时的中间件">记录接口耗时的中间件</h4>
+
+<p>例如我们像下面的代码一样定义一个统计请求耗时的中间件。</p>
+
+<pre><code class="language-go">// StatCost 是一个统计耗时请求耗时的中间件
+func StatCost() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		start := time.Now()
+		c.Set(&quot;name&quot;, &quot;小王子&quot;) // 可以通过c.Set在请求上下文中设置值，后续的处理函数能够取到该值
+		// 调用该请求的剩余处理程序
+		c.Next()
+		// 不调用该请求的剩余处理程序
+		// c.Abort()
+		// 计算耗时
+		cost := time.Since(start)
+		log.Println(cost)
+	}
+}
+</code></pre>
+
+<h4 id="记录响应体的中间件">记录响应体的中间件</h4>
+
+<p>我们有时候可能会想要记录下某些情况下返回给客户端的响应数据，这个时候就可以编写一个中间件来搞定。</p>
+
+<pre><code class="language-go">type bodyLogWriter struct {
+	gin.ResponseWriter               // 嵌入gin框架ResponseWriter
+	body               *bytes.Buffer // 我们记录用的response
+}
+
+// Write 写入响应体数据
+func (w bodyLogWriter) Write(b []byte) (int, error) {
+	w.body.Write(b)                  // 我们记录一份
+	return w.ResponseWriter.Write(b) // 真正写入响应
+}
+
+// ginBodyLogMiddleware 一个记录返回给客户端响应体的中间件
+// https://stackoverflow.com/questions/38501325/how-to-log-response-body-in-gin
+func ginBodyLogMiddleware(c *gin.Context) {
+	blw := &amp;bodyLogWriter{body: bytes.NewBuffer([]byte{}), ResponseWriter: c.Writer}
+	c.Writer = blw // 使用我们自定义的类型替换默认的
+
+	c.Next() // 执行业务逻辑
+
+	fmt.Println(&quot;Response body: &quot; + blw.body.String()) // 事后按需记录返回的响应
+}
+</code></pre>
+
+<h4 id="跨域中间件cors">跨域中间件cors</h4>
+
+<p>推荐使用社区的<a href="https://github.com/gin-contrib/cors">https://github.com/gin-contrib/cors</a> 库，一行代码解决前后端分离架构下的跨域问题。</p>
+
+<p><strong>注意：</strong> 该中间件需要注册在业务处理函数前面。</p>
+
+<p>这个库支持各种常用的配置项，具体使用方法如下。</p>
+
+<pre><code class="language-go">package main
+
+import (
+  &quot;time&quot;
+
+  &quot;github.com/gin-contrib/cors&quot;
+  &quot;github.com/gin-gonic/gin&quot;
+)
+
+func main() {
+  router := gin.Default()
+  // CORS for https://foo.com and https://github.com origins, allowing:
+  // - PUT and PATCH methods
+  // - Origin header
+  // - Credentials share
+  // - Preflight requests cached for 12 hours
+  router.Use(cors.New(cors.Config{
+    AllowOrigins:     []string{&quot;https://foo.com&quot;},  // 允许跨域发来请求的网站
+    AllowMethods:     []string{&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;,  &quot;OPTIONS&quot;},  // 允许的请求方法
+    AllowHeaders:     []string{&quot;Origin&quot;, &quot;Authorization&quot;, &quot;Content-Type&quot;},
+    ExposeHeaders:    []string{&quot;Content-Length&quot;},
+    AllowCredentials: true,
+    AllowOriginFunc: func(origin string) bool {  // 自定义过滤源站的方法
+      return origin == &quot;https://github.com&quot;
+    },
+    MaxAge: 12 * time.Hour,
+  }))
+  router.Run()
+}
+</code></pre>
+
+<p>当然你可以简单的像下面的示例代码那样使用默认配置，允许所有的跨域请求。</p>
+
+<pre><code class="language-go">func main() {
+  router := gin.Default()
+  // same as
+  // config := cors.DefaultConfig()
+  // config.AllowAllOrigins = true
+  // router.Use(cors.New(config))
+  router.Use(cors.Default())
+  router.Run()
+}
+</code></pre>
+
+<h3 id="注册中间件">注册中间件</h3>
+
+<p>在gin框架中，我们可以为每个路由添加任意数量的中间件。</p>
+
+<h4 id="为全局路由注册">为全局路由注册</h4>
+
+<pre><code class="language-go">func main() {
+	// 新建一个没有任何默认中间件的路由
+	r := gin.New()
+	// 注册一个全局中间件
+	r.Use(StatCost())
+	
+	r.GET(&quot;/test&quot;, func(c *gin.Context) {
+		name := c.MustGet(&quot;name&quot;).(string) // 从上下文取值
+		log.Println(name)
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;: &quot;Hello world!&quot;,
+		})
+	})
+	r.Run()
+}
+</code></pre>
+
+<h4 id="为某个路由单独注册">为某个路由单独注册</h4>
+
+<pre><code class="language-go">// 给/test2路由单独注册中间件（可注册多个）
+	r.GET(&quot;/test2&quot;, StatCost(), func(c *gin.Context) {
+		name := c.MustGet(&quot;name&quot;).(string) // 从上下文取值
+		log.Println(name)
+		c.JSON(http.StatusOK, gin.H{
+			&quot;message&quot;: &quot;Hello world!&quot;,
+		})
+	})
+</code></pre>
+
+<h4 id="为路由组注册中间件">为路由组注册中间件</h4>
+
+<p>为路由组注册中间件有以下两种写法。</p>
+
+<p>写法1：</p>
+
+<pre><code class="language-go">shopGroup := r.Group(&quot;/shop&quot;, StatCost())
+{
+    shopGroup.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+    ...
+}
+</code></pre>
+
+<p>写法2：</p>
+
+<pre><code class="language-go">shopGroup := r.Group(&quot;/shop&quot;)
+shopGroup.Use(StatCost())
+{
+    shopGroup.GET(&quot;/index&quot;, func(c *gin.Context) {...})
+    ...
+}
+</code></pre>
+
+<h3 id="中间件注意事项">中间件注意事项</h3>
+
+<h4 id="gin默认中间件">gin默认中间件</h4>
+
+<p><code>gin.Default()</code>默认使用了<code>Logger</code>和<code>Recovery</code>中间件，其中：</p>
+
+<ul>
+<li><code>Logger</code>中间件将日志写入<code>gin.DefaultWriter</code>，即使配置了<code>GIN_MODE=release</code>。</li>
+<li><code>Recovery</code>中间件会recover任何<code>panic</code>。如果有panic的话，会写入500响应码。</li>
+</ul>
+
+<p>如果不想使用上面两个默认的中间件，可以使用<code>gin.New()</code>新建一个没有任何默认中间件的路由。</p>
+
+<h4 id="gin中间件中使用goroutine">gin中间件中使用goroutine</h4>
+
+<p>当在中间件或<code>handler</code>中启动新的<code>goroutine</code>时，<strong>不能使用</strong>原始的上下文（c *gin.Context），必须使用其只读副本（<code>c.Copy()</code>）。</p>
+
+<h2 id="运行多个服务">运行多个服务</h2>
+
+<p>我们可以在多个端口启动服务，例如：</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;log&quot;
+	&quot;net/http&quot;
+	&quot;time&quot;
+
+	&quot;github.com/gin-gonic/gin&quot;
+	&quot;golang.org/x/sync/errgroup&quot;
+)
+
+var (
+	g errgroup.Group
+)
+
+func router01() http.Handler {
+	e := gin.New()
+	e.Use(gin.Recovery())
+	e.GET(&quot;/&quot;, func(c *gin.Context) {
+		c.JSON(
+			http.StatusOK,
+			gin.H{
+				&quot;code&quot;:  http.StatusOK,
+				&quot;error&quot;: &quot;Welcome server 01&quot;,
+			},
+		)
+	})
+
+	return e
+}
+
+func router02() http.Handler {
+	e := gin.New()
+	e.Use(gin.Recovery())
+	e.GET(&quot;/&quot;, func(c *gin.Context) {
+		c.JSON(
+			http.StatusOK,
+			gin.H{
+				&quot;code&quot;:  http.StatusOK,
+				&quot;error&quot;: &quot;Welcome server 02&quot;,
+			},
+		)
+	})
+
+	return e
+}
+
+func main() {
+	server01 := &amp;http.Server{
+		Addr:         &quot;:8080&quot;,
+		Handler:      router01(),
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+	}
+
+	server02 := &amp;http.Server{
+		Addr:         &quot;:8081&quot;,
+		Handler:      router02(),
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+	}
+   // 借助errgroup.Group或者自行开启两个goroutine分别启动两个服务
+	g.Go(func() error {
+		return server01.ListenAndServe()
+	})
+
+	g.Go(func() error {
+		return server02.ListenAndServe()
+	})
+
+	if err := g.Wait(); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.gitee.io/2022/10/gin/" title="Gin" target="_blank" rel="external">https://mumulx.gitee.io/2022/10/gin/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://gitee.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.gitee.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://gitee.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.gitee.io/2022/10/gorm/" title="GORM"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.gitee.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.gitee.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.gitee.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/insight.js"></script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

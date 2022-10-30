@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Gin</title>
+      <link>https://mumulx.gitee.io/2022/10/gin/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2022/10/gin/</guid>
+      <description>Gin框架介绍及使用 Gin是一个用Go语言编写的web框架。它是一个类似于martini但拥有更好性能的API框架, 由于使用了httprou</description>
+    </item>
+    
+    <item>
+      <title>GORM</title>
+      <link>https://mumulx.gitee.io/2022/10/gorm/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2022/10/gorm/</guid>
+      <description>GORM入门指南 gorm是一个使用Go语言编写的ORM框架。它文档齐全，对开发者友好，支持主流数据库。 gorm官方中文文档：https://</description>
+    </item>
+    
+    <item>
       <title>Golang</title>
       <link>https://mumulx.gitee.io/2022/10/golang/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
