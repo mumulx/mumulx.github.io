@@ -5,10 +5,19 @@
     <link>https://mumulx.gitee.io/categories/python/</link>
     <description>Recent content in Python on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Nov 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.gitee.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python</title>
+      <link>https://mumulx.gitee.io/2022/11/python/</link>
+      <pubDate>Thu, 24 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2022/11/python/</guid>
+      <description>一、前言 Python可在windows/mac os/www/linux系统上运行 实现相同功能是java代码量的五分之一 云计算/操作系统/3d</description>
+    </item>
     
     <item>
       <title>Gin</title>
@@ -35,15 +44,6 @@
       
       <guid>https://mumulx.gitee.io/2022/10/golang/</guid>
       <description>Golang 为什么你应该学习Go语言？ 终于等到你！Go语言——让你用写Python代码的开发效率编写C语言代码。 为什么互联网世界需要Go语言 世界上已经</description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://mumulx.gitee.io/2022/10/python/</link>
-      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mumulx.gitee.io/2022/10/python/</guid>
-      <description>一、前言 Python可在windows/mac os/www/linux系统上运行 实现相同功能是java代码量的五分之一 云计算/操作系统/3d</description>
     </item>
     
     <item>

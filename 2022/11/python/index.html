@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Python - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Golang" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>Python - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.gitee.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="Python" />
+<meta property="og:description" content="Golang" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.gitee.io/2022/11/python/" />
+<meta property="article:published_time" content="2022-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-24T00:00:00+00:00" />
+
+<meta itemprop="name" content="Python">
+<meta itemprop="description" content="Golang">
+
+
+<meta itemprop="datePublished" content="2022-11-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-11-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="15729">
+
+
+
+<meta itemprop="keywords" content="Python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python"/>
+<meta name="twitter:description" content="Golang"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://gitee.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.gitee.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">主页</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">归档</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分类</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">标签</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">关于</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">36</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/golang/" class="tag-list-link">golang</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/11/python/" class="title">Python</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-11-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-11-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gin/" class="title">Gin</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gorm/" class="title">GORM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/golang/" class="title">Golang</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/06/springbatch/" class="title">SpringBatch中文文档</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-07</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#一-前言">一、前言</a></li>
+<li><a href="#二-初识python">二、初识Python</a>
+<ul>
+<li><a href="#1-单引号和双引号的区别">1 单引号和双引号的区别</a></li>
+<li><a href="#2-条件分支">2 条件分支</a></li>
+<li><a href="#3-操作符and">3 操作符and</a></li>
+<li><a href="#4-产生随机数">4 产生随机数</a></li>
+</ul></li>
+<li><a href="#三-数据类型">三、数据类型</a>
+<ul>
+<li><a href="#1-常用操作符">1 常用操作符</a></li>
+</ul></li>
+<li><a href="#四-分支和循环">四、分支和循环</a>
+<ul>
+<li><a href="#1-分支">1 分支</a></li>
+<li><a href="#2-三元操作符">2 三元操作符</a></li>
+</ul></li>
+<li><a href="#五-while循环">五、While循环</a></li>
+<li><a href="#六-列表">六、列表</a>
+<ul>
+<li><a href="#1-整数-浮点数-字符串-对象">1 整数/浮点数/字符串/对象</a></li>
+<li><a href="#2-向列表添加元素">2 向列表添加元素</a></li>
+<li><a href="#3-列表分片">3 列表分片</a></li>
+<li><a href="#4-列表成员">4 列表成员</a></li>
+<li><a href="#5-一步倒序排列">5 一步倒序排列</a></li>
+</ul></li>
+<li><a href="#七-语法">七、语法</a>
+<ul>
+<li><a href="#1-一行可以书写多个语句吗">1 一行可以书写多个语句吗？</a></li>
+<li><a href="#2-一个语句可以分成多行书写吗">2 一个语句可以分成多行书写吗？</a></li>
+</ul></li>
+<li><a href="#八-元组">八、元组</a>
+<ul>
+<li><a href="#1-元组拼接">1 元组拼接</a></li>
+</ul></li>
+<li><a href="#九-字符串">九、字符串</a>
+<ul>
+<li><a href="#1-字符串的方法及注释">1 字符串的方法及注释</a></li>
+<li><a href="#2-字符串格式化">2 字符串格式化</a></li>
+<li><a href="#3-总结-元组-数组-字符串-列表">3 总结：元组/数组/字符串/列表</a></li>
+</ul></li>
+<li><a href="#十-函数-对象-模块">十、函数/对象/模块</a>
+<ul>
+<li><a href="#1-函数文档">1 函数文档</a></li>
+<li><a href="#2-关键字参数">2 关键字参数</a></li>
+<li><a href="#3-默认参数">3 默认参数</a></li>
+<li><a href="#4-收集参数">4 收集参数</a></li>
+<li><a href="#5-函数与过程">5 函数与过程</a></li>
+<li><a href="#6-函数变量的作用域">6 函数变量的作用域</a></li>
+<li><a href="#7-内嵌函数和闭包">7 内嵌函数和闭包</a></li>
+<li><a href="#8-闭包">8 闭包</a></li>
+<li><a href="#9-两个牛逼的bif">9 两个牛逼的BIF</a></li>
+</ul></li>
+<li><a href="#十一-递归">十一、递归</a>
+<ul>
+<li><a href="#1-fab数列函数">1 fab数列函数</a></li>
+<li><a href="#2-迭代汉诺塔">2 迭代汉诺塔</a></li>
+</ul></li>
+<li><a href="#十二-索引">十二、索引</a></li>
+<li><a href="#十三-映射-字典-大括号">十三、映射 、字典（大括号）</a></li>
+<li><a href="#十四-字典">十四、字典</a>
+<ul>
+<li><a href="#1-赋值不等于拷贝">1 赋值不等于拷贝</a></li>
+</ul></li>
+<li><a href="#十五-集合">十五、集合</a>
+<ul>
+<li><a href="#1-运用数组与列表排序">1 运用数组与列表排序</a></li>
+</ul></li>
+<li><a href="#十六-文件">十六、文件</a>
+<ul>
+<li><a href="#1-文件操作-味道极吴方方">1 文件操作（味道极吴方方）</a></li>
+</ul></li>
+<li><a href="#十七-模块">十七、模块</a>
+<ul>
+<li><a href="#1-try函数">1 Try函数</a></li>
+</ul></li>
+<li><a href="#十八-图形用户界面入门-easygui">十八、图形用户界面入门（EasyGui）</a></li>
+<li><a href="#十九-类和对象-无处不对象">十九、类和对象（无处不对象）</a>
+<ul>
+<li><a href="#1-类-属性-方法">1 类、属性、方法</a></li>
+<li><a href="#2-面向对象编程">2 面向对象编程</a></li>
+<li><a href="#3-组合">3 组合</a></li>
+<li><a href="#4-类对象-实例对象">4 类对象、实例对象</a></li>
+<li><a href="#5-魔法方法构造和析构">5 魔法方法构造和析构</a></li>
+<li><a href="#6-模块">6 模块</a></li>
+</ul></li>
+<li><a href="#二十-爬虫">二十、爬虫</a></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/11/python/"
+    >Python</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.gitee.io/2022/11/python/" class="article-date">
+  <time datetime="2022-11-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-11-24</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/python/"> Python </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/python/"> Python </a>
+  </span>
+
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/python/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:15729字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:32分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="一-前言">一、前言</h1>
+
+<p>Python可在windows/mac os/www/linux系统上运行
+实现相同功能是java代码量的五分之一
+云计算/操作系统/3d动画/web/企业应用
+Python常用语法/面向对象编程思维/运用模块进行编程/游戏编程/计算机仿真
+鱼c论坛
+学习的捷径：验证例子/课后实践/擅用搜索/放轻松
+IDLE是python shell/就是输入文本与程序交互的途径/就相当于windos cmd黑乎乎命令窗口（CMD是COMMAND的缩写，CMD窗口模拟以前的DOS系统，可以通过命令一个一个的执行任务，但不能同时执行多个。关于CMD命令，你可以在CMD窗口下输入help，回车后你会在这儿找到很多常用的命令，如cd，dir，等等）</p>
+
+<hr />
+
+<h1 id="二-初识python">二、初识Python</h1>
+
+<p>Alt+n返回上一语句Alt+p返回下一语句</p>
+
+<pre><code class="language-c">&gt;&gt;&gt;print  “I love fishc.com”  #最新编辑器错误
+
+&gt;&gt;&gt;printf  (“I love fishc.com”) #错误
+
+&gt;&gt;&gt;print  (5+3)      #这两个结果一样好像有一点区别不明白
+&gt;&gt;&gt; 5+3
+
+&gt;&gt;&gt;112345678987654321*9876543210123456789
+&gt;&gt;&gt;print(“well water”+”river”)
+Well waterriver
+&gt;&gt;&gt;print(“I love fishc.com”*8)
+&gt;&gt;&gt; print(“I love fishc.com\n”*8)
+&gt;&gt;&gt; print(“I love fishc.com\n”+8) #编译错误
+</code></pre>
+
+<p>Python是脚本语言/不需要编译/语法和结构比较简单</p>
+
+<p>IDEL就是上面解释过的了/python shell/shell就是外壳
+Print（）就是显示一些文本
+为什么 &gt;&gt;&gt;print(&lsquo;I love fishc.com ’ * 5) 可以正常执行，但 &gt;&gt;&gt;print(&lsquo;I love fishc.com ’ + 5)/因为第二个是不同类型相加所以会报错</p>
+
+<p>如果我需要在一个字符串中嵌入一个双引号，正确的做法是？
+你有两个选择：可以利用反斜杠（\）对双引号转义：“，或者用单引号引起这个字符串。例如：</p>
+
+<p>’ I l&rdquo;o&rdquo;ve fishc.com ’ &gt;&gt;&gt;print (” I l&rdquo;o&rdquo;ve fishc.com &ldquo;)</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; print ('365*24*60*60')
+365*24*60*60
+&gt;&gt;&gt; print (&quot;365*24*60*60&quot;)
+365*24*60*60
+&gt;&gt;&gt; print(365*24*60*60)
+31536000
+</code></pre>
+
+<p>Alt+n新建窗口
+Untitled/未命名的；没有标题的；无头衔的；无爵位的；非冠军的</p>
+
+<pre><code class="language-c">print(&quot;wufangfangzhizuo&quot;)
+temp = input(&quot;猜猜数字吧:&quot;)     变量没有声明？没有大括号像main？
+guess = int(temp)            python中变量是没有类型的  python用缩进表示/缩进是python灵魂
+if guess == 8:                注意别少了分号
+	print(&quot;caizhongle&quot;)       if 对应一个print
+    print(&quot;nizhencongming&quot;)
+else:
+	print(&quot;caiduile&quot;)         else对应一个print
+print(&quot;youxijiehsu&quot;)    
+123456789
+</code></pre>
+
+<p>程序流程解读
+<img src="/resources/技术收录/Python/7bdcd09d1cba4547a73a5ac94d146dea.png" alt="在这里插入图片描述" /></p>
+
+<p>BIF == build-in function就是内置函数
+Print函数 input函数 int函数 都是内置函数
+输入&gt;&gt;&gt;dir(<strong>builtins</strong>)得到所有小写都是内置函数 directory目录
+输入&gt;&gt;&gt;help(函数)得到内置函数用法</p>
+
+<h2 id="1-单引号和双引号的区别">1 单引号和双引号的区别</h2>
+
+<p>今天在网上爬虫的时候，很奇怪的发现python的字符串既可以用双引号又可以用单引号，于是就上网百度了一下原因。
+原来由于字符串中有可能既有双引号又有单引号，例如：
+字符串：demo’1’。
+这时候就可以：str　　= “demo’1’”；这样看更直观，当然也可以使用转义字符’代替单引号：str　　= ‘demo’1’&rsquo;。
+字符串：demo&rdquo;1&rdquo;。
+这时候就可以：str　　= ‘demo&rdquo;1&rdquo;’。</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; print(&quot;sss&quot;sss&quot;&quot;)
+	  
+SyntaxError: invalid syntax
+&gt;&gt;&gt; print(&quot;22'sss'&quot;)	  
+22'sss'
+&gt;&gt;&gt; print('777&quot;ss&quot;')	  
+777&quot;ss&quot;
+&gt;&gt;&gt; print('sss\'9\'')	  
+sss'9'
+&gt;&gt;&gt; print(&quot;hh\'77&quot;)	  
+hh'77
+&gt;&gt;&gt; print(&quot;hhj\'11\'&quot;)	  
+hhj'11'
+&gt;&gt;&gt; print(&quot;ggg\&quot;ddd&quot;\&quot;)	  
+SyntaxError: unexpected character after line continuation character
+&gt;&gt;&gt; print(&quot;sss\&quot;123&quot;&quot;)	  
+SyntaxError: EOL while scanning string literal
+</code></pre>
+
+<p>如：‘I’ + ‘Love’ + ‘FishC’ 会得到 ‘ILoveFishC’，在 Python 里，这种做法叫做拼接字符串。
+Python 不允许 if 条件中赋值，所以 if c = 1: 会报错！</p>
+
+<p>i = “ss”
+print(i)
+等价于
+Print（“ss”）</p>
+
+<p>i = “wu”
+y = “fangfang”
+x = i+y
+print(x)/输出wufangfang</p>
+
+<p>使用变量之前需要先赋值（C语言还要定义类型）
+变量名不能以数字开头
+大小写变量名不同</p>
+
+<pre><code class="language-c">&gt;&gt;&gt;5+8
+&gt;&gt;&gt;”5”+”8”
+&gt;&gt;&gt;5+”8” #报错
+&gt;&gt;&gt;’let\’s go’  #\进行转义
+&gt;&gt;&gt;str=’C:\now’
+&gt;&gt;&gt;str=’C:\\now’  #可以不实用
+&gt;&gt;&gt;str=r’C:\now’  #原始字符串正确
+&gt;&gt;&gt;str=r’C:\now\’  #错误
+</code></pre>
+
+<p>三对引号（单双三都可以要上下成对）输出跨越多行字符串</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; print(&quot;let's go&quot;)	  
+let's go
+等价于
+&gt;&gt;&gt; print(‘let\’s go’)	  
+let's go
+&gt;&gt;&gt; print(‘let\’s go“)	 #错误 
+error
+</code></pre>
+
+<p>如果非要在原始字符串结尾输入反斜杠，可以如何灵活处理？</p>
+
+<pre><code class="language-c">&gt;&gt;&gt;str = r'C:\Program Files\FishC\Good''\\'
+</code></pre>
+
+<p>在例子中小甲鱼起了个 str 名字的变量，但事实上我们发现，str 的颜色跟普通变量貌似不同？没错，str() 和 print() 都是内置函数，但 Python 貌似不介意我们对内置函数进行赋值操作，所以这点我们以后就要注意啦，否则可能会出现以下的 BUG：</p>
+
+<h2 id="2-条件分支">2 条件分支</h2>
+
+<pre><code class="language-c">&gt;
+&lt;
+&gt;=
+&lt;=
+==
+!=
+If:
+缩进
+Else:
+缩进
+While循环
+</code></pre>
+
+<h2 id="3-操作符and">3 操作符and</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt;3&gt;2 and 1&lt;2
+&gt;&gt;&gt;(3&gt;2)and(1&lt;2)
+</code></pre>
+
+<h2 id="4-产生随机数">4 产生随机数</h2>
+
+<p>random模块里面有一个randint（）是产生随机的整数
+random.randint(1,10)</p>
+
+<h1 id="三-数据类型">三、数据类型</h1>
+
+<p>整型（包括长整型）/布尔类型/e记法/浮点型（小数）
+数据类型转换
+str（）/int（）/float（）
+type（数据）函数获得类型
+isinstance（数据，类型）函数获得类型</p>
+
+<h2 id="1-常用操作符">1 常用操作符</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; 3.8/2
+1.9
+&gt;&gt;&gt; 3.8//2
+1.0
+&gt;&gt;&gt; 3/2
+1.5
+&gt;&gt;&gt; 3//2
+1
+&gt;&gt;&gt; 3.0/2
+1.5
+</code></pre>
+
+<p>**幂运算
+运算优先级顺序
+and逻辑与/or逻辑或</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; -3**2
+-9
+&gt;&gt;&gt; 3**-2
+0.1111111111111111
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_14,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" /></p>
+
+<h1 id="四-分支和循环">四、分支和循环</h1>
+
+<pre><code class="language-c">打飞机框架
+加载背景音乐
+播放单曲循环
+我方飞机诞生
+while True：
+   if用户点击关闭
+   	 退出程序
+     小飞机诞生
+     小飞机移动
+   屏幕刷新
+   if用户鼠标移动
+     我方飞机=鼠标
+   if飞机撞机
+     修改飞机图案
+     game over
+     退出游戏
+     停止音乐
+</code></pre>
+
+<h2 id="1-分支">1 分支</h2>
+
+<p>第一种方法就是if 浪费cpu时间
+第二种if…else
+第三种if…elif 相比第一种省时间</p>
+
+<p>python有效避免悬挂else</p>
+
+<h2 id="2-三元操作符">2 三元操作符</h2>
+
+<p>small = x if x &lt; y else y
+如果条件为真赋给x/如果条件为假赋给y</p>
+
+<p>assert
+例如<code>&gt;&gt;&gt; assert 3 &gt; 4</code></p>
+
+<h1 id="五-while循环">五、While循环</h1>
+
+<pre><code class="language-c">For循环
+For 目标 in 表达式
+  循环体
+&gt;&gt;&gt; t = [&quot;ss&quot;,&quot;fhd&quot;]
+&gt;&gt;&gt; for i in t:
+	print(i,len(i))	
+ss 2
+fhd 3
+
+range（）
+range（[start,]stop[,step=1]）作用生成数字序列
+与for循环套用
+&gt;&gt;&gt; list(range(5))
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; range(5)
+range(0, 5)
+&gt;&gt;&gt; range(0,5)
+range(0, 5)
+
+&gt;&gt;&gt; for i in range(0,5):    #for与range套用
+	print(i)
+
+	
+0
+1
+2
+3
+4
+
+&gt;&gt;&gt; for i in range(1,10,2):  #三个参数
+	print(i)
+
+	
+1
+3
+5
+7
+9
+
+Break与continue
+t = &quot;方方&quot;
+y = input(&quot;请输入中文名字：&quot;)
+while True:
+    if y == t:
+        break
+    print(&quot;你猜错了&quot;)
+    y = input(&quot;请继续输入中文名字：&quot;)
+print(&quot;你猜对了&quot;)
+print(&quot;游戏结束&quot;)
+            
+&gt;&gt;&gt; for i in range(10):
+    if i%2 !=0:
+        print(i)
+        continue
+    i += 2
+    print(i)
+
+    
+2
+1
+4
+3
+6
+5
+8
+7
+10
+9
+
+</code></pre>
+
+<h1 id="六-列表">六、列表</h1>
+
+<h2 id="1-整数-浮点数-字符串-对象">1 整数/浮点数/字符串/对象</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; t = [&quot;aa&quot;,&quot;123&quot;,&quot;45gf&quot;]
+&gt;&gt;&gt; t
+['aa', '123', '45gf']
+&gt;&gt;&gt; t = [11,'23',[1,2,3]]
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3]]
+
+&gt;&gt;&gt; t = []  #空列表
+&gt;&gt;&gt; t
+[]
+</code></pre>
+
+<h2 id="2-向列表添加元素">2 向列表添加元素</h2>
+
+<pre><code class="language-c">append（）
+&gt;&gt;&gt; t = [11,'23',[1,2,3]]
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3]]
+&gt;&gt;&gt; t.append('11')
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3], '11']
+
+Extend（）扩展         列表
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3], '11']
+&gt;&gt;&gt; t.extend(['11','556'])
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3], '11', '11', '556']
+
+insert（）插入      两个参数从0开始算
+&gt;&gt;&gt; t.insert(0,'fangfang')
+&gt;&gt;&gt; t
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+
+index（）从列表中获取值
+
+从列表中删除元素
+remove（）
+&gt;&gt;&gt; t
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; t.remove(11)
+&gt;&gt;&gt; t
+['fangfang', '23', [1, 2, 3], '11', '11', '556']
+
+del   删除
+&gt;&gt;&gt; t
+['fangfang', '23', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; del t[1]
+&gt;&gt;&gt; t
+['fangfang', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; del t
+&gt;&gt;&gt; t
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#26&gt;&quot;, line 1, in &lt;module&gt;
+    t
+NameError: name 't' is not defined
+
+pop（）出栈
+&gt;&gt;&gt; t = [11,'23',[1,2,3]]
+&gt;&gt;&gt; t
+[11, '23', [1, 2, 3]]
+&gt;&gt;&gt; t.pop(11)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#29&gt;&quot;, line 1, in &lt;module&gt;
+    t.pop(11)
+IndexError: pop index out of range
+&gt;&gt;&gt; t.pop()
+[1, 2, 3]
+&gt;&gt;&gt; t
+[11, '23']
+    
+    
+# 统计列表中元素出现的次数
+e = [1,2,3,4,3,2,6,8,9,3]
+print(e.index(3))
+print(e.count(3))
+2
+3
+</code></pre>
+
+<h2 id="3-列表分片">3 列表分片</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; t = ['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; t
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; t[2:4]
+['23', [1, 2, 3]]
+&gt;&gt;&gt; t[:4]
+['fangfang', 11, '23', [1, 2, 3]]
+&gt;&gt;&gt; t[:]
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+&gt;&gt;&gt; y = t[:]
+&gt;&gt;&gt; y
+['fangfang', 11, '23', [1, 2, 3], '11', '11', '556']
+
+&gt;&gt;&gt; z = [123.456]
+&gt;&gt;&gt; z
+[123.456]
+&gt;&gt;&gt; z*3
+[123.456, 123.456, 123.456]
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_15,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" /></p>
+
+<p>从第一个元素顺序开始比较，如果相等，则继续，返回第一个不想等元素比较的结果。如果所有元素比较均相等，则长的列表大，一样长则两列表相等</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; list = [123,&quot;456&quot;,'吴方方']
+&gt;&gt;&gt; list*5
+[123, '456', '吴方方', 123, '456', '吴方方', 123, '456', '吴方方', 123, '456', '吴方方', 123, '456', '吴方方']
+&gt;&gt;&gt; 123 in list
+True
+&gt;&gt;&gt; 吴方方 in list
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#46&gt;&quot;, line 1, in &lt;module&gt;
+    吴方方 in list
+NameError: name '吴方方' is not defined
+&gt;&gt;&gt; '吴方方' in list
+True
+&gt;&gt;&gt; &quot;吴方方&quot; in list
+True
+&gt;&gt;&gt; '吴方方'in list
+True
+</code></pre>
+
+<p>列表的拷贝：list5 = list1，等号list1的引用拷贝过来了，修改list5，list1会受到影响。list6=list1[::]，利用切片拷贝则是相当于创建了一个一样的新列表，id值已经不同了。</p>
+
+<pre><code class="language-python">list5 = list1
+list6 = list1[::]
+print(id(list1),id(list5),id(list6))
+print(list1)
+print(list5)
+print(list6)
+2537439222152 2537439222152 2537439414536
+[11, 9, 8, 6, 5, 4, 3, 2, 1, 0]
+[11, 9, 8, 6, 5, 4, 3, 2, 1, 0]
+[11, 9, 8, 6, 5, 4, 3, 2, 1, 0]
+ 
+list5[1] = 0
+list6[2] = 0
+print(list1)
+print(list5)
+print(list6)
+[11, 0, 8, 6, 5, 4, 3, 2, 1, 0]
+[11, 0, 8, 6, 5, 4, 3, 2, 1, 0]
+[11, 9, 0, 6, 5, 4, 3, 2, 1, 0]
+</code></pre>
+
+<h2 id="4-列表成员">4 列表成员</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+&gt;&gt;&gt; dir(z)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+&gt;&gt;&gt;
+
+
+&gt;&gt;&gt; list.index(123)
+0
+&gt;&gt;&gt; list.index(123,0,15)
+0
+&gt;&gt;&gt; list.count(123)
+1
+&gt;&gt;&gt; list
+[123, '456', '吴方方']
+&gt;&gt;&gt; list.index(123,0,3)
+0
+&gt;&gt;&gt; list.index(123,0,2)
+0
+&gt;&gt;&gt; list.index(&quot;456&quot;,0,2)
+1
+&gt;&gt;&gt; list.index(456,0,2)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#59&gt;&quot;, line 1, in &lt;module&gt;
+    list.index(456,0,2)
+ValueError: 456 is not in list
+
+
+reverse（）       重要  翻转      无参数
+&gt;&gt;&gt; list.reverse()
+&gt;&gt;&gt; list
+['吴方方', '456', 123]
+
+
+Sort（）   对列表成员进行顺序排序   无参数
+&gt;&gt;&gt; list
+['吴方方', '456', 123]
+&gt;&gt;&gt; list.sort()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#62&gt;&quot;, line 1, in &lt;module&gt;
+    list.sort()
+TypeError: '&lt;' not supported between instances of 'int' and 'str'
+
+&gt;&gt;&gt; list2 = [1,34,2,34,25,7,9,34,12]
+&gt;&gt;&gt; list2
+[1, 34, 2, 34, 25, 7, 9, 34, 12]
+&gt;&gt;&gt; list2.sort()
+&gt;&gt;&gt; list2
+[1, 2, 7, 9, 12, 25, 34, 34, 34]
+&gt;&gt;&gt; list2.reverse()
+&gt;&gt;&gt; list2
+[34, 34, 34, 25, 12, 9, 7, 2, 1]
+</code></pre>
+
+<h2 id="5-一步倒序排列">5 一步倒序排列</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; list3 = [87,54,2,87,24,08]
+SyntaxError: invalid token
+&gt;&gt;&gt; list3 = [87,54,2,87,24,8]
+&gt;&gt;&gt; list3.sort(reverse=True)
+&gt;&gt;&gt; liat3
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#74&gt;&quot;, line 1, in &lt;module&gt;
+    liat3
+NameError: name 'liat3' is not defined
+&gt;&gt;&gt; list3
+[87, 87, 54, 24, 8, 2]
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_15,color_FFFFFF,t_70,g_se,x_16-166936232018810.png" alt="在这里插入图片描述" /></p>
+
+<h1 id="七-语法">七、语法</h1>
+
+<h2 id="1-一行可以书写多个语句吗">1 一行可以书写多个语句吗？</h2>
+
+<p>可以，语句之间用分号隔开即可，不妨试试：</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; print('I love fishc');print('very much!') 
+1
+</code></pre>
+
+<h2 id="2-一个语句可以分成多行书写吗">2 一个语句可以分成多行书写吗？</h2>
+
+<p>可以，一行过长的语句可以使用反斜杠或者括号分解成几行，不妨试试：</p>
+
+<pre><code class="language-c">1. &gt;&gt;&gt; 3 &gt; 4 and \ 
+2. 1 &lt; 2 
+复制代码 
+或者 
+4. &gt;&gt;&gt; ( 3 &gt; 4 and 
+5. 1 &lt; 2 ) 
+复制代码
+
+&gt;&gt;&gt; a,b = 0,1
+&gt;&gt;&gt; while b &lt; 1000:
+	print(b,end=&quot;,&quot;)
+	a,b = b,a+b
+
+	
+1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+&gt;&gt;&gt; a,b=0,1
+&gt;&gt;&gt; while b &lt; 1000:
+	print(b,end=&quot;,&quot;)
+	a,b = b,a+b
+	if b &gt; 700:
+		break
+print(b)
+SyntaxError: invalid syntax
+&gt;&gt;&gt; a,b=0,1
+&gt;&gt;&gt; while b &lt; 1000:
+	print(b,end=&quot;,&quot;)
+	a,b = b,a+b
+	if b &gt; 700:
+		print(b)
+		break
+
+	
+1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987
+</code></pre>
+
+<h1 id="八-元组">八、元组</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; t=(1,2,3,4,5)
+&gt;&gt;&gt; t
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; t(1)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#2&gt;&quot;, line 1, in &lt;module&gt;
+    t(1)
+TypeError: 'tuple' object is not callable
+&gt;&gt;&gt; t[2]
+3
+&gt;&gt;&gt; y=t[:]
+&gt;&gt;&gt; y
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; t[2:3]
+(3,)
+&gt;&gt;&gt; t[1:3]
+(2, 3)
+&gt;&gt;&gt; t[:6]
+(1, 2, 3, 4, 5)
+
+&gt;&gt;&gt; t[:6]
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; type(t)
+&lt;class 'tuple'&gt;
+&gt;&gt;&gt; t[]
+SyntaxError: invalid syntax
+&gt;&gt;&gt; t=t[]
+SyntaxError: invalid syntax
+&gt;&gt;&gt; t=[]
+&gt;&gt;&gt; t
+[]
+&gt;&gt;&gt; t=()
+&gt;&gt;&gt; t
+()
+&gt;&gt;&gt; type(t)
+&lt;class 'tuple'&gt;
+
+
+&gt;&gt;&gt; t=t(4)          #不能赋值
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#17&gt;&quot;, line 1, in &lt;module&gt;
+    t=t(4)
+TypeError: 'tuple' object is not callable
+&gt;&gt;&gt; (6)
+6
+&gt;&gt;&gt; 4*(6)
+24
+&gt;&gt;&gt; t=(6,)
+&gt;&gt;&gt; 4*t
+(6, 6, 6, 6)
+&gt;&gt;&gt; t=[1]
+&gt;&gt;&gt; 4*t
+[1, 1, 1, 1]
+
+</code></pre>
+
+<h2 id="1-元组拼接">1 元组拼接</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; t
+[1, 23, 4, 5]
+&gt;&gt;&gt; t=t[:2]+(44,)+t[2:]
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#30&gt;&quot;, line 1, in &lt;module&gt;
+    t=t[:2]+(44,)+t[2:]            #不同类型错误
+TypeError: can only concatenate list (not &quot;tuple&quot;) to list
+&gt;&gt;&gt; t=(1,23,4,5)
+&gt;&gt;&gt; t=[:2]+(44,)+[2:]
+SyntaxError: invalid syntax
+&gt;&gt;&gt; t=t[:2]+(44,)+t[2:]
+&gt;&gt;&gt; t
+(1, 23, 44, 4, 5)
+
+</code></pre>
+
+<h1 id="九-字符串">九、字符串</h1>
+
+<h2 id="1-字符串的方法及注释">1 字符串的方法及注释</h2>
+
+<p>如在使用上有不懂可以看视频教程：《零基础入门学习Python》第014讲</p>
+
+<pre><code class="language-c">capitalize()	把字符串的第一个字符改为大写
+casefold()	把整个字符串的所有字符改为小写
+center(width)	将字符串居中，并使用空格填充至长度 width 的新字符串
+count(sub[, start[, end]])	返回 sub 在字符串里边出现的次数，start 和 end 参数表示范围，可选。
+encode(encoding='utf-8', errors='strict')	以 encoding 指定的编码格式对字符串进行编码。
+endswith(sub[, start[, end]])	检查字符串是否以 sub 子字符串结束，如果是返回 True，否则返回 False。start 和 end 参数表示范围，可选。
+expandtabs([tabsize=8])	把字符串中的 tab 符号（\t）转换为空格，如不指定参数，默认的空格数是 tabsize=8。
+find(sub[, start[, end]])	检测 sub 是否包含在字符串中，如果有则返回索引值，否则返回 -1，start 和 end 参数表示范围，可选。
+index(sub[, start[, end]])	跟 find 方法一样，不过如果 sub 不在 string 中会产生一个异常。
+isalnum()	如果字符串至少有一个字符并且所有字符都是字母或数字则返回 True，否则返回 False。
+isalpha()	如果字符串至少有一个字符并且所有字符都是字母则返回 True，否则返回 False。
+isdecimal()	如果字符串只包含十进制数字则返回 True，否则返回 False。
+isdigit()	如果字符串只包含数字则返回 True，否则返回 False。
+islower()	如果字符串中至少包含一个区分大小写的字符，并且这些字符都是小写，则返回 True，否则返回 False。
+isnumeric()	如果字符串中只包含数字字符，则返回 True，否则返回 False。
+isspace()	如果字符串中只包含空格，则返回 True，否则返回 False。
+istitle()	如果字符串是标题化（所有的单词都是以大写开始，其余字母均小写），则返回 True，否则返回 False。
+isupper()	如果字符串中至少包含一个区分大小写的字符，并且这些字符都是大写，则返回 True，否则返回 False。
+join(sub)	以字符串作为分隔符，插入到 sub 中所有的字符之间。
+ljust(width)	返回一个左对齐的字符串，并使用空格填充至长度为 width 的新字符串。
+lower()	转换字符串中所有大写字符为小写。
+lstrip()	去掉字符串左边的所有空格
+partition(sub)	找到子字符串 sub，把字符串分成一个 3 元组 (pre_sub, sub, fol_sub)，如果字符串中不包含 sub 则返回 ('原字符串', '', '')
+replace(old, new[, count])	把字符串中的 old 子字符串替换成 new 子字符串，如果 count 指定，则替换不超过 count 次。
+rfind(sub[, start[, end]])	类似于 find() 方法，不过是从右边开始查找。
+rindex(sub[, start[, end]])	类似于 index() 方法，不过是从右边开始。
+rjust(width)	返回一个右对齐的字符串，并使用空格填充至长度为 width 的新字符串。
+rpartition(sub)	类似于 partition() 方法，不过是从右边开始查找。
+rstrip()	删除字符串末尾的空格。
+split(sep=None, maxsplit=-1)	不带参数默认是以空格为分隔符切片字符串，如果 maxsplit 参数有设置，则仅分隔 maxsplit 个子字符串，返回切片后的子字符串拼接的列表。
+splitlines(([keepends]))	在输出结果里是否去掉换行符，默认为 False，不包含换行符；如果为 True，则保留换行符。。
+startswith(prefix[, start[, end]])	检查字符串是否以 prefix 开头，是则返回 True，否则返回 False。start 和 end 参数可以指定范围检查，可选。
+strip([chars])	删除字符串前边和后边所有的空格，chars 参数可以定制删除的字符，可选。
+swapcase()	翻转字符串中的大小写。
+title()	返回标题化（所有的单词都是以大写开始，其余字母均小写）的字符串。
+translate(table)	根据 table 的规则（可以由 str.maketrans('a', 'b') 定制）转换字符串中的字符。
+upper()	转换字符串中的所有小写字符为大写。
+zfill(width)	返回长度为 width 的字符串，原字符串右对齐，前边用 0 填充。
+</code></pre>
+
+<h2 id="2-字符串格式化">2 字符串格式化</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232018811.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; &quot;{0}Love{1}.{2}&quot;.format(&quot;I&quot;,&quot;fangfang&quot;,&quot;com&quot;)
+'ILovefangfang.com'
+&gt;&gt;&gt; &quot;{0} Love {1}.{2}&quot;.format(&quot;I&quot;,&quot;fangfang&quot;,&quot;com&quot;)
+'I Love fangfang.com'
+&gt;&gt;&gt; &quot;{a} Love {b}.{c}&quot;.format(a=&quot;I&quot;,b=&quot;fangfang&quot;,c=&quot;com&quot;)
+'I Love fangfang.com
+![在这里插入图片描述](https://img-blog.csdnimg.cn/47dbce71ddaa41c1839c1bbe076d5cae.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16)
+
+&gt;&gt;&gt; &quot;{{0}}&quot;.format(&quot;com&quot;)
+'{0}'
+&gt;&gt;&gt; &quot;{0:.1f}{1}&quot;.format(&quot;25.234&quot;,&quot;GB&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#40&gt;&quot;, line 1, in &lt;module&gt;
+    &quot;{0:.1f}{1}&quot;.format(&quot;25.234&quot;,&quot;GB&quot;)
+ValueError: Unknown format code 'f' for object of type 'str'
+&gt;&gt;&gt; &quot;{0:.1f}{1}&quot;.format(25.234,&quot;GB&quot;)
+'25.2GB'
+&gt;&gt;&gt; &quot;{0:.1f}{1}&quot;.format(25.234,GB)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#42&gt;&quot;, line 1, in &lt;module&gt;
+    &quot;{0:.1f}{1}&quot;.format(25.234,GB)
+NameError: name 'GB' is not defined
+
+
+&gt;&gt;&gt; (%c) % a
+SyntaxError: invalid syntax
+&gt;&gt;&gt; &quot;%c&quot; % a
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#44&gt;&quot;, line 1, in &lt;module&gt;
+    &quot;%c&quot; % a
+NameError: name 'a' is not defined
+&gt;&gt;&gt; '%c' % a
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#45&gt;&quot;, line 1, in &lt;module&gt;
+    '%c' % a
+NameError: name 'a' is not defined
+&gt;&gt;&gt; &quot;%c&quot; % 97
+'a'
+&gt;&gt;&gt; &quot;%c&quot; % 97
+'a'
+&gt;&gt;&gt; &quot;%c&quot;%97
+'a'
+&gt;&gt;&gt; &quot;%c&quot;% 255
+'ÿ'
+&gt;&gt;&gt; &quot;%5.1f&quot; % 27.7869
+' 27.8'
+&gt;&gt;&gt; &quot;%e&quot; % 27.1829
+'2.718290e+01'
+&gt;&gt;&gt; &quot;%.3f&quot; % 27.1829
+'27.183'
+&gt;&gt;&gt; &quot;%.3e&quot; % 27.1829
+'2.718e+01'
+
+
+&gt;&gt;&gt; &quot;%c&quot; % 97
+'a'
+&gt;&gt;&gt; &quot;%c&quot;%97
+'a'
+&gt;&gt;&gt; &quot;%c&quot;% 255
+'ÿ'
+&gt;&gt;&gt; &quot;%5.1f&quot; % 27.7869
+' 27.8'
+&gt;&gt;&gt; &quot;%e&quot; % 27.1829
+'2.718290e+01'
+&gt;&gt;&gt; &quot;%.3f&quot; % 27.1829
+'27.183'
+&gt;&gt;&gt; &quot;%.3e&quot; % 27.1829
+'2.718e+01'
+</code></pre>
+
+<h2 id="3-总结-元组-数组-字符串-列表">3 总结：元组/数组/字符串/列表</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_12,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; char=&quot;123456&quot;
+&gt;&gt;&gt; g=(1,2,3,4,5)
+&gt;&gt;&gt; sum.g
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#64&gt;&quot;, line 1, in &lt;module&gt;
+    sum.g
+AttributeError: 'builtin_function_or_method' object has no attribute 'g'
+&gt;&gt;&gt; sum g()
+SyntaxError: invalid syntax
+&gt;&gt;&gt; sum g
+SyntaxError: invalid syntax
+&gt;&gt;&gt; sum(g)
+15
+&gt;&gt;&gt; sum(char)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#68&gt;&quot;, line 1, in &lt;module&gt;
+    sum(char)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+&gt;&gt;&gt; sort(g)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#69&gt;&quot;, line 1, in &lt;module&gt;
+    sort(g)
+NameError: name 'sort' is not defined
+&gt;&gt;&gt; sorted(g)
+[1, 2, 3, 4, 5]
+&gt;&gt;&gt; reversed(g)
+&lt;reversed object at 0x00000160BBB09D30&gt;   #迭代对象
+&gt;&gt;&gt; list(reversed(g))
+[5, 4, 3, 2, 1]
+&gt;&gt;&gt; enumerate(g)
+&lt;enumerate object at 0x00000160BBB2A558&gt;
+&gt;&gt;&gt; list(enumerate(g)）
+	 
+SyntaxError: invalid character in identifier
+&gt;&gt;&gt; list(enumerate(g)) 
+[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5)]
+
+
+&gt;&gt;&gt; a=[1,2,3,4,5,6,7] 
+&gt;&gt;&gt; b=[5,6,7,8,9] 
+&gt;&gt;&gt; zip(a,b) 
+&lt;zip object at 0x00000160BBB53408&gt;
+&gt;&gt;&gt; list(zip(a,b))	     #列表转换
+[(1, 5), (2, 6), (3, 7), (4, 8), (5, 9)]
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" /></p>
+
+<h1 id="十-函数-对象-模块">十、函数/对象/模块</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; def jia(a,b):
+	c=a+b
+	print(c)
+&gt;&gt;&gt; jia(1,2)
+3
+
+&gt;&gt;&gt; jia(1,2)
+3
+&gt;&gt;&gt; def jia(a,b):
+	return(a+b)
+&gt;&gt;&gt; jia(1,2)
+3
+
+</code></pre>
+
+<h2 id="1-函数文档">1 函数文档</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; hanshuwendang(&quot;吴方方&quot;)
+我叫吴方方我好帅
+&gt;&gt;&gt; hanshuwendang.__doc__
+'这就是wendang'
+&gt;&gt;&gt; help(hanshuwendang.__doc__)
+No Python documentation found for '这就是wendang'.
+Use help() to get the interactive help utility.
+Use help(str) for help on the str class.
+</code></pre>
+
+<h2 id="2-关键字参数">2 关键字参数</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232018912.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="3-默认参数">3 默认参数</h2>
+
+<p><img src="/resources/技术收录/Python/b06831699d99400e8616dd30907a3cda.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="4-收集参数">4 收集参数</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; def test(*params):
+	print(&quot;参数长度：&quot;,len(params))
+	print(&quot;第二个参数：&quot;,params[1])
+&gt;&gt;&gt; test(1,&quot;吴方方&quot;，13,2,18,&quot;suibian&quot;)
+SyntaxError: invalid character in identifier
+&gt;&gt;&gt; test(1,&quot;吴方方&quot;,13,2,18,&quot;suibian&quot;)
+参数长度： 6
+第二个参数： 吴方方
+
+
+&gt;&gt;&gt; def test(*params,exp):
+	print(&quot;参数长度：&quot;,len(params))
+	print(&quot;第二个参数：&quot;,params[1])
+
+	
+&gt;&gt;&gt; test(1,&quot;吴方方&quot;,13,2,18,&quot;suibian&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#24&gt;&quot;, line 1, in &lt;module&gt;
+    test(1,&quot;吴方方&quot;,13,2,18,&quot;suibian&quot;)
+TypeError: test() missing 1 required keyword-only argument: 'exp'
+&gt;&gt;&gt; 
+KeyboardInterrupt
+&gt;&gt;&gt; test(1,&quot;吴方方&quot;,13,2,18,&quot;suibian&quot;,exp=5)
+参数长度： 6
+第二个参数： 吴方方
+</code></pre>
+
+<h2 id="5-函数与过程">5 函数与过程</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; def hello():
+	print('hello world')	
+&gt;&gt;&gt; t=hello()
+hello world
+&gt;&gt;&gt; t
+&gt;&gt;&gt; type(t)
+&lt;class 'NoneType'&gt;
+</code></pre>
+
+<h2 id="6-函数变量的作用域">6 函数变量的作用域</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232018913.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">def discount(price,rate):
+    final_price = price * rate    #这里若是强制转换float会报错自动结果就是float
+#print(&quot;试图在函数内部打印全局变量&quot;,new_price)   这一句是正确的
+    return final_price
+
+price = float(input(&quot;请输入原价：&quot;))
+rate = float(input(&quot;请输入比率：&quot;))
+new_price = discount(price , rate)
+print(&quot;最终价钱是：&quot;,new_price)
+#print(&quot;最终价钱是：&quot;,final_price)    这一句会报错因为其是局部变量
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232018914.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; t=5
+&gt;&gt;&gt; t
+5
+&gt;&gt;&gt; def ceshi():
+	t=4
+	print(4)
+
+	
+&gt;&gt;&gt; t
+5
+</code></pre>
+
+<p>函数里面修改全体变量可在函数内部修改，可是在函数外面，全体变量仍是原值</p>
+
+<h2 id="7-内嵌函数和闭包">7 内嵌函数和闭包</h2>
+
+<pre><code class="language-c">def fun1():
+	print(&quot;fun1...&quot;)
+	def fun2():
+		print(&quot;fun2...&quot;)
+	fun2()           #这一句如果不加则无法打印出fun2（）
+&gt;&gt;&gt; fun1()
+fun1...
+fun2...
+&gt;&gt;&gt; fun2()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#72&gt;&quot;, line 1, in &lt;module&gt;
+    fun2()
+NameError: name 'fun2' is not defined
+</code></pre>
+
+<h2 id="8-闭包">8 闭包</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; def funX(x):
+	def funY(y):
+		return(x*y)
+	return funY
+
+&gt;&gt;&gt; funX(5)
+&lt;function funX.&lt;locals&gt;.funY at 0x00000210D0C7C158&gt;
+&gt;&gt;&gt; type(funX(5))
+&lt;class 'function'&gt;
+&gt;&gt;&gt; funX(8)
+&lt;function funX.&lt;locals&gt;.funY at 0x00000210D0C7C1E0&gt;
+&gt;&gt;&gt; i=funX(5)
+&gt;&gt;&gt; i(5)
+25
+&gt;&gt;&gt; funX(5)(6)
+30
+&gt;&gt;&gt; funY(8)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#89&gt;&quot;, line 1, in &lt;module&gt;
+    funY(8)
+NameError: name 'funY' is not defined
+
+
+
+&gt;&gt;&gt; def fun1():
+	x=5
+	def fun2():
+		return (x *= x)
+	return fun2()
+SyntaxError: invalid syntax
+
+
+&gt;&gt;&gt; def fun1():
+	x=5
+	def fun2():
+		x *= x
+		return x
+	return fun2()
+&gt;&gt;&gt; fun1()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#107&gt;&quot;, line 1, in &lt;module&gt;
+    fun1()
+  File &quot;&lt;pyshell#106&gt;&quot;, line 6, in fun1
+    return fun2()
+  File &quot;&lt;pyshell#106&gt;&quot;, line 4, in fun2
+    x *= x
+UnboundLocalError: local variable 'x' referenced before assignment  # 局部变量不可修改全局变量
+解决方法如下：s
+&gt;&gt;&gt; def fun1():
+	x=[5]                #x=【5】//下一步x【0】就是5，前提就是首先令x为组
+	def fun2():
+		x[0] *= x[0]
+		return x[0]
+	return fun2()
+&gt;&gt;&gt; fun1()
+25
+
+第二种方法
+&gt;&gt;&gt; def fun1():
+	x=5
+	def fun2():
+		nonlocal x         #说明它不是局部变量就可覆盖上面的x
+		x *= x
+		return x
+	return fun2()
+
+&gt;&gt;&gt; fun1()
+25
+
+
+
+Lambda表达式            这个表达式太厉害害了吧
+一个参数
+&gt;&gt;&gt; def ds(x):
+	return 2*x+1
+
+&gt;&gt;&gt; ds(5)
+11
+&gt;&gt;&gt; lambda x:2*x+1
+&lt;function &lt;lambda&gt; at 0x00000210D0C7C2F0&gt;
+&gt;&gt;&gt; g=lambda x:2*x+1
+&gt;&gt;&gt; g(5)
+11
+
+两个参数
+&gt;&gt;&gt; lambda x,y :x+y
+&lt;function &lt;lambda&gt; at 0x00000210D0C7C2F0&gt;
+&gt;&gt;&gt; z=lambda x,y:x+y
+&gt;&gt;&gt; z(3,4)
+</code></pre>
+
+<h2 id="9-两个牛逼的bif">9 两个牛逼的BIF</h2>
+
+<p>Filter 过滤器</p>
+
+<pre><code class="language-c">![在这里插入图片描述](https://img-blog.csdnimg.cn/d0cba9eed1254b18993abae7c292a748.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16)
+1
+&gt;&gt;&gt; filter(None,[1,0,False,True])
+&lt;filter object at 0x00000210D0C59D30&gt;
+&gt;&gt;&gt; list(filter(None,[1,0,False,True]))
+[1, True]
+&gt;&gt;&gt; def odd(x):
+	return x%2
+&gt;&gt;&gt; t=range(10)
+&gt;&gt;&gt; show=filter(odd,t)
+&gt;&gt;&gt; list(show)
+[1, 3, 5, 7, 9]
+
+&gt;&gt;&gt; list(filter((lambda x:x%2),range(10)))
+[1, 3, 5, 7, 9]        /过滤出奇数
+
+&gt;&gt;&gt; list(filter((lambda x:x%2-1),range(10)))
+[0, 2, 4, 6, 8]         /过滤出偶数
+
+
+Map（）函数
+&gt;&gt;&gt; list(map(lambda x:x*2,range(10)))
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]       //生成0~9数字
+
+</code></pre>
+
+<h1 id="十一-递归">十一、递归</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; def recursion():
+	return recursion()
+
+def jieceng(n):
+    t = 1
+    for i in range(1,n+1):
+        t *= i
+    return t
+number = int(input(&quot;输入正整数：&quot;))
+jieceng(number)
+#print(&quot;输入正整数的阶层是：&quot;,jieceng(number))
+print(&quot;%d的阶层是%d&quot; % (number,jieceng(number)))
+
+def jieceng(i):
+    if i == 0:
+        return 1
+    elif i == 1:
+        return i
+    elif i != (0 and 1):
+        return i * jieceng(i-1)
+y = int(input(&quot;请输入整数:&quot;))
+t = jieceng(y)
+print(&quot;%d的阶层为%d&quot;%(y,t))
+</code></pre>
+
+<h2 id="1-fab数列函数">1 fab数列函数</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">#def fab(i):
+#    if i == 1:
+#        return 1
+#    elif i == 2:
+#        return 1
+#    else:
+#        for j in range(1,i-1):
+def  fab(t):
+    z = [0,1,1]
+    i = 2
+    while t &gt; i:
+        z.append(z[i]+z[i-1])
+        i += 1
+    return z[t]    
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/3d2d07a22de54bbea41d39c56b904c00.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">def fab(x):
+    list1 = [0,1,1]
+    for i in range(3,x+1):
+        y = list1[i-2] + list1[i-1]
+        list1.append(y)
+    return list1[x]
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_14,color_FFFFFF,t_70,g_se,x_16-166936232018915.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_13,color_FFFFFF,t_70,g_se,x_16-166936232018916.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">def fab(i):
+    if i &lt; 1:
+        print(&quot;错误&quot;)         #迭代速度慢效率低理解简单
+        return 0
+    if i == 1 or i == 2:
+        return 1
+    else:
+        return (fab(i-1) + fab(i-2))
+t = fab(20)
+if t != -1:
+print(&quot;结果是:%d&quot;% t)
+</code></pre>
+
+<h2 id="2-迭代汉诺塔">2 迭代汉诺塔</h2>
+
+<p><img src="/resources/技术收录/Python/9e83778d13e14fe4b53cb268e482374d.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">def hanoi(n,x,y,z):
+    if n == 1:
+        print(x,&quot;-&gt;&quot;,z)
+    else:
+        hanoi(n-1,x,z,y)
+        print(x,&quot;-&gt;&quot;,z)
+        hanoi(n-1,y,x,z)
+
+n = int(input(&quot;输入层数：&quot;))
+hanoi(n,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;)
+</code></pre>
+
+<h1 id="十二-索引">十二、索引</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; brand=[&quot;李宁&quot;,&quot;耐克&quot;,&quot;方方&quot;]
+&gt;&gt;&gt; sloge=[&quot;一切皆有可能&quot;,&quot;just do it&quot;,&quot;我必成功&quot;]
+&gt;&gt;&gt; print(&quot;方方口号：&quot;,sloge[brand.index(&quot;我必成功&quot;)])
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#9&gt;&quot;, line 1, in &lt;module&gt;
+    print(&quot;方方口号：&quot;,sloge[brand.index(&quot;我必成功&quot;)])
+ValueError: '我必成功' is not in list
+&gt;&gt;&gt; print(&quot;方方口号：&quot;,sloge[brand.index(&quot;方方&quot;)])
+方方口号： 我必成功
+</code></pre>
+
+<h1 id="十三-映射-字典-大括号">十三、映射 、字典（大括号）</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; t={&quot;李宁&quot;:&quot;一切皆有可能&quot;,&quot;耐克&quot;:&quot;just do it&quot;,&quot;方方&quot;:&quot;我必成功&quot;}
+&gt;&gt;&gt; print(&quot;方方口号&quot;:,t[&quot;方方&quot;])
+SyntaxError: invalid syntax
+&gt;&gt;&gt; print(&quot;方方口号:&quot;,t[&quot;方方&quot;])
+方方口号: 我必成功
+
+
+
+&gt;&gt;&gt; dict1 = {1:&quot;one&quot;,2:&quot;two&quot;,3:&quot;three&quot;}
+&gt;&gt;&gt; dict1
+{1: 'one', 2: 'two', 3: 'three'}
+&gt;&gt;&gt; dict2{}
+SyntaxError: invalid syntax
+&gt;&gt;&gt; dict2 = {}
+&gt;&gt;&gt; dict2
+{}
+
+
+&gt;&gt;&gt; dict3 = dict((&quot;编程&quot;:&quot;真的&quot;),(&quot;好难&quot;:2))
+SyntaxError: invalid syntax
+&gt;&gt;&gt; dict3 = dict((&quot;编程&quot;:&quot;真的&quot;),(&quot;好难&quot;:2))
+SyntaxError: invalid syntax
+&gt;&gt;&gt; dict3 = dict(((&quot;编程&quot;:&quot;真的&quot;),(&quot;好难&quot;:2)))
+SyntaxError: invalid syntax
+&gt;&gt;&gt; dict3 = dict((&quot;编程&quot;,&quot;真的&quot;),(&quot;好难&quot;,2))
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#22&gt;&quot;, line 1, in &lt;module&gt;
+    dict3 = dict((&quot;编程&quot;,&quot;真的&quot;),(&quot;好难&quot;,2))
+TypeError: dict expected at most 1 arguments, got 2
+&gt;&gt;&gt; dict3 = dict(((&quot;编程&quot;,&quot;真的&quot;),(&quot;好难&quot;,2)))    #最外层是函数中间是元组里面是映射
+&gt;&gt;&gt; dict3
+{'编程': '真的', '好难': 2}
+
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/835fdc40ce824d688400b0f09f4400a2.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/14c94900b2ca48799d5f0268a6042071.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; dict4=dict(&quot;方方&quot;=&quot;fang&quot;,&quot;fangfang&quot;=&quot;方方&quot;)
+SyntaxError: keyword can't be an expression
+&gt;&gt;&gt; dict4=dict(&quot;方方&quot;=&quot;fang&quot;,&quot;fangfang&quot;=&quot;方方&quot;)
+SyntaxError: keyword can't be an expression
+&gt;&gt;&gt; dict4=dict(方方=&quot;fang&quot;,fangfang=&quot;方方&quot;)
+&gt;&gt;&gt; dict4
+{'方方': 'fang', 'fangfang': '方方'}
+&gt;&gt;&gt; dict4=[&quot;方方&quot;]=&quot;吴方方&quot;
+SyntaxError: can't assign to literal
+&gt;&gt;&gt; dict4[&quot;方方&quot;]=&quot;吴方方&quot;
+&gt;&gt;&gt; dict4
+{'方方': '吴方方', 'fangfang': '方方'}
+
+</code></pre>
+
+<h1 id="十四-字典">十四、字典</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; dict5={}
+&gt;&gt;&gt; dict5.fromkeys{(1,2,3)}
+SyntaxError: invalid syntax
+&gt;&gt;&gt; dict5.fromkeys((1,2,3))
+{1: None, 2: None, 3: None}
+&gt;&gt;&gt; dict5.fromkeys((1,2,3),&quot;number&quot;)
+{1: 'number', 2: 'number', 3: 'number'}
+&gt;&gt;&gt; dict5.fromkeys((1,3),&quot;number&quot;)
+{1: 'number', 3: 'number'}
+&gt;&gt;&gt; dict5 = dict5.frombers(range(32),&quot;赞&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#37&gt;&quot;, line 1, in &lt;module&gt;
+    dict5 = dict5.frombers(range(32),&quot;赞&quot;)
+AttributeError: 'dict' object has no attribute 'frombers'
+&gt;&gt;&gt; dict5 = dict5.fromkeys(range(32),&quot;赞&quot;)
+&gt;&gt;&gt; dict5
+{0: '赞', 1: '赞', 2: '赞', 3: '赞', 4: '赞', 5: '赞', 6: '赞', 7: '赞', 8: '赞', 9: '赞', 10: '赞', 11: '赞', 12: '赞', 13: '赞', 14: '赞', 15: '赞', 16: '赞', 17: '赞', 18: '赞', 19: '赞', 20: '赞', 21: '赞', 22: '赞', 23: '赞', 24: '赞', 25: '赞', 26: '赞', 27: '赞', 28: '赞', 29: '赞', 30: '赞', 31: '赞'}
+&gt;&gt;&gt; for i in dict5.keys():
+	print(i)
+
+	
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+&gt;&gt;&gt; for i in dict5.values():
+	print(i)
+
+	
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+赞
+&gt;&gt;&gt; for i in dict5.items():
+	print(i)
+
+	
+(0, '赞')
+(1, '赞')
+(2, '赞')
+(3, '赞')
+(4, '赞')
+(5, '赞')
+(6, '赞')
+(7, '赞')
+(8, '赞')
+(9, '赞')
+(10, '赞')
+(11, '赞')
+(12, '赞')
+(13, '赞')
+(14, '赞')
+(15, '赞')
+(16, '赞')
+(17, '赞')
+(18, '赞')
+(19, '赞')
+(20, '赞')
+(21, '赞')
+(22, '赞')
+(23, '赞')
+(24, '赞')
+(25, '赞')
+(26, '赞')
+(27, '赞')
+(28, '赞')
+(29, '赞')
+(30, '赞')
+(31, '赞')
+&gt;&gt;&gt; print(dict5[2])
+赞
+&gt;&gt;&gt; dict5.clear()
+&gt;&gt;&gt; dict5()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#53&gt;&quot;, line 1, in &lt;module&gt;
+    dict5()
+TypeError: 'dict' object is not callable
+&gt;&gt;&gt; dict5
+{}
+</code></pre>
+
+<h2 id="1-赋值不等于拷贝">1 赋值不等于拷贝</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; a=a(1:&quot;wu&quot;,2:&quot;fang&quot;,3:&quot;fang&quot;)
+SyntaxError: invalid syntax
+&gt;&gt;&gt; a={1:&quot;wu&quot;,2:&quot;fang&quot;,3:&quot;fang&quot;}
+&gt;&gt;&gt; b=a.copy()
+&gt;&gt;&gt; c=a
+&gt;&gt;&gt; id(a)
+1409664323376     
+&gt;&gt;&gt; id(b)
+1409664231536       #拷贝         不可改变原值
+&gt;&gt;&gt; id(c)
+1409664323376        #赋值        可改变原值
+&gt;&gt;&gt; c[4]=&quot;shuaige&quot;
+&gt;&gt;&gt; c
+{1: 'wu', 2: 'fang', 3: 'fang', 4: 'shuaige'}
+&gt;&gt;&gt; a
+{1: 'wu', 2: 'fang', 3: 'fang', 4: 'shuaige'}
+&gt;&gt;&gt; b[4]=&quot;chou&quot;
+&gt;&gt;&gt; b
+{1: 'wu', 2: 'fang', 3: 'fang', 4: 'chou'}
+&gt;&gt;&gt; a
+{1: 'wu', 2: 'fang', 3: 'fang', 4: 'shuaige'}
+
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/4c784d0aca764c0fb68f1588d27b5312.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; a.pop(2)
+'fang'
+&gt;&gt;&gt; a
+{1: 'wu', 3: 'fang', 4: 'shuaige'}
+&gt;&gt;&gt; a()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#71&gt;&quot;, line 1, in &lt;module&gt;
+    a()
+TypeError: 'dict' object is not callable
+&gt;&gt;&gt; a.popitem()                      #随机弹出 字典弹出没有一定顺序
+(4, 'shuaige')
+&gt;&gt;&gt; a
+{1: 'wu', 3: 'fang'}
+
+
+&gt;&gt;&gt; b = {&quot;xiaobai&quot;:&quot;gou&quot;}
+&gt;&gt;&gt; a.updata(b)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#75&gt;&quot;, line 1, in &lt;module&gt;
+    a.updata(b)
+AttributeError: 'dict' object has no attribute 'updata'
+&gt;&gt;&gt; a.update(b)
+&gt;&gt;&gt; a
+{1: 'wu', 3: 'fang', 'xiaobai': 'gou'}
+
+</code></pre>
+
+<h1 id="十五-集合">十五、集合</h1>
+
+<pre><code class="language-c">&gt;&gt;&gt; a={}
+&gt;&gt;&gt; type(a)
+&lt;class 'dict'&gt;          #字典
+&gt;&gt;&gt; b={1,2,3}
+&gt;&gt;&gt; type(b)
+&lt;class 'set'&gt;           #集合        无序性      唯一性
+
+
+
+&gt;&gt;&gt; b={1,2,4,2,2,2,2,2,23,3,3,3,3,3,3,31,6,4,93,22}
+&gt;&gt;&gt; b
+{1, 2, 3, 4, 6, 22, 23, 93, 31}
+&gt;&gt;&gt; c = set([111111,2222,33333])
+&gt;&gt;&gt; c
+{33333, 2222, 111111}
+&gt;&gt;&gt; c = set([1,1,1,1,2,2,2,2,2,3,3,3])
+&gt;&gt;&gt; c
+{1, 2, 3}
+
+</code></pre>
+
+<h2 id="1-运用数组与列表排序">1 运用数组与列表排序</h2>
+
+<pre><code class="language-c">&gt;&gt;&gt; num = [1,1,1,3,38,8,8,8,3,3,2,4,4,4,4,4]
+&gt;&gt;&gt; num = list(set(num))
+&gt;&gt;&gt; num
+[1, 2, 3, 4, 38, 8]
+&gt;&gt;&gt; num.sort()
+&gt;&gt;&gt; num
+[1, 2, 3, 4, 8, 38]
+
+
+Add
+&gt;&gt;&gt; num
+[1, 2, 3, 4, 8, 38]
+&gt;&gt;&gt; num.add(6)                      #数组不行，集合可以
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#98&gt;&quot;, line 1, in &lt;module&gt;
+    num.add(6)
+AttributeError: 'list' object has no attribute 'add'
+&gt;&gt;&gt; 
+KeyboardInterrupt
+&gt;&gt;&gt; c = set([1,1,1,1,2,2,2,2,2,3,3,3])
+&gt;&gt;&gt; c
+{1, 2, 3}
+&gt;&gt;&gt; c.add(6)
+&gt;&gt;&gt; c
+{1, 2, 3, 6}
+&gt;&gt;&gt; c.add(4)
+&gt;&gt;&gt; c
+{1, 2, 3, 4, 6}
+
+
+
+Frozen    frozenset 不可变函数
+&gt;&gt;&gt; c = frozenset(c)
+&gt;&gt;&gt; c
+frozenset({1, 2, 3, 4, 6})
+&gt;&gt;&gt; c.add(5)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#107&gt;&quot;, line 1, in &lt;module&gt;
+    c.add(5)
+AttributeError: 'frozenset' object has no attribute 'add'
+</code></pre>
+
+<h1 id="十六-文件">十六、文件</h1>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019017.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019018.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; f = open(&quot;D:\\xiaojiayu.txt&quot;)
+&gt;&gt;&gt; f
+&lt;_io.TextIOWrapper name='D:\\xiaojiayu.txt' mode='r' encoding='cp936'&gt;
+&gt;&gt;&gt; f.read()
+'这是小甲鱼\n测试\n测试'             #读完之后指到末尾
+&gt;&gt;&gt; f.read()
+''
+
+
+&gt;&gt;&gt; f = open(&quot;D:\\xiaojiayu.txt&quot;)
+&gt;&gt;&gt; f.read(3)
+'这是小'
+&gt;&gt;&gt; f.tell()
+6
+&gt;&gt;&gt; f,read()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#115&gt;&quot;, line 1, in &lt;module&gt;
+    f,read()
+NameError: name 'read' is not defined
+&gt;&gt;&gt; f = open(&quot;D:\\xiaojiayu.txt&quot;)
+&gt;&gt;&gt; f.read()
+'这是小甲鱼\n测试\n测试'
+&gt;&gt;&gt; f.tell()
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019019.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; f = open(&quot;D:\\xiaojiayu.txt&quot;)
+&gt;&gt;&gt; f.seek(12,0)           #一个汉字两个字节
+12
+&gt;&gt;&gt; f.readline()
+'测试\n'
+
+
+&gt;&gt;&gt; f = open(&quot;D:\\xiaojiayu.txt&quot;)
+&gt;&gt;&gt; list(f)
+['这是小甲鱼\n', '测试\n', '测试']
+
+
+&gt;&gt;&gt; f.seek(0.0)
+0.0
+&gt;&gt;&gt; f.read()
+'这是小甲鱼\n测试\n测试'
+&gt;&gt;&gt; f.seek(0,0)
+0
+&gt;&gt;&gt; for each in f:
+	print(each)
+这是小甲鱼
+测试
+测试
+
+创建test.txt文件
+&gt;&gt;&gt; f.write(&quot;我叫吴方方&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#132&gt;&quot;, line 1, in &lt;module&gt;
+    f.write(&quot;我叫吴方方&quot;)
+io.UnsupportedOperation: not writable
+&gt;&gt;&gt; f = open(&quot;D:\\test.txt&quot;,&quot;w&quot;)
+&gt;&gt;&gt; f.write(&quot;我叫吴方方&quot;)
+5
+&gt;&gt;&gt; f = open(&quot;D:\\test.txt&quot;&quot;r&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#135&gt;&quot;, line 1, in &lt;module&gt;
+    f = open(&quot;D:\\test.txt&quot;&quot;r&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\test.txtr'
+&gt;&gt;&gt; f = open(&quot;D:\\test.txt&quot;,&quot;r&quot;)
+&gt;&gt;&gt; f.read(f)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#137&gt;&quot;, line 1, in &lt;module&gt;
+    f.read(f)
+TypeError: argument should be integer or None, not '_io.TextIOWrapper'
+&gt;&gt;&gt; f.read()
+'我叫吴方方'
+&gt;&gt;&gt; f.close()
+</code></pre>
+
+<h2 id="1-文件操作-味道极吴方方">1 文件操作（味道极吴方方）</h2>
+
+<p><img src="/resources/技术收录/Python/c8b00d9fd698476c88d00e46d4dceb20.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/e5f96ed06f61444bbff1b5080c0a13ce.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/b0b1d83d0b32402d82996efce24d02e4.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; f=open(&quot;D:\\test2.txt&quot;)
+&gt;&gt;&gt; print((f.read()).split())
+['吴方方：加油', '味道极：嗯嗯', '吴方方：努力', '========', '味道极：好的', '吴方方：奋斗', '味道极：哦哦', '========', '吴方方：励志', '味道极：可以', '吴方方：吃苦', '味道极：必须']
+</code></pre>
+
+<h1 id="十七-模块">十七、模块</h1>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019020.png" alt="在这里插入图片描述" /></p>
+
+<pre><code class="language-c">&gt;&gt;&gt; import random
+&gt;&gt;&gt; t = random.randint(1,10)
+&gt;&gt;&gt; t
+5
+
+&gt;&gt;&gt; getcwd()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#19&gt;&quot;, line 1, in &lt;module&gt;
+    getcwd()
+NameError: name 'getcwd' is not defined
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; getcwd()
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#21&gt;&quot;, line 1, in &lt;module&gt;
+    getcwd()
+NameError: name 'getcwd' is not defined
+&gt;&gt;&gt; os.getcwd()
+'D:\\Python3.7.0'
+&gt;&gt;&gt; os.listdir(&quot;D:\\&quot;)
+['$RECYCLE.BIN', '(A盘)大黄蜂(MINI和精英版)', '17级信息学院电工微机视频.7z', '2013office', '360Downloads', '51单片机', 'AD', 'Altium', 'BaiduNetdiskDownload', 'Config.Msi', 'Desktop', 'Documents', 'emu8086', 'Examples', 'Excel', 'FileRecv', 'Help', 'Keil5', 'KuGou', 'Licenses', 'MSOCache', 'multisim 14.0三个', 'PanData', 'Pictures', 'PotPlayer', 'Pr CC2019', 'Premiere Pro CC2019', 'Products', 'Program Files', 'Program Files (x86)', 'python', 'Python3.7.0', 'Supportfiles', 'System Volume Information', 'test.txt', 'test2.txt', 'test3.txt', 'TIM', 'TIMQQ下载文件注明', 'VC++2010', 'WPS文档', 'xiaojiayu.txt', '二级C无纸化考试模拟软件', '二级C语言', '仿真压缩包', '卜宁波串口取模示波器软件', '坚果office', '大黄蜂(MINI和精英版)(B盘)', '戚有利office', '手机发送电脑文件', '杂乱乱码文件放置不懂', '正点原子战舰资料', '电赛', '百度网盘资料总汇国赛自选', '聊天文件与图片', '遥控光立方加单片机资料']
+#RECYCLE.BIN是回收站
+
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_16,color_FFFFFF,t_70,g_se,x_16-166936232019021.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_15,color_FFFFFF,t_70,g_se,x_16-166936232019022.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="1-try函数">1 Try函数</h2>
+
+<pre><code class="language-c">f = open(&quot;我为什么是一个文件.txt&quot;)
+print(f.read())
+f.close()
+====================== RESTART: D:/Python3.7.0/try函数.py ======================
+Traceback (most recent call last):
+  File &quot;D:/Python3.7.0/try函数.py&quot;, line 1, in &lt;module&gt;
+    f = open(&quot;我为什么是一个文件.txt&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: '我为什么是一个文件.txt'
+&gt;&gt;&gt;
+另一种方式
+try:
+    f = open(&quot;我为什么是一个文件.txt&quot;)
+    print(f.read())
+    f.close()
+except OSError:
+    print(&quot;文件出错啦T_T&quot;)
+&gt;&gt;&gt; 
+====================== RESTART: D:/Python3.7.0/try函数.py ======================
+文件出错啦T_T
+第三种方式
+try:
+    f = open(&quot;我为什么是一个文件.txt&quot;)
+    print(f.read())
+    f.close()
+except OSError as reason:
+    print(&quot;文件出错啦T_T\n错误的原因是：&quot;+str(reason))
+&gt;&gt;&gt; 
+===================== RESTART: D:\Python3.7.0\try函数2.py =====================
+文件出错啦T_T
+错误的原因是：[Errno 2] No such file or directory: '我为什么是一个文件.txt'
+
+
+
+try:
+    int(&quot;abc&quot;)
+    sum = i + &quot;1&quot;
+    f = open(&quot;我为什么是一个文件.txt&quot;)
+    print(f.read())
+    f.close()
+except OSError as reason:
+    print(&quot;文件出错啦T_T\n错误的原因是：&quot;+str(reason))
+except TypeError as reason:
+    print(&quot;类型相加出错啦T_T\n错误的原因是：&quot;+str(reason))
+except ValueError as reason:
+    print(&quot;类型转换出错啦T_T\n错误的原因是：&quot;+str(reason))
+&gt;&gt;&gt; 
+===================== RESTART: D:/Python3.7.0/try函数3.py =====================
+类型转换出错啦T_T
+错误的原因是：invalid literal for int() with base 10: 'abc'
+&gt;&gt;&gt;
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/3abd6625b1f945ecaa39bc76d7c20f16.png" alt="在这里插入图片描述" />
+丰富的else语句和with语句
+<img src="/resources/技术收录/Python/d5706200c03f4d96a4a6a0c05e964d6f.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/1c2f7a683255496ab0be4549483abdd1.png" alt="在这里插入图片描述" /></p>
+
+<p>While与else连用
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_18,color_FFFFFF,t_70,g_se,x_16.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/c3e45965f8b44af29a6c489ab1ede77b.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_14,color_FFFFFF,t_70,g_se,x_16-166936232019123.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/50752748e5ed4ebd8b026165f9420596.png" alt="在这里插入图片描述" /></p>
+
+<p>这样不用写f.close() 较为方便</p>
+
+<h1 id="十八-图形用户界面入门-easygui">十八、图形用户界面入门（EasyGui）</h1>
+
+<p>第一种方法</p>
+
+<pre><code class="language-c">&gt;&gt;&gt; import easygui
+&gt;&gt;&gt; easygui.msgbox(&quot;sss&quot;)
+'OK'
+第二种方法
+&gt;&gt;&gt; from easygui import *
+&gt;&gt;&gt; msgbox(&quot;吴方方&quot;)
+'OK'
+第三种方式    （推荐这种方法）
+&gt;&gt;&gt; import easygui as g
+&gt;&gt;&gt; g.msgbox(&quot;www&quot;)
+'OK'
+</code></pre>
+
+<h1 id="十九-类和对象-无处不对象">十九、类和对象（无处不对象）</h1>
+
+<pre><code class="language-c">class Turtle:    #类名词约定以大写字母开头
+    &quot;&quot;&quot;关于类的简单例子&quot;&quot;&quot;
+    #属性
+    color = &quot;green&quot;
+    weight = 10
+    legs = 4
+    shell = True
+    mouth = &quot;大嘴&quot;
+
+    #方法
+    def climb(self):         #一定要加self
+        print(&quot;一&quot;)
+        
+    def run(self):
+        print(&quot;二&quot;)
+        
+    def bite(self):
+        print(&quot;三&quot;)
+        
+    def eat(self):
+        print(&quot;四&quot;)
+        
+    def sleep(self):
+        print(&quot;五&quot;)
+&gt;&gt;&gt; tt = Turtle()
+&gt;&gt;&gt; tt.eat()
+
+</code></pre>
+
+<h2 id="1-类-属性-方法">1 类、属性、方法</h2>
+
+<pre><code class="language-c">上面只能说是类对象，还不是所说的对象，其实差不多，我现在半斤八两
+用类来创建对象，创建的这个对象叫做实例，也叫实例对象
+为啥对象非要用类来创建，可以一步到位吗？
+盖房子先要有图纸，然后才有房子，没有图纸怎么建房子呢？
+盖房子也就是实例，也就是类对象
+上面tt就是实例，而后面的就是类
+</code></pre>
+
+<p><img src="/resources/技术收录/Python/35aa9a12e7c44326b580f3e8858a8c36.png" alt="在这里插入图片描述" /></p>
+
+<p>Turtle（）本身就是将类实例化了，只是没有赋给变量，于是被python垃圾机理处理了。
+类里面有属性 和 方法，方法就是def定义的类似函数那样
+<img src="/resources/技术收录/Python/829394547851436dad9c5a0577bdad07.png" alt="在这里插入图片描述" /></p>
+
+<p>上面的sort和append就是平时常用的操作，而它就是类中的方法，我们才可以使用
+还有继承也来说一下
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019124.png" alt="在这里插入图片描述" /></p>
+
+<p>上面定义myclass继承了上面的list，pass意思是只继承其他事不做，于是将此时类mylist实例化为list2，那么此时调用类中的sort方法都是可以的，由此可知平时所用的列表就是类了，而.sort就是类中的方法
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019125.png" alt="在这里插入图片描述" /></p>
+
+<p>A和b都是调用fun方法，结果却不一样，这就是多态</p>
+
+<h2 id="2-面向对象编程">2 面向对象编程</h2>
+
+<p>类是图纸，类实例化的房子也就是对象也就是类对象才可以住人，一张图纸可以建造成千上万房子，这些房子都很相似，可是每位房子门牌号不同，于是门牌号就是self，
+Self是什么？
+Python无处不对象
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232019126.png" alt="在这里插入图片描述" /></p>
+
+<p>注意上面Ball（）中括号是没有参数，默认参数是setname中的name参数也就是需要两行第三下才可以kick打印出来
+为什么都是调用kick方法，结果不一样呢？因为调用kick时会调用self，self就会找到上面的name属性，然后打印出来。
+魔方方法
+<em>init</em>(self) // 构造方法，实例化对象时，方法就会在创建时自动调用
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019127.png" alt="在这里插入图片描述" /></p>
+
+<p>注意这个里面是直接一行参数，第二行就可以kick打印了，就好像默认输入了函数，所以省略了一行代码。
+其中ball（）括号中也必须要有参数</p>
+
+<p>公有和私有？
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019128.png" alt="在这里插入图片描述" /></p>
+
+<p>Name就是定义class类的属性
+而第二个__name就是定义为了私有变量，所以下面出错了
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019129.png" alt="在这里插入图片描述" /></p>
+
+<p>只有内部才可以调用这个私有变量，只能从内部调用方法可以调用了
+<img src="/resources/技术收录/Python/efd312e409b04a4cbd7c25695d86a1b3.png" alt="在这里插入图片描述" /></p>
+
+<p>也可以这样调用，python只是将变量伪装了，采用上面也可以直接得出属性
+继承，只是将名字修改为上面那样了。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019130.png" alt="在这里插入图片描述" /></p>
+
+<p>注意上面是父类，而下面是子类，子类可以调用父类中的方法
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019131.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019132.png" alt="在这里插入图片描述" /></p>
+
+<p>注意上面报错的原因是，下面鲨鱼子类调用中本可以和上面一样下面来个pass就行了，可它右行<strong>init</strong>了父类中的self，因此就会报错了，我现在还不明白hungry是什么意思？init就是魔法方法，使用它较为方便。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019133.png" alt="在这里插入图片描述" /></p>
+
+<p>此时就可以正常调用了，增加了一行调用
+//类就是相当于c++中的this指针
+继承者就是子类，被继承者就是父类，
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019134.png" alt="在这里插入图片描述" /></p>
+
+<p>使用super函数跟易用，因此它会自动帮你找到子类继承的父类，而不会出错了，hungry就相当于是定义的变量，也是使用了魔法方法，使用了魔法方法就很方便前面可以看到。为什么shark.move（）就会报错呢？因为重写了self方法，而这个中没有x，一般使用super函数解决这个问题。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232019135.png" alt="在这里插入图片描述" /></p>
+
+<p>上面就是多重继承，一般不怎么使用</p>
+
+<h2 id="3-组合">3 组合</h2>
+
+<p>下面就是组合
+<img src="/resources/技术收录/Python/c4b576aac47b46ad9eb514618bd34a21.png" alt="在这里插入图片描述" /></p>
+
+<h2 id="4-类对象-实例对象">4 类对象、实例对象</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019236.png" alt="在这里插入图片描述" /></p>
+
+<p>注意里面的区别</p>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019237.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019238.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019239.png" alt="在这里插入图片描述" /></p>
+
+<p>我可一点也没懂，弹幕一群说懂了的，不行我要返回去看一看，我也要明白。刚刚重刷了一遍，这时我来理解一下，类对象和实例对象和类是三种不同的概念，无处不对象，上面class就是类写完之后就是类对象，然后下面的abc就是实例化对象，类定义到类对象到实例对象，C是类对象，c是实例对象，下面显示.count()时覆盖率C，所以还是10，而ab并没有赋值还是0，所以没有覆盖就是100。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_13,color_FFFFFF,t_70,g_se,x_16-166936232019240.png" alt="在这里插入图片描述" /></p>
+
+<p>上面是属性覆盖了方法，C是类对象，c是实例对象，x是C中的属性，c.x = 1是将属性赋值为1，那么此时再用c调用C中x方法就会出问题了。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019241.png" alt="在这里插入图片描述" /></p>
+
+<p>此时上面正常进行，可是下面bb调用方法时却出了问题，为啥呢？
+<strong>dict</strong>为对象属性字典
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019242.png" alt="在这里插入图片描述" /></p>
+
+<p>可我现在还不是特别明白。。。
+<img src="/resources/技术收录/Python/3c717d542c7648d28f148845239c730a.png" alt="在这里插入图片描述" /></p>
+
+<p>这张图我就明白了，因为dd就是self，就是上面的dd.x=x dd.y=y 怪不得说self时默认呢？哈哈哈哈
+<img src="/resources/技术收录/Python/c72d42a87e474fd484bf02eefc479757.png" alt="在这里插入图片描述" /></p>
+
+<p>已经十点半了，我要睡觉了，还有那个魔法方法我明白要弄明白。删除了CC，但是dd还存在，一个弹幕解释道，你烧毁了图纸，可是你建造的房子还存在鸭？哈哈哈哈我要早睡了。</p>
+
+<p>额，昨晚我失眠了，大概十二点半左右睡着的，其实还好啦，可是可是，我早上睡到八点半，然后又很困，睡到了十点半，磨磨唧唧十一点才起来，这就是身体虚的表现啊，身体虚才会嗜睡，还是说明自己身体很差很差，我也需要有个人来陪我，来陪我，陪我戒让我不会很孤独。今天是第三天，第三天啊，我依旧是闷在这个小房间里，这个阴暗潮湿的房间里。
+一些相关的BIF
+不想看这个了，先不看了，就是这么任性哈哈</p>
+
+<h2 id="5-魔法方法构造和析构">5 魔法方法构造和析构</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019243.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019244.png" alt="在这里插入图片描述" /></p>
+
+<p>Python就是面向对象编程，无处不对象，也就是类的实例化编程，上述过程中，你也可以单独def好几个函数，可是此时你就要调用每一个函数这个每个函数都要添加很多形参，而都封装在class中，你可以看到是多么的方便鸭。
+至于下面的报错是因为，你不能在init时返回什么值，你可以看到上面中，都是下面def函数中才可以返回什么。下面警告中也说明了必须返回none，也就是不需要返回。
+最重要一点就是，你看rect = rectangle（3，4）这句话吗？如果你此时不用<strong>init</strong>魔法方法时，你必须 首先rect = rectangle（）然后后面还有一步赋值，上面有记录去翻翻看看。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_18,color_FFFFFF,t_70,g_se,x_16-166936232019245.png" alt="在这里插入图片描述" /></p>
+
+<p>这一块我没有理解好，还不会，不管了。</p>
+
+<p><img src="/resources/技术收录/Python/ae0b7927f5044e2db19f7e520d9f737b.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019246.png" alt="在这里插入图片描述" /></p>
+
+<p>这些是弹幕，反正我还是不怎么明白。</p>
+
+<h2 id="6-模块">6 模块</h2>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019247.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_16,color_FFFFFF,t_70,g_se,x_16-166936232019248.png" alt="在这里插入图片描述" /></p>
+
+<p>上面的hello.py与python.exe编译器在同一文件夹下，也就是hello.py python编译后缀文件放在了python3.7的安装包中，可是上面那个也会出错，下面就对了，因为上面中的hi函数，python必须要知道是哪个模块中的hi函数，模块就是程序就是==hello.py</p>
+
+<p><img src="/resources/技术收录/Python/da597d0b2e594391810c28c48527babc.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/34c764e1df3e441cbe825d4b70e05382.png" alt="在这里插入图片描述" /></p>
+
+<p>这种导入模块名，可是模块名好长，每次都要应用，注意上面两个.py文件小甲鱼是建在了同一文件夹下面，我暂时还不知道分开建不同文件夹行不行呢？
+<img src="/resources/技术收录/Python/7de2b6d56e6343a69d07867f86f2d38e.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/3c82546ca076490e90272dfe2df7685c.png" alt="在这里插入图片描述" /></p>
+
+<p>上面两种调用方式等价，下面是调用所有函数，可是小甲鱼不建议使用上述两种方式，因为函数名字也不好记，容易看错
+<img src="/resources/技术收录/Python/17915a9e84ba4eb9aec63b04013644e5.png" alt="在这里插入图片描述" /></p>
+
+<p>这种方式最好啦
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_13,color_FFFFFF,t_70,g_se,x_16-166936232019349.png" alt="在这里插入图片描述" /></p>
+
+<p>此时运行这个temperatureConversion.py文件当然自然一定可以正常调用test函数，那么如果我们在刚刚上面calc.py模块中调用temperatureConversion.py文件也就是程序也就是模块的话，结果是？
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_18,color_FFFFFF,t_70,g_se,x_16-166936232019350.png" alt="在这里插入图片描述" /></p>
+
+<p>怎么会这样呢？我们只需要temperatureConversion模块中的上面两个def函数，不需要下年tese函数也打印出来呀？那么我们可以使用_name_变量
+<img src="/resources/技术收录/Python/dfecb495de7a41f297a01ab1113bc8ba.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/dc3f50bcc7264a219fa46d2bc17983b7.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/e587e1c397494dc8b9a42a10a66d02db.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_12,color_FFFFFF,t_70,g_se,x_16-166936232019351.png" alt="在这里插入图片描述" /></p>
+
+<p>这样调用就不会出现上面那种情况了，下面一个弹幕解释得很形象啊</p>
+
+<p><img src="/resources/技术收录/Python/03b399e6f7ba482684e4e836006958cd.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/106c6e810b6e403dbcd172fd066fa2b4.png" alt="在这里插入图片描述" /></p>
+
+<p>上面是列表，列表里面存放各地址，python会从列表中寻找到有没有寻找到的导入模块，其中最佳存放模块位置就是site-packages，放在其它路径也行，但是推荐放在这个里面
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_16,color_FFFFFF,t_70,g_se,x_16-166936232019352.png" alt="在这里插入图片描述" /></p>
+
+<p>注意上面出错的原因就是，IDLE外壳也就是python编译器找不到这个模块的路径，因为IDLE的文件夹下面找不到这个，注意看下面，test存放的是temper模块和calc模块
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_19,color_FFFFFF,t_70,g_se,x_16-166936232019353.png" alt="在这里插入图片描述" /></p>
+
+<p>你可以把上面两个模块加到上面列表中路径中
+<img src="/resources/技术收录/Python/1a5a72f22c954bbc8bc7256afbeab22f.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019354.png" alt="在这里插入图片描述" /></p>
+
+<p>上面红色弹幕的意思是替代\转义更方便
+上面弹幕说了，添加路径只是暂时的，
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_18,color_FFFFFF,t_70,g_se,x_16-166936232019355.png" alt="在这里插入图片描述" /></p>
+
+<p>模块是模块，后面还有包，包存放模块，因为python模块==程序太多了，所以都放在一起形成了包，函数的类，模块的包
+<img src="/resources/技术收录/Python/7978f41f8cba4b059cb66b3ff76dc51a.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/4e4b2f3e93af4f8089fb90094f42e4bb.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019356.png" alt="在这里插入图片描述" /></p>
+
+<p>像个极客一样去思考
+Python自带电池就是自己的标准库</p>
+
+<h1 id="二十-爬虫">二十、爬虫</h1>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019457.png" alt="在这里插入图片描述" /></p>
+
+<p>哈哈哈哈，满屏
+论一只爬虫的自我修养
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_18,color_FFFFFF,t_70,g_se,x_16-166936232019458.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019459.png" alt="在这里插入图片描述" />
+url就是网页
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019460.png" alt="在这里插入图片描述" /></p>
+
+<p>Urllib是包是package，里面有四个模块也就是程序也就是.py文件
+<img src="/resources/技术收录/Python/75f7542a28384589a2d1ba12a40debc6.png" alt="在这里插入图片描述" /></p>
+
+<p>上面这个是python官方文档网站接口，也就是入口
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_16,color_FFFFFF,t_70,g_se,x_16-166936232019461.png" alt="在这里插入图片描述" /></p>
+
+<p>首先学会爬网页的心情是激动的，于是我第一次打开了我都QQ空间，于是太大卡住，第二次准备爬学校官网，爬之前在想不是改名了吗？于是还是抱着侥幸心理打开看还在，于是准备点进去看看，点进去已不是原来了，唉都变了，我母校就没有了，第二次打开淮师大爬，还是卡，于是第三次爬小甲鱼网站才成功。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_17,color_FFFFFF,t_70,g_se,x_16-166936232019462.png" alt="在这里插入图片描述" /></p>
+
+<p>不知为什么，这一节视频里最后还有彩蛋，就是下面的，原来还有彩蛋，不太清楚小甲鱼表达什么？但是，可以肯定的就是，人家的经历你没有经历过，就不会理解，也不可能理解，最后我还想说，妈的老污龟你有女朋友？老子还特么单身呢？
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019463.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019464.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019465.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019466.png" alt="在这里插入图片描述" /></p>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019467.png" alt="img" /></p>
+
+<p><img src="/resources/技术收录/Python/b545df687d164439a86d0786aa8e47a5.png" alt="在这里插入图片描述" /></p>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_15,color_FFFFFF,t_70,g_se,x_16-166936232019468.png" alt="在这里插入图片描述" /></p>
+
+<p>上面这个是与最上面那个等价的功能，</p>
+
+<p><img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019469.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/f1805ad21b804b90bd1f1cd5a911d797.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/0e18b10d7dce479e82e9c89efefe3fe9.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019570.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019571.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/969639948da34eaa9185c1010781bfe7.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/182ad52d18a24dca8e711a065460567b.png" alt="在这里插入图片描述" />
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019572.png" alt="在这里插入图片描述" /></p>
+
+<p>爬虫，我心都累了。下面还有优化后的爬虫程序，小甲鱼优化的。
+<img src="/resources/技术收录/Python/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oOF57O75reu5oCd,size_20,color_FFFFFF,t_70,g_se,x_16-166936232019573.png" alt="在这里插入图片描述" /></p>
+
+<p>这看起来很有意思啊，比如你将这段程序放在自己写的APP里面，不就有趣了吗？
+<img src="/resources/技术收录/Python/a606ad94bc2a4db18ae0eac30f08b4a7.png" alt="在这里插入图片描述" /></p>
+
+<p>哈哈哈哈，同感同感！</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.gitee.io/2022/11/python/" title="Python" target="_blank" rel="external">https://mumulx.gitee.io/2022/11/python/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://gitee.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.gitee.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://gitee.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.gitee.io/2022/10/gin/" title="Gin"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.gitee.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2022
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.gitee.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.gitee.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/insight.js"></script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
