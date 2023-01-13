@@ -5,10 +5,19 @@
     <link>https://mumulx.gitee.io/categories/</link>
     <description>Recent content in Categories on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 24 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jan 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>vue3必知必会</title>
+      <link>https://mumulx.gitee.io/2023/01/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+      <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2023/01/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+      <description>pnpm Vue3中文文档 Vue2迁移Vue3文档 https://pnpm.io/zh/installation 支持monorepo 单一仓库, 当前项目只能使用当前项目的包, 不可使用其依赖依赖的包1 使用pnpm</description>
+    </item>
     
     <item>
       <title>Python</title>

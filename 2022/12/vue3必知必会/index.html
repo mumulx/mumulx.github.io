@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        vue3必知必会 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="vue3必知必会" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>vue3必知必会 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.gitee.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="vue3必知必会" />
+<meta property="og:description" content="vue3必知必会" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.gitee.io/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" />
+<meta property="article:published_time" content="2022-12-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-14T00:00:00+00:00" />
+
+<meta itemprop="name" content="vue3必知必会">
+<meta itemprop="description" content="vue3必知必会">
+
+
+<meta itemprop="datePublished" content="2022-12-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-12-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2158">
+
+
+
+<meta itemprop="keywords" content="前端框架," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vue3必知必会"/>
+<meta name="twitter:description" content="vue3必知必会"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://gitee.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.gitee.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">主页</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">归档</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分类</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">标签</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">关于</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/golang/" class="tag-list-link">golang</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="title">vue3必知必会</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-12-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-12-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/11/python/" class="title">Python</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-11-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-11-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gin/" class="title">Gin</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gorm/" class="title">GORM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/golang/" class="title">Golang</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-24</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#pnpm">pnpm</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#使用pnpm-依赖包将被存放在一个统一的位置">使用pnpm, 依赖包将被存放在一个统一的位置</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#安装pnpm">安装pnpm</a></li>
+<li><a href="#集成eslint">集成eslint</a></li>
+<li><a href="#集成stylelint">集成stylelint</a></li>
+<li><a href="#自动化">自动化</a></li>
+<li><a href="#css-ui框架">Css UI框架</a></li>
+<li><a href="#svg配置">Svg配置</a></li>
+<li><a href="#element-plus">element plus</a></li>
+<li><a href="#打包运行">打包运行</a></li>
+<li><a href="#其他依赖">其他依赖</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vite功能特性">vite功能特性</a>
+<ul>
+<li>
+<ul>
+<li><a href="#依赖构建">依赖构建</a></li>
+<li><a href="#环境变量-全局常量">环境变量/全局常量</a></li>
+<li><a href="#静态资源">静态资源</a></li>
+<li><a href="#css">CSS</a></li>
+<li><a href="#修改源码无效">修改源码无效</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#scss">SCSS</a>
+<ul>
+<li>
+<ul>
+<li><a href="#deep">:deep()</a></li>
+<li><a href="#修改css-var">修改css var</a></li>
+<li><a href="#filewatcher">filewatcher</a></li>
+<li><a href="#其他语法">其他语法</a></li>
+<li><a href="#主题定制">主题定制</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vue3语法">Vue3语法</a>
+<ul>
+<li>
+<ul>
+<li><a href="#props">props</a></li>
+<li><a href="#ref-reactive">ref  reactive</a></li>
+<li><a href="#torefs">torefs</a></li>
+<li><a href="#defineexpose">defineExpose</a></li>
+<li><a href="#依赖注入">依赖注入</a></li>
+<li><a href="#globalproperties">globalProperties</a></li>
+<li><a href="#getcurrentinstance">getCurrentInstance</a></li>
+<li><a href="#数组的响应式">数组的响应式</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#工具">工具</a>
+<ul>
+<li>
+<ul>
+<li><a href="#节流">节流</a></li>
+<li><a href="#refs替代">refs替代</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vue3开发uniapp">vue3开发uniapp</a>
+<ul>
+<li>
+<ul>
+<li><a href="#版本问题">版本问题</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"
+    >vue3必知必会</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.gitee.io/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="article-date">
+  <time datetime="2022-12-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-12-14</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/"> 技术收录 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"> 前端框架 </a>
+  </span>
+
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2158字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<p><a href="https://cn.vuejs.org/guide/introduction.html">Vue3中文文档</a></p>
+
+<p><a href="https://v3-migration.vuejs.org/zh/">Vue2迁移Vue3文档</a></p>
+
+<h1 id="pnpm">pnpm</h1>
+
+<p><a href="https://pnpm.io/zh/installation">https://pnpm.io/zh/installation</a></p>
+
+<ul>
+<li><p>支持monorepo 单一仓库, 当前项目只能使用当前项目的包, 不可使用其依赖依赖的包1</p></li>
+
+<li><h5 id="使用pnpm-依赖包将被存放在一个统一的位置">使用pnpm, 依赖包将被存放在一个统一的位置</h5></li>
+
+<li><p><strong>硬链接 (安装包时启用)</strong>:  多个文件夹平等的共享同一个存储单元 (就算删除其中一个,仍可通过其他文件夹访问)</p></li>
+
+<li><p>软链接: 其他文件或目录的引用</p></li>
+
+<li><p>mklink  /H  new   source</p></li>
+
+<li><p>跨磁盘会报警告   ==cross-device link not permitted==, 包存储应与安装的位置处于同一驱动器和文件系统上，否则，包将被复制，而不是被链接。 这是由于硬链接的工作方式带来的一个限制，因为一个文件系统上的文件无法寻址另一个文件系统中的位置。</p></li>
+
+<li><p><strong>如果您在磁盘 <code>A</code> 上执行 <code>pnpm install</code>，则 pnpm 存储必须位于磁盘 <code>A</code>。 如果 pnpm 存储位于磁盘 <code>B</code>，则所有需要的包将被直接复制到项目位置而不是链接。 这个严重的抑制了 pnpm 的存储和性能优势。</strong></p></li>
+</ul>
+
+<h3 id="安装pnpm">安装pnpm</h3>
+
+<pre><code class="language-cmd">npm install -g pnpm
+
+config get registry
+
+pnpm set registry https://registry.npm.taobao.org 
+
+# https://registry.npmjs.org/
+pnpm config set store-dir E:/.pnpm-store# 修改默认仓库地址
+
+pnpm store path  # 获取包仓库地址（pnpm的仓库不能跨磁盘）
+pnpm store prune  # 从store中删除当前未被(硬连接)引用的包来释放store的空间
+
+</code></pre>
+
+<p><code>比较</code></p>
+
+<p><a href="https://pnpm.io/zh/feature-comparison">https://pnpm.io/zh/feature-comparison</a></p>
+
+<table>
+<thead>
+<tr>
+<th>npm命令</th>
+<th>pnpm等价命令</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>npm install</td>
+<td>pnpm install   安装全部依赖</td>
+</tr>
+
+<tr>
+<td>npm install 包名</td>
+<td>pnpm add  (-D) 包名</td>
+</tr>
+
+<tr>
+<td>npm uninstall 包名</td>
+<td>pnpm remove 包名</td>
+</tr>
+
+<tr>
+<td>npm run 脚本</td>
+<td>pnpm 脚本</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="集成eslint">集成eslint</h3>
+
+<p>依赖</p>
+
+<pre><code class="language-js">pnpm create vite@latest vue3 --template vue
+# 继承 校验import vue   
+pnpm  add -D eslint eslint-config-airbnb-base eslint-plugin-import eslint-plugin-vue vite-plugin-eslint
+# vite-plugin-eslint可在控制台打印错误信息 注册插件
+import eslint from 'vite-plugin-eslint';
+eslint({ cache: false })
+</code></pre>
+
+<h3 id="集成stylelint">集成stylelint</h3>
+
+<ul>
+<li>关闭vue的校验, 暂时有bug</li>
+</ul>
+
+<p><strong>依赖引入</strong></p>
+
+<p><code>需要在IDE[集成开发环境]里面配置stylelint 开启vue scss css 的规范检查</code></p>
+
+<pre><code class="language-js">pnpm create vite@latest  proj --template vue ;  cd proj ; pnpm install
+# 给css加前缀等适应操作 安装postcss
+pnpm add -D autoprefixer  postcss 
+# 校验css
+pnpm add -D stylelint stylelint-config-standard  stylelint-config-recommended  vite-plugin-stylelint   
+# 使用scss和 scss lint    需要在IDE stylelint加上支持scss文件
+pnpm add -D sass stylelint-config-standard-scss 
+
+import stylelint from 'vite-plugin-stylelint';
+stylelint()
+
+</code></pre>
+
+<p><strong>postcss</strong></p>
+
+<p>当前目录新建    postcss.config.js</p>
+
+<pre><code class="language-js">pnpm add -D autoprefixer  postcss 
+
+export default {
+  plugins: {
+    autoprefixer: {}
+  },
+};
+
+// 测试并打印 会自动加上前缀
+::placeholder {
+  color: gray;
+}
+</code></pre>
+
+<h3 id="自动化">自动化</h3>
+
+<p>依赖</p>
+
+<pre><code class="language-js">pnpm create vite@latest vue3-template --template vue ;  cd vue3-template ; pnpm install
+
+pnpm add -D unplugin-auto-import  unplugin-vue-components  vite-plugin-vue-setup-extend
+
+
+
+# https://www.npmjs.com/package/unplugin-auto-import
+
+import Components from 'unplugin-vue-components/vite'
+Components({ /* options */ }),
+    
+import AutoImport from 'unplugin-auto-import/vite';
+AutoImport({ imports: ['vue'], dts:&quot;config/auto-import.d.ts&quot;})
+</code></pre>
+
+<h3 id="css-ui框架">Css UI框架</h3>
+
+<pre><code class="language-js">pnpm add -D  @tailwindcss/line-clamp  postcss-nesting  tailwindcss postcss-import
+
+</code></pre>
+
+<h3 id="svg配置">Svg配置</h3>
+
+<pre><code class="language-JS">pnpm add  -D  vite-plugin-svg-icons
+
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+
+createSvgIconsPlugin({
+    iconDirs: [resolve(process.cwd(), 'src/icons/svg')],
+    symbolId: 'icon-[dir]-[name]',
+    svgoOptions: false
+})
+
+import 'virtual:svg-icons-register';
+import svgIcon from '@/icons/svg-icon.vue';
+app.component('svg-icon', svgIcon);
+</code></pre>
+
+<h3 id="element-plus">element plus</h3>
+
+<pre><code class="language-js">pnpm add element-plus
+</code></pre>
+
+<h3 id="打包运行">打包运行</h3>
+
+<ul>
+<li><pre><code class="language-cmd">npm install -g serve
+serve -s dist --debug
+</code></pre></li>
+
+<li><p>或者 vite  preview</p></li>
+</ul>
+
+<h3 id="其他依赖">其他依赖</h3>
+
+<pre><code class="language-js"># 给setup语法加 name
+pnpm add  -D  vite-plugin-vue-setup-extend
+# 清除console
+pnpm add  -D vite-plugin-remove-console
+# 打包显示进度条 https://blog.csdn.net/gongjin2012/article/details/125333102
+pnpm add -D vite-plugin-progress  
+# 打包报告
+pnpm add  -D rollup-plugin-visualizer 
+# gzip压缩
+pnpm add  -D  vite-plugin-compression
+#兼容IE
+pnpm add  -D @vitejs/plugin-legacy
+// import legacy from '@vitejs/plugin-legacy';
+// legacy({
+//   targets: ['ie &gt;= 11'],
+//   additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+// })
+# hooks api
+pnpm add  @vueuse/core
+
+# VueI18n
+pnpm add vue-i18n  #必须安装 前置依赖  
+pnpm add  -D  @intlify/vite-plugin-vue-i18n
+// 默认仅支持 组合式api
+VueI18n({  include: [resolve(__dirname, '../locales/**')],})
+// use
+import { createI18n } from 'vue-i18n';
+import messages from '@intlify/vite-plugin-vue-i18n/messages';
+const i18n = createI18n({
+  locale: 'en',
+  fallbackLocale: 'en',
+  messages,
+});
+// 使用  locale可改变其值与文件名相等
+const { locale, t } = useI18n();
+
+# mock  数据
+pnpm add  -D  vite-plugin-mock
+#swiper  https://www.swiper.com.cn
+pnpm add swiper  # :watchOverflow=&quot;false&quot;单页面生效
+# 全屏混动
+pnpm add  vue-fullpage.js
+# 美化基本html
+pnpm add  animate.css   hover.css   normalize.css
+# ui
+pinia 
+
+cnpm install  --save  axios@0.18.1  #请求发送
+cnpm install  --save  vue-router@3.0.6 #路由
+
+cnpm install --save-dev plop@2.3.0  #代码生成
+cnpm install  --save nprogress@0.2.0 #进度条
+cnpm install  --save  path-to-regexp@2.4.0 # 匹配路由路径表达式工
+cnpm install --save video.js
+cnpm install  --save js-cookie
+
+cnpm install file-saver --save #文件保存
+cnpm install --save jszip  #压缩
+cnpm install --save xlsx #excel
+
+
+</code></pre>
+
+<h1 id="vite功能特性">vite功能特性</h1>
+
+<h3 id="依赖构建">依赖构建</h3>
+
+<pre><code class="language-js">/*
+依赖预构建  全代码抛弃require 
+1. vite将CommonJS或UMD发布的依赖项转换为 ESM 的语法规范 (esbuild实现), 放到node_modules/.vite/deps
+2. 路径问题 , 强制 Vite 重新构建依赖，你可以用 --force 命令行选项启动开发服务器
+3. 网络多包传输时, Vite 将有许多内部模块的ESM依赖关系转换为单个或几个模块, 只需要一个HTTP请求
+4. @type import('vite').UserConfig   类型注释
+*/
+</code></pre>
+
+<h3 id="环境变量-全局常量">环境变量/全局常量</h3>
+
+<pre><code class="language-js">/*
+环境变量/dotenv         定义常量define
+1. mode 通过 --mode 指定
+2. 在js中  使用 import.meta.env.VITE_xxx 使用环境变量
+3. define: { NUM: JSON.stringify(1) }
+*/
+</code></pre>
+
+<h3 id="静态资源">静态资源</h3>
+
+<ul>
+<li><p>配置jsconfig.json 以识别  @</p>
+
+<pre><code class="language-js">/*
+静态资源
+1. 类似与babel, postcss主要工作是转议
+2. 在js中  使用 import.meta.env.VITE_xxx 使用环境变量
+3. define: { NUM: JSON.stringify(1) }
+*/
+</code></pre></li>
+</ul>
+
+<h3 id="css">CSS</h3>
+
+<pre><code class="language-js">/*
+css
+1. 类似与babel, postcss主要工作是转议
+2. 在js中  使用 import.meta.env.VITE_xxx 使用环境变量
+3. 较小的资源体积小于 assetsInlineLimit 选项值 则会被内联为 base64 data URL
+*/
+</code></pre>
+
+<h3 id="修改源码无效">修改源码无效</h3>
+
+<ul>
+<li>&ndash;force  刷新.vite缓存</li>
+</ul>
+
+<h1 id="scss">SCSS</h1>
+
+<h3 id="deep">:deep()</h3>
+
+<ul>
+<li><p>::v-deep 弃用</p>
+
+<pre><code class="language-css">:deep(.el-progress__text) {
+
+}
+</code></pre></li>
+</ul>
+
+<p><a href="https://blog.jetbrains.com/webstorm/2022/10/webstorm-2022-2-3/">https://blog.jetbrains.com/webstorm/2022/10/webstorm-2022-2-3/</a></p>
+
+<p><a href="https://youtrack.jetbrains.com/issue/WEB-58090/how-can-i-customize-my-own-template-code-when-i-use-alt-ctrlM-to-extract-Method">https://youtrack.jetbrains.com/issue/WEB-58090/how-can-i-customize-my-own-template-code-when-i-use-alt-ctrlM-to-extract-Method</a></p>
+
+<h3 id="修改css-var">修改css var</h3>
+
+<pre><code class="language-js">const el = ref(null); 
+const cssVar = useCssVar('--el-color-primary', el);
+
+
+// 等同于 
+const el = document.documentElement; 
+getComputedStyle(el).getPropertyValue('--el-color-primary')
+
+/**
+  1. 当属性--primary不存在时 默认 #d060d0
+  2. 设置属性: document.getElementById('app').style.setProperty('--primary', 'red');
+  2. 获取属性: document.getElementById('app').style.getPropertyValue('--primary')
+  3. 通过以上方法设置主题
+ */
+$primary: var(--el-color-primary);
+</code></pre>
+
+<h3 id="filewatcher">filewatcher</h3>
+
+<pre><code class="language-cmd">npm install -g sass 
+可使用  在项目的index.scss 下可查看编译好的源码
+</code></pre>
+
+<h3 id="其他语法">其他语法</h3>
+
+<pre><code class="language-scss">!default //降低scss变量优先级
+!global // 表示就用此值
+ map.deep-merge  https://www.sasscss.com/documentation/modules/map
+</code></pre>
+
+<h3 id="主题定制">主题定制</h3>
+
+<h1 id="vue3语法">Vue3语法</h1>
+
+<h3 id="props">props</h3>
+
+<pre><code class="language-js">// defineProps无需 import 导入
+const props = defineProps({
+  iconClass: {
+    type: String,
+    required: true
+  }
+});
+const iconName = computed(() =&gt; `#icon-${props.iconClass}`);
+</code></pre>
+
+<h3 id="ref-reactive">ref  reactive</h3>
+
+<ul>
+<li>ref用于基本数据类型响应式 , 原理是</li>
+
+<li><p>reactive 用于对象数组类型的响应式</p>
+
+<pre><code class="language-js">
+</code></pre></li>
+</ul>
+
+<h3 id="torefs">torefs</h3>
+
+<ul>
+<li><p>解构props</p>
+
+<pre><code class="language-js">
+
+</code></pre></li>
+</ul>
+
+<h3 id="defineexpose">defineExpose</h3>
+
+<ul>
+<li><p>子组件传值给父组件</p>
+
+<pre><code class="language-js">// 子组件 tree
+const handleNodeClick = () =&gt; {
+console.log('要执行的方法')
+}
+//将方法暴露出
+defineExpose({ handleNodeClick})
+
+
+// 父组件  通过ref
+&lt;tree :show=&quot;show&quot;  ref=&quot;treeRef&quot;&gt; &lt;/tree&gt;   
+const treeRef = ref()
+const handleClick = () =&gt; {
+//获取ref中的子组件方法handleNodeClick()
+treeRef.value.handleNodeClick()
+}
+</code></pre></li>
+</ul>
+
+<h3 id="依赖注入">依赖注入</h3>
+
+<ul>
+<li><p>可以是响应式的</p>
+
+<pre><code class="language-js">provide('state', state);
+
+const inj = inject('state');
+</code></pre></li>
+</ul>
+
+<h3 id="globalproperties">globalProperties</h3>
+
+<pre><code class="language-js">const app = createApp(App);
+app.config.globalProperties.$user = {
+    name: '梅长苏',
+    weapons: '长剑',
+    title: '刺客'
+}
+
+&lt;p&gt;姓名：{{$user.name}} &lt;/p&gt;
+
+const { proxy } = getCurrentInstance()
+console.log(proxy.$user)
+
+</code></pre>
+
+<h3 id="getcurrentinstance">getCurrentInstance</h3>
+
+<ul>
+<li><p>获取当前组件实例</p>
+
+<pre><code class="language-js">const { proxy } = getCurrentInstance()
+console.log(proxy.$user)
+</code></pre></li>
+</ul>
+
+<h3 id="数组的响应式">数组的响应式</h3>
+
+<pre><code class="language-js">const state = ref([])
+state.value = [1, 2, 3]
+
+const state = reactive({
+  arr: []
+});
+state.arr = [1, 2, 3]
+</code></pre>
+
+<h1 id="工具">工具</h1>
+
+<h3 id="节流">节流</h3>
+
+<pre><code class="language-js">const debouncedFn = useDebounceFn((entries) =&gt; {
+  const entry = entries[0];
+  const { width } = entry.contentRect;
+  console.log('output=&gt;', width);
+}, 1000);
+
+useResizeObserver(app, debouncedFn);
+</code></pre>
+
+<h3 id="refs替代">refs替代</h3>
+
+<pre><code class="language-js">&lt;full-page class=&quot;full-page-view&quot;  ref=&quot;fullPageView&quot;&gt;
+
+const fullPageView = ref();
+
+const changeTab = (index) =&gt; {
+  tabIndex.value = index;
+  fullPageView.value.api.moveTo(index + 1);
+};
+</code></pre>
+
+<h1 id="vue3开发uniapp">vue3开发uniapp</h1>
+
+<h3 id="版本问题">版本问题</h3>
+
+<ul>
+<li>npm update 无法解决  去main.fest  增加忽略</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.gitee.io/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" title="vue3必知必会" target="_blank" rel="external">https://mumulx.gitee.io/2022/12/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://gitee.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.gitee.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://gitee.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.gitee.io/2022/11/python/" title="Python"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.gitee.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2023
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.gitee.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.gitee.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/insight.js"></script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>
