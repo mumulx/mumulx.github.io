@@ -94,14 +94,14 @@
   </url>
   
   <url>
-    <loc>https://mumulx.gitee.io/categories/golang/</loc>
+    <loc>https://mumulx.gitee.io/tags/golang/</loc>
     <lastmod>2022-10-30T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mumulx.gitee.io/tags/golang/</loc>
+    <loc>https://mumulx.gitee.io/categories/golang/</loc>
     <lastmod>2022-10-30T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -311,14 +311,14 @@
   </url>
   
   <url>
-    <loc>https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
+    <loc>https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
     <lastmod>2020-06-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
+    <loc>https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/</loc>
     <lastmod>2020-06-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
