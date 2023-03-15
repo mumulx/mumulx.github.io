@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        SpringBoot3.0 - 木木的个人博客
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="SpringBoot3.0" />
+  <meta name="generator" content="Hugo 0.59.1 with theme pure" />
+  <title>SpringBoot3.0 - 木木的个人博客</title>
+  
+
+  <link rel="stylesheet" href="https://mumulx.gitee.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta property="og:title" content="SpringBoot3.0" />
+<meta property="og:description" content="SpringBoot3.0" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mumulx.gitee.io/2023/03/springboot3.0/" />
+<meta property="article:published_time" content="2023-03-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-03-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="SpringBoot3.0">
+<meta itemprop="description" content="SpringBoot3.0">
+
+
+<meta itemprop="datePublished" content="2023-03-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2023-03-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3057">
+
+
+
+<meta itemprop="keywords" content="Spring家族," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SpringBoot3.0"/>
+<meta name="twitter:description" content="SpringBoot3.0"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="https://schema.org/WebPage"><header class="header" itemscope itemtype="https://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://gitee.com/mumulx" target="_blank">
+            <img class="img-circle img-rotate" src="https://mumulx.gitee.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">木木就是两个木</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">木木</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>xuzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">主页</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">归档</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分类</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">标签</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">关于</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="https://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>我们的征途是星辰大海！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/java%E9%9D%A2%E8%AF%95/" class="category-list-link">java面试</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%94%B6%E5%BD%95/" class="category-list-link">技术收录</a><span class="category-list-count">37</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/" class="category-list-link">技术框架</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://mumulx.gitee.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="category-list-link">杂七杂八</a><span class="category-list-count">7</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/golang/" class="tag-list-link">golang</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%B9%B6%E5%8F%91/" class="tag-list-link">java并发</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/java%E5%BA%95%E5%B1%82/" class="tag-list-link">java底层</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/linux/" class="tag-list-link">linux</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/spring%E5%AE%B6%E6%97%8F/" class="tag-list-link">spring家族</a><span
+                    class="tag-list-count">16</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="tag-list-link">前端框架</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="tag-list-link">数据库</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" class="tag-list-link">杂七杂八</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E6%9D%83%E9%99%90/" class="tag-list-link">权限</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="tag-list-link">面试题</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://mumulx.gitee.io/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="tag-list-link">项目实战</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2023/03/springboot3.0/" class="title">SpringBoot3.0</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-03-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2023-03-11</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2023/01/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="title">vue3必知必会</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-01-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2023-01-13</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/11/python/" class="title">Python</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-11-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-11-24</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gin/" class="title">Gin</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://mumulx.gitee.io/2022/10/gorm/" class="title">GORM</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-10-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-10-30</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="https://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+<ul>
+<li><a href="#springboot3-0">SpringBoot3.0</a>
+<ul>
+<li><a href="#一-springboot3-0介绍">一、Springboot3.0介绍</a>
+<ul>
+<li><a href="#1-1-springboot3-0概述">1.1、Springboot3.0概述</a></li>
+<li><a href="#1-2-springboot3-0特性介绍">1.2、Springboot3.0特性介绍</a></li>
+<li><a href="#1-3-springboot3-0升级以后问题">1.3、Springboot3.0升级以后问题</a></li>
+</ul></li>
+<li><a href="#二-spring-boot3-0开发环境搭建">二、Spring Boot3.0开发环境搭建</a>
+<ul>
+<li><a href="#2-1-安装jdk17">2.1、安装jdk17</a></li>
+<li><a href="#2-2-安装maven">2.2、安装maven</a></li>
+</ul></li>
+<li><a href="#三-spring-boot-3-0项目搭建">三、Spring boot 3.0项目搭建</a>
+<ul>
+<li><a href="#3-1-添加parent坐标">3.1、添加parent坐标</a></li>
+<li><a href="#3-2-添加web依赖">3.2、添加web依赖</a></li>
+<li><a href="#3-3-添加启动类">3.3、添加启动类</a></li>
+<li><a href="#3-4-遇到问题">3.4、遇到问题</a></li>
+</ul></li>
+<li><a href="#四-springboot新特性">四、Springboot新特性</a>
+<ul>
+<li><a href="#4-1-http-interfaces新特性">4.1、HTTP Interfaces新特性</a>
+<ul>
+<li><a href="#4-1-1-创建springboot工程">4.1.1、创建Springboot工程</a></li>
+<li><a href="#4-1-2-一个在线的rest-http服务">4.1.2、一个在线的REST HTTP服务</a></li>
+<li><a href="#4-1-3-编写客户端和服务端之间的数据传值对象-dto">4.1.3、编写客户端和服务端之间的数据传值对象(DTO)</a></li>
+<li><a href="#4-1-4-编写http客户端">4.1.4、编写HTTP客户端</a></li>
+<li><a href="#4-1-5-注入声明式客户端">4.1.5、注入声明式客户端</a></li>
+</ul></li>
+<li><a href="#4-2-graalvm">4.2、GraalVM</a>
+<ul>
+<li><a href="#4-2-1-graalvm介绍">4.2.1、GraalVM介绍</a></li>
+<li><a href="#4-2-2-graalvm-native-lmage介绍">4.2.2、GraalVM Native lmage介绍</a></li>
+<li><a href="#4-2-3-软件安装">4.2.3、软件安装</a></li>
+</ul></li>
+<li><a href="#4-3-自动配置修改复习自动配置原理">4.3、自动配置修改复习自动配置原理</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="https://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2023/03/springboot3.0/"
+    >SpringBoot3.0</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://mumulx.gitee.io/2023/03/springboot3.0/" class="article-date">
+  <time datetime="2023-03-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2023-03-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/"> 技术框架 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/spring%E5%AE%B6%E6%97%8F/"> Spring家族 </a>
+  </span>
+
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/03/springboot3.0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3057字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:7分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+
+<h1 id="springboot3-0">SpringBoot3.0</h1>
+
+<p>Springboot 3.0</p>
+
+<ol>
+<li><p>Spring ,Boot3.0强势发布</p></li>
+
+<li><p>Spring Boot3.0新特性</p></li>
+
+<li><p>Spring Boot3.0+Spring6.0+JDK17+Tomcat10搭建开发环境</p></li>
+
+<li><p>Spring Boot3.0技术初探</p></li>
+
+<li><p>新技术开拓之路</p></li>
+</ol>
+
+<h2 id="一-springboot3-0介绍">一、Springboot3.0介绍</h2>
+
+<h3 id="1-1-springboot3-0概述">1.1、Springboot3.0概述</h3>
+
+<p>在2022年11月24日Spring Boot 3.0现已正式发布，它包含了12个月以来151个开发者的5700多次代码提交。这是自4.5年前发布2.0以来，Spring Boot的第一次重大修订。
+它也是第一个支持Spring Framework 6.0和GraalVM的Spring Boot GA版本，同时也是第一个基于Java 17的Spring Boot版本，以akartaEE 9为基准并支持Jakarta EE 10。同时借助于GraalVM支持了AOT和Native lmage。</p>
+
+<p>官网: <a href="https://spring.io">https://spring.io</a></p>
+
+<h3 id="1-2-springboot3-0特性介绍">1.2、Springboot3.0特性介绍</h3>
+
+<ol>
+<li><p>删除的支持</p>
+
+<ul>
+<li>ActiveMqo</li>
+<li>EhCache2</li>
+<li>Hazelcast3</li>
+<li>Atomikos</li>
+</ul></li>
+
+<li><p>删除Spring Boot 2.X中丢弃的内容在Spring Boot 2.X中不推荐使用的类、方法以及属性，在Spring Boot 3.0的版本中已经删除了。所以在升级的时候要确保我们没有调用过这些不推荐的内容。</p></li>
+
+<li><p>最低依赖的要求</p>
+
+<table>
+<thead>
+<tr>
+<th>JDK</th>
+<th>JDK17</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Spring</td>
+<td>Spring Framework 6.0.0</td>
+</tr>
+
+<tr>
+<td>Maven</td>
+<td>3.5+</td>
+</tr>
+
+<tr>
+<td>servlet</td>
+<td>5.0+</td>
+</tr>
+
+<tr>
+<td>Tomcat</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>lntelliJ IDEA</td>
+<td>2021.2.1</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>兼容问题
+首先要想到的就是Jakarta EE 9的兼容问题，确保你的项目中的第三方依赖库和你的代码都兼容了Jakarta EE9，另外还要检查Spring框架正在使用的第三方依赖jar是否兼容Spring 6</p></li>
+</ol>
+
+<h3 id="1-3-springboot3-0升级以后问题">1.3、Springboot3.0升级以后问题</h3>
+
+<p>这将意味着什么?</p>
+
+<ol>
+<li>老的开发环境不能运行，需要安装新的开发环境</li>
+<li>老项目维护成本更高
+变成错误的写法: javax.serviet.* ,可参考:<a href="http://tomcat.p2hp.com">http://tomcat.p2hp.com</a></li>
+<li>历时约5年全面升级，新机遇开始到来</li>
+</ol>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315212904155.png" alt="image-20230315212904155" /></p>
+
+<h2 id="二-spring-boot3-0开发环境搭建">二、Spring Boot3.0开发环境搭建</h2>
+
+<h3 id="2-1-安装jdk17">2.1、安装jdk17</h3>
+
+<p>下载地址: <a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe</a></p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315212038155.png" alt="image-20230315212038155" /></p>
+
+<p>注意:安装Java17后，安装目录下没有jre目录如何解决?</p>
+
+<p>1、管理员身份进入cmd
+2、进入java17安装目录下
+3、运行命令: binljlink.exe &ndash;module-path jmods &ndash;add-modules java.desktop &ndash;output jre</p>
+
+<h3 id="2-2-安装maven">2.2、安装maven</h3>
+
+<p>maven版本要在3.5+</p>
+
+<h2 id="三-spring-boot-3-0项目搭建">三、Spring boot 3.0项目搭建</h2>
+
+<p>方式一:通过脚手架方式生成springboot工程，再导入到idea中使用</p>
+
+<p>方式二:手动创建maven工程方式</p>
+
+<p>具体步骤:</p>
+
+<h3 id="3-1-添加parent坐标">3.1、添加parent坐标</h3>
+
+<pre><code class="language-xml">&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;3.0.o&lt;/version&gt;
+    &lt;relativePath/&gt; &lt;!-- 1ookup parent from repository --&gt;
+&lt;/parent&gt;
+</code></pre>
+
+<h3 id="3-2-添加web依赖">3.2、添加web依赖</h3>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactid&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="3-3-添加启动类">3.3、添加启动类</h3>
+
+<pre><code class="language-java">@springBootApplication
+public class App {
+    public static void main(string[] args) {
+        SpringApplication.run(App.class,args);
+    }
+}
+</code></pre>
+
+<h3 id="3-4-遇到问题">3.4、遇到问题</h3>
+
+<p>在启动的时候出现问题</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315213509600.png" alt="image-20230315213509600" /></p>
+
+<p>解决:修改配置</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315213545920.png" alt="image-20230315213545920" /></p>
+
+<h2 id="四-springboot新特性">四、Springboot新特性</h2>
+
+<h3 id="4-1-http-interfaces新特性">4.1、HTTP Interfaces新特性</h3>
+
+<p>在Spring 6.0之前，我们访问第三方服务或者微服务的http接口主要有这些方式:</p>
+
+<ul>
+<li>RestTemplate:可同步访问HTTP服务。</li>
+<li>Webclient:可同步或异步访问HTTP服务。</li>
+<li>Feign:在微服务架构中(不限于微服务），用声明式的方式访问HTTP服务。</li>
+</ul>
+
+<p>Spring6.0提供HTTP Interfaces新特性，类似于Spring Data的Repository或者Spring Cloud OpenFeign一样，从而更高效实现WebFlux开发。</p>
+
+<p>官网地址: <a href="https://docs.spring.io/spring-framework/docs/current/reference/htm/Vintegration.html#rest-http-interface">https://docs.spring.io/spring-framework/docs/current/reference/htm/Vintegration.html#rest-http-interface</a></p>
+
+<p>操作步骤:</p>
+
+<h4 id="4-1-1-创建springboot工程">4.1.1、创建Springboot工程</h4>
+
+<p>和上面一样步骤省略</p>
+
+<p>添加依赖</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4 id="4-1-2-一个在线的rest-http服务">4.1.2、一个在线的REST HTTP服务</h4>
+
+<p><a href="https://jsonplaceholder.typicode.com">https://jsonplaceholder.typicode.com</a></p>
+
+<h4 id="4-1-3-编写客户端和服务端之间的数据传值对象-dto">4.1.3、编写客户端和服务端之间的数据传值对象(DTO)</h4>
+
+<pre><code class="language-java">@RestController
+public class Hellocontroller {
+    @Autowined
+    private Todoclient todoClient;
+    @RequestMapping(&quot;/hello&quot;)
+    public Object hello(String msg){
+        List&lt;TodoClient&gt; list = todoClient.list();
+        return list;
+    }
+}
+
+</code></pre>
+
+<p>根据在线资源服务的数据结构编写DTO</p>
+
+<pre><code class="language-java">@Data
+@AllArgsconstructor
+@NoArgsconstructor
+public class Todo {
+    private Long id;
+    private Long userId;
+    private string title;
+    private Boolean completed;
+}	
+</code></pre>
+
+<h4 id="4-1-4-编写http客户端">4.1.4、编写HTTP客户端</h4>
+
+<pre><code class="language-java">@HttpExchange(&quot;/todos &quot;)
+public interface Todoc1ient {
+    @GetExchange(&quot; /itodoId}&quot;)
+    Todo getTodo(@Pathvariab1e Integer todoId);
+    @GetExchange
+    List&lt;Todo&gt; getTodos();
+    @PostExchange
+    Todo save(@RequestBody Todo todo);
+}
+</code></pre>
+
+<p>这里和Spring WebMVC的用法是很类似的，不过它声明的是远程的资源，和Spring Cloud openFeign一样。</p>
+
+<ul>
+<li>@HttpExthange:最通用的一个注解，在类级别将会被所有方法继承，如基础路径地址;在方法级别，需要指定具体的method类型。相当于<code>@RequestMapping</code></li>
+<li>@GetExchange: HTTP GET请求。相当于@GetMapping·</li>
+<li>@PostExchange: HTTP POST请求。相当@PostMapping。</li>
+<li>@PutExchange: HTTP PUT请求。相当于@PutMapping。</li>
+<li>@DeleteExchange: HTTP DELETE请求。相当于@DeleteMapping.</li>
+<li>@PatchExchange: HTTP PATCH请求。相当于@PatchMapping。</li>
+</ul>
+
+<h4 id="4-1-5-注入声明式客户端">4.1.5、注入声明式客户端</h4>
+
+<p>通过给HttpServiceProxyFactory注入携带目标接口 baseUrl的的 webclient，实现 webclient和http interface的关联</p>
+
+<pre><code class="language-java">@Bean
+Todoc1ient demoApi() {
+    WebClient client = WebClient.builder().baseUr1(&quot;https://jsonplaceholder.typicode.com/&quot;).bui1d();
+    HttpserviceProxyFactory factory = HttpServiceProxyFactory.builder(webClientAdapter.forClient(client)).build();
+    return factory.createclient(Todoc1ient.class);
+}
+</code></pre>
+
+<h3 id="4-2-graalvm">4.2、GraalVM</h3>
+
+<h4 id="4-2-1-graalvm介绍">4.2.1、GraalVM介绍</h4>
+
+<p>既然是VM，那肯定也是一个虚拟机，那它跟VM有关系吗?有一定关系，GraalVM可以完全取代上面提到的那几种虚拟机，比如Hotspot。把你之前运行在HotSpot 上的代码直接平移到GraalVM上，不用做任何的改变，甚至都感知不到，项目可以完美的运行。但是GraalVM还有更广泛的用途，不仅支持Java 语言，还支持其他语言。这些其他语言不仅包括嫡系的JVM系语言，例如Kotlin、Scala，还包括例如JavaScript、Nodejs、Ruby、Python等，如图。</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315212643566.png" alt="image-20230315212643566" /></p>
+
+<p>GraalVM官网: <a href="https://www.graalvm.orgl4.2.2、">https://www.graalvm.orgl4.2.2、</a></p>
+
+<h4 id="4-2-2-graalvm-native-lmage介绍">4.2.2、GraalVM Native lmage介绍</h4>
+
+<p>GraalVM Native Image 是GraalVM提供的一种能够将Spring Boot程序打包成云原生可执行文件的技术，并且比VM占用更少的内存和更快的启动速度，非常适合使用容器部署和在Faas平台使用。
+与在VM运行的应用程序不同，GraalVM Native lmage需要提前对代码进行编译处理才能创建可执行文件，GraalVM Nativelmage的运行不需要提供JVM虚拟机。</p>
+
+<p>GraalVM文档地址: <a href="https://www.graalvm.org/latest/docs/getting-started/">https://www.graalvm.org/latest/docs/getting-started/</a>
+GralVM Native lmage文档地址: <a href="https://www.graalvm.org/latest/reference-manual/native-imagel">https://www.graalvm.org/latest/reference-manual/native-imagel</a></p>
+
+<h4 id="4-2-3-软件安装">4.2.3、软件安装</h4>
+
+<p>Windows
+1、下载安装包</p>
+
+<p>打开<a href="https://github.comlgraalvm/graalvm-ce-builds/releases">https://github.comlgraalvm/graalvm-ce-builds/releases</a>，按照jdk下载对应安装包</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215129537.png" alt="image-20230315215129537" /></p>
+
+<p>2、下载完解压</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215202348.png" alt="image-20230315215202348" /></p>
+
+<p>3、配置环境变量</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215227711.png" alt="image-20230315215227711" /></p>
+
+<p>4、并设置Java_Home</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215254408.png" alt="image-20230315215254408" /></p>
+
+<p>5、安装Visual Studio Build Tools
+打开visualstudio.microsoft.com，下我Visual Studio lnstaller。
+选择C++桌面开发，和Windows 11 SDK，然后进行下载和安装，安装后重启操作系统。</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215328674.png" alt="image-20230315215328674" /></p>
+
+<p>6、要使用GraalVM，不能使用普通的windows自带的命令行窗口，得使用VS提供的
+x64 Native Tools Command Prompt for VS 2019，如果没有执行C:\Program Files (x86)Microsoft VisualStudio12019\BuildToolslVC\AuxiliarylBuildlivcvars64.bat脚本安装
+安装完之后就可以在64 Native Tools Command Prompt for Vs 2019中去使用native-image命令去编译了</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215425101.png" alt="image-20230315215425101" /></p>
+
+<p>7、那么可以执行cl.exe，如果是中文，那就得修改为英文。</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215450165.png" alt="image-20230315215450165" /></p>
+
+<p>8、通过Visual Studio lnstaller来修改，比如:</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215510601.png" alt="image-20230315215510601" /></p>
+
+<p>可能一开始只选择了中文，手动选择英文，去掉中文，然后安装即可。</p>
+
+<p>修改idea的 jdk和 maven目录
+jdk就是graalvm的目录, maven是3.8.1目录</p>
+
+<p>进入到项目目录执行<code>mvn -Pnative native:compile</code>
+进入到target去执行./文件名字</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215828181.png" alt="image-20230315215828181" /></p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215812185.png" alt="image-20230315215812185" /></p>
+
+<p>普通jar包要17s</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215909387.png" alt="image-20230315215909387" /></p>
+
+<p>直接执行exe只要3s</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215937970.png" alt="image-20230315215937970" /></p>
+
+<p>项目要配置maven插件</p>
+
+<pre><code class="language-xml">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.graalvm.buildtools&lt;/groupId&gt;
+            &lt;artifactId&gt;native-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;
+                        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+                        &lt;artifactId&gt;lombok&lt;/artifactId&gt;&lt;/exclude&gt;
+                &lt;/excludes&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<h3 id="4-3-自动配置修改复习自动配置原理">4.3、自动配置修改复习自动配置原理</h3>
+
+<p>1、在启动类中贴有@SpringBootApplication注解</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315214828068.png" alt="image-20230315214828068" /></p>
+
+<p>2、在这个注解的头上贴有EnableAutoConfiguration</p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215002506.png" alt="image-20230315215002506" /></p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215019879.png" alt="image-20230315215019879" /></p>
+
+<p><img src="/resources/技术框架/Spring家族/SpringBoot3.0/image-20230315215058402.png" alt="image-20230315215058402" /></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://mumulx.gitee.io/2023/03/springboot3.0/" title="SpringBoot3.0" target="_blank" rel="external">https://mumulx.gitee.io/2023/03/springboot3.0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://gitee.com/mumulx" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://mumulx.gitee.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://gitee.com/mumulx" target="_blank"><span class="text-dark">木木就是两个木</span><small class="ml-1x">木木</small></a></h3>
+        <div>愿生活不太拥挤，愿笑容不必刻意。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://mumulx.gitee.io/2023/01/vue3%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" title="vue3必知必会"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://mumulx.gitee.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/mumulx" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://mumulx.gitee.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="https://weibo.com/u/5459389722" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2023
+    <div class="publishby">
+        联系邮箱：<a target="_blank" title="木木的邮箱"> 1819778796@qq.com </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/application.js"></script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/mumulx.gitee.io\/',
+              CONTENT_URL: 'https:\/\/mumulx.gitee.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://mumulx.gitee.io/js/insight.js"></script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '1ccf8dc9e86b3575cfb2',
+        clientSecret: '048ae422c4a6207a4e89c58ba1d4ebf820136bb0',
+        repo: 'gittalk',
+        owner: 'mumulx',
+        admin: ['mumulx'],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('comments');
+</script>
+
+  </body>
+</html>

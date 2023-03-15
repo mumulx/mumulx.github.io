@@ -5,10 +5,19 @@
     <link>https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/</link>
     <description>Recent content in 技术框架 on 木木的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://mumulx.gitee.io/categories/%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringBoot3.0</title>
+      <link>https://mumulx.gitee.io/2023/03/springboot3.0/</link>
+      <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mumulx.gitee.io/2023/03/springboot3.0/</guid>
+      <description>SpringBoot3.0 Springboot 3.0 Spring ,Boot3.0强势发布 Spring Boot3.0新特性 Spring Boot3.0+Spring6.0+JDK17+Tomcat10搭建开发环境 Spring Boo</description>
+    </item>
     
     <item>
       <title>vue3必知必会</title>
